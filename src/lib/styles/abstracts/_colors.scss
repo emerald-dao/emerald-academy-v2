@@ -1,0 +1,24 @@
+@use '../utils' as *;
+
+$colors: (
+	primary: (
+		hue: 168,
+		saturation: 79%
+	),
+	secondary: (
+		hue: 270,
+		saturation: 100%
+	),
+	neutral: (
+		hue: 205,
+		saturation: 16%
+	),
+	alert: (
+		hue: 12,
+		saturation: 100%
+	),
+	success: (
+		hue: 111,
+		saturation: 100%
+	)
+);

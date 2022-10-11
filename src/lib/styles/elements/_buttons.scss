@@ -1,0 +1,33 @@
+@use '../utils' as *;
+
+button,
+.button {
+	width: 100%;
+	background: var(--clr-secondary-main);
+	color: var(--clr-font-text-button);
+	font-family: var(--ff-mono);
+	padding: 0.4em 1.5em;
+	border-radius: 0.6em;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	text-align: left;
+	justify-content: center;
+	gap: 0.7em;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: 0.4s box-shadow, 0.4s transform;
+	text-decoration: none;
+
+	@include mq(small) {
+		width: fit-content;
+	}
+}
+
+button:hover,
+.button:hover {
+	box-shadow: var(--clr-primary-main) 4px 4px;
+	transform: translateY(-3px);
+	color: var(--clr-font-text-button);
+}

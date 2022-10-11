@@ -1,0 +1,10 @@
+@use '../abstracts' as *;
+
+@each $font, $type in $fonts {
+	@font-face {
+		font-family: map-get($type, 'name');
+		font-weight: 100 900;
+		font-style: normal;
+		src: url(map-get($type, 'url')) format('truetype');
+	}
+}

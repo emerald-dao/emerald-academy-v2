@@ -1,0 +1,18 @@
+// If font is added, add the variable ttf file ins /static/fonts/${fontname}.ttf
+$fonts: (
+	heading: (
+		name: 'Inter',
+		url: '/fonts/inter.ttf',
+		fallback: 'sans-serif'
+	),
+	text: (
+		name: 'Inter',
+		url: '/fonts/inter.ttf',
+		fallback: 'sans-serif'
+	),
+	mono: (
+		name: 'JetBrains Mono',
+		url: '/fonts/jetbrainsmono.ttf',
+		fallback: 'monospace'
+	)
+);

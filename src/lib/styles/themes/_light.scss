@@ -1,0 +1,143 @@
+@use '../utils' as *;
+@use '../abstracts' as *;
+
+$light: (
+	primary: (
+		main:
+			hsla(map-deep-get($colors, primary, 'hue'), map-deep-get($colors, primary, 'saturation'), 40%),
+		100:
+			hsla(map-deep-get($colors, primary, 'hue'), map-deep-get($colors, primary, 'saturation'), 90%),
+		200:
+			hsla(map-deep-get($colors, primary, 'hue'), map-deep-get($colors, primary, 'saturation'), 80%),
+		300:
+			hsla(map-deep-get($colors, primary, 'hue'), map-deep-get($colors, primary, 'saturation'), 70%),
+		400:
+			hsla(map-deep-get($colors, primary, 'hue'), map-deep-get($colors, primary, 'saturation'), 60%),
+		500:
+			hsla(map-deep-get($colors, primary, 'hue'), map-deep-get($colors, primary, 'saturation'), 50%),
+		600:
+			hsla(map-deep-get($colors, primary, 'hue'), map-deep-get($colors, primary, 'saturation'), 40%),
+		700:
+			hsla(map-deep-get($colors, primary, 'hue'), map-deep-get($colors, primary, 'saturation'), 30%),
+		800:
+			hsla(map-deep-get($colors, primary, 'hue'), map-deep-get($colors, primary, 'saturation'), 20%),
+		900:
+			hsla(map-deep-get($colors, primary, 'hue'), map-deep-get($colors, primary, 'saturation'), 10%)
+	),
+	secondary: (
+		main:
+			hsla(
+				map-deep-get($colors, secondary, 'hue'),
+				map-deep-get($colors, secondary, 'saturation'),
+				54%
+			),
+		100:
+			hsla(
+				map-deep-get($colors, secondary, 'hue'),
+				map-deep-get($colors, secondary, 'saturation'),
+				90%
+			),
+		200:
+			hsla(
+				map-deep-get($colors, secondary, 'hue'),
+				map-deep-get($colors, secondary, 'saturation'),
+				80%
+			),
+		300:
+			hsla(
+				map-deep-get($colors, secondary, 'hue'),
+				map-deep-get($colors, secondary, 'saturation'),
+				70%
+			),
+		400:
+			hsla(
+				map-deep-get($colors, secondary, 'hue'),
+				map-deep-get($colors, secondary, 'saturation'),
+				60%
+			),
+		500:
+			hsla(
+				map-deep-get($colors, secondary, 'hue'),
+				map-deep-get($colors, secondary, 'saturation'),
+				50%
+			),
+		600:
+			hsla(
+				map-deep-get($colors, secondary, 'hue'),
+				map-deep-get($colors, secondary, 'saturation'),
+				40%
+			),
+		700:
+			hsla(
+				map-deep-get($colors, secondary, 'hue'),
+				map-deep-get($colors, secondary, 'saturation'),
+				30%
+			),
+		800:
+			hsla(
+				map-deep-get($colors, secondary, 'hue'),
+				map-deep-get($colors, secondary, 'saturation'),
+				20%
+			),
+		900:
+			hsla(
+				map-deep-get($colors, secondary, 'hue'),
+				map-deep-get($colors, secondary, 'saturation'),
+				10%
+			)
+	),
+	background: (
+		primary:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 97%),
+		secondary:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 90%)
+	),
+	neutral: (
+		100:
+			hsla(
+				map-deep-get($colors, neutral, 'hue'),
+				map-deep-get($colors, neutral, 'saturation'),
+				100%
+			),
+		200:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 90%),
+		300:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 78%),
+		400:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 67%),
+		500:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 54%),
+		600:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 39%),
+		700:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 27%),
+		800:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 14%),
+		900:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 0%)
+	),
+	font: (
+		heading:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 0%),
+		heading-inverse:
+			hsla(
+				map-deep-get($colors, neutral, 'hue'),
+				map-deep-get($colors, neutral, 'saturation'),
+				100%
+			),
+		text-strong:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 4%),
+		text:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 29%),
+		text-soft:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 33%),
+		text-strong-inverse:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 95%),
+		text-inverse:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 88%),
+		text-soft-inverse:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 82%),
+		text-button:
+			hsla(map-deep-get($colors, neutral, 'hue'), map-deep-get($colors, neutral, 'saturation'), 93%)
+	)
+);

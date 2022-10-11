@@ -1,0 +1,49 @@
+@use '../abstracts' as *;
+@use '../themes' as *;
+@use '../utils' as *;
+
+:root {
+	// Generate font-family variables
+	@each $font, $type in $fonts {
+		--ff-#{$font}: "#{map-get($type, 'name')}", #{map-get($type, 'fallback')};
+	}
+
+	// Generate font-size variables
+	@each $screen-size, $property in $type-scale {
+		@if $screen-size == small {
+			@each $prop, $value in $property {
+				--fs-#{$prop}: #{$value};
+			}
+		} @else {
+			@include mq(small) {
+				@each $prop, $value in $property {
+					--fs-#{$prop}: #{$value};
+				}
+			}
+		}
+	}
+
+	// Generate color variables
+	@each $color, $role in $dark {
+		@include dark {
+			@each $prop, $value in $role {
+				--clr-#{$color}-#{$prop}: #{$value};
+				// Generate transparent variables
+				@for $i from 1 through 9 {
+					--clr-#{$color}-#{$prop}-t#{$i}: #{transparentize($value, $i * 0.1)};
+				}
+			}
+		}
+	}
+	@each $color, $role in $light {
+		@include light {
+			@each $prop, $value in $role {
+				--clr-#{$color}-#{$prop}: #{$value};
+				// Generate transparent variables
+				@for $i from 1 through 9 {
+					--clr-#{$color}-#{$prop}-t#{$i}: #{transparentize($value, $i * 0.1)};
+				}
+			}
+		}
+	}
+}

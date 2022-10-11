@@ -1,0 +1,24 @@
+/* width */
+::-webkit-scrollbar {
+	width: 9px;
+	height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: var(--clr-primary-strong-t8);
+	border: 2px var(--clr-primary-main-t7) solid;
+	border-radius: 0.1rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: var(--clr-primary-main-t7);
+	border-radius: 0rem;
+	transition: 0.7s;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: var(--clr-primary-main-t7);
+}
