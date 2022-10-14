@@ -1,5 +1,5 @@
 const dappInfo = {
-	title: 'Emerald Boilerplate',
+	title: 'Emerald Academy',
 	description: 'SvelteKit Boilerplate for creating Flow dapps',
 	url: 'pending.com',
 	author: 'Emerald City DAO',

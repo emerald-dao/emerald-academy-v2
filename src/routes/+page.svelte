@@ -3,15 +3,15 @@
 	import { Section, Container, Column } from '@mateoroldos/svelte.bones';
 	import { transactionInProgress } from '$stores/FlowStore';
 	import { HeroSection, ExploreSection } from '$lib/components/pages/home';
-	import Stats from '$lib/components/pages/home/Stats.svelte';
-	import Academy from '$lib/components/pages/home/Academy.svelte';
-	import SocialMedia from '$lib/components/pages/home/SocialMedia.svelte';
-	import Join from '$lib/components/pages/home/Join.svelte';
+	import StatsSection from '$lib/components/pages/home/StatsSection.svelte';
+	import AcademySection from '$lib/components/pages/home/AcademySection.svelte';
+	import SocialMediaSection from '$lib/components/pages/home/SocialMediaSection.svelte';
+	import JoinSection from '$lib/components/pages/home/JoinSection.svelte';
 </script>
 
 <HeroSection />
 <ExploreSection />
-<Stats/>
-<Academy/>
-<SocialMedia/>
-<Join/>
+<StatsSection/>
+<AcademySection/>
+<SocialMediaSection/>
+<JoinSection/>

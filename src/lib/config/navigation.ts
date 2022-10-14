@@ -1,17 +1,17 @@
 export const navElements = [
 	{
-		name: 'Contract Generator',
-		url: '/contract-generator',
+		name: 'Catalog',
+		url: '/catalog',
 		prefetch: true
 	},
 	{
-		name: 'User Guide',
-		url: '/guide/en/welcome',
+		name: 'Your achievements',
+		url: '/yourAchievements',
 		prefetch: true
 	},
 	{
-		name: 'Discover',
-		url: '/discover',
+		name: 'Resources',
+		url: '/resources',
 		prefetch: true
 	}
 ];
