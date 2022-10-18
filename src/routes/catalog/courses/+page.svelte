@@ -2,13 +2,13 @@
 	import dappInfo from '$lib/config/config';
 	import { Section, Container, Column } from '@mateoroldos/svelte.bones';
 	import { transactionInProgress } from '$stores/FlowStore';
-    // import {ExploreCatalog} from '$lib/components/pages/catalog/ExploreCatalog.svelte'
+	// import {ExploreCatalog} from '$lib/components/pages/catalog/ExploreCatalog.svelte'
 	import ExploreCatalogSection from '$lib/components/pages/catalog/ExploreCatalogSection.svelte';
-	import { personas } from '$stores/PersonasPrueba';
-	
+	import { personas } from '$lib/stores/PersonasPrueba';
 </script>
 
-{#each personas as persona }
-	<a href="/catalog/bootcamps/{persona.nombre}">{persona.nombre}</a>
-	
+{#each personas as persona}
+	<div>
+		<a href="/catalog/cadence/{persona.nombre}">{persona.nombre}</a>
+	</div>
 {/each}

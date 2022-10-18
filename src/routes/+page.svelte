@@ -7,6 +7,13 @@
 	import AcademySection from '$lib/components/pages/home/AcademySection.svelte';
 	import SocialMediaSection from '$lib/components/pages/home/SocialMediaSection.svelte';
 	import JoinSection from '$lib/components/pages/home/JoinSection.svelte';
+	import { append_empty_stylesheet } from 'svelte/internal';
+	
+
+
+	//INFO PARA PROBAR LA DATA
+	
+
 </script>
 
 <HeroSection />

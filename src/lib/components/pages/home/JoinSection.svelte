@@ -8,7 +8,10 @@
             <h4>Join DAO</h4>
             <p>We are the first DAO on flow blockchain</p>
             <p>Educate, build and govern</p>
-            <button>Join Emerald City</button>
+            <div class="secondary-wrapper ">
+                <button>Join Emerald City</button>
+            </div>
+            
         </div>
     </Container>
 </Section>
@@ -22,4 +25,10 @@
 		text-align: center;
 
 	}
+    button{
+        margin: auto;
+    }
+    /* button {
+        text-align: center;
+    } */
 </style>

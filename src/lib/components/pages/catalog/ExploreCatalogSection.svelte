@@ -6,7 +6,9 @@
     <Container>
         <div class="columns">
             <div>
-                <h4>aca va el menu</h4>
+                <a href="/catalog/bootcamps">Bootcamps</a>
+                <a href="/catalog/developmentWeb">developmentWeb</a>
+                <a href="/catalog/development">development</a>
             </div>
             <div>
                 <h3>Aca va el catalog</h3>

@@ -4,11 +4,9 @@
 	import { transactionInProgress } from '$stores/FlowStore';
     // import {ExploreCatalog} from '$lib/components/pages/catalog/ExploreCatalog.svelte'
 	import ExploreCatalogSection from '$lib/components/pages/catalog/ExploreCatalogSection.svelte';
-	import { personas } from '$stores/PersonasPrueba';
 	
 </script>
 
-{#each personas as persona }
-	<a href="/catalog/bootcamps/{persona.nombre}">{persona.nombre}</a>
+<h1>developmentWeb
 	
-{/each}
+</h1>
