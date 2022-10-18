@@ -76,7 +76,7 @@
 </Section>
 
 <style type="scss">
-	@use '../../../../lib/styles/utils' as *;
+	@use '../../../lib/styles/utils' as *;
 
 	.main-wrapper {
 		display: flex;
@@ -87,14 +87,14 @@
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 		}
-	}
 
-	.secondary-wrapper {
-		display: flex;
-		flex-direction: row;
-		gap: 3rem;
-		justify-content: center;
-		text-align: center;
+		.secondary-wrapper {
+			display: flex;
+			flex-direction: row;
+			gap: 3rem;
+			justify-content: center;
+			text-align: center;
+		}
 	}
 
 	.center {

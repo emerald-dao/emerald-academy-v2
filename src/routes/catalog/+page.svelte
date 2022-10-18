@@ -2,15 +2,16 @@
 	import dappInfo from '$lib/config/config';
 	import { Section, Container, Column } from '@mateoroldos/svelte.bones';
 	import { transactionInProgress } from '$stores/FlowStore';
-    // import {ExploreCatalog} from '$lib/components/pages/catalog/ExploreCatalog.svelte'
-	import ExploreCatalogSection from '$lib/components/pages/catalog/ExploreCatalogSection.svelte';
-
-
+	// import {ExploreCatalog} from '$lib/components/pages/catalog/ExploreCatalog.svelte'
+	import ExploreCatalogSection from './components/sections/ExploreCatalogSection.svelte';
 </script>
 
+<Section>
+	<div class="main-wrapper">
+		<!-- <CatalogSidebar/> -->
+		<ExploreCatalogSection />
+	</div>
+</Section>
 
-<ExploreCatalogSection/>
-
-
-
-
+<style type="scss">
+</style>

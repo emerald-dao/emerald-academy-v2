@@ -24,7 +24,7 @@
 </Section>
 
 <style type="scss">
-	@use '../../../../lib/styles/utils' as *;
+	@use '../../../lib/styles/utils' as *;
 
 	.main-wrapper {
 		display: flex;

@@ -10,7 +10,7 @@
 	// import {navElements} from '$lib/config/navigation'
 </script>
 
-<Header themeStore={$theme} {logIn} {unauthenticate} {getFindProfile} {navElements} user={$user} />
+<Header themeStore={theme} {logIn} {unauthenticate} {getFindProfile} {navElements} user={$user} />
 <main>
 	<slot />
 </main>
