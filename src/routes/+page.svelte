@@ -10,8 +10,6 @@
 		SocialMediaSection,
 		JoinSection
 	} from './components';
-
-	//INFO PARA PROBAR LA DATA
 </script>
 
 <HeroSection />
