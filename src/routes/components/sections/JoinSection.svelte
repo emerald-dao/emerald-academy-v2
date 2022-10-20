@@ -1,17 +1,21 @@
 <script>
 	import { Section, Container } from '@mateoroldos/svelte.bones';
+	import Card from '$lib/components/atoms/Card.svelte';
 </script>
 
 <Section>
 	<Container>
-		<div class="secondary-wrapper">
+		
+			<div class="secondary-wrapper">
 			<h4>Join DAO</h4>
 			<p>We are the first DAO on flow blockchain</p>
 			<p>Educate, build and govern</p>
 			<div class="secondary-wrapper ">
 				<button>Join Emerald City</button>
 			</div>
-		</div>
+			</div>
+		
+		
 	</Container>
 </Section>
 

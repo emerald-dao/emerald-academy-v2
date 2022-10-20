@@ -10,7 +10,11 @@
 		SocialMediaSection,
 		JoinSection
 	} from './components';
+	import Achievements from './achievements/+page.svelte';
+	
 </script>
+
+
 
 <HeroSection />
 <ExploreSection />
@@ -18,3 +22,5 @@
 <AcademySection />
 <SocialMediaSection />
 <JoinSection />
+
+

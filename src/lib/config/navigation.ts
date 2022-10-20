@@ -6,7 +6,7 @@ export const navElements = [
 	},
 	{
 		name: 'Your achievements',
-		url: '/yourAchievements',
+		url: '/achievements',
 		prefetch: true
 	},
 	{

@@ -1,5 +1,5 @@
 <script type="ts">
-	export let background: 'primary' | 'secondary' = 'secondary';
+	export let background: 'primary' | 'secondary' = 'primary';
 	export let width: 'fit-content' | '100%' = 'fit-content';
 	export let padding: number = 4;
 	export let borderRadius: number = 1;

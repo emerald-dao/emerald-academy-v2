@@ -1,17 +1,21 @@
 <script type="ts">
 	import { Container, Section } from '@mateoroldos/svelte.bones';
+	import Card from '$lib/components/atoms/Card.svelte';
 </script>
 
 <Section>
 	<Container>
 		<div class="main-wrapper">
 			<div>
-				<h1>Learn everything</h1>
+				<h2>Learn everything</h2>
 				<p>
 					Est nisi dolore nulla qui excepteur nostrud ea cupidatat est voluptate amet consequat
 					duis. Duis laborum voluptate occaecat do reprehenderit. Proident magna non incididunt non
 					aute duis cillum mollit.
 				</p>
+				
+
+				
 			</div>
 			<div>
 				<div>video</div>
@@ -35,5 +39,8 @@
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 		}
+	}
+	h2{
+		margin-bottom: 1rem;
 	}
 </style>

@@ -1,19 +1,20 @@
 <script>
-	import { Section, Container, Card } from '@mateoroldos/svelte.bones';
+	import { Section, Container } from '@mateoroldos/svelte.bones';
+	import Card from '$lib/components/atoms/Card.svelte';
 </script>
 
 <Section>
 	<Container>
-		<Card>
+		<Card width=100%>
 			<div class="main-wrapper">
 				<h4>Explore series of</h4>
 				<h3>Flow educational resources through time</h3>
 			</div>
 
 			<div class="secondary-wrapper">
-				<Card>1</Card>
-				<Card>2</Card>
-				<Card>3</Card>
+				<Card background='secondary'>1</Card>
+				<Card background='secondary'>2</Card>
+				<Card background='secondary'>3</Card>
 			</div>
 		</Card>
 	</Container>
@@ -41,5 +42,8 @@
 		gap: 3rem;
 		justify-content: center;
 		text-align: center;
+	}
+	h3{
+		margin-bottom: 3rem;
 	}
 </style>

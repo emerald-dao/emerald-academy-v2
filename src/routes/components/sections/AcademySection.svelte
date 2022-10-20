@@ -1,5 +1,6 @@
 <script>
-	import { Section, Container, Card } from '@mateoroldos/svelte.bones';
+	import { Section, Container } from '@mateoroldos/svelte.bones';
+	import Card from '$lib/components/atoms/Card.svelte';
 </script>
 
 <Section>
@@ -14,11 +15,13 @@
 				</p>
 				<button>learn more</button>
 			</div>
-			<div class="secondary-wrapper">
+			
+				<div class="secondary-wrapper">
+				<Card >x</Card>
 				<Card>x</Card>
 				<Card>x</Card>
-				<Card>x</Card>
-			</div>
+				</div>
+				
 		</div>
 	</Container>
 
@@ -42,17 +45,21 @@
 	</Container>
 
 	<Container>
-		<Card>
+		
+
+		
+		<Card width='100%'>
 			<div class="center">
 				<h4>Join Bootcamps</h4>
 				<h3>Live</h3>
 			</div>
 
-			<div class="secondary-wrapper">
-				<Card>1</Card>
-				<Card>2</Card>
+			<div class="main-wrapper center">
+				<Card background='secondary' width='100%'>1</Card>
+				<Card background='secondary' width='100%'>2</Card>
 			</div>
 		</Card>
+	
 	</Container>
 
 	<Container>
@@ -67,9 +74,8 @@
 				<button>learn more</button>
 			</div>
 			<div class="secondary-wrapper">
-				<Card>x</Card>
-				<Card>x</Card>
-				<Card>x</Card>
+				<Card>IMAGEN</Card>
+				
 			</div>
 		</div>
 	</Container>
@@ -97,8 +103,14 @@
 		}
 	}
 
+	
 	.center {
 		justify-content: center;
 		text-align: center;
+	}
+
+	h3, p, div{
+		margin-bottom: 3rem;
+		margin-top: 3rem;
 	}
 </style>
