@@ -11,11 +11,12 @@
 		JoinSection
 	} from './components';
 	import Achievements from './achievements/+page.svelte';
+	import CounterTest from './components/sections/CounterTest.svelte';
 	
 </script>
 
 
-
+<CounterTest/>
 <HeroSection />
 <ExploreSection />
 <StatsSection />
