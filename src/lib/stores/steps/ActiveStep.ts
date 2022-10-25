@@ -1,4 +1,5 @@
 import { get, writable } from 'svelte/store';
+import type { Step } from '$lib/types/generator/generator-step-interface.type';
 
 export function createActiveStep(steps) {
     //Para hacer una custom store, creo función.

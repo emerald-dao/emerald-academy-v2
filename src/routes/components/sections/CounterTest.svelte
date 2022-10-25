@@ -20,5 +20,6 @@
         <Button on:click={count.decrement}>
             Decrementar
         </Button>
+        <Button on:click={count.reset}>Reset</Button>
     </div>
 </Section>

@@ -3,6 +3,7 @@ import type { StepState } from '$lib/types/generator/generator-step-state.type';
 import { writable } from 'svelte/store';
 
 export function createSteps(steps: Step[]) {
+    //los paso por parametros porque no los hardcodeo, despues los voy a crear en algun momento
     //aca tenemos el estado inicial
 	steps.forEach((step, index) => {
 		index > 0 ? (step.state = 'inactive') : (step.state = 'active');
