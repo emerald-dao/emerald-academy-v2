@@ -1,0 +1,1 @@
+export const tags = ['courses', 'web', 'dev', 'frontend']

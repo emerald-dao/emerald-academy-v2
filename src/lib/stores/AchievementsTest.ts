@@ -1,4 +1,5 @@
-export const achievements = [{
+
+ export const achievements = [{
     title: 'Cadence Master',
     image: '/achievements/candece-master.jpg',
     description: 'lorem ipusum'
@@ -14,3 +15,4 @@ export const achievements = [{
     description: 'lorem ipusum'
 }
 ]
+

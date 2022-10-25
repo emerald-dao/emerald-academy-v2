@@ -1,19 +1,16 @@
 <script>
-    import { generatorActiveStep } from "$stores/generator/GeneratorSteps";
-    import { Button } from "@emerald-dao/component-library";
+	import { onBoardingActiveStep } from '$stores/onBoarding/OnBoardingSteps';
+	import { Button } from '@emerald-dao/component-library';
 </script>
 
 <div class="step-buttons">
-    
-    <div>
-        <Button on:click={generatorActiveStep.decrement}>Backwards</Button>
-    </div>
-    <div>
-        <Button on:click={generatorActiveStep.increment}>Forward</Button>
-    </div>
-
+	<div>
+		<Button on:click={onBoardingActiveStep.decrement}>Backwards</Button>
+	</div>
+	<div>
+		<Button on:click={onBoardingActiveStep.increment}>Forward</Button>
+	</div>
 </div>
-
 
 <style type="scss">
 	.step-buttons {
@@ -24,4 +21,3 @@
 		gap: 2rem;
 	}
 </style>
-

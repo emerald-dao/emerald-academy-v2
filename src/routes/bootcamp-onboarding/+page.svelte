@@ -1,11 +1,21 @@
 <!-- Page that dynamically renders each step -->
 <script>
-	
-	import { generatorSteps, generatorActiveStep } from '$stores/generator/GeneratorSteps';
-	import MoreAboutYou from './generator-steps/MoreAboutYou.svelte';
-	
+	import { onBoardingSteps, onBoardingActiveStep } from '$stores/onBoarding/OnBoardingSteps';
+	// import MoreAboutYou from './generator-steps/MoreAboutYou.svelte';
+	import Modal, { getModal } from '$lib/components/atoms/Modal.svelte';
+	import { Button } from '@emerald-dao/component-library';
+	import { Section, Container } from '@mateoroldos/svelte.bones';
 </script>
 
-<svelte:component this={$generatorSteps[$generatorActiveStep].component} />  
+<Section>
+	<Container>
+		<Button on:click={() => getModal().open()}>Open Modal</Button>
+	</Container>
+</Section>
+<Modal>
+	<div class="modal-content">
+		<svelte:component this={$onBoardingSteps[$onBoardingActiveStep].component} />
+	</div>
+</Modal>
 
 <!-- <MoreAboutYou/> -->

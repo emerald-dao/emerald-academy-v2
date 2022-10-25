@@ -1,7 +1,6 @@
 import { writable } from "svelte/store";
 
 //probando una custom store
-
 export const createCounter = () => {
     //creo variable que pueda ser writable y la inicializo en 0
     const count = writable (1);
@@ -18,11 +17,17 @@ export const createCounter = () => {
     const reset = () => {
         set(0);
     }
+    const setCounter = (n: number) => {
+        set(n);
+    }
+
+    setCounter(8)
 
     return {
         subscribe,
         increment,
         decrement,
+        setCounter,
         reset
     }
 

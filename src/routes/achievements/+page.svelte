@@ -1,5 +1,5 @@
 <script type="ts">
-	import {achievements} from "$lib/stores/AchievementsPrueba"
+	import { achievements } from "$stores/AchievementsTest";
 	import Card from "$lib/components/atoms/Card.svelte"
 	import { Section } from "@mateoroldos/svelte.bones";
 	import { Container } from "@mateoroldos/svelte.bones";
@@ -9,7 +9,7 @@
 <Section>
 	<Container>
 		<div class="in-a-row">
-			{#each achievements as achievement}
+			{#each  achievements as achievement}
 			<Card>
 				<h4>{achievement.title}</h4>
 				<p>{achievement.description}</p>
