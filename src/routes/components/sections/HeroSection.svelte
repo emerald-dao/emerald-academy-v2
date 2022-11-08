@@ -5,17 +5,14 @@
 
 <Section>
 	<Container>
-		<div class="main-wrapper">
+		<div class="secondary-wrapper">
 			<div>
-				<h2>Learn everything</h2>
+				<h2>Learn everything about the <span style="color:#37E0C2">Flow Blockchain</span></h2>
 				<p>
 					Est nisi dolore nulla qui excepteur nostrud ea cupidatat est voluptate amet consequat
 					duis. Duis laborum voluptate occaecat do reprehenderit. Proident magna non incididunt non
 					aute duis cillum mollit.
 				</p>
-				
-
-				
 			</div>
 			<div>
 				<div>video</div>
@@ -40,7 +37,15 @@
 			grid-template-columns: 1fr 1fr;
 		}
 	}
-	h2{
+	h2 {
 		margin-bottom: 1rem;
+	}
+	.secondary-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+		justify-content: center;
+		text-align: center;
+		padding: 4rem;
 	}
 </style>

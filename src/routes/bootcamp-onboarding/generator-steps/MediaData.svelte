@@ -6,7 +6,7 @@
 </script>
 
 <Card>
-	<h3>More About You</h3>
+	<h3>Media Data</h3>
 
 	<StepButton />
 </Card>

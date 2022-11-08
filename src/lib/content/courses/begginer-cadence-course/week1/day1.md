@@ -1,3 +1,9 @@
+---
+title: Learning Web Concepts
+day: 1
+language: en
+excerpt: basic blockchain concepts  
+---
 # Chapter 1 Day 1 - Learning Blockchain Concepts
 
 Hello! Yes, it is me. Your favourite developer of all time, Jacob. You are currently viewing the first day of the entire course. Let's start this journey together.

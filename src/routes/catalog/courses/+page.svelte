@@ -1,46 +1,84 @@
 <script type="ts">
-	import { TagToggle } from '$atoms';
-	import { tags } from '$lib/config/tags';
-
-	const content = [
-		{
-			name: 'COURSES /',
-			tags: ['courses']
-		},
-		{
-			name: 'content 2',
-			tags: ['web', 'dev']
-		},
-		{
-			name: 'content 3',
-			tags: ['frontend', 'dev']
-		}
-	];
-
-	let selectedFilter: string[] = [];
-
-	const addToFilter = (tag: string) => {
-		selectedFilter = [...selectedFilter, tag];
+	import { Section, Container } from '@mateoroldos/svelte.bones';
+	import { page } from '$app/stores';
+	import Card from '$lib/components/atoms/Card.svelte';
+	import { courseOverview } from '$lib/content/courses/basic-dapp/courseOverview';
+	import Breadcrumbs from '$lib/components/atoms/Breadcrumbs.svelte';
+	export let data;
+	// console.log(data);
+	// console.log($page);
+	// const url = $page.url.origin;
+	// console.log(url);
+	const takeOutSpaces = (word: string) => {
+		const noSpaces = word.split(' ').join('-');
+		return noSpaces.toLowerCase();
 	};
-
-	const deleteFromFilter = (tag: string) => {
-		const index = selectedFilter.indexOf(tag);
-		if (index > -1) {
-			selectedFilter.splice(index, 1);
-		}
-		selectedFilter = selectedFilter;
-	};
+	// console.log(takeOutSpaces('Basic Dapp'));
 </script>
 
-{#each tags as tag}
-	<TagToggle
-		name={tag}
-		on:selected={() => addToFilter(tag)}
-		on:unselected={() => deleteFromFilter(tag)}>{tag}</TagToggle
-	>
-{/each}
-{#each content as cont}
-	{#if cont.tags.some((r) => selectedFilter.indexOf(r) >= 0) || selectedFilter.length < 1}
-		{cont.name}
-	{/if}
-{/each}
+<Section>
+	<Container>
+		<div class="main-wrapper">
+			<Breadcrumbs />
+			<h3>Courses</h3>
+		</div>
+	</Container>
+	<Container>
+		<div class="grid-wrapper">
+			<div>
+				<h4>menu</h4>
+			</div>
+			<div class="secondary-wrapper">
+				{#each data.courses as oneData}
+					<Card
+						><a href={`courses/${takeOutSpaces(oneData.body.title)}`}>{oneData.body.title}</a>
+						<div class="grid-wrapper2">
+							<p>{oneData.body.level}</p>
+							<p>{oneData.body.weeks.length - 1}</p>
+						</div>
+
+						<p>{oneData.body.excerpt}</p>
+					</Card>
+				{/each}
+			</div>
+		</div>
+	</Container>
+</Section>
+
+<style>
+	nav ul li {
+		list-style: none;
+		float: left;
+		margin: 0% 1% 2% 2%;
+		vertical-align: middle;
+		text-align: center;
+		align-items: center;
+	}
+	div {
+		margin-bottom: 5rem;
+	}
+
+	.main-wrapper {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.secondary-wrapper {
+		display: flex;
+		flex-direction: row;
+		gap: 3rem;
+		justify-content: center;
+		text-align: center;
+	}
+
+	.grid-wrapper {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+	}
+
+	.grid-wrapper2 {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1em;
+	}
+</style>

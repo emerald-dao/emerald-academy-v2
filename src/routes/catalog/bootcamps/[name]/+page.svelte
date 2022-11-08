@@ -1,8 +1,7 @@
 <!-- bootcamp especifico -->
 <script>
-	import { page } from "$app/stores";
-    console.log($page);
-
+	import { page } from '$app/stores';
+	console.log($page);
 </script>
 
 <div>bootcamp especifico</div>

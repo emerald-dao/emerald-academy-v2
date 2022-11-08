@@ -1,1 +1,1 @@
-export const tags = ['courses', 'web', 'dev', 'frontend']
+export const tags = ['Live Bootcamp', 'Tips & Tricks', 'Courses']
