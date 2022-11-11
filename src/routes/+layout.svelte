@@ -7,7 +7,6 @@
 	import { logIn, unauthenticate } from '$flow/actions';
 	import { user } from '$stores/FlowStore';
 	import { getFindProfile } from '$flow/utils';
-	// import {navElements} from '$lib/config/navigation'
 </script>
 
 <Header themeStore={theme} {logIn} {unauthenticate} {getFindProfile} {navElements} user={$user} />

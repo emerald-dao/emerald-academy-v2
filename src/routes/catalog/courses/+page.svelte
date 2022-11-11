@@ -2,7 +2,7 @@
 	import { Section, Container } from '@mateoroldos/svelte.bones';
 	import { page } from '$app/stores';
 	import Card from '$lib/components/atoms/Card.svelte';
-	import { courseOverview } from '$lib/content/courses/basic-dapp/courseOverview';
+	import { overview } from '$lib/content/courses/basic-dapp/overview';
 	import Breadcrumbs from '$lib/components/atoms/Breadcrumbs.svelte';
 	export let data;
 

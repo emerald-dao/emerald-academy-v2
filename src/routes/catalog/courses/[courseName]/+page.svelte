@@ -1,9 +1,9 @@
 <script>
 	import { page } from '$app/stores';
-	import { Container, Section } from '@mateoroldos/svelte.bones';
-	import { courseOverview } from '$lib/content/courses/{courseRendering}/courseOverview';
+	import { Column, Container, Section } from '@mateoroldos/svelte.bones';
 
 	export let data;
+	console.log(data);
 
 	let getAmountWeeks = () => {
 		let objectsArray = data.thisCourse.length;
@@ -11,38 +11,39 @@
 		return amountOfWeeks;
 	};
 	let weeks = getAmountWeeks();
+
 	let courseRendering = $page.params.courseName;
 </script>
 
-<Section>
-	<Container>
-		<div class="grid-wrapper">
-			<div class="main-wrapper">
-				<h3>{$page.params.courseName}</h3>
-				<h4>Course Overview</h4>
-				{#each Array(weeks) as _, index (index)}
-					<li>Week: {index + 1}</li>
+<div class="grid-wrapper">
+	<Column align="flex-start" gap="small">
+		<h4>Course Overview</h4>
+		{#each Array(weeks) as _, index (index)}
+			<li>Week: {index + 1}</li>
+			<Column gap="small" align="flex-start">
+				{#each data.thisCourse as dayInfo}
+					{#if dayInfo.week === index + 1}
+						<a href={dayInfo.path.replace('content', 'catalog')}>
+							{dayInfo.meta.title}
+						</a>
+					{/if}
 				{/each}
-			</div>
-			<div />
-		</div>
-	</Container>
-</Section>
+			</Column>
+		{/each}
+	</Column>
+
+	<div>
+		<h1>
+			{data.overview.title}
+		</h1>
+		<p>
+			{data.overview.excerpt}
+		</p>
+	</div>
+</div>
 
 <!-- El fetch y la api va a buscar la info de ese curso, un array con todas las weeks, por cada week un objeto y adentro los dias con su respectivo  -->
 <style>
-	.main-wrapper {
-		display: flex;
-		flex-direction: column;
-	}
-
-	/* .secondary-wrapper {
-		display: flex;
-		flex-direction: row;
-		gap: 3rem;
-		justify-content: center;
-		text-align: center;
-	} */
 	.grid-wrapper {
 		display: grid;
 		grid-template-columns: 1fr 2fr;

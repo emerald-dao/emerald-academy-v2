@@ -4,9 +4,6 @@
 
 <Section>
 	<Container>
-		<Row>
-			<nav />
-			<slot />
-		</Row>
+		<slot />
 	</Container>
 </Section>

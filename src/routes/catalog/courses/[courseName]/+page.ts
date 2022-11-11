@@ -1,15 +1,18 @@
-
-
 export const load = async ({ fetch, params }) => {
-    const response = await fetch(`/api/courses/daysMetadata`)
-    const courses = await response.json()
-     const thisCourse = courses.filter(course => course.path.includes(params.courseName))
-    // console.log(thisCourse);
-    // const response2 = await fetch(`/api/courses`)
-    // const courses2 = await response2.json()
-  
-    return {
-        thisCourse,
-        // courses2
-    }
-  }
+	try {
+		const overviewFile = await import(
+			`../../../../lib/content/courses/${params.courseName}/overview.js`
+		);
+
+		const response = await fetch(`/api/content/courses/daysMetadata`);
+		const courses = await response.json();
+		const thisCourse = courses.filter((course) => course.path.includes(params.courseName));
+
+		return {
+			overview: overviewFile.overview,
+			thisCourse
+		};
+	} catch (e) {
+		throw new Error();
+	}
+};

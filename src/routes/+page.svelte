@@ -19,7 +19,6 @@
 	import { each } from 'svelte/internal';
 
 	export const info = [{ name: 'uno' }, { name: 'dos' }];
-	import ExploreCatalogSection from './catalog/components/sections/ExploreCatalogSection.svelte';
 	import Layout from './+layout.svelte';
 	import Modal from '$lib/components/atoms/Modal.svelte';
 </script>
