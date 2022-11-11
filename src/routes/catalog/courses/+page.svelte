@@ -5,15 +5,11 @@
 	import { courseOverview } from '$lib/content/courses/basic-dapp/courseOverview';
 	import Breadcrumbs from '$lib/components/atoms/Breadcrumbs.svelte';
 	export let data;
-	// console.log(data);
-	// console.log($page);
-	// const url = $page.url.origin;
-	// console.log(url);
+
 	const takeOutSpaces = (word: string) => {
 		const noSpaces = word.split(' ').join('-');
 		return noSpaces.toLowerCase();
 	};
-	// console.log(takeOutSpaces('Basic Dapp'));
 </script>
 
 <Section>
