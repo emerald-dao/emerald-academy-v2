@@ -14,3 +14,15 @@ export interface Overview {
 interface Week {
 	excerpt: string;
 }
+
+export interface BootcampOverview extends Overview {
+	videos: BootcampVideo[];
+}
+
+interface BootcampVideo {
+	name: string;
+	excerpt: string;
+	link?: string;
+	contents: string[];
+	date: Date;
+}

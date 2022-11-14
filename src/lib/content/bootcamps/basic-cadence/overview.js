@@ -2,7 +2,7 @@ export const overview = {
 	title: 'Basic Dapp Bootcamp',
 	excerpt: 'Lorem ipsum dolor sit amet',
 	level: 0,
-	weeks: [
+	videos: [
 		{
 			excerpt: 'This is the first week'
 		},
