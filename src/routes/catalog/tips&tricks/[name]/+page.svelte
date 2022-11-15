@@ -1,6 +1,7 @@
 <script>
 	import { Container, Section } from '@mateoroldos/svelte.bones';
 	export let data;
+	console.log(data);
 </script>
 
 <Section>
