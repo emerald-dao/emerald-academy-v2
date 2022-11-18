@@ -8,7 +8,6 @@
 	<Container width="small">
 		<article>
 			<h1>{data.title}</h1>
-			<p>Day: {data.day}</p>
 			<svelte:component this={data.content} />
 		</article>
 	</Container>
