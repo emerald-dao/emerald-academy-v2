@@ -16,5 +16,9 @@ export const overview = {
 	tags: ['cadence', 'dapp development'],
 	prerequisites: ['Basic programming knowledge'],
 	slug: 'bootcamps/basic-dapp',
-	contentType: 'Bootcamp'
+	contentType: 'Bootcamp',
+	faqs: [
+		{ question: 'First Question', answer: 'First Answer' },
+		{ question: 'Second Question', answer: 'Second Answer' }
+	]
 };

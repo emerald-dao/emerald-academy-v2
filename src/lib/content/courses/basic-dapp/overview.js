@@ -16,5 +16,9 @@ export const overview = {
 	tags: ['Web Dev', 'dapp development'],
 	prerequisites: ['Basic programming knowledge'],
 	slug: 'courses/basic-dapp',
-	contentType: 'Course'
+	contentType: 'Course',
+	faqs: [
+		{ question: 'First Question', answer: 'First Answer' },
+		{ question: 'Second Question', answer: 'Second Answer' }
+	]
 };

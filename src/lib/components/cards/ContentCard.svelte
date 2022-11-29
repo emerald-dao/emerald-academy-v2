@@ -2,13 +2,11 @@
 	import { Card } from '$atoms';
 	import type { Overview } from '$lib/types/content-overview.interface';
 	import { Column, Row } from '@mateoroldos/svelte.bones';
-	import { each } from 'svelte/internal';
-
 	export let overview: Overview;
 </script>
 
 <a href={`/catalog/${overview.slug}`} data-sveltekit-prefetch>
-	<Card width="100%">
+	<Card width="fit-content">
 		<Column gap="small" align="flex-start">
 			<span>{overview.contentType}</span>
 			<h3>

@@ -14,7 +14,7 @@
 
 <style type="scss">
 	.background-primary {
-		background-color: var(--clr-neutral-300);
+		background-color: var(--clr-surface-primary);
 	}
 
 	.background-secondary {

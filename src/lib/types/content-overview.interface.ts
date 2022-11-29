@@ -1,4 +1,5 @@
 import type { ContentType } from './content-types.type';
+import type { Question } from './faqs.interface';
 
 export interface Overview {
 	title: string;
@@ -9,6 +10,7 @@ export interface Overview {
 	prerequisites: string[];
 	slug: string;
 	contentType: ContentType;
+	faqs: Question[];
 }
 
 interface Week {

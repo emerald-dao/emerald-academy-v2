@@ -1,5 +1,6 @@
 <script>
-	import { Section, Container, Card } from '@mateoroldos/svelte.bones';
+	import { Section, Container } from '@mateoroldos/svelte.bones';
+	import Card from '$lib/components/atoms/Card.svelte';
 
 	export let data;
 	console.log(data);
@@ -9,18 +10,28 @@
 	<Container>
 		{#each data.roadmap.content as cont}
 			{#if cont.externalContent}
-				<a href={cont.url} target="_blank">
-					<Card>
-						<h4>{cont.name}</h4>
-					</Card>
-				</a>
+				<div>
+					<a href={cont.url} target="_blank">
+						<Card width="100%">
+							<h4>{cont.name}</h4>
+						</Card>
+					</a>
+				</div>
 			{:else}
-				<a href={`${cont.slug.replace('content', 'catalog')}`} data-sveltekit-prefetch>
-					<Card>
-						<h4>{cont.name}</h4>
-					</Card>
-				</a>
+				<div>
+					<a href={`${cont.slug.replace('content', 'catalog')}`} data-sveltekit-prefetch>
+						<Card width="100%">
+							<h4>{cont.name}</h4>
+						</Card>
+					</a>
+				</div>
 			{/if}
 		{/each}
 	</Container>
 </Section>
+
+<style>
+	div {
+		padding-bottom: 3em;
+	}
+</style>

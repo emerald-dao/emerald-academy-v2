@@ -6,12 +6,13 @@
 		let amountOfWeeks = data.thisCourse[objectsArray - 1].week;
 		return amountOfWeeks;
 	};
+	console.log(data);
 	let weeks = getAmountWeeks();
 </script>
 
-<div class="grid-wrapper">
-	<Section>
-		<Container>
+<Section>
+	<Container>
+		<div class="grid-wrapper">
 			<Column align="flex-start" gap="small">
 				<h4>Course Overview</h4>
 				{#each Array(weeks) as _, index (index)}
@@ -27,14 +28,14 @@
 					</Column>
 				{/each}
 			</Column>
-		</Container>
-	</Section>
-	<slot />
-</div>
+			<slot />
+		</div>
+	</Container>
+</Section>
 
 <style>
 	.grid-wrapper {
 		display: grid;
-		grid-template-columns: 1fr 2fr;
+		grid-template-columns: 1fr 3fr;
 	}
 </style>

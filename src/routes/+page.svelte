@@ -1,7 +1,6 @@
 <script type="ts">
-	import dappInfo from '$lib/config/config';
-	import { Section, Container, Column } from '@mateoroldos/svelte.bones';
-	import { transactionInProgress } from '$stores/FlowStore';
+	import Faqs from '$lib/components/faqs/Faqs.svelte';
+	import { Label } from '@emerald-dao/component-library';
 	import {
 		HeroSection,
 		ExploreSection,
@@ -10,17 +9,8 @@
 		SocialMediaSection,
 		JoinSection
 	} from './components';
-	import Achievements from './achievements/+page.svelte';
-	import CounterTest from './components/sections/CounterTest.svelte';
-	// import Slider from '$lib/components/atoms/Slider.svelte';
-	// import Slider from '$lib/components/atoms/Slider.svelte';
-	const palabras = ['Hola', 'Hola2', 'Hola3'];
-	import Card from '$lib/components/atoms/Card.svelte';
-	import { each } from 'svelte/internal';
 
-	export const info = [{ name: 'uno' }, { name: 'dos' }];
-	import Layout from './+layout.svelte';
-	import Modal from '$lib/components/atoms/Modal.svelte';
+	// questionAnswer dinamicas, cada contenido tiene una distinta, agregar property al overview.
 </script>
 
 <HeroSection />
@@ -29,3 +19,9 @@
 <AcademySection />
 <SocialMediaSection />
 <JoinSection />
+
+<style>
+	.card-primary {
+		padding: var(--space-20);
+	}
+</style>

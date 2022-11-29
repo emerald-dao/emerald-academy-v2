@@ -1,6 +1,5 @@
 <script type="ts">
 	import { Container, Section } from '@mateoroldos/svelte.bones';
-	import Card from '$lib/components/atoms/Card.svelte';
 </script>
 
 <Section>
@@ -25,8 +24,6 @@
 </Section>
 
 <style type="scss">
-	@use '../../../lib/styles/utils' as *;
-
 	.main-wrapper {
 		display: flex;
 		flex-direction: column;

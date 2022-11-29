@@ -52,10 +52,9 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@emerald-dao/component-library": "^1.6.2",
+		"@emerald-dao/component-library": "^2.0.0",
+		"@emerald-dao/design-system": "^1.18.2",
 		"@onflow/fcl": "^1.2.1",
-		"@splidejs/svelte-splide": "^0.2.9",
-		"@svelkit/spectre": "^0.2.3",
-		"konsta": "^1.0.2"
+		"@splidejs/svelte-splide": "^0.2.9"
 	}
 }

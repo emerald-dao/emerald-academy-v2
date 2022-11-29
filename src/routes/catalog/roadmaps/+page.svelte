@@ -1,5 +1,6 @@
 <script>
-	import { Section, Container, Card } from '@mateoroldos/svelte.bones';
+	import { Section, Container } from '@mateoroldos/svelte.bones';
+	import Card from '$lib/components/atoms/Card.svelte';
 
 	export let data;
 	console.log(data);
@@ -8,13 +9,20 @@
 <Section>
 	<Container>
 		{#each data.roadmap as road}
-			<a href={`roadmaps/${road.name.replace(' ', '-').toLowerCase()}-roadmap`}>
-				<!-- acceder a través del path en la llamada  -->
-				<Card>
-					<h4>Roadmap {road.name}</h4>
-					<p>{road.excerpt}</p>
-				</Card>
-			</a>
+			<div class="wrapper">
+				<a href={`${road.postPath.replace('content', 'catalog')}`}>
+					<Card width="100%">
+						<h4>Roadmap {road.roadmap.name}</h4>
+						<p>{road.roadmap.excerpt}</p>
+					</Card>
+				</a>
+			</div>
 		{/each}
 	</Container>
 </Section>
+
+<style>
+	.wrapper {
+		margin-bottom: 3em;
+	}
+</style>

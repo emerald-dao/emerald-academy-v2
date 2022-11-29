@@ -16,5 +16,17 @@ export const overview = {
 	tags: ['cadence', 'dapp development'],
 	prerequisites: ['Basic programming knowledge'],
 	slug: 'courses/begginer-cadence-course',
-	contentType: 'Course'
+	contentType: 'Course',
+	faqs: [
+		{
+			question: 'First Question',
+			answer:
+				'First Answer First Answer First Answer First Answer First Answer First Answer First Answer First Answer First Answer First Answer First Answer'
+		},
+		{
+			question: 'Second Question',
+			answer:
+				'Second Answer Second Answer Second Answer Second Answer Second Answer Second Answer Second Answer Second Answer Second Answer Second Answer'
+		}
+	]
 };
