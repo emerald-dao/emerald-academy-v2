@@ -1,23 +1,31 @@
-<script>
+<script type="ts">
+	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 	import { Section, Container } from '@mateoroldos/svelte.bones';
 	import Card from '$lib/components/atoms/Card.svelte';
 
 	export let data;
+
+	interface Data {
+		roadmap: RoadmapOverview;
+		postPath: string;
+	}
+
 	console.log(data);
 </script>
 
 <Section>
 	<Container>
-		{#each data.roadmap as road}
-			<div class="wrapper">
-				<a href={`${road.postPath.replace('content', 'catalog')}`}>
+		<!-- {#each data as road} -->
+		<div class="wrapper">
+			aaa
+			<!-- <a href={`${road.url.replace('content', 'catalog')}`}>
 					<Card width="100%">
-						<h4>Roadmap {road.roadmap.name}</h4>
-						<p>{road.roadmap.excerpt}</p>
+						<h4>Roadmap {road.title}</h4>
+						<p>{road.excerpt}</p>
 					</Card>
-				</a>
-			</div>
-		{/each}
+				</a> -->
+		</div>
+		<!-- {/each} -->
 	</Container>
 </Section>
 

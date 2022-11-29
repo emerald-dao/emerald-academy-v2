@@ -1,10 +1,11 @@
 <script type="ts">
-	import type { Overview } from '$lib/types/content-overview.interface';
 	import { Card } from '$atoms';
-	export let overview: Overview;
+	import type { CourseOverview } from '$lib/types/content/course.interface';
+
+	export let overview: CourseOverview;
 </script>
 
-<Card width="100%" padding="3">
+<div class="card">
 	<h5>CURRICULUM OVERVIEW</h5>
 	{#each overview.weeks as week}
 		<p class="p">Week {overview.weeks.indexOf(week) + 1}</p>
@@ -12,10 +13,19 @@
 	{/each}
 	<br />
 	<h5>PREREQUISITES</h5>
-	{#each overview.prerequisites as pre}
+	{#each overview.metadata.prerequisites as pre}
 		<p>{pre}</p>
 	{/each}
-</Card>
+</div>
+<a class="menu-link" href="/a">Hola</a>
+<div class="column-4">
+	<div class="a" />
+	<div class="a" />
+	<div class="a" />
+	<div class="a" />
+	<div class="a" />
+	<div class="a" />
+</div>
 
 <style>
 	.p {
@@ -23,5 +33,11 @@
 	}
 	h5 {
 		margin: 0 0 5% 0;
+	}
+
+	.a {
+		background-color: red;
+		width: 20px;
+		height: 20px;
 	}
 </style>

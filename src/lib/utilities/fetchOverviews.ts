@@ -1,21 +1,26 @@
-export const fetchOverviews = async (contentType?: 'courses' | 'bootcamps' | 'tips-and-tricks') => {
+export const fetchOverviews = async (
+	contentType?: 'courses' | 'bootcamps' | 'tips-and-tricks' | 'roadmaps'
+) => {
 	let overviews;
 
 	switch (contentType) {
 		case 'courses':
-			overviews = import.meta.glob('/src/lib/content/courses/**/*.js');
+			overviews = import.meta.glob('/src/lib/content/courses/**/*.ts');
 			break;
 
 		case 'bootcamps':
-			overviews = import.meta.glob('/src/lib/content/bootcamps/**/*.js');
+			overviews = import.meta.glob('/src/lib/content/bootcamps/**/*.ts');
 			break;
 
 		case 'tips-and-tricks':
-			overviews = import.meta.glob('/src/lib/content/tips-and-tricks/**/*.js');
+			break;
+
+		case 'roadmaps':
+			overviews = import.meta.glob('/src/lib/content/roadmaps/**/*.ts');
 			break;
 
 		case undefined:
-			overviews = import.meta.glob('/src/lib/content/**/**/*.js');
+			overviews = import.meta.glob('/src/lib/content/**/**/*.ts');
 	}
 
 	const iterableFiles = Object.entries(overviews);

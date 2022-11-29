@@ -18,24 +18,25 @@
 		<input type="checkbox" id={name} {name} bind:checked={value} />
 		<span>
 			<slot />
-		</span></label
-	>
+		</span>
+	</label>
 </div>
 
 <style>
+	div {
+		background-color: var(--clr-primary-off);
+		padding: var(--space-1) var(--space-2);
+		cursor: pointer;
+	}
 	input {
 		display: none;
 	}
 
 	span {
-		padding: 0.4em 0.8em;
-		background-color: var(--clr-primary-main-t7);
-		color: var(--clr-font-text);
-		cursor: pointer;
+		color: var(--clr-text-inverse);
 	}
 
 	input:checked + span {
-		background-color: var(--clr-primary-main-t2);
-		color: var(--clr-font-text-inverse);
+		background-color: var(--clr-primary-main);
 	}
 </style>

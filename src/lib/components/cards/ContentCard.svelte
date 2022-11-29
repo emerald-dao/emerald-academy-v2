@@ -1,12 +1,12 @@
 <script type="ts">
 	import { Card } from '$atoms';
-	import type { Overview } from '$lib/types/content-overview.interface';
+	import type { Overview } from '$lib/types/content/content-overview.interface';
 	import { Column, Row } from '@mateoroldos/svelte.bones';
 	export let overview: Overview;
 </script>
 
 <a href={`/catalog/${overview.slug}`} data-sveltekit-prefetch>
-	<Card width="fit-content">
+	<div class="card-primary">
 		<Column gap="small" align="flex-start">
 			<span>{overview.contentType}</span>
 			<h3>
@@ -15,10 +15,10 @@
 			<Column gap="small" align="flex-start">
 				<Row>
 					<span>
-						{overview.level}
+						{overview.metadata.expertise}
 					</span>
 					<span>
-						{overview.weeks.length} weeks
+						{overview.metadata.duration}
 					</span>
 				</Row>
 				<span>
@@ -26,8 +26,11 @@
 				</span>
 			</Column>
 		</Column>
-	</Card>
+	</div>
 </a>
 
 <style type="scss">
+	.card-primary {
+		border-radius: var(--radius-3);
+	}
 </style>

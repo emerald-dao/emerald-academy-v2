@@ -1,26 +1,30 @@
 <script type="ts">
 	import { Section } from '@mateoroldos/svelte.bones';
 	import Filters from '$lib/components/filters/Filters.svelte';
-	import { contentTypes } from '$lib/config/contentTypes';
 	import ContentCard from '$lib/components/cards/ContentCard.svelte';
+	import type { Overview } from '$lib/types/content/content-overview.interface';
+	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+	import type { Filter } from '$lib/types/content/filters/filter.interface';
 
-	export let data;
+	export let data: Data;
 
-	console.log(data);
+	interface Data {
+		content: Overview[];
+	}
 
-	let filters = [
+	let filters: Filter[] = [
 		{
 			title: 'Type of Content',
 			filterElement: [
 				{
 					title: 'Live Bootcamp',
 					icon: 'icon',
-					slug: 'Bootcamp'
+					slug: ContentTypeEnum.Bootcamp
 				},
 				{
 					title: 'Courses',
 					icon: 'icon',
-					slug: 'Course'
+					slug: ContentTypeEnum.Course
 				}
 			],
 			filterBucket: []
@@ -31,12 +35,12 @@
 				{
 					title: 'Tips&Tricks',
 					icon: 'icon',
-					slug: 'Tips&Tricks'
+					slug: ContentTypeEnum.Tips
 				},
 				{
 					title: 'Cadence',
 					icon: 'icon',
-					slug: 'Course'
+					slug: ContentTypeEnum.Course
 				}
 			],
 			filterBucket: []
@@ -44,26 +48,49 @@
 	];
 </script>
 
-<Section>
-	<div class="main-wrapper">
-		<div><Filters bind:filters /></div>
-		<div>
+<section>
+	<div class="container-large">
+		<div class="sidebar column-10"><Filters bind:filters /></div>
+		<div class="main">
 			{#each data.content as content}
 				{#if filters[0].filterBucket.includes(content.contentType) || filters[0].filterBucket.length < 1}
 					{#if filters[1].filterBucket.includes(content.contentType) || filters[1].filterBucket.length < 1}
-						{content.title} <br />
+						<ContentCard overview={content} />
 					{/if}
 				{/if}
 			{/each}
 		</div>
 	</div>
-</Section>
-<!-- || filters[0].filterBucket.length < 1 -->
+</section>
 
-<!-- #if filters[0].filterBucket.includes(content.contentType) ||  -->
 <style type="scss">
-	.main-wrapper {
+	.container-large {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr 3fr;
+		gap: var(--space-10);
+
+		.sidebar {
+			border-right: var(--border-width-primary) var(--clr-border-primary) solid;
+			height: fit-content;
+			padding-block: var(--space-9);
+		}
+
+		.main {
+			display: flex;
+			flex-direction: column;
+
+			@include mq(medium) {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: var(--space-10);
+			}
+		}
+
+		// solucion alternativa de grid responsive:
+		// .main {
+		// 	display: grid;
+		// 	grid-gap: var(--space-10);
+		// 	grid-template-columns: repeat(auto-fill, minmax(min(20, 100%), 1fr));
+		// }
 	}
 </style>

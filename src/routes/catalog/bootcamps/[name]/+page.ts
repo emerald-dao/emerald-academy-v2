@@ -1,13 +1,11 @@
 export const load = async ({ fetch, params }) => {
 	try {
 		const overviewFile = await import(
-			`../../../../lib/content/bootcamps/${params.name}/overview.js`
-		);		
+			`../../../../lib/content/bootcamps/${params.name}/overview.ts`
+		);
 		return {
-			overview: overviewFile.overview,
-                       
+			overview: overviewFile.overview
 		};
-        
 	} catch (e) {
 		throw new Error();
 	}

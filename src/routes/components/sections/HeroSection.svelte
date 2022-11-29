@@ -2,47 +2,38 @@
 	import { Container, Section } from '@mateoroldos/svelte.bones';
 </script>
 
-<Section>
-	<Container>
-		<div class="secondary-wrapper">
-			<div>
-				<h2>Learn everything about the <span style="color:#37E0C2">Flow Blockchain</span></h2>
-				<p>
-					Est nisi dolore nulla qui excepteur nostrud ea cupidatat est voluptate amet consequat
-					duis. Duis laborum voluptate occaecat do reprehenderit. Proident magna non incididunt non
-					aute duis cillum mollit.
-				</p>
-			</div>
-			<div>
-				<div>video</div>
-				<video src="https://www.youtube.com/watch?v=HJLS09gIurk">
-					<track kind="captions" />
-				</video>
-			</div>
+<section>
+	<div class="container">
+		<div>
+			<h1 class="display-small">
+				Learn everything about the <span>Flow Blockchain</span>
+			</h1>
+			<p>
+				Est nisi dolore nulla qui excepteur nostrud ea cupidatat est voluptate amet consequat duis.
+				Duis laborum voluptate occaecat do reprehenderit. Proident magna non incididunt non aute
+				duis cillum mollit.
+			</p>
 		</div>
-	</Container>
-</Section>
+		<div>
+			<div>video</div>
+			<video src="https://www.youtube.com/watch?v=HJLS09gIurk">
+				<track kind="captions" />
+			</video>
+		</div>
+	</div>
+</section>
 
 <style type="scss">
-	.main-wrapper {
+	.container {
 		display: flex;
 		flex-direction: column;
-		gap: 3rem;
-
-		@include mq(medium) {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-		}
-	}
-	h2 {
-		margin-bottom: 1rem;
-	}
-	.secondary-wrapper {
-		display: flex;
-		flex-direction: column;
-		gap: 3rem;
+		gap: var(--space-10);
 		justify-content: center;
 		text-align: center;
-		padding: 4rem;
+		padding: var(--space-6);
+
+		span {
+			color: var(--clr-primary-main);
+		}
 	}
 </style>

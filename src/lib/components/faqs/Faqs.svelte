@@ -1,6 +1,6 @@
 <script type="ts">
 	import { logIn } from '$flow/actions';
-	import type { Question } from '$lib/types/faqs.interface';
+	import type { Question } from '$lib/types/content/metadata/faqs.interface';
 	export let questionAnswer: Question[];
 	let number = 0;
 	const getIndex = (i: number) => {
