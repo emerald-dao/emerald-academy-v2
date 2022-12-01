@@ -2,8 +2,7 @@
 	import type { CourseOverview } from '$lib/types/content/course.interface';
 	import CurriculumOverview from '$lib/components/cards/CurriculumOverview.svelte';
 	import Faqs from '$lib/components/faqs/Faqs.svelte';
-	import { overview } from '$lib/content/bootcamps/basic-dapp/overview';
-
+	import SpecificContentCard from '$lib/components/cards/SpecificContentCard.svelte';
 	export let data: Data;
 
 	interface Data {
@@ -16,30 +15,12 @@
 		path: string;
 		week: number;
 	}
-
-	console.log(data.thisCourse[0].meta);
 </script>
 
 <div>
 	<div class="row">
-		<div class="col">
-			<h2>
-				{data.overview.title}
-			</h2>
-			<p>
-				{data.overview.excerpt}
-			</p>
-			<div class="main-wrapper">
-				<p>{data.overview.metadata.expertise}</p>
-				<p>{data.overview.metadata.duration}</p>
-			</div>
-			<div>
-				{#each data.overview.metadata.subjects as tag}
-					<div>
-						<p>{tag}</p>
-					</div>
-				{/each}
-			</div>
+		<div class="col1">
+			<SpecificContentCard overview={data.overview} />
 		</div>
 		<div class="col">
 			<div>
@@ -66,6 +47,10 @@
 	.row {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
+	}
+	.col1 {
+		grid-column: auto;
+		padding-right: var(--space-8);
 	}
 	.col {
 		grid-column: auto;

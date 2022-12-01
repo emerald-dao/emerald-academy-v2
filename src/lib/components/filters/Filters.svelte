@@ -25,13 +25,16 @@
 		<h5>{filter.title}</h5>
 		<div class="tags-wrapper row-5">
 			{#each filter.filterElement as element}
-				<TagToggle
-					name={element.title}
-					on:selected={() => (filters[i].filterBucket = addToFilterBucket(i, element.slug))}
-					on:unselected={() => (filters[i].filterBucket = deleteFromFilterBucket(i, element.slug))}
-				>
-					{element.title}
-				</TagToggle>
+				<div class="each-tag-wrapper">
+					<TagToggle
+						name={element.title}
+						on:selected={() => (filters[i].filterBucket = addToFilterBucket(i, element.slug))}
+						on:unselected={() =>
+							(filters[i].filterBucket = deleteFromFilterBucket(i, element.slug))}
+					>
+						{element.title}
+					</TagToggle>
+				</div>
 			{/each}
 		</div>
 	</div>
@@ -45,5 +48,9 @@
 
 	.tags-wrapper {
 		flex-wrap: wrap;
+	}
+	.each-tag-wrapper {
+		margin-bottom: var(--space-5);
+		margin-right: var(--space-2);
 	}
 </style>

@@ -1,7 +1,10 @@
 <script type="ts">
-	import { logIn } from '$flow/actions';
-	import type { Question } from '$lib/types/content/metadata/faqs.interface';
 	export let questionAnswer: Question[];
+	interface Question {
+		question: string;
+		answer: string;
+	}
+
 	let number = 0;
 	const getIndex = (i: number) => {
 		number = i;
@@ -11,21 +14,24 @@
 	};
 </script>
 
-<div class="card-secondary grid-wrapper">
-	<div>
+<div class="card-primary grid-wrapper">
+	<div class="questions">
 		{#each questionAnswer as data, i}
 			<div on:click={() => getIndex(i)} class="clickable-div" class:selected={i === number}>
 				{data.question}
-				<hr size="1" color="white" />
 			</div>
+			<hr size="1" color="white" />
 		{/each}
 	</div>
-	<div>
+	<div class="answers">
 		<p>{questionAnswer[number].answer}</p>
 	</div>
 </div>
 
 <style type="scss">
+	.card-primary {
+		background-color: var(--clr-neutral-90);
+	}
 	.grid-wrapper {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -35,9 +41,14 @@
 		&:hover {
 			color: var(--clr-primary-main);
 		}
-		padding-right: 1em;
+		padding-bottom: var(--space-3);
+		padding-top: var(--space-3);
 	}
 	.selected {
 		color: var(--clr-primary-main);
+	}
+	.questions,
+	.answers {
+		margin: var(--space-3);
 	}
 </style>

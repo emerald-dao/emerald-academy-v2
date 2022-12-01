@@ -21,7 +21,26 @@ export const overview: RoadmapOverview = {
 			contentType: ContentTypeEnum.Course,
 			duration: '4 weeks',
 			subjects: [SubjectsEnum.Cadence],
-			url: 'catalog/courses/begginer-cadence-course'
+			url: 'catalog/courses/begginer-cadence'
+		},
+		{
+			title: 'Basic Dapp',
+			excerpt: 'Lorem ipsum',
+			contentType: ContentTypeEnum.Course,
+			duration: '4 weeks',
+			subjects: [SubjectsEnum.Cadence],
+			url: 'catalog/courses/basic-dapp'
+		}
+	],
+	weeks: [
+		{
+			excerpt: 'This is the first week'
+		},
+		{
+			excerpt: 'This is the second week'
+		},
+		{
+			excerpt: 'This is the third week'
 		}
 	]
 };

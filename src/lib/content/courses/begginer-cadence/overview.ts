@@ -1,16 +1,16 @@
-import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
+import type { CourseOverview } from '$lib/types/content/course.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
-export const overview: BootcampOverview = {
-	title: 'Basic Dapp',
-	contentType: ContentTypeEnum.Bootcamp,
-	slug: 'bootcamps/basic-dapp',
+export const overview: CourseOverview = {
+	title: 'Begginer Cadence',
+	contentType: ContentTypeEnum.Course,
+	slug: 'courses/begginer-cadence',
 	excerpt:
-		'Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet',
+		'Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet',
 	metadata: {
-		expertise: ExpertiseEnum.intermediate,
+		expertise: ExpertiseEnum.begginer,
 		duration: '3 weeks',
 		prerequisites: ['javascript'],
 		subjects: [SubjectsEnum.Backend, SubjectsEnum.Frontend],
@@ -56,15 +56,6 @@ export const overview: BootcampOverview = {
 		},
 		{
 			excerpt: 'This is the third week'
-		}
-	],
-	videos: [
-		{
-			name: 'First Lesson',
-			excerpt: 'Loremn ipsum',
-			link: 'https://www.youtube/test',
-			subjects: [SubjectsEnum.Webdev],
-			date: new Date(10 / 10 / 2002)
 		}
 	]
 };

@@ -1,5 +1,4 @@
 import type { ContentTypeEnum } from './metadata/content-types.enum';
-import type { Question } from './metadata/faqs.interface';
 import type { ExpertiseEnum } from './metadata/expertise.enum';
 import type { SubjectsEnum } from './metadata/subject.enum';
 
@@ -9,6 +8,7 @@ export interface Overview {
 	slug: string;
 	excerpt: string;
 	metadata: ContentMetadata;
+	weeks: Week[];
 }
 
 interface ContentMetadata {
@@ -17,4 +17,13 @@ interface ContentMetadata {
 	prerequisites: string[];
 	subjects: SubjectsEnum[];
 	faqs?: Question[];
+}
+
+interface Week {
+	excerpt: string;
+}
+
+interface Question {
+	question: string;
+	answer: string;
 }

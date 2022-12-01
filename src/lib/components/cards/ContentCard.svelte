@@ -1,36 +1,70 @@
 <script type="ts">
-	import { Card } from '$atoms';
 	import type { Overview } from '$lib/types/content/content-overview.interface';
-	import { Column, Row } from '@mateoroldos/svelte.bones';
+	import { Label } from '@emerald-dao/component-library';
+	import CurriculumOverview from './CurriculumOverview.svelte';
 	export let overview: Overview;
 </script>
 
 <a href={`/catalog/${overview.slug}`} data-sveltekit-prefetch>
 	<div class="card-primary">
-		<Column gap="small" align="flex-start">
-			<span>{overview.contentType}</span>
-			<h3>
-				{overview.title}
-			</h3>
-			<Column gap="small" align="flex-start">
-				<Row>
-					<span>
+		<div class="data">
+			<div class="meta">
+				{#if overview.contentType == 'course'}
+					<Label iconLeft="tabler:tag">{overview.contentType}</Label>
+				{:else if overview.contentType == 'bootcamp'}
+					<Label iconLeft="tabler:video">{overview.contentType}</Label>
+				{:else}
+					<Label iconLeft="tabler:road">{overview.contentType}</Label>
+				{/if}
+
+				<h3>
+					{overview.title}
+				</h3>
+
+				<div class="row">
+					<Label iconLeft="tabler:currency-dollar" color="transparent">Free</Label>
+					<Label iconLeft="tabler:flame" color="transparent">
 						{overview.metadata.expertise}
-					</span>
-					<span>
+					</Label>
+					<Label color="transparent" iconLeft="tabler:hourglass-high">
 						{overview.metadata.duration}
-					</span>
-				</Row>
-				<span>
+					</Label>
+				</div>
+				<p class="white">
 					{overview.excerpt}
-				</span>
-			</Column>
-		</Column>
+				</p>
+			</div>
+			<div class="white">
+				<CurriculumOverview {overview} />
+			</div>
+		</div>
+		<div />
 	</div>
 </a>
 
 <style type="scss">
 	.card-primary {
 		border-radius: var(--radius-3);
+	}
+	.data {
+		margin-bottom: var(--space-4);
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+	.row {
+		display: flex;
+		flex-direction: row;
+	}
+	h3 {
+		margin: var(--space-4) 0 var(--space-4) 0;
+	}
+	.meta {
+		margin-right: var(--space-4);
+	}
+	a {
+		text-decoration: none;
+	}
+	.white {
+		color: white;
 	}
 </style>

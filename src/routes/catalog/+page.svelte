@@ -7,6 +7,7 @@
 	import type { Filter } from '$lib/types/content/filters/filter.interface';
 
 	export let data: Data;
+	console.log(data);
 
 	interface Data {
 		content: Overview[];
@@ -73,6 +74,8 @@
 			border-right: var(--border-width-primary) var(--clr-border-primary) solid;
 			height: fit-content;
 			padding-block: var(--space-9);
+			position: sticky;
+			top: 50px;
 		}
 
 		.main {
@@ -80,8 +83,8 @@
 			flex-direction: column;
 
 			@include mq(medium) {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
+				display: flex;
+				flex-direction: column;
 				gap: var(--space-10);
 			}
 		}
