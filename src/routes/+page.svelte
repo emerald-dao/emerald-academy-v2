@@ -1,5 +1,6 @@
 <script type="ts">
 	import Faqs from '$lib/components/faqs/Faqs.svelte';
+	import type { CourseOverview } from '$lib/types/content/course.interface';
 	import { Label } from '@emerald-dao/component-library';
 	import {
 		HeroSection,
@@ -9,19 +10,17 @@
 		SocialMediaSection,
 		JoinSection
 	} from './components';
+	export let data: Data;
+	console.log(data);
 
-	// questionAnswer dinamicas, cada contenido tiene una distinta, agregar property al overview.
+	interface Data {
+		courses: CourseOverview[];
+	}
 </script>
 
 <HeroSection />
-<ExploreSection />
+<ExploreSection courses={data.courses} />
 <StatsSection />
 <AcademySection />
 <SocialMediaSection />
 <JoinSection />
-
-<style>
-	.card-primary {
-		padding: var(--space-20);
-	}
-</style>

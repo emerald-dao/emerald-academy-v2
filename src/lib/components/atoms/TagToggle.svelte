@@ -1,4 +1,5 @@
 <script type="ts">
+	import { Label } from '@emerald-dao/component-library';
 	import { createEventDispatcher } from 'svelte';
 
 	export let name: string;
@@ -11,29 +12,25 @@
 	} else {
 		dispatch('unselected');
 	}
+	console.log(name);
 </script>
 
 <div>
 	<label for={name}>
 		<input type="checkbox" id={name} {name} bind:checked={value} />
-		<span>
+		<Label state={value ? 'on' : 'off'}>
 			<slot />
-		</span>
+		</Label>
 	</label>
 </div>
 
 <style>
 	div {
-		background-color: var(--clr-primary-off);
 		padding: var(--space-1) var(--space-2);
 		cursor: pointer;
 	}
 	input {
 		display: none;
-	}
-
-	span {
-		color: var(--clr-text-inverse);
 	}
 
 	input:checked + span {

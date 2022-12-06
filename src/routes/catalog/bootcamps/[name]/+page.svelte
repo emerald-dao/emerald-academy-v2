@@ -1,4 +1,5 @@
 <script type="ts">
+	import BootcampLessons from '$lib/components/cards/BootcampLessons.svelte';
 	import CurriculumOverview from '$lib/components/cards/CurriculumOverview.svelte';
 	import SpecificContentCard from '$lib/components/cards/SpecificContentCard.svelte';
 	import Faqs from '$lib/components/faqs/Faqs.svelte';
@@ -26,7 +27,11 @@
 		</div>
 	</div>
 	<section>
-		<div class="container card-primary">
+		<div class="container">
+			<BootcampLessons video={data.overview.videos} />
+		</div>
+
+		<!-- <div class="container card-primary">
 			{#each data.overview.videos as video}
 				<div class="grid-wrapper">
 					<div>
@@ -41,7 +46,7 @@
 					</div>
 				</div>
 			{/each}
-		</div>
+		</div> -->
 	</section>
 </section>
 

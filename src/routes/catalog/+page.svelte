@@ -1,5 +1,4 @@
 <script type="ts">
-	import { Section } from '@mateoroldos/svelte.bones';
 	import Filters from '$lib/components/filters/Filters.svelte';
 	import ContentCard from '$lib/components/cards/ContentCard.svelte';
 	import type { Overview } from '$lib/types/content/content-overview.interface';
@@ -83,17 +82,10 @@
 			flex-direction: column;
 
 			@include mq(medium) {
-				display: flex;
-				flex-direction: column;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
 				gap: var(--space-10);
 			}
 		}
-
-		// solucion alternativa de grid responsive:
-		// .main {
-		// 	display: grid;
-		// 	grid-gap: var(--space-10);
-		// 	grid-template-columns: repeat(auto-fill, minmax(min(20, 100%), 1fr));
-		// }
 	}
 </style>

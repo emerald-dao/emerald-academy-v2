@@ -6,14 +6,6 @@
 </script>
 
 <div class="data">
-	{#if overview.contentType == 'course'}
-		<Label iconLeft="tabler:tag">{overview.contentType}</Label>
-	{:else if overview.contentType == 'bootcamp'}
-		<Label iconLeft="tabler:video">{overview.contentType}</Label>
-	{:else}
-		<Label iconLeft="tabler:road">{overview.contentType}</Label>
-	{/if}
-
 	<h2>
 		{overview.title}
 	</h2>

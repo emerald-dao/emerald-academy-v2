@@ -2,11 +2,12 @@ import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
+import { generateSlug } from '$lib/utilities/generateSlug';
 
 export const overview: BootcampOverview = {
 	title: 'Basic Dapp',
 	contentType: ContentTypeEnum.Bootcamp,
-	slug: 'bootcamps/basic-dapp',
+	slug: generateSlug(import.meta.url),
 	excerpt:
 		'Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet',
 	metadata: {
@@ -61,6 +62,13 @@ export const overview: BootcampOverview = {
 	videos: [
 		{
 			name: 'First Lesson',
+			excerpt: ' ipsum',
+			link: 'https://www.youtube/test',
+			subjects: [SubjectsEnum.Webdev],
+			date: new Date(10 / 10 / 2002)
+		},
+		{
+			name: 'Second Lesson',
 			excerpt: 'Loremn ipsum',
 			link: 'https://www.youtube/test',
 			subjects: [SubjectsEnum.Webdev],

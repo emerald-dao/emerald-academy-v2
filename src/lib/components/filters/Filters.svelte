@@ -27,7 +27,7 @@
 			{#each filter.filterElement as element}
 				<div class="each-tag-wrapper">
 					<TagToggle
-						name={element.title}
+						name={element.slug}
 						on:selected={() => (filters[i].filterBucket = addToFilterBucket(i, element.slug))}
 						on:unselected={() =>
 							(filters[i].filterBucket = deleteFromFilterBucket(i, element.slug))}
@@ -52,5 +52,6 @@
 	.each-tag-wrapper {
 		margin-bottom: var(--space-5);
 		margin-right: var(--space-2);
+		background-color: none;
 	}
 </style>

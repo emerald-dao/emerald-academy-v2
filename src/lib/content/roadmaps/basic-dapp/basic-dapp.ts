@@ -2,11 +2,12 @@ import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum'
 import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
-
+import { icon } from '$lib/types/content/metadata/icon.enum';
+import { generateSlug } from '$lib/utilities/generateSlug';
 export const overview: RoadmapOverview = {
 	title: 'Begginer Dapp Roadmap',
 	contentType: ContentTypeEnum.Roadmap,
-	slug: 'roadmaps/basic-dapp',
+	slug: generateSlug(import.meta.url),
 	excerpt: 'Lorem ipsum dolor sit amet.',
 	metadata: {
 		expertise: ExpertiseEnum.begginer,

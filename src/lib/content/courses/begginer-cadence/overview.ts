@@ -2,11 +2,12 @@ import type { CourseOverview } from '$lib/types/content/course.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
+import { generateSlug } from '$lib/utilities/generateSlug';
 
 export const overview: CourseOverview = {
 	title: 'Begginer Cadence',
 	contentType: ContentTypeEnum.Course,
-	slug: 'courses/begginer-cadence',
+	slug: generateSlug(import.meta.url),
 	excerpt:
 		'Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet',
 	metadata: {

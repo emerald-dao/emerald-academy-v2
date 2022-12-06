@@ -1,21 +1,17 @@
 <script type="ts">
 	import type { Overview } from '$lib/types/content/content-overview.interface';
 	import { Label } from '@emerald-dao/component-library';
+	import ContentLabel from '../label/ContentLabel.svelte';
 	import CurriculumOverview from './CurriculumOverview.svelte';
 	export let overview: Overview;
+	console.log(overview);
 </script>
 
-<a href={`/catalog/${overview.slug}`} data-sveltekit-prefetch>
+<a href={`/catalog/${overview.slug}`}>
 	<div class="card-primary">
 		<div class="data">
 			<div class="meta">
-				{#if overview.contentType == 'course'}
-					<Label iconLeft="tabler:tag">{overview.contentType}</Label>
-				{:else if overview.contentType == 'bootcamp'}
-					<Label iconLeft="tabler:video">{overview.contentType}</Label>
-				{:else}
-					<Label iconLeft="tabler:road">{overview.contentType}</Label>
-				{/if}
+				<ContentLabel type={overview.contentType}>{overview.contentType}</ContentLabel>
 
 				<h3>
 					{overview.title}
@@ -34,9 +30,6 @@
 					{overview.excerpt}
 				</p>
 			</div>
-			<div class="white">
-				<CurriculumOverview {overview} />
-			</div>
 		</div>
 		<div />
 	</div>
@@ -48,8 +41,6 @@
 	}
 	.data {
 		margin-bottom: var(--space-4);
-		display: grid;
-		grid-template-columns: 1fr 1fr;
 	}
 	.row {
 		display: flex;

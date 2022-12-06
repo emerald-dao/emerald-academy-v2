@@ -8,11 +8,6 @@
 			<h1 class="display-small">
 				Learn everything about the <span>Flow Blockchain</span>
 			</h1>
-			<p>
-				Est nisi dolore nulla qui excepteur nostrud ea cupidatat est voluptate amet consequat duis.
-				Duis laborum voluptate occaecat do reprehenderit. Proident magna non incididunt non aute
-				duis cillum mollit.
-			</p>
 		</div>
 		<div>
 			<div>video</div>
@@ -34,6 +29,7 @@
 
 		span {
 			color: var(--clr-primary-main);
+			font-weight: var(--font-weight-bold);
 		}
 	}
 </style>

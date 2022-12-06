@@ -1,29 +1,30 @@
 <script type="ts">
-	import { Section, Container } from '@mateoroldos/svelte.bones';
-	import Card from '$lib/components/atoms/Card.svelte';
-	import { Splide, SplideSlide, SplideTrack } from '@splidejs/svelte-splide';
+	import ContentCard from '$lib/components/cards/ContentCard.svelte';
+	import SpecificContentCard from '$lib/components/cards/SpecificContentCard.svelte';
+	import type { Overview } from '$lib/types/content/content-overview.interface';
+	import type { CourseOverview } from '$lib/types/content/course.interface';
 	import '@splidejs/svelte-splide/css';
+	export let courses: CourseOverview[];
 </script>
 
-<Section>
-	<Container>
-		<Card width="100%">
-			<div class="main-wrapper">
-				<p>Explore our content</p>
-				<h3>Flow free educational resources</h3>
-			</div>
+<section>
+	<div class="container">
+		<div class="main-wrapper">
+			<p class="explore">EXPLORE OUR CONTENT</p>
+			<h3>Flow free educational resources</h3>
+		</div>
 
-			<div class="secondary-wrapper">
-				<Card background="secondary">Bootcamps</Card>
-				<Card background="secondary">Courses</Card>
+		<div class="content">
+			<div class="sidebar" />
+
+			<div class="content">
+				{#each courses as course}
+					<ContentCard overview={course} />
+				{/each}
 			</div>
-			<div class="secondary-wrapper">
-				<Card background="secondary">Cadence By Example</Card>
-				<Card background="secondary">Resources</Card>
-			</div>
-		</Card>
-	</Container>
-</Section>
+		</div>
+	</div>
+</section>
 
 <style type="scss">
 	.main-wrapper {
@@ -33,11 +34,9 @@
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-
-		//  @include mq(medium) {
-		//  	display: grid;
-		//  	grid-template-columns: 1fr;
-		//  }
+	}
+	.explore {
+		color: var(--clr-primary-main);
 	}
 	.secondary-wrapper {
 		display: flex;
@@ -49,6 +48,7 @@
 	}
 	h3 {
 		margin-bottom: 3rem;
+		font-weight: var(--font-weight-bold);
 	}
 	.grid-wrapper {
 		display: grid;
