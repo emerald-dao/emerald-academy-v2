@@ -1,10 +1,28 @@
 <script type="ts">
 	import ContentCard from '$lib/components/cards/ContentCard.svelte';
-	import SpecificContentCard from '$lib/components/cards/SpecificContentCard.svelte';
-	import type { Overview } from '$lib/types/content/content-overview.interface';
+	import ContentLabel from '$lib/components/label/ContentLabel.svelte';
+	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
 	import type { CourseOverview } from '$lib/types/content/course.interface';
+	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 	import '@splidejs/svelte-splide/css';
 	export let courses: CourseOverview[];
+	export let bootcamps: BootcampOverview[];
+	export let roadmaps: RoadmapOverview[];
+	let typeOfContent: ContentTypeEnum[] = [
+		ContentTypeEnum.Course,
+		ContentTypeEnum.Bootcamp,
+		ContentTypeEnum.Roadmap
+	];
+	let activeContent: number = 0;
+	const clickedContent = (i: number) => {
+		activeContent = i;
+		console.log(activeContent);
+	};
+	// console.log(typeOfContent);
+	// console.log(activeContent);
+	// console.log(courses.toString());
+	// console.log(typeOfContent[activeContent]);
 </script>
 
 <section>
@@ -15,12 +33,28 @@
 		</div>
 
 		<div class="content">
-			<div class="sidebar" />
-
-			<div class="content">
-				{#each courses as course}
-					<ContentCard overview={course} />
+			<div class="sidebar">
+				{#each typeOfContent as type, i}
+					<div on:click={() => clickedContent(i)} class="clickable-div">
+						<ContentLabel {type}>{type}</ContentLabel>
+					</div>
 				{/each}
+			</div>
+
+			<div class="content-cards">
+				{#if ContentTypeEnum.Course === typeOfContent[activeContent]}
+					{#each courses as course}
+						<ContentCard overview={course} />
+					{/each}
+				{:else if ContentTypeEnum.Bootcamp === typeOfContent[activeContent]}
+					{#each bootcamps as boot}
+						<ContentCard overview={boot} />
+					{/each}
+				{:else if ContentTypeEnum.Roadmap === typeOfContent[activeContent]}
+					{#each roadmaps as road}
+						<ContentCard overview={road} />
+					{/each}
+				{/if}
 			</div>
 		</div>
 	</div>
@@ -38,20 +72,26 @@
 	.explore {
 		color: var(--clr-primary-main);
 	}
-	.secondary-wrapper {
-		display: flex;
-		flex-direction: row;
-		gap: 3rem;
-		justify-content: center;
-		text-align: center;
-		margin-bottom: 3em;
-	}
+
 	h3 {
 		margin-bottom: 3rem;
 		font-weight: var(--font-weight-bold);
 	}
-	.grid-wrapper {
+	.content {
 		display: grid;
 		grid-template-columns: 1fr 2fr;
+	}
+	.content-cards {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-3);
+	}
+	.clickable-div {
+		cursor: pointer;
+		&:hover {
+			color: var(--clr-primary-main);
+		}
+		padding-bottom: var(--space-3);
+		padding-top: var(--space-3);
 	}
 </style>

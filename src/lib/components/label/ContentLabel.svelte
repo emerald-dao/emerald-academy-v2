@@ -6,9 +6,9 @@
 </script>
 
 {#if type === ContentTypeEnum.Course}
-	<Label iconLeft="tabler:tag"><slot /></Label>
+	<Label iconLeft="tabler:tag" color="transparent"><slot /></Label>
 {:else if type === ContentTypeEnum.Bootcamp}
-	<Label iconLeft="tabler:video"><slot /></Label>
+	<Label iconLeft="tabler:video" color="transparent"><slot /></Label>
 {:else}
-	<Label iconLeft="tabler:road"><slot /></Label>
+	<Label iconLeft="tabler:road" color="transparent"><slot /></Label>
 {/if}

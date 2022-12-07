@@ -6,7 +6,7 @@
 	<Section>
 		<Container>
 			<div class="secondary-wrapper">
-				<p>Join on something big</p>
+				<p class="join">Join on something big</p>
 				<p>50m</p>
 				<p>190m</p>
 				<p>5.44</p>
@@ -29,5 +29,8 @@
 	}
 	p {
 		color: black;
+	}
+	.join {
+		font-size: var(--font-size-4);
 	}
 </style>

@@ -1,118 +1,62 @@
-<script>
-	import { Section, Container } from '@mateoroldos/svelte.bones';
-	import Card from '$lib/components/atoms/Card.svelte';
+<script type="ts">
 	import { Splide, SplideSlide, SplideTrack } from '@splidejs/svelte-splide';
+	import { Label } from '@emerald-dao/component-library';
+	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
+	import SpecificContentCard from '$lib/components/cards/SpecificContentCard.svelte';
+	export let roadmaps: RoadmapOverview[];
 </script>
 
 <section>
 	<div class="container">
-		<div>
-			<h3 class="right-align">Courses</h3>
-			<p class="right-align">
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus veritatis iusto quasi
-				laboriosam commodi consequuntur aperiam, amet beatae laudantium. Nulla, eaque? Reprehenderit
-				deleniti minima sapiente culpa vel ipsa laboriosam quisquam.
-			</p>
-			<button class="right-align">learn more</button>
-		</div>
-
-		<div class="secondary-wrapper">
-			<Splide
-				hasTrack={false}
-				options={{
-					rewind: true,
-					width: 500,
-					gap: '0.5rem',
-					perPage: 3,
-					perMove: 1
-				}}
-			>
-				<div>
-					<SplideTrack>
-						<SplideSlide><Card background="secondary">1</Card></SplideSlide>
-						<SplideSlide><Card background="secondary">2</Card></SplideSlide>
-						<SplideSlide><Card background="secondary">3</Card></SplideSlide>
-						<SplideSlide><Card background="secondary">4</Card></SplideSlide>
-						<SplideSlide><Card background="secondary">5</Card></SplideSlide>
-						<SplideSlide><Card background="secondary">6</Card></SplideSlide>
-					</SplideTrack>
-
-					<div class="splide__arrows arrows-center">
-						<button class="splide__arrow splide__arrow--prev" />
-						<button class="splide__arrow splide__arrow--next" />
-					</div>
-				</div>
-			</Splide>
-		</div>
-	</div>
-
-	<div class="container">
-		<Card width="100%">
-			<div class="center">
-				<h4>Join Bootcamps</h4>
-				<h3>Live</h3>
-			</div>
-
-			<div class="main-wrapper center">
-				<Card background="secondary" width="100%">1</Card>
-				<Card background="secondary" width="100%">2</Card>
-			</div>
-		</Card>
-	</div>
-
-	<div class="container">
-		<div class="secondary-wrapper center">
+		<div class="content">
 			<div>
-				<h3>Follow one of our recommended Roadmaps</h3>
-				<p>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus veritatis iusto quasi
-					laboriosam commodi consequuntur aperiam, amet beatae laudantium. Nulla, eaque?
-					Reprehenderit deleniti minima sapiente culpa vel ipsa laboriosam quisquam.
-				</p>
-				<div class="secondary-wrapper center">
-					<Card>Cadence smart contract developer</Card>
-					<Card>DAPP developer</Card>
+				<h3 class="right-align">Follow one of our roadmaps</h3>
+				<div class="labels">
+					<Label color="transparent">Dapp development</Label>
+					<Label color="transparent">Cadence</Label>
+					<Label color="transparent">Web</Label>
 				</div>
+			</div>
+
+			<div class="cards">
+				<Splide
+					hasTrack={false}
+					options={{
+						rewind: true,
+						width: 450,
+						gap: '0.5rem',
+						perPage: 1,
+						perMove: 1
+					}}
+				>
+					<div>
+						<SplideTrack>
+							{#each roadmaps as road}
+								<SplideSlide><SpecificContentCard overview={road} /></SplideSlide>
+							{/each}
+						</SplideTrack>
+
+						<div class="splide__arrows arrows-center">
+							<button class="splide__arrow splide__arrow--prev" />
+							<button class="splide__arrow splide__arrow--next" />
+						</div>
+					</div>
+				</Splide>
 			</div>
 		</div>
 	</div>
 </section>
 
 <style type="scss">
-	.container {
-		display: flex;
-		flex-direction: column;
-		gap: 3rem;
-
-		@include mq(medium) {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-		}
+	.content {
+		display: grid;
+		grid-template-columns: 2fr 3fr;
 	}
-	.secondary-wrapper {
+	.labels {
 		display: flex;
 		flex-direction: row;
-		gap: 3rem;
-		justify-content: center;
-		text-align: center;
-	}
-
-	.center {
-		justify-content: center;
-		text-align: center;
 	}
 	.arrows-center {
 		vertical-align: center;
-	}
-	.right-align {
-		text-align: right;
-	}
-
-	h3,
-	p,
-	div,
-	button {
-		margin-bottom: 3rem;
-		margin-top: 3rem;
 	}
 </style>
