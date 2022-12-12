@@ -11,7 +11,9 @@
 	<div class="card-primary">
 		<div class="data">
 			<div class="meta">
-				<ContentLabel type={overview.contentType}>{overview.contentType}</ContentLabel>
+				<ContentLabel type={overview.contentType} color="primary"
+					>{overview.contentType}</ContentLabel
+				>
 
 				<h3>
 					{overview.title}

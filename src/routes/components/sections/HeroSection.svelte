@@ -29,7 +29,7 @@
 
 		span {
 			color: var(--clr-primary-main);
-			font-weight: var(--font-weight-bold);
+			--font-weight: var(--font-weight-bold);
 		}
 	}
 </style>

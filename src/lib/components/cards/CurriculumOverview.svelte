@@ -8,13 +8,13 @@
 <div class="card-primary">
 	<h5>Overview</h5>
 	{#each overview.weeks as week}
-		<p class="p">Week {overview.weeks.indexOf(week) + 1}</p>
-		<p>{week.excerpt}</p>
+		<p class="week">Week {overview.weeks.indexOf(week) + 1}</p>
+		<p class="excerpt">{week.excerpt}</p>
 	{/each}
 	<br />
 	<p class="w-medium">Prerequisites</p>
 	{#each overview.metadata.prerequisites as pre}
-		<Label>{pre}</Label>
+		<Label color="neutral">{pre}</Label>
 	{/each}
 </div>
 
@@ -22,8 +22,10 @@
 	.card-primary {
 		background-color: var(--clr-neutral-90);
 	}
-	.p {
-		color: var(--clr-primary-main);
+	.excerpt {
+		color: var(--clr-text-off);
+	}
+	.week {
 		margin-top: var(--space-8);
 	}
 	.w-medium {

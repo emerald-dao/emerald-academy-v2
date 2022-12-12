@@ -1,17 +1,17 @@
 export const navElements = [
 	{
-		name: 'Catalog',
-		url: '/catalog',
+		name: 'home',
+		url: '/',
 		prefetch: true
 	},
 	{
-		name: 'Your achievements',
-		url: '/achievements',
+		name: 'DAO Generator',
+		url: '/dao-generator',
 		prefetch: true
 	},
 	{
-		name: 'Resources',
-		url: '/resources',
+		name: 'Dashboard',
+		url: '/dashboard',
 		prefetch: true
 	}
 ];

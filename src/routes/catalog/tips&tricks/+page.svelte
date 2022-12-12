@@ -5,8 +5,8 @@
 	import Card from '$lib/components/atoms/Card.svelte';
 </script>
 
-<Section>
-	<Container>
+<section>
+	<div class="container">
 		<h4>Tips and tricks section</h4>
 		{#each data.tAt as tip}
 			<div>
@@ -23,8 +23,8 @@
 				</a>
 			</div>
 		{/each}
-	</Container>
-</Section>
+	</div>
+</section>
 
 <style>
 	div,

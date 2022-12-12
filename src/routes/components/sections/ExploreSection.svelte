@@ -6,10 +6,12 @@
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 	import '@splidejs/svelte-splide/css';
+
 	export let courses: CourseOverview[];
 	export let bootcamps: BootcampOverview[];
 	export let roadmaps: RoadmapOverview[];
-	let typeOfContent: ContentTypeEnum[] = [
+
+	let typeOfContentToShow: ContentTypeEnum[] = [
 		ContentTypeEnum.Course,
 		ContentTypeEnum.Bootcamp,
 		ContentTypeEnum.Roadmap
@@ -34,7 +36,7 @@
 
 		<div class="content">
 			<div class="sidebar">
-				{#each typeOfContent as type, i}
+				{#each typeOfContentToShow as type, i}
 					<div on:click={() => clickedContent(i)} class="clickable-div">
 						<ContentLabel {type}>{type}</ContentLabel>
 					</div>
@@ -42,15 +44,15 @@
 			</div>
 
 			<div class="content-cards">
-				{#if ContentTypeEnum.Course === typeOfContent[activeContent]}
+				{#if ContentTypeEnum.Course === typeOfContentToShow[activeContent]}
 					{#each courses as course}
 						<ContentCard overview={course} />
 					{/each}
-				{:else if ContentTypeEnum.Bootcamp === typeOfContent[activeContent]}
+				{:else if ContentTypeEnum.Bootcamp === typeOfContentToShow[activeContent]}
 					{#each bootcamps as boot}
 						<ContentCard overview={boot} />
 					{/each}
-				{:else if ContentTypeEnum.Roadmap === typeOfContent[activeContent]}
+				{:else if ContentTypeEnum.Roadmap === typeOfContentToShow[activeContent]}
 					{#each roadmaps as road}
 						<ContentCard overview={road} />
 					{/each}
@@ -68,6 +70,7 @@
 		align-items: center;
 		justify-content: center;
 		text-align: center;
+		
 	}
 	.explore {
 		color: var(--clr-primary-main);
@@ -75,7 +78,7 @@
 
 	h3 {
 		margin-bottom: 3rem;
-		font-weight: var(--font-weight-bold);
+		--font-weight: var(--font-weight-bold);
 	}
 	.content {
 		display: grid;

@@ -3,6 +3,7 @@
 	import { Label } from '@emerald-dao/component-library';
 	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 	import SpecificContentCard from '$lib/components/cards/SpecificContentCard.svelte';
+	import ContentCard from '$lib/components/cards/ContentCard.svelte';
 	export let roadmaps: RoadmapOverview[];
 </script>
 
@@ -12,36 +13,18 @@
 			<div>
 				<h3 class="right-align">Follow one of our roadmaps</h3>
 				<div class="labels">
-					<Label color="transparent">Dapp development</Label>
-					<Label color="transparent">Cadence</Label>
-					<Label color="transparent">Web</Label>
+					<Label color="neutral">Dapp development</Label>
+					<Label color="neutral">Cadence</Label>
+					<Label color="neutral">Web</Label>
 				</div>
 			</div>
 
 			<div class="cards">
-				<Splide
-					hasTrack={false}
-					options={{
-						rewind: true,
-						width: 450,
-						gap: '0.5rem',
-						perPage: 1,
-						perMove: 1
-					}}
-				>
-					<div>
-						<SplideTrack>
-							{#each roadmaps as road}
-								<SplideSlide><SpecificContentCard overview={road} /></SplideSlide>
-							{/each}
-						</SplideTrack>
-
-						<div class="splide__arrows arrows-center">
-							<button class="splide__arrow splide__arrow--prev" />
-							<button class="splide__arrow splide__arrow--next" />
-						</div>
+				{#each roadmaps as road}
+					<div class="hola">
+						<SplideSlide><ContentCard overview={road} /></SplideSlide>
 					</div>
-				</Splide>
+				{/each}
 			</div>
 		</div>
 	</div>
@@ -50,13 +33,17 @@
 <style type="scss">
 	.content {
 		display: grid;
-		grid-template-columns: 2fr 3fr;
+		grid-template-columns: 1fr 2fr;
 	}
 	.labels {
 		display: flex;
 		flex-direction: row;
+		gap: var(--space-3);
+		padding-top: var(--space-3);
 	}
-	.arrows-center {
-		vertical-align: center;
+	.cards {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-3);
 	}
 </style>

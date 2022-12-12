@@ -1,7 +1,7 @@
 <script type="ts">
+	// are we gonna use this page?
+
 	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
-	import { Section, Container } from '@mateoroldos/svelte.bones';
-	import Card from '$lib/components/atoms/Card.svelte';
 
 	export let data;
 
@@ -13,21 +13,12 @@
 	console.log(data);
 </script>
 
-<Section>
-	<Container>
-		<!-- {#each data as road} -->
-		<div class="wrapper">
-			aaa
-			<!-- <a href={`${road.url.replace('content', 'catalog')}`}>
-					<Card width="100%">
-						<h4>Roadmap {road.title}</h4>
-						<p>{road.excerpt}</p>
-					</Card>
-				</a> -->
-		</div>
+<section>
+	<div class="container">
+		<div class="wrapper">aaa</div>
 		<!-- {/each} -->
-	</Container>
-</Section>
+	</div>
+</section>
 
 <style>
 	.wrapper {

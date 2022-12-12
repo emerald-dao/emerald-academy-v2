@@ -27,7 +27,7 @@
 	onMount(() => fillClickArray());
 </script>
 
-<div class="card-primary">
+<div class="card">
 	<div class="videos">
 		{#each video as data, i}
 			<div on:click={() => clickedVideo(i)} class="clickable-div" class:selected={clickedArray[i]}>
@@ -59,8 +59,8 @@
 </div>
 
 <style type="scss">
-	.card-primary {
-		background-color: var(--clr-neutral-90);
+	.card {
+		background-color: var(--clr-surface-primary);
 	}
 
 	.clickable-div {

@@ -27,6 +27,7 @@
 			{#each filter.filterElement as element}
 				<div class="each-tag-wrapper">
 					<TagToggle
+						icon={element.icon}
 						name={element.slug}
 						on:selected={() => (filters[i].filterBucket = addToFilterBucket(i, element.slug))}
 						on:unselected={() =>
