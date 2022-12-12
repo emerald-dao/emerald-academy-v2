@@ -1,4 +1,4 @@
-import { fetchRoadmaps } from '$lib/utilities/fetchRoadmaps';
+import { fetchRoadmaps } from '$lib/utilities/api/fetchRoadmaps';
 import { json } from '@sveltejs/kit';
 
 export const GET = async () => {

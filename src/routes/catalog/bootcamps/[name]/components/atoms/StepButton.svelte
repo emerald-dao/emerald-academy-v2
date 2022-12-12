@@ -1,14 +1,18 @@
-<script>
+<script type="ts">
 	import { onBoardingActiveStep } from '$stores/onBoarding/OnBoardingSteps';
 	import { Button } from '@emerald-dao/component-library';
+
+	export let active: boolean;
 </script>
 
 <div class="step-buttons">
-	<div>
+	<!-- <div>
 		<Button on:click={onBoardingActiveStep.decrement}>Backwards</Button>
-	</div>
+	</div> -->
 	<div>
-		<Button on:click={onBoardingActiveStep.increment}>Forward</Button>
+		<Button state={active ? 'active' : 'disabled'} on:click={onBoardingActiveStep.increment}
+			>Next</Button
+		>
 	</div>
 </div>
 

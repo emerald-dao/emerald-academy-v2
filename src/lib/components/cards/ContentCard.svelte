@@ -28,7 +28,7 @@
 						{overview.metadata.duration}
 					</Label>
 				</div>
-				<p class="white">
+				<p>
 					{overview.excerpt}
 				</p>
 			</div>
@@ -57,7 +57,8 @@
 	a {
 		text-decoration: none;
 	}
-	.white {
-		color: white;
+
+	p {
+		color: var(--clr-text-main);
 	}
 </style>

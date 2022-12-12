@@ -1,4 +1,7 @@
 import { defineMDSveXConfig as defineConfig } from 'mdsvex';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import { getHeadings } from './src/lib/utilities/remarkPlugins/getHeadings.js';
 
 const config = defineConfig({
 	extensions: ['.svelte.md', '.md', '.svx'],
@@ -6,9 +9,9 @@ const config = defineConfig({
 	smartypants: {
 		dashes: 'oldschool'
 	},
-
-	remarkPlugins: [],
-	rehypePlugins: []
+	layout: 'src/routes/catalog/courses/[courseName]/[week]/[day]/components/CourseLayout.svelte',
+	rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
+	remarkPlugins: [getHeadings]
 });
 
 export default config;

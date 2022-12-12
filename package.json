@@ -55,6 +55,11 @@
 		"@emerald-dao/component-library": "^3.0.0",
 		"@emerald-dao/design-system": "^2.0.0",
 		"@onflow/fcl": "^1.2.1",
-		"@splidejs/svelte-splide": "^0.2.9"
+		"@splidejs/svelte-splide": "^0.2.9",
+		"mdast-util-to-string": "^3.1.0",
+		"rehype-autolink-headings": "^6.1.1",
+		"rehype-slug": "^5.1.0",
+		"unist-util-visit": "^4.1.1",
+		"vest": "^4.6.8"
 	}
 }

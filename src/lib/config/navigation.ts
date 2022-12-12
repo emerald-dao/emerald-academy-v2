@@ -1,17 +1,12 @@
 export const navElements = [
 	{
-		name: 'home',
-		url: '/',
+		name: 'Catalog',
+		url: '/catalog',
 		prefetch: true
 	},
 	{
-		name: 'DAO Generator',
-		url: '/dao-generator',
-		prefetch: true
-	},
-	{
-		name: 'Dashboard',
-		url: '/dashboard',
+		name: 'Cadence By Example',
+		url: '/cadence-by-example',
 		prefetch: true
 	}
 ];
