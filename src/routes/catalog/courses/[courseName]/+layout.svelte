@@ -19,7 +19,7 @@
 </script>
 
 <section>
-	<div class="container">
+	<div class="container-large">
 		<div class="grid-wrapper">
 			<div class="sidebar">
 				<p>Course Overview</p>
@@ -46,18 +46,20 @@
 <style type="scss">
 	.grid-wrapper {
 		display: grid;
-		grid-template-columns: 1fr 3fr;
+		grid-template-columns: 1fr 5fr;
+		gap: var(--space-14);
 	}
 
 	.column {
 		margin-bottom: var(--space-5);
 		margin-top: var(--space-3);
 	}
+
 	.sidebar {
 		border-right: var(--border-width-primary) var(--clr-border-primary) solid;
 		height: fit-content;
-		margin-right: var(--space-12);
 		position: sticky;
 		top: 100px;
+		padding-block: var(--space-8);
 	}
 </style>

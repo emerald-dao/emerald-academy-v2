@@ -20,7 +20,7 @@
 	];
 </script>
 
-<div class="container-small">
+<div>
 	<Breadcrumbs {routes} />
 	<article>
 		<svelte:component this={data.content} />

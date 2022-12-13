@@ -58,7 +58,8 @@
 		headings.forEach((heading) => {
 			steps.push({
 				name: heading.title,
-				state: 'inactive'
+				state: 'inactive',
+				url: `#${transformHeadingToUrl(heading.title)}`
 			});
 			steps = steps;
 		});
@@ -74,12 +75,5 @@
 <svelte:window on:scroll={trackScroll} />
 
 <div>
-	<ProgressSteps {steps} direction="column" />
+	<ProgressSteps {steps} diameter={0.6} direction="column-reverse" fontSize="small" gap={0.7} />
 </div>
-
-<style type="scss">
-	div {
-		position: fixed;
-		right: 80px;
-	}
-</style>
