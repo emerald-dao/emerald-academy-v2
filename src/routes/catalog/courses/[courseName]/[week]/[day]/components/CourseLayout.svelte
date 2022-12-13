@@ -20,6 +20,7 @@
 		gap: var(--space-10);
 
 		aside {
+			
 			position: sticky;
 			top: 140px;
 			height: fit-content;

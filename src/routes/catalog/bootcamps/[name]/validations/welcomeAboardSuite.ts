@@ -1,4 +1,4 @@
-import { create, enforce, test, skipWhen, only } from 'vest';
+import { create, enforce, test, only } from 'vest';
 
 const welcomeAboardSuite = create((data = {}, currentField) => {
 	only(currentField);

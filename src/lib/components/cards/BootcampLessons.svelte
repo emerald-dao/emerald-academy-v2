@@ -38,7 +38,7 @@
 					</div>
 
 					<div class="right-align">
-						<a href={data.link}> <Label>View Video</Label></a>
+						<a href={data.link} target="_blank"> <Label>View Video</Label></a>
 					</div>
 				</div>
 
