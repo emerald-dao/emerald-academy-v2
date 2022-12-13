@@ -56,12 +56,14 @@
 
 	function tranformHeadingsToSteps() {
 		headings.forEach((heading) => {
-			steps.push({
-				name: heading.title,
-				state: 'inactive',
-				url: `#${transformHeadingToUrl(heading.title)}`
-			});
-			steps = steps;
+			if (heading.level > 1) {
+				steps.push({
+					name: heading.title,
+					state: 'inactive',
+					url: `#${transformHeadingToUrl(heading.title)}`
+				});
+				steps = steps;
+			}
 		});
 	}
 
@@ -80,7 +82,7 @@
 		diameter={0.6}
 		direction="column-reverse"
 		fontSize="small"
-		gap={0.7}
+		gap={0.8}
 		cutLineEnds={false}
 	/>
 </div>
