@@ -75,5 +75,12 @@
 <svelte:window on:scroll={trackScroll} />
 
 <div>
-	<ProgressSteps {steps} diameter={0.6} direction="column-reverse" fontSize="small" gap={0.7} />
+	<ProgressSteps
+		{steps}
+		diameter={0.6}
+		direction="column-reverse"
+		fontSize="small"
+		gap={0.7}
+		cutLineEnds={false}
+	/>
 </div>
