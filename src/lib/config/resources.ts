@@ -21,6 +21,7 @@ export const resources: Resources[] = [
 		link: 'example.com'
 	}
 ];
+//cambiar imageUrl
 
 interface Resources {
 	image: string;

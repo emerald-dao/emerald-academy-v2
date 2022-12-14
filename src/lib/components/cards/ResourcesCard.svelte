@@ -10,7 +10,7 @@
 </script>
 
 <div class="card-primary">
-	<a href={resource.link}>
+	<a href={resource.link} target="_blank">
 		<div class="main-wrapper">
 			<div class="image">
 				<img src={resource.image} alt="" class="specific-image" />

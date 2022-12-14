@@ -3,7 +3,9 @@
 	import CurriculumOverview from '$lib/components/cards/CurriculumOverview.svelte';
 	import Faqs from '$lib/components/faqs/Faqs.svelte';
 	import SpecificContentCard from '$lib/components/cards/SpecificContentCard.svelte';
+	import { Button } from '@emerald-dao/component-library';
 	export let data: Data;
+	console.log(data);
 
 	interface Data {
 		thisCourse: ThisCourse[];
@@ -27,6 +29,7 @@
 				<CurriculumOverview overview={data.overview} />
 			</div>
 		</div>
+		<Button href={data.thisCourse[0].path.replace('content', 'catalog')}>Start</Button>
 	</div>
 	<div>
 		<div class="flex">

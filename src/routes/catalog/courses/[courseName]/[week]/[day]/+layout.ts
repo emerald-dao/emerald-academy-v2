@@ -10,5 +10,4 @@ export const load = async ({ fetch, params }) => {
 	} catch (e) {
 		throw new Error();
 	}
-}; 
-
+};
