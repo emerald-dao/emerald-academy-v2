@@ -1,10 +1,18 @@
 <section>
 	<div>
 		<div class="main-wrapper">
-			<p class="join">Join on something big</p>
-			<p>50m</p>
-			<p>190m</p>
-			<p>5.44</p>
+			<div>
+				<h4 class="join">Join on <br />something big</h4>
+			</div>
+			<div class="first">
+				<h4>50m</h4>
+			</div>
+			<div class="second">
+				<h4>190m</h4>
+			</div>
+			<div class="third">
+				<h4>5.44</h4>
+			</div>
 		</div>
 	</div>
 </section>
@@ -16,9 +24,6 @@
 		gap: 1rem;
 		justify-content: center;
 		text-align: center;
-		background-color: var(--clr-surface-primary);
-		color: var(--clr-heading-main);
-		padding: var(--space-10);
 	}
 	p {
 		color: var(--clr-heading-main);
@@ -26,6 +31,13 @@
 		--font-weight: var(--font-weight-medium);
 	}
 	.join {
-		font-size: var(--font-size-4);
+		--font-weight: var(--font-weight-normal);
+		text-align: left;
+		margin-right: var(--space-15);
+	}
+	.first,
+	.second,
+	.third {
+		margin-right: var(--space-15);
 	}
 </style>

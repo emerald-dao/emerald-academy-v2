@@ -2,7 +2,6 @@
 	import type { Overview } from '$lib/types/content/content-overview.interface';
 	import { Label } from '@emerald-dao/component-library';
 	import ContentLabel from '../label/ContentLabel.svelte';
-	import CurriculumOverview from './CurriculumOverview.svelte';
 	export let overview: Overview;
 	console.log(overview);
 </script>

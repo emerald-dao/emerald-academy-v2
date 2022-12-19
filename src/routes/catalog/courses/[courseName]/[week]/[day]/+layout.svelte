@@ -14,6 +14,13 @@
 		let amountOfWeeks = data.thisCourse[objectsArray - 1].week;
 		return amountOfWeeks;
 	};
+	let number = 0;
+	const getIndex = (i: number) => {
+		number = i;
+		console.log(number);
+
+		return number;
+	};
 	console.log(data);
 	let weeks = getAmountWeeks();
 </script>
@@ -25,13 +32,18 @@
 				<p>Course Overview</p>
 				{#each Array(weeks) as _, index (index)}
 					<div class="column">
-						<p>Week: {index + 1}</p>
-						{#each data.thisCourse as dayInfo}
+						<p class="week">Week: {index + 1}</p>
+						{#each data.thisCourse as dayInfo, i}
 							{#if dayInfo.week === index + 1}
-								<a class="menu-link" href={dayInfo.path.replace('content', 'catalog')}>
-									{dayInfo.meta.title}
-								</a>
-								<br />
+								<div
+									on:click={() => getIndex(i)}
+									class:selected={i === number}
+									class="each-content"
+								>
+									<a class="menu-link" href={dayInfo.path.replace('content', 'catalog')}>
+										{dayInfo.meta.title}
+									</a>
+								</div>
 							{/if}
 						{/each}
 					</div>
@@ -46,13 +58,13 @@
 <style type="scss">
 	.grid-wrapper {
 		display: grid;
-		grid-template-columns: 1fr 5fr;
+		grid-template-columns: 1fr 4fr;
 		gap: var(--space-14);
 	}
 
 	.column {
-		margin-bottom: var(--space-5);
-		margin-top: var(--space-3);
+		margin-bottom: var(--space-8);
+		margin-top: var(--space-8);
 	}
 
 	.sidebar {
@@ -61,5 +73,22 @@
 		position: sticky;
 		top: 100px;
 		padding-block: var(--space-8);
+	}
+	.menu-link {
+		text-decoration: none;
+		cursor: pointer;
+		&:hover {
+			color: var(--clr-primary-300);
+		}
+		color: var(--clr-text-main);
+	}
+	.selected {
+		color: red;
+	}
+	.week {
+		color: var(--clr-text-off);
+	}
+	.each-content {
+		margin: var(--space-2) 0;
 	}
 </style>

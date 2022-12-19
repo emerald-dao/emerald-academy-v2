@@ -6,17 +6,33 @@
 	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
 	import { onBoardingSteps, onBoardingActiveStep } from '$stores/onBoarding/OnBoardingSteps';
 	import Modal, { getModal } from '$lib/components/atoms/Modal.svelte';
+	import { Breadcrumbs } from '@emerald-dao/component-library';
+	import { page } from '$app/stores';
+	import { transformUrlToHeading } from '$lib/utilities/dataTransformation/transformUrlToHeading';
 
 	export let data: Data;
 
 	interface Data {
 		overview: BootcampOverview;
 	}
+	console.log($page.params);
+
+	let routes = [
+		{
+			path: '/catalog',
+			label: 'Catalog'
+		},
+		{
+			path: `/catalog/${$page.params.name}`,
+			label: transformUrlToHeading($page.params.name)
+		}
+	];
 </script>
 
 <section>
 	<div class="container grid-wrapper">
 		<div class="content">
+			<Breadcrumbs {routes} />
 			<SpecificContentCard overview={data.overview} />
 			<Button on:click={() => getModal().open()}>Enroll</Button>
 		</div>

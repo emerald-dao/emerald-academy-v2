@@ -18,9 +18,9 @@
 	<div class="questions">
 		{#each questionAnswer as data, i}
 			<div on:click={() => getIndex(i)} class="clickable-div" class:selected={i === number}>
-				{data.question}
+				<p>{data.question}</p>
 			</div>
-			<hr size="1" color="white" />
+			<hr />
 		{/each}
 	</div>
 	<div class="answers">
@@ -39,16 +39,20 @@
 	.clickable-div {
 		cursor: pointer;
 		&:hover {
-			color: var(--clr-primary-main);
+			color: var(--clr-heading-main);
 		}
 		padding-bottom: var(--space-3);
 		padding-top: var(--space-3);
+		color: var(--clr-text-off);
 	}
 	.selected {
-		color: var(--clr-primary-main);
+		color: var(--clr-heading-main);
 	}
 	.questions,
 	.answers {
 		margin: var(--space-3);
+	}
+	hr {
+		border: 1px solid var(--clr-neutral-800);
 	}
 </style>

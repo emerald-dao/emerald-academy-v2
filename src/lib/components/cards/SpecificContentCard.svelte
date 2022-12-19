@@ -26,7 +26,7 @@
 </div>
 <div class="flex">
 	{#each overview.metadata.subjects as subject}
-		<div class="labelDisplay">
+		<div class="label-display">
 			<Label iconLeft="tabler:arrow-down-right" color="neutral">{subject}</Label>
 		</div>
 	{/each}
@@ -43,6 +43,9 @@
 		padding: var(--space-4) 0 var(--space-4) 0;
 	}
 	.metadata {
+		margin-right: var(--space-3);
+	}
+	.label-display {
 		margin-right: var(--space-3);
 	}
 </style>
