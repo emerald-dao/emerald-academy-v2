@@ -1,10 +1,10 @@
 <script type="ts">
+	import type { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 	import { Label } from '@emerald-dao/component-library';
 	import { createEventDispatcher } from 'svelte';
 	import ContentLabel from '../label/ContentLabel.svelte';
 
-	export let name: string;
-	export let icon: string;
+	export let name: ContentTypeEnum;
 
 	const dispatch = createEventDispatcher();
 	let value: boolean;
@@ -20,9 +20,9 @@
 <div>
 	<label for={name}>
 		<input type="checkbox" id={name} {name} bind:checked={value} />
-		<Label state={value ? 'on' : 'off'} color="neutral" iconLeft={icon}>
+		<ContentLabel state={value ? 'on' : 'off'} type={name} color="neutral">
 			<slot />
-		</Label>
+		</ContentLabel>
 	</label>
 </div>
 

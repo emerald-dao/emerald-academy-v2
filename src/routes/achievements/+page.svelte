@@ -1,32 +1,38 @@
 <script type="ts">
-	import { achievements } from "$stores/AchievementsTest";
-	import Card from "$lib/components/atoms/Card.svelte"
-	import { Section } from "@mateoroldos/svelte.bones";
-	import { Container } from "@mateoroldos/svelte.bones";
+	import AchievementsCard from '$lib/components/cards/AchievementsCard.svelte';
+	import { achievements } from '$stores/AchievementsTest';
 </script>
 
-
-<Section>
-	<Container>
-		<div class="in-a-row">
-			{#each  achievements as achievement}
-			<Card>
-				<h4>{achievement.title}</h4>
-				<p>{achievement.description}</p>
-			</Card>
+<section>
+	<div class="container ">
+		<div class="main">
+			<h4>Your Achievements</h4>
+			<div>
+				<p>main achievement</p>
+			</div>
+		</div>
+		<div class="secondary-wrapper">
+			{#each achievements as achievement}
+				<div class="specific-card">
+					<AchievementsCard {achievement} />
+				</div>
 			{/each}
 		</div>
-		
-	</Container>
-</Section>
-
+	</div>
+</section>
 
 <style>
-	.in-a-row {
+	.main {
 		display: flex;
-		flex-direction: row;
-		gap: 3rem;
-		justify-content: center;
-		text-align: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	.secondary-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-4);
+	}
+	.specific-card {
+		width: 32%;
 	}
 </style>

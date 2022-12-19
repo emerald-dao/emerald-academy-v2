@@ -31,6 +31,12 @@
 				<p>
 					{overview.excerpt}
 				</p>
+				<h5>Skills you'll learn</h5>
+				<div class="subs">
+					{#each overview.metadata.subjects as subs}
+						<Label color="neutral">{subs}</Label>
+					{/each}
+				</div>
 			</div>
 		</div>
 		<div />
@@ -43,6 +49,7 @@
 	}
 	.data {
 		margin-bottom: var(--space-4);
+		gap: var(--space-4);
 	}
 	.row {
 		display: flex;
@@ -53,6 +60,14 @@
 	}
 	.meta {
 		margin-right: var(--space-4);
+	}
+	.subs {
+		gap: var(--space-4);
+		display: flex;
+		flex-direction: row;
+	}
+	h5 {
+		margin-bottom: var(--space-3);
 	}
 	a {
 		text-decoration: none;

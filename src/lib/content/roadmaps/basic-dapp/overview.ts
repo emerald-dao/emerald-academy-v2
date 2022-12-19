@@ -2,7 +2,6 @@ import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum'
 import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
-import { icon } from '$lib/types/content/metadata/icon.enum';
 import { generateSlug } from '$lib/utilities/dataTransformation/generateSlug';
 export const overview: RoadmapOverview = {
 	title: 'Begginer Dapp Roadmap',
@@ -13,7 +12,7 @@ export const overview: RoadmapOverview = {
 		expertise: ExpertiseEnum.begginer,
 		duration: '3 weeks',
 		prerequisites: ['javascript'],
-		subjects: [SubjectsEnum.Backend, SubjectsEnum.Frontend]
+		subjects: [SubjectsEnum.Cadence, SubjectsEnum.Frontend]
 	},
 	contents: [
 		{

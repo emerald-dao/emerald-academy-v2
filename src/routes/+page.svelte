@@ -3,7 +3,7 @@
 	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
 	import type { CourseOverview } from '$lib/types/content/course.interface';
 	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
-	import { Label } from '@emerald-dao/component-library';
+
 	import {
 		HeroSection,
 		ExploreSection,

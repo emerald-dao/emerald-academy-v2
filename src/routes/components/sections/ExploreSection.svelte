@@ -70,7 +70,6 @@
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		
 	}
 	.explore {
 		color: var(--clr-primary-main);

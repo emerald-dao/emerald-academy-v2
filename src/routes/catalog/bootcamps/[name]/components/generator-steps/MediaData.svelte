@@ -1,12 +1,32 @@
-<script>
-	import Card from '$lib/components/atoms/Card.svelte';
-	// import { Button } from "@emerald-dao/component-library";
-	// import { onBoardingActiveStep } from "$stores/onBoarding/OnBoardingSteps";
+<script type="ts">
 	import StepButton from '../atoms/StepButton.svelte';
 </script>
 
-<Card>
-	<h3>Media Data</h3>
+<div class="main-wrapper">
+	<div>
+		<h3>One more thing to do</h3>
+	</div>
+	<div class="main-wrapper">
+		<form action="">
+			<label for="discord-handle">What's your Discord handle?</label>
+			<input name="discord-handle" type="text" placeholder="tsnakjake#233" />
+			<label for="blocto-adress">What's your Blotco adress?</label>
+			<input name="blocto-adress" type="email" placeholder="0x99bd48c8035kdjeu504" />
+		</form>
+	</div>
+	<StepButton active={true} />
+</div>
 
-	<StepButton />
-</Card>
+<style type="scss">
+	.main-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+	h3 {
+		margin-bottom: 3rem;
+	}
+</style>

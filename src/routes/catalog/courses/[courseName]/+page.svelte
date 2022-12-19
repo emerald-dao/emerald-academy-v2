@@ -19,26 +19,28 @@
 	}
 </script>
 
-<div>
-	<div class="row">
-		<div class="col1">
-			<SpecificContentCard overview={data.overview} />
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col1">
+				<SpecificContentCard overview={data.overview} />
+			</div>
+			<div class="col">
+				<div>
+					<CurriculumOverview overview={data.overview} />
+				</div>
+			</div>
+			<Button href={data.thisCourse[0].path.replace('content', 'catalog')}>Start</Button>
 		</div>
-		<div class="col">
-			<div>
-				<CurriculumOverview overview={data.overview} />
+		<div>
+			<div class="flex">
+				{#if data.overview.metadata.faqs}
+					<Faqs questionAnswer={data.overview.metadata.faqs} />
+				{/if}
 			</div>
 		</div>
-		<Button href={data.thisCourse[0].path.replace('content', 'catalog')}>Start</Button>
 	</div>
-	<div>
-		<div class="flex">
-			{#if data.overview.metadata.faqs}
-				<Faqs questionAnswer={data.overview.metadata.faqs} />
-			{/if}
-		</div>
-	</div>
-</div>
+</section>
 
 <style type="scss">
 	.flex {

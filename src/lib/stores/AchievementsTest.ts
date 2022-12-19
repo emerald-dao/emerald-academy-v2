@@ -1,18 +1,32 @@
-
- export const achievements = [{
-    title: 'Cadence Master',
-    image: '/achievements/candece-master.jpg',
-    description: 'lorem ipusum'
-},
-{
-    title: 'Bootcamp Master Master',
-    image: '/achievements/candece-master.jpg',
-    description: 'lorem ipusum'
-},
-{
-    title: 'Web Master',
-    image: '/achievements/candece-master.jpg',
-    description: 'lorem ipusum'
-}
-]
-
+export const achievements = [
+	{
+		title: 'DIAMANTIS',
+		image: 'string',
+		description: 'best diamond'
+	},
+	{
+		title: 'DIAMANTIS',
+		image: 'string',
+		description: 'best diamond'
+	},
+	{
+		title: 'DIAMANTIS',
+		image: 'string',
+		description: 'best diamond'
+	},
+	{
+		title: 'DIAMANTIS',
+		image: 'string',
+		description: 'best diamond'
+	},
+	{
+		title: 'DIAMANTIS',
+		image: 'string',
+		description: 'best diamond'
+	},
+	{
+		title: 'DIAMANTIS',
+		image: 'string',
+		description: 'best diamond'
+	}
+];

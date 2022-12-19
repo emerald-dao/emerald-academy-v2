@@ -44,6 +44,22 @@
 				}
 			],
 			filterBucket: []
+		},
+		{
+			title: 'Expertise',
+			filterElement: [
+				{
+					title: 'Tips&Tricks',
+					icon: 'icon',
+					slug: ContentTypeEnum.Tips
+				},
+				{
+					title: 'Cadence',
+					icon: 'icon',
+					slug: ContentTypeEnum.Course
+				}
+			],
+			filterBucket: []
 		}
 	];
 </script>

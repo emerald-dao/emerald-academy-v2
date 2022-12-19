@@ -5,7 +5,7 @@ import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 import { generateSlug } from '$lib/utilities/dataTransformation/generateSlug';
 
 export const overview: RoadmapOverview = {
-	title: 'Begginer Cadence Roadmap',
+	title: 'AAAAAAA Cadence Roadmap',
 	contentType: ContentTypeEnum.Roadmap,
 	slug: generateSlug(import.meta.url),
 	excerpt: 'Lorem ipsum dolor sit amet.',

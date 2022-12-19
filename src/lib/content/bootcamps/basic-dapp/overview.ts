@@ -14,7 +14,7 @@ export const overview: BootcampOverview = {
 		expertise: ExpertiseEnum.intermediate,
 		duration: '3 weeks',
 		prerequisites: ['javascript'],
-		subjects: [SubjectsEnum.Backend, SubjectsEnum.Frontend],
+		subjects: [SubjectsEnum.Backend, SubjectsEnum.Frontend, SubjectsEnum.Cadence],
 		faqs: [
 			{
 				question: 'First Question',
