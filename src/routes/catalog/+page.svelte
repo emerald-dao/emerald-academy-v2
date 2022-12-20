@@ -4,6 +4,7 @@
 	import type { Overview } from '$lib/types/content/content-overview.interface';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 	import type { Filter } from '$lib/types/content/filters/filter.interface';
+	import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 	export let data: Data;
 	console.log(data);
@@ -25,6 +26,11 @@
 					title: 'Courses',
 					icon: 'icon',
 					slug: ContentTypeEnum.Course
+				},
+				{
+					title: 'Roadmap',
+					icon: 'icon',
+					slug: ContentTypeEnum.Roadmap
 				}
 			],
 			filterBucket: []
@@ -33,30 +39,14 @@
 			title: 'Subject',
 			filterElement: [
 				{
-					title: 'Tips&Tricks',
+					title: 'Backend',
 					icon: 'icon',
-					slug: ContentTypeEnum.Tips
+					slug: SubjectsEnum.Backend
 				},
 				{
-					title: 'Cadence',
+					title: 'Frontend',
 					icon: 'icon',
-					slug: ContentTypeEnum.Course
-				}
-			],
-			filterBucket: []
-		},
-		{
-			title: 'Expertise',
-			filterElement: [
-				{
-					title: 'Tips&Tricks',
-					icon: 'icon',
-					slug: ContentTypeEnum.Tips
-				},
-				{
-					title: 'Cadence',
-					icon: 'icon',
-					slug: ContentTypeEnum.Course
+					slug: SubjectsEnum.Frontend
 				}
 			],
 			filterBucket: []
@@ -70,7 +60,7 @@
 		<div class="main">
 			{#each data.content as content}
 				{#if filters[0].filterBucket.includes(content.contentType) || filters[0].filterBucket.length < 1}
-					{#if filters[1].filterBucket.includes(content.contentType) || filters[1].filterBucket.length < 1}
+					{#if filters[1].filterBucket.some( (item) => content.metadata.subjects.includes(item) ) || filters[1].filterBucket.length < 1}
 						<ContentCard overview={content} />
 					{/if}
 				{/if}

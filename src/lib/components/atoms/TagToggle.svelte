@@ -20,22 +20,18 @@
 <div>
 	<label for={name}>
 		<input type="checkbox" id={name} {name} bind:checked={value} />
-		<ContentLabel state={value ? 'on' : 'off'} type={name} color="neutral">
+		<ContentLabel state={value ? 'on' : 'off'} type={name} color={value ? 'tertiary' : 'neutral'}>
 			<slot />
 		</ContentLabel>
 	</label>
 </div>
 
 <style>
-	div {
-		padding: var(--space-1) var(--space-2);
+	label {
 		cursor: pointer;
 	}
+
 	input {
 		display: none;
-	}
-
-	input:checked + span {
-		background-color: var(--clr-primary-main);
 	}
 </style>

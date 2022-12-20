@@ -1,5 +1,4 @@
 <script type="ts">
-	import Faqs from '$lib/components/faqs/Faqs.svelte';
 	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
 	import type { CourseOverview } from '$lib/types/content/course.interface';
 	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';

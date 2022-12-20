@@ -1,6 +1,7 @@
 <script type="ts">
 	import CurriculumOverview from '$lib/components/cards/CurriculumOverview.svelte';
 	import SpecificContentCard from '$lib/components/cards/SpecificContentCard.svelte';
+	import ContentLabel from '$lib/components/label/ContentLabel.svelte';
 	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 	import { Label } from '@emerald-dao/component-library';
 	export let data: Data;
@@ -28,16 +29,19 @@
 					<div class="grid-wrapper">
 						<div>
 							<a href={`/${content.url}`}>
-								<p class="w-bold">{content.title}</p>
+								<h4 class="w-bold">{content.title}</h4>
 							</a>
 
 							<p>{content.excerpt}</p>
-							<Label>{content.contentType}</Label>
-							<Label>{content.duration}</Label>
 						</div>
+						<div class="type">
+							<Label color="primary">{content.contentType}</Label>
+							<Label color="neutral">{content.duration}</Label>
+						</div>
+
 						<div>
 							{#each content.subjects as sub}
-								<Label>{sub}</Label>
+								<Label color="transparent">{sub}</Label>
 							{/each}
 						</div>
 					</div>
@@ -49,8 +53,9 @@
 
 <style type="scss">
 	.grid-wrapper {
-		display: grid;
-		grid-template-columns: 2fr 1fr;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
 	}
 	.content {
 		padding-right: var(--space-10);
@@ -60,5 +65,15 @@
 	}
 	.card-primary {
 		margin-bottom: var(--space-2);
+	}
+	a {
+		text-decoration: none;
+	}
+	.type {
+		display: flex;
+		flex-direction: row;
+		gap: var(--space-2);
+		height: fit-content;
+		vertical-align: middle;
 	}
 </style>

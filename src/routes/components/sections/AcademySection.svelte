@@ -1,10 +1,32 @@
 <script type="ts">
-	import { Splide, SplideSlide, SplideTrack } from '@splidejs/svelte-splide';
-	import { Label } from '@emerald-dao/component-library';
 	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
-	import SpecificContentCard from '$lib/components/cards/SpecificContentCard.svelte';
 	import ContentCard from '$lib/components/cards/ContentCard.svelte';
+	import type { Filter } from '$lib/types/content/filters/filter.interface';
+	import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
+	import Filters from '$lib/components/filters/Filters.svelte';
+
 	export let roadmaps: RoadmapOverview[];
+
+	let filters: Filter[] = [
+		{
+			title: 'Subject',
+			filterElement: [
+				{
+					title: 'Cadence',
+					icon: 'icon',
+					slug: SubjectsEnum.Cadence
+				},
+				{
+					title: 'Frontend',
+					icon: 'icon',
+					slug: SubjectsEnum.Frontend
+				}
+			],
+			filterBucket: []
+		}
+	];
+	console.log(roadmaps);
+	let filter = false;
 </script>
 
 <section>
@@ -13,17 +35,17 @@
 			<div>
 				<h3 class="right-align">Follow one of our roadmaps</h3>
 				<div class="labels">
-					<Label color="neutral">Dapp development</Label>
-					<Label color="neutral">Cadence</Label>
-					<Label color="neutral">Web</Label>
+					<div class="sidebar column-10"><Filters bind:filters /></div>
 				</div>
 			</div>
 
 			<div class="cards">
 				{#each roadmaps as road}
-					<div class="hola">
-						<SplideSlide><ContentCard overview={road} /></SplideSlide>
-					</div>
+					{#if filters[0].filterBucket.length < 1}
+						<ContentCard overview={road} />
+					{:else if filters[0].filterBucket.some((item) => road.metadata.subjects.includes(item))}
+						<ContentCard overview={road} />
+					{/if}
 				{/each}
 			</div>
 		</div>

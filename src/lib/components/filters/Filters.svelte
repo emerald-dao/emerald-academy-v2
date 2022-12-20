@@ -53,6 +53,5 @@
 	.each-tag-wrapper {
 		margin-bottom: var(--space-5);
 		margin-right: var(--space-2);
-		background-color: none;
 	}
 </style>
