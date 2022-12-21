@@ -5,6 +5,7 @@
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 	import type { Filter } from '$lib/types/content/filters/filter.interface';
 	import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
+	import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 
 	export let data: Data;
 	console.log(data);
@@ -50,6 +51,27 @@
 				}
 			],
 			filterBucket: []
+		},
+		{
+			title: 'Expertise',
+			filterElement: [
+				{
+					title: 'Begginer',
+					icon: 'icon',
+					slug: ExpertiseEnum.begginer
+				},
+				{
+					title: 'Intermediate',
+					icon: 'icon',
+					slug: ExpertiseEnum.intermediate
+				},
+				{
+					title: 'Advanced',
+					icon: 'icon',
+					slug: ExpertiseEnum.advanced
+				}
+			],
+			filterBucket: []
 		}
 	];
 </script>
@@ -61,7 +83,9 @@
 			{#each data.content as content}
 				{#if filters[0].filterBucket.includes(content.contentType) || filters[0].filterBucket.length < 1}
 					{#if filters[1].filterBucket.some( (item) => content.metadata.subjects.includes(item) ) || filters[1].filterBucket.length < 1}
-						<ContentCard overview={content} />
+						{#if filters[2].filterBucket.includes(content.metadata.expertise) || filters[2].filterBucket.length < 1}
+							<ContentCard overview={content} />
+						{/if}
 					{/if}
 				{/if}
 			{/each}

@@ -1,18 +1,16 @@
 <section>
-	<div>
-		<div class="main-wrapper">
-			<div>
-				<h4 class="join">Join on <br />something big</h4>
-			</div>
-			<div class="first">
-				<h4>50m</h4>
-			</div>
-			<div class="second">
-				<h4>190m</h4>
-			</div>
-			<div class="third">
-				<h4>5.44</h4>
-			</div>
+	<div class="main-wrapper">
+		<div>
+			<h4 class="join">Join on <br />something big</h4>
+		</div>
+		<div class="first solid">
+			<h4>50m</h4>
+		</div>
+		<div class="second solid">
+			<h4>190m</h4>
+		</div>
+		<div class="third solid">
+			<h4>5.44</h4>
 		</div>
 	</div>
 </section>
@@ -24,12 +22,19 @@
 		gap: 1rem;
 		justify-content: center;
 		text-align: center;
+		background-color: var(--clr-primary-main);
+		padding: var(--space-6);
+		// background-color: #{'rgba(var(--clr-primary-main), 0.5)'};
+		// background-color: var(--clr-primary-main);
+		// opacity: 0.6;
+		.main-wrapper > * {
+			opacity: 0.1;
+		}
+		.main-wrapper > .solid {
+			opacity: 1;
+		}
 	}
-	p {
-		color: var(--clr-heading-main);
-		padding-right: var(--space-20);
-		--font-weight: var(--font-weight-medium);
-	}
+
 	.join {
 		--font-weight: var(--font-weight-normal);
 		text-align: left;
@@ -39,5 +44,9 @@
 	.second,
 	.third {
 		margin-right: var(--space-15);
+		--font-weight: var(--font-weight-medium);
+	}
+	h4 {
+		color: black;
 	}
 </style>

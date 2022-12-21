@@ -25,8 +25,6 @@
 			filterBucket: []
 		}
 	];
-	console.log(roadmaps);
-	let filter = false;
 </script>
 
 <section>

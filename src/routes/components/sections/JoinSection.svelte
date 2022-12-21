@@ -3,14 +3,13 @@
 	import Card from '$lib/components/atoms/Card.svelte';
 </script>
 
-<Section>
+<!-- <Section>
 	<Container>
 		<div class="secondary-wrapper">
 			<h4>Join DAO</h4>
 		</div></Container
 	>
-</Section>
-
+</Section> -->
 <style>
 	.secondary-wrapper {
 		display: flex;

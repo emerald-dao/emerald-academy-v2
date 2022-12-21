@@ -19,12 +19,7 @@
 	let activeContent: number = 0;
 	const clickedContent = (i: number) => {
 		activeContent = i;
-		console.log(activeContent);
 	};
-	// console.log(typeOfContent);
-	// console.log(activeContent);
-	// console.log(courses.toString());
-	// console.log(typeOfContent[activeContent]);
 </script>
 
 <section>
