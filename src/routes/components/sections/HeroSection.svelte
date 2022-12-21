@@ -1,24 +1,44 @@
 <script type="ts">
+	import { browser } from '$app/environment';
 	import Icon from '@iconify/svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import CommunityAvatar from '../atoms/CommunityAvatar.svelte';
 
 	let vidRef: HTMLVideoElement;
 
 	const handlePlay = () => {
-		const elem = vidRef;
+		vidRef.style.display = 'block';
 
-		elem.style.display = 'block';
-
-		elem.requestFullscreen();
+		vidRef.requestFullscreen();
+		vidRef.play();
 	};
+
+	const handleEnd = () => {
+		vidRef.style.display = 'none';
+
+		document.exitFullscreen();
+	};
+
+	const handleExitFullscreen = () => {
+		if (!document.fullscreenElement) {
+			vidRef.style.display = 'none';
+			vidRef.pause();
+		}
+	};
+
+	onMount(() => {
+		document.addEventListener('fullscreenchange', handleExitFullscreen);
+	});
+
+	onDestroy(() => {
+		if (browser) {
+			document.removeEventListener('fullscreenchange', handleExitFullscreen);
+		}
+	});
 </script>
 
-<video width="0" height="0" controls bind:this={vidRef} style="display: none;">
-	<source
-		src={'http://media.w3.org/2010/05/sintel/trailer.ogv'}
-		type="video/mp4"
-		on:play={handlePlay}
-	/>
+<video width="0" height="0" controls bind:this={vidRef} style="display: none;" on:ended={handleEnd}>
+	<source src={'http://media.w3.org/2010/05/sintel/trailer.ogv'} type="video/mp4" />
 	<track kind="captions" />
 </video>
 <section>
