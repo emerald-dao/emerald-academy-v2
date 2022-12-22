@@ -4,6 +4,7 @@
 	import type { Filter } from '$lib/types/content/filters/filter.interface';
 	import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 	import Filters from '$lib/components/filters/Filters.svelte';
+	import { Button } from '@emerald-dao/component-library';
 
 	export let roadmaps: RoadmapOverview[];
 
@@ -31,9 +32,14 @@
 	<div class="container">
 		<div class="content">
 			<div>
-				<h3 class="right-align">Follow one of our roadmaps</h3>
-				<div class="labels">
-					<div class="sidebar column-10"><Filters bind:filters /></div>
+				<h3>Follow one of our Learning Paths</h3>
+				<div>
+					<div class="sidebar">
+						<Filters bind:filters />
+						<div class="button">
+							<Button target="_blank" href="/catalog">Start Learning</Button>
+						</div>
+					</div>
 				</div>
 			</div>
 
@@ -54,16 +60,27 @@
 	.content {
 		display: grid;
 		grid-template-columns: 1fr 2fr;
-	}
-	.labels {
-		display: flex;
-		flex-direction: row;
-		gap: var(--space-3);
-		padding-top: var(--space-3);
-	}
-	.cards {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: var(--space-3);
+
+		h3 {
+			justify-content: left;
+			--font-weight: var(--font-weight-semibold);
+			text-align: right;
+			margin-right: var(--space-13);
+		}
+
+		.sidebar {
+			text-align: right;
+			margin: var(--space-3) var(--space-12) 0 0;
+			float: right;
+		}
+		.button {
+			float: right;
+			margin-right: var(--space-2);
+		}
+		.cards {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: var(--space-3);
+		}
 	}
 </style>

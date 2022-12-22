@@ -53,6 +53,9 @@
 	.row {
 		display: flex;
 		flex-direction: row;
+		flex-wrap: wrap;
+		gap: var(--space-3);
+		margin-bottom: var(--space-3);
 	}
 	h3 {
 		margin: var(--space-4) 0 var(--space-4) 0;
@@ -64,6 +67,7 @@
 		gap: var(--space-4);
 		display: flex;
 		flex-direction: row;
+		flex-wrap: wrap;
 	}
 	h5 {
 		margin-bottom: var(--space-3);

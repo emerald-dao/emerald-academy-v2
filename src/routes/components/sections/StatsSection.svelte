@@ -1,4 +1,4 @@
-<section>
+<!-- <section>
 	<div class="main-wrapper">
 		<div>
 			<h4 class="join">Join on <br />something big</h4>
@@ -49,4 +49,4 @@
 	h4 {
 		color: black;
 	}
-</style>
+</style> -->
