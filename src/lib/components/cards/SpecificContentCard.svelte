@@ -1,14 +1,19 @@
 <script type="ts">
 	import type { Overview } from '$lib/types/content/content-overview.interface';
+	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
 	import Label from '@emerald-dao/component-library/components/Label/Label.svelte';
+	import ContentLabel from '../label/ContentLabel.svelte';
 
 	export let overview: Overview;
 </script>
 
 <div class="data">
-	<h2>
+	<ContentLabel type={overview.contentType} color="primary"
+		>{firstCapital(overview.contentType)}</ContentLabel
+	>
+	<h3>
 		{overview.title}
-	</h2>
+	</h3>
 	<div class="flex labelDisplay">
 		<div class="metadata">
 			<Label iconLeft="tabler:flame" color="transparent">Level: {overview.metadata.expertise}</Label
@@ -33,7 +38,7 @@
 </div>
 
 <style type="scss">
-	h2,
+	h3,
 	p {
 		padding: var(--space-4) 0 var(--space-4) 0;
 	}

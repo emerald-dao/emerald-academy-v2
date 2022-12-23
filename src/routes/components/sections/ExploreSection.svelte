@@ -1,7 +1,5 @@
 <script type="ts">
 	import ContentCard from '$lib/components/cards/ContentCard.svelte';
-	import ContentLabel from '$lib/components/label/ContentLabel.svelte';
-	import { contentTypes } from '$lib/config/contentTypes';
 	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
 	import type { CourseOverview } from '$lib/types/content/course.interface';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
@@ -72,24 +70,26 @@
 </section>
 
 <style type="scss">
-	.titles {
-		display: flex;
-		flex-direction: column;
-		gap: 3rem;
-		text-align: center;
-	}
-	.sidebar-link {
-		padding-bottom: var(--space-6);
-	}
 	.tagline {
 		color: var(--clr-tertiary-main);
 		margin-top: var(--space-3);
 	}
 
-	h3 {
-		margin-bottom: 3rem;
-		--font-weight: var(--font-weight-bold);
+	.titles {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+		text-align: center;
+
+		h3 {
+			margin-bottom: 3rem;
+			--font-weight: var(--font-weight-bold);
+		}
 	}
+	.sidebar-link {
+		padding-bottom: var(--space-6);
+	}
+
 	.content {
 		display: grid;
 		grid-template-columns: 1fr 3fr;

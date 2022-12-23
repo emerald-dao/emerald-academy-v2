@@ -23,9 +23,9 @@
 {#each filters as filter, i}
 	<div>
 		<h5>{filter.title}</h5>
-		<div class="tags-wrapper row-5">
+		<div class="tags-wrapper">
 			{#each filter.filterElement as element}
-				<div class="each-tag-wrapper">
+				<div class="each-tag">
 					<TagToggle
 						icon={element.icon}
 						name={element.slug}
@@ -49,9 +49,10 @@
 
 	.tags-wrapper {
 		flex-wrap: wrap;
-	}
-	.each-tag-wrapper {
-		margin-bottom: var(--space-5);
-		margin-right: var(--space-2);
+		margin-bottom: var(--space-3);
+
+		.each-tag {
+			margin-bottom: var(--space-3);
+		}
 	}
 </style>

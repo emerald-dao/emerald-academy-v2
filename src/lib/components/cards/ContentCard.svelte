@@ -2,6 +2,7 @@
 	import type { Overview } from '$lib/types/content/content-overview.interface';
 	import { Label } from '@emerald-dao/component-library';
 	import ContentLabel from '../label/ContentLabel.svelte';
+	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
 	export let overview: Overview;
 	console.log(overview);
 </script>
@@ -11,7 +12,7 @@
 		<div class="data">
 			<div class="meta">
 				<ContentLabel type={overview.contentType} color="primary"
-					>{overview.contentType}</ContentLabel
+					>{firstCapital(overview.contentType)}</ContentLabel
 				>
 
 				<h3>
@@ -71,6 +72,7 @@
 	}
 	h5 {
 		margin-bottom: var(--space-3);
+		--font-weight: var(--font-weight-normal);
 	}
 	a {
 		text-decoration: none;

@@ -32,7 +32,10 @@
 <section>
 	<div class="container grid-wrapper">
 		<div class="content">
-			<Breadcrumbs {routes} />
+			<div class="breadcrumbs-wrapper">
+				<Breadcrumbs {routes} />
+			</div>
+
 			<SpecificContentCard overview={data.overview} />
 			<Button on:click={() => getModal().open()}>Enroll</Button>
 		</div>
@@ -60,5 +63,8 @@
 	}
 	.content {
 		padding-right: var(--space-10);
+	}
+	.breadcrumbs-wrapper {
+		margin-bottom: var(--space-4);
 	}
 </style>

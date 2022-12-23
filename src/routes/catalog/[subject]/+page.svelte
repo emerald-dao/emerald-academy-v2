@@ -38,6 +38,11 @@
 					title: 'Courses',
 					icon: 'icon',
 					slug: ContentTypeEnum.Course
+				},
+				{
+					title: 'Roadmaps',
+					icon: 'icon',
+					slug: ContentTypeEnum.Roadmap
 				}
 			],
 			filterBucket: []
@@ -46,14 +51,14 @@
 			title: 'Subject',
 			filterElement: [
 				{
-					title: 'Tips&Tricks',
+					title: 'Backend',
 					icon: 'icon',
-					slug: ContentTypeEnum.Tips
+					slug: SubjectsEnum.Backend
 				},
 				{
-					title: 'Cadence',
+					title: 'Frontend',
 					icon: 'icon',
-					slug: ContentTypeEnum.Course
+					slug: SubjectsEnum.Frontend
 				}
 			],
 			filterBucket: []
@@ -63,17 +68,20 @@
 
 <section>
 	<div class="container">
-		<Breadcrumbs {routes} />
-		<h1>{subjectCapital}</h1>
-		<p>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit minima ut modi, laboriosam
-			voluptatum quas omnis repellendus nostrum mollitia eum enim velit blanditiis optio rem quidem
-			est labore? Molestiae, autem!
-		</p>
+		<div class="title-wrapper">
+			<Breadcrumbs {routes} />
+			<h1>{subjectCapital}</h1>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit minima ut modi, laboriosam
+				voluptatum quas omnis repellendus nostrum mollitia eum enim velit blanditiis optio rem
+				quidem est labore? Molestiae, autem!
+			</p>
+		</div>
+
 		<h5>Become an expert with our full Roadmap</h5>
 		{#each data.content as overview}
 			{#if overview.title === 'Begginer Dapp Roadmap'}
-				<div class="outstanding-roadmap">
+				<div class="card">
 					<div>
 						<SpecificContentCard {overview} />
 					</div>
@@ -90,7 +98,7 @@
 			<div class="cards">
 				{#each data.content as overview}
 					{#if filters[0].filterBucket.includes(overview.contentType) || filters[0].filterBucket.length < 1}
-						{#if filters[1].filterBucket.includes(overview.contentType) || filters[1].filterBucket.length < 1}
+						{#if filters[1].filterBucket.some( (item) => overview.metadata.subjects.includes(item) ) || filters[1].filterBucket.length < 1}
 							{#each overview.metadata.subjects as sub}
 								{#if sub === SubjectsEnum.Cadence.toLowerCase()}
 									<div class="catalog">
@@ -107,6 +115,12 @@
 </section>
 
 <style type="scss">
+	.title-wrapper {
+		width: 60%;
+		h1 {
+			margin-bottom: var(--space-6);
+		}
+	}
 	.main {
 		display: grid;
 		grid-template-columns: 1fr 3fr;
@@ -130,8 +144,12 @@
 			gap: var(--space-10);
 		}
 	}
-	.outstanding-roadmap {
+	.card {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 2fr 1fr;
+		width: 70%;
+	}
+	h5 {
+		--font-weight: var(--font-weight-medium);
 	}
 </style>
