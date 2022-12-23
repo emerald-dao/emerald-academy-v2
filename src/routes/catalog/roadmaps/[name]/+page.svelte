@@ -13,12 +13,12 @@
 </script>
 
 <section>
-	<div class="container grid-wrapper">
+	<div class="container main-wrapper">
 		<div class="content">
 			<SpecificContentCard overview={data.roadmap} />
 		</div>
 
-		<div>
+		<div class="overview-wrapper">
 			<CurriculumOverview overview={data.roadmap} />
 		</div>
 	</div>
@@ -27,19 +27,19 @@
 			{#each data.roadmap.contents as content}
 				<div class="card-primary">
 					<div class="grid-wrapper">
-						<div>
+						<div class="title-wrapper">
 							<a href={`/${content.url}`}>
 								<h4 class="w-bold">{content.title}</h4>
 							</a>
 
 							<p>{content.excerpt}</p>
 						</div>
-						<div class="type">
+						<div class="type-wrapper">
 							<Label color="primary">{content.contentType}</Label>
 							<Label color="neutral">{content.duration}</Label>
 						</div>
 
-						<div>
+						<div class="subjects-wrapper">
 							{#each content.subjects as sub}
 								<Label color="transparent">{sub}</Label>
 							{/each}
@@ -52,28 +52,34 @@
 </section>
 
 <style type="scss">
-	.grid-wrapper {
-		display: flex;
-		flex-direction: row;
+	.main-wrapper {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
 		justify-content: space-between;
 	}
-	.content {
-		padding-right: var(--space-10);
-	}
-	p {
-		padding: var(--space-2) 0 var(--space-2) 0;
-	}
+
 	.card-primary {
 		margin-bottom: var(--space-2);
-	}
-	a {
-		text-decoration: none;
-	}
-	.type {
-		display: flex;
-		flex-direction: row;
-		gap: var(--space-2);
-		height: fit-content;
-		vertical-align: middle;
+		a {
+			text-decoration: none;
+		}
+		.grid-wrapper {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			justify-content: space-between;
+
+			.type-wrapper {
+				display: flex;
+				flex-direction: row;
+				gap: var(--space-2);
+				height: fit-content;
+				justify-content: center;
+			}
+			.subjects-wrapper {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+			}
+		}
 	}
 </style>
