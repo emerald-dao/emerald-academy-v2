@@ -2,7 +2,6 @@
 	import StepButton from '../atoms/StepButton.svelte';
 	import { InputWrapper } from '@emerald-dao/component-library';
 	import welcomeAboardSuite from '../../validations/welcomeAboardSuite';
-	import { redirect } from '@sveltejs/kit';
 
 	const handleChange = (input: Event) => {
 		const target = input.target as HTMLInputElement;

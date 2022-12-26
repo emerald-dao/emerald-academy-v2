@@ -3,13 +3,7 @@
 	import type { CourseOverview } from '$lib/types/content/course.interface';
 	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 	import { StatsSection, PoweredByECDAO } from '@emerald-dao/component-library';
-	import {
-		HeroSection,
-		ExploreSection,
-		AcademySection,
-		SocialMediaSection,
-		JoinSection
-	} from './components';
+	import { HeroSection, ExploreSection, AcademySection, SocialMediaSection } from './components';
 	export let data: Data;
 	console.log(data);
 
@@ -25,5 +19,4 @@
 <StatsSection background="var(--clr-primary-badge)" bordersColor="var(--clr-primary-main)" />
 <AcademySection roadmaps={data.roadmaps} />
 <SocialMediaSection />
-<JoinSection />
 <PoweredByECDAO />

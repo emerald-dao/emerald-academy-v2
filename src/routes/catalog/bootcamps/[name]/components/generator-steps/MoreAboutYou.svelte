@@ -1,20 +1,5 @@
 <script type="ts">
 	import StepButton from '../atoms/StepButton.svelte';
-	import { InputWrapper } from '@emerald-dao/component-library';
-	import moreAboutYou from '../../validations/moreAboutYouSuite';
-
-	const handleChange = (input: Event) => {
-		const target = input.target as HTMLInputElement;
-
-		res = moreAboutYou(formData, target.name);
-		console.log(formData);
-	};
-
-	let formData = {
-		firstOption: false
-	};
-
-	let res = moreAboutYou.get();
 </script>
 
 <div class="main-wrapper">
@@ -68,7 +53,7 @@
 			</form>
 		</div>
 	</div>
-	<StepButton active={res.isValid()} />
+	<StepButton active={true} />
 </div>
 
 <style type="scss">

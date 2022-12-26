@@ -5,8 +5,7 @@
 	import SpecificContentCard from '$lib/components/cards/SpecificContentCard.svelte';
 	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
 	import { onBoardingSteps, onBoardingActiveStep } from '$stores/onBoarding/OnBoardingSteps';
-	import Modal, { getModal } from '$lib/components/atoms/Modal.svelte';
-	import { Breadcrumbs } from '@emerald-dao/component-library';
+	import { Breadcrumbs, Modal, getModal } from '@emerald-dao/component-library';
 	import { page } from '$app/stores';
 	import { transformUrlToHeading } from '$lib/utilities/dataTransformation/transformUrlToHeading';
 
