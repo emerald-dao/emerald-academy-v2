@@ -22,7 +22,7 @@
 	<div>
 		<h3>Welcome aboard</h3>
 	</div>
-	<div>
+	<div class="form-wrapper">
 		<form action="">
 			<InputWrapper
 				name="name"
@@ -61,10 +61,13 @@
 	.main-wrapper {
 		display: flex;
 		flex-direction: column;
-		gap: 3rem;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
+
+		.form-wrapper {
+			width: 100%;
+		}
 	}
 	h3 {
 		margin-bottom: 3rem;

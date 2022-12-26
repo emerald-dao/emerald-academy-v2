@@ -9,11 +9,12 @@
 	<!-- <div>
 		<Button on:click={onBoardingActiveStep.decrement}>Backwards</Button>
 	</div> -->
-	<div>
-		<Button state={active ? 'active' : 'disabled'} on:click={onBoardingActiveStep.increment}
-			>Next</Button
-		>
-	</div>
+
+	<Button
+		size="full-width"
+		state={active ? 'active' : 'disabled'}
+		on:click={onBoardingActiveStep.increment}>Next</Button
+	>
 </div>
 
 <style type="scss">
@@ -23,5 +24,6 @@
 		justify-content: space-between;
 		margin-top: 2rem;
 		gap: 2rem;
+		width: 100%;
 	}
 </style>
