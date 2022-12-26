@@ -20,7 +20,7 @@
 		/>
 	</div>
 
-	<StepButton />
+	<StepButton active={true} />
 </div>
 
 <style type="scss">
