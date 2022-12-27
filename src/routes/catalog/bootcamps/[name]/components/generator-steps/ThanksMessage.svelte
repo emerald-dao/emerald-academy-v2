@@ -14,7 +14,7 @@
 			dolores sed illum sequi?
 		</p>
 	</div>
-	<StepButton />
+	<StepButton active={true} />
 </div>
 
 <style type="scss">
