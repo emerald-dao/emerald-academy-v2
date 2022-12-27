@@ -1,4 +1,6 @@
 <script>
+	import { icon } from '$lib/types/content/metadata/icon.enum';
+	import Icon from '@iconify/svelte';
 	// import { Button } from "@emerald-dao/component-library";
 	// import { onBoardingActiveStep } from "$stores/onBoarding/OnBoardingSteps";
 	import StepButton from '../atoms/StepButton.svelte';
@@ -10,7 +12,7 @@
 	</div>
 	<div class="logo-wrapper">
 		<a href="https://discord.com/invite/emeraldcity" target="_blank" rel="noreferrer">
-			<img src="/discord-icon.png" alt="Discord Logo" />
+			<Icon icon="tabler:brand-discord" width="92" color="#707070" />
 		</a>
 	</div>
 
