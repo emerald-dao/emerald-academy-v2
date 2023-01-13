@@ -35,10 +35,7 @@
 				<h3>Follow one of our Learning Paths</h3>
 				<div>
 					<div class="sidebar">
-						<Filters bind:filters />
-						<div class="button">
-							<Button target="_blank" href="/catalog">Start Learning</Button>
-						</div>
+						<div class="filters"><Filters bind:filters /></div>
 					</div>
 				</div>
 			</div>
@@ -59,10 +56,10 @@
 <style type="scss">
 	.content {
 		display: grid;
-		grid-template-columns: 1fr 3fr;
+		grid-template-columns: 1fr 2fr;
 
 		h3 {
-			justify-content: left;
+			justify-content: right;
 			--font-weight: var(--font-weight-semibold);
 			text-align: right;
 			margin-right: var(--space-13);
@@ -72,11 +69,13 @@
 			text-align: right;
 			margin: var(--space-3) var(--space-12) 0 0;
 			float: right;
+
+			.filters {
+				float: right;
+				flex-wrap: nowrap;
+			}
 		}
-		.button {
-			float: right;
-			margin-right: var(--space-2);
-		}
+
 		.cards {
 			display: grid;
 			grid-template-columns: 1fr 1fr;
