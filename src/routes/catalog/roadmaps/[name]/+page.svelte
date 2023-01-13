@@ -1,15 +1,14 @@
 <script type="ts">
 	import CurriculumOverview from '$lib/components/cards/CurriculumOverview.svelte';
-	import SpecificContentCard from '$lib/components/cards/SpecificContentCard.svelte';
-	import ContentLabel from '$lib/components/label/ContentLabel.svelte';
+	import SpecificContentCard from '$lib/components/cards/ContentIntro.svelte';
 	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 	import { Label } from '@emerald-dao/component-library';
+
 	export let data: Data;
 
 	interface Data {
 		roadmap: RoadmapOverview;
 	}
-	console.log(data);
 </script>
 
 <section>

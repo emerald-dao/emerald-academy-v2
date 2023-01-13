@@ -1,5 +1,6 @@
 <script type="ts">
 	export let data: Data;
+
 	interface Data {
 		thisCourse: ThisCourse[];
 	}
@@ -9,19 +10,21 @@
 		path: string;
 		week: number;
 	}
+
 	let getAmountWeeks = () => {
 		let objectsArray = data.thisCourse.length;
 		let amountOfWeeks = data.thisCourse[objectsArray - 1].week;
 		return amountOfWeeks;
 	};
+
 	let number = 0;
+
 	const getIndex = (i: number) => {
 		number = i;
-		console.log(number);
 
 		return number;
 	};
-	console.log(data);
+
 	let weeks = getAmountWeeks();
 </script>
 

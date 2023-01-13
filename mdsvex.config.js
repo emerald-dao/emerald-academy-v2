@@ -9,7 +9,7 @@ const config = defineConfig({
 	smartypants: {
 		dashes: 'oldschool'
 	},
-	layout: 'src/routes/catalog/courses/[courseName]/[week]/[day]/components/CourseLayout.svelte',
+	layout: 'src/routes/catalog/courses/[name]/[week]/[day]/components/CourseLayout.svelte',
 	rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
 	remarkPlugins: [getHeadings]
 });

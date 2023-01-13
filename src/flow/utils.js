@@ -30,7 +30,6 @@ export const getFindProfile = async (address) => {
 			args: (arg, t) => [arg(address, t.Address)]
 		});
 	} catch (e) {
-		console.log(e);
 		return null;
 	}
 };

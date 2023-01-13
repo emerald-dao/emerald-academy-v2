@@ -2,7 +2,6 @@
 	import ResourcesCard from '$lib/components/cards/ResourcesCard.svelte';
 
 	import { resources } from '$lib/config/resources';
-	console.log(resources);
 </script>
 
 <section>

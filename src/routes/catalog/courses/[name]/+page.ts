@@ -1,11 +1,9 @@
 export const load = async ({ fetch, params }) => {
 	try {
-		const overviewFile = await import(
-			`../../../../lib/content/courses/${params.courseName}/overview.ts`
-		);
+		const overviewFile = await import(`../../../../lib/content/courses/${params.name}/overview.ts`);
 		const response = await fetch(`/api/content/courses/daysMetadata`);
 		const courses = await response.json();
-		const thisCourse = courses.filter((course) => course.path.includes(params.courseName));
+		const thisCourse = courses.filter((course) => course.path.includes(params.name));
 		return {
 			overview: overviewFile.overview,
 			thisCourse

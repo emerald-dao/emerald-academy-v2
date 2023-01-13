@@ -6,16 +6,14 @@
 	export let data;
 	export let headings;
 
-	console.log(headings);
-
 	let routes = [
 		{
 			path: '/catalog',
 			label: 'Catalog'
 		},
 		{
-			path: `/catalog/${$page.params.courseName}`,
-			label: transformUrlToHeading($page.params.courseName)
+			path: `/catalog/${$page.params.name}`,
+			label: transformUrlToHeading($page.params.name)
 		}
 	];
 </script>

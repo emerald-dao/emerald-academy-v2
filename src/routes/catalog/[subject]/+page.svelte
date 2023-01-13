@@ -1,23 +1,23 @@
 <script type="ts">
 	import { page } from '$app/stores';
 	import ContentCard from '$lib/components/cards/ContentCard.svelte';
-	import type { Filter } from '$lib/types/content/filters/filter.interface';
 	import Filters from '$lib/components/filters/Filters.svelte';
-	import type { Overview } from '$lib/types/content/content-overview.interface';
+	import { Breadcrumbs } from '@emerald-dao/component-library';
+	import SpecificContentCard from '$lib/components/cards/ContentIntro.svelte';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 	import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
-	import { Breadcrumbs } from '@emerald-dao/component-library';
-	import SpecificContentCard from '$lib/components/cards/SpecificContentCard.svelte';
 	import CurriculumOverview from '$lib/components/cards/CurriculumOverview.svelte';
+	import type { Filter } from '$lib/types/content/filters/filter.interface';
+	import type { Overview } from '$lib/types/content/content-overview.interface';
+
 	export let data: Data;
-	console.log(data);
 
 	interface Data {
 		content: Overview[];
 	}
+
 	const subject = $page.params;
 	const subjectCapital = subject.subject.charAt(0).toUpperCase() + subject.subject.slice(1);
-	console.log(subjectCapital);
 
 	let routes = [
 		{
@@ -25,6 +25,7 @@
 			label: `${$page.params.subject}`
 		}
 	];
+
 	let filters: Filter[] = [
 		{
 			title: 'Type of Content',

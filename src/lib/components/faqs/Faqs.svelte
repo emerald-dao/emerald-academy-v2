@@ -1,20 +1,21 @@
 <script type="ts">
 	export let questionAnswer: Question[];
+
 	interface Question {
 		question: string;
 		answer: string;
 	}
 
 	let number = 0;
+
 	const getIndex = (i: number) => {
 		number = i;
-		console.log(number);
 
 		return number;
 	};
 </script>
 
-<div class="card-primary grid-wrapper">
+<div class="card-primary">
 	<div class="questions">
 		{#each questionAnswer as data, i}
 			<div on:click={() => getIndex(i)} class="clickable-div" class:selected={i === number}>
@@ -30,12 +31,11 @@
 
 <style type="scss">
 	.card-primary {
-		background-color: var(--clr-neutral-90);
-	}
-	.grid-wrapper {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 2fr 5fr;
+		gap: var(--space-4);
 	}
+
 	.clickable-div {
 		cursor: pointer;
 		&:hover {
@@ -53,6 +53,6 @@
 		margin: var(--space-3);
 	}
 	hr {
-		border: 1px solid var(--clr-neutral-800);
+		border: 0.5px solid var(--clr-border-primary);
 	}
 </style>

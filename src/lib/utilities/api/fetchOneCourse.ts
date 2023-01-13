@@ -1,5 +1,5 @@
-export const fetchOneCourseOverview = async (courseName: string) => {
-	const courseOverview = import(`$lib/content/courses/${courseName}/courseOverview.js`);
+export const fetchOneCourseOverview = async (name: string) => {
+	const courseOverview = import(`$lib/content/courses/${name}/courseOverview.js`);
 
 	return courseOverview;
 };

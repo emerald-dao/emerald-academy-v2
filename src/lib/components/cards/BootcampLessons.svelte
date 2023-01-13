@@ -17,7 +17,6 @@
 		for (let i = 0; i < video.length; i++) {
 			clickedArray.push(false);
 		}
-		console.log(clickedArray);
 	}
 	onMount(() => fillClickArray());
 </script>

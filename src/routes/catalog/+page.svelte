@@ -1,14 +1,13 @@
 <script type="ts">
 	import Filters from '$lib/components/filters/Filters.svelte';
 	import ContentCard from '$lib/components/cards/ContentCard.svelte';
-	import type { Overview } from '$lib/types/content/content-overview.interface';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
-	import type { Filter } from '$lib/types/content/filters/filter.interface';
 	import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 	import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
+	import type { Overview } from '$lib/types/content/content-overview.interface';
+	import type { Filter } from '$lib/types/content/filters/filter.interface';
 
 	export let data: Data;
-	console.log(data);
 
 	interface Data {
 		content: Overview[];
@@ -76,25 +75,23 @@
 	];
 </script>
 
-<section>
-	<div class="container-large">
-		<div class="sidebar column-10"><Filters bind:filters /></div>
-		<div class="main">
-			{#each data.content as content}
-				{#if filters[0].filterBucket.includes(content.contentType) || filters[0].filterBucket.length < 1}
-					{#if filters[1].filterBucket.some( (item) => content.metadata.subjects.includes(item) ) || filters[1].filterBucket.length < 1}
-						{#if filters[2].filterBucket.includes(content.metadata.expertise) || filters[2].filterBucket.length < 1}
-							<ContentCard overview={content} />
-						{/if}
+<section class="container">
+	<div class="sidebar column-10"><Filters bind:filters /></div>
+	<div class="main">
+		{#each data.content as content}
+			{#if filters[0].filterBucket.includes(content.contentType) || filters[0].filterBucket.length < 1}
+				{#if filters[1].filterBucket.some( (item) => content.metadata.subjects.includes(item) ) || filters[1].filterBucket.length < 1}
+					{#if filters[2].filterBucket.includes(content.metadata.expertise) || filters[2].filterBucket.length < 1}
+						<ContentCard overview={content} />
 					{/if}
 				{/if}
-			{/each}
-		</div>
+			{/if}
+		{/each}
 	</div>
 </section>
 
 <style type="scss">
-	.container-large {
+	section {
 		display: grid;
 		grid-template-columns: 1fr 3fr;
 		gap: var(--space-10);

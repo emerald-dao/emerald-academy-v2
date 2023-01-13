@@ -1,10 +1,9 @@
 <script type="ts">
-	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 	import ContentCard from '$lib/components/cards/ContentCard.svelte';
-	import type { Filter } from '$lib/types/content/filters/filter.interface';
-	import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 	import Filters from '$lib/components/filters/Filters.svelte';
-	import { Button } from '@emerald-dao/component-library';
+	import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
+	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
+	import type { Filter } from '$lib/types/content/filters/filter.interface';
 
 	export let roadmaps: RoadmapOverview[];
 
@@ -28,55 +27,43 @@
 	];
 </script>
 
-<section>
-	<div class="container">
-		<div class="content">
-			<div>
-				<h3>Follow one of our Learning Paths</h3>
-				<div>
-					<div class="sidebar">
-						<div class="filters"><Filters bind:filters /></div>
-					</div>
-				</div>
-			</div>
-
-			<div class="cards">
-				{#each roadmaps as road}
-					{#if filters[0].filterBucket.length < 1}
-						<ContentCard overview={road} />
-					{:else if filters[0].filterBucket.some((item) => road.metadata.subjects.includes(item))}
-						<ContentCard overview={road} />
-					{/if}
-				{/each}
-			</div>
-		</div>
+<section class="container">
+	<div class="sidebar">
+		<h3>Follow one of our Learning Paths</h3>
+		<Filters bind:filters hasTitles={false} />
+	</div>
+	<div class="cards-wrapper">
+		{#each roadmaps as road}
+			{#if filters[0].filterBucket.length < 1}
+				<ContentCard overview={road} />
+			{:else if filters[0].filterBucket.some((item) => road.metadata.subjects.includes(item))}
+				<ContentCard overview={road} />
+			{/if}
+		{/each}
 	</div>
 </section>
 
 <style type="scss">
-	.content {
+	section {
 		display: grid;
-		grid-template-columns: 1fr 2fr;
-
-		h3 {
-			justify-content: right;
-			--font-weight: var(--font-weight-semibold);
-			text-align: right;
-			margin-right: var(--space-13);
-		}
+		grid-template-columns: 2fr 3fr;
+		gap: var(--space-9);
 
 		.sidebar {
 			text-align: right;
-			margin: var(--space-3) var(--space-12) 0 0;
-			float: right;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			gap: var(--space-5);
 
-			.filters {
-				float: right;
-				flex-wrap: nowrap;
+			h3 {
+				--font-weight: var(--font-weight-medium);
+				text-align: right;
+				max-width: 14ch;
 			}
 		}
 
-		.cards {
+		.cards-wrapper {
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			gap: var(--space-3);

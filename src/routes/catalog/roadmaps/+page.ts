@@ -1,8 +1,7 @@
-export const load = async ({ fetch, params }) => {
+export const load = async ({ fetch }) => {
 	try {
 		const response = await fetch(`/api/content/roadmaps`);
 		const roadmap = await response.json();
-		console.log(roadmap);
 
 		return {
 			roadmap

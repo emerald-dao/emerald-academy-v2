@@ -4,8 +4,8 @@
 	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 	import { StatsSection, PoweredByECDAO } from '@emerald-dao/component-library';
 	import { HeroSection, ExploreSection, AcademySection, SocialMediaSection } from './components';
+
 	export let data: Data;
-	console.log(data);
 
 	interface Data {
 		courses: CourseOverview[];
