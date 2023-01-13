@@ -8,6 +8,21 @@ export const navElements = [
 		name: 'Cadence By Example',
 		url: '/cadence-by-example',
 		prefetch: true
+	},
+	{
+		name: 'Resources',
+		url: '/resources',
+		prefetch: true
+	},
+	{
+		name: 'Achievements',
+		url: '/achievements',
+		prefetch: true
+	},
+	{
+		name: 'Templates',
+		url: '/templates',
+		prefetch: true
 	}
 ];
 

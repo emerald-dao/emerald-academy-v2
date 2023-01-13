@@ -1,1 +1,1 @@
-<div>tricks and tips</div>
+<div>Cadence by example</div>
