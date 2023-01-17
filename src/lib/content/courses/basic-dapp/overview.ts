@@ -3,6 +3,7 @@ import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum'
 import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 import { generateSlug } from '$lib/utilities/dataTransformation/generateSlug';
+
 export const overview: CourseOverview = {
 	title: 'Basic Dapp',
 	contentType: ContentTypeEnum.Course,
