@@ -6,8 +6,10 @@ export async function load({ params }) {
 
 		const meta = cadenceByExampleMarkdownFile.metadata;
 		const content = cadenceByExampleMarkdownFile.default;
-
+		const slug = params.id
+		
 		return {
+			slug,
 			content,
 			meta
 		};
