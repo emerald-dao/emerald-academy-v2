@@ -1,10 +1,11 @@
 ---
 title: First App
 language: en
-excerpt: first app 
-tags: ["basic-dapp"] 
+excerpt: First app resume lorem ipsum
+tags: ['basic-dapp']
 ---
-# Chapter 1 Day 1 - Hello World
+
+# Chapter 1 Day 1 - Hello World 2
 
 Hello! Yes, it is me. Your favourite developer of all time, Jacob. You are currently viewing the first day of the entire course. Let's start this journey together.
 

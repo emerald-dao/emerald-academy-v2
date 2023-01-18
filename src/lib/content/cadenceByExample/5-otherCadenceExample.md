@@ -1,7 +1,7 @@
 ---
 title: Cadence example 5
 language: en
-excerpt: basic cadence concepts
+excerpt: Cadence example 5 resume lorem ipsum
 tags: ['cadence', 'basic-dapp']
 ---
 

@@ -1,10 +1,11 @@
 ---
 title: Cadence Constants
 language: en
-excerpt: basic cadence concepts 
-tags: ["cadence", "basic-dapp"] 
+excerpt: How to declare a simple cadence constante
+tags: ['cadence', 'basic-dapp']
 ---
-# Chapter 1 Day 1 - Hello World
+
+# Chapter 1 Day 1 - Hello World 3
 
 Hello! Yes, it is me. Your favourite developer of all time, Jacob. You are currently viewing the first day of the entire course. Let's start this journey together.
 

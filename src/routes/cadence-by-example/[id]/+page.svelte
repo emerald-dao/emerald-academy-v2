@@ -4,7 +4,7 @@
 
 	export let data;
 
-	let routes = [
+	$: routes = [
 		{
 			path: '/cadence-by-example',
 			label: 'Cadence by example'
@@ -16,9 +16,13 @@
 	];
 </script>
 
-<section class="container-small">
-	<Breadcrumbs {routes} />
-	<article>
-		<svelte:component this={data.content} />
-	</article>
-</section>
+<Breadcrumbs {routes} />
+<article>
+	<svelte:component this={data.content} />
+</article>
+
+<style type="scss">
+	article {
+		margin-top: var(--space-6);
+	}
+</style>

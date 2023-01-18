@@ -1,10 +1,11 @@
 ---
 title: Hello World
 language: en
-excerpt: basic code concepts 
-tags: ["cadence", "basic-dapp"] 
+excerpt: Basic cadence contract
+tags: ['cadence', 'basic-dapp']
 ---
-# Chapter 1 Day 1 - Hello World
+
+# Chapter 1 Day 1 - Hello World 1
 
 Hello! Yes, it is me. Your favourite developer of all time, Jacob. You are currently viewing the first day of the entire course. Let's start this journey together.
 
