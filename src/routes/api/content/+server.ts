@@ -1,8 +1,13 @@
+import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { fetchOverviews } from '$lib/utilities/api/fetchOverviews';
 import { json } from '@sveltejs/kit';
 
 export const GET = async () => {
-	const allCourses = await fetchOverviews();
+	const allCourses = await fetchOverviews(ContentTypeEnum.Course);
+	const allBootcamps = await fetchOverviews(ContentTypeEnum.Bootcamp);
+	const allRoadmaps = await fetchOverviews(ContentTypeEnum.Roadmap);
 
-	return json(allCourses);
+	const allContent = allCourses.concat(allBootcamps, allRoadmaps);
+
+	return json(allContent);
 };

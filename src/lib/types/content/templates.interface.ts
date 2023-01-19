@@ -1,5 +1,7 @@
+import type { ContentTypeEnum } from './metadata/content-types.enum';
 export interface Template {
 	title: string;
+	contentType: ContentTypeEnum;
 	audited: boolean;
 	user: {
 		name: string;

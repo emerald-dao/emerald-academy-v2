@@ -3,6 +3,7 @@
 	import Icon from '@iconify/svelte';
 
 	export let data;
+
 	$: previousExample = data.content[findExampleIndex - 1];
 	$: nextExample = data.content[findExampleIndex + 1];
 

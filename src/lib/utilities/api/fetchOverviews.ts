@@ -1,21 +1,24 @@
-export const fetchOverviews = async (
-	contentType?: 'courses' | 'bootcamps' | 'tips-and-tricks' | 'roadmaps'
-) => {
+import { ContentTypeEnum } from '../../types/content/metadata/content-types.enum';
+
+export const fetchOverviews = async (contentType?: ContentTypeEnum) => {
 	let overviews;
 
 	switch (contentType) {
-		case 'courses':
+		case ContentTypeEnum.Course:
 			overviews = import.meta.glob('/src/lib/content/courses/**/*.ts');
 			break;
 
-		case 'bootcamps':
+		case ContentTypeEnum.Bootcamp:
 			overviews = import.meta.glob('/src/lib/content/bootcamps/**/*.ts');
 			break;
 
-		case 'tips-and-tricks':
+		case ContentTypeEnum.Tips:
 			break;
 
-		case 'roadmaps':
+		case ContentTypeEnum.Template:
+			break;
+
+		case ContentTypeEnum.Roadmap:
 			overviews = import.meta.glob('/src/lib/content/roadmaps/**/*.ts');
 			break;
 
