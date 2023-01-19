@@ -1,1 +1,55 @@
-<div>Cadence by example</div>
+<script type="ts">
+	export let data;
+
+	const allContent = data.content;
+</script>
+
+<section class="container">
+	<div class="sidebar column-10">
+		<h5>Search:</h5>
+		<input type="text" />
+	</div>
+	<div class="main">
+		{#each allContent as content}
+			<a
+				class="title-wrapper w-medium heading"
+				href={`/cadence-by-example/${content.path.split('/')[3]}`}>{content.meta.title}</a
+			>
+		{/each}
+	</div>
+</section>
+
+<style type="scss">
+	section {
+		display: grid;
+		grid-template-columns: 1fr 3fr;
+		gap: var(--space-10);
+
+		.sidebar {
+			border-right: var(--border-width-primary) var(--clr-border-primary) solid;
+			height: fit-content;
+			padding-block: var(--space-9);
+			padding-right: var(--space-10);
+			position: sticky;
+			top: 50px;
+			gap: 0;
+
+			h5 {
+				margin: var(--space-5) 0;
+			}
+		}
+
+		.main {
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-5);
+
+			.title-wrapper {
+				text-decoration: none;
+				border: var(--border-width-primary) solid var(--clr-border-primary);
+				border-radius: var(--radius-5);
+				padding: var(--space-4) var(--space-6);
+			}
+		}
+	}
+</style>

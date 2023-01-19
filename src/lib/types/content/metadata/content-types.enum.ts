@@ -3,5 +3,6 @@ export enum ContentTypeEnum {
 	Bootcamp = 'bootcamp',
 	Tips = 'tips and tricks',
 	Roadmap = 'roadmap',
-	External = 'external'
+	External = 'external',
+	Template = 'template'
 }
