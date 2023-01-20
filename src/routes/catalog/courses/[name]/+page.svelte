@@ -18,8 +18,6 @@
 		path: string;
 		week: number;
 	}
-
-	console.log($page);
 </script>
 
 <section class="container-small">

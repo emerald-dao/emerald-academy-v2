@@ -1,13 +1,16 @@
 import type { Template } from '$lib/types/content/templates.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+import { generateSlug } from '$lib/utilities/dataTransformation/generateSlug';
+
 
 export const overview: Template = {
 	title: 'Template number 2 contract',
 	contentType: ContentTypeEnum.Template,
+	slug: generateSlug(import.meta.url),
 	audited: false,
 	user: {
 		name: 'Ignacio Debat',
-		userAvatarUrl: '..',
+		userAvatarUrl: 'https://avatars.githubusercontent.com/u/112862961?v=4',
 		github: 'IgnacioDebat'
 	},
 	templateRepositoryUrl: 'github.com/IgnacioDebat/repository',

@@ -1,13 +1,15 @@
 import type { Template } from '$lib/types/content/templates.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+import { generateSlug } from '$lib/utilities/dataTransformation/generateSlug';
 
 export const overview: Template = {
 	title: 'Hello World Contract',
 	contentType: ContentTypeEnum.Template,
+	slug: generateSlug(import.meta.url),
 	audited: true,
 	user: {
 		name: 'Jacob Tucker',
-		userAvatarUrl: '..',
+		userAvatarUrl: 'https://avatars.githubusercontent.com/u/15198786?v=4',
 		github: 'jacobtucker'
 	},
 	templateRepositoryUrl: 'github.com/jacobtucker/repository',
