@@ -7,7 +7,7 @@ export const load = async ({ params }) => {
 		
 		return {
 			overview: overviewFile.overview,
-			githubUser
+			githubUser: githubUser.json
 		};
 	} catch (e) {
 		throw new Error(e);

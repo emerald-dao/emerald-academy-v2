@@ -9,7 +9,7 @@
 
 	let githubUser;
 	onMount(async () => {
-		githubUser = await fetchGithubUser('jacob-tucker');
+		githubUser = await fetchGithubUser(templateData.user.github);
 	});
 </script>
 
