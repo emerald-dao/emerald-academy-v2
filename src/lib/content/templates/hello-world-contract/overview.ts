@@ -10,7 +10,9 @@ export const overview: Template = {
 	user: {
 		name: 'Jacob Tucker',
 		userAvatarUrl: 'https://avatars.githubusercontent.com/u/15198786?v=4',
-		github: 'jacob-tucker'
+		github: 'jacob-tucker',
+		twitter: '@jacobtucker',
+		discord:'tsnakejake'
 	},
 	templateRepositoryUrl: 'github.com/jacobtucker/repository',
 	description: 'Descirption of the contract'

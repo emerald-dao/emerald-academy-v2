@@ -67,13 +67,6 @@
 	.row-2 {
 		align-items: center;
 
-		.placeholder {
-			width: 20px;
-			height: 20px;
-			border-radius: 50%;
-			background-color: var(--clr-neutral-100);
-		}
-
 		img {
 			width: 20px;
 			height: 20px;

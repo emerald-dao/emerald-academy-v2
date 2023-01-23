@@ -11,7 +11,8 @@ export const overview: Template = {
 	user: {
 		name: 'Mateo Roldos',
 		userAvatarUrl: 'https://avatars.githubusercontent.com/u/63481581?v=4',
-		github: 'mateoroldos'
+		github: 'mateoroldos',
+		discord:'Mateo Roldos'
 	},
 	templateRepositoryUrl: 'github.com/mateoroldos/repository',
 	description: 'Descirption of the contract'
