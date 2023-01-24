@@ -2,18 +2,17 @@ import type { Template } from '$lib/types/content/templates.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { generateSlug } from '$lib/utilities/dataTransformation/generateSlug';
 
+
 export const overview: Template = {
-	title: 'Hello World Contract',
+	title: 'Template number 3 contract',
 	contentType: ContentTypeEnum.Template,
 	slug: generateSlug(import.meta.url),
-	audited: true,
+	audited: false,
 	user: {
-		name: 'Jacob Tucker',
-		userAvatarUrl: 'https://avatars.githubusercontent.com/u/15198786?v=4',
-		github: 'jacob-tucker',
-		twitter: '@jacobtucker',
-		discord:'tsnakejake'
+		name: 'Juan Pedro Falco',
+		userAvatarUrl: 'https://avatars.githubusercontent.com/u/73831486?v=4',
+		github: 'falcojuanpedro'
 	},
-	templateRepositoryUrl: 'github.com/jacobtucker/repository',
+	templateRepositoryUrl: 'github.com/falcojuanpedro/repository',
 	description: 'Descirption of the contract'
 };
