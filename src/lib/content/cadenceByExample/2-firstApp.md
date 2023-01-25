@@ -3,6 +3,7 @@ title: First App
 language: en
 excerpt: First app resume lorem ipsum
 tags: ['basic-dapp']
+layout: false
 ---
 
 # Chapter 1 Day 1 - Hello World 2

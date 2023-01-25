@@ -3,6 +3,7 @@ title: Cadence Constants
 language: en
 excerpt: How to declare a simple cadence constante
 tags: ['cadence', 'basic-dapp']
+layout: false
 ---
 
 # Chapter 1 Day 1 - Hello World 3

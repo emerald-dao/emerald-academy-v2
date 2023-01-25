@@ -3,6 +3,7 @@ title: Cadence example 5
 language: en
 excerpt: Cadence example 5 resume lorem ipsum
 tags: ['cadence', 'basic-dapp']
+layout: false
 ---
 
 # Chapter 1 Day 1 - Hello World

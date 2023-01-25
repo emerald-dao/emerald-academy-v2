@@ -3,6 +3,7 @@ title: Hello World
 language: en
 excerpt: Basic cadence contract
 tags: ['cadence', 'basic-dapp']
+layout: false
 ---
 
 # Chapter 1 Day 1 - Hello World 1
