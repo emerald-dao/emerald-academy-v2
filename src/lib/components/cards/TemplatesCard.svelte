@@ -35,19 +35,26 @@
 				</div>
 			{/if}
 		</div>
-		<Button href={`/${templateData.slug}`}>Clone</Button>
+		<div class="button-wrapper">
+			<Button href={`/${templateData.slug}`}>Clone</Button>
+		</div>
 	</div>
 </div>
 
 <style type="scss">
 	.overview-wrapper {
-		width: 48%;
+		width: -webkit-fill-available;
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-10);
+		gap: var(--space-5);
 		border: var(--border-width-primary) solid var(--clr-border-primary);
 		border-radius: var(--radius-2);
 		padding: var(--space-11) var(--space-12);
+
+		@include mq(medium) {
+			width: 48%;
+			gap: var(--space-10);
+		}
 
 		h5 {
 			margin: 0;
@@ -58,9 +65,18 @@
 
 		.row-wrapper {
 			display: flex;
-			flex-direction: row;
+			flex-direction: column;
+			gap: var(--space-2);
 			justify-content: space-between;
-			align-items: center;
+
+			@include mq(small) {
+				flex-direction: row;
+				align-items: center;
+			}
+
+			.button-wrapper {
+				width: fit-content;
+			}
 		}
 	}
 

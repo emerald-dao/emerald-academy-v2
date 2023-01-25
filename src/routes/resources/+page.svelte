@@ -4,18 +4,22 @@
 	import { resources } from '$lib/config/resources';
 </script>
 
-<section>
-	<div class="container">
-		{#each resources as resource}
-			<ResourcesCard {resource} />
-		{/each}
-	</div>
+<section class="container">
+	{#each resources as resource}
+		<ResourcesCard {resource} />
+	{/each}
 </section>
 
-<style class="scss">
+<style type="scss">
 	.container {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
+		display: flex;
+		flex-direction: column;
 		gap: var(--space-4);
+
+		@include mq(medium) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: var(--space-4);
+		}
 	}
 </style>

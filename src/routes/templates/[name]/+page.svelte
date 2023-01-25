@@ -82,9 +82,15 @@
 
 <style type="scss">
 	section {
-		display: grid;
-		grid-template-columns: 3fr 1fr;
-		gap: var(--space-10);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-7);
+
+		@include mq(small) {
+			display: grid;
+			grid-template-columns: 3fr 1fr;
+			gap: var(--space-10);
+		}
 
 		.template {
 			width: fit-content;
@@ -100,12 +106,19 @@
 			margin-top: var(--space-6);
 		}
 		.sidebar {
-			border-left: var(--border-width-primary) var(--clr-border-primary) solid;
-			height: fit-content;
-			padding-block: var(--space-9);
-			position: sticky;
-			top: 50px;
-			padding-left: var(--space-8);
+			border-top: var(--border-width-primary) var(--clr-border-primary) solid;
+			padding-top: var(--space-5);
+
+			@include mq(small) {
+				border-top: none;
+				border-left: var(--border-width-primary) var(--clr-border-primary) solid;
+				height: fit-content;
+				padding-block: var(--space-9);
+				position: sticky;
+				top: 50px;
+				padding-left: var(--space-8);
+				padding-top: 0;
+			}
 
 			.row-2 {
 				align-items: center;

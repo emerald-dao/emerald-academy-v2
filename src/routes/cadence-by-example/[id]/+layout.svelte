@@ -32,7 +32,7 @@
 		{/if}
 		{#if nextExample}
 			<a href={`/cadence-by-example/${nextExample.path.split('/')[3]}`}>
-				<div class="each-adjacent-wrapper">
+				<div class="each-adjacent-wrapper right">
 					<div class="column-2">
 						<p class="heading w-medium">
 							{nextExample.meta.title}
@@ -51,8 +51,13 @@
 <style type="scss">
 	.adjacents-wrapper {
 		display: flex;
-		justify-content: space-between;
+		flex-direction: column;
 		margin-top: var(--space-11);
+
+		@include mq(medium) {
+			justify-content: space-between;
+			flex-direction: row;
+		}
 
 		a {
 			text-decoration: none;
@@ -69,6 +74,15 @@
 
 			.left-wrapper {
 				text-align: end;
+			}
+		}
+
+		.right {
+			margin-top: var(--space-4);
+			justify-content: end;
+
+			@include mq(medium) {
+				margin-top: 0;
 			}
 		}
 	}
