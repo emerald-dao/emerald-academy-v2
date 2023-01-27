@@ -52,32 +52,52 @@
 
 <style type="scss">
 	.main-wrapper {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		justify-content: space-between;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-8);
+
+		@include mq(small) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			justify-content: space-between;
+		}
 	}
 
 	.card-primary {
-		margin-bottom: var(--space-2);
+		margin-bottom: var(--space-4);
 		a {
 			text-decoration: none;
 		}
 		.grid-wrapper {
-			display: grid;
-			grid-template-columns: 1fr 1fr 1fr;
-			justify-content: space-between;
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-6);
+
+			@include mq(small) {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				justify-content: space-between;
+				gap: var(--space-2);
+			}
 
 			.type-wrapper {
 				display: flex;
-				flex-direction: row;
+				flex-direction: column;
 				gap: var(--space-2);
 				height: fit-content;
 				justify-content: center;
+
+				@include mq(small) {
+					flex-direction: row;
+				}
 			}
 			.subjects-wrapper {
 				display: flex;
 				flex-direction: row;
-				justify-content: center;
+
+				@include mq(small) {
+					justify-content: center;
+				}
 			}
 		}
 	}

@@ -60,22 +60,44 @@
 
 <style type="scss">
 	.grid-wrapper {
-		display: grid;
-		grid-template-columns: 1fr 4fr;
-		gap: var(--space-14);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-5);
+
+		@include mq(medium) {
+			display: grid;
+			grid-template-columns: 1fr 4fr;
+			gap: var(--space-14);
+		}
 	}
 
 	.column {
-		margin-bottom: var(--space-8);
-		margin-top: var(--space-8);
+		margin: 0;
+
+		@include mq(medium) {
+			margin: var(--space-5) 0;
+		}
 	}
 
 	.sidebar {
-		border-right: var(--border-width-primary) var(--clr-border-primary) solid;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		gap: var(--space-4);
+		border-bottom: var(--border-width-primary) var(--clr-border-primary) solid;
 		height: fit-content;
-		position: sticky;
-		top: 100px;
 		padding-block: var(--space-8);
+
+		@include mq(medium) {
+			flex-direction: column;
+			justify-content: flex-start;
+			border-right: var(--border-width-primary) var(--clr-border-primary) solid;
+			border-bottom: none;
+			padding-right: var(--space-1);
+			position: sticky;
+			top: 100px;
+			gap: 0;
+		}
 	}
 	.menu-link {
 		text-decoration: none;
