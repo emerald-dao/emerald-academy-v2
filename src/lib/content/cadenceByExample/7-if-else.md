@@ -1,5 +1,5 @@
 ---
-title: if-else
+title: If-Else
 language: en
 layout: false
 ---
