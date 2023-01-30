@@ -8,7 +8,7 @@ export const overview: Template = {
 	slug: generateSlug(import.meta.url),
 	audited: true,
 	user: {
-		name: 'Jacob Tucker',
+		name: 'Emerald City',
 		userAvatarUrl: 'https://avatars.githubusercontent.com/u/15198786?v=4',
 		github: 'emerald-dao',
 		twitter: 'emerald_dao',
