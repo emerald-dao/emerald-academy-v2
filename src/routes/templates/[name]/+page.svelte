@@ -26,7 +26,9 @@
 		<article>
 			<h1 class="heading w-medium">{thisTemplateOverview.title}</h1>
 			<p class="w-medium">{thisTemplateOverview.description}</p>
-			<svelte:component this={thisReadme} />
+			<div class="readme-wrapper">
+				<svelte:component this={thisReadme} />
+			</div>
 		</article>
 	</div>
 	<Sidebar {data} />
@@ -56,6 +58,12 @@
 		}
 		article {
 			margin-top: var(--space-6);
+
+			.readme-wrapper {
+				border: var(--border-width-primary) var(--clr-border-primary) solid;
+				border-radius: var(--space-5);
+				padding: var(--space-10);
+			}
 		}
 	}
 </style>
