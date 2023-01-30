@@ -12,7 +12,7 @@ export const overview: Template = {
 		name: 'Mateo Roldos',
 		userAvatarUrl: 'https://avatars.githubusercontent.com/u/63481581?v=4',
 		github: 'mateoroldos',
-		discord:'Mateo Roldos'
+		discord:'708179768981585972'
 	},
 	templateRepositoryUrl: 'github.com/mateoroldos/repository',
 	description: 'Descirption of the contract'
