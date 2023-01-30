@@ -6,6 +6,12 @@ tags: ['cadence', 'basic-dapp']
 layout: false
 ---
 
+```js
+pub contract AContract {
+   pub let cadenceExample4: example4
+}
+```
+
 # Chapter 1 Day 1 - Hello World 4
 
 Hello! Yes, it is me. Your favourite developer of all time, Jacob. You are currently viewing the first day of the entire course. Let's start this journey together.

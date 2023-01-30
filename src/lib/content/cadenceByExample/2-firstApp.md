@@ -6,6 +6,12 @@ tags: ['basic-dapp']
 layout: false
 ---
 
+```js
+pub contract AContract {
+   pub let firstApp: firstApp2
+}
+```
+
 # Chapter 1 Day 1 - Hello World 2
 
 Hello! Yes, it is me. Your favourite developer of all time, Jacob. You are currently viewing the first day of the entire course. Let's start this journey together.
