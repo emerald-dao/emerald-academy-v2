@@ -33,7 +33,7 @@ module.exports = {
 		const plugins = userConfig.plugins
 			.flat(1)
 			.filter(
-				(p) => !p.name.startsWith('vite-plugin-svelte') || p.name === 'vite-plugin-svelte-kit' || p.name.includes('vite-plugin-svelte')
+				(p) => !p.name.startsWith('vite-plugin-svelte') || p.name === 'vite-plugin-svelte-kit'
 			);
 		return mergeConfig(config, {
 			...userConfig,
