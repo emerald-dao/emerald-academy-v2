@@ -16,7 +16,7 @@
 	</div>
 </div>
 
-<style class="scss">
+<style type="scss">
 	.main-wrapper {
 		display: flex;
 		flex-direction: column;

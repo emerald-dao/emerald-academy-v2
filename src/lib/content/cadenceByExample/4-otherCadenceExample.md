@@ -3,7 +3,14 @@ title: Cadence example 4
 language: en
 excerpt: Cadence example 4 resume lorem ipsum
 tags: ['cadence', 'basic-dapp']
+layout: false
 ---
+
+```js
+pub contract AContract {
+   pub let cadenceExample4: example4
+}
+```
 
 # Chapter 1 Day 1 - Hello World 4
 

@@ -15,7 +15,7 @@
 			<div class="image">
 				<img src={resource.image} alt="" class="specific-image" />
 			</div>
-			<div>
+			<div class="data-wrapper">
 				<h5>{resource.title}</h5>
 				<p>{resource.excerpt}</p>
 			</div>
@@ -24,27 +24,45 @@
 </div>
 
 <style type="scss">
-	.main-wrapper {
-		display: grid;
-		grid-template-columns: 1fr 2fr;
-	}
-	.image {
-		width: 100px;
-		height: 100px;
-		overflow: hidden;
-		border-radius: 50%;
-		margin: auto;
-	}
-	.specific-image {
-		height: 100%;
-	}
-	h5 {
-		margin: var(--space-2) 0 var(--space-2) 0;
-	}
 	a {
 		text-decoration: none;
 	}
-	p {
-		color: var(--clr-text-main);
+
+	.main-wrapper {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+
+		.image {
+			width: 80px;
+			height: 80px;
+			overflow: hidden;
+			border-radius: 50%;
+			margin: auto;
+
+			@include mq(small) {
+				width: 100px;
+				height: 100px;
+			}
+
+			.specific-image {
+				height: 100%;
+			}
+		}
+
+		.data-wrapper {
+			margin-left: var(--space-2);
+
+			@include mq(small) {
+				margin-left: 0;
+			}
+
+			h5 {
+				margin: var(--space-2) 0 var(--space-2) 0;
+			}
+
+			p {
+				color: var(--clr-text-main);
+			}
+		}
 	}
 </style>

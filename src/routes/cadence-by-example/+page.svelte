@@ -5,7 +5,7 @@
 </script>
 
 <section class="container">
-	<div class="sidebar column-10">
+	<div class="sidebar">
 		<h5>Search:</h5>
 		<input type="text" />
 	</div>
@@ -21,18 +21,32 @@
 
 <style type="scss">
 	section {
-		display: grid;
-		grid-template-columns: 1fr 3fr;
-		gap: var(--space-10);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-5);
+
+		@include mq(small) {
+			display: grid;
+			grid-template-columns: 1fr 3fr;
+			gap: var(--space-10);
+		}
 
 		.sidebar {
-			border-right: var(--border-width-primary) var(--clr-border-primary) solid;
-			height: fit-content;
-			padding-block: var(--space-9);
-			padding-right: var(--space-10);
-			position: sticky;
-			top: 50px;
-			gap: 0;
+			display: flex;
+			flex-direction: column;
+			border-bottom: var(--border-width-primary) var(--clr-border-primary) solid;
+			padding-bottom: var(--space-5);
+
+			@include mq(small) {
+				border-right: var(--border-width-primary) var(--clr-border-primary) solid;
+				border-bottom: 0;
+				height: fit-content;
+				padding-block: var(--space-9);
+				padding-right: var(--space-10);
+				position: sticky;
+				top: 50px;
+				gap: 0;
+			}
 
 			h5 {
 				margin: var(--space-5) 0;

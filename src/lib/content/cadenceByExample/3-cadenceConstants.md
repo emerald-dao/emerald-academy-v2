@@ -3,7 +3,14 @@ title: Cadence Constants
 language: en
 excerpt: How to declare a simple cadence constante
 tags: ['cadence', 'basic-dapp']
+layout: false
 ---
+
+```js
+pub contract AContract {
+   pub let cadenceConstants3: constants3
+}
+```
 
 # Chapter 1 Day 1 - Hello World 3
 

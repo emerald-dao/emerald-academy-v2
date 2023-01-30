@@ -3,7 +3,14 @@ title: First App
 language: en
 excerpt: First app resume lorem ipsum
 tags: ['basic-dapp']
+layout: false
 ---
+
+```js
+pub contract AContract {
+   pub let firstApp: firstApp2
+}
+```
 
 # Chapter 1 Day 1 - Hello World 2
 

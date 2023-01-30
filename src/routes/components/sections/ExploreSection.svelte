@@ -92,9 +92,15 @@
 			gap: var(--space-12);
 
 			.cards-wrapper {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
+				display: flex;
+				flex-direction: column;
 				gap: var(--space-8);
+
+				@include mq(small) {
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					gap: var(--space-8);
+				}
 			}
 		}
 	}

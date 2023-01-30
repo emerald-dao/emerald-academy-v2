@@ -19,6 +19,10 @@ article {
 		margin-top: 1.6em;
 	}
 
+	h5 {
+		margin-top: 0;
+	}
+
 	h1 {
 		font-size: var(--font-size-8);
 		--font-weight: var(--font-weight-medium);
@@ -47,7 +51,7 @@ article {
 	}
 
 	// Heading title links
-	:where(h2, h3, h4, h5, h6) {
+	:where(h2, h3, h4, h6) {
 		.icon-link {
 			position: relative;
 

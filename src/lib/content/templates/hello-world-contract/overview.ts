@@ -11,8 +11,8 @@ export const overview: Template = {
 		name: 'Jacob Tucker',
 		userAvatarUrl: 'https://avatars.githubusercontent.com/u/15198786?v=4',
 		github: 'jacob-tucker',
-		twitter: '@jacobtucker',
-		discord:'tsnakejake'
+		twitter: 'jacobmtucker',
+		discord:'14310091268725145'
 	},
 	templateRepositoryUrl: 'github.com/jacobtucker/repository',
 	description: 'Descirption of the contract'
