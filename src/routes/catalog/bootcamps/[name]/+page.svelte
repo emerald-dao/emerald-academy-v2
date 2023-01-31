@@ -5,6 +5,7 @@
 	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
 	import { onBoardingSteps, onBoardingActiveStep } from '$stores/onBoarding/OnBoardingSteps';
 	import { Modal, getModal } from '@emerald-dao/component-library';
+	import CourseDetails from '$lib/components/cards/CourseDetails.svelte';
 
 	export let data: Data;
 
@@ -22,6 +23,11 @@
 			</div>
 		</Modal>
 	</SpecificContentCard>
+</section>
+<section class="container-small">
+	{#each data.overview.weeks as week, i}
+		<CourseDetails data={week} {i} />
+	{/each}
 </section>
 <section class="container-small">
 	<BootcampLessons video={data.overview.videos} />
