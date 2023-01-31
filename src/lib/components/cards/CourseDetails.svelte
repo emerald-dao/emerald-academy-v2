@@ -42,6 +42,7 @@
 		flex-direction: column;
 		border: var(--border-width-primary) var(--clr-border-primary) solid;
 		padding: var(--space-5);
+		background: var(--clr-surface-primary);
 
 		&:first-child {
 			border-radius: var(--space-5) var(--space-5) 0 0;
