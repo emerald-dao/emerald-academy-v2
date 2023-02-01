@@ -1,12 +1,9 @@
 export const load = async ({ fetch, params }) => {
 	try {
-		const response = await fetch(`/api/content/courses/daysMetadata`);
-		const courses = await response.json();
-		const thisCourse = courses.filter((course) => course.path.includes(params.name));
+		const response = await fetch(`/api/content/courses/${params.name}`);
+		const course = await response.json();
 
-		return {
-			thisCourse
-		};
+		return course;
 	} catch (e) {
 		throw new Error();
 	}

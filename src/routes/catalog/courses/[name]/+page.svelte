@@ -4,29 +4,16 @@
 	import ContentIntro from '$lib/components/cards/ContentIntro.svelte';
 	import { Button } from '@emerald-dao/component-library';
 	import Icon from '@iconify/svelte';
-	import { page } from '$app/stores';
 	import CourseDetails from '$lib/components/cards/CourseDetails.svelte';
-	import { getWeeksFromCourse } from '$lib/utilities/dataTransformation/getWeeksFromCourse';
 
-	export let data: Data;
+	export let data;
 
-	interface Data {
-		thisCourse: CourseDay[];
-		overview: CourseOverview;
-	}
-
-	let weeks = getWeeksFromCourse(data.thisCourse);
-
-	const getDaysFromWeek = (i: number) => {
-		for (let index = 0; index < data.thisCourse.length; index++) {
-			const element = array[index];
-		}
-	};
+	console.log(data);
 </script>
 
 <section class="container-small">
 	<ContentIntro overview={data.overview}>
-		<Button size="large" href={data.thisCourse[0].path.replace('content', 'catalog')}>
+		<Button size="large" href={`/${data.contents.week1[0].slug}`}>
 			Start<Icon icon="tabler:arrow-right" />
 		</Button>
 	</ContentIntro>

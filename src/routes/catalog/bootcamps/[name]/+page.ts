@@ -1,4 +1,4 @@
-export const load = async ({ fetch, params }) => {
+export const load = async ({ params }) => {
 	try {
 		const overviewFile = await import(
 			`../../../../lib/content/bootcamps/${params.name}/overview.ts`

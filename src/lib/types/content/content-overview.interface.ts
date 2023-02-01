@@ -8,7 +8,6 @@ export interface Overview {
 	slug: string;
 	excerpt: string;
 	metadata: ContentMetadata;
-	weeks: Week[];
 }
 
 interface ContentMetadata {
@@ -17,10 +16,6 @@ interface ContentMetadata {
 	prerequisites: string[];
 	subjects: SubjectsEnum[];
 	faqs?: Question[];
-}
-
-interface Week {
-	excerpt: string;
 }
 
 interface Question {

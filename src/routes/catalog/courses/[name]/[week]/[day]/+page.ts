@@ -1,8 +1,9 @@
 export async function load({ params }) {
 	try {
 		const courses = await import(
-			`../../../../../../lib/content/courses/${params.name}/${params.week}/${params.day}.md`
+			`../../../../../../lib/content/courses/${params.name}/${params.week}/${params.day}`
 		);
+
 		const { title, day } = courses.metadata;
 		const content = courses.default;
 

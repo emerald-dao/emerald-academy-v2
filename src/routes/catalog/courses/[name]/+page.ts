@@ -1,13 +1,9 @@
 export const load = async ({ fetch, params }) => {
 	try {
-		const overviewFile = await import(`../../../../lib/content/courses/${params.name}/overview.ts`);
-		const response = await fetch(`/api/content/courses/daysMetadata`);
-		const courses = await response.json();
-		const thisCourse = courses.filter((course) => course.path.includes(params.name));
-		return {
-			overview: overviewFile.overview,
-			thisCourse
-		};
+		const response = await fetch(`/api/content/courses/${params.name}`);
+		const course = await response.json();
+
+		return course;
 	} catch (e) {
 		throw new Error();
 	}

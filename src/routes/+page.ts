@@ -1,7 +1,6 @@
 import { featuredContent } from '$lib/config/featuredContent';
-import { overview } from '../lib/content/roadmaps/begginer-cadence/overview';
 
-export const load = async ({ fetch }) => {
+export const load = async () => {
 	try {
 		const courseOverviewFile = await import(
 			/* @vite-ignore */

@@ -47,16 +47,5 @@ export const overview: CourseOverview = {
 					'Sixth Answer lorem ipsum sit amet Third Answer lorem ipsum sit amet Third Answer lorem ipsum sit amet Third Answer lorem ipsum sit amet Third Answer lorem ipsum sit amet Third Answer lorem ipsum sit amet Third Answer lorem ipsum sit amet'
 			}
 		]
-	},
-	weeks: [
-		{
-			excerpt: 'This is the first week'
-		},
-		{
-			excerpt: 'This is the second week'
-		},
-		{
-			excerpt: 'This is the third week'
-		}
-	]
+	}
 };
