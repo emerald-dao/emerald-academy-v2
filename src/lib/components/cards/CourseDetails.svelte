@@ -1,10 +1,13 @@
-<script>
+<script type="ts">
 	import { Button } from '@emerald-dao/component-library';
 	import Icon from '@iconify/svelte';
 	import { slide } from 'svelte/transition';
+	import type { BootcampVideo } from '$lib/types/content/bootcamp.interface';
+	import type { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
-	export let data;
+	export let data: BootcampVideo;
 	export let i;
+	export let typeOfcontent: ContentTypeEnum.Bootcamp | ContentTypeEnum.Course;
 
 	export let open = false;
 	const handleClick = () => (open = !open);

@@ -1,21 +1,12 @@
 <script type="ts">
+	import type { CourseDay } from '$lib/types/content/course.interface';
+	import { getWeeksFromCourse } from '$lib/utilities/dataTransformation/getWeeksFromCourse';
+
 	export let data: Data;
 
 	interface Data {
-		thisCourse: ThisCourse[];
+		thisCourse: CourseDay[];
 	}
-
-	interface ThisCourse {
-		meta: any; // TODO: Tipear a este
-		path: string;
-		week: number;
-	}
-
-	let getAmountWeeks = () => {
-		let objectsArray = data.thisCourse.length;
-		let amountOfWeeks = data.thisCourse[objectsArray - 1].week;
-		return amountOfWeeks;
-	};
 
 	let number = 0;
 
@@ -25,7 +16,7 @@
 		return number;
 	};
 
-	let weeks = getAmountWeeks();
+	let weeks = getWeeksFromCourse(data.thisCourse);
 </script>
 
 <section>
