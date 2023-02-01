@@ -10,6 +10,7 @@
 		<input type="text" />
 	</div>
 	<div class="main">
+		<h1>Cadence by Example</h1>
 		{#each allContent as content}
 			<a
 				class="title-wrapper w-medium heading"

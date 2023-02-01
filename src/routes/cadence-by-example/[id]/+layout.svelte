@@ -25,9 +25,6 @@
 					<p class="heading w-medium">
 						{previousExample.meta.title}
 					</p>
-					<p class="text small">
-						{previousExample.meta.excerpt}
-					</p>
 				</div>
 			</a>
 		{/if}
@@ -39,9 +36,6 @@
 				<div class="column-2">
 					<p class="heading w-medium">
 						{nextExample.meta.title}
-					</p>
-					<p class="text small">
-						{nextExample.meta.excerpt}
 					</p>
 				</div>
 				<Icon icon="tabler:arrow-right" style="color: var(--clr-text-main);" />

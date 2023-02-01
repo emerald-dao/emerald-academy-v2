@@ -3,17 +3,17 @@ import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum'
 import { generateSlug } from '$lib/utilities/dataTransformation/generateSlug';
 
 export const overview: Template = {
-	title: 'Hello World Contract',
+	title: 'Hello World',
 	contentType: ContentTypeEnum.Template,
 	slug: generateSlug(import.meta.url),
 	audited: true,
 	user: {
-		name: 'Jacob Tucker',
+		name: 'Emerald City',
 		userAvatarUrl: 'https://avatars.githubusercontent.com/u/15198786?v=4',
-		github: 'jacob-tucker',
-		twitter: 'jacobmtucker',
-		discord:'14310091268725145'
+		github: 'emerald-dao',
+		twitter: 'emerald_dao',
+		discord: '143100912687251456'
 	},
-	templateRepositoryUrl: 'github.com/jacobtucker/repository',
-	description: 'Descirption of the contract'
+	templateRepositoryUrl: 'github.com/emerald-dao/0-hello-world',
+	description: 'A DApp that lets users read and change a greeting field on Flow testnet.'
 };

@@ -1,19 +1,27 @@
 ---
 title: First App
 language: en
-excerpt: First app resume lorem ipsum
-tags: ['basic-dapp']
 layout: false
 ---
 
 ```js
-pub contract AContract {
-   pub let firstApp: firstApp2
+pub contract Counter {
+   pub var count: Int
+
+   pub fun increment() {
+      self.count = self.count + 1
+   }
+
+   pub fun decrement() {
+      self.count = self.count - 1
+   }
+
+   pub fun get(): Int {
+      return self.count
+   }
 }
 ```
 
-# Chapter 1 Day 1 - Hello World 2
+# First Application
 
-Hello! Yes, it is me. Your favourite developer of all time, Jacob. You are currently viewing the first day of the entire course. Let's start this journey together.
-
-Let's start off our first day by going over what seems to be complicated terms that you will need to understand for the journey ahead.
+Here is a simple contract that you can get, increment and decrement the count store in this contract.

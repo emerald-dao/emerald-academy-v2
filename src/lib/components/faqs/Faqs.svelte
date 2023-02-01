@@ -25,7 +25,7 @@
 		{/each}
 	</div>
 	<div class="answers">
-		<p>{questionAnswer[number].answer}</p>
+		<p>{@html questionAnswer[number].answer}</p>
 	</div>
 </div>
 
