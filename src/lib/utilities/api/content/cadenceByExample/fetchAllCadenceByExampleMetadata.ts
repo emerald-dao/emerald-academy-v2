@@ -17,3 +17,7 @@ export const fetchAllCadenceByExampleMetadata = async () => {
 
 	return allCadenceByExampleMetadata;
 };
+
+interface aaaa {
+	metadata: string;
+}

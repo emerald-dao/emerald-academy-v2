@@ -1,4 +1,6 @@
-export async function load({ params }) {
+import type { PageLoad } from './$types';
+
+export const load: PageLoad = async ({ params }) => {
 	try {
 		const cadenceByExampleMarkdownFile = await import(
 			`../../../lib/content/cadenceByExample/${params.id}.md`
@@ -16,4 +18,4 @@ export async function load({ params }) {
 	} catch (e) {
 		throw new Error(`You missed it`);
 	}
-}
+};
