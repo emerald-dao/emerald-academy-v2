@@ -59,7 +59,11 @@
 		</div>
 	{/if}
 	<div class="button-wrapper">
-		<Button width="full-width">Open in GitHub</Button>
+		<Button
+			href={`https://${thisTemplateOverview.templateRepositoryUrl}`}
+			target="_blank"
+			width="full-width">Open in GitHub</Button
+		>
 	</div>
 </div>
 
@@ -74,7 +78,7 @@
 			height: fit-content;
 			padding-block: var(--space-9);
 			position: sticky;
-			top: 50px;
+			top: 100px;
 			padding-left: var(--space-8);
 			padding-top: 0;
 		}
