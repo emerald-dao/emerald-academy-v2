@@ -1,14 +1,12 @@
 <script type="ts">
-	import type { CourseDay, CourseOverview } from '$lib/types/content/course.interface';
+	import type { CourseData, CourseOverview } from '$lib/types/content/course.interface';
 	import Faqs from '$lib/components/faqs/Faqs.svelte';
 	import ContentIntro from '$lib/components/cards/ContentIntro.svelte';
 	import { Button } from '@emerald-dao/component-library';
 	import Icon from '@iconify/svelte';
 	import CourseDetails from '$lib/components/cards/CourseDetails.svelte';
 
-	export let data;
-
-	console.log(data);
+	export let data: CourseData;
 </script>
 
 <section class="container-small">

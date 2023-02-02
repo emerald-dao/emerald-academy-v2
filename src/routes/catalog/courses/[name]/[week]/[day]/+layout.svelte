@@ -1,10 +1,9 @@
 <script type="ts">
-	import type { CourseDay } from '$lib/types/content/course.interface';
+	import type { CourseData } from '$lib/types/content/course.interface';
 
-	export let data;
+	export let data: CourseData;
 
 	const courseContents = data.contents;
-	console.log('ctx', courseContents);
 
 	let number = 0;
 

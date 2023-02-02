@@ -1,10 +1,17 @@
 <script type="ts">
 	import { page } from '$app/stores';
+	import type { CourseContents, CourseOverview } from '$lib/types/content/course.interface';
 	import { transformUrlToHeading } from '$lib/utilities/dataTransformation/transformUrlToHeading';
 	import { Breadcrumbs } from '@emerald-dao/component-library';
 
-	export let data;
-	export let headings;
+	interface Data {
+		content: ConstructorOfATypedSvelteComponent;
+		contents: CourseContents;
+		day: number;
+		overview: CourseOverview;
+	}
+
+	export let data: Data;
 
 	let routes = [
 		{

@@ -1,9 +1,24 @@
 import type { Overview } from './content-overview.interface';
 
+export interface CourseData {
+	overview: CourseOverview;
+	contents: CourseContents;
+}
+
 export interface CourseOverview extends Overview {}
 
-export interface CourseDay {
-    meta: any; // TODO: Tipear a este
-	path: string;
-	week: number;
+export interface CourseContents {
+	[week: string]: Array<{
+		slug: string;
+		metadata: {
+			title: string;
+			day: number;
+			language: string;
+			excerpt: string;
+			headings: Array<{
+				level: number;
+				title: string;
+			}>;
+		};
+	}>;
 }
