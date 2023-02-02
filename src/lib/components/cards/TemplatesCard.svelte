@@ -46,6 +46,7 @@
 		width: -webkit-fill-available;
 		display: flex;
 		flex-direction: column;
+		justify-content: space-between;
 		gap: var(--space-5);
 		border: var(--border-width-primary) solid var(--clr-border-primary);
 		border-radius: var(--radius-2);

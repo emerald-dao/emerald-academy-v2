@@ -56,16 +56,5 @@ export const overview: CourseOverview = {
 				answer: 'This course is currently available in English (README.md), Chinese (README_ZH.md), Spanish (README_ES.md), and Russian (README_RU.md). Under each day of content, you will see a matching README file for your language of choice.'
 			}
 		]
-	},
-	weeks: [
-		{
-			excerpt: 'This is the first week'
-		},
-		{
-			excerpt: 'This is the second week'
-		},
-		{
-			excerpt: 'This is the third week'
-		}
-	]
+	}
 };

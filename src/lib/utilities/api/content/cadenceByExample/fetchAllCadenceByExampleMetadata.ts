@@ -6,14 +6,18 @@ export const fetchAllCadenceByExampleMetadata = async () => {
 	const allCadenceByExampleMetadata = await Promise.all(
 		iterableFiles.map(async ([path, resolver]) => {
 			const { metadata } = await resolver();
-			const cPath = path.slice(8, -3);
+			const slug = path.slice(8, -3);
 
 			return {
 				meta: metadata,
-				path: cPath
+				path: slug
 			};
 		})
 	);
 
 	return allCadenceByExampleMetadata;
 };
+
+interface aaaa {
+	metadata: string;
+}

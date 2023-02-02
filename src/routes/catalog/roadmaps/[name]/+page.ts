@@ -1,6 +1,9 @@
-export const load = async ({ fetch, params }) => {
+import type { PageLoad } from './$types';
+
+export const load: PageLoad = async ({ params }) => {
 	try {
 		const roadmapFile = await import(`../../../../lib/content/roadmaps/${params.name}/overview.ts`);
+
 		return {
 			roadmap: roadmapFile.overview
 		};

@@ -1,4 +1,6 @@
-export const load = async ({ fetch }) => {
+import type { PageLoad } from './$types';
+
+export const load: PageLoad = async ({ fetch }) => {
 	try {
 		const response = await fetch(`/api/content/roadmaps`);
 		const roadmap = await response.json();

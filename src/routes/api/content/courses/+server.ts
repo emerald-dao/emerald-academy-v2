@@ -1,8 +1,8 @@
-import { fetchOverviews } from '$lib/utilities/api/fetchOverviews';
 import { json } from '@sveltejs/kit';
+import { fetchAllCourses } from '$lib/utilities/api/content/courses/fetchAllCourses';
 
 export const GET = async () => {
-	const allCourses = await fetchOverviews('courses');
+	const allCourses = await fetchAllCourses();
 
 	return json(allCourses);
 };

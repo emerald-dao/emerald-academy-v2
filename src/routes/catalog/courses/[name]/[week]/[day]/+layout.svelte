@@ -1,21 +1,9 @@
 <script type="ts">
-	export let data: Data;
+	import type { CourseData } from '$lib/types/content/course.interface';
 
-	interface Data {
-		thisCourse: ThisCourse[];
-	}
+	export let data: CourseData;
 
-	interface ThisCourse {
-		meta: any; // TODO: Tipear a este
-		path: string;
-		week: number;
-	}
-
-	let getAmountWeeks = () => {
-		let objectsArray = data.thisCourse.length;
-		let amountOfWeeks = data.thisCourse[objectsArray - 1].week;
-		return amountOfWeeks;
-	};
+	const courseContents = data.contents;
 
 	let number = 0;
 
@@ -25,7 +13,7 @@
 		return number;
 	};
 
-	let weeks = getAmountWeeks();
+	// let weeks = getWeeksFromCourse(data.thisCourse);
 </script>
 
 <section>
@@ -33,21 +21,13 @@
 		<div class="grid-wrapper">
 			<div class="sidebar">
 				<p>Course Overview</p>
-				{#each Array(weeks) as _, index (index)}
-					<div class="column">
-						<p class="week">Week: {index + 1}</p>
-						{#each data.thisCourse as dayInfo, i}
-							{#if dayInfo.week === index + 1}
-								<div
-									on:click={() => getIndex(i)}
-									class:selected={i === number}
-									class="each-content"
-								>
-									<a class="menu-link" href={dayInfo.path.replace('content', 'catalog')}>
-										{dayInfo.meta.title}
-									</a>
-								</div>
-							{/if}
+				{#each Object.values(courseContents) as weekContent, index}
+					<div class="column-2">
+						<p class="week">Week {index + 1}</p>
+						{#each weekContent as day}
+							<a href={`/${day.slug}`} class="header-link">
+								{day.metadata.title}
+							</a>
 						{/each}
 					</div>
 				{/each}
@@ -71,14 +51,6 @@
 		}
 	}
 
-	.column {
-		margin: 0;
-
-		@include mq(medium) {
-			margin: var(--space-5) 0;
-		}
-	}
-
 	.sidebar {
 		display: flex;
 		flex-direction: row;
@@ -96,24 +68,11 @@
 			padding-right: var(--space-1);
 			position: sticky;
 			top: 100px;
-			gap: 0;
+			gap: var(--space-8);
 		}
 	}
-	.menu-link {
-		text-decoration: none;
-		cursor: pointer;
-		&:hover {
-			color: var(--clr-primary-300);
-		}
-		color: var(--clr-text-main);
-	}
-	.selected {
-		color: red;
-	}
+
 	.week {
 		color: var(--clr-text-off);
-	}
-	.each-content {
-		margin: var(--space-2) 0;
 	}
 </style>

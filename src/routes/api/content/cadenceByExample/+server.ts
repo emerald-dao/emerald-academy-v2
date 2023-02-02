@@ -1,4 +1,4 @@
-import { fetchAllCadenceByExampleMetadata } from '$lib/utilities/api/fetchAllCadenceByExampleMetadata';
+import { fetchAllCadenceByExampleMetadata } from '$lib/utilities/api/content/cadenceByExample/fetchAllCadenceByExampleMetadata';
 import { json } from '@sveltejs/kit';
 
 export const GET = async () => {

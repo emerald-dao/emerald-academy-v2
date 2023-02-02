@@ -48,31 +48,40 @@ export const overview: BootcampOverview = {
 			}
 		]
 	},
-	weeks: [
-		{
-			excerpt: 'This is the first week'
-		},
-		{
-			excerpt: 'This is the second week'
-		},
-		{
-			excerpt: 'This is the third week'
-		}
-	],
 	videos: [
 		{
 			name: 'First Lesson',
 			excerpt: ' ipsum',
 			link: 'https://www.youtube/test',
 			subjects: [SubjectsEnum.Webdev],
-			date: new Date(10 / 10 / 2002)
+			date: new Date(2023, 0, 20, 13, 30),
+			chapters: [
+				{
+					name: 'Chapter 1, Day 1 - Introduction to Flow',
+					link:'/catalog/courses/basic-dapp/week1/day1.md	'
+				},
+				{
+					name: 'Chapter 2, Day 1 - Introduction to Flow',
+					link:'/catalog/courses/basic-dapp/week1/day2.md'
+				}
+			]
 		},
 		{
 			name: 'Second Lesson',
 			excerpt: 'Loremn ipsum',
 			link: 'https://www.youtube/test',
 			subjects: [SubjectsEnum.Webdev],
-			date: new Date(10 / 10 / 2002)
+			date: new Date(2023, 1, 17, 15, 30),
+			chapters: [
+				{
+					name: 'Chapter 1, Day 2 - Introduction to Flow',
+					link:'/catalog/courses/basic-dapp/week2/day1.md'
+				},
+				{
+					name: 'Chapter 2, Day 2 - Introduction to Flow',
+					link:'/catalog/courses/basic-dapp/week2/day2.md'
+				}
+			]
 		}
 	]
 };
