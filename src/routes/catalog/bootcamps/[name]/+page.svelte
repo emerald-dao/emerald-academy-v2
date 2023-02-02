@@ -25,8 +25,8 @@
 	</SpecificContentCard>
 </section>
 <section class="container-small">
-	{#each data.overview.weeks as week, i}
-		<CourseDetails data={week} {i} />
+	{#each data.overview.videos as video, i}
+		<CourseDetails data={video} {i} typeOfcontent={data.overview.contentType} />
 	{/each}
 </section>
 <section class="container-small">

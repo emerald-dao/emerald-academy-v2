@@ -3,14 +3,27 @@
 	import Icon from '@iconify/svelte';
 	import { slide } from 'svelte/transition';
 	import type { BootcampVideo } from '$lib/types/content/bootcamp.interface';
-	import type { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+	import { daysOfDifference } from '$lib/utilities/dataTransformation/daysOfDifference';
 
-	export let data: BootcampVideo;
+	export let data: BootcampVideo | any;
 	export let i;
-	export let typeOfcontent: ContentTypeEnum.Bootcamp | ContentTypeEnum.Course;
+	export let typeOfcontent: ContentTypeEnum;
 
 	export let open = false;
 	const handleClick = () => (open = !open);
+
+	let startTimeInISO: Number;
+	let finishTime;
+	let finishTimeInISO: String;
+
+	if (typeOfcontent === ContentTypeEnum.Bootcamp) {
+		startTimeInISO = data.date.toISOString().replace(/[:.-]/g, '');
+		// Add 1 hour to start time
+		finishTime = new Date(data.date);
+		finishTime.setHours(finishTime.getHours() + 1);
+		finishTimeInISO = finishTime.toISOString().replace(/[:.-]/g, '');
+	}
 </script>
 
 <div class="accordion">
@@ -21,20 +34,62 @@
 					<span>{i + 1}</span>
 				</div>
 				<div class="title-wrapper">
-					<span>{data.excerpt}</span>
+					{#if typeOfcontent === ContentTypeEnum.Course}
+						<h5>{`Week ${i + 1}`}</h5>
+					{:else if typeOfcontent === ContentTypeEnum.Bootcamp}
+						<h5>{data.name}</h5>
+					{/if}
 				</div>
 			</div>
-			<div class="button-wrapper">
-				<Button>Read <Icon icon="ic:outline-diamond" color="var(--clr-heading-inverse)" /></Button>
+			<div class="button-wrapper row-3">
+				{#if typeOfcontent === ContentTypeEnum.Course}
+					<Button href={`/${data[0].slug}`} size="small"
+						>Read <Icon icon="ic:outline-diamond" color="var(--clr-heading-inverse)" /></Button
+					>
+				{:else if typeOfcontent === ContentTypeEnum.Bootcamp}
+					{#if daysOfDifference(new Date(), data.date) < 0}
+						{#if !data.link}
+							<span class="small w-medium">Video available soon</span>
+							<Button state="disabled" size="small"
+								><Icon icon="bi:camera-video" color="var(--clr-heading-inverse)" />View Video</Button
+							>
+						{:else}
+							<span class="small w-medium">Finished</span>
+							<Button target="_blank" href={`${data.link}`} size="small"
+								><Icon icon="bi:camera-video" color="var(--clr-heading-inverse)" />View Video</Button
+							>
+						{/if}
+					{:else}
+						<span class="small w-medium"
+							>Starts in {daysOfDifference(new Date(), data.date)} days</span
+						>
+						<Button
+							size="small"
+							href={`https://calendar.google.com/calendar/render?action=TEMPLATE&dates=${startTimeInISO}Z%2F${finishTimeInISO}Z&text=${data.name}`}
+							target="_blank"
+							><Icon icon="ph:calendar-plus" color="var(--clr-heading-inverse)" />Add to calendar</Button
+						>
+					{/if}
+				{/if}
 			</div>
 		</div>
 	</div>
 
 	{#if open}
-		<div class="details" transition:slide>
-			<div>
-				<p>{data.excerpt}</p>
-			</div>
+		<div class="details column-2" transition:slide>
+			{#if typeOfcontent === ContentTypeEnum.Course}
+				{#each data as week}
+					<a href={`/${week.slug}`} target="_blank" rel="noreferrer">
+						<p class="small">{week.metadata.title}</p>
+					</a>
+				{/each}
+			{:else if typeOfcontent === ContentTypeEnum.Bootcamp}
+				{#each data.chapters as chapter}
+					<a href={chapter.link} target="_blank" rel="noreferrer">
+						<p class="small">{chapter.name}</p>
+					</a>
+				{/each}
+			{/if}
 		</div>
 	{/if}
 </div>
@@ -81,11 +136,15 @@
 					}
 
 					.title-wrapper {
+						h5 {
+							margin: 0;
+						}
 						padding-left: var(--space-2);
 					}
 				}
 
 				.button-wrapper {
+					align-items: center;
 					justify-content: end;
 				}
 			}
@@ -94,6 +153,14 @@
 		.details {
 			padding-top: var(--space-5);
 			padding-left: 46px;
+
+			a {
+				text-decoration: none;
+
+				&:hover {
+					text-decoration-line: underline;
+				}
+			}
 		}
 	}
 </style>
