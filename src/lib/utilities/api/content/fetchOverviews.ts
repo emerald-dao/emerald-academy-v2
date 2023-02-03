@@ -1,6 +1,14 @@
+import type { Locales } from '$i18n/i18n-types';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
-export const fetchOverviews = async (contentType?: ContentTypeEnum) => {
+export const fetchOverviews = async (
+	contentType?:
+		| ContentTypeEnum.Bootcamp
+		| ContentTypeEnum.Course
+		| ContentTypeEnum.Template
+		| ContentTypeEnum.Roadmap,
+	locale?: Locales
+) => {
 	let overviews;
 
 	switch (contentType) {
@@ -12,10 +20,8 @@ export const fetchOverviews = async (contentType?: ContentTypeEnum) => {
 			overviews = import.meta.glob('/src/lib/content/bootcamps/**/*.ts');
 			break;
 
-		case ContentTypeEnum.Tips:
-			break;
-
 		case ContentTypeEnum.Template:
+			overviews = import.meta.glob('/src/lib/content/templates/**/**/*.ts');
 			break;
 
 		case ContentTypeEnum.Roadmap:
@@ -30,11 +36,21 @@ export const fetchOverviews = async (contentType?: ContentTypeEnum) => {
 
 	const allOverviews = await Promise.all(
 		iterableFiles.map(async ([path, resolver]) => {
+			const thisContentLang = path.split('/')[6];
+
+			if (locale && locale != thisContentLang) {
+				return;
+			}
+
 			const { overview } = await resolver();
 
 			return overview;
 		})
 	);
 
-	return allOverviews;
+	const cleanOverviewsArray = allOverviews.filter((overviews) => {
+		return overviews !== undefined;
+	});
+
+	return cleanOverviewsArray;
 };

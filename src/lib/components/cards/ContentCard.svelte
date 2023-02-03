@@ -3,11 +3,12 @@
 	import { Label } from '@emerald-dao/component-library';
 	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
 	import ContentLabel from '../label/ContentLabel.svelte';
+	import { locale } from '$i18n/i18n-svelte';
 
 	export let overview: Overview;
 </script>
 
-<a href={`/catalog/${overview.slug}`}>
+<a href={`/${$locale}/catalog/${overview.slug}`}>
 	<div class="card-primary">
 		<ContentLabel type={overview.contentType} color="primary">
 			{firstCapital(overview.contentType)}

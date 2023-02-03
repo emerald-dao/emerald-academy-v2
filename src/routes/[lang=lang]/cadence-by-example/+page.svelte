@@ -1,7 +1,7 @@
 <script type="ts">
-	export let data;
+	import { locale } from '$i18n/i18n-svelte';
 
-	const allContent = data.content;
+	export let data;
 </script>
 
 <section class="container">
@@ -11,10 +11,11 @@
 	</div>
 	<div class="main">
 		<h1>Cadence by Example</h1>
-		{#each allContent as content}
+		{#each data.content as content}
 			<a
 				class="title-wrapper w-medium heading"
-				href={`/cadence-by-example/${content.path.split('/')[3]}`}>{content.meta.title}</a
+				href={`/${$locale}/cadence-by-example/${content.path.split('/')[3]}`}
+				>{content.meta.title}</a
 			>
 		{/each}
 	</div>

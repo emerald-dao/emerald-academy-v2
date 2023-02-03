@@ -2,9 +2,17 @@ import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ params }) => {
 	try {
-		const cadenceByExampleMarkdownFile = await import(
-			`../../../lib/content/cadenceByExample/${params.id}.md`
-		);
+		let cadenceByExampleMarkdownFile;
+
+		try {
+			cadenceByExampleMarkdownFile = await import(
+				`../../../../lib/content/cadenceByExample/${params.lang}/${params.id}.md`
+			);
+		} catch (e) {
+			cadenceByExampleMarkdownFile = await import(
+				`../../../../lib/content/cadenceByExample/en/${params.id}.md`
+			);
+		}
 
 		const meta = cadenceByExampleMarkdownFile.metadata;
 		const content = cadenceByExampleMarkdownFile.default;

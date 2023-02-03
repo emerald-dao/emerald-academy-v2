@@ -1,6 +1,8 @@
-export const fetchOneCourse = async (slug: string) => {
-	const overview = await import(`../../../../content/courses/${slug}/overview.ts`);
-	const allContents = import.meta.glob('/src/lib/content/courses/**/**/*.md');
+import type { Locales } from '$i18n/i18n-types';
+
+export const fetchOneCourse = async (slug: string, locale: Locales) => {
+	const overview = await import(`../../../../content/courses/${slug}/${locale}/overview.ts`);
+	const allContents = import.meta.glob('/src/lib/content/courses/**/**/**/*.md');
 
 	const iterableContents = Object.entries(allContents);
 

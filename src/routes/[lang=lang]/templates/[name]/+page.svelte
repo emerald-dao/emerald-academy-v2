@@ -4,17 +4,14 @@
 
 	export let data;
 
-	const thisTemplateOverview = data.overview;
-	const thisReadme = data.readme;
-
 	$: routes = [
 		{
 			path: '/templates',
 			label: 'Templates'
 		},
 		{
-			path: `/${thisTemplateOverview.slug}`,
-			label: `${thisTemplateOverview.title}`
+			path: `/${data.overview.slug}`,
+			label: `${data.overview.title}`
 		}
 	];
 </script>
@@ -24,10 +21,10 @@
 		<Breadcrumbs {routes} />
 		<div class="template">&lt/&gt Template</div>
 		<article>
-			<h1 class="heading w-medium">{thisTemplateOverview.title}</h1>
-			<p class="w-medium">{thisTemplateOverview.description}</p>
+			<h1 class="heading w-medium">{data.overview.title}</h1>
+			<p class="w-medium">{data.overview.description}</p>
 			<div class="readme-wrapper">
-				<svelte:component this={thisReadme} />
+				<svelte:component this={data.readme} />
 			</div>
 		</article>
 	</div>
