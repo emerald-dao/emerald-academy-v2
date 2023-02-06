@@ -1,7 +1,10 @@
+import { locale } from '$i18n/i18n-svelte';
+import { get } from 'svelte/store';
+
 export const navElements = [
 	{
 		name: 'Catalog',
-		url: '/catalog',
+		url: `/catalog`,
 		prefetch: true
 	},
 	{

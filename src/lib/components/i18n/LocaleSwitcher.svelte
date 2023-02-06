@@ -46,7 +46,7 @@
 
 <div class="main-wrapper">
 	<div class="icon-wrapper">
-		<Icon icon="material-symbols:translate-rounded" />
+		<Icon icon="material-symbols:translate-rounded" width="0.9em" />
 	</div>
 	<select bind:value={selectedLocale}>
 		{#each locales as l}
@@ -59,7 +59,6 @@
 
 <style type="scss">
 	.main-wrapper {
-		border: 0.5px var(--clr-border-primary) solid;
 		border-radius: var(--radius-1);
 		display: flex;
 		flex-direction: row;
@@ -71,8 +70,7 @@
 		.icon-wrapper {
 			position: absolute;
 			top: 6.2px;
-			left: 6px;
-			z-index: -1;
+			left: 8px;
 		}
 
 		select {
@@ -80,9 +78,11 @@
 			background-color: transparent;
 			color: var(--clr-font-primary);
 			appearance: none;
-			padding: var(--space-1) var(--space-1) var(--space-1) 26px;
+			padding: var(--space-1) var(--space-2) var(--space-1) 25px;
 			border-radius: inherit;
 			cursor: pointer;
+			font-size: var(--font-size-1);
+			z-index: 2;
 
 			&:focus {
 				outline: none;

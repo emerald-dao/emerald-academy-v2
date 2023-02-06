@@ -40,11 +40,11 @@
 			url: `/${$locale}/resources`,
 			prefetch: true
 		},
-		{
-			name: 'Achievements',
-			url: `/${$locale}/achievements`,
-			prefetch: true
-		},
+		// {
+		// 	name: 'Achievements',
+		// 	url: `/${$locale}/achievements`,
+		// 	prefetch: true
+		// },
 		{
 			name: 'Templates',
 			url: `/${$locale}/templates`,
@@ -53,8 +53,9 @@
 	];
 </script>
 
-<Header themeStore={theme} {logIn} {unauthenticate} {getFindProfile} {navElements} user={$user} />
-<LocaleSwitcher />
+<Header themeStore={theme} {logIn} {unauthenticate} {getFindProfile} {navElements} user={$user}>
+	<LocaleSwitcher slot="commands" />
+</Header>
 <main>
 	<slot />
 </main>
