@@ -12,8 +12,6 @@
 
 	export let data: Data;
 
-	console.log(data);
-
 	interface Data {
 		content: Overview[];
 	}

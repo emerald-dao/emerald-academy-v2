@@ -1,4 +1,5 @@
 <script type="ts">
+	import { locale } from '$i18n/i18n-svelte';
 	import type { CourseData } from '$lib/types/content/course.interface';
 	import Faqs from '$lib/components/faqs/Faqs.svelte';
 	import ContentIntro from '$lib/components/cards/ContentIntro.svelte';
@@ -7,11 +8,13 @@
 	import CourseDetails from '$lib/components/cards/CourseDetails.svelte';
 
 	export let data: CourseData;
+
+	console.log(data);
 </script>
 
 <section class="container-small">
 	<ContentIntro overview={data.overview}>
-		<Button size="large" href={`/${data.contents.week1[0].slug}`}>
+		<Button size="large" href={`/${$locale}/catalog/${data.overview.slug}/week1/day1`}>
 			Start<Icon icon="tabler:arrow-right" />
 		</Button>
 	</ContentIntro>

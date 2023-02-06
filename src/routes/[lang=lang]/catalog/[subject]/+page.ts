@@ -7,8 +7,6 @@ export const load: PageLoad = async ({ fetch, params }) => {
 		`../../../../lib/content/subjects/${params.subject}/${params.lang}/overview.ts`
 	);
 
-	console.log('aaa', overview);
-
 	return {
 		content,
 		overview: overview.overview
