@@ -1,6 +1,7 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import { browser } from '$app/environment';
-	import { invalidateAll } from '$app/navigation';
+	import { goto, invalidateAll } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { setLocale, locale } from '$i18n/i18n-svelte';
 	import type { Locales } from '$i18n/i18n-types';
@@ -35,16 +36,45 @@
 			replaceLocaleInUrl($page.url, lang)
 		);
 	}
+
+	let selectedLocale: Locales;
+
+	$: selectedLocale && goto(replaceLocaleInUrl($page.url, selectedLocale));
 </script>
 
 <svelte:window on:popstate={handlePopStateEvent} />
 
-<ul>
-	{#each locales as l}
-		<li>
-			<a class:active={l === $locale} href={`${replaceLocaleInUrl($page.url, l)}`}>
+<div class="main-wrapper">
+	<Icon icon="material-symbols:translate-rounded" />
+	<select bind:value={selectedLocale}>
+		{#each locales as l}
+			<option value={l}>
 				{l}
-			</a>
-		</li>
-	{/each}
-</ul>
+			</option>
+		{/each}
+	</select>
+</div>
+
+<style type="scss">
+	.main-wrapper {
+		border: 0.5px var(--clr-border-primary) solid;
+		padding: var(--space-1) var(--space-2);
+		border-radius: var(--radius-1);
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		width: fit-content;
+		gap: var(--space-1);
+
+		select {
+			border: none;
+			background-color: transparent;
+			color: var(--clr-font-primary);
+			appearance: none;
+
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+</style>
