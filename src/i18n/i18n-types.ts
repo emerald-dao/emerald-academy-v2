@@ -15,16 +15,24 @@ export type Translations = RootTranslation
 
 type RootTranslation = {
 	/**
-	 * H​o​l​a​!
+	 * L​e​a​r​n​ ​e​v​e​r​y​t​h​i​n​g​ ​a​b​o​u​t​ ​t​h​e
 	 */
-	HI: string
+	MAIN_HEADING_1: string
+	/**
+	 * F​l​o​w​ ​B​l​o​c​k​c​h​a​i​n
+	 */
+	MAIN_HEADING_2: string
 }
 
 export type TranslationFunctions = {
 	/**
-	 * Hola!
+	 * Learn everything about the
 	 */
-	HI: () => LocalizedString
+	MAIN_HEADING_1: () => LocalizedString
+	/**
+	 * Flow Blockchain
+	 */
+	MAIN_HEADING_2: () => LocalizedString
 }
 
 export type Formatters = {}

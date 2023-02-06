@@ -54,7 +54,6 @@
 </script>
 
 <Header themeStore={theme} {logIn} {unauthenticate} {getFindProfile} {navElements} user={$user} />
-{$LL.HI({ name: 'world' })}
 <LocaleSwitcher />
 <main>
 	<slot />

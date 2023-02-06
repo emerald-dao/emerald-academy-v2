@@ -3,28 +3,31 @@
 	import ContentCard from '$lib/components/cards/ContentCard.svelte';
 	import Filters from '$lib/components/filters/Filters.svelte';
 	import { Breadcrumbs } from '@emerald-dao/component-library';
-	import SpecificContentCard from '$lib/components/cards/ContentIntro.svelte';
+	// import SpecificContentCard from '$lib/components/cards/ContentIntro.svelte';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 	import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
-	import CurriculumOverview from '$lib/components/cards/CurriculumOverview.svelte';
+	// import CurriculumOverview from '$lib/components/cards/CurriculumOverview.svelte';
 	import type { Filter } from '$lib/types/content/filters/filter.interface';
 	import type { Overview } from '$lib/types/content/content-overview.interface';
 
 	export let data: Data;
 
+	console.log(data);
+
 	interface Data {
 		content: Overview[];
 	}
 
-	const subject = $page.params;
-	const subjectCapital = subject.subject.charAt(0).toUpperCase() + subject.subject.slice(1);
+	const subject = $page.params.subject;
 
-	let routes = [
-		{
-			path: `/catalog/${$page.params.subject}`,
-			label: `${$page.params.subject}`
-		}
-	];
+	// const subjectCapital = subject.subject.charAt(0).toUpperCase() + subject.subject.slice(1);
+
+	// let routes = [
+	// 	{
+	// 		path: `/catalog/${$page.params.subject}`,
+	// 		label: `${$page.params.subject}`
+	// 	}
+	// ];
 
 	let filters: Filter[] = [
 		{
@@ -70,8 +73,8 @@
 <section>
 	<div class="container">
 		<div class="title-wrapper">
-			<Breadcrumbs {routes} />
-			<h1>{subjectCapital}</h1>
+			<!-- <Breadcrumbs {routes} /> -->
+			<h1>{subject}</h1>
 			<p>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit minima ut modi, laboriosam
 				voluptatum quas omnis repellendus nostrum mollitia eum enim velit blanditiis optio rem
@@ -84,10 +87,10 @@
 			{#if overview.title === 'Begginer Dapp Roadmap'}
 				<div class="card">
 					<div>
-						<SpecificContentCard {overview} />
+						<!-- <SpecificContentCard {overview} /> -->
 					</div>
 					<div>
-						<CurriculumOverview {overview} />
+						<!-- <CurriculumOverview {overview} /> -->
 					</div>
 				</div>
 			{/if}

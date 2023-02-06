@@ -1,4 +1,5 @@
 <script type="ts">
+	import { LL } from '$i18n/i18n-svelte';
 	import { browser } from '$app/environment';
 	import Icon from '@iconify/svelte';
 	import { onMount, onDestroy } from 'svelte';
@@ -45,7 +46,7 @@
 	<div class="container">
 		<div>
 			<h1 class="display-small">
-				Learn everything about the <br /><span>Flow Blockchain</span>
+				{$LL.MAIN_HEADING_1} <br /><span>{$LL.MAIN_HEADING_2}</span>
 			</h1>
 		</div>
 		<div class="circles-wrapper center">
