@@ -1,4 +1,5 @@
 <script type="ts">
+	import { LL } from '$i18n/i18n-svelte';
 	import Filters from '$lib/components/filters/Filters.svelte';
 	import ContentCard from '$lib/components/cards/ContentCard.svelte';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
@@ -15,7 +16,7 @@
 
 	let filters: Filter[] = [
 		{
-			title: 'Type of Content',
+			title: 'TYPE_OF_CONTENT',
 			filterElement: [
 				{
 					title: 'Live Bootcamp',
@@ -36,7 +37,7 @@
 			filterBucket: []
 		},
 		{
-			title: 'Subject',
+			title: 'SUBJECT',
 			filterElement: [
 				{
 					title: 'Backend',
@@ -46,13 +47,13 @@
 				{
 					title: 'Frontend',
 					icon: 'icon',
-					slug: SubjectsEnum.Frontend
+					slug: SubjectsEnum.Cadence
 				}
 			],
 			filterBucket: []
 		},
 		{
-			title: 'Expertise',
+			title: 'EXPERTISE',
 			filterElement: [
 				{
 					title: 'Begginer',
@@ -73,6 +74,8 @@
 			filterBucket: []
 		}
 	];
+
+	$: $LL && (filters = filters);
 </script>
 
 <section class="container">

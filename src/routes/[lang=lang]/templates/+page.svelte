@@ -1,11 +1,13 @@
 <script type="ts">
+	import LL from '$i18n/i18n-svelte';
 	import TemplatesCard from '$lib/components/cards/TemplatesCard.svelte';
+	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
 	export let data;
 </script>
 
 <section class="container">
-	<h1 class="w-medium heading">Templates</h1>
+	<h1 class="w-medium heading">{$LL[ContentTypeEnum.Template]()}</h1>
 	<div class="templates-wrapper">
 		{#each data.templates as templateData}
 			<TemplatesCard {templateData} />

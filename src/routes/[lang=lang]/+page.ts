@@ -13,11 +13,11 @@ export const load: PageLoad = async ({ params }) => {
 		);
 		const courseOverviewFile3 = await import(
 			/* @vite-ignore */
-			`../../lib/content/${featuredContent.bootcamps[0]}/${params.lang}/overview`
+			`../../lib/content/${featuredContent.bootcamps[0]}/en/overview`
 		);
 		const courseOverviewFile4 = await import(
 			/* @vite-ignore */
-			`../../lib/content/${featuredContent.bootcamps[1]}/${params.lang}/overview`
+			`../../lib/content/${featuredContent.bootcamps[1]}/en/overview`
 		);
 		const courseOverviewFile5 = await import(
 			/* @vite-ignore */

@@ -8,6 +8,7 @@
 	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 	import type { CourseOverview } from '$lib/types/content/course.interface';
 	import '@splidejs/svelte-splide/css';
+	import { LL } from '$i18n/i18n-svelte';
 
 	export let courses: CourseOverview[];
 	export let bootcamps: BootcampOverview[];
@@ -31,8 +32,8 @@
 
 <section class="container">
 	<div class="title-wrapper">
-		<div class="tagline">EXPLORE OUR CONTENT</div>
-		<h3>Flow free educational <br /> resources</h3>
+		<div class="tagline">{$LL.EXPLORE_TAGLINE()}</div>
+		<h3>{$LL.EXPLORE_H1()}</h3>
 	</div>
 
 	<div class="content-wrapper">

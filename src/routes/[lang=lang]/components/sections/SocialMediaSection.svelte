@@ -1,4 +1,5 @@
 <script type="ts">
+	import { LL } from '$i18n/i18n-svelte';
 	import { comments } from '$lib/config/comments';
 	import CommentsCard from '$lib/components/cards/CommentsCard.svelte';
 </script>
@@ -7,7 +8,7 @@
 	<div class="circle" />
 </div>
 <section>
-	<h4>Moree than 1000 students <br /> recommended us</h4>
+	<h4>{$LL.SOCIAL_H1()}</h4>
 	<div class="comments-wrapper">
 		{#each comments as c, i}
 			<div class="comment-{i}">

@@ -1,12 +1,12 @@
 <script type="ts">
-	import { locale } from '$i18n/i18n-svelte';
+	import { locale, LL } from '$i18n/i18n-svelte';
 
 	export let data;
 </script>
 
 <section class="container">
 	<div class="sidebar">
-		<h5>Search:</h5>
+		<h5>{$LL.SEARCH()}</h5>
 		<input type="text" />
 	</div>
 	<div class="main">

@@ -3,7 +3,7 @@
 	import { Label } from '@emerald-dao/component-library';
 	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
 	import ContentLabel from '../label/ContentLabel.svelte';
-	import { locale } from '$i18n/i18n-svelte';
+	import { locale, LL } from '$i18n/i18n-svelte';
 
 	export let overview: Overview;
 </script>
@@ -11,7 +11,7 @@
 <a href={`/${$locale}/catalog/${overview.slug}`}>
 	<div class="card-primary">
 		<ContentLabel type={overview.contentType} color="primary">
-			{firstCapital(overview.contentType)}
+			{$LL[overview.contentType]()}
 		</ContentLabel>
 		<h4>
 			{overview.title}
@@ -19,7 +19,7 @@
 		<div class="labels-wrapper">
 			<Label size="x-small" iconLeft="tabler:currency-dollar" color="transparent">Free</Label>
 			<Label size="x-small" iconLeft="tabler:flame" color="transparent">
-				{overview.metadata.expertise}
+				{$LL[overview.metadata.expertise]()}
 			</Label>
 			<Label size="x-small" color="transparent" iconLeft="tabler:hourglass-high">
 				{overview.metadata.duration}
@@ -28,7 +28,7 @@
 		<p>
 			{overview.excerpt}
 		</p>
-		<h5>Skills you'll learn</h5>
+		<h5>{$LL.SKILLS_YOU_WILL_LEARN()}</h5>
 		<div class="skill-labels-wrapper">
 			{#each overview.metadata.subjects as subs}
 				<Label size="x-small" color="neutral">{subs}</Label>
