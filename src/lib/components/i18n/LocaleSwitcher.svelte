@@ -45,7 +45,9 @@
 <svelte:window on:popstate={handlePopStateEvent} />
 
 <div class="main-wrapper">
-	<Icon icon="material-symbols:translate-rounded" />
+	<div class="icon-wrapper">
+		<Icon icon="material-symbols:translate-rounded" />
+	</div>
 	<select bind:value={selectedLocale}>
 		{#each locales as l}
 			<option value={l}>
@@ -58,19 +60,29 @@
 <style type="scss">
 	.main-wrapper {
 		border: 0.5px var(--clr-border-primary) solid;
-		padding: var(--space-1) var(--space-2);
 		border-radius: var(--radius-1);
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		width: fit-content;
 		gap: var(--space-1);
+		position: relative;
+
+		.icon-wrapper {
+			position: absolute;
+			top: 6.2px;
+			left: 6px;
+			z-index: -1;
+		}
 
 		select {
 			border: none;
 			background-color: transparent;
 			color: var(--clr-font-primary);
 			appearance: none;
+			padding: var(--space-1) var(--space-1) var(--space-1) 26px;
+			border-radius: inherit;
+			cursor: pointer;
 
 			&:focus {
 				outline: none;
