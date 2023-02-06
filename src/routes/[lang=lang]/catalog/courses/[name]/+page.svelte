@@ -14,7 +14,7 @@
 
 <section class="container-small">
 	<ContentIntro overview={data.overview}>
-		<Button size="large" href={`/${$locale}/catalog/${data.overview.slug}/week1/day1`}>
+		<Button size="large" href={`/${Object.values(data.contents)[0][0].slug}`}>
 			Start<Icon icon="tabler:arrow-right" />
 		</Button>
 	</ContentIntro>
