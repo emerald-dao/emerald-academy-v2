@@ -35,7 +35,7 @@
 		/>
 	{:else if value > 30 && value <= 60}
 		<img src="/main-diamond-3.png" alt="Your diamond!" />
-		<h4 class="heading tagline">Diamantis</h4>
+		<h4 class="tagline">Diamantis</h4>
 		<ProgressBar
 			{value}
 			min={31}
