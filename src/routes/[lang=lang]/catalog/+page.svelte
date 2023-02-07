@@ -42,11 +42,6 @@
 					title: 'Backend',
 					icon: 'icon',
 					slug: SubjectsEnum.Backend
-				},
-				{
-					title: 'Frontend',
-					icon: 'icon',
-					slug: SubjectsEnum.Frontend
 				}
 			],
 			filterBucket: []

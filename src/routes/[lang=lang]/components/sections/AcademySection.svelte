@@ -15,11 +15,6 @@
 					title: 'Cadence',
 					icon: 'icon',
 					slug: SubjectsEnum.Cadence
-				},
-				{
-					title: 'Frontend',
-					icon: 'icon',
-					slug: SubjectsEnum.Frontend
 				}
 			],
 			filterBucket: []

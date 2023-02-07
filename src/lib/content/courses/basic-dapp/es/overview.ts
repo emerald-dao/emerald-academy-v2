@@ -13,7 +13,7 @@ export const overview: CourseOverview = {
 		expertise: ExpertiseEnum.begginer,
 		duration: '3 semanas',
 		prerequisites: ['javascript'],
-		subjects: [SubjectsEnum.Backend, SubjectsEnum.Frontend],
+		subjects: [SubjectsEnum.Backend],
 		faqs: [
 			{
 				question: 'Primera Pregunta',
