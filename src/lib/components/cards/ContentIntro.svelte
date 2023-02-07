@@ -8,14 +8,22 @@
 
 	export let overview: Overview;
 
+	let param;
+
+	if ($page.params.subject) {
+		param = $page.params.subject;
+	} else {
+		param = $page.params.name;
+	}
+
 	let routes = [
 		{
 			path: '/catalog',
 			label: 'Catalog'
 		},
 		{
-			path: `/catalog/${$page.params.name}`,
-			label: transformUrlToHeading($page.params.name)
+			path: `/catalog/${param}`,
+			label: transformUrlToHeading(param)
 		}
 	];
 </script>

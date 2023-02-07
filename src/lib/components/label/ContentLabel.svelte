@@ -17,8 +17,6 @@
 	<Label size="small" iconLeft="tabler:road" {color} {state}><slot /></Label>
 {:else if type === SubjectsEnum.Backend}
 	<Label size="small" {color} {state}><slot /></Label>
-{:else if type === SubjectsEnum.Frontend}
-	<Label size="small" {color} {state}><slot /></Label>
 {:else if type === SubjectsEnum.Cadence}
 	<Label size="small" {color} {state}><slot /></Label>
 {:else if type === SubjectsEnum.Webdev}
