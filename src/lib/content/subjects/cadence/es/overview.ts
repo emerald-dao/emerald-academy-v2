@@ -5,18 +5,18 @@ import type { SubjectOverview } from '$lib/types/content/subjects.interface';
 export const overview: SubjectOverview  = {
 	name: SubjectsEnum.Cadence,
 	description:
-		'Cadence is a resource-oriented programming language that introduces new features to smart contract programming that help developers ensure that their code is safe, secure, clear, and approachable.',
+		'Cadence es un lenguaje de programación orientado a recursos que introduce nuevas características en la programación de contratos inteligentes que ayudan a los desarrolladores a garantizar que su código sea seguro, claro y accesible.',
 	shortcuts: [
 		{
-			name: 'Cadence Documentation',
+			name: 'Documentación de Cadence',
 			url: 'https://docs.onflow.org/cadence'
 		},
 		{
-			name: 'Cadence Playground',
+			name: 'Ejercitar Cadence',
 			url: 'https://play.onflow.org'
 		},
 		{
-			name: 'Cadence Language Reference',
+			name: 'Referencia del lenguaje Cadence',
 			url: 'https://docs.onflow.org/cadence/language/'
 		}
 	]
