@@ -1,14 +1,17 @@
 import { user } from "$stores/FlowStore"
 import { getEmeraldID } from "$flow/actions";
 import { supabase } from "$lib/supabaseClient";
+import { get } from "svelte/store";
 
 export const load = async () => {
-    if (!user.loggedIn) {
+    const userObj = get(user);
+    if (!userObj.loggedIn) {
         return { value: null };
     }
 
-    const userAddr = user.addr;
+    const userAddr = userObj.addr;
     const emeraldID = await getEmeraldID(userAddr);
+
     if (!emeraldID) {
         return { value: null };
     }
@@ -17,6 +20,6 @@ export const load = async () => {
     const [profile] = data;
 
     return {
-        value: profile.score
+        value: profile?.score
     }
 };
