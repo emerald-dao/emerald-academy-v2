@@ -3,7 +3,9 @@
 	import DiamondsCards from '$lib/components/cards/DiamondsCards.svelte';
 	import { achievements } from '$stores/AchievementsTest';
 	import { ProgressBar } from '@emerald-dao/component-library';
-	let value = 34;
+	export let data;
+	const { value } = data;
+	console.log(value);
 </script>
 
 <section class="container-small main">
