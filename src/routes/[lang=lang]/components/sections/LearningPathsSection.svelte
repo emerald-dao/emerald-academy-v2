@@ -1,4 +1,5 @@
 <script type="ts">
+	import { LL } from '$i18n/i18n-svelte';
 	import ContentCard from '$lib/components/cards/ContentCard.svelte';
 	import Filters from '$lib/components/filters/Filters.svelte';
 	import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
@@ -15,6 +16,11 @@
 					title: 'Cadence',
 					icon: 'icon',
 					slug: SubjectsEnum.Cadence
+				},
+				{
+					title: 'Frontend',
+					icon: 'icon',
+					slug: SubjectsEnum.DappDevelopment
 				}
 			],
 			filterBucket: []
@@ -24,7 +30,7 @@
 
 <section class="container">
 	<div class="sidebar">
-		<h3>Follow one of our Learning Paths</h3>
+		<h3>{$LL.PATHS_H1()}</h3>
 		<Filters bind:filters hasTitles={false} />
 	</div>
 	<div class="cards-wrapper">

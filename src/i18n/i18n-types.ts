@@ -8,6 +8,8 @@ export type BaseLocale = 'en'
 export type Locales =
 	| 'en'
 	| 'es'
+	| 'ru'
+	| 'zh'
 
 export type Translation = RootTranslation
 
@@ -22,6 +24,98 @@ type RootTranslation = {
 	 * F​l​o​w​ ​B​l​o​c​k​c​h​a​i​n
 	 */
 	MAIN_HEADING_2: string
+	/**
+	 * W​e​l​c​o​m​e
+	 */
+	WELCOME: string
+	/**
+	 * E​x​p​l​o​r​e​ ​o​u​r​ ​c​o​n​t​e​n​t
+	 */
+	EXPLORE_TAGLINE: string
+	/**
+	 * F​l​o​w​ ​f​r​e​e​ ​e​d​u​c​a​t​i​o​n​a​l​ ​r​e​s​o​u​r​c​e​s
+	 */
+	EXPLORE_H1: string
+	/**
+	 * F​o​l​l​o​w​ ​o​n​e​ ​o​f​ ​o​u​r​ ​l​e​a​r​n​i​n​g​ ​p​a​t​h​s
+	 */
+	PATHS_H1: string
+	/**
+	 * M​o​r​e​e​ ​t​h​a​n​ ​1​0​0​0​ ​s​t​u​d​e​n​t​s​ ​r​e​c​o​m​m​e​n​d​e​d​ ​u​s
+	 */
+	SOCIAL_H1: string
+	/**
+	 * T​y​p​e​ ​o​f​ ​c​o​n​t​e​n​t
+	 */
+	TYPE_OF_CONTENT: string
+	/**
+	 * S​u​b​j​e​c​t
+	 */
+	SUBJECT: string
+	/**
+	 * E​x​p​e​r​t​i​s​e
+	 */
+	EXPERTISE: string
+	/**
+	 * S​e​a​r​c​h
+	 */
+	SEARCH: string
+	/**
+	 * Y​o​u​r​ ​a​c​h​i​e​v​e​m​e​n​t​s
+	 */
+	ACHIEVEMENTS_H1: string
+	/**
+	 * S​k​i​l​l​s​ ​y​o​u​'​l​l​ ​l​e​a​r​n
+	 */
+	SKILLS_YOU_WILL_LEARN: string
+	/**
+	 * C​o​u​r​s​e
+	 */
+	course: string
+	/**
+	 * B​o​o​t​c​a​m​p
+	 */
+	bootcamp: string
+	/**
+	 * L​e​a​r​n​i​n​g​ ​p​a​t​h
+	 */
+	roadmap: string
+	/**
+	 * C​a​d​e​n​c​e​ ​b​y​ ​E​x​a​m​p​l​e
+	 */
+	'tips and tricks': string
+	/**
+	 * T​e​m​p​l​a​t​e​s
+	 */
+	template: string
+	/**
+	 * B​a​c​k​e​n​d
+	 */
+	'back end': string
+	/**
+	 * W​e​b​ ​d​e​v​e​l​o​p​m​e​n​t
+	 */
+	'web dev': string
+	/**
+	 * C​a​d​e​n​c​e
+	 */
+	cadence: string
+	/**
+	 * D​a​p​p​ ​d​e​v​e​l​o​p​m​e​n​t
+	 */
+	'dapp-development': string
+	/**
+	 * A​d​v​a​n​c​e​d
+	 */
+	Advanced: string
+	/**
+	 * I​n​t​e​r​m​e​d​i​a​t​e
+	 */
+	Intermediate: string
+	/**
+	 * B​e​g​g​i​n​e​r
+	 */
+	Begginer: string
 }
 
 export type TranslationFunctions = {
@@ -33,6 +127,98 @@ export type TranslationFunctions = {
 	 * Flow Blockchain
 	 */
 	MAIN_HEADING_2: () => LocalizedString
+	/**
+	 * Welcome
+	 */
+	WELCOME: () => LocalizedString
+	/**
+	 * Explore our content
+	 */
+	EXPLORE_TAGLINE: () => LocalizedString
+	/**
+	 * Flow free educational resources
+	 */
+	EXPLORE_H1: () => LocalizedString
+	/**
+	 * Follow one of our learning paths
+	 */
+	PATHS_H1: () => LocalizedString
+	/**
+	 * Moree than 1000 students recommended us
+	 */
+	SOCIAL_H1: () => LocalizedString
+	/**
+	 * Type of content
+	 */
+	TYPE_OF_CONTENT: () => LocalizedString
+	/**
+	 * Subject
+	 */
+	SUBJECT: () => LocalizedString
+	/**
+	 * Expertise
+	 */
+	EXPERTISE: () => LocalizedString
+	/**
+	 * Search
+	 */
+	SEARCH: () => LocalizedString
+	/**
+	 * Your achievements
+	 */
+	ACHIEVEMENTS_H1: () => LocalizedString
+	/**
+	 * Skills you'll learn
+	 */
+	SKILLS_YOU_WILL_LEARN: () => LocalizedString
+	/**
+	 * Course
+	 */
+	course: () => LocalizedString
+	/**
+	 * Bootcamp
+	 */
+	bootcamp: () => LocalizedString
+	/**
+	 * Learning path
+	 */
+	roadmap: () => LocalizedString
+	/**
+	 * Cadence by Example
+	 */
+	'tips and tricks': () => LocalizedString
+	/**
+	 * Templates
+	 */
+	template: () => LocalizedString
+	/**
+	 * Backend
+	 */
+	'back end': () => LocalizedString
+	/**
+	 * Web development
+	 */
+	'web dev': () => LocalizedString
+	/**
+	 * Cadence
+	 */
+	cadence: () => LocalizedString
+	/**
+	 * Dapp development
+	 */
+	'dapp-development': () => LocalizedString
+	/**
+	 * Advanced
+	 */
+	Advanced: () => LocalizedString
+	/**
+	 * Intermediate
+	 */
+	Intermediate: () => LocalizedString
+	/**
+	 * Begginer
+	 */
+	Begginer: () => LocalizedString
 }
 
 export type Formatters = {}

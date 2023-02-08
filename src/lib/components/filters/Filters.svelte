@@ -1,4 +1,5 @@
 <script type="ts">
+	import LL from '$i18n/i18n-svelte';
 	import TagToggle from '$lib/components/atoms/TagToggle.svelte';
 	import type { Filter, FilterSlugs } from '$lib/types/content/filters/filter.interface';
 
@@ -22,7 +23,7 @@
 {#each filters as filter, i}
 	<div>
 		{#if hasTitles}
-			<h5>{filter.title}</h5>
+			<h5>{$LL[filter.title]()}</h5>
 		{/if}
 		<div class="tags-wrapper">
 			{#each filter.filterElement as element}
@@ -32,7 +33,7 @@
 					on:selected={() => (filters[i].filterBucket = addToFilterBucket(i, element.slug))}
 					on:unselected={() => (filters[i].filterBucket = deleteFromFilterBucket(i, element.slug))}
 				>
-					{element.title}
+					{$LL[element.slug]()}
 				</TagToggle>
 			{/each}
 		</div>

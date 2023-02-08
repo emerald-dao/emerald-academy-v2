@@ -46,12 +46,12 @@
 	<div class="container">
 		<div>
 			<h1 class="display-small">
-				{$LL.MAIN_HEADING_1} <br /><span>{$LL.MAIN_HEADING_2}</span>
+				{$LL.MAIN_HEADING_1()} <br /><span>{$LL.MAIN_HEADING_2()}</span>
 			</h1>
 		</div>
 		<div class="circles-wrapper center">
 			<div class="column-4 align-center" style="position: absolute;">
-				<h2 class="w-bold">Welcome</h2>
+				<h2 class="w-bold">{$LL.WELCOME()}</h2>
 				<div style="cursor: pointer; z-index: 10;" on:click={handlePlay} on:keydown>
 					<Icon
 						icon="material-symbols:play-circle-rounded"

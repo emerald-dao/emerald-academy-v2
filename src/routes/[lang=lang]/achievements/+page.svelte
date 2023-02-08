@@ -1,12 +1,15 @@
 <script type="ts">
+	import { LL } from '$i18n/i18n-svelte';
 	import DiamondsCards from '$lib/components/cards/DiamondsCards.svelte';
 	import { achievements } from '$stores/AchievementsTest';
 	import { ProgressBar } from '@emerald-dao/component-library';
-	let value = 34;
+	export let data;
+	const { value } = data;
+	console.log(value);
 </script>
 
 <section class="container-small main">
-	<h4>Your Achievements</h4>
+	<h4>{$LL.ACHIEVEMENTS_H1()}</h4>
 </section>
 <section class="container-small main-diamond-wrapper">
 	{#if value <= 10}
