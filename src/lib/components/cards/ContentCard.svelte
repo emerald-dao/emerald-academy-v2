@@ -42,6 +42,8 @@
 		text-decoration: none;
 
 		.card-primary {
+			height: 100%;
+
 			h4 {
 				margin: var(--space-4) 0 var(--space-4) 0;
 			}
