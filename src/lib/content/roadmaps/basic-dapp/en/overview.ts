@@ -13,7 +13,7 @@ export const overview: RoadmapOverview = {
 		expertise: ExpertiseEnum.begginer,
 		duration: '3 weeks',
 		prerequisites: ['javascript'],
-		subjects: [SubjectsEnum.Cadence, SubjectsEnum.Frontend]
+		subjects: [SubjectsEnum.Cadence]
 	},
 	contents: [
 		{

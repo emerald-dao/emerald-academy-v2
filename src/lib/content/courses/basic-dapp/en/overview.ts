@@ -14,7 +14,7 @@ export const overview: CourseOverview = {
 		expertise: ExpertiseEnum.begginer,
 		duration: '3 weeks',
 		prerequisites: ['javascript'],
-		subjects: [SubjectsEnum.Backend, SubjectsEnum.Frontend],
+		subjects: [SubjectsEnum.Backend],
 		faqs: [
 			{
 				question: 'First Question',

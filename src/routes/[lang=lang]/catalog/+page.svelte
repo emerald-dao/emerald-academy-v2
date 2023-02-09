@@ -7,6 +7,8 @@
 	import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 	import type { Overview } from '$lib/types/content/content-overview.interface';
 	import type { Filter } from '$lib/types/content/filters/filter.interface';
+	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
+	import { page } from '$app/stores';
 
 	export let data: Data;
 
@@ -43,11 +45,6 @@
 					title: 'Backend',
 					icon: 'icon',
 					slug: SubjectsEnum.Backend
-				},
-				{
-					title: 'Frontend',
-					icon: 'icon',
-					slug: SubjectsEnum.Cadence
 				}
 			],
 			filterBucket: []
@@ -79,25 +76,82 @@
 </script>
 
 <section class="container">
-	<div class="sidebar"><Filters bind:filters /></div>
-	<div class="main">
-		{#each data.content as content}
-			{#if filters[0].filterBucket.includes(content.contentType) || filters[0].filterBucket.length < 1}
-				{#if filters[1].filterBucket.some( (item) => content.metadata.subjects.includes(item) ) || filters[1].filterBucket.length < 1}
-					{#if filters[2].filterBucket.includes(content.metadata.expertise) || filters[2].filterBucket.length < 1}
-						<ContentCard overview={content} />
+	<h1 class="w-medium heading">Catalog</h1>
+	<h5 class="w-medium heading">What would you like to learn?</h5>
+	<div class="first-wrapper">
+		<div class="roadmap-wrapper">
+			<a href={`${$page.url.href}/${data.subjectCadence.name}`}>
+				<h4>{`Learn ${firstCapital(data.subjectCadence.name)}`}</h4>
+
+				<p>{firstCapital(data.subjectCadence.description)}</p>
+			</a>
+		</div>
+		<div class="roadmap-wrapper">
+			<a href={`${$page.url.href}/${data.subjectDappDevelopment.name}`}>
+				<h4>{`Learn ${firstCapital(data.subjectDappDevelopment.name)}`}</h4>
+				<p>{data.subjectDappDevelopment.description}</p>
+			</a>
+		</div>
+	</div>
+	<div class="second-wrapper">
+		<div class="sidebar"><Filters bind:filters /></div>
+		<div class="main">
+			{#each data.content as content}
+				{#if filters[0].filterBucket.includes(content.contentType) || filters[0].filterBucket.length < 1}
+					{#if filters[1].filterBucket.some( (item) => content.metadata.subjects.includes(item) ) || filters[1].filterBucket.length < 1}
+						{#if filters[2].filterBucket.includes(content.metadata.expertise) || filters[2].filterBucket.length < 1}
+							<ContentCard overview={content} />
+						{/if}
 					{/if}
 				{/if}
-			{/if}
-		{/each}
+			{/each}
+		</div>
 	</div>
 </section>
 
 <style type="scss">
-	section {
+	h5 {
+		margin-top: var(--space-10);
+	}
+
+	.first-wrapper {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-10);
+
+		a {
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-5);
+			text-decoration: none;
+
+			h4 {
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+
+			p {
+				color: var(--clr-text-main);
+			}
+		}
+
+		.roadmap-wrapper {
+			display: flex;
+			flex-direction: column;
+			border: var(--border-width-primary) var(--clr-border-primary) solid;
+			border-radius: var(--radius-8);
+			padding: var(--space-11);
+		}
+	}
+
+	.second-wrapper {
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-5);
+		margin-top: var(--space-12);
 
 		@include mq(medium) {
 			display: grid;
