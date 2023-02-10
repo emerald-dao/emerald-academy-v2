@@ -97,7 +97,7 @@
 					<div>
 						<ContentIntro overview={data.featuredRoadmap} />
 					</div>
-					<div>
+					<div class="week-wrapper">
 						<CurriculumOverview overview={data.featuredRoadmap} />
 					</div>
 				</div>
@@ -114,7 +114,7 @@
 
 		<h5>Full {subject} catalog</h5>
 		<div class="second-section-wrapper">
-			<div class="sidebar column-10"><Filters bind:filters /></div>
+			<div class="sidebar"><Filters bind:filters /></div>
 			<div class="cards">
 				{#each data.content as overview}
 					{#if filters[0].filterBucket.includes(overview.contentType) || filters[0].filterBucket.length < 1}
@@ -136,12 +136,18 @@
 
 <style type="scss">
 	.first-section-wrapper {
-		display: grid;
-		grid-template-columns: 3fr 1fr;
-		gap: var(--space-10);
+		@include mq(medium) {
+			display: grid;
+			grid-template-columns: 3fr 1fr;
+			gap: var(--space-10);
+		}
 
 		.title-wrapper {
-			width: 90%;
+			width: 100%;
+
+			@include mq(medium) {
+				width: 90%;
+			}
 			h1 {
 				margin-bottom: var(--space-6);
 			}
@@ -150,18 +156,35 @@
 		.card {
 			display: grid;
 			grid-template-columns: 2fr 1.5fr;
-			width: 90%;
+			width: 100%;
+
+			@include mq(medium) {
+				width: 90%;
+			}
+
+			.week-wrapper {
+				display: none;
+
+				@include mq(medium) {
+					display: block;
+				}
+			}
 		}
 
 		.sidebar {
-			border-top-left-radius: var(--space-6);
-			border-bottom-left-radius: var(--space-6);
-			border-left: var(--border-width-primary) var(--clr-border-primary) solid;
-			height: fit-content;
-			padding-block: var(--space-9);
-			padding-left: var(--space-5);
-			position: sticky;
-			top: 80px;
+			display: none;
+
+			@include mq(medium) {
+				display: block;
+				border-top-left-radius: var(--space-6);
+				border-bottom-left-radius: var(--space-6);
+				border-left: var(--border-width-primary) var(--clr-border-primary) solid;
+				height: fit-content;
+				padding-block: var(--space-9);
+				padding-left: var(--space-5);
+				position: sticky;
+				top: 80px;
+			}
 
 			h5 {
 				margin: 0;
@@ -195,16 +218,28 @@
 	}
 
 	.second-section-wrapper {
-		display: grid;
-		grid-template-columns: 1fr 3fr;
-		gap: var(--space-10);
+		@include mq(medium) {
+			display: grid;
+			grid-template-columns: 1fr 3fr;
+			gap: var(--space-10);
+		}
 
 		.sidebar {
-			border-right: var(--border-width-primary) var(--clr-border-primary) solid;
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-5);
+			border-bottom: var(--border-width-primary) var(--clr-border-primary) solid;
 			height: fit-content;
-			padding-block: var(--space-9);
-			position: sticky;
-			top: 70px;
+			padding-bottom: var(--space-4);
+
+			@include mq(medium) {
+				padding-block: var(--space-9);
+				gap: var(--space-10);
+				border-bottom: none;
+				border-right: var(--border-width-primary) var(--clr-border-primary) solid;
+				position: sticky;
+				top: 70px;
+			}
 		}
 
 		.cards {
@@ -215,6 +250,10 @@
 				display: grid;
 				grid-template-columns: 1fr 1fr;
 				gap: var(--space-10);
+			}
+
+			.catalog {
+				margin-top: var(--space-6);
 			}
 		}
 	}

@@ -18,12 +18,14 @@
 		}
 		return filters[bucket].filterBucket;
 	};
+	console.log(filters);
+	console.log(hasTitles);
 </script>
 
 {#each filters as filter, i}
 	<div>
 		{#if hasTitles}
-			<h5>{$LL[filter.title]()}</h5>
+			<h5>{filter.title}</h5>
 		{/if}
 		<div class="tags-wrapper">
 			{#each filter.filterElement as element}
