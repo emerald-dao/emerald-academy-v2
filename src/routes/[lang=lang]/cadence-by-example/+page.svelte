@@ -1,17 +1,38 @@
 <script type="ts">
 	import { locale, LL } from '$i18n/i18n-svelte';
+	import { createSearchStore, searchHandler } from '$stores/searchBar';
+	import { onDestroy } from 'svelte';
 
 	export let data;
+
+	type CadenceByExample = {
+		meta: Record<PropertyKey, any> = {};
+		path: string;
+		searchTerms: string;
+	};
+
+	const searchCadence: CadenceByExample[] = data.content.map((product: CadenceByExample) => ({
+		...product,
+		searchTerms: `${product.meta.title}`
+	}));
+
+	const searchStore = createSearchStore(searchCadence);
+
+	const unsubscribe = searchStore.subscribe((model) => searchHandler(model));
+
+	onDestroy(() => {
+		unsubscribe();
+	});
 </script>
 
 <section class="container">
 	<div class="sidebar">
 		<h5>{$LL.SEARCH()}</h5>
-		<input type="text" />
+		<input type="text" placeholder="Search..." bind:value={$searchStore.search} />
 	</div>
 	<div class="main">
 		<h1>Cadence by Example</h1>
-		{#each data.content as content}
+		{#each $searchStore.filtered as content}
 			<a
 				class="title-wrapper w-medium heading"
 				href={`/${$locale}/cadence-by-example/${content.path.split('/')[3]}`}
