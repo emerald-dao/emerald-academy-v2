@@ -1,10 +1,10 @@
 import { createSteps } from '$stores/custom/steps/Steps';
-import MoreAboutYou from '../../../routes/[lang=lang]/catalog/bootcamps/[name]/components/generator-steps/MoreAboutYou.svelte';
-import WelcomeAboard from '../../../routes/[lang=lang]/catalog/bootcamps/[name]/components/generator-steps/WelcomeAboard.svelte';
-import WatchThisVideo from '../../../routes/[lang=lang]/catalog/bootcamps/[name]/components/generator-steps/WatchThisVideo.svelte';
-import Join from '../../../routes/[lang=lang]/catalog/bootcamps/[name]/components/generator-steps/Join.svelte';
-import MediaData from '../../../routes/[lang=lang]/catalog/bootcamps/[name]/components/generator-steps/MediaData.svelte';
-import ThanksMessage from '../../../routes/[lang=lang]/catalog/bootcamps/[name]/components/generator-steps/ThanksMessage.svelte';
+import MoreAboutYou from '../../../routes/[lang=lang]/catalog/bootcamps/[name]/__components/generator-steps/MoreAboutYou.svelte';
+import WelcomeAboard from '../../../routes/[lang=lang]/catalog/bootcamps/[name]/__components/generator-steps/WelcomeAboard.svelte';
+import WatchThisVideo from '../../../routes/[lang=lang]/catalog/bootcamps/[name]/__components/generator-steps/WatchThisVideo.svelte';
+import Join from '../../../routes/[lang=lang]/catalog/bootcamps/[name]/__components/generator-steps/Join.svelte';
+import MediaData from '../../../routes/[lang=lang]/catalog/bootcamps/[name]/__components/generator-steps/MediaData.svelte';
+import ThanksMessage from '../../../routes/[lang=lang]/catalog/bootcamps/[name]/__components/generator-steps/ThanksMessage.svelte';
 import { createActiveStep } from '$stores/custom/steps/ActiveStep';
 
 export const onBoardingSteps = createSteps([

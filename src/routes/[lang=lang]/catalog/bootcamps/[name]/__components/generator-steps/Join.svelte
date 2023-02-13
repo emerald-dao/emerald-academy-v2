@@ -1,8 +1,5 @@
 <script>
-	import { icon } from '$lib/types/content/metadata/icon.enum';
 	import Icon from '@iconify/svelte';
-	// import { Button } from "@emerald-dao/component-library";
-	// import { onBoardingActiveStep } from "$stores/onBoarding/OnBoardingSteps";
 	import StepButton from '../atoms/StepButton.svelte';
 </script>
 

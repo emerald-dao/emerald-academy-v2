@@ -1,6 +1,6 @@
 <script type="ts">
 	import { InputWrapper } from '@emerald-dao/component-library';
-	import mediaDataSuite from '../../validations/mediaDataSuite';
+	import mediaDataSuite from '../../__validations/mediaDataSuite';
 	import StepButton from '../atoms/StepButton.svelte';
 
 	let formData = {

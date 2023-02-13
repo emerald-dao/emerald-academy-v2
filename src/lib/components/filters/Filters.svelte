@@ -18,8 +18,6 @@
 		}
 		return filters[bucket].filterBucket;
 	};
-	console.log(filters);
-	console.log(hasTitles);
 </script>
 
 {#each filters as filter, i}
