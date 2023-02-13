@@ -1,5 +1,7 @@
 <script type="ts">
+	import { createBootcampOnboardingStore } from '$stores/BootcampOnboardingStore';
 	import StepButton from '../atoms/StepButton.svelte';
+	console.log($createBootcampOnboardingStore);
 </script>
 
 <div class="main-wrapper">
@@ -12,27 +14,47 @@
 				<p>What is your coding experience level? *</p>
 				<div class="form-group">
 					<label name="level">
-						<input name="level" type="radio" />
+						<input
+							name="level"
+							type="radio"
+							bind:group={$createBootcampOnboardingStore.codingExperience}
+							value="never"
+						/>
 						I've never coded before</label
 					>
 				</div>
 
 				<div class="form-group">
 					<label name="level">
-						<input name="level" type="radio" />
+						<input
+							name="level"
+							type="radio"
+							bind:group={$createBootcampOnboardingStore.codingExperience}
+							value="years ago"
+						/>
 						I used to code many years ago, but I don't anymore.
 					</label>
 				</div>
 				<div class="form-group">
 					<label name="level">
-						<input name="level" type="radio" />
+						<input
+							name="level"
+							type="radio"
+							bind:group={$createBootcampOnboardingStore.codingExperience}
+							value="now and then"
+						/>
 						I code a little bit here and there</label
 					>
 				</div>
 
 				<div class="form-group">
 					<label name="level">
-						<input name="level" type="radio" />
+						<input
+							name="level"
+							type="radio"
+							bind:group={$createBootcampOnboardingStore.codingExperience}
+							value="all the time"
+						/>
 						I code all the time</label
 					>
 				</div>
@@ -43,25 +65,45 @@
 				<p>What is your coding experience level? *</p>
 				<div class="form-group">
 					<label name="level2">
-						<input name="level2" type="radio" />
+						<input
+							name="level2"
+							type="radio"
+							bind:group={$createBootcampOnboardingStore.codingExperience2}
+							value="never"
+						/>
 						I've never coded before</label
 					>
 				</div>
 				<div class="form-group">
 					<label name="level2">
-						<input name="level2" type="radio" />
+						<input
+							name="level2"
+							type="radio"
+							bind:group={$createBootcampOnboardingStore.codingExperience2}
+							value="years ago"
+						/>
 						I used to code many years ago, but I don't anymore.</label
 					>
 				</div>
 				<div class="form-group">
 					<label name="level2">
-						<input name="level2" type="radio" />
+						<input
+							name="level2"
+							type="radio"
+							bind:group={$createBootcampOnboardingStore.codingExperience2}
+							value="now and then"
+						/>
 						I code a little bit here and there</label
 					>
 				</div>
 				<div class="form-group">
 					<label name="level2">
-						<input name="level2" type="radio" />
+						<input
+							name="level2"
+							type="radio"
+							bind:group={$createBootcampOnboardingStore.codingExperience2}
+							value="all the time"
+						/>
 						I code all the time</label
 					>
 				</div>
