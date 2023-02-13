@@ -1,6 +1,8 @@
-export const fetchOneCourse = async (slug: string) => {
-	const overview = await import(`../../../../content/courses/${slug}/overview.ts`);
-	const allContents = import.meta.glob('/src/lib/content/courses/**/**/*.md');
+import type { Locales } from '$i18n/i18n-types';
+
+export const fetchOneCourse = async (slug: string, locale: Locales) => {
+	const overview = await import(`../../../../content/courses/${slug}/${locale}/overview.ts`);
+	const allContents = import.meta.glob('/src/lib/content/courses/**/**/**/*.md');
 
 	const iterableContents = Object.entries(allContents);
 
@@ -10,15 +12,21 @@ export const fetchOneCourse = async (slug: string) => {
 		iterableContents.map(async ([path, resolver]) => {
 			const { metadata } = await resolver();
 
-			if (path.includes(slug)) {
-				const parts = path.split('/');
+			const parts = path.split('/');
+			const thisContentLocale = parts[parts.length - 3];
+
+			if (path.includes(slug) && locale === thisContentLocale) {
 				const week = parts[parts.length - 2];
 
 				if (!contents[week]) {
 					contents[week] = [];
 				}
 
-				const slug = parts.slice(3, 8).join('/').replace('content', 'catalog');
+				const slugPart1 = parts.slice(3, 6).join('/').replace('content', 'catalog');
+				const slugPart2 = parts.slice(7, 9).join('/').replace('.md', '');
+				const slug = `${thisContentLocale}/${slugPart1}/${slugPart2}`;
+
+				console.log(slug);
 
 				contents[week].push({
 					slug,

@@ -11,7 +11,8 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"storybook": "start-storybook -p 6006",
-		"build-storybook": "build-storybook"
+		"build-storybook": "build-storybook",
+		"typesafe-i18n": "typesafe-i18n"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.19.1",
@@ -54,6 +55,7 @@
 		"mdast-util-to-string": "^3.1.0",
 		"rehype-autolink-headings": "^6.1.1",
 		"rehype-slug": "^5.1.0",
+		"typesafe-i18n": "^5.21.0",
 		"unist-util-visit": "^4.1.1",
 		"vest": "^4.6.8"
 	}

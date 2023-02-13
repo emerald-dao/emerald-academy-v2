@@ -1,4 +1,5 @@
 <script type="ts">
+	import { locale } from '$i18n/i18n-svelte';
 	import type { Template } from '$lib/types/content/templates.interface';
 	import { fetchGithubUser } from '$lib/utilities/api/githubApi/fetchGithubUser';
 	import { Button } from '@emerald-dao/component-library';
@@ -8,6 +9,7 @@
 	export let templateData: Template;
 
 	let githubUser;
+
 	onMount(async () => {
 		githubUser = await fetchGithubUser(templateData.user.github);
 	});
@@ -36,7 +38,7 @@
 			{/if}
 		</div>
 		<div class="button-wrapper">
-			<Button href={`/${templateData.slug}`}>Clone</Button>
+			<Button href={`/${$locale}/${templateData.slug}`}>Clone</Button>
 		</div>
 	</div>
 </div>
