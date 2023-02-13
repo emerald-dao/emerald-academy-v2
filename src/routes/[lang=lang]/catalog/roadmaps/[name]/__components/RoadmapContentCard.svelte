@@ -1,11 +1,18 @@
 <script type="ts">
+	import { locale } from '$i18n/i18n-svelte';
 	import { Label } from '@emerald-dao/component-library';
 	import type { RoadmapContent } from '$lib/types/content/roadmap.interface';
+	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
 	export let roadmapContent: RoadmapContent;
+
+	let url =
+		roadmapContent.contentType === ContentTypeEnum.External
+			? roadmapContent.url
+			: `/${$locale}/${roadmapContent.url}`;
 </script>
 
-<a href={`/${roadmapContent.url}`}>
+<a href={url} target="_blank" rel="noreferrer">
 	<div class="card-primary">
 		<div class="grid-wrapper">
 			<div class="title-wrapper">

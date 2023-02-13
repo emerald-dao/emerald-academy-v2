@@ -22,7 +22,7 @@ export const overview: RoadmapOverview = {
 			contentType: ContentTypeEnum.Course,
 			duration: '4 weeks',
 			subjects: [SubjectsEnum.Cadence],
-			url: 'catalog/courses/begginer-cadence'
+			url: `catalog/courses/begginer-cadence`
 		},
 		{
 			title: 'Basic Dapp',
