@@ -11,23 +11,30 @@
 			<form action="">
 				<p>What is your coding experience level? *</p>
 				<div class="form-group">
-					<input name="level" type="radio" />
-					<label for="level">I've never coded before</label>
-				</div>
-
-				<div class="form-group">
-					<input name="level" type="radio" /><label for="level"
-						>I used to code many years ago, but I don't anymore.</label
-					>
-				</div>
-				<div class="form-group">
-					<input name="level" type="radio" /><label for="level"
-						>I code a little bit here and there</label
+					<label name="level">
+						<input name="level" type="radio" />
+						I've never coded before</label
 					>
 				</div>
 
 				<div class="form-group">
-					<input name="level" type="radio" /><label for="level">I code all the time</label>
+					<label name="level">
+						<input name="level" type="radio" />
+						I used to code many years ago, but I don't anymore.
+					</label>
+				</div>
+				<div class="form-group">
+					<label name="level">
+						<input name="level" type="radio" />
+						I code a little bit here and there</label
+					>
+				</div>
+
+				<div class="form-group">
+					<label name="level">
+						<input name="level" type="radio" />
+						I code all the time</label
+					>
 				</div>
 			</form>
 		</div>
@@ -35,20 +42,28 @@
 			<form action="" class="second-form">
 				<p>What is your coding experience level? *</p>
 				<div class="form-group">
-					<input name="level2" type="radio" /><label for="level">I've never coded before</label>
-				</div>
-				<div class="form-group">
-					<input name="level2" type="radio" /><label for="level"
-						>I used to code many years ago, but I don't anymore.</label
+					<label name="level2">
+						<input name="level2" type="radio" />
+						I've never coded before</label
 					>
 				</div>
 				<div class="form-group">
-					<input name="level2" type="radio" /><label for="level"
-						>I code a little bit here and there</label
+					<label name="level2">
+						<input name="level2" type="radio" />
+						I used to code many years ago, but I don't anymore.</label
 					>
 				</div>
 				<div class="form-group">
-					<input name="level2" type="radio" /><label for="level">I code all the time</label>
+					<label name="level2">
+						<input name="level2" type="radio" />
+						I code a little bit here and there</label
+					>
+				</div>
+				<div class="form-group">
+					<label name="level2">
+						<input name="level2" type="radio" />
+						I code all the time</label
+					>
 				</div>
 			</form>
 		</div>
@@ -71,10 +86,6 @@
 		justify-content: flex-start;
 		align-items: flex-start;
 		margin-top: var(--space-3);
-
-		label {
-			margin-left: var(--space-2);
-		}
 	}
 
 	.second-form {

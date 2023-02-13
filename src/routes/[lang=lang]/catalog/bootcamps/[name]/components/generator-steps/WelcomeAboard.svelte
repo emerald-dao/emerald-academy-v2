@@ -22,7 +22,7 @@
 		<h3>Welcome aboard</h3>
 	</div>
 	<div class="form-wrapper">
-		<form action="">
+		<form action="" autocomplete="off">
 			<InputWrapper
 				name="name"
 				label="Name"
@@ -62,7 +62,6 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		text-align: center;
 
 		.form-wrapper {
 			width: 100%;

@@ -1,6 +1,7 @@
 <script type="ts">
 	import { onBoardingActiveStep } from '$stores/onBoarding/OnBoardingSteps';
 	import { Button } from '@emerald-dao/component-library';
+	import Icon from '@iconify/svelte';
 
 	export let active: boolean;
 </script>
@@ -11,10 +12,12 @@
 	</div> -->
 
 	<Button
-		size="full-width"
+		width="full-width"
 		state={active ? 'active' : 'disabled'}
-		on:click={onBoardingActiveStep.increment}>Next</Button
-	>
+		on:click={onBoardingActiveStep.increment}
+		>Next
+		<Icon icon="tabler:arrow-right" style="color: var(--clr-heading-inverse);" />
+	</Button>
 </div>
 
 <style type="scss">

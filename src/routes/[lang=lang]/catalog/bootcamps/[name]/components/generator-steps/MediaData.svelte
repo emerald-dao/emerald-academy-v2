@@ -22,7 +22,7 @@
 		<h3>One more thing to do</h3>
 	</div>
 	<div class="form-wrapper">
-		<form action="">
+		<form action="" autocomplete="off">
 			<InputWrapper
 				name="discord-handle"
 				label="What's your Discord handle?"
@@ -63,7 +63,6 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		text-align: center;
 	}
 	h3 {
 		margin-bottom: 3rem;
