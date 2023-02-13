@@ -6,7 +6,7 @@ export interface RoadmapOverview extends Overview {
 	contents: RoadmapContent[];
 }
 
-interface RoadmapContent {
+export interface RoadmapContent {
 	title: string;
 	excerpt: string;
 	contentType: ContentTypeEnum;
