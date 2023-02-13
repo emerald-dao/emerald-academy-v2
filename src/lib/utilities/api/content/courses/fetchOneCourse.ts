@@ -26,8 +26,6 @@ export const fetchOneCourse = async (slug: string, locale: Locales) => {
 				const slugPart2 = parts.slice(7, 9).join('/').replace('.md', '');
 				const slug = `${thisContentLocale}/${slugPart1}/${slugPart2}`;
 
-				console.log(slug);
-
 				contents[week].push({
 					slug,
 					metadata
