@@ -115,9 +115,15 @@
 	}
 
 	.first-wrapper {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
+		display: flex;
+		flex-direction: column;
 		gap: var(--space-10);
+
+		@include mq(medium) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: var(--space-10);
+		}
 
 		a {
 			display: flex;
@@ -165,9 +171,10 @@
 			gap: var(--space-4);
 			border-bottom: var(--border-width-primary) var(--clr-border-primary) solid;
 			height: fit-content;
-			padding-block: var(--space-9);
+			padding-bottom: var(--space-4);
 
 			@include mq(medium) {
+				padding-block: var(--space-9);
 				gap: var(--space-10);
 				border-bottom: none;
 				border-right: var(--border-width-primary) var(--clr-border-primary) solid;

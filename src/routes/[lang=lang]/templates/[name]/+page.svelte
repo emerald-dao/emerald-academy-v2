@@ -37,7 +37,7 @@
 		flex-direction: column;
 		gap: var(--space-7);
 
-		@include mq(small) {
+		@include mq(medium) {
 			display: grid;
 			grid-template-columns: 3fr 1fr;
 			gap: var(--space-10);
