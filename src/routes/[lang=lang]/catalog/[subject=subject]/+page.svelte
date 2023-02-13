@@ -83,15 +83,14 @@
 <section>
 	<div class="container">
 		<div class="first-section-wrapper">
-			<div>
-				<div class="title-wrapper">
-					<Breadcrumbs {routes} />
-					<h1>{subjectCapital}</h1>
-					<p>
-						{data.overview.description}
-					</p>
-				</div>
-
+			<div class="title-wrapper">
+				<Breadcrumbs {routes} />
+				<h1>{subjectCapital}</h1>
+				<p>
+					{data.overview.description}
+				</p>
+			</div>
+			<div class="roadmap-wrapper">
 				<h5 class="w-medium">Become an expert with our full Roadmap</h5>
 				<div class="card">
 					<div>
@@ -102,6 +101,7 @@
 					</div>
 				</div>
 			</div>
+
 			<div class="sidebar column-3">
 				<h5 class="w-medium">Shortcuts</h5>
 				<ul>
@@ -136,16 +136,24 @@
 
 <style type="scss">
 	.first-section-wrapper {
+		display: grid;
+		grid-template-rows: repeat(3, auto);
+		grid-template-areas: 'top' 'middle' 'bottom';
+		gap: var(--space-10);
+
 		@include mq(medium) {
-			display: grid;
 			grid-template-columns: 3fr 1fr;
+			grid-template-rows: repeat(2, auto);
+			grid-template-areas: 'main sidebar' 'content sidebar';
 			gap: var(--space-10);
 		}
 
 		.title-wrapper {
+			grid-area: top;
 			width: 100%;
 
 			@include mq(medium) {
+				grid-area: main;
 				width: 90%;
 			}
 			h1 {
@@ -153,31 +161,42 @@
 			}
 		}
 
-		.card {
-			display: grid;
-			grid-template-columns: 2fr 1.5fr;
-			width: 100%;
+		.roadmap-wrapper {
+			grid-area: bottom;
 
-			@include mq(medium) {
-				width: 90%;
+			h5 {
+				margin-top: 0;
 			}
 
-			.week-wrapper {
-				display: none;
+			@include mq(medium) {
+				grid-area: content;
+			}
+
+			.card {
+				display: grid;
+				grid-template-columns: 2fr 1.5fr;
+				width: 100%;
 
 				@include mq(medium) {
-					display: block;
+					width: 90%;
+				}
+
+				.week-wrapper {
+					display: none;
+
+					@include mq(medium) {
+						display: block;
+					}
 				}
 			}
 		}
 
 		.sidebar {
-			display: none;
+			grid-area: middle;
 
 			@include mq(medium) {
+				grid-area: sidebar;
 				display: block;
-				border-top-left-radius: var(--space-6);
-				border-bottom-left-radius: var(--space-6);
 				border-left: var(--border-width-primary) var(--clr-border-primary) solid;
 				height: fit-content;
 				padding-block: var(--space-9);
