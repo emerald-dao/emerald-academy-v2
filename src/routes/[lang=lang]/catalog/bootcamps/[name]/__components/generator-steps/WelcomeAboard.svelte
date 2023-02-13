@@ -1,7 +1,7 @@
 <script type="ts">
 	import StepButton from '../atoms/StepButton.svelte';
 	import { InputWrapper } from '@emerald-dao/component-library';
-	import welcomeAboardSuite from '../../validations/welcomeAboardSuite';
+	import welcomeAboardSuite from '../../__validations/welcomeAboardSuite';
 
 	const handleChange = (input: Event) => {
 		const target = input.target as HTMLInputElement;

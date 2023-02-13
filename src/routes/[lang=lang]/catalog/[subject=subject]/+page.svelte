@@ -76,8 +76,6 @@
 			filterBucket: []
 		}
 	];
-
-	console.log(data);
 </script>
 
 <section>

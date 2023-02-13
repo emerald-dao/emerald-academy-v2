@@ -20,13 +20,10 @@ export const getEmeraldID = async (address) => {
 	try {
 		const response = await fcl.query({
 			cadence: getEmeraldIDScript,
-			args: (arg, t) => [
-				arg(address, t.Address)
-			]
+			args: (arg, t) => [arg(address, t.Address)]
 		});
 		return response;
 	} catch (e) {
-		console.log(e);
 		return null;
 	}
-}
+};

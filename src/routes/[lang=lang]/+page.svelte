@@ -8,7 +8,7 @@
 		ExploreSection,
 		LearningPathsSection,
 		SocialMediaSection
-	} from './components';
+	} from './__components';
 
 	export let data: Data;
 

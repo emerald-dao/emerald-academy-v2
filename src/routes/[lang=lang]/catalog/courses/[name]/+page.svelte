@@ -8,8 +8,6 @@
 	import CourseDetails from '$lib/components/cards/CourseDetails.svelte';
 
 	export let data: CourseData;
-
-	console.log(data);
 </script>
 
 <section class="container-small">
