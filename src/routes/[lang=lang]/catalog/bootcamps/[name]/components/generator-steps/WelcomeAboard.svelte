@@ -2,16 +2,12 @@
 	import StepButton from '../atoms/StepButton.svelte';
 	import { InputWrapper } from '@emerald-dao/component-library';
 	import welcomeAboardSuite from '../../validations/welcomeAboardSuite';
+	import { createBootcampOnboardingStore } from '$stores/BootcampOnboardingStore';
 
 	const handleChange = (input: Event) => {
 		const target = input.target as HTMLInputElement;
 
-		res = welcomeAboardSuite(formData, target.name);
-	};
-
-	let formData = {
-		email: '',
-		name: ''
+		res = welcomeAboardSuite($createBootcampOnboardingStore, target.name);
 	};
 
 	let res = welcomeAboardSuite.get();
@@ -33,7 +29,7 @@
 					name="name"
 					type="text"
 					placeholder="John"
-					bind:value={formData.name}
+					bind:value={$createBootcampOnboardingStore.name}
 					on:input={handleChange}
 				/>
 			</InputWrapper>
@@ -47,7 +43,7 @@
 					name="email"
 					type="email"
 					placeholder="example@example.com"
-					bind:value={formData.email}
+					bind:value={$createBootcampOnboardingStore.email}
 					on:input={handleChange}
 				/>
 			</InputWrapper>
