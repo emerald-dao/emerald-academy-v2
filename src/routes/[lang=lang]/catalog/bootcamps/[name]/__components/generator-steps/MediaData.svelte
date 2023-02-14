@@ -1,17 +1,14 @@
 <script type="ts">
+	import { createBootcampOnboardingStore } from '$stores/BootcampOnboardingStore';
 	import { InputWrapper } from '@emerald-dao/component-library';
 	import mediaDataSuite from '../../__validations/mediaDataSuite';
 	import StepButton from '../atoms/StepButton.svelte';
-
-	let formData = {
-		discordHandle: '',
-		bloctoAddress: ''
-	};
+	console.log($createBootcampOnboardingStore);
 
 	const handleChange = (input: Event) => {
 		const target = input.target as HTMLInputElement;
 
-		res = mediaDataSuite(formData, target.name);
+		res = mediaDataSuite($createBootcampOnboardingStore, target.name);
 	};
 
 	let res = mediaDataSuite.get();
@@ -22,7 +19,7 @@
 		<h3>One more thing to do</h3>
 	</div>
 	<div class="form-wrapper">
-		<form action="">
+		<form action="" autocomplete="off">
 			<InputWrapper
 				name="discord-handle"
 				label="What's your Discord handle?"
@@ -33,7 +30,7 @@
 					name="discord-handle"
 					type="text"
 					placeholder="tsnakjake#233"
-					bind:value={formData.discordHandle}
+					bind:value={$createBootcampOnboardingStore.discordHandle}
 					on:input={handleChange}
 				/>
 			</InputWrapper>
@@ -48,7 +45,7 @@
 					name="blocto-address"
 					type="text"
 					placeholder="0x99bd48c8035kdjeu504"
-					bind:value={formData.bloctoAddress}
+					bind:value={$createBootcampOnboardingStore.bloctoAddress}
 					on:input={handleChange}
 				/>
 			</InputWrapper>
@@ -63,7 +60,6 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		text-align: center;
 	}
 	h3 {
 		margin-bottom: 3rem;

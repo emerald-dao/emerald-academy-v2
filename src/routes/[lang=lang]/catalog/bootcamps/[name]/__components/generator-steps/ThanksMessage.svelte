@@ -1,5 +1,23 @@
 <script type="ts">
 	import StepButton from '../atoms/StepButton.svelte';
+	import { createBootcampOnboardingStore } from '$stores/BootcampOnboardingStore';
+	import emailjs from '@emailjs/browser';
+
+	emailjs
+		.send(
+			'service_v2qa1om',
+			'template_j0mkz6j',
+			$createBootcampOnboardingStore,
+			'IGzpHwMNeQiWCm1_R'
+		)
+		.then(
+			(result) => {
+				console.log('SUCCESS!', result.text);
+			},
+			(error) => {
+				console.log('FAILED...', error.text);
+			}
+		);
 </script>
 
 <div class="main-wrapper">
