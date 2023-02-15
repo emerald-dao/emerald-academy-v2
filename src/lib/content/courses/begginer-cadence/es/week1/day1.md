@@ -1,124 +1,121 @@
 ---
-title: Learning Web Concepts
+title: Aprender Conceptos de Blockchain
 day: 1
-language: en
-excerpt: basic blockchain concepts  
+language: es
+excerpt: conceptos basicos de blockchain
 ---
-# Chapter 1 Day 1 - Learning Blockchain Concepts
 
-Hello! Yes, it is me. Your favourite developer of all time, Jacob. You are currently viewing the first day of the entire course. Let's start this journey together.
+# Capítulo 1 Dia 1 - Aprender Conceptos de Blockchain
 
-Let's start off our first day by going over what seems to be complicated terms that you will need to understand for the journey ahead.
+¡Hola! Si, soy yo. Tu desarrollador favorito de todo el tiempo, Jacob. Actualmente estás viendo el primer día de todo el curso. Comencemos este viaje juntos.
 
-## What the heck is a Blockchain?
+Comencemos nuestro primer día con algunas cosas que son importante a entender para tu viaje por delante.
 
-<!-- <img src="../../images/blockchain.png" alt="drawing" width="600"/> -->
+## ¿Qué es un Blockchain?
 
-_If you already understand what the Blockchain is or you simply don't care (that's fair!), you can skip this section._
+<img src="../../images/blockchain.png" alt="drawing" width="600"/>
 
-When learning about the Blockchain, you may find some complicated articles. It's easy to get completely lost in the sauce and feel like you want to give up. So, I'm going to explain the Blockchain in a very easy way that may have some innacuracies/left out information but is meant to help you get started. **Specifically, I will help you understand the Blockchain from the perspective of someone who is looking to code Smart Contracts or make some Decentralized Applications (both of which we will do!).**
+_Si ya sabe que es el Blockchain o si no te importas, tú puedes omitir esta sección._
 
-In one sentence: the Blockchain is an open, decentralized, shared database that allows anyone to store stuff publically.
+Cuando aprendes sobre el Blockchain, puedes encontrar algunos artículos complicados. Es fácil perderse o sentir cómo quieres dejar. Así que voy a explicar el Blockchain en una manera muy fácil y puede que no tenga alguna información pero es para ayudarte a empezar. **Específicamente quiero ayudarlo a entender el Blockchain desde la perspectiva de alguien quien está buscando programar smart contracts o hacer algunas aplicaciones descentralizadas.(¡ambos de cuales vamos a hacer!)**
 
-Okay, woah. What does that mean?
+En un frase: el Blockchain es un abierto, descentralizado, base de datos compartida en que cualquier persona puede almacenar cosas públicamente.
 
-1. **OPEN**: Anyone can interact with it. There are no restrictions.
-2. **DECENTRALIZED**: Nobody owns it. There is no central authority dictating stuff.
-3. **DATABASE**: You can store information on it.
-4. **PUBLIC**: Anyone can view the data on it.
+Ok, wow. ¿Qué significa eso?
 
-Because of these things, we can interact with the Blockchain however we please. Often times, we may want to set up "rulebooks" that determine how people can interact with specific parts of the Blockchain so that it has some functionality - specifically our own applications that we will define. This is done with Smart Contracts.
+1. **ABIERTO**: Cualquier persona puede interactuar con él. No hay restricciones.
+2. **DESCENTRALIZADO**: Nadie lo posee. No hay una autoridad central quien está controlando todo las cosas.
+3. **BASE DE DATOS COMPARTIDA**: Puedes almacenar cosas en el.
+4. **PÚBLICO**: Cualquier persona puede ver el data en el.
 
-It's also important to note that there are many different Blockchains out there. For example, Ethereum is probably the most popular Blockchain. In this course, we will be learning about the wonderful Flow Blockchain, because that's where my expertise lies ;)
+Porqué de esas cosas, podemos interactuar con el Blockchain en cualquier manera que queramos. A veces, nos queremos hacer un "guía" que determine cómo una persona puede interactuar con partes específicas del Blockchain así que tiene alguna funcionalidad; especialmente nuestro proprio aplicaciones que vamos a definir. Esto es posible con Smart Contracts.
 
-## Smart Contracts? Ooo, that sounds cool.
+También es importante anotar que hay muchas Blockchains diferentes. Por ejemplo, Ethereum es el Blockchain más popular. En este curso, vamos a aprender sobre el Blockchain maravilloso de Flow.
 
-<!-- <img src="../../images/smart contract.png" alt="drawing" width="600"/> -->
+## ¿Smart Contracts? ¡Ooo, eso suena interesante!
 
-Why yes, yes it is. Smart Contracts are very cool. Smart Contracts are programs, or "rulebooks" that developers make. Developers create them because it allows us to specify some functionality that users can interact with. For example, if I want to make an application that allows users to store their favourite fruit on the Blockchain, I need to make a Smart Contract that:
+<img src="../../images/smart contract.png" alt="drawing" width="600"/>
 
-1. Has a function that anyone can call
-2. Takes in a parameter (the person's favourite fruit)
-3. Stores that parameter in some data
-4. Sends the updated data to the Blockchain (happens automatically)
+Si es así. Los Smart Contracts son super genial. Smart Contracts son programas o "guías" que los desarrolladores hacen. Con Smart Contracts podemos especificar algún funcionalidad en que personas interactúen con. Por ejemplo, si quiero hacer un aplicación que permitirá una persona a almancer su fruta favorita en el Blockchain, necesito hacer un Smart Contract que:
 
-If I created this Smart Contract and "deployed" it to the Blockchain (deployed means we put the contract onto the Blockchain so people can interact with it), then anyone could put their favourite fruit on the Blockchain, and it would live there forever and ever! Unless we also had a function to remove that data.
+1. Tiene un función cualquier persona puede llamar
+2. Toma un parámetro (la fruta favorita de la persona)
+3. Guarda el parámetro en algun data
+4. Envía los datos actualizados a el Blockchain (esto sucede automáticamente)
 
-So, why do we use Smart Contracts?
+Si yo hiciera este Smart Contract y “desplegarse” a el Blockchain (esto significa que ponemos el contrato en la Blockchain así que las personas pueden interactuar con él), entonces cualquier persona puede poner su fruta favorita en el Blockchain, y viviría por allí para siempre. A menos que tengamos una función para quitar esa data.
 
-1. **Speed, efficiency and accuracy**: Smart Contracts are fast, and there is no middleman. There is also no paperwork. If I want to update the data on the Blockchain by using a Smart Contract that allows me to call some function, I can just do it. I don't have to get approval from my parents or my bank.
-2. **Trust and transparency**: The Blockchain, and thus Smart Contracts, are extremely secure if we make them that way. It is near impossible to hack or alter the state of the Blockchain, and while that's due to other reasons, it is largely because of Smart Contracts. If a Smart Contract doesn't let me do something, I simply can't do it. There's no way around it.
+Entonces, ¿por qué usamos Smart Contracts?
 
-What are some downsides?
+1. **La velocidad, la eficiencia, y la exactitud**: Los Smart Contracts son rápidos y no hay un intermediario. También no hay papeleo. Si quiero actualizar la data en el Blockchain usando un contrato inteligente que me permite llamar a alguna función, yo puedo hacerlo. No tengo conseguir la aprobación de mis padres o mi banco.
+2. **La confianza y transparencia**: El Blockchain y los Smart Contracts, son extremadamente seguros si se hace de esa manera. Es casi imposible hackear o cambiar el estado de la Blockchain, y mientras es porque de otras razones, es una gran parte de los smart contracts. Si un contrato inteligente no me permite hacer algo, yo simplemente no puedo hacer nada.
 
-1. **Hard to get right**: While Smart Contracts are cool, they are NOT smart. They require sophisticated levels of expertise from the developer's side to make sure they have no security problems, they are cheap, and they do what we want them to do. We will learn all of this later.
-2. **Can be malicious if the developer is mean**: If a developer wants to make a Smart Contract that steals your money, and then tricks you into calling a function that does that, your money will be stolen. In the world of the Blockchain, you must make sure you interact with Smart Contracts that you know are secure.
-3. **Cannot undo something**: You can't just undo something. Unless you have a function that allows you to.
+¿Cuáles son algunos de los inconvenientes?
 
-## Transactions & Scripts
+1. **Es difícil conseguir correcto**: Mientras que los smart contracts son buenos, ellos no son inteligentes. Ellos requieren niveles sofisticados de experiencia del lado de los desarrolladores para asegurarse de que ellos no van a tener problemas de seguridad, ellos son baratos, y también ellos hacen lo que queremos a hacer. Vamos a aprender todo más tarde.
+2. **Pueden ser maliciosos si el desarrollador es maleducado**: Si el desarrollador quiere hacer un smart contract que roba tu dinero, y trucos que llaman una función para hacer esto, tu dinero se va a ser robado.
+3. **No se puede deshacer algo**: No puedes simplemente deshacer algo. A menos que tenga una función para hacerlo.
 
-<!-- <img src="../../images/transaction.jpeg" alt="drawing" width="600"/> -->
+## Transacciones & Guiones
 
-_"Okay, so we have a Smart Contract. How do I actually interact with it? You keep saying call a function, but what does that mean!?"_
+<img src="../../images/transaction.jpeg" alt="drawing" width="600"/>
 
-**A transaction is a glorified, paid function call.** That's pretty much the simplest I can put it. What's important to know is that a transaction CHANGES the data on the Blockchain, and usually is the ONLY way we can change the data on the Blockchain. Transactions can cost different amounts of money depending on which Blockchain you are on. On Ethereum, to store your favourite fruit on the Blockchain, it could cost dang near 100$. On Flow, it's fractions of a cent.
+_“Bueno, tenemos un Smart Contract. ¿Cómo puedo realmente interactuar con él? Eres diciendo a llamar una función, pero qué significa?”_
 
-On the other hand, a script is used to VIEW data on the Blockchain, they do not change it. Scripts do not cost any money, that'd be ridiculous.
+**Una transacción es como un llamado de función de pago.** Lo que es más importante para conocer es que una transacción cambió los datos en el Blockchain, y es usualmente la única manera en que podemos cambiar el data en el Blockchain. Las transacciones pueden costar cantidades de dinero diferentes dependiendo de que Blockchain estas usando. En Ethereum, para almacenar tu fruta favorita en el Blockchain, puede costar cerca de 100 dólares. En Flow, es solo una fracción de un centavo.
 
-Here is the normal workflow:
+A la otra mano, un guión es usado para VER datos en el Blockchain, ellos no cambian él. Los guiones no cuestan dinero, eso sería ridículo.
 
-1. A developer "deploys" a Smart Contract to the Blockchain
-2. A user runs a "transaction" that takes in some payment (to pay for gas fees, execution, etc) that calls some functions in the Smart Contract
-3. **The Smart Contract changes its data in some way**
+Aquí es un ‘workflow’ normal:
 
-## "MainNet" vs. "TestNet"
+1. Un desarrollador “despliega” un Smart Contract a el Blockchain
+2. Un usuario hace un transacción, que toma alguna tipo de pago (para pagar por los ‘gas fees’, ejecución, etc) se llama algunas funciones en el Smart Contract
+3. **El Smart Contract cambió su datas en alguna manera**
 
-<!-- <img src="../../images/tvm.PNG" alt="drawing" width="600"/> -->
+## “MainNet” v. “TestNet”
 
-You may have heard these terms come up, but what do they actually mean?
+<img src="../../images/tvm.PNG" alt="drawing" width="600"/>
 
-**TestNet** is an environment where developers test their applications before releasing it to the public. This is a perfect space to figure out what's wrong with your application before actually releasing it to the public to use. Here are a few additional notes:
+Es posible que haya oído estas cosas, pero ¿qué significa realmente?
 
-- Everything is fake
-- No actual money involved
-- Transactions cost fake money
-- A good way for developers to test their smart contracts and applications BEFORE releasing to the public
-- If something bad happens, no one cares.
+**TestNet** es un medio ambiente donde desarrolladores prueben sus aplicaciones antes de liberarlas al público. Este es un espacio perfecto para resolver los errores en tu aplicación antes de liberarla al público para usarla. Aquí son un algunas notas adicionales:
 
-**MainNet** is an environment where everything is real. When you release your application to the public, you put it on MainNet. On MainNet, everything is live, so things cost real money, there are risks, and you must make sure everything is working correctly. Here are a few additional notes:
+- Todo es falso
+- No hay dinero real involucrado
+- Transacciones cuesta dinero falso
+- Un buen manera para desarrolladores a prueba sus smart contracts y aplicaciones antes de liberarlas al público
+- Si algo malo paso, a nadie le importa
 
-- Everything is real
-- Money is involved
-- Transactions cost real money
-- When your application is fully ready, you put it on MainNet for users to interact with.
-- If something bad happens, that's really bad.
+**MainNet** es un medio ambiente donde todo es real. Cuando liberas tu aplicación al público, la pones en MainNet. En MainNet, todo es en vivo, asi que cosas cuestan dinero real, hay riesgos, y debe asegurarse todo esté funcionando correctamente. Aquí son algunas notas adicionales:
 
-## Decentralized Applications (DApps)
+- Todo es real
+- Dinero real es involucrado
+- Transacciones cuesta dinero real
+- Cuando tu aplicación es totalmente listo, le pones en MainNet para usuarios a interactuarlo.
+- Si algo malo pasó, eso es muy malo.
 
-<!-- <img src="../../images/dapps.jpeg" alt="drawing" width="300"/> -->
+## Aplicaciones Descentralizadas (dApps)
 
-Oh no, this sounds complicated. Nope! It's not. DApps are literally just normal applications (Javascript, Python, etc) that ALSO have Smart Contracts involved. That's it.
+<img src="../../images/dapps.jpeg" alt="drawing" width="300"/>
 
-For example, Instagram is an application that is not a "DApp" because it doesn't involve any blockchain code. However, after Flow's recent announcement of NFT integration into Instagram, we can officially call Instagram a DApp. Examples of other DApps includes <a href="https://floats.city/" target="_blank">FLOAT</a>.
+Ay no, esto suena complicado. No, no es! DApps son literalmente aplicaciones normales (Javascript, Python, etc) que también tiene Smart Contracts involucrado. Eso es todo.
 
-Also, we will be building a DApp throughout this course :)
+También vamos a construir este :)
 
-## Why do I care about all this?
+## ¿Por qué me importa sobre todo esto?
 
-Well, because that's what this course is all about, knucklehead! In this course, we will be making our own Smart Contracts, specifically on the Flow Blockchain. In addition, we will be making Decentralized Applications that _use_ those Smart Contracts.
+Pues, porque eso es que este curso es sobre todo. En este curso, vamos a hacer nuestro propio Smart Contracts, específicamente en el Blockchain Flow. En adición, vamos a hacer un aplicación descentralizada que se _usan_ esos Smart Contracts.
 
-## Conclusion
+## En conclusión
 
-Jacob is the best. No, no. That's not the conclusion. The conclusion is that although all of this stuff sounds very complicated, it really isn't. And if you still don't understand ANY of this, that's totally okay. Sometimes it's better to jump into some examples to make things make more sense. We'll be doing that in the upcoming days.
+Jacob es lo mejor. No, no. Esa no es la conclusión. La conclusión es que aunque todo esto suena muy complicado, realmente no es. Y si todavía no entiendes cualquier de este, está totalmente bien. A veces es mejor saltar en algunos ejemplos para hacer que las cosas tengan más sentido. Vamos a hacer esto en los próximos días.
 
-# Quests
+## Busquedas
 
-You are free to answer these questions in your own language of choice. And no, I don't mean computer programming language, haha.
+Eres libre de contestar estas preguntas en tu idioma de elección. Y no, no quiero decir idioma de programación de computadoras, jaja.
 
-1. Explain what the Blockchain is in your own words. You can read this to help you, but you don't have to: https://www.investopedia.com/terms/b/blockchain.asp
+1. Explicar que es el Blockchain en tus propias palabras. Puedes leer este para ayudarlo, pero no tienes que hacer: https://www.investopedia.com/terms/b/blockchain.asp
 
-2. Explain what a Smart Contract is. You can read this to help you, but you don't have to: https://www.ibm.com/topics/smart-contracts
+2. Explicar que es un Smart Contract. Puedes leer este para ayudarlo, pero no tienes que hacer: https://www.ibm.com/topics/smart-contracts
 
-3. Explain the difference between a script and a transaction.
-
-4. What is the difference between Testnet and Mainnet? When would you develop on each?
+3. Explicar la diferencia entre un guión y una transacción.
