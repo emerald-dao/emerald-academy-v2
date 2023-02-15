@@ -1,124 +1,148 @@
 ---
-title: Learning APP Concepts
+title: Our First Smart Contract
 day: 1
 language: en
-excerpt: basic APP concepts  
+excerpt: first Smart Contract
 ---
-# Chapter 1 Day 1 - Learning Blockchain Concepts
 
-Hello! Yes, it is me. Your favourite developer of all time, Jacob. You are currently viewing the first day of the entire course. Let's start this journey together.
+# Chapter 2 - Day 1 - Our First Smart Contract
 
-Let's start off our first day by going over what seems to be complicated terms that you will need to understand for the journey ahead.
+Hello beautiful people! Welcome to the glorious Chapter 2, in which we will start diving into actual Cadence code.
 
-## What the heck is a Blockchain?
+Today, we will be learning the very basics of Cadence code by implementing our first Smart Contract. That is, how to declare a variable, how to write a function, etc.
 
-<!-- <img src="../../images/blockchain.png" alt="drawing" width="600"/> -->
+## Video
 
-_If you already understand what the Blockchain is or you simply don't care (that's fair!), you can skip this section._
+If you'd like some videos to watch, you can watch these two videos (they are very similar):
 
-When learning about the Blockchain, you may find some complicated articles. It's easy to get completely lost in the sauce and feel like you want to give up. So, I'm going to explain the Blockchain in a very easy way that may have some innacuracies/left out information but is meant to help you get started. **Specifically, I will help you understand the Blockchain from the perspective of someone who is looking to code Smart Contracts or make some Decentralized Applications (both of which we will do!).**
+1. https://www.youtube.com/watch?v=QbqNM4k76B0 (overview of smart contracts, accounts, and deploying our first contract)
+2. https://www.youtube.com/watch?v=DSwNNOEdBXU (explanation behind some basic syntax + deploying a contract) **NOTE**: watch this video from 00:00 - 07:23. Anything beyond 07:23 is not covered in this lesson.
 
-In one sentence: the Blockchain is an open, decentralized, shared database that allows anyone to store stuff publically.
+## Our First Smart Contract
 
-Okay, woah. What does that mean?
+_Before going on, make sure you've read Chapter 1, Day 1. That day covers everything you need to know about Smart Contracts up to this point._
 
-1. **OPEN**: Anyone can interact with it. There are no restrictions.
-2. **DECENTRALIZED**: Nobody owns it. There is no central authority dictating stuff.
-3. **DATABASE**: You can store information on it.
-4. **PUBLIC**: Anyone can view the data on it.
+In order to start making our first Smart Contract, we need to figure out a place to actually put it! To do that, launch a browser of your choice (I would recommend Google Chrome), go to the Flow playground by pasting in this URL: https://play.onflow.org. After you do that, do the following
 
-Because of these things, we can interact with the Blockchain however we please. Often times, we may want to set up "rulebooks" that determine how people can interact with specific parts of the Blockchain so that it has some functionality - specifically our own applications that we will define. This is done with Smart Contracts.
+1. On the left hand side, click the '0x01' tab.
+2. Delete everything in that page.
 
-It's also important to note that there are many different Blockchains out there. For example, Ethereum is probably the most popular Blockchain. In this course, we will be learning about the wonderful Flow Blockchain, because that's where my expertise lies ;)
+It should look like this:
+<img src="../images/blanksc.png" alt="drawing" size="400" />
 
-## Smart Contracts? Ooo, that sounds cool.
+What we have done is clicked on the `Account` with address `0x01` and deleted the contract in its account. This brings up an important topic.
 
-<!-- <img src="../../images/smart contract.png" alt="drawing" width="600"/> -->
+### What's an address?
 
-Why yes, yes it is. Smart Contracts are very cool. Smart Contracts are programs, or "rulebooks" that developers make. Developers create them because it allows us to specify some functionality that users can interact with. For example, if I want to make an application that allows users to store their favourite fruit on the Blockchain, I need to make a Smart Contract that:
+An address is something that looks like `0x` and then a bunch of random numbers and letters. Here's an example address on Flow: `0xe5a8b7f23e8b548f`. On the Flow playground, you'll see much shorter addresses like `0x01`. That's just to make things simpler.
 
-1. Has a function that anyone can call
-2. Takes in a parameter (the person's favourite fruit)
-3. Stores that parameter in some data
-4. Sends the updated data to the Blockchain (happens automatically)
+But what actually IS an address? Well, you can think of them as a user. When I want to do something on the blockchain, I need to have an account. Every account has an address associated with it. So when you see something like `0xe5a8b7f23e8b548f`, that's really just a person's account that they use to store data, send transactions, etc.
 
-If I created this Smart Contract and "deployed" it to the Blockchain (deployed means we put the contract onto the Blockchain so people can interact with it), then anyone could put their favourite fruit on the Blockchain, and it would live there forever and ever! Unless we also had a function to remove that data.
+### Where do smart contracts live?
 
-So, why do we use Smart Contracts?
+Smart Contracts are deployed accounts. As we mentioned above, accounts are owned by a user, and every account has an address associated with it that always begins with `0x`. In this case, since we are on the Flow playground, it has automatically given us 5 accounts, namely `0x01`, `0x02`, and so on. Thus, Smart Contracts live at an address. So when we deploy a contract named "Hello World" to account `0x01`, that is how we identify it. If we wanted to interact with it, we would have to know both the name of the contract and the address. We'll see this more in-depth when we import stuff later on.
 
-1. **Speed, efficiency and accuracy**: Smart Contracts are fast, and there is no middleman. There is also no paperwork. If I want to update the data on the Blockchain by using a Smart Contract that allows me to call some function, I can just do it. I don't have to get approval from my parents or my bank.
-2. **Trust and transparency**: The Blockchain, and thus Smart Contracts, are extremely secure if we make them that way. It is near impossible to hack or alter the state of the Blockchain, and while that's due to other reasons, it is largely because of Smart Contracts. If a Smart Contract doesn't let me do something, I simply can't do it. There's no way around it.
+### Back to our example...
 
-What are some downsides?
+In this case, we will be deploying our Smart Contract to account `0x01`. This means account `0x01` is the **owner** of this Smart Contract. In the real world, you would deploy your Smart Contract to **your** account, but because this is a fake-simulation world, we can choose any account we want, so we chose `0x01`.
 
-1. **Hard to get right**: While Smart Contracts are cool, they are NOT smart. They require sophisticated levels of expertise from the developer's side to make sure they have no security problems, they are cheap, and they do what we want them to do. We will learn all of this later.
-2. **Can be malicious if the developer is mean**: If a developer wants to make a Smart Contract that steals your money, and then tricks you into calling a function that does that, your money will be stolen. In the world of the Blockchain, you must make sure you interact with Smart Contracts that you know are secure.
-3. **Cannot undo something**: You can't just undo something. Unless you have a function that allows you to.
+Let's make our contract now. In the empty space, type the following:
 
-## Transactions & Scripts
+```cadence
+pub contract HelloWorld {
 
-<!-- <img src="../../images/transaction.jpeg" alt="drawing" width="600"/> -->
+    init() {
 
-_"Okay, so we have a Smart Contract. How do I actually interact with it? You keep saying call a function, but what does that mean!?"_
+    }
+}
+```
 
-**A transaction is a glorified, paid function call.** That's pretty much the simplest I can put it. What's important to know is that a transaction CHANGES the data on the Blockchain, and usually is the ONLY way we can change the data on the Blockchain. Transactions can cost different amounts of money depending on which Blockchain you are on. On Ethereum, to store your favourite fruit on the Blockchain, it could cost dang near 100$. On Flow, it's fractions of a cent.
+The `pub contract [contract name]` part will ALWAYS be what you type when you create a new contract. You can fill in `contract name` with whatever you'd like to call your contract.
 
-On the other hand, a script is used to VIEW data on the Blockchain, they do not change it. Scripts do not cost any money, that'd be ridiculous.
+The `init()` function is a function that every single contract MUST have. It is called when the Contract is initially deployed, which in the real world, only ever happens 1 time. So, we can initialize some stuff in it when we want to.
 
-Here is the normal workflow:
+Okay, boom! This is your first Smart Contract, although it doesn't do anything ;( Let's make it store a `greeting` variable so we can store some data in this contract.
 
-1. A developer "deploys" a Smart Contract to the Blockchain
-2. A user runs a "transaction" that takes in some payment (to pay for gas fees, execution, etc) that calls some functions in the Smart Contract
-3. **The Smart Contract changes its data in some way**
+Modify your contract code so it looks like this:
 
-## "MainNet" vs. "TestNet"
+```cadence
+pub contract HelloWorld {
 
-<!-- <img src="../../images/tvm.PNG" alt="drawing" width="600"/> -->
+    pub let greeting: String
 
-You may have heard these terms come up, but what do they actually mean?
+    init() {
+        self.greeting = "Hello, World!"
+    }
+}
+```
 
-**TestNet** is an environment where developers test their applications before releasing it to the public. This is a perfect space to figure out what's wrong with your application before actually releasing it to the public to use. Here are a few additional notes:
+In Cadence, when you declare a variable, you follow this format:
 
-- Everything is fake
-- No actual money involved
-- Transactions cost fake money
-- A good way for developers to test their smart contracts and applications BEFORE releasing to the public
-- If something bad happens, no one cares.
+`[access modifier] [var/let] [variable name]: [type]`
 
-**MainNet** is an environment where everything is real. When you release your application to the public, you put it on MainNet. On MainNet, everything is live, so things cost real money, there are risks, and you must make sure everything is working correctly. Here are a few additional notes:
+Using our example above...
 
-- Everything is real
-- Money is involved
-- Transactions cost real money
-- When your application is fully ready, you put it on MainNet for users to interact with.
-- If something bad happens, that's really bad.
+- Our access modifier is `pub`, which means anyone can read this variable. In the future, we will see lots of other access modifiers, but lets stick with `pub` for the next few lessons just to make life easy.
+- `let` means that this variable is a constant. If you've coded in other programming languages, a constant means that once we make this variable equal to something, we **cannot change it**. On the other hand, `var` means we can change it.
+- Our variable name is `greeting`
+- The type of our variable is a `String`. This means we can put stuff like "Hello", "Jacob is the best", "I love Jacob", stuff like that.
 
-## Decentralized Applications (DApps)
+Next, we put `self.greeting = "Hello, World!"` inside the `init()` function. Remember, the `init()` function is called when the contract is deployed, which only happens once. `self` is a keyword that means "the variable that is one layer above." In this case, `self.greeting` is referring to the `greeting` variable we declared right above it, and we set it equal to "Hello, World!"
 
-<!-- <img src="../../images/dapps.jpeg" alt="drawing" width="300"/> -->
+To deploy this contract, click the green "Deploy" button. Your page should look like this:
 
-Oh no, this sounds complicated. Nope! It's not. DApps are literally just normal applications (Javascript, Python, etc) that ALSO have Smart Contracts involved. That's it.
+<img src="../images/helloworld.png" alt="drawing" size="400" />
 
-For example, Instagram is an application that is not a "DApp" because it doesn't involve any blockchain code. However, after Flow's recent announcement of NFT integration into Instagram, we can officially call Instagram a DApp. Examples of other DApps includes <a href="https://floats.city/" target="_blank">FLOAT</a>.
+NOTE: If you're getting errors, try first refreshing the page. If you still see errors like: "GraphQL error", try switching your browser to Google Chrome.
 
-Also, we will be building a DApp throughout this course :)
+Awesome!!! You've deployed your first Smart Contract.
 
-## Why do I care about all this?
+## Reading our Greeting
 
-Well, because that's what this course is all about, knucklehead! In this course, we will be making our own Smart Contracts, specifically on the Flow Blockchain. In addition, we will be making Decentralized Applications that _use_ those Smart Contracts.
+Let's make sure that our `greeting` variable actually got set to "Hello, World!". Remember, we can view data from the Blockchain using a script.
+
+On the left hand side, under "Script Templates", click on the tab that says "Script" and delete everything inside of it. Next, write the following code:
+
+```cadence
+import HelloWorld from 0x01
+
+pub fun main(): String {
+    return HelloWorld.greeting
+}
+```
+
+This Script will return the value of greeting, which is "Hello, World!" In order to do that, let's see what we did:
+
+1. First, we imported our Smart Contract by doing `import HelloWorld from 0x01`. In Cadence, you import a contract by doing `import [contract name] from [address of that contract]`. Because we deployed HelloWorld to `0x01`, we wrote the above.
+2. Next, we wrote a function. In Cadence, you write a function by doing `[access modifier] fun [function name](): [return type] { ... }`. In this case, we used `pub` for our access modifier (more on that later), named our function `main`, and said we will be returning a `String` type, which remember, is the type of `greeting`.
+3. We then accessed the `greeting` variable from the contract using `HelloWorld.greeting`.
+
+If you click "Execute" on the right side, you will see in the terminal it prints, "Hello, World!" like below:
+
+<img src="../images/hwscript.png" alt="drawing" size="400">
+
+If yours looks like that, you have executed your first script!
+
+## Concept Check
+
+Okay, so we just wrote some code. That was fast. But how does all of this relate back to what I was saying in Chapter 1, Day 1?
+
+Remember I said Smart Contracts are both programs and rulebooks. They allow us to do certain things, nothing more and nothing less. In this example, our Smart Contract let us initialize `greeting` and read `greeting`. Notice that it does NOT let us change `greeting` to be something else. If we had wanted to add that functionality, we would've had to do it ahead of time, before we deployed it. This is why it's so crucial that as a developer of a Smart Contract, you implement all the functionality you want a user to have before you deploy the contract. Because after you deploy, there's nothing you can do. (Of course, on the Flow playground, we can deploy the contract again. But in the real world you cannot do this.)
 
 ## Conclusion
 
-Jacob is the best. No, no. That's not the conclusion. The conclusion is that although all of this stuff sounds very complicated, it really isn't. And if you still don't understand ANY of this, that's totally okay. Sometimes it's better to jump into some examples to make things make more sense. We'll be doing that in the upcoming days.
+Today, we learned how to deploy our first contract, declare a variable, write a function, and execute a script. Wow! That's a lot. But it wasn't too bad, right?
 
 # Quests
 
-You are free to answer these questions in your own language of choice. And no, I don't mean computer programming language, haha.
+For todays quest, please load up a new Flow playground by going to https://play.onflow.org just like we did in this lesson. You will use that for writing your code.
 
-1. Explain what the Blockchain is in your own words. You can read this to help you, but you don't have to: https://www.investopedia.com/terms/b/blockchain.asp
+1. Deploy a contract to account `0x03` called "JacobTucker". Inside that contract, declare a **constant** variable named `is`, and make it have type `String`. Initialize it to "the best" when your contract gets deployed.
 
-2. Explain what a Smart Contract is. You can read this to help you, but you don't have to: https://www.ibm.com/topics/smart-contracts
+2. Check that your variable `is` actually equals "the best" by executing a script to read that variable. Include a screenshot of the output.
 
-3. Explain the difference between a script and a transaction.
+It's so awesome that I get to make these quests. I love this.
 
-4. What is the difference between Testnet and Mainnet? When would you develop on each?
+Anyways, please remember to store your answers in some way so I can review them if you submit them to me. Good luck!
+
+# <a href="https://forms.gle/PPJb9iHFGu91Nuis9">Quiz</a>

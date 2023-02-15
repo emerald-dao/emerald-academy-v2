@@ -1,124 +1,147 @@
 ---
-title: Learning APP Concepts
+title: 我们的第一个智能合约
 day: 1
-language: en
-excerpt: basic APP concepts  
+language: zh
+excerpt: 我们的第一个智能合约
 ---
-# Chapter 1 Day 1 - Learning Blockchain Concepts
 
-Hello! Yes, it is me. Your favourite developer of all time, Jacob. You are currently viewing the first day of the entire course. Let's start this journey together.
+# 第二章·第一日·我们的第一个智能合约
 
-Let's start off our first day by going over what seems to be complicated terms that you will need to understand for the journey ahead.
+小伙伴们，大家好！欢迎来到精彩的第二章，我们将从此开始深入学习实际的 Cadence 代码。
 
-## What the heck is a Blockchain?
+今天，我们要实现我们的第一个智能合约，以此来学习 Cadence 的基础知识——包括声明变量，编写函数等等。
 
-<!-- <img src="../../images/blockchain.png" alt="drawing" width="600"/> -->
+## 视频
 
-_If you already understand what the Blockchain is or you simply don't care (that's fair!), you can skip this section._
+如果你想要一些视频学习材料，可以看看这两个视频（它们非常相似）：
 
-When learning about the Blockchain, you may find some complicated articles. It's easy to get completely lost in the sauce and feel like you want to give up. So, I'm going to explain the Blockchain in a very easy way that may have some innacuracies/left out information but is meant to help you get started. **Specifically, I will help you understand the Blockchain from the perspective of someone who is looking to code Smart Contracts or make some Decentralized Applications (both of which we will do!).**
+[https://www.youtube.com/watch?v=QbqNM4k76B0](https://www.youtube.com/watch?v=QbqNM4k76B0)（智能合约的概述、账户，以及部署我们的第一个合约）
 
-In one sentence: the Blockchain is an open, decentralized, shared database that allows anyone to store stuff publically.
+[https://www.youtube.com/watch?v=DSwNNOEdBXU](https://www.youtube.com/watch?v=DSwNNOEdBXU)（一些基本语法背后的解释+部署合约） 注意：看这个视频 00:00 - 07:23 的内容就好，07:23 之后的内容在本课中没有涉及。
 
-Okay, woah. What does that mean?
+## 我们的第一个智能合约
 
-1. **OPEN**: Anyone can interact with it. There are no restrictions.
-2. **DECENTRALIZED**: Nobody owns it. There is no central authority dictating stuff.
-3. **DATABASE**: You can store information on it.
-4. **PUBLIC**: Anyone can view the data on it.
+在继续之前，请确保你已经阅读了第一章第一日的内容，它涵盖了到目前为止你所需要知道的关于智能合约的一切。
 
-Because of these things, we can interact with the Blockchain however we please. Often times, we may want to set up "rulebooks" that determine how people can interact with specific parts of the Blockchain so that it has some functionality - specifically our own applications that we will define. This is done with Smart Contracts.
+为了开始编写我们的第一个智能合约，我们需要找个地方开始我们的工作。首先你需要选择一个浏览器并启动它（我推荐 Google Chrome），然后通过粘贴这个 URL 进入 Flow 的 Playground：[https://play.onflow.org](https://play.onflow.org/)。做完这些后，继续以下工作：
 
-It's also important to note that there are many different Blockchains out there. For example, Ethereum is probably the most popular Blockchain. In this course, we will be learning about the wonderful Flow Blockchain, because that's where my expertise lies ;)
+1. 在页面的左边，点击“0x01”标签。
+2. 删除该页面中的所有内容。
 
-## Smart Contracts? Ooo, that sounds cool.
+页面现在看起来应该像这样：
+<img src="../images/blanksc.png" alt="drawing" size="400" />
 
-<!-- <img src="../../images/smart contract.png" alt="drawing" width="600"/> -->
+我们所做的是点击地址为 `0x01` 的`账户`，删除其中的合约。这引出了一个重要的话题。
 
-Why yes, yes it is. Smart Contracts are very cool. Smart Contracts are programs, or "rulebooks" that developers make. Developers create them because it allows us to specify some functionality that users can interact with. For example, if I want to make an application that allows users to store their favourite fruit on the Blockchain, I need to make a Smart Contract that:
+### 什么是地址？
 
-1. Has a function that anyone can call
-2. Takes in a parameter (the person's favourite fruit)
-3. Stores that parameter in some data
-4. Sends the updated data to the Blockchain (happens automatically)
+地址看起来像是 `0x` 后面跟着一堆随机的数字和字母。下面是 Flow 上的一个地址样例：`0xe5a8b7f23e8b548f`。在 Flow Playground 中，你会看到像 0x01 这样更短的地址，但这只是为了简化起见。
 
-If I created this Smart Contract and "deployed" it to the Blockchain (deployed means we put the contract onto the Blockchain so people can interact with it), then anyone could put their favourite fruit on the Blockchain, and it would live there forever and ever! Unless we also had a function to remove that data.
+但究竟什么**是**地址？嗯，你可以把它们看成是一个用户。当我想在区块链上做什么时，我需要有一个账户。每个账户都有一个与之相关的地址。因此，当你看到像 `0xe5a8b7f23e8b548f` 这样的东西，这实际上只是一个人的账户，他们用来存储数据，发送交易等等。
 
-So, why do we use Smart Contracts?
+### 智能合约存在于何处？
 
-1. **Speed, efficiency and accuracy**: Smart Contracts are fast, and there is no middleman. There is also no paperwork. If I want to update the data on the Blockchain by using a Smart Contract that allows me to call some function, I can just do it. I don't have to get approval from my parents or my bank.
-2. **Trust and transparency**: The Blockchain, and thus Smart Contracts, are extremely secure if we make them that way. It is near impossible to hack or alter the state of the Blockchain, and while that's due to other reasons, it is largely because of Smart Contracts. If a Smart Contract doesn't let me do something, I simply can't do it. There's no way around it.
+智能合约部署在账户中。正如我们上面提到的，账户由用户拥有，每个账户都有一个与之相关联的地址，这个地址总是以 `0x` 开头。在 Flow Playground 中，它自动给了我们 5 个账户，即 `0x01`、`0x02` 等等，而智能合约存在于一个地址上。因此，当我们将一个名为“Hello World”的合约部署到 `0x01` 账户时，我们通过 Hello World 和 0x01 来识别它。如果我们想与它交互，我们就必须知道合约的名称和地址。当我们以后进行导入操作时，我们会更深入地看到这一点。
 
-What are some downsides?
+### 回到我们的例子…
 
-1. **Hard to get right**: While Smart Contracts are cool, they are NOT smart. They require sophisticated levels of expertise from the developer's side to make sure they have no security problems, they are cheap, and they do what we want them to do. We will learn all of this later.
-2. **Can be malicious if the developer is mean**: If a developer wants to make a Smart Contract that steals your money, and then tricks you into calling a function that does that, your money will be stolen. In the world of the Blockchain, you must make sure you interact with Smart Contracts that you know are secure.
-3. **Cannot undo something**: You can't just undo something. Unless you have a function that allows you to.
+在这个例子中，我们将把我们的智能合约部署到账户 `0x01`。这意味着账户 `0x01` 是这个智能合约的**所有者**。在现实世界中，你会将智能合约部署到**你的**账户，但由于这是一个模拟世界，我们可以选择任何我们想要的账户，所以我们选择了 `0x01`。
 
-## Transactions & Scripts
+现在让我们来编写我们的合约。在空白处，输入以下内容：
 
-<!-- <img src="../../images/transaction.jpeg" alt="drawing" width="600"/> -->
+```cadence
+pub contract HelloWorld {
 
-_"Okay, so we have a Smart Contract. How do I actually interact with it? You keep saying call a function, but what does that mean!?"_
+    init() {
 
-**A transaction is a glorified, paid function call.** That's pretty much the simplest I can put it. What's important to know is that a transaction CHANGES the data on the Blockchain, and usually is the ONLY way we can change the data on the Blockchain. Transactions can cost different amounts of money depending on which Blockchain you are on. On Ethereum, to store your favourite fruit on the Blockchain, it could cost dang near 100$. On Flow, it's fractions of a cent.
+    }
+}
+```
 
-On the other hand, a script is used to VIEW data on the Blockchain, they do not change it. Scripts do not cost any money, that'd be ridiculous.
+在你新建一个合约时，`pub contract [合约名称]` 总是你最开始输入的部分。你可以把你想要的任何合约名填入`合约名称`部分。
 
-Here is the normal workflow:
+`init()` 函数是每个合约都必须有的一个函数。它在合约最初部署时被调用，在现实世界中，这只会发生一次。所以，如果我们想的话，我们可以在这个函数里面初始化一些东西。
 
-1. A developer "deploys" a Smart Contract to the Blockchain
-2. A user runs a "transaction" that takes in some payment (to pay for gas fees, execution, etc) that calls some functions in the Smart Contract
-3. **The Smart Contract changes its data in some way**
+好了，开始吧！这是你的第一个智能合约，尽管它没有做任何事情;( 让我们在它里面存储一个名为 `greeting` 的变量，这样我们就可以在这个合约中存储一些数据了。
 
-## "MainNet" vs. "TestNet"
+修改你的合约代码，使它看起来像这样：
 
-<!-- <img src="../../images/tvm.PNG" alt="drawing" width="600"/> -->
+```cadence
+pub contract HelloWorld {
 
-You may have heard these terms come up, but what do they actually mean?
+    pub let greeting: String
 
-**TestNet** is an environment where developers test their applications before releasing it to the public. This is a perfect space to figure out what's wrong with your application before actually releasing it to the public to use. Here are a few additional notes:
+    init() {
+        self.greeting = "Hello, World!"
+    }
+}
+```
 
-- Everything is fake
-- No actual money involved
-- Transactions cost fake money
-- A good way for developers to test their smart contracts and applications BEFORE releasing to the public
-- If something bad happens, no one cares.
+在 Cadence 中，当你声明一个变量时，需要遵循这样的格式：
 
-**MainNet** is an environment where everything is real. When you release your application to the public, you put it on MainNet. On MainNet, everything is live, so things cost real money, there are risks, and you must make sure everything is working correctly. Here are a few additional notes:
+`[访问修饰器] [var/let] [变量名]: [变量类型]`
 
-- Everything is real
-- Money is involved
-- Transactions cost real money
-- When your application is fully ready, you put it on MainNet for users to interact with.
-- If something bad happens, that's really bad.
+用我们上面的例子来说明：
 
-## Decentralized Applications (DApps)
+- 我们的`访问修饰器`是 `pub`，这意味着任何人都可以读取这个变量。以后我们会看到很多其他的`访问修饰器`，但在接下来的几节课中，简单起见我们只使用 `pub`。
+- `let` 意味着这个变量是一个常量。如果你用其他编程语言编写过代码，常量意味着一旦我们使这个变量等于某个东西，我们就**不能改变它**。另一方面，`var` 意味着我们可以改变它。
+- 我们的变量名是 `greeting`。
+- 我们的变量类型是 `String`。这意味着我们可以把“你好”、“Jacob is the best”、"I love Jacob "之类的字符串放到里面去。
 
-<!-- <img src="../../images/dapps.jpeg" alt="drawing" width="300"/> -->
+接下来，我们把 `self.greeting = "Hello, World!"` 放在 `init()` 函数中。记住，`init()` 函数在合约部署时被调用，这只发生一次。`self` 是一个关键词，意思是“上一层的变量”。在本例中，`self.greeting` 指的是我们在上面声明的 `greeting` 变量，我们将其设置为“Hello, World！”
 
-Oh no, this sounds complicated. Nope! It's not. DApps are literally just normal applications (Javascript, Python, etc) that ALSO have Smart Contracts involved. That's it.
+点击绿色的“Deploy”按钮以部署合约，你的页面应该看起来像这样：
 
-For example, Instagram is an application that is not a "DApp" because it doesn't involve any blockchain code. However, after Flow's recent announcement of NFT integration into Instagram, we can officially call Instagram a DApp. Examples of other DApps includes <a href="https://floats.city/" target="_blank">FLOAT</a>.
+<img src="../images/helloworld.png" alt="drawing" size="400" />
 
-Also, we will be building a DApp throughout this course :)
+注意：如果你遇到错误，先尝试刷新页面。如果你仍然看到像是“GraphQL error”这样的错误，尝试将你的浏览器切换到谷歌浏览器。
 
-## Why do I care about all this?
+太棒了！！！你已经部署了你的第一个智能合约。
 
-Well, because that's what this course is all about, knucklehead! In this course, we will be making our own Smart Contracts, specifically on the Flow Blockchain. In addition, we will be making Decentralized Applications that _use_ those Smart Contracts.
+## 读取我们的“问候”
 
-## Conclusion
+让我们确保我们的 `greeting` 变量确实被设置为 “Hello, World!”。记住，我们可以用脚本来查看区块链的数据。
 
-Jacob is the best. No, no. That's not the conclusion. The conclusion is that although all of this stuff sounds very complicated, it really isn't. And if you still don't understand ANY of this, that's totally okay. Sometimes it's better to jump into some examples to make things make more sense. We'll be doing that in the upcoming days.
+在页面左侧的“Script Templates”下，点击“Script”标签，删除里面的所有内容。接下来，在里面写入以下代码：
 
-# Quests
+```cadence
+import HelloWorld from 0x01
 
-You are free to answer these questions in your own language of choice. And no, I don't mean computer programming language, haha.
+pub fun main(): String {
+    return HelloWorld.greeting
+}
+```
 
-1. Explain what the Blockchain is in your own words. You can read this to help you, but you don't have to: https://www.investopedia.com/terms/b/blockchain.asp
+这个脚本将返回 greeting 的值，即 “Hello, World！”。让我们看看我们做了什么。
 
-2. Explain what a Smart Contract is. You can read this to help you, but you don't have to: https://www.ibm.com/topics/smart-contracts
+1. 首先，我们通过从 0x01 导入 HelloWorld 来导入我们的智能合约。在 Cadence 中，你通过从 [合约地址] 导入 [合约名称] 来导入一个合约。因为我们把 HelloWorld 部署到了 0x01，所以我们写下 `import HelloWorld from 0x01` 来导入合约。
+2. 接下来，我们写了一个函数。在 Cadence 中，编写一个函数的方法是：`[访问修饰器] fun [函数名]: [返回值类型] { ... }` 。在这个例子中，我们使用 `pub` 作为访问修饰器（后面会有更多的介绍），用 `main` 作为函数名，并声明我们的返回值为 String 类型，记住，这是 `greeting` 的类型。
+3. 然后我们用 `HelloWorld.greeting` 从合约中访问 `greeting` 变量。
 
-3. Explain the difference between a script and a transaction.
+如果你点击右边的 “Execute”，你会在终端看到它打印出：“Hello, World!”，就像下面这样：
 
-4. What is the difference between Testnet and Mainnet? When would you develop on each?
+<img src="../images/hwscript.png" alt="drawing" size="400">
+
+如果你的页面看起来像这样，你已经执行了你的第一个脚本！
+
+## 概念检查
+
+好了，我们写了一些代码。进展神速。但这一切又是如何与我在第一章第一天所说的内容联系起来的呢？
+
+记得我说过，智能合约既是程序也是规则手册。它们允许我们做某些特定的事情，不多也不少。在这个例子中，我们的智能合约让我们初始化`greeting` 和读取 `greeting`。请注意，它并没有允许我们把 `greeting` 改成别的东西。如果我们想添加这个功能，我们就必须在合约部署之前完成。这就是为什么作为智能合约的开发者，在部署合约之前实现你希望用户拥有的所有功能是如此关键。因为在你部署合约之后，你就无能为力了。（当然，在 Flow 的 Playground 中，我们可以再次部署合约。但在现实世界中，你不能这样做）。
+
+## 结论
+
+今天，我们学会了如何部署我们的第一个合约，声明一个变量，编写一个函数，以及执行一个脚本。哇！这可真够多的。但感觉还行，对吗？
+
+# 任务
+
+对于今天的任务，请访问 [https://play.onflow.org，](https://play.onflow.org，加载一个新的)加载一个新的 Flow Playground，就像我们在本课中做的那样。你将用它来编写你的代码。
+
+1. 在 `0x03` 账户上部署一个名为 ”JacobTucker“ 的合约。在该合约中，声明一个名为 `is` 的常量变量，并使其类型为 `String`。当你的合约被部署时，将其初始化为“the best”。
+
+2. 检查你的变量 `is` 是否真的等于“the best”，方法是执行一个脚本来读取该变量。提交的答案中需要包括一张输出的截图。
+
+能做这些任务真是太棒了，我喜欢这样。
+
+总之，请记得以某种方式存储你的答案，如此一来，如果你把答案提交给我，我就可以检查它们。祝你们好运！

@@ -1,124 +1,146 @@
 ---
-title: Learning APP Concepts
+title: Наш первый смарт-контракт
 day: 1
-language: en
-excerpt: basic APP concepts  
+language: ru
+excerpt: первый смарт-контракт
 ---
-# Chapter 1 Day 1 - Learning Blockchain Concepts
 
-Hello! Yes, it is me. Your favourite developer of all time, Jacob. You are currently viewing the first day of the entire course. Let's start this journey together.
+# Глава 2 - День 1 - Наш первый смарт-контракт
 
-Let's start off our first day by going over what seems to be complicated terms that you will need to understand for the journey ahead.
+Здравствуйте, красавцы! Добро пожаловать в главу 2, в которой мы начнем погружаться в реальный код Cadence.
 
-## What the heck is a Blockchain?
+Сегодня мы будем изучать самые основы кода Cadence, реализуя наш первый смарт-контракт. То есть, как объявить переменную, как написать функцию и т.д.
 
-<!-- <img src="../../images/blockchain.png" alt="drawing" width="600"/> -->
+## Видео
 
-_If you already understand what the Blockchain is or you simply don't care (that's fair!), you can skip this section._
+Если вы хотите посмотреть видео, вы можете посмотреть эти два видео (они очень похожи):
 
-When learning about the Blockchain, you may find some complicated articles. It's easy to get completely lost in the sauce and feel like you want to give up. So, I'm going to explain the Blockchain in a very easy way that may have some innacuracies/left out information but is meant to help you get started. **Specifically, I will help you understand the Blockchain from the perspective of someone who is looking to code Smart Contracts or make some Decentralized Applications (both of which we will do!).**
+1. https://www.youtube.com/watch?v=QbqNM4k76B0 (обзор смарт-контрактов, учетных записей и развертывание нашего первого контракта)
+2. https://www.youtube.com/watch?v=DSwNNOEdBXU (объяснение базового синтаксиса + развертывание контракта) **ПРИМЕЧАНИЕ**: смотрите это видео с 00:00 до 07:23. Все, что после 07:23, в этом уроке не рассматривается.
 
-In one sentence: the Blockchain is an open, decentralized, shared database that allows anyone to store stuff publically.
+## Наш первый смарт-контракт
 
-Okay, woah. What does that mean?
+_Прежде чем продолжить, убедитесь, что вы прочитали Главу 1, День 1. Та глава охватывает все, что вам нужно знать о смарт-контрактах до этого момента._
 
-1. **OPEN**: Anyone can interact with it. There are no restrictions.
-2. **DECENTRALIZED**: Nobody owns it. There is no central authority dictating stuff.
-3. **DATABASE**: You can store information on it.
-4. **PUBLIC**: Anyone can view the data on it.
+Для того чтобы начать создавать наш первый смарт-контракт, нам нужно найти место, где его можно разместить! Для этого запустите браузер по вашему выбору (я бы рекомендовал Google Chrome), перейдите на игровую площадку Flow, вставив этот URL: https://play.onflow.org. После этого выполните следующие действия
 
-Because of these things, we can interact with the Blockchain however we please. Often times, we may want to set up "rulebooks" that determine how people can interact with specific parts of the Blockchain so that it has some functionality - specifically our own applications that we will define. This is done with Smart Contracts.
+1. С левой стороны нажмите на вкладку '0x01'.
+2. Удалите все, что находится на этой странице.
 
-It's also important to note that there are many different Blockchains out there. For example, Ethereum is probably the most popular Blockchain. In this course, we will be learning about the wonderful Flow Blockchain, because that's where my expertise lies ;)
+Это должно выглядеть так:
+<img src="../images/blanksc.png" alt="drawing" size="400" />
 
-## Smart Contracts? Ooo, that sounds cool.
+Что мы сделали, так это нажали на `Аккаунт` с адресом `0x01` и удалили контракт на этом аккаунте. В связи с этим возникает важный вопрос.
 
-<!-- <img src="../../images/smart contract.png" alt="drawing" width="600"/> -->
+### Что такое адрес?
 
-Why yes, yes it is. Smart Contracts are very cool. Smart Contracts are programs, or "rulebooks" that developers make. Developers create them because it allows us to specify some functionality that users can interact with. For example, if I want to make an application that allows users to store their favourite fruit on the Blockchain, I need to make a Smart Contract that:
+Адрес - это то, что начинается с `0x`, а затем куча случайных цифр и букв. Вот пример адреса на Flow: `0xe5a8b7f23e8b548f`. На игровой площадке Flow вы увидите гораздо более короткие адреса, например `0x01`. Это просто для упрощения.
 
-1. Has a function that anyone can call
-2. Takes in a parameter (the person's favourite fruit)
-3. Stores that parameter in some data
-4. Sends the updated data to the Blockchain (happens automatically)
+Но что на самом деле представляет собой адрес? Ну, вы можете думать о них как о пользователях. Когда я хочу что-то сделать на Блокчейне, мне нужно иметь учетную запись. У каждой учетной записи есть адрес, связанный с ней. Поэтому, когда вы видите что-то вроде `0xe5a8b7f23e8b548f`, это действительно просто учетная запись человека, которую он использует для хранения данных, отправки транзакций и т.д.
 
-If I created this Smart Contract and "deployed" it to the Blockchain (deployed means we put the contract onto the Blockchain so people can interact with it), then anyone could put their favourite fruit on the Blockchain, and it would live there forever and ever! Unless we also had a function to remove that data.
+### Где живут смарт-контракты?
 
-So, why do we use Smart Contracts?
+Смарт-контракты - это развернутые счета. Как мы уже говорили, счета принадлежат пользователю, и каждый счет имеет связанный с ним адрес, который всегда начинается с `0x`. В данном случае, поскольку мы находимся на игровой площадке Flow, она автоматически предоставила нам 5 аккаунтов, а именно `0x01`, `0x02` и так далее. Таким образом, смарт-контракты живут по адресу. Поэтому, когда мы развертываем контракт с именем "Hello World" на аккаунте `0x01`, именно так мы его и идентифицируем. Если бы мы хотели взаимодействовать с ним, нам нужно было бы знать и имя контракта, и его адрес. Более подробно мы рассмотрим это позже, когда будем импортировать материал.
 
-1. **Speed, efficiency and accuracy**: Smart Contracts are fast, and there is no middleman. There is also no paperwork. If I want to update the data on the Blockchain by using a Smart Contract that allows me to call some function, I can just do it. I don't have to get approval from my parents or my bank.
-2. **Trust and transparency**: The Blockchain, and thus Smart Contracts, are extremely secure if we make them that way. It is near impossible to hack or alter the state of the Blockchain, and while that's due to other reasons, it is largely because of Smart Contracts. If a Smart Contract doesn't let me do something, I simply can't do it. There's no way around it.
+### Вернемся к нашему примеру...
 
-What are some downsides?
+В данном случае мы развернем наш смарт-контракт на аккаунте `0x01`. Это означает, что аккаунт `0x01` является **владельцем** этого смарт-контракта. В реальном мире вы бы развернули свой смарт-контракт на **свою** учетную запись, но поскольку это мир имитации, мы можем выбрать любую учетную запись, поэтому мы выбрали `0x01`.
 
-1. **Hard to get right**: While Smart Contracts are cool, they are NOT smart. They require sophisticated levels of expertise from the developer's side to make sure they have no security problems, they are cheap, and they do what we want them to do. We will learn all of this later.
-2. **Can be malicious if the developer is mean**: If a developer wants to make a Smart Contract that steals your money, and then tricks you into calling a function that does that, your money will be stolen. In the world of the Blockchain, you must make sure you interact with Smart Contracts that you know are secure.
-3. **Cannot undo something**: You can't just undo something. Unless you have a function that allows you to.
+Давайте теперь создадим наш контракт. На пустом месте напечатайте следующее:
 
-## Transactions & Scripts
+```cadence
+pub contract HelloWorld {
 
-<!-- <img src="../../images/transaction.jpeg" alt="drawing" width="600"/> -->
+    init() {
 
-_"Okay, so we have a Smart Contract. How do I actually interact with it? You keep saying call a function, but what does that mean!?"_
+    }
+}
+```
 
-**A transaction is a glorified, paid function call.** That's pretty much the simplest I can put it. What's important to know is that a transaction CHANGES the data on the Blockchain, and usually is the ONLY way we can change the data on the Blockchain. Transactions can cost different amounts of money depending on which Blockchain you are on. On Ethereum, to store your favourite fruit on the Blockchain, it could cost dang near 100$. On Flow, it's fractions of a cent.
+Название `pub contract [contract name]` будет ВСЕГДА тем, что вы вводите при создании нового контракта. Вы можете заполнить `contract name` любым именем, которым вы хотите назвать свой контракт.
 
-On the other hand, a script is used to VIEW data on the Blockchain, they do not change it. Scripts do not cost any money, that'd be ridiculous.
+Функция `init()` - это функция, которую ДОЛЖЕН иметь каждый контракт. Она вызывается при первоначальном развертывании контракта, что в реальном мире происходит только один раз. Поэтому мы можем инициализировать некоторые вещи в ней, когда захотим.
 
-Here is the normal workflow:
+Итак, бум! Это ваш первый смарт-контракт, хотя он ничего не делает ;( Давайте заставим его хранить переменную `greeting`, чтобы мы могли хранить некоторые данные в этом контракте.
 
-1. A developer "deploys" a Smart Contract to the Blockchain
-2. A user runs a "transaction" that takes in some payment (to pay for gas fees, execution, etc) that calls some functions in the Smart Contract
-3. **The Smart Contract changes its data in some way**
+Измените код вашего контракта так, чтобы он выглядел следующим образом:
 
-## "MainNet" vs. "TestNet"
+```cadence
+pub contract HelloWorld {
 
-<!-- <img src="../../images/tvm.PNG" alt="drawing" width="600"/> -->
+    pub let greeting: String
 
-You may have heard these terms come up, but what do they actually mean?
+    init() {
+        self.greeting = "Hello, World!"
+    }
+}
+```
 
-**TestNet** is an environment where developers test their applications before releasing it to the public. This is a perfect space to figure out what's wrong with your application before actually releasing it to the public to use. Here are a few additional notes:
+В Cadence, когда вы объявляете переменную, вы следуете следующему формату:
 
-- Everything is fake
-- No actual money involved
-- Transactions cost fake money
-- A good way for developers to test their smart contracts and applications BEFORE releasing to the public
-- If something bad happens, no one cares.
+`[access modifier] [var/let] [variable name]: [type]`
 
-**MainNet** is an environment where everything is real. When you release your application to the public, you put it on MainNet. On MainNet, everything is live, so things cost real money, there are risks, and you must make sure everything is working correctly. Here are a few additional notes:
+Используя наш пример, приведенный выше...
 
-- Everything is real
-- Money is involved
-- Transactions cost real money
-- When your application is fully ready, you put it on MainNet for users to interact with.
-- If something bad happens, that's really bad.
+- Наш модификатор доступа - `pub`, он означает, что любой может прочитать эту переменную. В будущем мы увидим множество других модификаторов доступа, но пока будем придерживаться `pub`, чтобы упростить жизнь.
+- `let` означает, что эта переменная является константой. Если вы кодили на других языках программирования, то знаете что означает константа, как только мы сделаем эту переменную равной чему-то, мы **не сможем ее изменить**. Однако, `var` мы можем спокойно изменить когда угодно.
+- Имя нашей переменной - `greeting`.
+- Тип нашей переменной - `String`. Это означает, что мы можем поместить в нее такие вещи, как "Привет", "Джейкоб - лучший", "Я люблю Джейкоба" и т.п.
 
-## Decentralized Applications (DApps)
+Далее, мы помещаем `self.greeting = "Hello, World!"` внутрь функции `init()`. Помните, что функция `init()` вызывается при развертывании контракта, что происходит только один раз. `self` - это ключевое слово, которое означает "переменная, находящаяся на один уровень выше". В данном случае `self.greeting` ссылается на переменную `greeting`, которую мы объявили прямо над ней, и мы установили ее равной "Hello, World!".
 
-<!-- <img src="../../images/dapps.jpeg" alt="drawing" width="300"/> -->
+Чтобы развернуть этот контракт, нажмите зеленую кнопку "Deploy". Ваша страница должна выглядеть следующим образом:
 
-Oh no, this sounds complicated. Nope! It's not. DApps are literally just normal applications (Javascript, Python, etc) that ALSO have Smart Contracts involved. That's it.
+<img src="../images/helloworld.png" alt="drawing" size="400" />
 
-For example, Instagram is an application that is not a "DApp" because it doesn't involve any blockchain code. However, after Flow's recent announcement of NFT integration into Instagram, we can officially call Instagram a DApp. Examples of other DApps includes <a href="https://floats.city/" target="_blank">FLOAT</a>.
+ПРИМЕЧАНИЕ: Если вы получаете ошибки, попробуйте сначала обновить страницу. Если вы все еще видите ошибки, такие как: "GraphQL error", попробуйте переключить браузер на Google Chrome.
 
-Also, we will be building a DApp throughout this course :)
+Потрясающе!!! Вы развернули свой первый смарт-контракт.
 
-## Why do I care about all this?
+## Чтение нашего приветствия
 
-Well, because that's what this course is all about, knucklehead! In this course, we will be making our own Smart Contracts, specifically on the Flow Blockchain. In addition, we will be making Decentralized Applications that _use_ those Smart Contracts.
+Давайте убедимся, что наша переменная `greeting` действительно получила значение "Hello, World!". Помните, что мы можем просматривать данные из Блокчейна с помощью скрипта.
 
-## Conclusion
+С левой стороны, в разделе "Script Templates", нажмите на вкладку с надписью "Script" и удалите все, что находится внутри нее. Далее напишите следующий код:
 
-Jacob is the best. No, no. That's not the conclusion. The conclusion is that although all of this stuff sounds very complicated, it really isn't. And if you still don't understand ANY of this, that's totally okay. Sometimes it's better to jump into some examples to make things make more sense. We'll be doing that in the upcoming days.
+```cadence
+import HelloWorld from 0x01
 
-# Quests
+pub fun main(): String {
+    return HelloWorld.greeting
+}
+```
 
-You are free to answer these questions in your own language of choice. And no, I don't mean computer programming language, haha.
+Этот сценарий вернет значение greeting, которое равно "Hello, World!". Давайте посмотрим, что мы сделали:
 
-1. Explain what the Blockchain is in your own words. You can read this to help you, but you don't have to: https://www.investopedia.com/terms/b/blockchain.asp
+1. Сначала мы импортировали наш смарт-контракт, выполнив команду `import HelloWorld from 0x01`. В Cadence вы импортируете контракт, выполнив команду `import [contract name] from [address of that contract]`. Поскольку мы развернули HelloWorld на `0x01`, мы написали так как приведено выше.
+2. Далее мы написали функцию. В Cadence вы записываете функцию, выполняя команду `[access modifier] fun [function name](): [return type] { ... }`. В данном случае мы использовали `pub` для нашего модификатора доступа (подробнее об этом позже), назвали нашу функцию `main` и сказали, что мы будем возвращать тип `String`, который, помните, является типом `greeting`.
+3. Затем мы обратились к переменной `greeting` из контракта, используя `HelloWorld.greeting`.
 
-2. Explain what a Smart Contract is. You can read this to help you, but you don't have to: https://www.ibm.com/topics/smart-contracts
+Если вы нажмете кнопку "Execute" справа, вы увидите в терминале, что он выводит "Hello, World!", как показано ниже:
 
-3. Explain the difference between a script and a transaction.
+<img src="../images/hwscript.png" alt="drawing" size="400">
 
-4. What is the difference between Testnet and Mainnet? When would you develop on each?
+Если ваш результат выглядит так, то вы выполнили свой первый скрипт!
+
+## Проверка концепции
+
+Итак, мы только что написали код. Это было быстро. Но как все это связано с тем, о чем я говорил в Главе 1, День 1?
+
+Помните, я говорил, что смарт-контракты - это и программы, и свод правил. Они позволяют нам делать определенные вещи, не больше и не меньше. В этом примере наш смарт-контракт позволяет нам инициализировать `greeting` и прочитать `greeting`. Обратите внимание, что он НЕ позволяет нам изменить `greeting` на что-то другое. Если бы мы хотели добавить эту функциональность, нам пришлось бы сделать это заранее, до того, как мы его развернули. Вот почему так важно, чтобы разработчик смарт-контракта реализовал все функциональные возможности, которые вы хотите предоставить пользователю, до того, как вы развернете контракт. Потому что после развертывания вы уже ничего не сможете сделать. (Конечно, на игровой площадке Flow мы можем развернуть контракт снова. Но в реальном мире вы не сможете этого сделать).
+
+## Заключение
+
+Сегодня мы узнали, как развернуть наш первый контракт, объявить переменную, написать функцию и выполнить скрипт. Вот это да! Это очень много. Но это было не так уж плохо, верно?
+
+# Квесты
+
+Для сегодняшнего задания загрузите новую игровую площадку Flow, перейдя по адресу https://play.onflow.org, как мы делали в этом уроке. Вы будете использовать ее для написания кода.
+
+1. Разверните контракт на аккаунте `0x03` под названием "JacobTucker". Внутри этого контракта объявите **константу** переменную с именем `is` и сделайте ее тип `String`. Инициализируйте переменную в "the best", когда ваш контракт будет развернут.
+
+2. Проверьте, что ваша переменная `is` действительно равна "the best", выполнив скрипт для чтения этой переменной. Приложите скриншот вывода.
+
+Это так здорово, что я могу создавать эти квесты. Мне это нравится.
+
+В любом случае, пожалуйста, не забывайте сохранять свои ответы, чтобы я мог просмотреть их, если вы мне их отправите. Удачи!
