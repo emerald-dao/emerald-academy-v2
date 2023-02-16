@@ -23,14 +23,13 @@
 			grid-template-columns: 65ch auto;
 			gap: var(--space-12);
 		}
+	}
 
-		.content {
-			// max-width: 60ch;
-			display: flex;
-			flex-direction: column;
-			align-items: stretch;
-			width: 100%;
-		}
+	.content {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		width: 100%;
 	}
 
 	aside {
