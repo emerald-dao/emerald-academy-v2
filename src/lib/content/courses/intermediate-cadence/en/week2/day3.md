@@ -1,3 +1,10 @@
+---
+title: Borrowing Contracts
+day: 3
+language: en
+excerpt: This lesson will be pretty short, but it is a very new feature of Cadence that I think is pretty cool, and potentially has some really cool use cases that are undiscovered!
+---
+
 # Chapter 2 Day 3 - Borrowing Contracts
 
 Heyo! This lesson will be pretty short, but it is a very new feature of Cadence that I think is pretty cool, and potentially has some really cool use cases that are undiscovered!
@@ -50,6 +57,7 @@ pub fun main(): UInt64 {
 ```
 
 In the example above, we did a few things:
+
 1. Got the public account of a certain address
 2. Looked inside the public account for a contract named "ExampleNFT" that implements the `NonFungibleToken` contract interface
 3. Accessed the `totalSupply` on the `NonFungibleToken` reference and returned it

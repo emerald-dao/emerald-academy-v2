@@ -1,3 +1,10 @@
+---
+title: More on Capabilities
+day: 1
+language: en
+excerpt: Time to start your painful adventure into learning the extremely weird nuances of Cadence crap.
+---
+
 # Chapter 1 Day 1 - More on Capabilities
 
 Welcome to your first lesson. That's right, it's time to start your painful adventure into learning the extremely weird nuances of Cadence crap. What better subject to start on capabilities, the most painful of them all!
@@ -11,6 +18,7 @@ If you took our <a href="https://github.com/emerald-dao/beginner-cadence-course"
 <img src="../images/capabilities.PNG" />
 
 Quick review of capabilities:
+
 1. `/public/` is available to everyone.
 2. `/private/` is available to the account owner and people who the owner gives access to.
 
@@ -18,7 +26,7 @@ It's totally fine if you don't understand `/private/` capabilities yet. We'll ge
 
 ## Actually Understanding Capability Types
 
-Often times, beginner Cadence coders are so used to borrowing capabilities immediately that they don't realize capabilities can be passed around and stored just like any other type (`String`, `Int`, `@AnyResource`, etc). 
+Often times, beginner Cadence coders are so used to borrowing capabilities immediately that they don't realize capabilities can be passed around and stored just like any other type (`String`, `Int`, `@AnyResource`, etc).
 
 Let's look at an example of borrowing capabilities immediately, like this:
 
@@ -34,12 +42,13 @@ pub fun main(user: Address): [UInt64] {
 ```
 
 You should understand that this is:
+
 1. Getting the public account of the user
 2. Fetching a public capability
 3. Borrowing the actual collection reference
 4. Calling `getIDs()` and returning the array of ids.
 
-But, do you *really* understand the 2nd step? Let's break the code down into how it's written in steps:
+But, do you _really_ understand the 2nd step? Let's break the code down into how it's written in steps:
 
 ```cadence
 import Test from 0x01
@@ -60,7 +69,7 @@ pub fun main(user: Address): [UInt64] {
 }
 ```
 
-In this script, you can clearly see that a capability type, more specifically a `Capability<&Test.Collection{Test.CollectionPublic}>` type, is being stored inside the `capability` variable. We can actually *store* this capability in places, like dictionaries, resources, structs, and more. Most often, we store capabilities in resources.
+In this script, you can clearly see that a capability type, more specifically a `Capability<&Test.Collection{Test.CollectionPublic}>` type, is being stored inside the `capability` variable. We can actually _store_ this capability in places, like dictionaries, resources, structs, and more. Most often, we store capabilities in resources.
 
 ## Storing Capabilities
 
@@ -91,7 +100,7 @@ pub contract Identity {
 }
 ```
 
-This contract is all good right? 
+This contract is all good right?
 
 ...
 
@@ -140,11 +149,11 @@ import FlowToken from 0x02
 import FungibleToken from 0x03
 
 transaction(name: String) {
-  
+
   prepare(signer: AuthAccount) {
     // Fetch capability from our account
     let vaultCapability: Capability<&FlowToken.Vault{FungibleToken.Balance}> = signer.getCapability<&FlowToken.Vault{FungibleToken.Balance}>(/public/flowTokenBalance)
-    
+
     // Create a `@Profile` type
     let profile: @Identity.Profile <- Identity.createProfile(name: name, vaultCapability: vaultCapability)
 
@@ -211,7 +220,7 @@ pub fun main(user: Address): UFix64 {
 }
 ```
 
-This script does the exact same thing, but it much more condensed. 
+This script does the exact same thing, but it much more condensed.
 
 ## Valid/Invalid Capabilities
 
@@ -237,13 +246,13 @@ In fact, when we initially fetched our `vaultCapability` from our account, like 
 let vaultCapability: Capability<&FlowToken.Vault{FungibleToken.Balance}> = signer.getCapability<&FlowToken.Vault{FungibleToken.Balance}>(/public/flowTokenBalance)
 ```
 
-... the `vaultCapability` here may be invalid. 
+... the `vaultCapability` here may be invalid.
 
-> Of course, because `FlowToken.Vault` is properly setup and linked on every Flow account in existence, this is sort of a bad example because this capability will *always* be correct. But just ignore that for now.
+> Of course, because `FlowToken.Vault` is properly setup and linked on every Flow account in existence, this is sort of a bad example because this capability will _always_ be correct. But just ignore that for now.
 
 ### `.check()` Function
 
-To make sure the capability is actually valid, and won't panic when we try to borrow it in the future, we can use the `.check()` function. Let's rewrite our transaction from earlier: 
+To make sure the capability is actually valid, and won't panic when we try to borrow it in the future, we can use the `.check()` function. Let's rewrite our transaction from earlier:
 
 ```cadence
 import Identity from 0x01
@@ -251,12 +260,12 @@ import FlowToken from 0x02
 import FungibleToken from 0x03
 
 transaction(name: String) {
-  
+
   prepare(signer: AuthAccount) {
     let vaultCapability: Capability<&FlowToken.Vault{FungibleToken.Balance}> = signer.getCapability<&FlowToken.Vault{FungibleToken.Balance}>(/public/flowTokenBalance)
 
     assert(vaultCapability.check(), message: "This capability is invalid!")
-    
+
     // ... continue on here ...
   }
 }
@@ -283,7 +292,7 @@ pub fun main(user: Address): String {
 
   // 3. Borrowing the profile reference
   let profile: &Identity.Profile = capability.borrow()!
-  
+
   return profile.name
 }
 ```
@@ -294,7 +303,7 @@ But what happens when the account who owns the Profile resource we're fetching `
 
 ```cadence
 transaction(name: String) {
-  
+
   prepare(signer: AuthAccount) {
     // Unlink your public profile
     signer.unlink(/public/Profile)
@@ -320,20 +329,21 @@ pub fun main(user: Address): String {
 
   // PANIC HAPPENS HERE
   let profile: &Identity.Profile = capability.borrow()!
-  
+
   return profile.name
 }
 ```
 
 ... it doesn't work correctly. Instead, it panics on the force-unwrap of our capability.
 
-This same exact logic can be applied to the `Capability<&FlowToken.Vault{FungibleToken.Balance}>` inside of our Profile resource. If someone were to unlink their flow vault to the public (*you should never do this*), that capability would also become invalid.
+This same exact logic can be applied to the `Capability<&FlowToken.Vault{FungibleToken.Balance}>` inside of our Profile resource. If someone were to unlink their flow vault to the public (_you should never do this_), that capability would also become invalid.
 
 ## Quests
 
 Consider a scenario where we have two contracts:
-1) An NFT Contract representing music records and a collection to store those records
-2) An artist's profile that has a link to the artist's music collection
+
+1. An NFT Contract representing music records and a collection to store those records
+2. An artist's profile that has a link to the artist's music collection
 
 Contract #1:
 
@@ -355,7 +365,7 @@ pub contract Record: NonFungibleToken {
     pub resource NFT: NonFungibleToken.INFT {
         pub let id: UInt64
         pub let songName: String
-    
+
         init(songName: String) {
             self.id = self.uuid
             self.songName = songName
@@ -397,7 +407,7 @@ pub contract Record: NonFungibleToken {
         pub fun borrowNFT(id: UInt64): &NonFungibleToken.NFT {
             return (&self.ownedNFTs[id] as &NonFungibleToken.NFT?)!
         }
- 
+
         pub fun borrowRecordNFT(id: UInt64): &Record.NFT? {
             if self.ownedNFTs[id] != nil {
                 let ref = (&self.ownedNFTs[id] as auth &NonFungibleToken.NFT?)!
@@ -464,18 +474,18 @@ pub contract Artist {
 
 Then, do the following:
 
-1) Write a transaction to save a `@Record.Collection` to the signer's account, making sure to link the appropriate interfaces to the public path.
+1. Write a transaction to save a `@Record.Collection` to the signer's account, making sure to link the appropriate interfaces to the public path.
 
-2) Write a transaction to mint some `@Record.NFT`s to the user's `@Record.Collection`
+2. Write a transaction to mint some `@Record.NFT`s to the user's `@Record.Collection`
 
-3) Write a script to return an array of all the user's `&Record.NFT?` in their `@Record.Collection`
+3. Write a script to return an array of all the user's `&Record.NFT?` in their `@Record.Collection`
 
-4) Write a transaction to save a `@Artist.Profile` to the signer's account, making sure to link it to the public so we can read it
+4. Write a transaction to save a `@Artist.Profile` to the signer's account, making sure to link it to the public so we can read it
 
-5) Write a script to fetch a user's `&Artist.Profile`, borrow their `recordCollection`, and return an array of all the user's `&Record.NFT?` in their `@Record.Collection` from the `recordCollection`
+5. Write a script to fetch a user's `&Artist.Profile`, borrow their `recordCollection`, and return an array of all the user's `&Record.NFT?` in their `@Record.Collection` from the `recordCollection`
 
-6) Write a transaction to `unlink` a user's `@Record.Collection` from the public path
+6. Write a transaction to `unlink` a user's `@Record.Collection` from the public path
 
-7) Explain why the `recordCollection` inside the user's `@Artist.Profile` is now invalid
+7. Explain why the `recordCollection` inside the user's `@Artist.Profile` is now invalid
 
-8) Write a script that proves why your answer to #7 is true by trying to borrow a user's `recordCollection` from their `&Artist.Profile`
+8. Write a script that proves why your answer to #7 is true by trying to borrow a user's `recordCollection` from their `&Artist.Profile`

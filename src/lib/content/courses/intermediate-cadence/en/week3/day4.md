@@ -1,6 +1,13 @@
+---
+title: Prioritizing nil
+day: 4
+language: en
+excerpt: This lesson will be super short, but it's an important concept to understand when thinking about the relationship between Cadence (what we're good at), and your frontend client that is *using* your smart contract code.
+---
+
 # Chapter 3 Day 4 - Prioritizing nil
 
-This lesson will be super short, but it's an important concept to understand when thinking about the relationship between Cadence (what we're good at), and your frontend client that is *using* your smart contract code.
+This lesson will be super short, but it's an important concept to understand when thinking about the relationship between Cadence (what we're good at), and your frontend client that is _using_ your smart contract code.
 
 ## Getter Functions
 
@@ -45,11 +52,11 @@ pub fun getProfile(id: UInt64): &Profile {
 }
 ```
 
-Although both of these are correct, the first one is actually much better. This is what I call "prioritizing `nil` over a `panic`." The reason being that we want to handle the case where the profile does not exist rather than aborting the whole script. 
+Although both of these are correct, the first one is actually much better. This is what I call "prioritizing `nil` over a `panic`." The reason being that we want to handle the case where the profile does not exist rather than aborting the whole script.
 
 ## Script Data
 
-Another reason for writing the function this way is because we don't want our script to return errors. Imagine we had written our getter function so that it does *not* return an optional, so our script looks like this:
+Another reason for writing the function this way is because we don't want our script to return errors. Imagine we had written our getter function so that it does _not_ return an optional, so our script looks like this:
 
 ```cadence
 import Profiles from 0x01

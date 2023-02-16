@@ -1,3 +1,10 @@
+---
+title: Structuring Transactions Correctly
+day: 3
+language: en
+excerpt: Hi! In today's lesson, you won't be learning anything entirely new per say... but I will be showing you something that allows me to immediately tell the difference between a noobie and advanced Cadence developer.
+---
+
 # Chapter 4 Day 3 - Structuring Transactions Correctly
 
 Hi! In today's lesson, you won't be learning anything entirely new per say... but I will be showing you something that allows me to immediately tell the difference between a noobie and advanced Cadence developer. In addition, today's lesson will tie in closely to the greater security / readability of our code.
@@ -73,7 +80,7 @@ transaction(recipient: Address, amount: UFix64) {
 }
 ```
 
-Now this... this screams "I AM SUPER COOL AND KNOW WHAT I'M DOING!" It's also super attractive. 
+Now this... this screams "I AM SUPER COOL AND KNOW WHAT I'M DOING!" It's also super attractive.
 
 As you can see, the difference is that we use the prepare phase to access everything inside of accounts. In a way, it's like the "setup" of the transaction. We store all of the variables/references inside local variables that get defined before the prepare phase.
 

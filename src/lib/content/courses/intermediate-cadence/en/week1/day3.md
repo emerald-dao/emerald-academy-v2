@@ -1,3 +1,10 @@
+---
+title: Poor Capability Links
+day: 3
+language: en
+excerpt: This is a fun chapter for me because I get to flame all of you.
+---
+
 # Chapter 1 Day 3 - Poor Capability Links
 
 This is a fun chapter for me because I get to flame all of you. Yes, you. Poor capability links are probably my #1 pet peeve that most Cadence developers do, and is also a very common mistake. Even the Flow team does it! Ugh.
@@ -6,9 +13,9 @@ This is a fun chapter for me because I get to flame all of you. Yes, you. Poor c
 
 Poor Capability links are when Cadence developers set up users' account storage wrong (most often NFT Collections) such that the publicly linked type is not correct. I will give you an example.
 
-Let's say you have a standard NFT Contract called `ExampleNFT` in which the `Collection` resource implements the following interfaces: `NonFungibleToken.Receiver`, `NonFungibleToken.Provider`, `NonFungibleToken.CollectionPublic`, `MetadataViews.ResolverCollection`, and a custom interface named `ExampleNFT.CollectionPublic`. Of course, `NonFungibleToken.Provider` should not be linked to the public because it allows you to withdraw from the collection. However, the other 4 should certainly be linked. 
+Let's say you have a standard NFT Contract called `ExampleNFT` in which the `Collection` resource implements the following interfaces: `NonFungibleToken.Receiver`, `NonFungibleToken.Provider`, `NonFungibleToken.CollectionPublic`, `MetadataViews.ResolverCollection`, and a custom interface named `ExampleNFT.CollectionPublic`. Of course, `NonFungibleToken.Provider` should not be linked to the public because it allows you to withdraw from the collection. However, the other 4 should certainly be linked.
 
-Here is how the public link *should* be made:
+Here is how the public link _should_ be made:
 
 ```cadence
 import ExampleNFT from 0x01
@@ -28,6 +35,7 @@ Seems easy, right? Apparently, not for everyone...
 ## Common Mistakes
 
 There are two very common mistakes that mess up users' collections:
+
 1. Forgetting an Interface
 2. Using `&AnyResource`
 
@@ -46,9 +54,9 @@ transaction() {
 }
 ```
 
-This is bad. Although it is may be true that the `ExampleNFT.CollectionPublic` interface may include all the same functions that the `NonFungibleToken` interfaces include, **that does not mean you should not link the `NonFungibleToken` interfaces.** 
+This is bad. Although it is may be true that the `ExampleNFT.CollectionPublic` interface may include all the same functions that the `NonFungibleToken` interfaces include, **that does not mean you should not link the `NonFungibleToken` interfaces.**
 
-If you took the <a href="https://github.com/emerald-dao/beginner-cadence-course" target="_blank">Beginner Cadence Course</a>, you would know that I emphasize conforming to standards. It is very important to allow DApps to read your users' collections without putting the berdon on them to figure out *how* to read the collection.
+If you took the <a href="https://github.com/emerald-dao/beginner-cadence-course" target="_blank">Beginner Cadence Course</a>, you would know that I emphasize conforming to standards. It is very important to allow DApps to read your users' collections without putting the berdon on them to figure out _how_ to read the collection.
 
 Everyone knows that `NonFungibleToken.CollectionPublic` will allow you to call the `getIDs` function inside the `Collection` resource. However, not everyone knows that your custom `ExampleNFT.CollectionPublic` interface even exists. So when someone like me goes to read your collections by doing this:
 
@@ -89,7 +97,7 @@ transaction() {
 }
 ```
 
-Well Jacob... what's wrong with this? All the interfaces are linked! 
+Well Jacob... what's wrong with this? All the interfaces are linked!
 
 Yes, they are. But notice that `ExampleNFT.Collection` is not specified, rather we use an implicit `&AnyResource` type. When you write something like this:
 
@@ -143,7 +151,7 @@ Let's look at a real-life example of setting up a user's NFT Collection really b
 
 Click <a href="https://github.com/dapperlabs/nba-smart-contracts/blob/master/transactions/user/setup_account.cdc#L23">here</a> to see the official NBATopShot transaction to set up a user's account. Notice anything fishy?
 
-Yep! They use `&AnyResource` *AND* don't link `NonFungibleToken.Receiver`!. Let's see why this is bad.
+Yep! They use `&AnyResource` _AND_ don't link `NonFungibleToken.Receiver`!. Let's see why this is bad.
 
 Head over to https://runflow.pratikpatel.io/ and make sure it is toggled to MainNet. Paste in the below transaction:
 

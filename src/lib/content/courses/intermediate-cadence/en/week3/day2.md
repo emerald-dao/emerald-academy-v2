@@ -1,3 +1,10 @@
+---
+title: AuthAccount in Scripts
+day: 2
+language: en
+excerpt: In today's lesson, we'll be learning about fetching an AuthAccount inside of a script.
+---
+
 # Chapter 3 Day 2 - AuthAccount in Scripts
 
 Alright, let's get to the more complicated stuff. In today's lesson, we'll be learning about fetching an AuthAccount inside of a script.
@@ -24,7 +31,7 @@ pub fun main(user: Address) {
 
 Pretty cool, right?
 
-But wait... isn't this extremely dangerous? If I can access *anyones* `AuthAccount`, can't I just manipiulate everyone's account?
+But wait... isn't this extremely dangerous? If I can access _anyones_ `AuthAccount`, can't I just manipiulate everyone's account?
 
 Umm, yeah! You can. Inside the script, if you fetch someone's `AuthAccount`, you can do whatever you want to it. You can withdraw their NFTs, tokens, manipulate their account storage, and whatever else a normal `AuthAccount` would let you do.
 
@@ -36,7 +43,7 @@ There are two main reasons to use `AuthAccount` inside of a script. I will cover
 
 ### Re-linking to Discover Data
 
-Sometimes, as we discussed in Chapter 1 Days 3-4, users' resources are not linked properly. This is usually due to developers messing up and not linking certain interfaces to the public when setting up users' accounts. For example, what if `NonFungibleToken.CollectionPublic` was not linked on a user's collection? 
+Sometimes, as we discussed in Chapter 1 Days 3-4, users' resources are not linked properly. This is usually due to developers messing up and not linking certain interfaces to the public when setting up users' accounts. For example, what if `NonFungibleToken.CollectionPublic` was not linked on a user's collection?
 
 ```cadence
 import ExampleNFT from 0x01
