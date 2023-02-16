@@ -1,10 +1,17 @@
+---
+title: Access (account)
+day: 2
+language: en
+excerpt: We are making our way back to the grand topic of **access control!** "Yaaaaaaaay," said nobody.
+---
+
 # Chapter 2 Day 2 - access(account)
 
-Hey folks! Welcome back to another Day. We are making our way back to the grand topic of **access control!** "Yaaaaaaaay," said nobody. But don't worry, this one will actually be quite short, because this is a relatively simple concept to understand. 
+Hey folks! Welcome back to another Day. We are making our way back to the grand topic of **access control!** "Yaaaaaaaay," said nobody. But don't worry, this one will actually be quite short, because this is a relatively simple concept to understand.
 
 ## Access Control
 
-As you already know, access control is Cadence's fun way of allowing us to specifically say where certain variables and functions are allowed to be *read* and *written*. More specifically, each "access modifier" (like `pub`, `access(contract)`, etc) each have a *read* and *write* scope.
+As you already know, access control is Cadence's fun way of allowing us to specifically say where certain variables and functions are allowed to be _read_ and _written_. More specifically, each "access modifier" (like `pub`, `access(contract)`, etc) each have a _read_ and _write_ scope.
 
 Take a look at the image below to recap what each access modifier means:
 
@@ -15,8 +22,9 @@ Take a look at the image below to recap what each access modifier means:
 Now, you may have already learned what `access(account)` means. But I wanted to include it in the intermediate course because it actually doesn't get used as much as it should...
 
 For those that don't know, `access(account)` allows you to:
-- *Read* that variable (or call that function) in the current, inner, and other contracts in the same account
-- *Write* that variable in the current and inner scope
+
+- _Read_ that variable (or call that function) in the current, inner, and other contracts in the same account
+- _Write_ that variable in the current and inner scope
 
 The interesting part is obviously the read element. What can we do with something like this? Well, let's say we deploy this contract to account `0x01`:
 
@@ -48,7 +56,7 @@ Pretty simple right? We are calling a function from a different contract, but st
 
 ## Actually Useful Stuff
 
-This should all make sense, but let's see some interesting reasons why we'd use `access(account)`. 
+This should all make sense, but let's see some interesting reasons why we'd use `access(account)`.
 
 The most important reason is when we want to cleanly handle Admin rights. Let's say we have a whole bunch of NFT Contracts inside account `0x01`:
 
@@ -200,7 +208,7 @@ What if we wanted instead to just have 1 Admin that could mint from each? Well, 
 pub contract Admin {
 
   pub resource NFTMinter {
-    // how do we mint NFTs 
+    // how do we mint NFTs
     // from a different contract?
   }
 
@@ -211,7 +219,7 @@ pub contract Admin {
 }
 ```
 
-The question now is: "How do we mint NFTs from a different contract?" Of course, resources can *only* be created in their own contract, so lets try to define a function in each contract with `access(account)` to mint NFTs:
+The question now is: "How do we mint NFTs from a different contract?" Of course, resources can _only_ be created in their own contract, so lets try to define a function in each contract with `access(account)` to mint NFTs:
 
 ```cadence
 import NonFungibleToken from 0x02
@@ -316,6 +324,7 @@ Now, our code is much more efficient, and we only have to handle 1 `NFTMinter` r
 1. Design your own contracts such that you use at least one `access(account)` function that gets called in a contract within the same account. Explain why you had to use `access(account)`.
 
 2. Starting from this contract: https://flow-view-source.com/mainnet/account/0x921ea449dffec68a/contract/Flovatar
+
 - Find 1 variable that uses `access(account)`
 - Find 1 function that uses `access(account)`
 - Using the function you found, explain why it uses that access modifier and where it gets called in a different contract in that same account

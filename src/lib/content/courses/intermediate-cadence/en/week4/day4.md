@@ -1,3 +1,10 @@
+---
+title: Miscellaneous
+day: 4
+language: en
+excerpt: Heeeeello again and welcome back to the last lesson in this course. Although you have probably gotten sick of me, I know you're going to miss me.
+---
+
 # Chapter 4 Day 4 - Miscellaneous
 
 Heeeeello again and welcome back to the last lesson in this course. Although you have probably gotten sick of me, I know you're going to miss me.
@@ -6,7 +13,7 @@ In this lesson, I'm going to be throwing a lot of random, smaller topics at you 
 
 ## Nil-Coalescing Operator
 
-You know how when we write `panic` statements sometimes, we use the `??` symbol? Well, what *actually* is that?
+You know how when we write `panic` statements sometimes, we use the `??` symbol? Well, what _actually_ is that?
 
 The `??` allows you to perform some action if the thing to the left of it is equal to `nil`. Let's look at an example:
 
@@ -32,7 +39,7 @@ Here, beacuse `var1` is not `nil`, it will just equal 2. Doesn't it make sense n
 pub fun main(user: Address) {
   let attemptBorrow: &ExampleNFT.Collection{NonFungibleToken.CollectionPublic? = getAccount(user).getCapability(/public/Collection)
           .borrow<&ExampleNFT.Collection{NonFungibleToken.CollectionPublic}>()
-  
+
   let collection = attemptBorrow ?? panic("The user does not have a Collection set up.")
 }
 ```
@@ -53,7 +60,7 @@ if let var2 = var1 {
 ```cadence
 let var1: Int? = 2
 if let var2 = var1 {
-  // it will go in here, and `var2` will now have 
+  // it will go in here, and `var2` will now have
   // type `Int`, not `Int?`. So it unwrapped the
   // optional.
   //
@@ -64,13 +71,14 @@ if let var2 = var1 {
 ```
 
 The above is just a simple example of what optional binding is doing. However, there are two main use cases I use optional binding for:
+
 1. Indexing into a dictionary
 
 ```cadence
 let dictionary: {String: Int} = {"One": 1, "Two": 2, "Three": 3}
-if let number = dictionary["One"] { 
-  // dictionary["One"] is a `Int?` type, 
-  //and it gets unwrapped into `number` 
+if let number = dictionary["One"] {
+  // dictionary["One"] is a `Int?` type,
+  //and it gets unwrapped into `number`
   //which has type `Int`
   log(number) // 1
 }
@@ -119,7 +127,7 @@ pub fun main() {
 }
 ```
 
-Hopefully this script allows you to see the difference. When we have a struct or resource (in this case a struct `Test`), and want to access a field on it, we can actually use the `?` operator to *attempt to access the field* without `panic`-ing. If the struct is `nil`, it will simply return `nil`. If not, it will return the underlying value as an optional type.
+Hopefully this script allows you to see the difference. When we have a struct or resource (in this case a struct `Test`), and want to access a field on it, we can actually use the `?` operator to _attempt to access the field_ without `panic`-ing. If the struct is `nil`, it will simply return `nil`. If not, it will return the underlying value as an optional type.
 
 ## Conditional (Ternary) Operator
 
@@ -150,10 +158,10 @@ var var2 = var1 == "one" ? 1 : var1 == "two" ? 2 : 3
 These two mean the exact same thing. When you use conditional operators, it usually goes something like:
 
 ```
-(boolean statement #1) ? 
-  (if [boolean statement #1], this) : 
-    (else, boolean statement #2) ? 
-      (if [boolean statement #2], this) : 
+(boolean statement #1) ?
+  (if [boolean statement #1], this) :
+    (else, boolean statement #2) ?
+      (if [boolean statement #2], this) :
         ...
 ```
 
@@ -221,7 +229,8 @@ pub fun main(user: Address): [UInt64] {
 }
 ```
 
-5. What is wrong with the below script? 
+5. What is wrong with the below script?
+
 - a) Please fix it (you are not allowed to modify this line: `return collection?.getIDs()`).
 - b) After you fix it, what are the two possible outcomes that could happen when you run the script? Explain each.
 

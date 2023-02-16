@@ -1,3 +1,10 @@
+---
+title: Private Capabilities
+day: 2
+language: en
+excerpt: Today doesn't get any better. Private capabilities, woooooohoooooo!
+---
+
 # Chapter 1 Day 2 - Private Capabilities
 
 Alright, we're back. Yesterday was fun.... not. Today doesn't get any better. Private capabilities, woooooohoooooo!

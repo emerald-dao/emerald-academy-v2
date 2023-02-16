@@ -1,10 +1,17 @@
+---
+title: Assessment
+day: 1
+language: en
+excerpt: Before you run away and cheat on me with a different course, I have a final assessment for you. Yes, it will be hard. Or maybe not? If it is, then get rekt. If it's not, then I guess I'm just a great instructor.
+---
+
 # Chapter 5 - Assessment
 
 Why hello there! You have officially made it to the end of this Intermediate Cadence Course. I congratulate you and hope you enjoyed taking this course.
 
 But before you run away and cheat on me with a different course, I have a final assessment for you. Yes, it will be hard. Or maybe not? If it is, then get rekt. If it's not, then I guess I'm just a great instructor.
 
-This assessment will walk you through a progressive example that will incorporate a lot of different concepts I taught you throughout this course. 
+This assessment will walk you through a progressive example that will incorporate a lot of different concepts I taught you throughout this course.
 
 > NOTE: This assessment is a lot of DOING, and very little instruction. This means it will be a bit open-ended, and there may be different ways of doing things. The point of this is to make you think, have you STRUGGLE, and learn on your own. Use each Part as a milestone/checkpoint.
 
@@ -14,7 +21,7 @@ Let's go!
 
 ## Part 1
 
-a) Write your own Fungible Token contract that implements the `FungibleToken` standard on Flow. Name the contract whatever you want. *NOTE: It is okay to find an example implementation online. But that implementation may overcomplicate the solution. So you may want to be careful.*
+a) Write your own Fungible Token contract that implements the `FungibleToken` standard on Flow. Name the contract whatever you want. _NOTE: It is okay to find an example implementation online. But that implementation may overcomplicate the solution. So you may want to be careful._
 
 b) Inside the contract, define a resource that handles minting. Make it so that only the contract owner can mint tokens.
 
@@ -23,11 +30,13 @@ c) You will find that inside your `deposit` function inside the `Vault` resource
 ## Part 2
 
 a) Write the following transactions:
+
 - MINT: Mint tokens to a recipient.
 - SETUP: Properly sets up a vault inside a user's account storage.
 - TRANSFER: Allows a user to transfer tokens to a different address.
 
 b) Write the following scripts:
+
 - READ BALANCE: Reads the balance of a user's vault.
 - SETUP CORRECTLY?: Returns `true` if the user's vault is set up correctly, and `false` if it's not.
 - TOTAL SUPPLY: Returns the total supply of tokens in existance.
@@ -44,7 +53,7 @@ Modify your transactions/scripts from Part 2 as such:
 
 ## Part 4
 
-a) Modify your token contract so that the Admin is allowed to withdraw tokens from a user's Vault at any time, and then in the same function, deposit them an equivalent amount of $FLOW tokens. *HINT: This will require more than simply adding a function.*
+a) Modify your token contract so that the Admin is allowed to withdraw tokens from a user's Vault at any time, and then in the same function, deposit them an equivalent amount of $FLOW tokens. _HINT: This will require more than simply adding a function._
 
 b) Write a transaction (that is only signed by the Admin) that executes section a).
 
@@ -56,11 +65,12 @@ b) Write a script that neatly returns (at a minimum) the resource identifier and
 
 ## Part 6
 
-a) Write a second contract, `Swap`, that allows users deposit $FLOW and receive your custom token in return. The amount of tokens the user should get in return is `2*(THE TIME SINCE THEY LAST SWAPPED)`. 
+a) Write a second contract, `Swap`, that allows users deposit $FLOW and receive your custom token in return. The amount of tokens the user should get in return is `2*(THE TIME SINCE THEY LAST SWAPPED)`.
 
 b) In the swapping function, make sure to prove who the person is that is attempting a swap. In other words, make sure someone couldn't swap for you. You must implement this function two ways:
-  - Using a custom resource you define to represent identity, and passing in a `@FlowToken.Vault` as an argument for the payment.
-  - Using a reference to the user's Flow Token vault that proves only they could pass such a reference in, and subsequently getting the address of the owner from that reference.
+
+- Using a custom resource you define to represent identity, and passing in a `@FlowToken.Vault` as an argument for the payment.
+- Using a reference to the user's Flow Token vault that proves only they could pass such a reference in, and subsequently getting the address of the owner from that reference.
 
 ## Part 7
 
@@ -68,6 +78,6 @@ a) Ensure all transactions are architected properly, as seen in Chapter 4 Day 3.
 
 ## Conclusion
 
-That's it, folks! Do a little happy dance and pat your self on the back. 
+That's it, folks! Do a little happy dance and pat your self on the back.
 
 I mean it. Don't just read it, do it! I'm waiting...

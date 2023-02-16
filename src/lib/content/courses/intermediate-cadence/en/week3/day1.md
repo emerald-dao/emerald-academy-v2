@@ -1,3 +1,10 @@
+---
+title: Organizing Information in a Script
+day: 1
+language: en
+excerpt: To start, let's do something easy, organizing information we return back to our client.
+---
+
 # Chapter 3 Day 1 - Organizing Information in a Script
 
 This chapter is going to focus mostly on scripts. To start, let's do something easy: organizing information we return back to our client.
@@ -56,8 +63,8 @@ Now, our client will receive some data that looks like:
 
 ```json
 {
-  "var1": "Hello",
-  "var2": 3
+	"var1": "Hello",
+	"var2": 3
 }
 ```
 
@@ -110,6 +117,7 @@ Now our client can successfully have both pieces of data :)
 2. Use a real-world example (on Mainnet) grouping data together.
 
 3. Write a script that returns:
+
 - a FLOAT NFT's reference
 - FLOAT's total supply
 - a Flovatar NFT's reference
@@ -119,6 +127,7 @@ Now our client can successfully have both pieces of data :)
 - a capability to your public `Capability<&FlowToken.Vault{FungibleToken.Receiver}>`
 
 Hints:
+
 - FLOAT's contract address: 0x2d4c3caffbeab845
 - Flovatar's contract address: 0x921ea449dffec68a
 - Find all the core contract's addresses here: https://developers.flow.com/flow/core-contracts

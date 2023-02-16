@@ -1,3 +1,10 @@
+---
+title: Working with Poor Links
+day: 4
+language: en
+excerpt: If your brain hasn't turned to mush already, congrats! If it has, keep up! We're gonna keep moving along.
+---
+
 # Chapter 1 Day 4 - Working with Poor Links
 
 Yeah yeah we're back again for more content. If your brain hasn't turned to mush already, congrats! If it has, keep up! We're gonna keep moving along.
@@ -16,9 +23,9 @@ pub fun giveFlowIfUserHas3NFTs(userCollection: &{ExampleNFT.CollectionPublic}) {
 }
 ```
 
-Although I left out the actual implementation of this function, it is pretty simple. It takes in a reference to a user's NFT Collection, and if it has more than 3 NFTs inside of it, it will give you $FLOW. 
+Although I left out the actual implementation of this function, it is pretty simple. It takes in a reference to a user's NFT Collection, and if it has more than 3 NFTs inside of it, it will give you $FLOW.
 
-The trick here is looking at the type of the NFT collection. What does `&{ExampleNFT.CollectionPublic}` mean? Well, an idio- ... I mean most people would say, "Oh, this is a reference to a user's ExampleNFT collection! *buzzer noise*. Wrong! Actually, this is a reference to ANY resource that implements the `ExampleNFT.CollectionPublic` interface.
+The trick here is looking at the type of the NFT collection. What does `&{ExampleNFT.CollectionPublic}` mean? Well, an idio- ... I mean most people would say, "Oh, this is a reference to a user's ExampleNFT collection! _buzzer noise_. Wrong! Actually, this is a reference to ANY resource that implements the `ExampleNFT.CollectionPublic` interface.
 
 The critical bug here is that I could deploy my own contract that has a resource that implements `ExampleNFT.CollectionPublic`, mint fake NFTs to that account, and then pass in the reference to the function above and still claim the $FLOW token. Uh oh!
 
@@ -60,7 +67,7 @@ pub fun main() {
 }
 ```
 
-You can sort of get a sense for how to retrieve the `identifier` from a resource in the above script. 
+You can sort of get a sense for how to retrieve the `identifier` from a resource in the above script.
 
 An `identifier` is basically a string description of the type of something in Cadence. More specifically, the format is:
 
@@ -160,8 +167,9 @@ Notice, by the way, that we didn't even have to import `ExampleNFT`, but we were
 3. Is it possible for two different resources, that have a different type, to have the same identifier?
 
 4. Based on the included comments:
-- What is wrong with the following script? 
-- Explain in detail how someone hack this script to always return `true`. 
+
+- What is wrong with the following script?
+- Explain in detail how someone hack this script to always return `true`.
 - Then, what are two ways we could fix this script to make sure it is safe?
 
 ```cadence

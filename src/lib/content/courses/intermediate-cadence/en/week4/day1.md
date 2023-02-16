@@ -1,3 +1,10 @@
+---
+title: Proving Identity
+day: 1
+language: en
+excerpt: This Chapter is going to be filled with a bunch of really useful things that you should absolutely know, but don't necessarily relate to each other.
+---
+
 # Chapter 4 Day 1 - Proving Identity
 
 Helloooooo, and welcome to Chapter 4! This Chapter is going to be filled with a bunch of really useful things that you should absolutely know, but don't necessarily relate to each other.
@@ -46,14 +53,14 @@ pub contract Profiles {
     let profile: @Profile <- create Profile(address, name)
     self.profiles[address] <-! profile
   }
-  
+
   init() {
     self.profiles <- {}
   }
 }
 ```
 
-We want users to be able to create `Profile` resources by passing in their address and their name. However, you quickly realize that there's a big problem here. Anyone can call `createProfile`, which means I can just pass in *your* address with *my* name. Then, you won't be able to create a profile anymore because of the pre-condition.
+We want users to be able to create `Profile` resources by passing in their address and their name. However, you quickly realize that there's a big problem here. Anyone can call `createProfile`, which means I can just pass in _your_ address with _my_ name. Then, you won't be able to create a profile anymore because of the pre-condition.
 
 ## What About `AuthAccount`?
 
@@ -91,7 +98,7 @@ pub contract Profiles {
 }
 ```
 
-This could work, because we are able to fetch the address by doing `account.address`. 
+This could work, because we are able to fetch the address by doing `account.address`.
 
 However, **you should never do this.** There is a rule among Cadence programmers that you should never ever do this. Not because it won't work, but simply because it is almost like dark magic to pass an `AuthAccount` anywhere. The rule is you should keep the `AuthAccount` inside the prepare phase of a transaction. Otherwise, it would encourage users passing around an `AuthAccount`, which is extremely dangerous.
 
@@ -120,6 +127,7 @@ pub contract Greeting {
 ```
 
 What we can do is:
+
 1. Run a transaction that calls `createHello` and stores a `Hello` resource in account storage
 
 ```cadence
@@ -141,7 +149,7 @@ pub fun main(user: Address): String {
   let hello = getAccount(user).getCapability(/public/Hello)
             .borrow<&Greeting.Hello>()!
   return hello.sayHello() // "Hello! From 0x01"
-} 
+}
 ```
 
 I realize now this is a stupid example, but I hope it helps you understand what `self.owner!.address` is actually doing.
@@ -163,7 +171,7 @@ pub contract Profiles {
   }
 
   pub resource Identity {
-    pub let name: String 
+    pub let name: String
 
     pub fun createProfile() {
       pre {
@@ -186,6 +194,7 @@ pub contract Profiles {
 ```
 
 In order:
+
 1. Create an `Identity` and store it in our account storage
 2. In another transaction, borrow `Identity` and call `createProfile`, which will create a `Profile` with your correct address.
 

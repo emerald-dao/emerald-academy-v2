@@ -1,3 +1,10 @@
+---
+title: Access (contract) Pattern
+day: 1
+language: en
+excerpt: In this Chaper, we will be talking a lot about Admin rights, and how to navigate giving Admins abilities in your contracts.
+---
+
 # Chapter 2 Day 1 - access(contract) Pattern
 
 Hey hey, and welcome to the next Chapter of this course. You survived Chapter 1, and are hopefully masters of capabilities. In this Chaper, we will be talking a lot about Admin rights, and how to navigate giving Admins abilities in your contracts.
@@ -26,7 +33,7 @@ makes `changeGreeting` only callable inside the contract.
 
 Okay Jacob, what are you getting at?
 
-Well, there often arrises a scenario where an Admin wants to be able to call a function on someone else's resource. However, in order for that to happen, the function must be publicly accessible or the Admin won't be able to call it. The issue, though, is that if the funciton is public, then *anyone* can call it. 
+Well, there often arrises a scenario where an Admin wants to be able to call a function on someone else's resource. However, in order for that to happen, the function must be publicly accessible or the Admin won't be able to call it. The issue, though, is that if the funciton is public, then _anyone_ can call it.
 
 ## The Solution
 
@@ -48,7 +55,7 @@ pub contract ExampleNFT {
         !locked: "You cannot withdraw NFTs."
       }
 
-      let nft <- self.ownedNFTs.remove(at: withdrawID) 
+      let nft <- self.ownedNFTs.remove(at: withdrawID)
             ?? panic("This NFT doesn't exist in this Collection.")
       return <- nft
     }
@@ -89,7 +96,7 @@ pub contract ExampleNFT {
         !locked: "You cannot withdraw NFTs."
       }
 
-      let nft <- self.ownedNFTs.remove(at: withdrawID) 
+      let nft <- self.ownedNFTs.remove(at: withdrawID)
             ?? panic("This NFT doesn't exist in this Collection.")
       return <- nft
     }
@@ -134,7 +141,7 @@ pub contract ExampleNFT {
         !locked: "You cannot withdraw NFTs."
       }
 
-      let nft <- self.ownedNFTs.remove(at: withdrawID) 
+      let nft <- self.ownedNFTs.remove(at: withdrawID)
             ?? panic("This NFT doesn't exist in this Collection.")
       return <- nft
     }
@@ -178,7 +185,7 @@ pub contract ExampleNFT {
         !locked: "You cannot withdraw NFTs."
       }
 
-      let nft <- self.ownedNFTs.remove(at: withdrawID) 
+      let nft <- self.ownedNFTs.remove(at: withdrawID)
             ?? panic("This NFT doesn't exist in this Collection.")
       return <- nft
     }
@@ -212,6 +219,6 @@ We simply make the function `access(contract)` inside the resource, so now the o
 2. Come up with your own unique example of when the `access(contract)` pattern could be used.
 
 3. Based on the following diagram, do you think this pattern could also be used with `access(account)`?
-<img src="../images/access_modifiers.png" />
+   <img src="../images/access_modifiers.png" />
 
 4. Using the <a href="https://flow-view-source.com/mainnet/account/0x2d4c3caffbeab845/contract/FLOAT">FLOAT Contract</a>, find at least one example of the `access(contract)` pattern being used (hint: if your answer to quest #3 is correct, you should be able to find one by searching all the public interfaces for a certain function that has a specific access modifier).
