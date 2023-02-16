@@ -5,7 +5,7 @@ language: en
 excerpt: basic blockchain concepts
 ---
 
-# Learning Blockchain Concepts
+# Chapter 1 Day 1 - Learning Blockchain Concepts
 
 Hello! Yes, it is me. Your favourite developer of all time, Jacob. You are currently viewing the first day of the entire course. Let's start this journey together.
 
@@ -13,7 +13,7 @@ Let's start off our first day by going over what seems to be complicated terms t
 
 ## What the heck is a Blockchain?
 
-<img src="/ec-logo.png" alt="drawing" width="600"/>
+<img src="../../images/blockchain.png" alt="drawing" width="600"/>
 
 _If you already understand what the Blockchain is or you simply don't care (that's fair!), you can skip this section._
 
@@ -34,7 +34,7 @@ It's also important to note that there are many different Blockchains out there.
 
 ## Smart Contracts? Ooo, that sounds cool.
 
-<!-- <img src="../../images/smart contract.png" alt="drawing" width="600"/> -->
+<img src="../../images/smart contract.png" alt="drawing" width="600"/>
 
 Why yes, yes it is. Smart Contracts are very cool. Smart Contracts are programs, or "rulebooks" that developers make. Developers create them because it allows us to specify some functionality that users can interact with. For example, if I want to make an application that allows users to store their favourite fruit on the Blockchain, I need to make a Smart Contract that:
 
@@ -58,7 +58,7 @@ What are some downsides?
 
 ## Transactions & Scripts
 
-<!-- <img src="../../images/transaction.jpeg" alt="drawing" width="600"/> -->
+<img src="../../images/transaction.jpeg" alt="drawing" width="600"/>
 
 _"Okay, so we have a Smart Contract. How do I actually interact with it? You keep saying call a function, but what does that mean!?"_
 
@@ -74,7 +74,7 @@ Here is the normal workflow:
 
 ## "MainNet" vs. "TestNet"
 
-<!-- <img src="../../images/tvm.PNG" alt="drawing" width="600"/> -->
+<img src="../../images/tvm.PNG" alt="drawing" width="600"/>
 
 You may have heard these terms come up, but what do they actually mean?
 
@@ -94,9 +94,9 @@ You may have heard these terms come up, but what do they actually mean?
 - When your application is fully ready, you put it on MainNet for users to interact with.
 - If something bad happens, that's really bad.
 
-#### Decentralized Applications (DApps)
+## Decentralized Applications (DApps)
 
-<!-- <img src="../../images/dapps.jpeg" alt="drawing" width="300"/> -->
+<img src="../../images/dapps.jpeg" alt="drawing" width="300"/>
 
 Oh no, this sounds complicated. Nope! It's not. DApps are literally just normal applications (Javascript, Python, etc) that ALSO have Smart Contracts involved. That's it.
 
@@ -104,7 +104,7 @@ For example, Instagram is an application that is not a "DApp" because it doesn't
 
 Also, we will be building a DApp throughout this course :)
 
-### Why do I care about all this?
+## Why do I care about all this?
 
 Well, because that's what this course is all about, knucklehead! In this course, we will be making our own Smart Contracts, specifically on the Flow Blockchain. In addition, we will be making Decentralized Applications that _use_ those Smart Contracts.
 
@@ -112,7 +112,7 @@ Well, because that's what this course is all about, knucklehead! In this course,
 
 Jacob is the best. No, no. That's not the conclusion. The conclusion is that although all of this stuff sounds very complicated, it really isn't. And if you still don't understand ANY of this, that's totally okay. Sometimes it's better to jump into some examples to make things make more sense. We'll be doing that in the upcoming days.
 
-## Quests
+# Quests
 
 You are free to answer these questions in your own language of choice. And no, I don't mean computer programming language, haha.
 

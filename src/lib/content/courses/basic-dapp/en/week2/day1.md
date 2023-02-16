@@ -1,125 +1,188 @@
 ---
-title: Learning DAPP Concepts
+title: Creating our DApp
 day: 1
 language: en
-excerpt: basic blockchain concepts
+excerpt: Creating our DApp
 ---
 
-# Chapter 1 Day 1 - Learning Blockchain Concepts
+# Chapter 2 Day 1 - Creating our DApp
 
-Hello! Yes, it is me. Your favourite developer of all time, Jacob. You are currently viewing the first day of the entire course. Let's start this journey together.
+Hello you absolute idiots. In this day, we are going to actually jump into some code and start our DApp development. We will be using Next.js to create our first DApp.
 
-Let's start off our first day by going over what seems to be complicated terms that you will need to understand for the journey ahead.
+# IMPORTANT NOTE
 
-## What the heck is a Blockchain?
+Chapter 2 will focus on frontend development, specifically the semantics of HTML, CSS, React.js/Next.js. If you are already comfortable with these languages, you still need to complete Chapter 2 because you will be setting up for other chapters. However it will be very quick for you, and you can skim through the lesson. That is totally okay.
 
-<!-- <img src="../../images/blockchain.png" alt="drawing" width="600"/> -->
+## What is Next.js?
 
-_If you already understand what the Blockchain is or you simply don't care (that's fair!), you can skip this section._
+> You can skip this section if you already know Next.js and frontend development
 
-When learning about the Blockchain, you may find some complicated articles. It's easy to get completely lost in the sauce and feel like you want to give up. So, I'm going to explain the Blockchain in a very easy way that may have some innacuracies/left out information but is meant to help you get started. **Specifically, I will help you understand the Blockchain from the perspective of someone who is looking to code Smart Contracts or make some Decentralized Applications (both of which we will do!).**
+In this section, I will teach you what Next.js is. But first, let's learn the difference between "frontend" and "backend" development.
 
-In one sentence: the Blockchain is an open, decentralized, shared database that allows anyone to store stuff publically.
+### Frontend
 
-Okay, woah. What does that mean?
+You know how when you load up a website, you see stuff on the screen? Well, there's two things that are immediately obvious to the user:
 
-1. **OPEN**: Anyone can interact with it. There are no restrictions.
-2. **DECENTRALIZED**: Nobody owns it. There is no central authority dictating stuff.
-3. **DATABASE**: You can store information on it.
-4. **PUBLIC**: Anyone can view the data on it.
+- _What_ is being displayed.
+- How it _looks_, or its _styling_.
+- What _happens_ when you click something.
 
-Because of these things, we can interact with the Blockchain however we please. Often times, we may want to set up "rulebooks" that determine how people can interact with specific parts of the Blockchain so that it has some functionality - specifically our own applications that we will define. This is done with Smart Contracts.
+These things are usually what we call "frontend" development. It's what the user is experiencing. For example, on Instagram, when you are:
 
-It's also important to note that there are many different Blockchains out there. For example, Ethereum is probably the most popular Blockchain. In this course, we will be learning about the wonderful Flow Blockchain, because that's where my expertise lies ;)
+- Scrolling through your feed
+- Looking at people's posts
+- Clicking "search" and type stuff in
+- Click the heart button and it turns red
 
-## Smart Contracts? Ooo, that sounds cool.
+... all of that is frontend stuff.
 
-<!-- <img src="../../images/smart contract.png" alt="drawing" width="600"/> -->
+### Backend
 
-Why yes, yes it is. Smart Contracts are very cool. Smart Contracts are programs, or "rulebooks" that developers make. Developers create them because it allows us to specify some functionality that users can interact with. For example, if I want to make an application that allows users to store their favourite fruit on the Blockchain, I need to make a Smart Contract that:
+However, there is also something called "backend" development. Backend STINKS. Just kidding, I just don't like it because it's hard for me. Backend development is the stuff that gets run outside of your client. While "frontend" occurs on your client/computer, backend is usually on some alternate system that is running somewhere else. In a traditional Web2 world (like Instagram), backend development usually includes:
 
-1. Has a function that anyone can call
-2. Takes in a parameter (the person's favourite fruit)
-3. Stores that parameter in some data
-4. Sends the updated data to the Blockchain (happens automatically)
+- Fetching complicated information
+- Storing things in a database
+- Doing complex procedures that you wouldn't want to do on a frontend (to prevent loading times from being so long)
 
-If I created this Smart Contract and "deployed" it to the Blockchain (deployed means we put the contract onto the Blockchain so people can interact with it), then anyone could put their favourite fruit on the Blockchain, and it would live there forever and ever! Unless we also had a function to remove that data.
+For example, on Instagram, when you click on a user's profile, the backend will load all of the users data (like their posts) and send it to the frontend so that the frontend can display it.
 
-So, why do we use Smart Contracts?
+Similarly, when you make a post, the backend will actually send the information about the post (like the description & image) to the backend so that the backend can send it off to some database somewhere.
 
-1. **Speed, efficiency and accuracy**: Smart Contracts are fast, and there is no middleman. There is also no paperwork. If I want to update the data on the Blockchain by using a Smart Contract that allows me to call some function, I can just do it. I don't have to get approval from my parents or my bank.
-2. **Trust and transparency**: The Blockchain, and thus Smart Contracts, are extremely secure if we make them that way. It is near impossible to hack or alter the state of the Blockchain, and while that's due to other reasons, it is largely because of Smart Contracts. If a Smart Contract doesn't let me do something, I simply can't do it. There's no way around it.
+### Back to Next.js
 
-What are some downsides?
+The reason I told you these things is because Next.js actually allows us to do both frontend and backend development. Yes, it is amazing. We will be using Next.js throughout this course for our DApp.
 
-1. **Hard to get right**: While Smart Contracts are cool, they are NOT smart. They require sophisticated levels of expertise from the developer's side to make sure they have no security problems, they are cheap, and they do what we want them to do. We will learn all of this later.
-2. **Can be malicious if the developer is mean**: If a developer wants to make a Smart Contract that steals your money, and then tricks you into calling a function that does that, your money will be stolen. In the world of the Blockchain, you must make sure you interact with Smart Contracts that you know are secure.
-3. **Cannot undo something**: You can't just undo something. Unless you have a function that allows you to.
+To learn more about Next.js, you can check out their <a href="https://nextjs.org/" target="_blank">website</a>.
 
-## Transactions & Scripts
+## Installing Stuff
 
-<!-- <img src="../../images/transaction.jpeg" alt="drawing" width="600"/> -->
+Before we dive into the rest of the course, we'll need to make sure we have some things installed. Yes, this is incredibly annoying. But it should be okay, and if you need any help, please reach out in the [Emerald City Discord](https://discord.gg/emeraldcity).
 
-_"Okay, so we have a Smart Contract. How do I actually interact with it? You keep saying call a function, but what does that mean!?"_
+1. Node: https://nodejs.org/en/download/. _You can confirm this worked successfully if you type `node -v` into your terminal and it returns something back._
+2. npx: Open up a terminal and run `npm install -g npx`. _You can confirm this worked successfully if you type `npx -v` into your terminal and it returns something back._
+3. git: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git. _You can confirm this worked successfully if you type `git --version` into your terminal and it returns something back._
+4. VSCode: https://code.visualstudio.com/
 
-**A transaction is a glorified, paid function call.** That's pretty much the simplest I can put it. What's important to know is that a transaction CHANGES the data on the Blockchain, and usually is the ONLY way we can change the data on the Blockchain. Transactions can cost different amounts of money depending on which Blockchain you are on. On Ethereum, to store your favourite fruit on the Blockchain, it could cost dang near 100$. On Flow, it's fractions of a cent.
+## Creating Our DApp
 
-On the other hand, a script is used to VIEW data on the Blockchain, they do not change it. Scripts do not cost any money, that'd be ridiculous.
+To get a Next.js project onto our computer, we will be following their <a href="https://nextjs.org/docs/getting-started" target="_blank">docs</a>.
 
-Here is the normal workflow:
+Open up a terminal on your computer and run:
 
-1. A developer "deploys" a Smart Contract to the Blockchain
-2. A user runs a "transaction" that takes in some payment (to pay for gas fees, execution, etc) that calls some functions in the Smart Contract
-3. **The Smart Contract changes its data in some way**
+> npx create-next-app@latest emerald-dapp
 
-## "MainNet" vs. "TestNet"
+This will "clone" (or create) a Next.js project onto your computer and call it "emerald-dapp". What your computer is doing is installing all the necessary pieces of code and dependencies needed to run your application. Woohoo! This will be our DApp for the rest of the course.
 
-<!-- <img src="../../images/tvm.PNG" alt="drawing" width="600"/> -->
+## Launching Our DApp
 
-You may have heard these terms come up, but what do they actually mean?
+After your computer does all of its complicated stuff and it looks like it is finished installing, go into your project directory by typing:
 
-**TestNet** is an environment where developers test their applications before releasing it to the public. This is a perfect space to figure out what's wrong with your application before actually releasing it to the public to use. Here are a few additional notes:
+> cd emerald-dapp
 
-- Everything is fake
-- No actual money involved
-- Transactions cost fake money
-- A good way for developers to test their smart contracts and applications BEFORE releasing to the public
-- If something bad happens, no one cares.
+Before we even jump into code, we can look at the project by typing:
 
-**MainNet** is an environment where everything is real. When you release your application to the public, you put it on MainNet. On MainNet, everything is live, so things cost real money, there are risks, and you must make sure everything is working correctly. Here are a few additional notes:
+> npm run dev
 
-- Everything is real
-- Money is involved
-- Transactions cost real money
-- When your application is fully ready, you put it on MainNet for users to interact with.
-- If something bad happens, that's really bad.
+This will start your application. Launch your browser of choice and go to http://localhost:3000/, you will see your website! Hopefully, it will look something like this:
 
-## Decentralized Applications (DApps)
+<img src="../images/base-nextjs.png" />
 
-<!-- <img src="../../images/dapps.jpeg" alt="drawing" width="300"/> -->
+_If it doesn't look like this, let an instructor know in the Emerald City Discord._
 
-Oh no, this sounds complicated. Nope! It's not. DApps are literally just normal applications (Javascript, Python, etc) that ALSO have Smart Contracts involved. That's it.
+## What is displayed on the screen?
 
-For example, Instagram is an application that is not a "DApp" because it doesn't involve any blockchain code. However, after Flow's recent announcement of NFT integration into Instagram, we can officially call Instagram a DApp. Examples of other DApps includes <a href="https://floats.city/" target="_blank">FLOAT</a>.
+Previously, you installed VSCode. VSCode is a code editor that allows us to type some code, and has many useful extensions to help us be successful. To open our project code in VSCode, make sure you are in your `emerald-dapp` directory and type:
 
-Also, we will be building a DApp throughout this course :)
+> code .
 
-## Why do I care about all this?
+This will open up your project in VSCode. Navigate to the `./pages/index.js` file and make sure it looks like this:
+<img src="../images/base-code.png" />
 
-Well, because that's what this course is all about, knucklehead! In this course, we will be making our own Smart Contracts, specifically on the Flow Blockchain. In addition, we will be making Decentralized Applications that _use_ those Smart Contracts.
+This is the frontend of your application. The code you are seeing is the "what". It is the stuff appearing on the screen when we went to http://localhost:3000/. All the text, boxes, links, etc.
+
+## Styling
+
+The webpage also looks pretty cool, right?! You may be wondering, how does it look like that? The answer is the _styling_ of the application.
+
+All of the styling is contained in the `./styles` folder. There are two ways to add styling:
+
+1. `./styles/globals.css` is a CSS file that applies to EVERYTHING. If you write a style in there, it will effect everything.
+2. A "module", like `./styles/Home.module.css`, which is applied using the `styles` keyword in your Components. Modules only apply to the files they are imported in. We will learn more on this soon.
+
+## Storing our DApp in Github
+
+Before we wrap up for today, let's talk about GitHub.
+
+If you haven't used GitHub before, it's one of the most essential tools for developers. It lets you store all of your code in a place so you can easily track progress. Most often its used for personal projects or team projects so you can all collaborate on the same code base together. For example, here is Emerald City's Github: https://github.com/emerald-dao
+
+> You can sign up for an account here: https://github.com/
+
+Let's add our code to our own GitHub accounts. Another way of saying this is we are going to "push" our code to GitHub.
+
+### Create a New Repository
+
+A repository is basically like a project.
+
+1. Go to https://github.com/new and name your project "beginner-emerald-dapp"
+2. Make it "public"
+3. Click "Create repository"
+
+You will now be taken to a page with no files inside of it. It should look like this:
+
+<img src="../images/empty-github.png" />
+
+### Pushing to Our Repository
+
+Let's now add (or "push") our code to GitHub. Open up a terminal on your computer and make sure you're in the base directory of your project.
+
+> Run the following lines of code:
+
+```bash
+git init
+git add .
+git commit -m "jacob is the best developer on the planet"
+git branch -M main
+git remote add origin
+git push -u origin main
+```
+
+> Then, copy and paste the URL of the GitHub repository and insert it into the command below, and then run it:
+
+```bash
+git remote add origin [THE URL GOES HERE]
+git push -u origin main
+```
+
+If this is your first time pushing to GitHub, it may ask you to log in. Then, if you go back to your GitHub repository, it should all be there!
+
+<img src="../images/uploaded-code.png" />
+
+### Making Changes
+
+Now, what if we make changes to our code? How to we put it on GitHub?
+
+When you make a change in your code and save the file, you can push it to GitHub by running:
+
+```bash
+git add .
+git commit -m "you can put any message about the code changes here"
+git push origin main
+```
 
 ## Conclusion
 
-Jacob is the best. No, no. That's not the conclusion. The conclusion is that although all of this stuff sounds very complicated, it really isn't. And if you still don't understand ANY of this, that's totally okay. Sometimes it's better to jump into some examples to make things make more sense. We'll be doing that in the upcoming days.
+All we wanted you to do today was install a Next.js project and run the project. If you could successfully do that, wooooohoooo! You will have no problem with the Quest.
 
-## Quests
+In tomorrow's content, we will explain what all the code is actually doing, and make some changes.
 
-You are free to answer these questions in your own language of choice. And no, I don't mean computer programming language, haha.
+# Quests
 
-1. Explain what the Blockchain is in your own words. You can read this to help you, but you don't have to: https://www.investopedia.com/terms/b/blockchain.asp
+For your quest today, you have one task:
 
-2. Explain what a Smart Contract is. You can read this to help you, but you don't have to: https://www.ibm.com/topics/smart-contracts
+1. What is the difference between frontend and backend? Can you provide a real life example? Note: You can't use the one in this chapter.
 
-3. Explain the difference between a script and a transaction.
+2. What is the difference between global styling and module styling?
 
-4. What is the difference between Testnet and Mainnet? When would you develop on each?
+3. Take a screenshot of the running application and upload it to your quest submissions.
+
+4. Upload the link to your public GitHub repository.
