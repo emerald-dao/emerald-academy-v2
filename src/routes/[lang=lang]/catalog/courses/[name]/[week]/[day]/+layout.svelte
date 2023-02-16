@@ -6,40 +6,28 @@
 	const courseContents = data.contents;
 
 	let number = 0;
-
-	const getIndex = (i: number) => {
-		number = i;
-
-		return number;
-	};
-
-	// let weeks = getWeeksFromCourse(data.thisCourse);
 </script>
 
-<section>
-	<div class="container-large">
-		<div class="grid-wrapper">
-			<div class="sidebar">
-				<p>Course Overview</p>
-				{#each Object.values(courseContents) as weekContent, index}
-					<div class="column-2">
-						<p class="week">Week {index + 1}</p>
-						{#each weekContent as day}
-							<a href={`/${day.slug}`} class="header-link">
-								{day.metadata.title}
-							</a>
-						{/each}
-					</div>
+<section class="container-large">
+	<div class="sidebar">
+		<p>Course Overview</p>
+		{#each Object.values(courseContents) as weekContent, index}
+			<div class="column-2">
+				<p class="week">Week {index + 1}</p>
+				{#each weekContent as day}
+					<a href={`/${day.slug}`} class="header-link">
+						{day.metadata.title}
+					</a>
 				{/each}
 			</div>
-
-			<slot />
-		</div>
+		{/each}
 	</div>
+
+	<slot />
 </section>
 
 <style type="scss">
-	.grid-wrapper {
+	.container-large {
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-5);

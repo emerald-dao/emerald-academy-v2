@@ -5,7 +5,7 @@
 </script>
 
 <div class="main-wrapper">
-	<div>
+	<div class="content">
 		<slot />
 	</div>
 	<aside>
@@ -17,10 +17,19 @@
 	.main-wrapper {
 		display: flex;
 		flex-direction: column;
+
 		@include mq(small) {
 			display: grid;
-			grid-template-columns: 5fr 2fr;
-			gap: var(--space-10);
+			grid-template-columns: 65ch auto;
+			gap: var(--space-12);
+		}
+
+		.content {
+			// max-width: 60ch;
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			width: 100%;
 		}
 	}
 
