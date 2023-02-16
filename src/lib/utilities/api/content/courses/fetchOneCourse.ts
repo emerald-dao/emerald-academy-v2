@@ -1,7 +1,11 @@
 import type { Locales } from '$i18n/i18n-types';
 
 export const fetchOneCourse = async (slug: string, locale: Locales) => {
+	console.log('fetchOneCourse');
+
 	const overview = await import(`../../../../content/courses/${slug}/${locale}/overview.ts`);
+	console.log(overview);
+
 	const allContents = import.meta.glob('/src/lib/content/courses/**/**/**/*.md');
 
 	const iterableContents = Object.entries(allContents);
