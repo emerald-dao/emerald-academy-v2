@@ -46,4 +46,4 @@ Even if you have a random idea for Emerald City, and you want to build it, we wo
 
 ### Goodbye
 
-I don't like goodbyes so... goodbye! I'll miss u <3
+I don't like goodbyes so... goodbye! I'll miss u 💚

@@ -165,7 +165,7 @@ After looking at our access modifiers, we must make an extremely important disti
 
 We learned a LOT about access modifiers today. In order to test your understanding, we're going to do a lot of busy work in the quests for today. I honestly believe you will learn the most from doing the quests themselves.
 
-See you in Chapter 4, folks! <3
+See you in Chapter 4, folks! 💚
 
 ## Quests
 
