@@ -46,4 +46,4 @@ Incluso si tiene una idea aleatoria para Emerald City y desea construir, estarem
 
 ### Adiós
 
-No me gustan las despedidas así que… ¡adiós! Te extrañaré <3
+No me gustan las despedidas así que… ¡adiós! Te extrañaré 💚

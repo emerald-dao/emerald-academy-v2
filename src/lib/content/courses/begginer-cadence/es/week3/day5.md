@@ -162,7 +162,7 @@ Después de mirar a nuestro modificadores de acceso, tenemos que tomar una decis
 
 Aprendimos MUCHO sobre los modificadores de acceso hoy. En orden para prueba tu entendimiento, vamos a hacer mucho trabajo para las búsquedas de hoy. Pero sinceramente creo que vas a aprender mucho haciendo las búsquedas ellos mismo.
 
-¡Nos vemos en el capítulo 4! <3
+¡Nos vemos en el capítulo 4! 💚
 
 ## Búsquedas
 
