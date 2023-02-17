@@ -2,16 +2,12 @@
 	import type { CourseData } from '$lib/types/content/course.interface';
 
 	export let data: CourseData;
-
-	const courseContents = data.contents;
-
-	let number = 0;
 </script>
 
 <section class="container-large">
 	<div class="sidebar">
 		<p>Course Overview</p>
-		{#each Object.values(courseContents) as weekContent, index}
+		{#each Object.values(data.contents) as weekContent, index}
 			<div class="column-2">
 				<p class="week">Week {index + 1}</p>
 				{#each weekContent as day}
