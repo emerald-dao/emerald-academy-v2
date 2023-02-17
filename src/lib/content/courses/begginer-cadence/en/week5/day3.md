@@ -1,8 +1,8 @@
 ---
-title: Creating an NFT Contract: Implementing the NonFungibleToken Standard (Part 3/3)
+title: 'Creating an NFT Contract: Implementing the NonFungibleToken Standard (Part 3/3)'
 day: 3
 language: en
-excerpt: Creating an NFT Contract: Implementing the NonFungibleToken Standard (Part 3/3)
+excerpt: 'Creating an NFT Contract: Implementing the NonFungibleToken Standard (Part 3/3)'
 ---
 
 # Chapter 5 Day 3 - Creating an NFT Contract: Implementing the NonFungibleToken Standard (Part 3/3)

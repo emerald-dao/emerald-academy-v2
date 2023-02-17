@@ -1,8 +1,8 @@
 ---
-title: Creating an NFT Contract: Collections (Part 1/3)
+title: 'Creating an NFT Contract: Collections (Part 1/3)'
 day: 3
 language: en
-excerpt: Creating an NFT Contract: Collections (Part 1/3)
+excerpt: 'Creating an NFT Contract: Collections (Part 1/3)'
 ---
 
 # Chapter 4 Day 3 - Creating an NFT Contract: Collections (Part 1/3)

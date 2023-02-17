@@ -1,8 +1,8 @@
 ---
-title: Creating an NFT Contract: Transferring, Minting, and Borrowing (Part 2/3)
+title: 'Creating an NFT Contract: Transferring, Minting, and Borrowing (Part 2/3)'
 day: 4
 language: en
-excerpt: Creating an NFT Contract: Transferring, Minting, and Borrowing (Part 2/3)
+excerpt: 'Creating an NFT Contract: Transferring, Minting, and Borrowing (Part 2/3)'
 ---
 
 # Chapter 4 Day 4 - Creating an NFT Contract: Transferring, Minting, and Borrowing (Part 2/3)
