@@ -15,7 +15,7 @@ As you already know, access control is Cadence's fun way of allowing us to speci
 
 Take a look at the image below to recap what each access modifier means:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/access_modifiers.png" />
+<img src="/courses/intermediate-cadence/access_modifiers.png" />
 
 ## So what is `access(account)`?
 

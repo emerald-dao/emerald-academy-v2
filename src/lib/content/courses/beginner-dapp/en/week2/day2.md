@@ -17,7 +17,7 @@ HTML & CSS are languages used for frontend code.
 
 **HTML is _what_ is being displayed on your screen**. From our example yesterday...
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/base-nextjs.png" />
+<img src="/courses/beginner-dapp/base-nextjs.png" />
 
 The "Welcome to Next.js!", the "Get started...", and the 4 boxes with all of their text, that is the _what_ is being displayed. That is thanks to HTML.
 
@@ -81,7 +81,7 @@ export default function Home() {
 
 It should look something like this:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/base-emerald-dapp.png" />
+<img src="/courses/beginner-dapp/base-emerald-dapp.png" />
 
 ## Understanding What We Just Did
 
@@ -133,7 +133,7 @@ return <div></div>;
 - Notice why we imported `Head`. We use it here (`Head` is a built-in thing provided by Next.js).
 - This changes the information in the browser tab. It looks like this:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/emerald-dapp-tab.png" target="_blank" />
+<img src="/courses/beginner-dapp/emerald-dapp-tab.png" target="_blank" />
 
 ---
 
@@ -154,11 +154,11 @@ return <div></div>;
 - Inside the `<h1>` tag is an `<a>` tag that links to the Emerald Academy site.
 - This piece of code is what you're seeing on the main page:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/emerald-dapp-home.png" target="_blank" />
+<img src="/courses/beginner-dapp/emerald-dapp-home.png" target="_blank" />
 
 If it helps, you can think about this using the "box model":
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/box-model.png" target="_blank" />
+<img src="/courses/beginner-dapp/box-model.png" target="_blank" />
 
 Notice also that when you hover over "Emerald DApp", your cursor turns into a pointer. If you click it, it actually takes you to the Emerald Academy site. This is because it's an `<a>` tag in code, which is used for links!
 
@@ -232,7 +232,7 @@ Because this is not necessarily a course on frontend development, if you'd like 
 
 The box model for Quest #4 looks like this:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/quest-box-model.png" />
+<img src="/courses/beginner-dapp/quest-box-model.png" />
 
 ---
 

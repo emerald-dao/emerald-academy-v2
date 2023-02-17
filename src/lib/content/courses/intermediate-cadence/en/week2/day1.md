@@ -219,6 +219,6 @@ We simply make the function `access(contract)` inside the resource, so now the o
 2. Come up with your own unique example of when the `access(contract)` pattern could be used.
 
 3. Based on the following diagram, do you think this pattern could also be used with `access(account)`?
-   <img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/access_modifiers.png" />
+   <img src="/courses/intermediate-cadence/access_modifiers.png" />
 
 4. Using the <a href="https://flow-view-source.com/mainnet/account/0x2d4c3caffbeab845/contract/FLOAT">FLOAT Contract</a>, find at least one example of the `access(contract)` pattern being used (hint: if your answer to quest #3 is correct, you should be able to find one by searching all the public interfaces for a certain function that has a specific access modifier).

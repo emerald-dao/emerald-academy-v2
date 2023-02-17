@@ -13,7 +13,7 @@ Alright, we're back. Yesterday was fun.... not. Today doesn't get any better. Pr
 
 If you took our <a href="https://github.com/emerald-dao/beginner-cadence-course" target="_blank">Beginner Cadence Course</a>, you'll remember this picture of capabilities:
 
-<img src="/courses/intermediate-cadence/week1/capabilities.PNG" />
+<img src="/courses/intermediate-cadence/capabilities.PNG" />
 
 Quick review:
 

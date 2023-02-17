@@ -135,7 +135,7 @@ Replace your `./styles/Home.module.css` file with this code:
 
 Your DApp should now look like this:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/almost-done-dapp.png" />
+<img src="/courses/beginner-dapp/almost-done-dapp.png" />
 
 ## Transaction Loading State
 

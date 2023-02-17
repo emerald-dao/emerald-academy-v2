@@ -19,7 +19,7 @@ We will utilize a transaction to change our `greeting` variable inside our smart
 
 Before we add the final pieces of functionality to our DApp, let's take a quick breather to see what we currently have:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/completed-day2-quest.png" />
+<img src="/courses/beginner-dapp/completed-day2-quest.png" />
 
 This is our application. It:
 
@@ -171,7 +171,7 @@ Okay, so what the heck just happened?
 
 > Try clicking the "Run Transaction" button now after typing something into the input field. You should be able to run a transaction!
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/send-transaction.png" />
+<img src="/courses/beginner-dapp/send-transaction.png" />
 
 If you wait for a couple minutes and refresh the page, you will hopefully see your updated greeting displaying on the page ;)
 
@@ -183,17 +183,17 @@ You may be wondering what the `transactionId` is that is being returned from you
 
 After you click "Approve" on the Blocto transaction below...
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/send-transaction.png" />
+<img src="/courses/beginner-dapp/send-transaction.png" />
 
 ...you should be able to open up your developer console and see a bunch of letters and numbers appearing. This is because we `console.log` the `transactionId` in our `runTransaction` function.
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/transaction-id.png" />
+<img src="/courses/beginner-dapp/transaction-id.png" />
 
 A transactionId can help you find information about your transaction. More specifically, you can do this on Flowscan!
 
 > Copy + paste that transactionId, go to https://testnet.flowscan.org/, and paste it into the search bar. You should be able to discover your transaction!
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/testnet-flowscan.png" />
+<img src="/courses/beginner-dapp/testnet-flowscan.png" />
 
 ## Updating the Displayed Greeting After Transaction
 

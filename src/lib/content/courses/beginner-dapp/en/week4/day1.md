@@ -15,7 +15,7 @@ FCL, or the Flow Client Library, is something that will allow us to do tons of b
 
 > Go to your project directory in your terminal and type `npm install @onflow/fcl`. This will install the dependency:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/install-fcl.png" />
+<img src="/courses/beginner-dapp/install-fcl.png" />
 
 ## Importing & Connecting FCL
 
@@ -102,7 +102,7 @@ Your button should now look like this:
 
 > Save your changes and go to your webpage. Click the log in button and see what happens! You should see this:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/logging-in-iframe.png" />
+<img src="/courses/beginner-dapp/logging-in-iframe.png" />
 
 Isn't this just so cool? Or am I a boring nerd. Your `Nav.jsx` file should now look like this:
 
@@ -153,7 +153,7 @@ We added some logic inbetween `{}` inside our button text. In Next.js (or React.
 
 Now when you are logged in, you should see this:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/displaying-address-login.png" />
+<img src="/courses/beginner-dapp/displaying-address-login.png" />
 
 > If you click the button again, it will log you back out, and you can log in again :)
 

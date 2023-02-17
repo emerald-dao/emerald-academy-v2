@@ -85,7 +85,7 @@ Before we even jump into code, we can look at the project by typing:
 
 This will start your application. Launch your browser of choice and go to http://localhost:3000/, you will see your website! Hopefully, it will look something like this:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/base-nextjs.png" />
+<img src="/courses/beginner-dapp/base-nextjs.png" />
 
 _If it doesn't look like this, let an instructor know in the Emerald City Discord._
 
@@ -96,7 +96,7 @@ Previously, you installed VSCode. VSCode is a code editor that allows us to type
 > code .
 
 This will open up your project in VSCode. Navigate to the `./pages/index.js` file and make sure it looks like this:
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/base-code.png" />
+<img src="/courses/beginner-dapp/base-code.png" />
 
 This is the frontend of your application. The code you are seeing is the "what". It is the stuff appearing on the screen when we went to http://localhost:3000/. All the text, boxes, links, etc.
 
@@ -129,7 +129,7 @@ A repository is basically like a project.
 
 You will now be taken to a page with no files inside of it. It should look like this:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/empty-github.png" />
+<img src="/courses/beginner-dapp/empty-github.png" />
 
 ### Pushing to Our Repository
 
@@ -155,7 +155,7 @@ git push -u origin main
 
 If this is your first time pushing to GitHub, it may ask you to log in. Then, if you go back to your GitHub repository, it should all be there!
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/uploaded-code.png" />
+<img src="/courses/beginner-dapp/uploaded-code.png" />
 
 ### Making Changes
 

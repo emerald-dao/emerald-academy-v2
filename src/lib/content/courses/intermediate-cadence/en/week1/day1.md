@@ -15,7 +15,7 @@ You should already know what capabilities are. But here is a summary for you...
 
 If you took our <a href="https://github.com/emerald-dao/beginner-cadence-course" target="_blank">Beginner Cadence Course</a>, you'll remember this picture of capabilities:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/capabilities.PNG" />
+<img src="/courses/intermediate-cadence/capabilities.PNG" />
 
 Quick review of capabilities:
 

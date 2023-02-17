@@ -28,11 +28,11 @@ This is sort of a weird use case because you might ask, "Well, why not just impo
 
 But there are times where we actually can't import a contract. For example, let's say you have contracts A and B, where B imports contract A:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/contracts.png" />
+<img src="/courses/intermediate-cadence/contracts.png" />
 
 Now, let's say you want to access some function defined in contract B from contract A. In order to do that, contract A would have to import contract B, but you are not allowed to do that because of circular dependence:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/bad.png" />
+<img src="/courses/intermediate-cadence/bad.png" />
 
 What you could do instead is "borrow" contract B inside of contract A, and you wouldn't have to import it anymore.
 
