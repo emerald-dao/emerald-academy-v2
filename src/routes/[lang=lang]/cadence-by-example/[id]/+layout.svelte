@@ -3,14 +3,8 @@
 	import Icon from '@iconify/svelte';
 
 	export let data;
-	console.log(data);
 	$: previousExample = data.content[findExampleIndex - 1];
 	$: nextExample = data.content[findExampleIndex + 1];
-	$: if (findExampleIndex) {
-		console.log(findExampleIndex);
-		console.log(`/content/cadenceByExample/${$page.params.lang}/${$page.params.id}`);
-		console.log(data.content[0].path);
-	}
 
 	$: findExampleIndex = data.content.findIndex(
 		(obj) => obj.path === `content/cadenceByExample/${$page.params.lang}/${$page.params.id}`
