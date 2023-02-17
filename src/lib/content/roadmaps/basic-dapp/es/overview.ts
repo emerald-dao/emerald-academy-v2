@@ -10,19 +10,19 @@ export const overview: RoadmapOverview = {
 	slug: generateSlug(import.meta.url),
 	excerpt: 'Lorem ipsum dolor sit amet.',
 	metadata: {
-		expertise: ExpertiseEnum.begginer,
+		expertise: ExpertiseEnum.beginner,
 		duration: '3 weeks',
 		prerequisites: ['javascript'],
 		subjects: [SubjectsEnum.Cadence]
 	},
 	contents: [
 		{
-			title: 'Begginer Cadence Course',
+			title: 'Beginner Cadence Course',
 			excerpt: 'Lorem ipsum',
 			contentType: ContentTypeEnum.Course,
 			duration: '4 weeks',
 			subjects: [SubjectsEnum.Cadence],
-			url: 'catalog/courses/begginer-cadence'
+			url: 'catalog/courses/beginner-cadence'
 		},
 		{
 			title: 'Basic Dapp',

@@ -58,9 +58,9 @@
 			title: 'Expertise',
 			filterElement: [
 				{
-					title: 'Begginer',
+					title: 'Beginner',
 					icon: 'icon',
-					slug: ExpertiseEnum.begginer
+					slug: ExpertiseEnum.beginner
 				},
 				{
 					title: 'Intermediate',

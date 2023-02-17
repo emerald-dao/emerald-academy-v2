@@ -5,7 +5,7 @@ import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 import { generateSlug } from '$lib/utilities/dataTransformation/generateSlug';
 
 export const overview: RoadmapOverview = {
-	title: 'Beginner Dapp Roadmap',
+	title: 'AAAAAAA Cadence Roadmap',
 	contentType: ContentTypeEnum.Roadmap,
 	slug: generateSlug(import.meta.url),
 	excerpt: 'Lorem ipsum dolor sit amet.',
@@ -13,7 +13,7 @@ export const overview: RoadmapOverview = {
 		expertise: ExpertiseEnum.beginner,
 		duration: '3 weeks',
 		prerequisites: ['javascript'],
-		subjects: [SubjectsEnum.Cadence]
+		subjects: [SubjectsEnum.Backend, SubjectsEnum.Frontend]
 	},
 	contents: [
 		{
@@ -22,7 +22,15 @@ export const overview: RoadmapOverview = {
 			contentType: ContentTypeEnum.Course,
 			duration: '4 weeks',
 			subjects: [SubjectsEnum.Cadence],
-			url: `catalog/courses/beginner-cadence`
+			url: 'catalog/courses/beginner-cadence'
+		},
+		{
+			title: 'Flow documentation',
+			excerpt: 'Lorem ipsum',
+			contentType: ContentTypeEnum.External,
+			duration: '4 weeks',
+			subjects: [SubjectsEnum.Cadence],
+			url: 'https://developers.flow.com/tools/unity-sdk/guides/dev-wallet'
 		},
 		{
 			title: 'Basic Dapp',

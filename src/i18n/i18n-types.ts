@@ -115,7 +115,7 @@ type RootTranslation = {
 	/**
 	 * B​e​g​g​i​n​e​r
 	 */
-	Begginer: string
+	Beginner: string
 }
 
 export type TranslationFunctions = {
@@ -216,9 +216,9 @@ export type TranslationFunctions = {
 	 */
 	Intermediate: () => LocalizedString
 	/**
-	 * Begginer
+	 * Beginner
 	 */
-	Begginer: () => LocalizedString
+	Beginner: () => LocalizedString
 }
 
 export type Formatters = {}
