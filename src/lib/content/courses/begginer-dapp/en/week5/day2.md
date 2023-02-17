@@ -21,19 +21,19 @@ What is Vercel? Well, it's basically magic. It allows you to select a GitHub rep
 
 Then, go to your profile screen that looks like this:
 
-<img src="../images/select-deployment.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/select-deployment.png" />
 
 > Find the repository that says "beginner-emerald-dapp" and press "Import".
 
 > Then press "Deploy".
 
-<img src="../images/deploy-dapp.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/deploy-dapp.png" />
 
 Wait a few minutes and make sure there are no errors. If there are, reach out in the Emerald Academy chat in the <a href="https://discord.gg/wjA875sMjV" target="_blank">Emerald City Discord</a>.
 
 Then, you should be able to go to your deployed project on Vercel and find the URL where your project is deployed.
 
-<img src="../images/all-done.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/all-done.png" />
 
 Here is mine: https://beginner-emerald-dapp.vercel.app/
 

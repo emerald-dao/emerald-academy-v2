@@ -23,7 +23,7 @@ One solution to creating a new nav bar would be to just throw some more code int
 
 Your directory should be structured like this:
 
-<img src="../images/structured-directory.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/structured-directory.png" />
 
 ### Adding Some Code
 
@@ -106,7 +106,7 @@ export default function Home() {
 
 You should now notice that your project looks like this:
 
-<img src="../images/base-nav.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/base-nav.png" />
 
 ### Making it Less Ugly
 
@@ -131,7 +131,7 @@ Inside of `./styles/Nav.module.css`, let's make a new class called `nav`:
 
 You should now see that our `<Nav>` component looks pretty cool!
 
-<img src="../images/second-nav.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/second-nav.png" />
 
 ## Adding an Input Field
 
@@ -147,7 +147,7 @@ Inside of `./pages/index.js`, do two things:
 
 Your webpage should now look like this:
 
-<img src="../images/hello-idiots.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/hello-idiots.png" />
 
 We basically created an input field and added a placeholder of "Hello, Idiots!". Now, let's store the value we type into the input field somewhere.
 

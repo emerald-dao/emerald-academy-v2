@@ -17,7 +17,7 @@ excerpt: 能力
 
 ## 昨天的回顾
 
-<img src="../images/accountstorage1.PNG" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/accountstorage1.PNG" />
 
 快速回顾：
 
@@ -98,7 +98,7 @@ transaction() {
 
 当你将一些数据链接到/public/或/private/路径时，实际上你是创建了一个叫做 capability 的东西。/public/或/private/路径并没有真正地存放任何数据，它们实际上还是被保存在/storage/中。然而，我们可以把 capabilities 看作是像指针一样的东西，它从一个/public/或/private/路径指向了与其相关联的/storage/路径。下面这个框图可能有助于你进一步理解这一点：
 
-<img src="../images/capabilities.PNG" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/capabilities.PNG" />
 
 在 Cadence 编程中非常炫的一个特点就是你可以对/public/或/private/路径下的 capabilities 的可用性进行自定义的某些约束，这样就可以限制除你以外的其它人可以对这些资源进行哪些操作，又或者不能进行哪些操作。
 

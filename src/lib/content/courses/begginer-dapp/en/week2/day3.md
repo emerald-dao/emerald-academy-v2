@@ -47,7 +47,7 @@ The surrounding code should now look something like this:
 
 > Go back to your browser at http://localhost:3000 and see that there is now a button under to the text in the middle of the page. It should look like:
 
-<img src="../images/begin-day3.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/begin-day3.png" />
 
 ---
 
@@ -120,7 +120,7 @@ The Developer Console is something we can use to actually see our `console.log`s
 
 You will see something like this:
 
-<img src="../images/developer-console.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/developer-console.png" />
 
 When you click the button, you will see messages popping up in the "developer console" now. Usually, developers use the developer console to print error messages or debug their code when they don't know what is wrong. Or in this case, we used it just to make sure things were working.
 
@@ -141,11 +141,11 @@ Today, we will split the Quests into two different parts.
 - In `./styles/Home.module.css`, add a new style for the "flex" class, and inside of it, add one line: `display: flex`.
 - Your page should now look like this:
 
-<img src="../images/day3-quest1.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/day3-quest1.png" />
 
 Here is the box model for what your code should look like:
 
-<img src="../images/box-model-quest1.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/box-model-quest1.png" />
 
 2. Now we're going to add an action to your new button.
 

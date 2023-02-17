@@ -15,8 +15,8 @@ excerpt: Создание контракта NFT: Коллекции (часть
 
 ## Обзор
 
-<img src="../images/accountstorage1.PNG" />
-<img src="../images/capabilities.PNG" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/accountstorage1.PNG" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/capabilities.PNG" />
 
 ## Пример NFT (NonFungibleToken)
 
@@ -292,7 +292,7 @@ transaction() {
 }
 ```
 
-<img src="../images/thanos.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/thanos.png" />
 Вот это... вызывает улыбку на моем лице. Давайте поэкспериментируем, положим NFT на наш аккаунт и выведем его.
 
 ```cadence

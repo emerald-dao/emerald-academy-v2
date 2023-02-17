@@ -22,7 +22,7 @@ excerpt: Интерфейсы ресурсов и структур
 
 Давайте посмотрим на код, чтобы понять, что я имею в виду.
 
-<img src="../images/interfaces.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/interfaces.png" />
 
 ## Применение интерфейсов в качестве требований
 

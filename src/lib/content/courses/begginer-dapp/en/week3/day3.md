@@ -17,7 +17,7 @@ Now that we're no longer on the playground, we want to be able to have errors sh
 
 > Click on the following extension and press "Install":
 
-<img src="../images/cadence-vscode-extension.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/cadence-vscode-extension.png" />
 
 ## Installing the Flow CLI & flow.json
 
@@ -101,7 +101,7 @@ pub fun main(): String {
 
 Your project directory should now look like this:
 
-<img src="../images/layout.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/layout.png" />
 
 ---
 
@@ -175,7 +175,7 @@ This will allow your `flow.json` to know where your contracts live.
 flow project deploy --network=testnet
 ```
 
-<img src="../images/deploy-contract.png" alt="deploy contract to testnet" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/deploy-contract.png" alt="deploy contract to testnet" />
 
 ## Interacting with our Contract
 
@@ -212,7 +212,7 @@ flow scripts execute ./flow/cadence/scripts/readGreeting.cdc --network=testnet
 
 If it works properly, you will see this:
 
-<img src="../images/interact-with-script.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/interact-with-script.png" />
 
 Boom! It returned "Hello, World!", which is exactly what our `greeting` variable is in the contract. YAAAAAAAY!!
 
@@ -226,11 +226,11 @@ flow transactions send ./flow/cadence/transactions/changeGreeting.cdc "Goodbye, 
 
 If it works properly, you will see this:
 
-<img src="../images/interact-with-transaction.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/interact-with-transaction.png" />
 
 That means the transaction is sealed (completed) and worked! If you run the script to read the greeting again, hopefully you will see:
 
-<img src="../images/interact-with-scripts-2.png" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/interact-with-scripts-2.png" />
 
 NICEEEEEE!!! We successfully changed our `greeting` in our contract. This is so cool.
 

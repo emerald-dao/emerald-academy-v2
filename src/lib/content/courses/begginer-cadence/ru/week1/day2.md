@@ -17,13 +17,13 @@ excerpt: basic Flow & Cadence concepts
 
 ## The Flow Blockchain
 
-<img src="../../images/flowb.png" alt="drawing" width="500"/>
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/flowb.png" alt="drawing" width="500"/>
 
 Блокчейн Flow - лучший. Бум! Я сказал это.
 
 ### Небольшой урок истории
 
-<img src="../../images/cryptokitty.png" alt="drawing" width="200"/>
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/cryptokitty.png" alt="drawing" width="200"/>
 
 Блокчейн Flow появился относительно недавно. Я бы сказал, что он стал широко известен только летом 2020 года, когда команда Flow начала демонстрировать его миру, и люди заинтересовались им. Dapper Labs, компания, владеющая Flow, изначально создала знаменитый [CryptoKitties DApp](https://www.cryptokitties.co/) которая за предыдущие годы выросла до безумного уровня популярности. На самом деле, я бы сказал, что CryptoKitties была одной из первых "блокчейновых" вещей, которые мир действительно принял, что было огромным событием для индустрии.
 
@@ -38,7 +38,7 @@ excerpt: basic Flow & Cadence concepts
 
 ## Cadence
 
-<img src="../../images/cadence.png" alt="drawing" width="600"/>
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/cadence.png" alt="drawing" width="600"/>
 
 Cadence - это язык программирования смарт-контрактов для блокчейна Flow. То есть код, который вы будете писать для создания смарт-контрактов в этом курсе, будет на Cadence.
 

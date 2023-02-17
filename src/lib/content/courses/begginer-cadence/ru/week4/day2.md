@@ -17,7 +17,7 @@ excerpt: Возможности
 
 ## Обзор от вчерашнего дня
 
-<img src="../images/accountstorage1.PNG" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/accountstorage1.PNG" />
 
 Быстрый обзор:
 
@@ -95,7 +95,7 @@ transaction() {
 
 Когда вы "связываете" что-то с путями `/public/` или `/private/`, вы создаете нечто, называемое возможностью. На самом деле ничто _не живет_ в путях `/public/` или `/private/`, все живет в вашем `/storage/`. Однако мы можем думать о возможностях как об "указателях", которые указывают от пути `/public/` или `/private/` к связанному с ним пути `/storage/`. Вот полезная визуализация:
 
-<img src="../images/capabilities.PNG" />
+<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/capabilities.PNG" />
 
 Самое интересное, что вы можете сделать ваши возможности `/public/` или `/private/` _более ограниченными_, чем то, что находится внутри вашего пути `/storage/`. Это очень здорово, потому что вы можете ограничить возможности других людей, но при этом позволить им делать некоторые вещи. Мы сделаем это с интерфейсами ресурсов позже.
 
