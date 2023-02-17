@@ -65,13 +65,14 @@
 	user={$user}
 	network={$network}
 	avatarDropDownNavigation={avatarDropdownNav}
+	logoHref={`/${$locale}/`}
 >
 	<LocaleSwitcher slot="commands" />
 </Header>
 <main>
 	<slot />
 </main>
-<Footer {navElements} {emeraldTools} socials={socialMedia} />
+<Footer {navElements} {emeraldTools} socials={socialMedia} logoHref={`/${$locale}/`} />
 
 <svelte:head>
 	<title>{dappInfo.title}</title>
