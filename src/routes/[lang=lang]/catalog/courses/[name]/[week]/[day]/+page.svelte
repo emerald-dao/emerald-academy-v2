@@ -25,12 +25,12 @@
 	];
 </script>
 
-<div>
+<section>
 	<Breadcrumbs {routes} />
 	<article>
 		<svelte:component this={data.content} />
 	</article>
-</div>
+</section>
 
 <style type="scss">
 	article {
