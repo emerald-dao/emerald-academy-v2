@@ -5,7 +5,7 @@ import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 import { generateSlug } from '$lib/utilities/dataTransformation/generateSlug';
 
 export const overview: CourseOverview = {
-	title: 'Basic Dapp',
+	title: 'Begginer Dapp',
 	contentType: ContentTypeEnum.Course,
 	slug: generateSlug(import.meta.url),
 	excerpt:
