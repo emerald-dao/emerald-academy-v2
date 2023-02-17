@@ -23,7 +23,7 @@
 	// at the very top, set the locale before you access the store and before the actual rendering takes place
 	setLocale(data.locale);
 
-	export const navElements = [
+	$: navElements = [
 		{
 			name: 'Catalog',
 			url: `/${$locale}/catalog`,
