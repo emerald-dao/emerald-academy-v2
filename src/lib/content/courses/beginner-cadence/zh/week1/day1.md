@@ -13,7 +13,7 @@ excerpt: basic blockchain concepts
 
 ## 区块链到底是什么？
 
-![drawing](https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/blockchain.png)
+![drawing](/courses/beginner-cadence/blockchain.png)
 
 如果您已经了解区块链是什么，或者您根本不在乎，您可以跳过本节。
 
@@ -34,7 +34,7 @@ Okay，这是什么意思呢？
 
 ## 智能合约？听起来很酷
 
-![drawing](https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/smart%20contract.png)
+![drawing](/courses/beginner-cadence/smart%20contract.png)
 
 是的，智能合约非常酷。智能合约是开发人员制作的程序或“规则手册”。开发人员创建它们是因为它允许我们指定一些用户可以与它交互的功能。例如，如果我想制作一个允许用户将他们最喜欢的水果存储在区块链上的应用程序，我需要制作一个智能合约：
 
@@ -58,7 +58,7 @@ Okay，这是什么意思呢？
 
 ## 交易和脚本
 
-![drawing](https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/transaction.jpeg)
+![drawing](/courses/beginner-cadence/transaction.jpeg)
 
 _“好的，所以我们有一个智能合约。我该如何与之交互？你一直说调用一个函数，但这意味着什么！？”_
 
@@ -74,7 +74,7 @@ _“好的，所以我们有一个智能合约。我该如何与之交互？你�
 
 ## “主网”和“测试网”
 
-![drawing](https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/tvm.PNG)
+![drawing](/courses/beginner-cadence/tvm.PNG)
 
 您可能听说过这些术语，但它们的实际含义是什么？
 
@@ -96,7 +96,7 @@ _“好的，所以我们有一个智能合约。我该如何与之交互？你�
 
 ## 去中心化应用（DApps）
 
-![drawing](https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/dapps.jpeg)
+![drawing](/courses/beginner-cadence/dapps.jpeg)
 
 这听起来很复杂。没有！它不复杂。 DApps 实际上只是普通的应用程序（Javascript、Python 等），它们也涉及智能合约。
 

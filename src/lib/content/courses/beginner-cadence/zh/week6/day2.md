@@ -31,7 +31,7 @@ flow scripts execute ./scripts/read_total_supply.cdc --network=testnet
 
 如果可以正常工作，你将在 console 里看到 total supply (如果你还没有 mint，应该是 0).
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/read-total-supply.png" alt="read the total supply" />
+<img src="/courses/beginner-cadence/read-total-supply.png" alt="read the total supply" />
 
 ### 设置 NFT Collection
 
@@ -49,7 +49,7 @@ flow transactions send ./transactions/setup_collection.cdc --network=testnet --s
 
 如果可以正常工作，你讲看到这个 transasction 生效了，状态是 ✅sealed （已完成）！
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/setup-collection.png" alt="setup collection transaction" />
+<img src="/courses/beginner-cadence/setup-collection.png" alt="setup collection transaction" />
 
 非常棒!!! 我们成功的地在测试网上设置了 NFT Collection。🆒
 

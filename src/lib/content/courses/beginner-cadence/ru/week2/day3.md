@@ -300,4 +300,4 @@ pub fun main(): Int? { // notice the return value is an optional type
    - Почему у нас возникает эта ошибка
    - Как это исправить
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/wrongcode.png" alt="drawing" size="400" />
+<img src="/courses/beginner-cadence/wrongcode.png" alt="drawing" size="400" />

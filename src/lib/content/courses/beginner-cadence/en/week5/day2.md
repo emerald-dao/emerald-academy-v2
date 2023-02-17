@@ -181,7 +181,7 @@ Now we're all good :)
 
 ## Contract Interfaces as "Standards"
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/nftpicforcourse.png" />
+<img src="/courses/beginner-cadence/nftpicforcourse.png" />
 
 Contract interfaces allow you to specify some requirements on an implementing contract, and additionally, create "standards" on what certain contracts look like.
 

@@ -17,7 +17,7 @@ Puedes ver este video desde las 14:45 hasta el fin (vimos la primera mitad en el
 
 ## Reviso de Ayer
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/accountstorage1.PNG" />
+<img src="/courses/beginner-cadence/accountstorage1.PNG" />
 
 Notas Rápidas:
 
@@ -95,7 +95,7 @@ Ahora, cualquier persona puede ejecutar un guión para leer el campo de `name` e
 
 Cuando te “conectas" algo a los caminos de `/public/` o `/private/`, estás creando algo llamado una capacidad. Nada vive en los caminos de `/public/` o `/private/`, pero todo vive en tu `/storage/`. Sin embargo, podemos pensar sobre las capacidades como “agujas” que te apuntan de un camino de `/public/` o `/private/` a su camino asociado de `/storage/`. Aquí es un visualización útil:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/capabilities.PNG" />
+<img src="/courses/beginner-cadence/capabilities.PNG" />
 
 La parte genial es que puedes hacer tus capacidades de `/public/` o `/private/` _mas restrictivo_ que cual es dentro tu camino de `/storage/`. Este es súper genial porque puedes limitar lo que otras personas pueden hacer, pero todavía permite que ellos a hacer algunas cosas. Vamos a hacer esto con las interfaces de los recursos.
 

@@ -17,13 +17,13 @@ If you'd like to learn with a video, you can do that from the link below.
 
 ## The Flow Blockchain
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/flowb.png" alt="drawing" width="500"/>
+<img src="/courses/beginner-cadence/flowb.png" alt="drawing" width="500"/>
 
 The Flow Blockchain is the best. Boom! I said it.
 
 ### Little History Lesson
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/cryptokitty.png" alt="drawing" width="200"/>
+<img src="/courses/beginner-cadence/cryptokitty.png" alt="drawing" width="200"/>
 
 The Flow Blockchain is relatively new. I would say it did not become well known until the Summer of 2020 when the Flow team started to show it to the world and people became interested. Dapper Labs, the company that owns Flow, had originally created the famous [CryptoKitties DApp](https://www.cryptokitties.co/) which grew to insane levels of popularity during previous years. In fact, I would argue CryptoKitties was one of the first "blockchainy" things that the world actually adopted, which was a huge deal for the industry.
 
@@ -38,7 +38,7 @@ After Dapper Labs had immense success with CryptoKitties, which was on Ethereum,
 
 ## Cadence
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/cadence.png" alt="drawing" width="600"/>
+<img src="/courses/beginner-cadence/cadence.png" alt="drawing" width="600"/>
 
 Cadence is the Smart Contract programming language for the Flow Blockchain. That is, the code you will be writing to make Smart Contracts in this course will be in Cadence.
 

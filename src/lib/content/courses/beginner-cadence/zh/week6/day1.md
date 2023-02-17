@@ -19,7 +19,7 @@ _如果你之前没安装过 VSCode，可以在这里下载: https://code.visual
 
 > 点击下面的插件，安装:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/cadence-vscode-extension.png" />
+<img src="/courses/beginner-cadence/cadence-vscode-extension.png" />
 
 ## 安装 Flow CLI & flow.json
 
@@ -149,7 +149,7 @@ import ExampleNFT from "../contracts/ExampleNFT.cdc"
 flow project deploy --network=testnet
 ```
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/deploy-contract.png" alt="deploy contract to testnet" />
+<img src="/courses/beginner-cadence/deploy-contract.png" alt="deploy contract to testnet" />
 
 ## 任务
 

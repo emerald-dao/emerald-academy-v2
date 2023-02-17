@@ -25,7 +25,7 @@ Puede ver que esto se está haciendo en la porción de `prepare` de la transacci
 
 ## ¿Qué vive en una cuenta?
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/accountstorage1.PNG" />
+<img src="/courses/beginner-cadence/accountstorage1.PNG" />
 
 Como se lee arriba, en Flow, las cuentas realmente almacenan sus propios datos. Esto significa que, si tengo un recurso de `NFT`, puedo almacenar eso en mi propia cuenta. Pero, ¿donde?
 
@@ -219,7 +219,7 @@ También tenga en cuenta que debido a que no estamos usando .load(), el recurso 
 
 Miremos a este diagramo de nuevo:
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/accountstorage1.PNG" />
+<img src="/courses/beginner-cadence/accountstorage1.PNG" />
 
 Ahora, usted debe entender qué es `/storage/`. En el capítulo de mañana, vamos hablar sobre los caminos de `/public/` y `/private/`.
 

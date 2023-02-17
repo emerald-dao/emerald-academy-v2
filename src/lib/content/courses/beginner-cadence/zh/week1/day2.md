@@ -17,13 +17,13 @@ excerpt: basic Flow & Cadence concepts
 
 ## Flow 链
 
-![drawing](https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/flowb.png)
+![drawing](/courses/beginner-cadence/flowb.png)
 
 Flow 链是最好的。我说的。
 
 ## 历史课堂
 
-![drawing](https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/cryptokitty.png)
+![drawing](/courses/beginner-cadence/cryptokitty.png)
 
 Flow 链相对较新。我想说，直到 2020 年夏天 Flow 团队开始向全世界展示它并引起人们的兴趣，它才变得广为人知。 Dapper Labs 最初创建了著名的 [CryptoKitties DApp](https://www.cryptokitties.co/)，该 DApp 在前几年非常受欢迎。事实上，我认为 CryptoKitties 是世界采用的首批“区块链”事物之一，这对行业来说是一笔巨大的震动。
 
@@ -39,7 +39,7 @@ Flow 链相对较新。我想说，直到 2020 年夏天 Flow 团队开始向全
 
 ## Cadence
 
-![drawing](https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/cadence.png)
+![drawing](/courses/beginner-cadence/cadence.png)
 
 Cadence 是 Flow 区块链的智能合约编程语言。也就是说，您将在本课程中使用 Cadence 编写用于制作智能合约的代码。
 

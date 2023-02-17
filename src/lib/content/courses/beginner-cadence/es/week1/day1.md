@@ -13,7 +13,7 @@ Comencemos nuestro primer día con algunas cosas que son importante a entender p
 
 ## ¿Qué es un Blockchain?
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/blockchain.png" alt="drawing" width="600"/>
+<img src="/courses/beginner-cadence/blockchain.png" alt="drawing" width="600"/>
 
 _Si ya sabe que es el Blockchain o si no te importas, tú puedes omitir esta sección._
 
@@ -34,7 +34,7 @@ También es importante anotar que hay muchas Blockchains diferentes. Por ejemplo
 
 ## ¿Smart Contracts? ¡Ooo, eso suena interesante!
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/smart contract.png" alt="drawing" width="600"/>
+<img src="/courses/beginner-cadence/smart contract.png" alt="drawing" width="600"/>
 
 Si es así. Los Smart Contracts son super genial. Smart Contracts son programas o "guías" que los desarrolladores hacen. Con Smart Contracts podemos especificar algún funcionalidad en que personas interactúen con. Por ejemplo, si quiero hacer un aplicación que permitirá una persona a almancer su fruta favorita en el Blockchain, necesito hacer un Smart Contract que:
 
@@ -58,7 +58,7 @@ Entonces, ¿por qué usamos Smart Contracts?
 
 ## Transacciones & Guiones
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/transaction.jpeg" alt="drawing" width="600"/>
+<img src="/courses/beginner-cadence/transaction.jpeg" alt="drawing" width="600"/>
 
 _“Bueno, tenemos un Smart Contract. ¿Cómo puedo realmente interactuar con él? Eres diciendo a llamar una función, pero qué significa?”_
 
@@ -74,7 +74,7 @@ Aquí es un ‘workflow’ normal:
 
 ## “MainNet” v. “TestNet”
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/tvm.PNG" alt="drawing" width="600"/>
+<img src="/courses/beginner-cadence/tvm.PNG" alt="drawing" width="600"/>
 
 Es posible que haya oído estas cosas, pero ¿qué significa realmente?
 
@@ -96,7 +96,7 @@ Es posible que haya oído estas cosas, pero ¿qué significa realmente?
 
 ## Aplicaciones Descentralizadas (dApps)
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/dapps.jpeg" alt="drawing" width="300"/>
+<img src="/courses/beginner-cadence/dapps.jpeg" alt="drawing" width="300"/>
 
 Ay no, esto suena complicado. No, no es! DApps son literalmente aplicaciones normales (Javascript, Python, etc) que también tiene Smart Contracts involucrado. Eso es todo.
 

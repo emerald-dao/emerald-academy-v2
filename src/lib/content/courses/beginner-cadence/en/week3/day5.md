@@ -35,7 +35,7 @@ But what exactly does `pub` mean? Why are we putting it there? Are there other t
 
 `pub` is something called an "Access Modifier" in Cadence. An Access Modifier is basically a level of security in our smart contracts. But there are a bunch of others we can use as well. Let's take a look at this diagram to help give us an idea of all the different access modifiers we can use.
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/access_modifiers.png" />
+<img src="/courses/beginner-cadence/access_modifiers.png" />
 
 We are only going to focus on the `var` rows, because `let` does not have a write scope since it is a constant. I really encourage you to watch the video before reading over this next section.
 
@@ -47,19 +47,19 @@ Scope is the area in which you can access, modify, or call your "things" (variab
 
 This means we can access our thing from **anywhere**. Inside the contract, in transactions and scripts, wherever.
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/allscope.PNG" />
+<img src="/courses/beginner-cadence/allscope.PNG" />
 
 ### 2. Current & Inner Scope
 
 This means we can only access our thing from where it is defined and inside of that.
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/currentandinner.PNG" />
+<img src="/courses/beginner-cadence/currentandinner.PNG" />
 
 ### 3. Containing Contract Scope
 
 This means we can access our thing anywhere inside the contract that it is defined.
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/contractscope.PNG" />
+<img src="/courses/beginner-cadence/contractscope.PNG" />
 
 ### 4. Account Scope
 
@@ -69,7 +69,7 @@ This means we can access our thing anywhere inside the account that it is define
 
 Cool! We just reviewed what different "scopes" mean. Let's take a look at our graphic again...
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/access_modifiers.png" />
+<img src="/courses/beginner-cadence/access_modifiers.png" />
 
 Now it is easier to understand what it's saying. Let's walk through all of the access modifiers together...
 
@@ -157,7 +157,7 @@ Read Scope - Current & Inner
 
 ## Very Important Notes
 
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/pleasenote.jpeg" />
+<img src="/courses/beginner-cadence/pleasenote.jpeg" />
 
 After looking at our access modifiers, we must make an extremely important distinction: **Even though some access modifiers like `priv` make fields unreadable in your Cadence code, this does not mean people cannot read this info by looking at the blockchain. _Everything on the blockchain is public_, regardless of its read scope.** Access modifiers simply let you determine what is readable/writeable in the context of your Cadence code. Never store private information on the blockchain!
 
@@ -172,7 +172,7 @@ See you in Chapter 4, folks! 💚
 For today's quest, you will be looking at a contract and a script. You will be looking at 4 variables (a, b, c, d) and 3 functions (publicFunc, contractFunc, privateFunc) defined in `SomeContract`. In each AREA (1, 2, 3, and 4), I want you to do the following: for each variable (a, b, c, and d), tell me in which areas they can be read (read scope) and which areas they can be modified (write scope). For each function (publicFunc, contractFunc, and privateFunc), simply tell me where they can be called.
 
 You can use this diagram to help you:
-<img src="https://github.com/emerald-dao/beginner-cadence-course/raw/main/images/boxdiagram.PNG" />
+<img src="/courses/beginner-cadence/boxdiagram.PNG" />
 
 ```cadence
 access(all) contract SomeContract {
