@@ -3,12 +3,17 @@
 	import Icon from '@iconify/svelte';
 
 	export let data;
-
+	console.log(data);
 	$: previousExample = data.content[findExampleIndex - 1];
 	$: nextExample = data.content[findExampleIndex + 1];
+	$: if (findExampleIndex) {
+		console.log(findExampleIndex);
+		console.log(`/content/cadenceByExample/${$page.params.lang}/${$page.params.id}`);
+		console.log(data.content[0].path);
+	}
 
 	$: findExampleIndex = data.content.findIndex(
-		(obj) => obj.path === `/content/cadenceByExample/${$page.params.id}`
+		(obj) => obj.path === `content/cadenceByExample/${$page.params.lang}/${$page.params.id}`
 	);
 </script>
 
@@ -18,7 +23,7 @@
 		{#if previousExample}
 			<a
 				class="step-back each-adjacent-wrapper"
-				href={`/cadence-by-example/${previousExample.path.split('/')[3]}`}
+				href={`/${$page.params.lang}/cadence-by-example/${previousExample.path.split('/')[3]}`}
 			>
 				<Icon icon="tabler:arrow-left" style="color: var(--clr-text-main);" />
 				<div class="left-wrapper column-2">
@@ -31,7 +36,7 @@
 		{#if nextExample}
 			<a
 				class="step-next each-adjacent-wrapper"
-				href={`/cadence-by-example/${nextExample.path.split('/')[3]}`}
+				href={`/${$page.params.lang}/cadence-by-example/${nextExample.path.split('/')[3]}`}
 			>
 				<div class="column-2">
 					<p class="heading w-medium">
