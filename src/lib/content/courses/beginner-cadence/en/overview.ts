@@ -13,7 +13,7 @@ export const overview: CourseOverview = {
 		expertise: ExpertiseEnum.beginner,
 		duration: '4 weeks',
 		prerequisites: [],
-		subjects: [SubjectsEnum.Cadence, SubjectsEnum.DappDevelopment],
+		subjects: [SubjectsEnum.Cadence],
 		faqs: [
 			{
 				question: 'What is this course?',
