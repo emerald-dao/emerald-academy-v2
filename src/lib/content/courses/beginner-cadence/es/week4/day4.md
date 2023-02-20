@@ -282,7 +282,9 @@ pub fun main(address: Address, id: UInt64) {
 }
 ```
 
-¡ESPERA! ¡Conseguimos un error! ¿Por qué pasa eso? Ahh, es porque olvidamos añadir `borrowNFT` a la interfaz de `CollectionPublic````cadence
+¡ESPERA! ¡Conseguimos un error! ¿Por qué pasa eso? Ahh, es porque olvidamos añadir `borrowNFT` a la interfaz de `CollectionPublic`
+
+```cadence
 pub contract CryptoPoops {
 
 // ... other stuff here ...
