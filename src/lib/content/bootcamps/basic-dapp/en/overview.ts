@@ -57,12 +57,12 @@ export const overview: BootcampOverview = {
 			date: new Date(2023, 0, 20, 13, 30),
 			chapters: [
 				{
-					name: 'Chapter 1, Day 1 - Introduction to Flow',
-					link: '/catalog/courses/basic-dapp/chapter1/day1.md	'
+					name: 'Chapter 1, Lesson 1 - Introduction to Flow',
+					link: '/catalog/courses/basic-dapp/chapter1/lesson1.md	'
 				},
 				{
-					name: 'Chapter 2, Day 1 - Introduction to Flow',
-					link: '/catalog/courses/basic-dapp/chapter1/day2.md'
+					name: 'Chapter 2, Lesson 1 - Introduction to Flow',
+					link: '/catalog/courses/basic-dapp/chapter1/lesson2.md'
 				}
 			]
 		},
@@ -74,12 +74,12 @@ export const overview: BootcampOverview = {
 			date: new Date(2023, 1, 17, 15, 30),
 			chapters: [
 				{
-					name: 'Chapter 1, Day 2 - Introduction to Flow',
-					link: '/catalog/courses/basic-dapp/chapter2/day1.md'
+					name: 'Chapter 1, Lesson 2 - Introduction to Flow',
+					link: '/catalog/courses/basic-dapp/chapter2/lesson1.md'
 				},
 				{
-					name: 'Chapter 2, Day 2 - Introduction to Flow',
-					link: '/catalog/courses/basic-dapp/chapter2/day2.md'
+					name: 'Chapter 2, Lesson 2 - Introduction to Flow',
+					link: '/catalog/courses/basic-dapp/chapter2/lesson2.md'
 				}
 			]
 		}

@@ -12,7 +12,7 @@ export interface CourseContents {
 		slug: string;
 		metadata: {
 			title: string;
-			day: number;
+			lesson: number;
 			language: string;
 			excerpt: string;
 			headings: Array<{
