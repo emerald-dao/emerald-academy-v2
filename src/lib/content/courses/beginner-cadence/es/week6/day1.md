@@ -29,15 +29,15 @@ El CLI de Flow permite ejecutar transacciones y guiones desde el terminal, y per
 
 **Mac**
 
-- Pegando sh -ci "$(curl -fsSL https://storage.googleapis.com/flow-cli/install.sh)" en un terminal
+- Pegando `sh -ci "$(curl -fsSL https://storage.googleapis.com/flow-cli/install.sh)"` en un terminal
 
 **Windows**
 
-- Pegando iex "& { $(irm 'https://storage.googleapis.com/flow-cli/install.ps1') }” en PowerShell
+- Pegando `iex "& { $(irm 'https://storage.googleapis.com/flow-cli/install.ps1') }"` en PowerShell
 
 **Linux**
 
-- Pegando sh -ci "$(curl -fsSL https://storage.googleapis.com/flow-cli/install.sh)" en un terminal
+- Pegando `sh -ci "$(curl -fsSL https://storage.googleapis.com/flow-cli/install.sh)"` en un terminal
 
 Puedes confirmar que el CLI de Flow se instala yendo a un terminal y escribiendo `flow versión`. Si una versión aparece, todo está bien.
 
