@@ -133,11 +133,11 @@ pub fun main(address: Address): String {
 
 上面代码中我们从/public/路径中读取了资源的 name 字段，步骤如下：
 
-1.获得地址的 PublicAccount：getAccount(address)
+1.获得地址的 PublicAccount：`getAccount(address)`
 
-2.从/public/MyTestResource 路径下获取指向&Stuff.Test 类型的 capability：getCapability<&Stuff.Test>(/public/MyTestResource)
+2.从`/public/MyTestResource` 路径下获取指向`&Stuff.Test` 类型的 capability：`getCapability<&Stuff.Test>(/public/MyTestResource)`
 
-3.从 capability 中借来真正的资源引用：let testResource: &Stuff.Test = publicCapability.borrow() ?? panic("The capability is invalid")
+3.从 capability 中借来真正的资源引用：`let testResource: &Stuff.Test = publicCapability.borrow() ?? panic("The capability is invalid")`
 
 4.返回 name 字段：return testResource.name
 
