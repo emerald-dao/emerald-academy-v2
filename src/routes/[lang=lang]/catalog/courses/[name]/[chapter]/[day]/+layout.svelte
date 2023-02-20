@@ -11,15 +11,15 @@
 <div class="container-large">
 	<div class="sidebar">
 		<a class="header-link" href={`/${$locale}/catalog/${data.overview.slug}`}>Course Overview</a>
-		{#each Object.values(data.contents) as weekContent, index}
+		{#each Object.values(data.contents) as chapterContent, index}
 			<div class="column-4">
-				<p class="week small">Week {index + 1}</p>
-				{#each weekContent as day}
+				<p class="chapter small">Chapter {index + 1}</p>
+				{#each chapterContent as day}
 					<a
 						href={`/${day.slug}`}
 						class="header-link"
 						class:active={day.slug ===
-							`${$page.params.lang}/catalog/courses/${$page.params.name}/${$page.params.week}/${$page.params.day}`}
+							`${$page.params.lang}/catalog/courses/${$page.params.name}/${$page.params.chapter}/${$page.params.day}`}
 					>
 						{day.metadata.title}
 					</a>
@@ -70,7 +70,7 @@
 		}
 	}
 
-	.week {
+	.chapter {
 		color: var(--clr-text-off);
 		border-bottom: 1px var(--clr-surface-secondary) solid;
 		padding-bottom: var(--space-1);

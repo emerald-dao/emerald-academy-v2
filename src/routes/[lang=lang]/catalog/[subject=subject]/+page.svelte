@@ -94,7 +94,7 @@
 					<div>
 						<ContentIntro overview={data.featuredRoadmap} />
 					</div>
-					<div class="week-wrapper">
+					<div class="chapter-wrapper">
 						<CurriculumOverview overview={data.featuredRoadmap} />
 					</div>
 				</div>
@@ -179,7 +179,7 @@
 					width: 90%;
 				}
 
-				.week-wrapper {
+				.chapter-wrapper {
 					display: none;
 
 					@include mq(medium) {

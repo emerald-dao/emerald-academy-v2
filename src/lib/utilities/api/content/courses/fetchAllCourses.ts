@@ -30,15 +30,15 @@ export const fetchAllCourses = async (locale: Locales) => {
 					const { metadata } = await resolver();
 
 					const parts = path.split('/');
-					const week = parts[parts.length - 2];
+					const chapter = parts[parts.length - 2];
 
-					if (!contents[week]) {
-						contents[week] = [];
+					if (!contents[chapter]) {
+						contents[chapter] = [];
 					}
 
 					const slug = parts.slice(3, 9).join('/').replace('content', 'catalog').replace('.md', '');
 
-					contents[week].push({
+					contents[chapter].push({
 						slug,
 						metadata
 					});

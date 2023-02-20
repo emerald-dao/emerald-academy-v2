@@ -17,17 +17,17 @@ export const fetchOneCourse = async (slug: string, locale: Locales) => {
 			const { metadata } = await resolver();
 
 			const parts = path.split('/');
-			const week = parts[parts.length - 2];
+			const chapter = parts[parts.length - 2];
 
-			if (!contents[week]) {
-				contents[week] = [];
+			if (!contents[chapter]) {
+				contents[chapter] = [];
 			}
 
 			const slugPart1 = parts.slice(3, 6).join('/').replace('content', 'catalog');
 			const slugPart2 = parts.slice(7, 9).join('/').replace('.md', '');
 			const slug = `${locale}/${slugPart1}/${slugPart2}`;
 
-			contents[week].push({
+			contents[chapter].push({
 				slug,
 				metadata
 			});

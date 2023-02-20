@@ -18,8 +18,8 @@
 	</ContentIntro>
 </section>
 <section class="container-small">
-	{#each Object.values(data.contents) as week, i}
-		<CourseDetails data={week} {i} typeOfcontent={data.overview.contentType} />
+	{#each Object.values(data.contents) as chapter, i}
+		<CourseDetails data={chapter} {i} typeOfcontent={data.overview.contentType} />
 	{/each}
 </section>
 <section class="container-small">

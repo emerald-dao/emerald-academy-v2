@@ -11,7 +11,7 @@ export const overview: CourseOverview = {
 	excerpt: 'Learn to make a DApp on the Flow blockchain. You will learn the major aspects of DApp development.',
 	metadata: {
 		expertise: ExpertiseEnum.beginner,
-		duration: '3 weeks',
+		duration: '3 chapters',
 		prerequisites: ['javascript'],
 		subjects: [SubjectsEnum.Webdev, SubjectsEnum.Cadence, SubjectsEnum.Javascript],
 		faqs: [

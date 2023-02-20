@@ -12,7 +12,7 @@ export const overview: BootcampOverview = {
 		'Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet',
 	metadata: {
 		expertise: ExpertiseEnum.intermediate,
-		duration: '3 weeks',
+		duration: '3 chapters',
 		prerequisites: ['javascript'],
 		subjects: [SubjectsEnum.Backend, SubjectsEnum.Cadence],
 		faqs: [
@@ -58,11 +58,11 @@ export const overview: BootcampOverview = {
 			chapters: [
 				{
 					name: 'Chapter 1, Day 1 - Introduction to Flow',
-					link:'/catalog/courses/basic-dapp/week1/day1.md	'
+					link: '/catalog/courses/basic-dapp/chapter1/day1.md	'
 				},
 				{
 					name: 'Chapter 2, Day 1 - Introduction to Flow',
-					link:'/catalog/courses/basic-dapp/week1/day2.md'
+					link: '/catalog/courses/basic-dapp/chapter1/day2.md'
 				}
 			]
 		},
@@ -75,11 +75,11 @@ export const overview: BootcampOverview = {
 			chapters: [
 				{
 					name: 'Chapter 1, Day 2 - Introduction to Flow',
-					link:'/catalog/courses/basic-dapp/week2/day1.md'
+					link: '/catalog/courses/basic-dapp/chapter2/day1.md'
 				},
 				{
 					name: 'Chapter 2, Day 2 - Introduction to Flow',
-					link:'/catalog/courses/basic-dapp/week2/day2.md'
+					link: '/catalog/courses/basic-dapp/chapter2/day2.md'
 				}
 			]
 		}

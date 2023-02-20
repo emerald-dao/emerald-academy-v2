@@ -65,10 +65,10 @@ Not too bad, right? When we deposit, we make `lastDeposited` equal to the curren
 1. Using the same exact example as we did in the lesson, modify the code to allow the user to withdraw if it has been (submit a separate answer for each):
 
 - 1 day
-- 1 week
+- 1 chapter
 - 1 month
 - 1 year
-- 15 years, 8 months, 3 weeks, 1 day, 12 hours, 14 minutes, and 12 seconds (hahahahahhhahahahaha I'm so sorry)
+- 15 years, 8 months, 3 chapters, 1 day, 12 hours, 14 minutes, and 12 seconds (hahahahahhhahahahaha I'm so sorry)
 
 2. How do you get the current unix timestamp in Cadence?
 

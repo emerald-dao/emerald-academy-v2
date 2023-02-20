@@ -35,7 +35,7 @@
 				</div>
 				<div class="title-wrapper">
 					{#if typeOfcontent === ContentTypeEnum.Course}
-						<h5>{`Week ${i + 1}`}</h5>
+						<h5>{`Chapter ${i + 1}`}</h5>
 					{:else if typeOfcontent === ContentTypeEnum.Bootcamp}
 						<h5>{data.name}</h5>
 					{/if}
@@ -78,9 +78,9 @@
 	{#if open}
 		<div class="details column-2" transition:slide>
 			{#if typeOfcontent === ContentTypeEnum.Course}
-				{#each data as week}
-					<a href={`/${week.slug}`} target="_blank" rel="noreferrer">
-						<p class="small">{week.metadata.title}</p>
+				{#each data as chapter}
+					<a href={`/${chapter.slug}`} target="_blank" rel="noreferrer">
+						<p class="small">{chapter.metadata.title}</p>
 					</a>
 				{/each}
 			{:else if typeOfcontent === ContentTypeEnum.Bootcamp}

@@ -11,7 +11,7 @@ export const overview: RoadmapOverview = {
 	excerpt: 'Lorem ipsum dolor sit amet.',
 	metadata: {
 		expertise: ExpertiseEnum.beginner,
-		duration: '3 weeks',
+		duration: '3 chapters',
 		prerequisites: ['javascript'],
 		subjects: [SubjectsEnum.Cadence]
 	},
@@ -20,7 +20,7 @@ export const overview: RoadmapOverview = {
 			title: 'Beginner Cadence Course',
 			excerpt: 'Lorem ipsum',
 			contentType: ContentTypeEnum.Course,
-			duration: '4 weeks',
+			duration: '4 chapters',
 			subjects: [SubjectsEnum.Cadence],
 			url: `catalog/courses/beginner-cadence`
 		},
@@ -28,20 +28,20 @@ export const overview: RoadmapOverview = {
 			title: 'Basic Dapp',
 			excerpt: 'Lorem ipsum',
 			contentType: ContentTypeEnum.Course,
-			duration: '4 weeks',
+			duration: '4 chapters',
 			subjects: [SubjectsEnum.Cadence],
 			url: 'catalog/courses/basic-dapp'
 		}
 	],
-	weeks: [
+	chapters: [
 		{
-			excerpt: 'This is the first week'
+			excerpt: 'This is the first chapter'
 		},
 		{
-			excerpt: 'This is the second week'
+			excerpt: 'This is the second chapter'
 		},
 		{
-			excerpt: 'This is the third week'
+			excerpt: 'This is the third chapter'
 		}
 	]
 };

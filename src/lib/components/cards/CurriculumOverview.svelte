@@ -7,9 +7,9 @@
 
 <div class="card-primary">
 	<h5>Overview</h5>
-	{#each overview.weeks as week}
-		<p class="week">Week {overview.weeks.indexOf(week) + 1}</p>
-		<p class="excerpt">{week.excerpt}</p>
+	{#each overview.chapters as chapter}
+		<p class="chapter">Chapter {overview.chapters.indexOf(chapter) + 1}</p>
+		<p class="excerpt">{chapter.excerpt}</p>
 	{/each}
 	<br />
 	<p class="w-medium">Prerequisites</p>
@@ -25,7 +25,7 @@
 	.excerpt {
 		color: var(--clr-text-off);
 	}
-	.week {
+	.chapter {
 		margin-top: var(--space-8);
 	}
 	.w-medium {
