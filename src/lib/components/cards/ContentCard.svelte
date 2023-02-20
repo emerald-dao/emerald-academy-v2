@@ -43,6 +43,8 @@
 
 		.card-primary {
 			height: 100%;
+			display: flex;
+			flex-direction: column;
 
 			h4 {
 				margin: var(--space-4) 0 var(--space-4) 0;
@@ -55,6 +57,7 @@
 			p {
 				color: var(--clr-text-main);
 				font-size: var(--font-size-1);
+				flex-grow: 1;
 			}
 
 			h5 {
