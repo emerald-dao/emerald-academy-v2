@@ -9,16 +9,20 @@
 	import type { Filter } from '$lib/types/content/filters/filter.interface';
 	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
 	import { page } from '$app/stores';
+	import type { SubjectOverview } from '$lib/types/content/subjects.interface';
 
 	export let data: Data;
 
 	interface Data {
 		content: Overview[];
+		featuredSubjects: SubjectOverview[];
 	}
+
+	console.log(data);
 
 	let filters: Filter[] = [
 		{
-			title: 'TYPE_OF_CONTENT',
+			title: 'Type of content',
 			filterElement: [
 				{
 					title: 'Live Bootcamp',
@@ -39,7 +43,7 @@
 			filterBucket: []
 		},
 		{
-			title: 'SUBJECT',
+			title: 'Subject',
 			filterElement: [
 				{
 					title: 'Backend',
@@ -50,7 +54,7 @@
 			filterBucket: []
 		},
 		{
-			title: 'EXPERTISE',
+			title: 'Expertise',
 			filterElement: [
 				{
 					title: 'Beginner',
@@ -79,19 +83,12 @@
 	<h1 class="w-medium heading">Catalog</h1>
 	<h5 class="w-medium heading">What would you like to learn?</h5>
 	<div class="first-wrapper">
-		<div class="roadmap-wrapper">
-			<a href={`${$page.url.href}/${data.subjectCadence.name}`}>
-				<h4>{`Learn ${firstCapital(data.subjectCadence.name)}`}</h4>
-
-				<p>{firstCapital(data.subjectCadence.description)}</p>
+		{#each data.featuredSubjects as subject}
+			<a class="card column-2" href={`${$page.url.href}/${subject.name}`}>
+				<h4>{`Learn ${firstCapital(subject.name)}`}</h4>
+				<p>{firstCapital(subject.description)}</p>
 			</a>
-		</div>
-		<div class="roadmap-wrapper">
-			<a href={`${$page.url.href}/${data.subjectDappDevelopment.name}`}>
-				<h4>{`Learn ${firstCapital(data.subjectDappDevelopment.name)}`}</h4>
-				<p>{data.subjectDappDevelopment.description}</p>
-			</a>
-		</div>
+		{/each}
 	</div>
 	<div class="second-wrapper">
 		<div class="sidebar"><Filters bind:filters /></div>
@@ -125,31 +122,8 @@
 			gap: var(--space-10);
 		}
 
-		a {
-			display: flex;
-			flex-direction: column;
-			gap: var(--space-5);
-			text-decoration: none;
-
-			h4 {
-				text-decoration: underline;
-
-				&:hover {
-					text-decoration: none;
-				}
-			}
-
-			p {
-				color: var(--clr-text-main);
-			}
-		}
-
-		.roadmap-wrapper {
-			display: flex;
-			flex-direction: column;
-			border: var(--border-width-primary) var(--clr-border-primary) solid;
-			border-radius: var(--radius-8);
-			padding: var(--space-11);
+		p {
+			color: var(--clr-text-main);
 		}
 	}
 
