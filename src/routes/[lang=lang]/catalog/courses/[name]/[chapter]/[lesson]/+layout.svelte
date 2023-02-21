@@ -3,8 +3,6 @@
 	import { locale } from '$i18n/i18n-svelte';
 	import type { CourseData } from '$lib/types/content/course.interface';
 
-	console.log($page.params);
-
 	export let data: CourseData;
 </script>
 
@@ -13,15 +11,15 @@
 		<a class="header-link" href={`/${$locale}/catalog/${data.overview.slug}`}>Course Overview</a>
 		{#each Object.values(data.contents) as chapterContent, index}
 			<div class="column-4">
-				<p class="chapter small">Chapter {index + 1}</p>
-				{#each chapterContent as lesson}
+				<p class="chapter small">{`${index + 1}. ${chapterContent.overview.title}`}</p>
+				{#each chapterContent.contents as lesson, i}
 					<a
 						href={`/${lesson.slug}`}
 						class="header-link"
 						class:active={lesson.slug ===
 							`${$page.params.lang}/catalog/courses/${$page.params.name}/${$page.params.chapter}/${$page.params.lesson}`}
 					>
-						{lesson.metadata.title}
+						{`${index + 1}.${i + 1} ${lesson.metadata.title}`}
 					</a>
 				{/each}
 			</div>
