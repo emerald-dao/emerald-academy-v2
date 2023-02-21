@@ -103,7 +103,7 @@
 		flex-direction: column;
 		border-inline: var(--border-width-primary) var(--clr-border-primary) solid;
 		border-bottom: var(--border-width-primary) var(--clr-border-primary) solid;
-		padding: var(--space-5);
+		padding: var(--space-7);
 		background: var(--clr-surface-primary);
 
 		&:first-child {
@@ -134,7 +134,6 @@
 					.index-wrapper {
 						height: 34px;
 						width: 34px;
-						background: var(--clr-surface-secondary);
 						border-radius: 50%;
 						display: grid;
 						place-content: center;
