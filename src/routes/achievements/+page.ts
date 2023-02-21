@@ -1,4 +1,4 @@
-import { user } from "$stores/FlowStore"
+import { user } from "$stores/flow/FlowStore"
 import { getEmeraldID } from "$flow/actions";
 import { supabase } from "$lib/supabaseClient";
 import { get } from "svelte/store";

@@ -13,10 +13,11 @@
 	import { emeraldTools, socialMedia } from '$lib/config/navigation';
 	import { theme } from '$stores/ThemeStore';
 	import { logIn, unauthenticate } from '$flow/actions';
-	import { network, user } from '$stores/FlowStore';
+	import { user } from '$stores/flow/FlowStore';
 	import { getFindProfile } from '$flow/utils';
 	import LocaleSwitcher from '$lib/components/i18n/LocaleSwitcher.svelte';
 	import dappInfo from '$lib/config/config';
+	import { network } from '$flow/config';
 
 	export let data: LayoutData;
 
@@ -63,7 +64,7 @@
 	{getFindProfile}
 	{navElements}
 	user={$user}
-	network={$network}
+	{network}
 	avatarDropDownNavigation={avatarDropdownNav}
 	logoHref={`/${$locale}/`}
 >
