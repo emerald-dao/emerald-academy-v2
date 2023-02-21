@@ -32,6 +32,7 @@ export const fetchOneCourse = async (slug: string, locale: Locales) => {
 					contents: []
 				};
 
+				/* @vite-ignore */
 				const chapterOverview = await import(
 					`../../../../${chapterSlug}/${locale}/${chapter}/overview`
 				);

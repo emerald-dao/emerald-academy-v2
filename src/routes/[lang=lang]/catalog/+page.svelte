@@ -10,13 +10,16 @@
 	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
 	import { page } from '$app/stores';
 	import type { SubjectOverview } from '$lib/types/content/subjects.interface';
+	import type { Locale } from 'typesafe-i18n/types/runtime/src/core.mjs';
 
 	export let data: Data;
 
 	interface Data {
 		content: Overview[];
 		featuredSubjects: SubjectOverview[];
+		locale: Locale;
 	}
+	console.log(data);
 
 	let filters: Filter[] = [
 		{

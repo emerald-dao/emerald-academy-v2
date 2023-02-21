@@ -13,7 +13,7 @@ export const fetchOverviews = async (
 
 	switch (contentType) {
 		case ContentTypeEnum.Course:
-			overviews = import.meta.glob('/src/lib/content/courses/**/*.ts');
+			overviews = import.meta.glob('/src/lib/content/courses/*/*/overview.ts');
 			break;
 
 		case ContentTypeEnum.Bootcamp:
