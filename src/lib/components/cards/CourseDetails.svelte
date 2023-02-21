@@ -31,13 +31,13 @@
 		<div class="text">
 			<div class="index-and-title-wrapper">
 				<div class="index-wrapper">
-					<span class="w-medium">{i + 1}</span>
+					<span class="small">{i + 1}</span>
 				</div>
 				<div class="title-wrapper">
 					{#if typeOfcontent === ContentTypeEnum.Course}
-						<div class="column-1kl">
-							<h5 class="w-medium">{`${data.overview.title}`}</h5>
-							<span class="small">{`${data.overview.description}`}</span>
+						<div class="column-1">
+							<h5>{`${data.overview.title}`}</h5>
+							<span class="xsmall">{`${data.overview.description}`}</span>
 						</div>
 					{:else if typeOfcontent === ContentTypeEnum.Bootcamp}
 						<h5>{data.name}</h5>
@@ -129,7 +129,7 @@
 					display: flex;
 					flex-direction: row;
 					align-items: center;
-					gap: var(--space-1);
+					gap: var(--space-2);
 
 					.index-wrapper {
 						height: 34px;
