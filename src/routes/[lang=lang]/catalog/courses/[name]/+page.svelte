@@ -1,5 +1,4 @@
 <script type="ts">
-	import { locale } from '$i18n/i18n-svelte';
 	import type { CourseData } from '$lib/types/content/course.interface';
 	import Faqs from '$lib/components/faqs/Faqs.svelte';
 	import ContentIntro from '$lib/components/cards/ContentIntro.svelte';
@@ -12,7 +11,7 @@
 
 <section class="container-small">
 	<ContentIntro overview={data.overview}>
-		<Button size="large" href={`/${Object.values(data.contents)[0][0].slug}`}>
+		<Button size="large" href={`/${Object.values(data.contents)[0].contents[0].slug}`}>
 			Start<Icon icon="tabler:arrow-right" />
 		</Button>
 	</ContentIntro>

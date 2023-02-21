@@ -35,9 +35,12 @@
 				</div>
 				<div class="title-wrapper">
 					{#if typeOfcontent === ContentTypeEnum.Course}
-						<h5 class="w-medium">{`Chapter ${i + 1}`}</h5>
+						<div class="column-1kl">
+							<h5 class="w-medium">{`${data.overview.title}`}</h5>
+							<span class="small">{`${data.overview.description}`}</span>
+						</div>
 					{:else if typeOfcontent === ContentTypeEnum.Bootcamp}
-						<h5 class="w-medium">{data.name}</h5>
+						<h5>{data.name}</h5>
 					{/if}
 				</div>
 			</div>
@@ -78,9 +81,9 @@
 	{#if open}
 		<div class="details column-2" transition:slide>
 			{#if typeOfcontent === ContentTypeEnum.Course}
-				{#each data as chapter}
-					<a href={`/${chapter.slug}`} target="_blank" rel="noreferrer" class="header-link">
-						{chapter.metadata.title}
+				{#each data.contents as content, index}
+					<a href={`/${content.slug}`} target="_blank" rel="noreferrer" class="header-link">
+						{`${i + 1}.${index + 1} ${content.metadata.title}`}
 					</a>
 				{/each}
 			{:else if typeOfcontent === ContentTypeEnum.Bootcamp}
