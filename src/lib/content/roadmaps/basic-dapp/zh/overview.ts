@@ -10,38 +10,38 @@ export const overview: RoadmapOverview = {
 	slug: generateSlug(import.meta.url),
 	excerpt: 'Lorem ipsum dolor sit amet.',
 	metadata: {
-		expertise: ExpertiseEnum.begginer,
-		duration: '3 weeks',
+		expertise: ExpertiseEnum.beginner,
+		duration: '3 chapters',
 		prerequisites: ['javascript'],
 		subjects: [SubjectsEnum.Cadence, SubjectsEnum.Frontend]
 	},
 	contents: [
 		{
-			title: 'Begginer Cadence Course',
+			title: 'Beginner Cadence Course',
 			excerpt: 'Lorem ipsum',
 			contentType: ContentTypeEnum.Course,
-			duration: '4 weeks',
+			duration: '4 chapters',
 			subjects: [SubjectsEnum.Cadence],
-			url: 'catalog/courses/begginer-cadence'
+			url: 'catalog/courses/beginner-cadence'
 		},
 		{
 			title: 'Basic Dapp',
 			excerpt: 'Lorem ipsum',
 			contentType: ContentTypeEnum.Course,
-			duration: '4 weeks',
+			duration: '4 chapters',
 			subjects: [SubjectsEnum.Cadence],
 			url: 'catalog/courses/basic-dapp'
 		}
 	],
-	weeks: [
+	chapters: [
 		{
-			excerpt: 'This is the first week'
+			excerpt: 'This is the first chapter'
 		},
 		{
-			excerpt: 'This is the second week'
+			excerpt: 'This is the second chapter'
 		},
 		{
-			excerpt: 'This is the third week'
+			excerpt: 'This is the third chapter'
 		}
 	]
 };

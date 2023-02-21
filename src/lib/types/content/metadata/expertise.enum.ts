@@ -1,5 +1,5 @@
 export enum ExpertiseEnum {
-	'begginer' = 'Begginer',
+	'beginner' = 'Beginner',
 	'intermediate' = 'Intermediate',
 	'advanced' = 'Advanced'
 }

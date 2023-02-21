@@ -49,7 +49,7 @@ const zh: BaseTranslation = {
 	// Expertise
 	[ExpertiseEnum.advanced]: '高级',
 	[ExpertiseEnum.intermediate]: '中级',
-	[ExpertiseEnum.begginer]: '初级'
+	[ExpertiseEnum.beginner]: '初级'
 };
 
 export default zh;

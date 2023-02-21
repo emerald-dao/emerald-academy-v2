@@ -49,7 +49,7 @@ const ru: BaseTranslation = {
 	// Expertise
 	[ExpertiseEnum.advanced]: 'Продвинутый',
 	[ExpertiseEnum.intermediate]: 'Средний',
-	[ExpertiseEnum.begginer]: 'Начинающий'
+	[ExpertiseEnum.beginner]: 'Начинающий'
 };
 
 export default ru;

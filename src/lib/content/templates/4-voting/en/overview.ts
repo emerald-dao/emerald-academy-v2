@@ -7,6 +7,7 @@ export const overview: Template = {
   contentType: ContentTypeEnum.Template,
   slug: generateSlug(import.meta.url),
   audited: true,
+  web: 'React.js',
   user: {
     name: 'Emerald City',
     userAvatarUrl: 'https://avatars.githubusercontent.com/u/15198786?v=4',

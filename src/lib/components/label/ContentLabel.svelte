@@ -21,7 +21,7 @@
 	<Label size="small" {color} {state}><slot /></Label>
 {:else if type === SubjectsEnum.Webdev}
 	<Label size="small" {color} {state}><slot /></Label>
-{:else if type === ExpertiseEnum.begginer}
+{:else if type === ExpertiseEnum.beginner}
 	<Label size="small" {color} {state}><slot /></Label>
 {:else if type === ExpertiseEnum.intermediate}
 	<Label size="small" {color} {state}><slot /></Label>

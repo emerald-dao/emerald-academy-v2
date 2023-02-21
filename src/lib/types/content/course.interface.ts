@@ -5,14 +5,14 @@ export interface CourseData {
 	contents: CourseContents;
 }
 
-export interface CourseOverview extends Overview {}
+export interface CourseOverview extends Overview { }
 
 export interface CourseContents {
-	[week: string]: Array<{
+	[chapter: string]: Array<{
 		slug: string;
 		metadata: {
 			title: string;
-			day: number;
+			lesson: number;
 			language: string;
 			excerpt: string;
 			headings: Array<{

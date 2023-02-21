@@ -46,18 +46,10 @@
 			<p class="large">audited</p>
 		</div>
 	{/if}
-	{#if thisTemplateOverview.audited}
-		<div class="row-2">
-			<Icon icon="tabler:git-commit" color="var(--clr-text-main)" />
-			<p class="large">other label</p>
-		</div>
-	{/if}
-	{#if thisTemplateOverview.audited}
-		<div class="row-2 lorem-wrapper">
-			<Icon icon="tabler:git-commit" color="var(--clr-text-main)" />
-			<p class="large">lorem</p>
-		</div>
-	{/if}
+	<div class="row-2 lorem-wrapper">
+		<Icon icon="tabler:globe" color="var(--clr-text-main)" />
+		<p class="large">{thisTemplateOverview.web}</p>
+	</div>
 	<div class="button-wrapper">
 		<Button
 			href={`https://${thisTemplateOverview.templateRepositoryUrl}`}

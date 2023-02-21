@@ -6,8 +6,8 @@ layout: false
 
 ```js
 pub contract Variables {
-   pub let num1: Int
-   pub var num2: Int
+   pub var num1: Int
+   pub let num2: Int
 
    init() {
       self.number1 = 1

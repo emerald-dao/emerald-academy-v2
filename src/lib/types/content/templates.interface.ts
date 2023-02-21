@@ -4,6 +4,7 @@ export interface Template {
 	contentType: ContentTypeEnum;
 	slug: string;
 	audited: boolean;
+	web: string;
 	user: {
 		name: string;
 		userAvatarUrl: string;

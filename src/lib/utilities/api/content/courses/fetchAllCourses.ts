@@ -7,37 +7,41 @@ export const fetchAllCourses = async (locale: Locales) => {
 	const iterableOverviews = Object.entries(overviews);
 	const iterableContents = Object.entries(contents);
 
+	const thisLangOverviews = iterableOverviews.filter(([path]) => {
+		return path.split('/')[6] == locale;
+	});
+
+	const thisLangContents = iterableContents.filter(([path]) => {
+		return path.split('/')[6] == locale;
+	});
+
 	const allCourses = await Promise.all(
-		iterableOverviews.map(async ([path, resolver]) => {
-			const thisCourseLang = path.split('/')[6];
-
-			if (thisCourseLang != locale) {
-				return;
-			}
-
+		thisLangOverviews.map(async ([path, resolver]) => {
 			const { overview } = await resolver();
+
+			const thisCourseContent = thisLangContents.filter(([path]) => {
+				return path.includes(overview.slug);
+			});
 
 			const contents = {};
 
 			await Promise.all(
-				iterableContents.map(async ([path, resolver]) => {
+				thisCourseContent.map(async ([path, resolver]) => {
 					const { metadata } = await resolver();
 
-					if (path.includes(overview.slug)) {
-						const parts = path.split('/');
-						const week = parts[parts.length - 2];
+					const parts = path.split('/');
+					const chapter = parts[parts.length - 2];
 
-						if (!contents[week]) {
-							contents[week] = [];
-						}
-
-						const slug = parts.slice(3, 8).join('/').replace('content', 'catalog');
-
-						contents[week].push({
-							slug,
-							metadata
-						});
+					if (!contents[chapter]) {
+						contents[chapter] = [];
 					}
+
+					const slug = parts.slice(3, 9).join('/').replace('content', 'catalog').replace('.md', '');
+
+					contents[chapter].push({
+						slug,
+						metadata
+					});
 				})
 			);
 

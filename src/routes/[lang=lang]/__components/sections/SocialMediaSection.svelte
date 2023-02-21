@@ -1,4 +1,5 @@
 <script type="ts">
+	import { multiplyArray } from '$lib/utilities/dataTransformation/multiplyArray';
 	import { LL } from '$i18n/i18n-svelte';
 	import { comments } from '$lib/config/comments';
 	import CommentsCard from '$lib/components/cards/CommentsCard.svelte';
@@ -10,7 +11,7 @@
 <section>
 	<h4>{$LL.SOCIAL_H1()}</h4>
 	<div class="comments-wrapper">
-		{#each comments as c, i}
+		{#each multiplyArray(comments, 30) as c, i}
 			<div class="comment-{i}">
 				<CommentsCard comment={c} />
 			</div>
@@ -21,6 +22,7 @@
 <style type="scss">
 	section {
 		overflow: hidden;
+		width: 100vw;
 
 		h4 {
 			text-align: center;
@@ -32,16 +34,17 @@
 			display: grid;
 			grid-auto-flow: column dense; /* column flow with "dense" to fill all the cells */
 			grid-template-rows: 1fr 1fr; /* 2 rows */
-			gap: var(--space-3);
+			gap: var(--space-7);
+			justify-content: center;
 
 			[class^='comment-']:nth-child(even) {
-				animation: moving 10s infinite;
+				animation: moving 1000s infinite;
 				animation-timing-function: linear;
 				width: 350px;
 			}
 
 			[class^='comment-']:nth-child(odd) {
-				animation: moving2 10s infinite;
+				animation: moving2 1000s infinite;
 				animation-timing-function: linear;
 			}
 
@@ -50,7 +53,7 @@
 					transform: translate(0);
 				}
 				100% {
-					transform: translate(-100%);
+					transform: translate(10000%);
 				}
 			}
 
@@ -59,7 +62,7 @@
 					transform: translate(0);
 				}
 				100% {
-					transform: translate(100%);
+					transform: translate(-10000%);
 				}
 			}
 		}

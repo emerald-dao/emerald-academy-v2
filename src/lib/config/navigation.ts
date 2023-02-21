@@ -1,6 +1,7 @@
 import { locale } from '$i18n/i18n-svelte';
 import { get } from 'svelte/store';
 
+// TODO: This is not in use, couldn't figure out how to get the locale to work reactivly
 export const navElements = [
 	{
 		name: 'Catalog',
@@ -62,5 +63,14 @@ export const socialMedia = [
 		name: 'Github ',
 		url: 'https://github.com/emerald-dao',
 		icon: 'ion:logo-github'
+	}
+];
+
+export const avatarDropdownNav = [
+	{
+		name: 'My Achievements',
+		url: '/achievements',
+		prefetch: true,
+		icon: 'tabler:diamond'
 	}
 ];

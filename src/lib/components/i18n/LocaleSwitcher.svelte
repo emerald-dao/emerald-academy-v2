@@ -1,13 +1,15 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import { browser } from '$app/environment';
-	import { goto, invalidateAll } from '$app/navigation';
+	import { invalidateAll } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { setLocale, locale } from '$i18n/i18n-svelte';
 	import type { Locales } from '$i18n/i18n-types';
 	import { locales } from '$i18n/i18n-util';
 	import { loadLocaleAsync } from '$i18n/i18n-util.async';
 	import { replaceLocaleInUrl } from '$lib/utilities/i18n/utils';
+	import { Dropdown } from '@emerald-dao/component-library';
+	import { localesFlags } from '$i18n/localesFlags';
 
 	const switchLocale = async (newLocale: Locales, updateHistoryState = true) => {
 		if (!newLocale || $locale === newLocale) return;
@@ -16,7 +18,7 @@
 		// select locale
 		setLocale(newLocale);
 		// update `lang` attribute
-		document.querySelector('html').setAttribute('lang', newLocale);
+		document.querySelector('html')?.setAttribute('lang', newLocale);
 		if (updateHistoryState) {
 			// update url to reflect locale changes
 			history.pushState({ locale: newLocale }, '', replaceLocaleInUrl($page.url, newLocale));
@@ -36,56 +38,47 @@
 			replaceLocaleInUrl($page.url, lang)
 		);
 	}
-
-	let selectedLocale: Locales;
-
-	$: selectedLocale && goto(replaceLocaleInUrl($page.url, selectedLocale));
 </script>
 
 <svelte:window on:popstate={handlePopStateEvent} />
 
-<div class="main-wrapper">
-	<div class="icon-wrapper">
-		<Icon icon="material-symbols:translate-rounded" width="0.9em" />
+<Dropdown rightOffset="-1rem" topOffset="1.6rem" width="fit-content">
+	<div class="icon-wrapper" slot="parent">
+		<Icon icon="material-symbols:translate-rounded" width="0.9em" slot="parent" />
 	</div>
-	<select bind:value={selectedLocale}>
+	<ul slot="dropdown">
 		{#each locales as l}
-			<option value={l}>
-				{l}
-			</option>
+			<li value={l}>
+				<a
+					class="header-link row-1 align-center"
+					class:active={l === $locale}
+					href={`${replaceLocaleInUrl($page.url, l)}`}
+				>
+					<span class="flag">
+						{localesFlags[l]}
+					</span>
+					{l}
+				</a>
+			</li>
 		{/each}
-	</select>
-</div>
+	</ul>
+</Dropdown>
 
 <style type="scss">
-	.main-wrapper {
-		border-radius: var(--radius-1);
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		width: fit-content;
-		gap: var(--space-1);
-		position: relative;
+	.icon-wrapper {
+		margin-top: var(--space-1);
+	}
 
-		.icon-wrapper {
-			position: absolute;
-			top: 6.2px;
-			left: 8px;
-		}
+	ul {
+		list-style: none;
+		padding: var(--space-2) var(--space-5);
+		margin: 0;
 
-		select {
-			border: none;
-			background-color: transparent;
-			color: var(--clr-font-primary);
-			appearance: none;
-			padding: var(--space-1) var(--space-2) var(--space-1) 25px;
-			border-radius: inherit;
-			cursor: pointer;
-			font-size: var(--font-size-1);
-			z-index: 2;
+		li {
+			margin-bottom: var(--space-1);
 
-			&:focus {
-				outline: none;
+			.flag {
+				margin-top: var(--space-1);
 			}
 		}
 	}
