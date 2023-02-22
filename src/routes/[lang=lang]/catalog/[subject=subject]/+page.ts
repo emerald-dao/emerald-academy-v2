@@ -7,7 +7,9 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	const overview = await import(
 		`../../../../lib/content/subjects/${params.subject}/${params.lang}/overview.ts`
 	);
-	const featuredRoadmap = await import(`../../../../lib/content/${roadmapPerSubject[params.subject]}/${params.lang}/overview`)
+	const featuredRoadmap = await import(
+		`../../../../lib/content/${roadmapPerSubject[params.subject]}/${params.lang}/overview`
+	);
 
 	return {
 		content,
