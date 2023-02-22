@@ -2,6 +2,7 @@
 	import { Breadcrumbs } from '@emerald-dao/component-library';
 	import Sidebar from '../__components/Sidebar.svelte';
 	import type { Template } from '$lib/types/content/templates.interface';
+	import { page } from '$app/stores';
 
 	export let data: Data;
 
@@ -14,7 +15,7 @@
 
 	$: routes = [
 		{
-			path: '/templates',
+			path: `/${$page.params.lang}/templates`,
 			label: 'Templates'
 		},
 		{
