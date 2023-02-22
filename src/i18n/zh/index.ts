@@ -39,6 +39,7 @@ const zh: BaseTranslation = {
 	[ContentTypeEnum.Roadmap]: '学习路线',
 	[ContentTypeEnum.Tips]: 'Cadence by Example',
 	[ContentTypeEnum.Template]: '模板',
+	[ContentTypeEnum.Resources]: '资源',
 
 	// Subjects
 	[SubjectsEnum.Backend]: '后端',

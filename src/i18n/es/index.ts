@@ -39,6 +39,7 @@ const es: Translation = {
 	[ContentTypeEnum.Roadmap]: 'Camino de aprendizaje',
 	[ContentTypeEnum.Tips]: 'Cadence by Example',
 	[ContentTypeEnum.Template]: 'Plantillas',
+	[ContentTypeEnum.Resources]: 'Recursos',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',

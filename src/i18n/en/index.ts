@@ -39,6 +39,7 @@ const en: BaseTranslation = {
 	[ContentTypeEnum.Roadmap]: 'Learning path',
 	[ContentTypeEnum.Tips]: 'Cadence by Example',
 	[ContentTypeEnum.Template]: 'Templates',
+	[ContentTypeEnum.Resources]: 'Resources',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',
