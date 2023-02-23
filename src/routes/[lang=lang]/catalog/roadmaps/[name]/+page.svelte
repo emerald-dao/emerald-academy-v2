@@ -10,19 +10,15 @@
 	}
 </script>
 
-<section>
-	<div class="container-small main-wrapper">
-		<div class="content">
-			<SpecificContentCard overview={data.roadmap} />
-		</div>
+<section class="container-small main-wrapper">
+	<div class="content">
+		<SpecificContentCard overview={data.roadmap} />
 	</div>
-	<section>
-		<div class="container-small">
-			{#each data.roadmap.contents as roadmapContent}
-				<RoadmapContentCard {roadmapContent} />
-			{/each}
-		</div>
-	</section>
+</section>
+<section class="container-small">
+	{#each data.roadmap.contents as roadmapContent}
+		<RoadmapContentCard {roadmapContent} />
+	{/each}
 </section>
 
 <style type="scss">
@@ -33,7 +29,7 @@
 
 		@include mq(small) {
 			display: grid;
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: 2fr 1fr;
 			justify-content: space-between;
 		}
 	}
