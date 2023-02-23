@@ -1,6 +1,5 @@
 <script type="ts">
 	import { Button } from '@emerald-dao/component-library';
-	import BootcampLessons from '$lib/components/cards/BootcampLessons.svelte';
 	import SpecificContentCard from '$lib/components/cards/ContentIntro.svelte';
 	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
 	import { onBoardingSteps, onBoardingActiveStep } from '$stores/onBoarding/OnBoardingSteps';
@@ -28,7 +27,4 @@
 	{#each data.overview.videos as video, i}
 		<CourseDetails data={video} {i} typeOfcontent={data.overview.contentType} />
 	{/each}
-</section>
-<section class="container-small">
-	<BootcampLessons video={data.overview.videos} />
 </section>
