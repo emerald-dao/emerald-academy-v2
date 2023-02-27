@@ -6,6 +6,12 @@ export const resources: Resources[] = [
 		link: 'https://www.youtube.com/channel/UCf6DzMRwj7SJ3nPrZqd5hHw'
 	},
 	{
+		image: '/amethyst.jpeg',
+		title: "Amethyst's Blog",
+		excerpt: 'Very organized & clear threads on Flow .',
+		link: 'https://amethystcodes.hashnode.dev/'
+	},
+	{
 		image: '/flow-logo.png',
 		title: 'Flow Docs',
 		excerpt: 'Official link to all documentation related to Flow & Cadence.',
