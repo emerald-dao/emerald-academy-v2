@@ -11,6 +11,7 @@
 	import { page } from '$app/stores';
 	import type { SubjectOverview } from '$lib/types/content/subjects.interface';
 	import type { Locale } from 'typesafe-i18n/types/runtime/src/core.mjs';
+	import { transformHeadingToUrl } from '$lib/utilities/dataTransformation/transformHeadingToUrl';
 
 	export let data: Data;
 
@@ -85,7 +86,7 @@
 	<h5 class="w-medium heading">What would you like to learn?</h5>
 	<div class="first-wrapper">
 		{#each data.featuredSubjects as subject}
-			<a class="card column-2" href={`${$page.url.href}/${subject.name}`}>
+			<a class="card column-2" href={`${$page.url.href}/${transformHeadingToUrl(subject.name)}`}>
 				<h4>{`Learn ${firstCapital(subject.name)}`}</h4>
 				<p>{firstCapital(subject.description)}</p>
 			</a>

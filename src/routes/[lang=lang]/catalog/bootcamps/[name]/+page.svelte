@@ -1,11 +1,11 @@
 <script type="ts">
-	import { Button } from '@emerald-dao/component-library';
-	import BootcampLessons from '$lib/components/cards/BootcampLessons.svelte';
+	import { Accordion, Button } from '@emerald-dao/component-library';
 	import SpecificContentCard from '$lib/components/cards/ContentIntro.svelte';
 	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
 	import { onBoardingSteps, onBoardingActiveStep } from '$stores/onBoarding/OnBoardingSteps';
 	import { Modal, getModal } from '@emerald-dao/component-library';
-	import CourseDetails from '$lib/components/cards/CourseDetails.svelte';
+	import CourseDetailsHeader from '$lib/components/cards/CourseDetailsHeader.svelte';
+	import CourseDetailsOpen from '$lib/components/cards/CourseDetailsOpen.svelte';
 
 	export let data: Data;
 
@@ -26,9 +26,34 @@
 </section>
 <section class="container-small">
 	{#each data.overview.videos as video, i}
-		<CourseDetails data={video} {i} typeOfcontent={data.overview.contentType} />
+		<div class="accordion">
+			<Accordion>
+				<div slot="header">
+					<CourseDetailsHeader data={video} {i} typeOfcontent={data.overview.contentType} />
+				</div>
+				<div slot="open">
+					<CourseDetailsOpen data={video} {i} typeOfcontent={data.overview.contentType} />
+				</div>
+			</Accordion>
+		</div>
 	{/each}
 </section>
-<section class="container-small">
-	<BootcampLessons video={data.overview.videos} />
-</section>
+
+<style type="scss">
+	.accordion {
+		display: flex;
+		flex-direction: column;
+		border-inline: var(--border-width-primary) var(--clr-border-primary) solid;
+		border-bottom: var(--border-width-primary) var(--clr-border-primary) solid;
+		background: var(--clr-surface-primary);
+
+		&:first-child {
+			border-radius: var(--space-5) var(--space-5) 0 0;
+			border-top: var(--border-width-primary) var(--clr-border-primary) solid;
+		}
+
+		&:last-child {
+			border-radius: 0 0 var(--space-5) var(--space-5);
+		}
+	}
+</style>

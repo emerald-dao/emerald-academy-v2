@@ -39,6 +39,7 @@ const ru: BaseTranslation = {
 	[ContentTypeEnum.Roadmap]: 'Путь обучения',
 	[ContentTypeEnum.Tips]: 'Cadence by Example',
 	[ContentTypeEnum.Template]: 'Шаблоны',
+	[ContentTypeEnum.Resources]: 'Ресурсы',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Бэкенд',

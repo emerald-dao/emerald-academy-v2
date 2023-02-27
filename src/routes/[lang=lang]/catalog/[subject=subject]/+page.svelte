@@ -7,7 +7,6 @@
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 	import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 	import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
-	import CurriculumOverview from '$lib/components/cards/CurriculumOverview.svelte';
 	import type { Filter } from '$lib/types/content/filters/filter.interface';
 	import type { Overview } from '$lib/types/content/content-overview.interface';
 	import type { SubjectOverview } from '$lib/types/content/subjects.interface';
@@ -26,6 +25,10 @@
 	const subjectCapital = subject.charAt(0).toUpperCase() + subject.slice(1);
 
 	let routes = [
+		{
+			path: `/${$page.params.lang}/catalog`,
+			label: 'Catalog'
+		},
 		{
 			path: `/catalog/${$page.params.subject}`,
 			label: `${subjectCapital}`
@@ -90,14 +93,9 @@
 			</div>
 			<div class="roadmap-wrapper">
 				<h5 class="w-medium">Become an expert with our full Roadmap</h5>
-				<div class="card">
-					<div>
-						<ContentIntro overview={data.featuredRoadmap} />
-					</div>
-					<div class="chapter-wrapper">
-						<CurriculumOverview overview={data.featuredRoadmap} />
-					</div>
-				</div>
+				<a class="card" href={`${data.featuredRoadmap.slug}`}>
+					<ContentIntro overview={data.featuredRoadmap} />
+				</a>
 			</div>
 
 			<div class="sidebar column-3">
@@ -171,20 +169,12 @@
 			}
 
 			.card {
+				color: var(--clr-text-main);
 				display: grid;
-				grid-template-columns: 2fr 1.5fr;
 				width: 100%;
 
 				@include mq(medium) {
 					width: 90%;
-				}
-
-				.chapter-wrapper {
-					display: none;
-
-					@include mq(medium) {
-						display: block;
-					}
 				}
 			}
 		}

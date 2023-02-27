@@ -15,7 +15,7 @@
 	});
 </script>
 
-<div class="overview-wrapper">
+<a class="card" href={`/${$locale}/${templateData.slug}`}>
 	<div>
 		<h5 class="heading w-medium">{templateData.title}</h5>
 		<p>{templateData.description}</p>
@@ -37,14 +37,11 @@
 				</div>
 			{/if}
 		</div>
-		<div class="button-wrapper">
-			<Button href={`/${$locale}/${templateData.slug}`}>Clone</Button>
-		</div>
 	</div>
-</div>
+</a>
 
 <style type="scss">
-	.overview-wrapper {
+	.card {
 		width: -webkit-fill-available;
 		display: flex;
 		flex-direction: column;
@@ -53,6 +50,7 @@
 		border: var(--border-width-primary) solid var(--clr-border-primary);
 		border-radius: var(--radius-2);
 		padding: var(--space-11) var(--space-12);
+		color: var(--clr-text-main);
 
 		@include mq(medium) {
 			width: 48%;
@@ -75,10 +73,6 @@
 			@include mq(small) {
 				flex-direction: row;
 				align-items: center;
-			}
-
-			.button-wrapper {
-				width: fit-content;
 			}
 		}
 	}
