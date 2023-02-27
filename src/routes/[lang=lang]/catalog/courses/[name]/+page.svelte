@@ -1,6 +1,5 @@
 <script type="ts">
 	import type { CourseData } from '$lib/types/content/course.interface';
-	import Faqs from '$lib/components/faqs/Faqs.svelte';
 	import ContentIntro from '$lib/components/cards/ContentIntro.svelte';
 	import { Accordion, Button } from '@emerald-dao/component-library';
 	import Icon from '@iconify/svelte';
