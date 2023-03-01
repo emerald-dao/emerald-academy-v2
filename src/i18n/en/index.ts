@@ -36,10 +36,11 @@ const en: BaseTranslation = {
 	// Type of content
 	[ContentTypeEnum.Course]: 'Course',
 	[ContentTypeEnum.Bootcamp]: 'Bootcamp',
-	[ContentTypeEnum.Roadmap]: 'Learning path',
+	[ContentTypeEnum.Roadmap]: 'Roadmap',
 	[ContentTypeEnum.Tips]: 'Cadence by Example',
 	[ContentTypeEnum.Template]: 'Templates',
 	[ContentTypeEnum.Resources]: 'Resources',
+	[ContentTypeEnum.Blog]: 'Blog',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',

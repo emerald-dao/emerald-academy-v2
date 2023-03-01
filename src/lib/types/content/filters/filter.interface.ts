@@ -9,7 +9,6 @@ export interface Filter {
 }
 
 interface FilterElement {
-	title: string;
 	icon: string;
 	slug: FilterSlugs;
 }
