@@ -1,5 +1,6 @@
 import type { PageLoad } from './$types';
 import { fetchGithubUser } from '$lib/utilities/api/githubApi/fetchGithubUser';
+import { error } from '@sveltejs/kit';
 
 export const load: PageLoad = async ({ params }) => {
 	try {
@@ -17,6 +18,6 @@ export const load: PageLoad = async ({ params }) => {
 			githubUser: githubUser.json
 		};
 	} catch (e) {
-		throw new Error();
+		throw error(404, 'The template you are looking for does not exist');
 	}
 };

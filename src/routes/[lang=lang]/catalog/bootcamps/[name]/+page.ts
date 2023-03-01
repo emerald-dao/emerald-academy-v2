@@ -1,4 +1,5 @@
 import type { PageLoad } from './$types';
+import { error } from '@sveltejs/kit';
 
 export const load: PageLoad = async ({ params }) => {
 	try {
@@ -10,6 +11,6 @@ export const load: PageLoad = async ({ params }) => {
 			overview: overviewFile.overview
 		};
 	} catch (e) {
-		throw new Error();
+		throw error(404, 'The bootcamp you are looking for does not exist');
 	}
 };
