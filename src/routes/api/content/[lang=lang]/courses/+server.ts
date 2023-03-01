@@ -1,9 +1,13 @@
 import type { RequestHandler } from './$types';
-import { json } from '@sveltejs/kit';
 import { fetchAllCourses } from '$lib/utilities/api/content/courses/fetchAllCourses';
+import { json, error } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async ({ params }) => {
-	const allCourses = await fetchAllCourses(params.lang);
+	try {
+		const allCourses = await fetchAllCourses(params.lang);
 
-	return json(allCourses);
+		return json(allCourses);
+	} catch (e) {
+		return new Response(JSON.stringify(error), { status: 500 });
+	}
 };
