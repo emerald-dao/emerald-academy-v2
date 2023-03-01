@@ -2,5 +2,5 @@ import type { ChapterOverview } from '$lib/types/content/chapter-overview.interf
 
 export const overview: ChapterOverview = {
 	title: 'Storage and Capabilities',
-	description: 'Learn Storage, Capabilities, and other advanced concepts'
+	description: 'Exploring the more advanced, but crucial, elements of Cadence.'
 };
