@@ -17,7 +17,7 @@ export const overview: CourseOverview = {
 		faqs: [
 			{
 				question: '📖 What is this course?',
-				answer: 'This is a course created by Emerald Academy. It is meant to teach you Cadence. During the bootcamp, you will learn ALL of the major aspects of the language.<br/><br/>In addition to writing & deploying your own NFT Contract during the course, you will have the knowledge to write your own contracts too.'
+				answer: 'Learn Cadence. You will explore ALL of the major aspects of the language.<br/><br/>In addition to writing & deploying your own NFT Contract during the course, you will have the knowledge to write your own contracts too.'
 			},
 			{
 				question: '🚀 What will I know by the end?',

@@ -9,7 +9,7 @@ export const overview: CourseOverview = {
 	contentType: ContentTypeEnum.Course,
 	slug: generateSlug(import.meta.url),
 	excerpt:
-		'This is a course created by Emerald Academy. It is meant to teach you intermediate Cadence concepts & patterns. During the course, you will extend your basic Cadence knowledge to include more advanced patterns you will likely utilize when developing real applications.',
+		'Learn intermediate Cadence concepts & patterns. During the course, you will extend your basic Cadence knowledge to include more advanced patterns you will likely utilize when developing real applications.',
 	metadata: {
 		expertise: ExpertiseEnum.intermediate,
 		duration: '5 chapters',
@@ -18,7 +18,7 @@ export const overview: CourseOverview = {
 		faqs: [
 			{
 				question: '📖 What is this course?',
-				answer: 'This is a course created by Emerald Academy. It is meant to teach you intermediate Cadence concepts & patterns. During the course, you will extend your basic Cadence knowledge to include more advanced patterns you will likely utilize when developing real applications.'
+				answer: 'Learn intermediate Cadence concepts & patterns. During the course, you will extend your basic Cadence knowledge to include more advanced patterns you will likely utilize when developing real applications.'
 			},
 			{
 				question: '🚀 What will I know by the end?',
