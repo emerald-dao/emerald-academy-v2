@@ -31,11 +31,13 @@
 	// update locale when page store changes
 	$: if (browser) {
 		const lang = $page.params.lang as Locales;
+
 		switchLocale(lang, false);
+
 		history.replaceState(
 			{ ...history.state, locale: lang },
 			'',
-			replaceLocaleInUrl($page.url, lang)
+			replaceLocaleInUrl($page.url, lang ? lang : $locale)
 		);
 	}
 </script>
