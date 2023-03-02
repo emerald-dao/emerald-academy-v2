@@ -2,12 +2,10 @@ import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum'
 import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
-import { generateSlug } from '$lib/utilities/dataTransformation/generateSlug';
 
 export const overview: RoadmapOverview = {
 	title: 'AAAAAAA Cadence Roadmap',
 	contentType: ContentTypeEnum.Roadmap,
-	slug: generateSlug(import.meta.url),
 	excerpt: 'Lorem ipsum dolor sit amet.',
 	metadata: {
 		expertise: ExpertiseEnum.Beginner,

@@ -2,12 +2,10 @@ import type { CourseOverview } from '$lib/types/content/course.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
-import { generateSlug } from '$lib/utilities/dataTransformation/generateSlug';
 
 export const overview: CourseOverview = {
 	title: 'Intermediate Cadence',
 	contentType: ContentTypeEnum.Course,
-	slug: generateSlug(import.meta.url),
 	excerpt:
 		'Learn intermediate Cadence concepts & patterns. During the course, you will extend your basic Cadence knowledge to include more advanced patterns you will likely utilize when developing real applications.',
 	metadata: {
@@ -19,7 +17,8 @@ export const overview: CourseOverview = {
 		faqs: [
 			{
 				question: '📖 What is this course?',
-				answer: 'Learn intermediate Cadence concepts & patterns. During the course, you will extend your basic Cadence knowledge to include more advanced patterns you will likely utilize when developing real applications.'
+				answer:
+					'Learn intermediate Cadence concepts & patterns. During the course, you will extend your basic Cadence knowledge to include more advanced patterns you will likely utilize when developing real applications.'
 			},
 			{
 				question: '🚀 What will I know by the end?',

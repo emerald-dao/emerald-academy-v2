@@ -1,15 +1,21 @@
 import type { Locales } from '$i18n/i18n-types';
+import type {
+	CadenceByExampleOverview,
+	CadenceByExampleMetadata
+} from '$lib/types/content/cadence-by-example.interface';
 
-export const fetchAllCadenceByExampleMetadata = async (requestLocale: Locales) => {
+export const fetchAllCadenceByExampleOverviews = async (requestLocale: Locales) => {
 	const allCandenceByExampleFiles = import.meta.glob('/src/lib/content/cadenceByExample/**/*.md');
 	const iterableFiles = Object.entries(allCandenceByExampleFiles);
 
-	const localeData = [];
-	const englishData = [];
+	// We get both, the locale data and the english data
+	/// If the locale data is empty, we return the english data
+	const localeData: CadenceByExampleOverview[] = [];
+	const englishData: CadenceByExampleOverview[] = [];
 
 	const allCadenceByExampleMetadata = await Promise.all(
 		iterableFiles.map(async ([path, resolver]) => {
-			const { metadata } = await resolver();
+			const { metadata } = await (resolver() as Promise<{ metadata: CadenceByExampleMetadata }>);
 
 			const slug = path.slice(9, -3);
 			const thisExampleLang = path.split('/')[5];

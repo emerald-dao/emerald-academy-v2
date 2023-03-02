@@ -4,8 +4,8 @@ import type { SubjectsEnum } from './metadata/subject.enum';
 
 export interface Overview {
 	title: string;
+	slug?: string;
 	contentType: ContentTypeEnum;
-	slug: string;
 	excerpt: string;
 	metadata: ContentMetadata;
 }

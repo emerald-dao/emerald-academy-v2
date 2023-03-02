@@ -3,34 +3,40 @@ import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ params }) => {
 	try {
-		const courseOverviewFile = await import(
-			/* @vite-ignore */
-			`../../lib/content/${featuredContent.courses[0]}/${params.lang}/overview`
+		const featuredCourse1 = await import(
+			`../../lib/content/courses/${featuredContent.courses[0]}/${params.lang}/overview.ts`
 		);
-		const courseOverviewFile2 = await import(
-			/* @vite-ignore */
-			`../../lib/content/${featuredContent.courses[1]}/${params.lang}/overview`
+		featuredCourse1.overview.slug = `courses/${featuredContent.courses[0]}`;
+
+		const featuredCourse2 = await import(
+			`../../lib/content/courses/${featuredContent.courses[1]}/${params.lang}/overview.ts`
 		);
-		const courseOverviewFile3 = await import(
-			/* @vite-ignore */
-			`../../lib/content/${featuredContent.bootcamps[0]}/en/overview`
+		featuredCourse2.overview.slug = `courses/${featuredContent.courses[1]}`;
+
+		const featuredBootcamp1 = await import(
+			`../../lib/content/bootcamps/${featuredContent.bootcamps[0]}/en/overview.ts`
 		);
-		const courseOverviewFile4 = await import(
-			/* @vite-ignore */
-			`../../lib/content/${featuredContent.bootcamps[1]}/en/overview`
+		featuredBootcamp1.overview.slug = `bootcamps/${featuredContent.courses[0]}`;
+
+		const featuredBootcamp2 = await import(
+			`../../lib/content/bootcamps/${featuredContent.bootcamps[1]}/en/overview.ts`
 		);
-		const courseOverviewFile5 = await import(
-			/* @vite-ignore */
-			`../../lib/content/${featuredContent.roadmaps[0]}/${params.lang}/overview`
+		featuredBootcamp2.overview.slug = `bootcamps/${featuredContent.courses[1]}`;
+
+		const featuredRoadmap1 = await import(
+			`../../lib/content/roadmaps/${featuredContent.roadmaps[0]}/${params.lang}/overview.ts`
 		);
-		const courseOverviewFile6 = await import(
-			/* @vite-ignore */
-			`../../lib/content/${featuredContent.roadmaps[1]}/${params.lang}/overview`
+		featuredRoadmap1.overview.slug = `roadmaps/${featuredContent.courses[0]}`;
+
+		const featuredRoadmap2 = await import(
+			`../../lib/content/roadmaps/${featuredContent.roadmaps[1]}/${params.lang}/overview.ts`
 		);
+		featuredRoadmap2.overview.slug = `roadmaps/${featuredContent.courses[1]}`;
+
 		return {
-			courses: [courseOverviewFile.overview, courseOverviewFile2.overview],
-			bootcamps: [courseOverviewFile3.overview, courseOverviewFile4.overview],
-			roadmaps: [courseOverviewFile5.overview, courseOverviewFile6.overview]
+			courses: [featuredCourse1.overview, featuredCourse2.overview],
+			bootcamps: [featuredBootcamp1.overview, featuredBootcamp2.overview],
+			roadmaps: [featuredRoadmap1.overview, featuredRoadmap2.overview]
 		};
 	} catch (e) {
 		throw new Error();
