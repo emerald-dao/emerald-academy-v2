@@ -2,12 +2,11 @@ import type { CourseOverview } from '$lib/types/content/course.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
-import { generateSlug } from '$lib/utilities/dataTransformation/generateSlug';
 
 export const overview: CourseOverview = {
 	title: 'Cadence para principiantes',
 	contentType: ContentTypeEnum.Course,
-	slug: generateSlug(import.meta.url),
+	slug: 'courses/begginer-cadence',
 	excerpt:
 		'Learn Cadence. During this course, you will learn ALL of the major aspects of the language. In addition to writing & deploying your own NFT Contract during the course, you will have the knowledge to write your own contracts too.',
 	metadata: {

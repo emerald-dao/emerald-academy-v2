@@ -7,6 +7,8 @@ export const fetchOneCourse = async (slug: string, locale: Locales) => {
 
 	const iterableContents = Object.entries(allContents);
 
+	console.log(iterableContents);
+
 	const thisCourseContents = iterableContents.filter(([path]) => path.split('/')[5] === slug);
 	const thisLangContents = thisCourseContents.filter(([path]) => path.split('/')[6] === locale);
 
@@ -51,5 +53,7 @@ export const fetchOneCourse = async (slug: string, locale: Locales) => {
 		contents[chapter].overview = chapterOverview.overview;
 	}
 
-	return { overview: overview.overview, contents };
+	console.log(slug);
+
+	return { overview: overview.overview, contents, slug };
 };
