@@ -20,7 +20,7 @@
 				{
 					title: 'Frontend',
 					icon: 'icon',
-					slug: SubjectsEnum.DappDevelopment
+					slug: SubjectsEnum.DApp
 				}
 			],
 			filterBucket: []

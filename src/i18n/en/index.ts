@@ -37,21 +37,21 @@ const en: BaseTranslation = {
 	[ContentTypeEnum.Course]: 'Course',
 	[ContentTypeEnum.Bootcamp]: 'Bootcamp',
 	[ContentTypeEnum.Roadmap]: 'Roadmap',
-	[ContentTypeEnum.Tips]: 'Cadence by Example',
 	[ContentTypeEnum.Template]: 'Templates',
 	[ContentTypeEnum.Resources]: 'Resources',
 	[ContentTypeEnum.Blog]: 'Blog',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',
-	[SubjectsEnum.Webdev]: 'Web development',
+	[SubjectsEnum.Webdev]: 'Web Dev',
 	[SubjectsEnum.Cadence]: 'Cadence',
-	[SubjectsEnum.DappDevelopment]: 'Dapp development',
+	[SubjectsEnum.DApp]: 'DApp',
+	[SubjectsEnum.Javascript]: 'Javascript',
 
 	// Expertise
-	[ExpertiseEnum.advanced]: 'Advanced',
-	[ExpertiseEnum.intermediate]: 'Intermediate',
-	[ExpertiseEnum.beginner]: 'Beginner'
+	[ExpertiseEnum.Advanced]: 'Advanced',
+	[ExpertiseEnum.Intermediate]: 'Intermediate',
+	[ExpertiseEnum.Beginner]: 'Beginner'
 };
 
 export default en;

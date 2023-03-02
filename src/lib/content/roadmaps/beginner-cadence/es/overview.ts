@@ -10,7 +10,7 @@ export const overview: RoadmapOverview = {
 	slug: generateSlug(import.meta.url),
 	excerpt: 'Lorem ipsum dolor sit amet.',
 	metadata: {
-		expertise: ExpertiseEnum.beginner,
+		expertise: ExpertiseEnum.Beginner,
 		duration: '3 chapters',
 		prerequisites: ['javascript'],
 		subjects: [SubjectsEnum.Backend]

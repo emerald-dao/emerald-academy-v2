@@ -37,7 +37,6 @@ const zh: BaseTranslation = {
 	[ContentTypeEnum.Course]: '课程',
 	[ContentTypeEnum.Bootcamp]: '训练营',
 	[ContentTypeEnum.Roadmap]: '学习路线',
-	[ContentTypeEnum.Tips]: 'Cadence by Example',
 	[ContentTypeEnum.Template]: '模板',
 	[ContentTypeEnum.Resources]: '资源',
 
@@ -45,12 +44,13 @@ const zh: BaseTranslation = {
 	[SubjectsEnum.Backend]: '后端',
 	[SubjectsEnum.Webdev]: 'Web开发',
 	[SubjectsEnum.Cadence]: 'Cadence',
-	[SubjectsEnum.DappDevelopment]: 'Dapp开发',
+	[SubjectsEnum.DApp]: 'DApp',
+	[SubjectsEnum.Javascript]: 'Javascript',
 
 	// Expertise
-	[ExpertiseEnum.advanced]: '高级',
-	[ExpertiseEnum.intermediate]: '中级',
-	[ExpertiseEnum.beginner]: '初级'
+	[ExpertiseEnum.Advanced]: '高级',
+	[ExpertiseEnum.Intermediate]: '中级',
+	[ExpertiseEnum.Beginner]: '初级'
 };
 
 export default zh;

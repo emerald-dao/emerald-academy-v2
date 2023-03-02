@@ -10,10 +10,11 @@ export const overview: CourseOverview = {
 	slug: generateSlug(import.meta.url),
 	excerpt: 'Learn to make a DApp on the Flow blockchain. You will learn the major aspects of DApp development.',
 	metadata: {
-		expertise: ExpertiseEnum.beginner,
-		duration: '3 chapters',
+		expertise: ExpertiseEnum.Beginner,
+		duration: '5 chapters',
 		prerequisites: ['javascript'],
 		subjects: [SubjectsEnum.Webdev, SubjectsEnum.Cadence, SubjectsEnum.Javascript],
+		price: 'Free',
 		faqs: [
 			{
 				question: '📖 What is this course?',

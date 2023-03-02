@@ -10,10 +10,11 @@ export const overview: BootcampOverview = {
 	slug: generateSlug(import.meta.url),
 	excerpt: 'Learn Cadence. During this bootcamp, you will learn ALL of the major aspects of the language. In addition to writing & deploying your own NFT Contract during the course, you will have the knowledge to write your own contracts too.',
 	metadata: {
-		expertise: ExpertiseEnum.beginner,
+		expertise: ExpertiseEnum.Beginner,
 		duration: '5 chapters',
 		prerequisites: ['javascript'],
 		subjects: [SubjectsEnum.Cadence],
+		price: 'Free',
 		faqs: [
 			{
 				question: '📖 What is this course?',

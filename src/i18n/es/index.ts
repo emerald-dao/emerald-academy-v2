@@ -37,7 +37,6 @@ const es: Translation = {
 	[ContentTypeEnum.Course]: 'Curso',
 	[ContentTypeEnum.Bootcamp]: 'Bootcamp',
 	[ContentTypeEnum.Roadmap]: 'Camino de aprendizaje',
-	[ContentTypeEnum.Tips]: 'Cadence by Example',
 	[ContentTypeEnum.Template]: 'Plantillas',
 	[ContentTypeEnum.Resources]: 'Recursos',
 
@@ -45,12 +44,13 @@ const es: Translation = {
 	[SubjectsEnum.Backend]: 'Backend',
 	[SubjectsEnum.Webdev]: 'Desarrollo Web',
 	[SubjectsEnum.Cadence]: 'Cadence',
-	[SubjectsEnum.DappDevelopment]: 'Desarrollo de Dapps',
+	[SubjectsEnum.DApp]: 'DApp',
+	[SubjectsEnum.Javascript]: 'Javascript',
 
 	// Expertise
-	[ExpertiseEnum.advanced]: 'Avanzado',
-	[ExpertiseEnum.intermediate]: 'Intermedio',
-	[ExpertiseEnum.beginner]: 'Principiante'
+	[ExpertiseEnum.Advanced]: 'Avanzado',
+	[ExpertiseEnum.Intermediate]: 'Intermedio',
+	[ExpertiseEnum.Beginner]: 'Principiante'
 };
 
 export default es;

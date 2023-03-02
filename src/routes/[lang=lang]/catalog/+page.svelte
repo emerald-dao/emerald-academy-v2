@@ -48,12 +48,13 @@
 		},
 		{
 			title: 'Subject',
-			filterElement: [
-				{
+			filterElement: Object.values(SubjectsEnum).map((sub) => {
+				console.log(sub);
+				return {
 					icon: 'icon',
-					slug: SubjectsEnum.Backend
-				}
-			],
+					slug: sub
+				};
+			}),
 			filterBucket: []
 		},
 		{
@@ -61,15 +62,15 @@
 			filterElement: [
 				{
 					icon: 'icon',
-					slug: ExpertiseEnum.beginner
+					slug: ExpertiseEnum.Beginner
 				},
 				{
 					icon: 'icon',
-					slug: ExpertiseEnum.intermediate
+					slug: ExpertiseEnum.Intermediate
 				},
 				{
 					icon: 'icon',
-					slug: ExpertiseEnum.advanced
+					slug: ExpertiseEnum.Advanced
 				}
 			],
 			filterBucket: []

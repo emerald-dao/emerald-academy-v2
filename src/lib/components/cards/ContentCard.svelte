@@ -4,11 +4,19 @@
 	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
 	import ContentLabel from '../label/ContentLabel.svelte';
 	import { locale, LL } from '$i18n/i18n-svelte';
+	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
 	export let overview: Overview;
+
+	let link;
+	if (overview.contentType === ContentTypeEnum.Blog) {
+		link = overview.link;
+	} else {
+		link = `/${$locale}/catalog/${overview.slug}`;
+	}
 </script>
 
-<a href={`/${$locale}/catalog/${overview.slug}`}>
+<a href={link}>
 	<div class="card-primary">
 		<ContentLabel type={overview.contentType} color="primary">
 			{$LL[overview.contentType]()}
@@ -17,7 +25,11 @@
 			{overview.title}
 		</h4>
 		<div class="labels-wrapper">
-			<Label size="x-small" iconLeft="tabler:currency-dollar" color="transparent">Free</Label>
+			{#if overview.metadata.price}
+				<Label size="x-small" iconLeft="tabler:currency-dollar" color="transparent">
+					{overview.metadata.price}
+				</Label>
+			{/if}
 			<Label size="x-small" iconLeft="tabler:flame" color="transparent">
 				{$LL[overview.metadata.expertise]()}
 			</Label>
@@ -28,12 +40,17 @@
 		<p>
 			{overview.excerpt}
 		</p>
-		<h5>{$LL.SKILLS_YOU_WILL_LEARN()}</h5>
-		<div class="skill-labels-wrapper">
-			{#each overview.metadata.subjects as subs}
-				<Label size="x-small" color="neutral">{subs}</Label>
-			{/each}
-		</div>
+		{#if overview.contentType === ContentTypeEnum.Blog}
+			<img src={overview.image} alt="blog image" />
+			<h5>Author: <a href={overview.authorLink}>{overview.author}</a></h5>
+		{:else}
+			<h5>{$LL.SKILLS_YOU_WILL_LEARN()}</h5>
+			<div class="skill-labels-wrapper">
+				{#each overview.metadata.subjects as subs}
+					<Label size="x-small" color="neutral">{subs}</Label>
+				{/each}
+			</div>
+		{/if}
 	</div>
 </a>
 
