@@ -2,7 +2,7 @@ import type { Locales } from '$i18n/i18n-types';
 import type { CourseContents } from '$lib/types/content/course.interface';
 
 export const fetchOneCourse = async (slug: string, locale: Locales) => {
-	const overview = await import(`/src/lib/content/courses/${slug}/${locale}/overview.ts`);
+	const overview = await import(`../../../../content/courses/${slug}/${locale}/overview.ts`);
 	const allContents = import.meta.glob('/src/lib/content/courses/**/**/**/*.md');
 
 	const iterableContents = Object.entries(allContents);
@@ -45,7 +45,7 @@ export const fetchOneCourse = async (slug: string, locale: Locales) => {
 
 	for (const chapter of chapters) {
 		const chapterOverview = await import(
-			`/src/lib/content/courses/${slug}/${locale}/${chapter}/overview`
+			`../../../../content/courses/${slug}/${locale}/${chapter}/overview.ts`
 		);
 
 		contents[chapter].overview = chapterOverview.overview;
