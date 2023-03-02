@@ -40,17 +40,14 @@
 			title: 'Type of Content',
 			filterElement: [
 				{
-					title: 'Live Bootcamp',
 					icon: 'icon',
 					slug: ContentTypeEnum.Bootcamp
 				},
 				{
-					title: 'Courses',
 					icon: 'icon',
 					slug: ContentTypeEnum.Course
 				},
 				{
-					title: 'Roadmaps',
 					icon: 'icon',
 					slug: ContentTypeEnum.Roadmap
 				}
@@ -61,17 +58,14 @@
 			title: 'Expertise',
 			filterElement: [
 				{
-					title: 'Beginner',
 					icon: 'icon',
 					slug: ExpertiseEnum.Beginner
 				},
 				{
-					title: 'Intermediate',
 					icon: 'icon',
 					slug: ExpertiseEnum.Intermediate
 				},
 				{
-					title: 'Advanced',
 					icon: 'icon',
 					slug: ExpertiseEnum.Advanced
 				}
