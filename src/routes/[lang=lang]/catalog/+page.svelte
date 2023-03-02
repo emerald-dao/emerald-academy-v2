@@ -20,6 +20,7 @@
 		featuredSubjects: SubjectOverview[];
 		locale: Locale;
 	}
+
 	console.log(data);
 
 	let filters: Filter[] = [
@@ -27,53 +28,42 @@
 			title: 'Type of content',
 			filterElement: [
 				{
-					title: 'Live Bootcamp',
 					icon: 'icon',
 					slug: ContentTypeEnum.Bootcamp
 				},
 				{
-					title: 'Courses',
 					icon: 'icon',
 					slug: ContentTypeEnum.Course
 				},
 				{
-					title: 'Roadmap',
 					icon: 'icon',
 					slug: ContentTypeEnum.Roadmap
+				},
+				{
+					icon: 'icon',
+					slug: ContentTypeEnum.Blog
 				}
 			],
 			filterBucket: []
 		},
 		{
 			title: 'Subject',
-			filterElement: [
-				{
-					title: 'Backend',
+			filterElement: Object.values(SubjectsEnum).map((sub) => {
+				return {
 					icon: 'icon',
-					slug: SubjectsEnum.Backend
-				}
-			],
+					slug: sub
+				};
+			}),
 			filterBucket: []
 		},
 		{
 			title: 'Expertise',
-			filterElement: [
-				{
-					title: 'Beginner',
+			filterElement: Object.values(ExpertiseEnum).map((sub) => {
+				return {
 					icon: 'icon',
-					slug: ExpertiseEnum.beginner
-				},
-				{
-					title: 'Intermediate',
-					icon: 'icon',
-					slug: ExpertiseEnum.intermediate
-				},
-				{
-					title: 'Advanced',
-					icon: 'icon',
-					slug: ExpertiseEnum.advanced
-				}
-			],
+					slug: sub
+				};
+			}),
 			filterBucket: []
 		}
 	];

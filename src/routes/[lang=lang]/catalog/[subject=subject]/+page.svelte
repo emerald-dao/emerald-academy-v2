@@ -63,17 +63,17 @@
 				{
 					title: 'Beginner',
 					icon: 'icon',
-					slug: ExpertiseEnum.beginner
+					slug: ExpertiseEnum.Beginner
 				},
 				{
 					title: 'Intermediate',
 					icon: 'icon',
-					slug: ExpertiseEnum.intermediate
+					slug: ExpertiseEnum.Intermediate
 				},
 				{
 					title: 'Advanced',
 					icon: 'icon',
-					slug: ExpertiseEnum.advanced
+					slug: ExpertiseEnum.Advanced
 				}
 			],
 			filterBucket: []

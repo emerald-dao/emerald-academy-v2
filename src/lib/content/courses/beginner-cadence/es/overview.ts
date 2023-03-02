@@ -11,15 +11,16 @@ export const overview: CourseOverview = {
 	excerpt:
 		'Learn Cadence. During this course, you will learn ALL of the major aspects of the language. In addition to writing & deploying your own NFT Contract during the course, you will have the knowledge to write your own contracts too.',
 	metadata: {
-		expertise: ExpertiseEnum.beginner,
-		duration: '4 chapters',
+		expertise: ExpertiseEnum.Beginner,
+		duration: '6 chapters',
 		prerequisites: [],
-		subjects: [SubjectsEnum.Cadence, SubjectsEnum.DappDevelopment],
+		subjects: [SubjectsEnum.Cadence],
+		price: 'Free',
 		faqs: [
 			{
 				question: 'What is this course?',
 				answer:
-					'This is a course created by Emerald Academy. It is meant to teach you Cadence. During the bootcamp, you will learn ALL of the major aspects of the language.<br/><br/>In addition to writing & deploying your own NFT Contract during the course, you will have the knowledge to write your own contracts too.'
+					'Learn Cadence. You will explore ALL of the major aspects of the language.<br/><br/>In addition to writing & deploying your own NFT Contract during the course, you will have the knowledge to write your own contracts too.'
 			},
 			{
 				question: 'What will I know by the end?',

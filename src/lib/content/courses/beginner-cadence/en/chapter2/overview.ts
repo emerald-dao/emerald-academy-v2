@@ -2,5 +2,5 @@ import type { ChapterOverview } from '$lib/types/content/chapter-overview.interf
 
 export const overview: ChapterOverview = {
 	title: 'Cadence Basic Concepts',
-	description: 'Learn the basics of Cadence programming language and Flow Blockchain'
+	description: 'Learn the basics of the Cadence smart contract language.'
 };

@@ -2,5 +2,5 @@ import type { ChapterOverview } from '$lib/types/content/chapter-overview.interf
 
 export const overview: ChapterOverview = {
 	title: 'Basic Concepts',
-	description: 'Learn the basics of Blockchain technology and Computer Programming.'
+	description: 'Learn the basics of the Flow Blockchain, Cadence, and coding.'
 };

@@ -37,7 +37,6 @@ const ru: BaseTranslation = {
 	[ContentTypeEnum.Course]: 'Курс',
 	[ContentTypeEnum.Bootcamp]: 'Буткемп',
 	[ContentTypeEnum.Roadmap]: 'Путь обучения',
-	[ContentTypeEnum.Tips]: 'Cadence by Example',
 	[ContentTypeEnum.Template]: 'Шаблоны',
 	[ContentTypeEnum.Resources]: 'Ресурсы',
 
@@ -45,12 +44,13 @@ const ru: BaseTranslation = {
 	[SubjectsEnum.Backend]: 'Бэкенд',
 	[SubjectsEnum.Webdev]: 'Веб-разработка',
 	[SubjectsEnum.Cadence]: 'Cadence',
-	[SubjectsEnum.DappDevelopment]: 'Разработка Dapp',
+	[SubjectsEnum.DApp]: 'DApp',
+	[SubjectsEnum.Javascript]: 'Javascript',
 
 	// Expertise
-	[ExpertiseEnum.advanced]: 'Продвинутый',
-	[ExpertiseEnum.intermediate]: 'Средний',
-	[ExpertiseEnum.beginner]: 'Начинающий'
+	[ExpertiseEnum.Advanced]: 'Продвинутый',
+	[ExpertiseEnum.Intermediate]: 'Средний',
+	[ExpertiseEnum.Beginner]: 'Начинающий'
 };
 
 export default ru;

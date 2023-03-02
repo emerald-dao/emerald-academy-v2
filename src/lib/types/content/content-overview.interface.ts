@@ -15,6 +15,7 @@ interface ContentMetadata {
 	duration: string;
 	prerequisites: string[];
 	subjects: SubjectsEnum[];
+	price?: string;
 	faqs?: Question[];
 }
 

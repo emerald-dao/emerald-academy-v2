@@ -1,10 +1,8 @@
 import type { Locales } from '$i18n/i18n-types';
 import type { CourseContents } from '$lib/types/content/course.interface';
-import { overview } from '../../../../content/courses/intermediate-cadence/en/chapter5/overview';
 
 export const fetchOneCourse = async (slug: string, locale: Locales) => {
 	const overview = await import(`../../../../content/courses/${slug}/${locale}/overview.ts`);
-
 	const allContents = import.meta.glob('/src/lib/content/courses/**/**/**/*.md');
 
 	const iterableContents = Object.entries(allContents);
@@ -13,16 +11,17 @@ export const fetchOneCourse = async (slug: string, locale: Locales) => {
 	const thisLangContents = thisCourseContents.filter(([path]) => path.split('/')[6] === locale);
 
 	const contents: CourseContents = {};
+	const chapters: string[] = [];
 
 	await Promise.all(
-		thisLangContents.map(async ([path, resolver], i) => {
+		thisLangContents.map(async ([path, resolver]) => {
 			const { metadata } = await resolver();
 
 			const parts = path.split('/');
 			const chapter = parts[parts.length - 2];
 
 			if (!contents[chapter]) {
-				const chapterSlug = parts.slice(3, 6).join('/');
+				chapters.push(chapter);
 
 				contents[chapter] = {
 					overview: {
@@ -31,13 +30,6 @@ export const fetchOneCourse = async (slug: string, locale: Locales) => {
 					},
 					contents: []
 				};
-
-				/* @vite-ignore */
-				const chapterOverview = await import(
-					`../../../../${chapterSlug}/${locale}/${chapter}/overview`
-				);
-
-				contents[chapter].overview = chapterOverview.overview;
 			}
 
 			const slugPart1 = parts.slice(3, 6).join('/').replace('content', 'catalog');
@@ -50,6 +42,14 @@ export const fetchOneCourse = async (slug: string, locale: Locales) => {
 			});
 		})
 	);
+
+	for (const chapter of chapters) {
+		const chapterOverview = await import(
+			`../../../../content/courses/${slug}/${locale}/${chapter}/overview.ts`
+		);
+
+		contents[chapter].overview = chapterOverview.overview;
+	}
 
 	return { overview: overview.overview, contents };
 };

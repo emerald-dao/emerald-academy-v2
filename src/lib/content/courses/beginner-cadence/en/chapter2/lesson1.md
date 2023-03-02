@@ -5,7 +5,7 @@ language: en
 excerpt: first Smart Contract
 ---
 
-# Chapter 2 - Lesson 1 - Our First Smart Contract
+# Chapter 2 Lesson 1 - Our First Smart Contract
 
 Hello beautiful people! Welcome to the glorious Chapter 2, in which we will start diving into actual Cadence code.
 

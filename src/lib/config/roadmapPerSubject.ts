@@ -3,5 +3,5 @@ import { transformHeadingToUrl } from '$lib/utilities/dataTransformation/transfo
 
 export const roadmapPerSubject = {
 	[SubjectsEnum.Cadence]: 'roadmaps/beginner-cadence',
-	[transformHeadingToUrl(SubjectsEnum.DappDevelopment)]: 'roadmaps/basic-dapp'
+	[transformHeadingToUrl(SubjectsEnum.DApp)]: 'roadmaps/basic-dapp'
 };

@@ -10,14 +10,15 @@ export const overview: CourseOverview = {
 	slug: generateSlug(import.meta.url),
 	excerpt: 'Learn to make a DApp on the Flow blockchain. You will learn the major aspects of DApp development.',
 	metadata: {
-		expertise: ExpertiseEnum.beginner,
-		duration: '3 chapters',
+		expertise: ExpertiseEnum.Beginner,
+		duration: '5 chapters',
 		prerequisites: ['javascript'],
 		subjects: [SubjectsEnum.Webdev, SubjectsEnum.Cadence, SubjectsEnum.Javascript],
+		price: 'Free',
 		faqs: [
 			{
 				question: '📖 What is this course?',
-				answer: 'This is a course created by Emerald Academy.  It is meant to teach you how to make a DApp on the Flow blockchain. During the bootcamp, you will learn the major aspects of DApp development, including: <ul><li>Next.js (a front-end framework)</li><li>Cadence (smart contract development)</li><li>FCL (Flow Client Library)</li><li>CSS (for styling)</li></ul>During the course, we will be creating a DApp together. However, after completing the course, you will have the knowledge to develop your own DApps too.'
+				answer: 'You will explore how to make a DApp on the Flow blockchain. During the bootcamp, you will learn the major aspects of DApp development, including: <ul><li>Next.js (a front-end framework)</li><li>Cadence (smart contract development)</li><li>FCL (Flow Client Library)</li><li>CSS (for styling)</li></ul>During the course, we will be creating a DApp together. However, after completing the course, you will have the knowledge to develop your own DApps too.'
 			},
 			{
 				question: '🚀 What will I know by the end?',
