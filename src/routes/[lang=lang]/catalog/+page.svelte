@@ -49,7 +49,6 @@
 		{
 			title: 'Subject',
 			filterElement: Object.values(SubjectsEnum).map((sub) => {
-				console.log(sub);
 				return {
 					icon: 'icon',
 					slug: sub
@@ -59,20 +58,12 @@
 		},
 		{
 			title: 'Expertise',
-			filterElement: [
-				{
+			filterElement: Object.values(ExpertiseEnum).map((sub) => {
+				return {
 					icon: 'icon',
-					slug: ExpertiseEnum.Beginner
-				},
-				{
-					icon: 'icon',
-					slug: ExpertiseEnum.Intermediate
-				},
-				{
-					icon: 'icon',
-					slug: ExpertiseEnum.Advanced
-				}
-			],
+					slug: sub
+				};
+			}),
 			filterBucket: []
 		}
 	];
