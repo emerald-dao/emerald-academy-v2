@@ -1,6 +1,5 @@
 import type { Locales } from '$i18n/i18n-types';
 import type { CourseContents } from '$lib/types/content/course.interface';
-import { overview } from '../../../../content/courses/intermediate-cadence/en/chapter5/overview';
 
 export const fetchOneCourse = async (slug: string, locale: Locales) => {
 	const overview = await import(`../../../../content/courses/${slug}/${locale}/overview.ts`);

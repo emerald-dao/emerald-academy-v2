@@ -4,6 +4,8 @@ import { loadLocaleAsync } from '$i18n/i18n-util.async';
 import LL, { setLocale } from '$i18n/i18n-svelte';
 import { get } from 'svelte/store';
 
+export const ssr = false;
+
 export const load: LayoutLoad<{ locale: Locales }> = async ({ data: { locale } }) => {
 	// load dictionary into memory
 	await loadLocaleAsync(locale);
