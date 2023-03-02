@@ -12,7 +12,6 @@ export const fetchOneCourse = async (slug: string, locale: Locales) => {
 
 	const contents: CourseContents = {};
 	const chapters: string[] = [];
-	const chapterSlug = `content/courses/${slug}`;
 
 	await Promise.all(
 		thisLangContents.map(async ([path, resolver]) => {
@@ -45,9 +44,8 @@ export const fetchOneCourse = async (slug: string, locale: Locales) => {
 	);
 
 	for (const chapter of chapters) {
-		/* @vite-ignore */
 		const chapterOverview = await import(
-			`../../../../${chapterSlug}/${locale}/${chapter}/overview`
+			`/src/lib/content/courses/${slug}/${locale}/${chapter}/overview`
 		);
 
 		contents[chapter].overview = chapterOverview.overview;
