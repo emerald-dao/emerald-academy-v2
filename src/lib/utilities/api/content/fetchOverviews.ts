@@ -1,4 +1,5 @@
 import type { Locales } from '$i18n/i18n-types';
+import type { Overview } from '$lib/types/content/content-overview.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
 export const fetchOverviews = async (
@@ -48,12 +49,10 @@ export const fetchOverviews = async (
 				return;
 			}
 
-			console.log('path', path);
-			const slug = path.split('/')[4] + '/' + path.split('/')[5];
-			console.log('slug', slug);
+			const { overview } = await (resolver() as Promise<{ overview: Overview }>);
 
-			const { overview } = await resolver();
-
+			// Workaround to get the slug and inject it in our overview
+			const slug = `${path.split('/')[4]}/${path.split('/')[5]}`;
 			overview.slug = slug;
 
 			return overview;

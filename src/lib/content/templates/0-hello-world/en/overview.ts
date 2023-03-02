@@ -1,11 +1,9 @@
 import type { Template } from '$lib/types/content/templates.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
-import { generateSlug } from '$lib/utilities/dataTransformation/generateSlug';
 
 export const overview: Template = {
 	title: 'Hello World',
 	contentType: ContentTypeEnum.Template,
-	slug: generateSlug(import.meta.url),
 	audited: true,
 	web: 'React.js',
 	user: {
