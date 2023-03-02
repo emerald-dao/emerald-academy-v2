@@ -18,7 +18,7 @@ export const overview: RoadmapOverview = {
 			title: 'Beginner Cadence Course',
 			excerpt: 'Lorem ipsum',
 			contentType: ContentTypeEnum.Course,
-			duration: '4 chapters',
+			duration: '60 hours',
 			subjects: [SubjectsEnum.Cadence],
 			url: 'catalog/courses/beginner-cadence'
 		},
@@ -26,28 +26,17 @@ export const overview: RoadmapOverview = {
 			title: 'Flow documentation',
 			excerpt: 'Lorem ipsum',
 			contentType: ContentTypeEnum.External,
-			duration: '4 chapters',
+			duration: '20 hours',
 			subjects: [SubjectsEnum.Cadence],
 			url: 'https://developers.flow.com/tools/unity-sdk/guides/dev-wallet'
 		},
 		{
-			title: 'Basic Dapp',
+			title: 'Begginer Dapp',
 			excerpt: 'Lorem ipsum',
 			contentType: ContentTypeEnum.Course,
-			duration: '4 chapters',
+			duration: '50 hours',
 			subjects: [SubjectsEnum.Cadence],
-			url: 'catalog/courses/basic-dapp'
-		}
-	],
-	chapters: [
-		{
-			excerpt: 'This is the first chapter'
-		},
-		{
-			excerpt: 'This is the second chapter'
-		},
-		{
-			excerpt: 'This is the third chapter'
+			url: 'catalog/courses/beginner-dapp'
 		}
 	]
 };

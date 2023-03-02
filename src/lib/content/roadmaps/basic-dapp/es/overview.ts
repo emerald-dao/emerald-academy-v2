@@ -18,28 +18,17 @@ export const overview: RoadmapOverview = {
 			title: 'Beginner Cadence Course',
 			excerpt: 'Lorem ipsum',
 			contentType: ContentTypeEnum.Course,
-			duration: '4 chapters',
+			duration: '60 hours',
 			subjects: [SubjectsEnum.Cadence],
 			url: 'catalog/courses/beginner-cadence'
 		},
 		{
-			title: 'Basic Dapp',
+			title: 'Begginer Dapp',
 			excerpt: 'Lorem ipsum',
 			contentType: ContentTypeEnum.Course,
-			duration: '4 chapters',
+			duration: '50 hours',
 			subjects: [SubjectsEnum.Cadence],
-			url: 'catalog/courses/basic-dapp'
-		}
-	],
-	chapters: [
-		{
-			excerpt: 'This is the first chapter'
-		},
-		{
-			excerpt: 'This is the second chapter'
-		},
-		{
-			excerpt: 'This is the third chapter'
+			url: 'catalog/courses/beginner-dapp'
 		}
 	]
 };
