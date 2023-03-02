@@ -1,10 +1,9 @@
 import type { RequestHandler } from './$types';
-import { fetchAllCadenceByExampleMetadata } from '$lib/utilities/api/content/cadenceByExample/fetchAllCadenceByExampleMetadata';
+import { fetchAllCadenceByExampleOverviews } from '$lib/utilities/api/content/cadenceByExample/fetchAllCadenceByExampleOverviews';
 import { json, error } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async ({ params }) => {
-	try {
-		const allMetadata = await fetchAllCadenceByExampleMetadata(params.lang);
+	const allMetadata = await fetchAllCadenceByExampleOverviews(params.lang);
 
 		return json(allMetadata);
 	} catch (e) {

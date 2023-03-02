@@ -1,5 +1,6 @@
 import type { Locales } from '$i18n/i18n-types';
 import type { CourseContents } from '$lib/types/content/course.interface';
+import type { ChapterMetadata } from '$lib/types/content/course.interface';
 
 export const fetchOneCourse = async (slug: string, locale: Locales) => {
 	const overview = await import(`../../../../content/courses/${slug}/${locale}/overview.ts`);
@@ -15,7 +16,7 @@ export const fetchOneCourse = async (slug: string, locale: Locales) => {
 
 	await Promise.all(
 		thisLangContents.map(async ([path, resolver]) => {
-			const { metadata } = await resolver();
+			const { metadata } = await (resolver() as Promise<{ metadata: ChapterMetadata }>);
 
 			const parts = path.split('/');
 			const chapter = parts[parts.length - 2];
@@ -51,5 +52,8 @@ export const fetchOneCourse = async (slug: string, locale: Locales) => {
 		contents[chapter].overview = chapterOverview.overview;
 	}
 
-	return { overview: overview.overview, contents };
+	// Workaround to get the slug and inject it in our overview
+	overview.overview.slug = `courses/${slug}`;
+
+	return { overview: overview.overview, contents, slug };
 };

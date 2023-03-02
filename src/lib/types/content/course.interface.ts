@@ -6,23 +6,25 @@ export interface CourseData {
 	contents: CourseContents;
 }
 
-export interface CourseOverview extends Overview {}
+export type CourseOverview = Overview;
 
 export interface CourseContents {
 	[chapter: string]: {
 		overview: ChapterOverview;
-		contents: Array<{
+		contents: {
 			slug: string;
-			metadata: {
-				title: string;
-				lesson: number;
-				language: string;
-				excerpt: string;
-				headings: Array<{
-					level: number;
-					title: string;
-				}>;
-			};
-		}>;
+			metadata: ChapterMetadata;
+		}[];
 	};
+}
+
+export interface ChapterMetadata {
+	title: string;
+	lesson: number;
+	language: string;
+	excerpt: string;
+	headings: Array<{
+		level: number;
+		title: string;
+	}>;
 }
