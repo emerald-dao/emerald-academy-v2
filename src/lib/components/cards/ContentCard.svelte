@@ -1,14 +1,14 @@
 <script type="ts">
 	import type { Overview } from '$lib/types/content/content-overview.interface';
 	import { Label } from '@emerald-dao/component-library';
-	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
 	import ContentLabel from '../label/ContentLabel.svelte';
 	import { locale, LL } from '$i18n/i18n-svelte';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
 	export let overview: Overview;
 
-	let link;
+	let link: string;
+
 	if (overview.contentType === ContentTypeEnum.Blog) {
 		link = overview.link;
 	} else {
