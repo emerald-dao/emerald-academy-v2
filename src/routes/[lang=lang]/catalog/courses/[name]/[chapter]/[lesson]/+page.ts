@@ -1,4 +1,5 @@
 import type { PageLoad } from './$types';
+import { error } from '@sveltejs/kit';
 
 export const load: PageLoad = async ({ params }) => {
 	try {
@@ -15,6 +16,6 @@ export const load: PageLoad = async ({ params }) => {
 			lesson
 		};
 	} catch (e) {
-		throw new Error(`You missed it`);
+		throw error(404, 'The chapter or lesson you are looking for does not exist');
 	}
 };

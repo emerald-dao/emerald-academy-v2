@@ -1,3 +1,4 @@
+import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ params }) => {
@@ -24,6 +25,6 @@ export const load: PageLoad = async ({ params }) => {
 			meta
 		};
 	} catch (e) {
-		throw new Error(`You missed it`);
+		throw error(404, 'The cadence you are looking for does not exist');
 	}
 };

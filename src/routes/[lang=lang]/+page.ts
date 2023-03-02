@@ -1,5 +1,6 @@
 import { featuredContent } from '$lib/config/featuredContent';
 import type { PageLoad } from './$types';
+import { error } from '@sveltejs/kit';
 
 export const load: PageLoad = async ({ params }) => {
 	try {
@@ -39,6 +40,6 @@ export const load: PageLoad = async ({ params }) => {
 			roadmaps: [featuredRoadmap1.overview, featuredRoadmap2.overview]
 		};
 	} catch (e) {
-		throw new Error();
+		throw error(404, 'The language you are looking for does not exist');
 	}
 };
