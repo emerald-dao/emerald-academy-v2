@@ -4,21 +4,21 @@ import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 
 export const overview: RoadmapOverview = {
-	title: 'AAAAAAA Cadence Roadmap',
+	title: 'Cadence',
 	contentType: ContentTypeEnum.Roadmap,
-	excerpt: 'Lorem ipsum dolor sit amet.',
+	excerpt: 'Go from zero to hero in Cadence.',
 	metadata: {
 		expertise: ExpertiseEnum.Beginner,
 		duration: '3 chapters',
 		prerequisites: ['javascript'],
-		subjects: [SubjectsEnum.Backend]
+		subjects: [SubjectsEnum.Cadence]
 	},
 	contents: [
 		{
 			title: 'Beginner Cadence Course',
-			excerpt: 'Lorem ipsum',
+			excerpt: 'Get an introduction to Cadence.',
 			contentType: ContentTypeEnum.Course,
-			duration: '60 hours',
+			duration: '6 chapters',
 			subjects: [SubjectsEnum.Cadence],
 			url: 'catalog/courses/beginner-cadence'
 		},
@@ -31,10 +31,10 @@ export const overview: RoadmapOverview = {
 			url: 'https://developers.flow.com/tools/unity-sdk/guides/dev-wallet'
 		},
 		{
-			title: 'Begginer Dapp',
-			excerpt: 'Lorem ipsum',
+			title: 'Intermediate Cadence Course',
+			excerpt: 'Master the more complicated elements of Cadence.',
 			contentType: ContentTypeEnum.Course,
-			duration: '50 hours',
+			duration: '5 chapters',
 			subjects: [SubjectsEnum.Cadence],
 			url: 'catalog/courses/beginner-dapp'
 		}
