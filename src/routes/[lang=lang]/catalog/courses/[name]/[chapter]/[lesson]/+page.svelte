@@ -1,6 +1,7 @@
 <script type="ts">
 	import { page } from '$app/stores';
 	import type { CourseContents, CourseOverview } from '$lib/types/content/course.interface';
+	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
 	import { transformUrlToHeading } from '$lib/utilities/dataTransformation/transformUrlToHeading';
 	import { Breadcrumbs } from '@emerald-dao/component-library';
 
@@ -15,8 +16,12 @@
 
 	let routes = [
 		{
-			path: '/catalog',
+			path: `/${$page.params.lang}/catalog`,
 			label: 'Catalog'
+		},
+		{
+			path: `/${$page.params.lang}/catalog`,
+			label: 'Course'
 		},
 		{
 			path: `/catalog/${$page.params.name}`,

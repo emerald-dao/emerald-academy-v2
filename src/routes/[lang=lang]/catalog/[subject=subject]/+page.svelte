@@ -30,7 +30,7 @@
 			label: 'Catalog'
 		},
 		{
-			path: `/catalog/${$page.params.subject}`,
+			path: `/${$page.params.lang}/catalog/${$page.params.subject}`,
 			label: `${subjectCapital}`
 		}
 	];

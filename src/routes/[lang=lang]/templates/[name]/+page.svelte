@@ -12,14 +12,14 @@
 		overview: Template;
 		locale: string;
 	}
-
+	console.log($page);
 	$: routes = [
 		{
 			path: `/${$page.params.lang}/templates`,
 			label: 'Templates'
 		},
 		{
-			path: `/${data.overview.slug}`,
+			path: `/${$page.params.lang}/templates/${$page.params.name}`,
 			label: `${data.overview.title}`
 		}
 	];

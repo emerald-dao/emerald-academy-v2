@@ -1,4 +1,5 @@
 <script type="ts">
+	import { page } from '$app/stores';
 	import { transformUrlToHeading } from '$lib/utilities/dataTransformation/transformUrlToHeading';
 	import { Breadcrumbs } from '@emerald-dao/component-library';
 
@@ -6,11 +7,11 @@
 
 	$: routes = [
 		{
-			path: '/cadence-by-example',
+			path: `/${$page.params.lang}/cadence-by-example`,
 			label: 'Cadence by example'
 		},
 		{
-			path: `/catalog/${data.slug}`,
+			path: `/${$page.params.lang}/cadence-by-example/${data.slug}`,
 			label: transformUrlToHeading(data.meta.title)
 		}
 	];
