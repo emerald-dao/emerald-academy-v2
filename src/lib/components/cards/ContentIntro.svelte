@@ -7,7 +7,7 @@
 	import { page } from '$app/stores';
 
 	export let overview: Overview;
-
+	console.log(overview.contentType);
 	let param;
 
 	if ($page.params.subject) {
@@ -18,11 +18,15 @@
 
 	let routes = [
 		{
-			path: '/catalog',
+			path: `/${$page.params.lang}/catalog`,
 			label: 'Catalog'
 		},
 		{
-			path: `/catalog/${param}`,
+			path: `/${$page.params.lang}/catalog`,
+			label: firstCapital(overview.contentType)
+		},
+		{
+			path: `/${$page.params.lang}/catalog/${overview.contentType}s/${param}`,
 			label: transformUrlToHeading(param)
 		}
 	];
