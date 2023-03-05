@@ -1,5 +1,5 @@
 export const featuredContent = {
 	courses: ['beginner-cadence', 'beginner-dapp'],
-	bootcamps: ['basic-dapp', 'basic-dapp'],
+	bootcamps: ['beginner-cadence'],
 	roadmaps: ['cadence']
 };

@@ -4,9 +4,8 @@ import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: BootcampOverview = {
-	title: 'Learn Cadence',
+	title: 'Beginner Cadence',
 	contentType: ContentTypeEnum.Bootcamp,
-	slug: 'bootcamps/basic-dapp',
 	excerpt:
 		'Learn Cadence. During this bootcamp, you will learn ALL of the major aspects of the language. In addition to writing & deploying your own NFT Contract during the course, you will have the knowledge to write your own contracts too.',
 	metadata: {
@@ -78,11 +77,11 @@ export const overview: BootcampOverview = {
 			chapters: [
 				{
 					name: 'Chapter 1, Lesson 1 - Introduction to Flow',
-					link: '/catalog/courses/basic-dapp/chapter1/lesson1.md	'
+					link: '/catalog/courses/beginner-cadence/chapter1/lesson1.md	'
 				},
 				{
 					name: 'Chapter 2, Lesson 1 - Introduction to Flow',
-					link: '/catalog/courses/basic-dapp/chapter1/lesson2.md'
+					link: '/catalog/courses/beginner-cadence/chapter1/lesson2.md'
 				}
 			]
 		},
@@ -95,11 +94,11 @@ export const overview: BootcampOverview = {
 			chapters: [
 				{
 					name: 'Chapter 1, Lesson 2 - Introduction to Flow',
-					link: '/catalog/courses/basic-dapp/chapter2/lesson1.md'
+					link: '/catalog/courses/beginner-cadence/chapter2/lesson1.md'
 				},
 				{
 					name: 'Chapter 2, Lesson 2 - Introduction to Flow',
-					link: '/catalog/courses/basic-dapp/chapter2/lesson2.md'
+					link: '/catalog/courses/beginner-cadence/chapter2/lesson2.md'
 				}
 			]
 		}

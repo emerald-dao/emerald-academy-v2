@@ -1,7 +1,6 @@
 <script type="ts">
 	import { createBootcampOnboardingStore } from '$stores/BootcampOnboardingStore';
 	import StepButton from '../atoms/StepButton.svelte';
-	console.log($createBootcampOnboardingStore);
 </script>
 
 <div class="main-wrapper">

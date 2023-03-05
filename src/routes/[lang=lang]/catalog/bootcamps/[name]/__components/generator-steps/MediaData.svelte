@@ -3,7 +3,6 @@
 	import { InputWrapper } from '@emerald-dao/component-library';
 	import mediaDataSuite from '../../__validations/mediaDataSuite';
 	import StepButton from '../atoms/StepButton.svelte';
-	console.log($createBootcampOnboardingStore);
 
 	const handleChange = (input: Event) => {
 		const target = input.target as HTMLInputElement;
