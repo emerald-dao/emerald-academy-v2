@@ -6,7 +6,6 @@
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
 	export let overview: Overview;
-	console.log(overview);
 
 	let link: string;
 

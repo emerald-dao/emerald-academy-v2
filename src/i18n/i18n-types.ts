@@ -206,7 +206,7 @@ export type TranslationFunctions = {
 	/**
 	 * Dapp development
 	 */
-	'dapp-development': () => LocalizedString
+	'dapp dev': () => LocalizedString
 	/**
 	 * Advanced
 	 */
