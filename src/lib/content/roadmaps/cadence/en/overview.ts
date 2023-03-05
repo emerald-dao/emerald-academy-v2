@@ -9,8 +9,8 @@ export const overview: RoadmapOverview = {
 	excerpt: 'Go from zero to hero in Cadence.',
 	metadata: {
 		expertise: ExpertiseEnum.Beginner,
-		duration: '3 chapters',
-		prerequisites: ['javascript'],
+		duration: '11 chapters',
+		prerequisites: ['None'],
 		subjects: [SubjectsEnum.Cadence]
 	},
 	contents: [
@@ -23,20 +23,12 @@ export const overview: RoadmapOverview = {
 			url: 'catalog/courses/beginner-cadence'
 		},
 		{
-			title: 'Flow documentation',
-			excerpt: 'Lorem ipsum',
-			contentType: ContentTypeEnum.External,
-			duration: '20 hours',
-			subjects: [SubjectsEnum.Cadence],
-			url: 'https://developers.flow.com/tools/unity-sdk/guides/dev-wallet'
-		},
-		{
 			title: 'Intermediate Cadence Course',
 			excerpt: 'Master the more complicated elements of Cadence.',
 			contentType: ContentTypeEnum.Course,
 			duration: '5 chapters',
 			subjects: [SubjectsEnum.Cadence],
-			url: 'catalog/courses/beginner-dapp'
+			url: 'catalog/courses/intermediate-cadence'
 		}
 	]
 };

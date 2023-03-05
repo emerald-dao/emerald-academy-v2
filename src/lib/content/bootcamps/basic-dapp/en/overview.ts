@@ -13,7 +13,7 @@ export const overview: BootcampOverview = {
 		expertise: ExpertiseEnum.Beginner,
 		duration: '5 chapters',
 		prerequisites: ['javascript'],
-		subjects: [SubjectsEnum.Cadence],
+		subjects: [SubjectsEnum.DApp],
 		price: 'Free',
 		faqs: [
 			{

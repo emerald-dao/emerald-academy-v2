@@ -14,6 +14,12 @@ export const load: PageLoad = async ({ fetch, params }) => {
 		);
 		featuredRoadmap.overview.slug = `roadmaps/${roadmapPerSubject[params.subject]}`;
 
+		console.log("Overview")
+		console.log(overview)
+		console.log("Featured Roadmap")
+		console.log(featuredRoadmap)
+
+
 		return {
 			content,
 			overview: overview.overview,
