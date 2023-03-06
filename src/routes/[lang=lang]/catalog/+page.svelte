@@ -21,8 +21,6 @@
 		locale: Locale;
 	}
 
-	console.log(data);
-
 	let filters: Filter[] = [
 		{
 			title: 'Type of content',

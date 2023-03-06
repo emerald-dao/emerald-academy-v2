@@ -12,7 +12,7 @@
 		overview: Template;
 		locale: string;
 	}
-	console.log($page);
+
 	$: routes = [
 		{
 			path: `/${$page.params.lang}/templates`,

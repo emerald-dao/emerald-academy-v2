@@ -4,40 +4,38 @@ import { error } from '@sveltejs/kit';
 
 export const load: PageLoad = async ({ params }) => {
 	try {
-		const featuredCourse1 = await import(
-			`../../lib/content/courses/${featuredContent.courses[0]}/${params.lang}/overview.ts`
-		);
-		featuredCourse1.overview.slug = `courses/${featuredContent.courses[0]}`;
+		const courses = [];
+		const bootcamps = [];
+		const roadmaps = [];
 
-		const featuredCourse2 = await import(
-			`../../lib/content/courses/${featuredContent.courses[1]}/${params.lang}/overview.ts`
-		);
-		featuredCourse2.overview.slug = `courses/${featuredContent.courses[1]}`;
+		for (const featuredCourse of featuredContent.courses) {
+			const course = await import(
+				`../../lib/content/courses/${featuredCourse}/${params.lang}/overview.ts`
+			);
+			course.overview.slug = `courses/${featuredCourse}`;
+			courses.push(course.overview);
+		}
 
-		const featuredBootcamp1 = await import(
-			`../../lib/content/bootcamps/${featuredContent.bootcamps[0]}/en/overview.ts`
-		);
-		featuredBootcamp1.overview.slug = `bootcamps/${featuredContent.courses[0]}`;
+		for (const featuredBootcamp of featuredContent.bootcamps) {
+			const bootcamp = await import(
+				`../../lib/content/bootcamps/${featuredBootcamp}/${params.lang}/overview.ts`
+			);
+			bootcamp.overview.slug = `bootcamps/${featuredBootcamp}`;
+			bootcamps.push(bootcamp.overview);
+		}
 
-		const featuredBootcamp2 = await import(
-			`../../lib/content/bootcamps/${featuredContent.bootcamps[1]}/en/overview.ts`
-		);
-		featuredBootcamp2.overview.slug = `bootcamps/${featuredContent.courses[1]}`;
-
-		const featuredRoadmap1 = await import(
-			`../../lib/content/roadmaps/${featuredContent.roadmaps[0]}/${params.lang}/overview.ts`
-		);
-		featuredRoadmap1.overview.slug = `roadmaps/${featuredContent.courses[0]}`;
-
-		const featuredRoadmap2 = await import(
-			`../../lib/content/roadmaps/${featuredContent.roadmaps[1]}/${params.lang}/overview.ts`
-		);
-		featuredRoadmap2.overview.slug = `roadmaps/${featuredContent.courses[1]}`;
+		for (const featuredRoadmap of featuredContent.roadmaps) {
+			const roadmap = await import(
+				`../../lib/content/roadmaps/${featuredRoadmap}/${params.lang}/overview.ts`
+			);
+			roadmap.overview.slug = `roadmaps/${featuredRoadmap}`;
+			roadmaps.push(roadmap.overview);
+		}
 
 		return {
-			courses: [featuredCourse1.overview, featuredCourse2.overview],
-			bootcamps: [featuredBootcamp1.overview, featuredBootcamp2.overview],
-			roadmaps: [featuredRoadmap1.overview, featuredRoadmap2.overview]
+			courses,
+			bootcamps,
+			roadmaps
 		};
 	} catch (e) {
 		throw error(404, 'The language you are looking for does not exist');

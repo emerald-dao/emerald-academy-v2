@@ -7,7 +7,6 @@
 	import { page } from '$app/stores';
 
 	export let overview: Overview;
-	console.log(overview.contentType);
 	let param;
 
 	if ($page.params.subject) {

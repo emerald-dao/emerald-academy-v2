@@ -8,14 +8,12 @@
 export const replaceLocaleInUrl = (url: URL, locale: string, full = false): string => {
 	const [, , ...rest] = url.pathname.split('/');
 	const new_pathname = `/${[locale, ...rest].join('/')}`;
-	console.log(new_pathname);
 
 	if (!full) {
 		return `${new_pathname}${url.search}`;
 	}
 	const newUrl = new URL(url.toString());
 	newUrl.pathname = new_pathname;
-	console.log(newUrl.toString());
 
 	return newUrl.toString();
 };
