@@ -51,14 +51,14 @@
 		/>
 	{/if}
 </section>
-<section class="container-small diamonds-wrapper">
+
+<!-- <section class="container-small diamonds-wrapper">
 	{#each achievements as achievement}
 		<div class="specific-card">
 			<DiamondsCards {achievement} />
 		</div>
 	{/each}
-</section>
-
+</section> -->
 <style type="scss">
 	.main {
 		display: flex;
@@ -70,6 +70,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		margin-bottom: 4rem;
 		gap: var(--space-6);
 		border: var(--clr-border-primary) var(--border-width-primary) solid;
 		border-radius: var(--radius-8);
@@ -85,7 +86,7 @@
 		}
 	}
 
-	.diamonds-wrapper {
+	/* .diamonds-wrapper {
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--space-4);
@@ -93,5 +94,5 @@
 
 	.specific-card {
 		width: 32%;
-	}
+	} */
 </style>
