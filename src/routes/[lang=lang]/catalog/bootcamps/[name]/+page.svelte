@@ -6,6 +6,8 @@
 	import { Modal, getModal } from '@emerald-dao/component-library';
 	import CourseDetailsHeader from '$lib/components/cards/CourseDetailsHeader.svelte';
 	import CourseDetailsOpen from '$lib/components/cards/CourseDetailsOpen.svelte';
+	import Questions from '$lib/components/faqs/Questions.svelte';
+	import Answers from '$lib/components/faqs/Answers.svelte';
 
 	export let data: Data;
 
@@ -37,6 +39,22 @@
 			</Accordion>
 		</div>
 	{/each}
+</section>
+<section class="container-small">
+	{#if data.overview.metadata.faqs}
+		{#each data.overview.metadata.faqs as questionAnswer}
+			<div class="accordion">
+				<Accordion>
+					<div slot="header">
+						<Questions {questionAnswer} />
+					</div>
+					<div slot="open">
+						<Answers {questionAnswer} />
+					</div>
+				</Accordion>
+			</div>
+		{/each}
+	{/if}
 </section>
 
 <style type="scss">
