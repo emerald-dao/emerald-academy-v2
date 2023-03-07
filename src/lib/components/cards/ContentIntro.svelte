@@ -7,6 +7,7 @@
 	import { page } from '$app/stores';
 
 	export let overview: Overview;
+	export let showBreadcrumbs: boolean = false;
 	let param;
 
 	if ($page.params.subject) {
@@ -32,7 +33,9 @@
 </script>
 
 <div class="main-wrapper">
-	<Breadcrumbs {routes} />
+	{#if showBreadcrumbs}
+		<Breadcrumbs {routes} />
+	{/if}
 	<h2>
 		{overview.title}
 	</h2>

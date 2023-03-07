@@ -17,7 +17,7 @@
 </script>
 
 <section class="container-small">
-	<SpecificContentCard overview={data.overview}>
+	<SpecificContentCard overview={data.overview} showBreadcrumbs={true}>
 		<Button size="large" on:click={() => getModal().open()}>Enroll</Button>
 		<Modal>
 			<div class="modal-content">

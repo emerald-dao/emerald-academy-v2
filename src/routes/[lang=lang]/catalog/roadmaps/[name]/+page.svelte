@@ -13,7 +13,7 @@
 
 <section class="container-small main-wrapper">
 	<div class="content">
-		<SpecificContentCard overview={data.roadmap} />
+		<SpecificContentCard overview={data.roadmap} showBreadcrumbs={true} />
 	</div>
 	<div class="overview-wrapper">
 		<RoadmapOverviewModal overview={data.roadmap} />

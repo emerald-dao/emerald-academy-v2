@@ -12,7 +12,7 @@
 </script>
 
 <section class="container-small">
-	<ContentIntro overview={data.overview}>
+	<ContentIntro overview={data.overview} showBreadcrumbs={true}>
 		<Button size="large" href={`/${Object.values(data.contents)[0].contents[0].slug}`}>
 			Start<Icon icon="tabler:arrow-right" />
 		</Button>
