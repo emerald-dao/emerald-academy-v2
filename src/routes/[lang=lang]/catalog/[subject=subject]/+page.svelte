@@ -85,12 +85,14 @@
 					{data.overview.description}
 				</p>
 			</div>
-			<div class="roadmap-wrapper">
-				<h5 class="w-medium">Become an expert with our full Roadmap</h5>
-				<a class="card" href={`${data.featuredRoadmap.slug}`}>
-					<ContentIntro overview={data.featuredRoadmap} />
-				</a>
-			</div>
+			{#if data.featuredRoadmap}
+				<div class="roadmap-wrapper">
+					<h5 class="w-medium">Become an expert with our full Roadmap</h5>
+					<a class="card" href={`${data.featuredRoadmap.slug}`}>
+						<ContentIntro overview={data.featuredRoadmap} />
+					</a>
+				</div>
+			{/if}
 
 			<div class="sidebar column-3">
 				<h5 class="w-medium">Shortcuts</h5>
