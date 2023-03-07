@@ -37,7 +37,7 @@ const en: BaseTranslation = {
 	[ContentTypeEnum.Course]: 'Course',
 	[ContentTypeEnum.Bootcamp]: 'Bootcamp',
 	[ContentTypeEnum.Roadmap]: 'Roadmap',
-	[ContentTypeEnum.Template]: 'Templates',
+	[ContentTypeEnum.Quickstart]: 'Quickstart',
 	[ContentTypeEnum.Resources]: 'Resources',
 	[ContentTypeEnum.Blog]: 'Blog',
 

@@ -37,7 +37,7 @@ const zh: BaseTranslation = {
 	[ContentTypeEnum.Course]: '课程',
 	[ContentTypeEnum.Bootcamp]: '训练营',
 	[ContentTypeEnum.Roadmap]: '学习路线',
-	[ContentTypeEnum.Template]: '模板',
+	[ContentTypeEnum.Quickstart]: '模板',
 	[ContentTypeEnum.Resources]: '资源',
 
 	// Subjects

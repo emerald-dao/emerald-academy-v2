@@ -24,8 +24,8 @@ export const navElements = [
 		prefetch: true
 	},
 	{
-		name: 'Templates',
-		url: '/templates',
+		name: 'Quickstarts',
+		url: '/Quickstarts',
 		prefetch: true
 	}
 ];

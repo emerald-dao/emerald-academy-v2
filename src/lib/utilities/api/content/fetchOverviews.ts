@@ -6,7 +6,7 @@ export const fetchOverviews = async (
 	contentType?:
 		| ContentTypeEnum.Bootcamp
 		| ContentTypeEnum.Course
-		| ContentTypeEnum.Template
+		| ContentTypeEnum.Quickstart
 		| ContentTypeEnum.Roadmap,
 	locale?: Locales
 ) => {
@@ -21,8 +21,8 @@ export const fetchOverviews = async (
 			overviews = import.meta.glob('/src/lib/content/bootcamps/**/*.ts');
 			break;
 
-		case ContentTypeEnum.Template:
-			overviews = import.meta.glob('/src/lib/content/templates/**/**/*.ts');
+		case ContentTypeEnum.Quickstart:
+			overviews = import.meta.glob('/src/lib/content/quickstarts/**/**/*.ts');
 			break;
 
 		case ContentTypeEnum.Roadmap:

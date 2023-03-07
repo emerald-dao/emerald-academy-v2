@@ -41,8 +41,8 @@
 			prefetch: true
 		},
 		{
-			name: 'Templates',
-			url: `/${$locale}/templates`,
+			name: 'Quickstarts',
+			url: `/${$locale}/quickstarts`,
 			prefetch: true
 		}
 	];
@@ -68,7 +68,7 @@
 	avatarDropDownNavigation={avatarDropdownNav}
 	logoHref={`/${$locale}/`}
 	logoUrl="/EA_Iso.svg"
-	logoText="Emerald City"
+	logoText="Emerald Academy"
 >
 	<LocaleSwitcher slot="commands" />
 </Header>
@@ -82,7 +82,7 @@
 	socials={socialMedia}
 	logoHref={`/${$locale}/`}
 	logoUrl="/EA_Iso.svg"
-	logoText="Emerald City"
+	logoText="Emerald Academy"
 />
 
 <svelte:head>

@@ -37,8 +37,9 @@ const es: Translation = {
 	[ContentTypeEnum.Course]: 'Curso',
 	[ContentTypeEnum.Bootcamp]: 'Bootcamp',
 	[ContentTypeEnum.Roadmap]: 'Camino de aprendizaje',
-	[ContentTypeEnum.Template]: 'Plantillas',
+	[ContentTypeEnum.Quickstart]: 'Plantillas',
 	[ContentTypeEnum.Resources]: 'Recursos',
+	[ContentTypeEnum.Blog]: 'Blog',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',

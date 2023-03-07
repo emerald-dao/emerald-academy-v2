@@ -37,7 +37,7 @@ const ru: BaseTranslation = {
 	[ContentTypeEnum.Course]: 'Курс',
 	[ContentTypeEnum.Bootcamp]: 'Буткемп',
 	[ContentTypeEnum.Roadmap]: 'Путь обучения',
-	[ContentTypeEnum.Template]: 'Шаблоны',
+	[ContentTypeEnum.Quickstart]: 'Шаблоны',
 	[ContentTypeEnum.Resources]: 'Ресурсы',
 
 	// Subjects
