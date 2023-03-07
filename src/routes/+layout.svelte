@@ -67,13 +67,23 @@
 	{network}
 	avatarDropDownNavigation={avatarDropdownNav}
 	logoHref={`/${$locale}/`}
+	logoUrl="/EA_Iso.svg"
+	logoText="Emerald City"
 >
 	<LocaleSwitcher slot="commands" />
 </Header>
 <main>
 	<slot />
 </main>
-<Footer {navElements} {emeraldTools} socials={socialMedia} logoHref={`/${$locale}/`} />
+
+<Footer
+	{navElements}
+	{emeraldTools}
+	socials={socialMedia}
+	logoHref={`/${$locale}/`}
+	logoUrl="/EA_Iso.svg"
+	logoText="Emerald City"
+/>
 
 <svelte:head>
 	<title>{dappInfo.title}</title>
