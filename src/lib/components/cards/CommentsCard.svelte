@@ -18,7 +18,7 @@
 		<p>{comment.comment}</p>
 	</div>
 	<div class="data">
-		<img src="/Jacob.jpeg" alt="avatar" class="image" />
+		<img src={comment.img} alt="avatar" class="image" />
 		<div class="name">
 			<p>{comment.name}</p>
 			<p>{comment.username}</p>
