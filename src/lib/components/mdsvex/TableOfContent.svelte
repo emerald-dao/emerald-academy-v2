@@ -1,8 +1,9 @@
 <script type="ts">
 	import { transformHeadingToUrl } from '$lib/utilities/dataTransformation/transformHeadingToUrl';
 	import { onMount, tick } from 'svelte';
-	import { ProgressSteps } from '@emerald-dao/component-library';
+	import { Button, ProgressSteps } from '@emerald-dao/component-library';
 	import type { ProgressStates } from '@emerald-dao/component-library/components/ProgressStep/progress-states.type';
+	import { page } from '$app/stores';
 
 	export let headings: Heading[];
 
@@ -85,4 +86,11 @@
 		gap={0.8}
 		cutLineEnds={false}
 	/>
+	<div style="margin-top: var(--space-5);">
+		<Button
+			href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/${$page.params.name}/${$page.params.lang}/${$page.params.chapter}/${$page.params.lesson}.md`}
+			target="_blank"
+			width="full-width">Edit this page</Button
+		>
+	</div>
 </div>
