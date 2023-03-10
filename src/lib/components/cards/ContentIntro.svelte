@@ -5,10 +5,16 @@
 	import type { Overview } from '$lib/types/content/content-overview.interface';
 	import { transformUrlToHeading } from '$lib/utilities/dataTransformation/transformUrlToHeading';
 	import { page } from '$app/stores';
+	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+	import { daysOfDifference } from '$lib/utilities/dataTransformation/daysOfDifference';
+	import { onMount } from 'svelte/internal';
+	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
 
 	export let overview: Overview;
 	export let showBreadcrumbs: boolean = false;
 	let param;
+	let startDate: Date;
+	let endDate: Date;
 
 	if ($page.params.subject) {
 		param = $page.params.subject;
@@ -30,6 +36,16 @@
 			label: transformUrlToHeading(param)
 		}
 	];
+
+	if (overview.contentType === ContentTypeEnum.Bootcamp) {
+		let dates: Date[] = [];
+		(overview as BootcampOverview).videos.forEach((element) => {
+			dates.push(element.date);
+		});
+
+		startDate = new Date(Math.min(...dates.map((date: Date) => date.getTime())));
+		endDate = new Date(Math.max(...dates.map((date: Date) => date.getTime())));
+	}
 </script>
 
 <div class="main-wrapper">
@@ -49,7 +65,32 @@
 		<Label size="small" color="transparent" iconLeft="tabler:hourglass-high"
 			>{overview.metadata.duration}</Label
 		>
+		{#if overview.contentType === ContentTypeEnum.Bootcamp}
+			{#if daysOfDifference(new Date(), startDate) > 0}
+				<Label size="small" color="transparent" iconLeft="ic:outline-access-time"
+					>Starting soon</Label
+				>
+			{/if}
+		{/if}
 	</div>
+	{#if overview.contentType === ContentTypeEnum.Bootcamp}
+		<div class="row-10">
+			<span
+				>Start Date: {startDate.toLocaleDateString('en-US', {
+					month: 'numeric',
+					day: 'numeric',
+					year: 'numeric'
+				})}
+			</span>
+			<span
+				>End Date: {endDate.toLocaleDateString('en-US', {
+					month: 'numeric',
+					day: 'numeric',
+					year: 'numeric'
+				})}
+			</span>
+		</div>
+	{/if}
 	<p>
 		{overview.excerpt}
 	</p>

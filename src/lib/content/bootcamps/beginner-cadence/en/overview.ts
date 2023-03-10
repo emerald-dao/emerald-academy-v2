@@ -73,7 +73,7 @@ export const overview: BootcampOverview = {
 			excerpt: 'Chapters 1.1 - 2.2',
 			link: 'https://www.youtube/test',
 			subjects: [SubjectsEnum.Cadence],
-			date: new Date(2023, 0, 20, 13, 30),
+			date: new Date(2023, 4, 20, 13, 30),
 			chapters: [
 				{
 					name: 'Chapter 1, Lesson 1',
@@ -98,7 +98,7 @@ export const overview: BootcampOverview = {
 			excerpt: 'Chapters 2.3 - 2.4',
 			link: 'https://www.youtube/test',
 			subjects: [SubjectsEnum.Webdev],
-			date: new Date(2023, 1, 17, 15, 30),
+			date: new Date(2023, 5, 17, 15, 30),
 			chapters: [
 				{
 					name: 'Chapter 2, Lesson 3',
