@@ -59,17 +59,25 @@
 		<ContentLabel type={overview.contentType} color="neutral">
 			{firstCapital(overview.contentType)}
 		</ContentLabel>
-		<Label size="small" iconLeft="tabler:flame" color="transparent"
-			>Level: {overview.metadata.expertise}</Label
-		>
-		<Label size="small" color="transparent" iconLeft="tabler:hourglass-high"
-			>{overview.metadata.duration}</Label
-		>
+		<Label size="small" iconLeft="tabler:flame" color="transparent">
+			Level: {overview.metadata.expertise}
+		</Label>
+		<Label size="small" color="transparent" iconLeft="tabler:hourglass-high">
+			{overview.metadata.duration}
+		</Label>
 		{#if overview.contentType === ContentTypeEnum.Bootcamp}
 			{#if daysOfDifference(new Date(), startDate) > 0}
-				<Label size="small" color="transparent" iconLeft="ic:outline-access-time"
-					>Starting soon</Label
-				>
+				<Label size="small" color="transparent" iconLeft="ic:outline-access-time">
+					Starting soon
+				</Label>
+			{:else if daysOfDifference(startDate, new Date()) > 0 && daysOfDifference(new Date(), endDate) > 0}
+				<Label size="small" color="transparent" iconLeft="ic:outline-access-time">
+					In progress
+				</Label>
+			{:else}
+				<Label size="small" color="transparent" iconLeft="ic:outline-access-time">
+					Bootcamp has ended
+				</Label>
 			{/if}
 		{/if}
 	</div>
