@@ -5,7 +5,6 @@
 	import '@emerald-dao/design-system/build/variables.css';
 	import '@emerald-dao/component-library/styles/app.scss';
 	import '$lib/styles/_articles.scss';
-	import '$lib/styles/_code.scss';
 	import { setLocale, locale } from '$i18n/i18n-svelte';
 	import HeadHrefLangs from '$lib/components/i18n/HeadHrefLangs.svelte';
 	import type { LayoutData } from './$types';
