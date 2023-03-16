@@ -4,13 +4,20 @@ language: en
 layout: false
 ---
 
-```js
-import Counter from 0x01
+<script>
+		import CodeBlock from '$lib/components/codeblock/CodeBlock.svelte'
+</script>
 
-pub fun main(): Int {
-   return Counter.count
-}
-```
+<CodeBlock
+codeBlockTitle="{`Cadence`}"
+codeStyle="{`js`}"
+code="{`
+         import Counter from 0x01
+         pub fun main(): Int {
+            return Counter.count
+         }`
+}"
+/>
 
 # Scripts
 

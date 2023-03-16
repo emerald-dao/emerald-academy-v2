@@ -4,17 +4,25 @@ language: en
 layout: false
 ---
 
-```js
-pub fun main(x: Int): Int {
-   if (x < 10) {
-      return 0;
-   } else if (x < 20) {
-      return 1;
-   } else {
-      return 2;
-   }
-}
-```
+<script>
+		import CodeBlock from '$lib/components/codeblock/CodeBlock.svelte'
+</script>
+
+<CodeBlock
+codeBlockTitle="{`Cadence`}"
+codeStyle="{`js`}"
+code="{`
+         pub fun main(x: Int): Int {
+            if (x < 10) {
+               return 0;
+            } else if (x < 20) {
+               return 1;
+            } else {
+               return 2;
+            }
+         }`
+}"
+/>
 
 # If / Else
 
