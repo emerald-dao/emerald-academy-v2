@@ -4,22 +4,15 @@ language: en
 layout: false
 ---
 
-<script>
-		import CodeBlock from '$lib/components/codeblock/CodeBlock.svelte'
-</script>
+```swift
+pub contract HelloWorld {
+   pub let greet: String
 
-<CodeBlock
-codeBlockTitle="{`Cadence`}"
-codeStyle="{`js`}"
-code="{`
-         pub contract HelloWorld {
-            pub let greet: String
-            init() {
-               self.greet = 'Hello World!'
-            }
-         }`
-      }"
-/>
+   init() {
+      self.greet = "Hello World!"
+   }
+}
+```
 
 # Hello World
 

@@ -4,27 +4,23 @@ language: en
 layout: false
 ---
 
-<script>
-		import CodeBlock from '$lib/components/codeblock/CodeBlock.svelte'
-</script>
+```js
+import Counter from 0x01
 
-<CodeBlock
-codeBlockTitle="{`Cadence`}"
-codeStyle="{`js`}"
-code="{`
-         import Counter from 0x01
-         transaction() {
-            let SignerAddress: Address
-            prepare(signer: AuthAccount) {
-               self.SignerAddress = signer.address
-            }
-            execute {
-               Counter.increment()
-               log(self.SignerAddress) // prints the signer's address
-            }
-         }`
-}"
-/>
+transaction() {
+
+   let SignerAddress: Address
+
+   prepare(signer: AuthAccount) {
+      self.SignerAddress = signer.address
+   }
+
+   execute {
+      Counter.increment()
+      log(self.SignerAddress) // prints the signer's address
+   }
+}
+```
 
 # Transactions
 

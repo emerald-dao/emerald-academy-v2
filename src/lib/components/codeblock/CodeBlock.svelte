@@ -1,12 +1,12 @@
 <script type="ts">
 	import Prism from 'prismjs';
 	import { onMount } from 'svelte';
-	import 'prismjs/plugins/toolbar/prism-toolbar.min.css';
-	import 'prismjs/plugins/toolbar/prism-toolbar.min';
-	import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min';
-	import 'prismjs/plugins/line-numbers/prism-line-numbers.min';
-	import 'prismjs/plugins/line-numbers/prism-line-numbers.min.css';
-	import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.min';
+	import 'prismjs/plugins/toolbar/prism-toolbar.css';
+	import 'prismjs/plugins/toolbar/prism-toolbar';
+	import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
+	import 'prismjs/plugins/line-numbers/prism-line-numbers';
+	import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+	import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
 
 	export let code: string;
 	export let lang: string;
