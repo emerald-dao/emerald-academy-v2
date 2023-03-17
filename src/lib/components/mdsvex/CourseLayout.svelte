@@ -1,3 +1,9 @@
+<script lang="ts" context="module">
+	import block from '$lib/components/codeblock/CodeBlock.svelte';
+
+	export { block };
+</script>
+
 <script>
 	import TableOfContent from './TableOfContent.svelte';
 

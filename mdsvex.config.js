@@ -5,13 +5,17 @@ import { getHeadings } from './src/lib/utilities/remarkPlugins/getHeadings.js';
 
 const config = defineConfig({
 	extensions: ['.svelte.md', '.md', '.svx'],
-
 	smartypants: {
 		dashes: 'oldschool'
 	},
 	layout: 'src/lib/components/mdsvex/CourseLayout.svelte',
 	rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
-	remarkPlugins: [getHeadings]
+	remarkPlugins: [getHeadings],
+	highlight: {
+		highlighter: (code, lang) => {
+			return `<Components.block code={\`${escape(code)}\`} lang={\`${lang}\`} />`;
+		}
+	}
 });
 
 export default config;
