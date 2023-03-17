@@ -1,5 +1,5 @@
 ---
-layout: false
+layout: examples
 ---
 
 # 💎 Emerald Academy
@@ -7,7 +7,8 @@ layout: false
 ## 🚩 Challenge 2: Fungible Token
 
 🎫 Deploy a FungibleToken contract to learn the basics of the Flow blockchain and Cadence. You'll use:
-- The local Flow emulator to deploy smart contracts. 
+
+- The local Flow emulator to deploy smart contracts.
 - The local Flow dev wallet to log into test accounts.
 - A template Next.js app with sample scripts and transactions to interact with your contract.
 
@@ -19,16 +20,17 @@ layout: false
 
 # Video Walkthrough
 
-Want a video walkthrough? Check out Jacob Tucker's walkthrough here: [![Challenge #2 (Fungible Token) Walkthrough](https://i.imgur.com/hbaBWoB.jpg)](https://www.youtube.com/watch?v=VXTOy7W7iQo "Emerald Academy - Challenge #2 (Fungible Token) Walkthrough")
+Want a video walkthrough? Check out Jacob Tucker's walkthrough here: [![Challenge #2 (Fungible Token) Walkthrough](https://i.imgur.com/hbaBWoB.jpg)](https://www.youtube.com/watch?v=VXTOy7W7iQo 'Emerald Academy - Challenge #2 (Fungible Token) Walkthrough')
 
 ---
 
 # 📦 Checkpoint 0: Install
 
-Required: 
-* [Git](https://git-scm.com/downloads)
-* [Node](https://nodejs.org/dist/latest-v16.x/)  (🧨 Use Node v16 or a previous version as v17 may cause errors 🧨). You know you have installed it if you type `node -v` in your terminal and it prints a version.
-* [Flow CLI](https://docs.onflow.org/flow-cli/install/)  (🧨 Make sure to install the correct link for your system 🧨). You know you have installed it if you type `flow version` in your terminal and it prints a version.
+Required:
+
+- [Git](https://git-scm.com/downloads)
+- [Node](https://nodejs.org/dist/latest-v16.x/) (🧨 Use Node v16 or a previous version as v17 may cause errors 🧨). You know you have installed it if you type `node -v` in your terminal and it prints a version.
+- [Flow CLI](https://docs.onflow.org/flow-cli/install/) (🧨 Make sure to install the correct link for your system 🧨). You know you have installed it if you type `flow version` in your terminal and it prints a version.
 
 ```sh
 git clone https://github.com/emerald-dao/2-fungible-token.git
@@ -49,7 +51,7 @@ cd 2-fungible-token
 flow emulator start -v
 ```
 
-*Note: the `-v` flag means to print transaction and script output to your local emulator*
+_Note: the `-v` flag means to print transaction and script output to your local emulator_
 
 > in a third terminal window, 💾 deploy your contract and 💸 start your local wallet:
 
@@ -91,7 +93,7 @@ This will set up the user's account so it can receive tokens.
 
 # ✏️ Checkpoint 3: Minting Fungible Tokens
 
-> In a terminal, run `npm run mint 0xf8d6e0586b0a20c7 30.0`. 
+> In a terminal, run `npm run mint 0xf8d6e0586b0a20c7 30.0`.
 
 <img src="https://i.imgur.com/hTEzmqe.png" alt="mint fungible tokens" />
 
@@ -101,7 +103,8 @@ This will mint 30 tokens to their address (`0xf8d6e0586b0a20c7`).
 
 ---
 
-# 📘 Checkpoint 4: Setup Second User Vault 
+# 📘 Checkpoint 4: Setup Second User Vault
+
 We want to transfer tokens to another account, but the problem is we don't have another account (that is set up properly) to transfer tokens to!
 
 > Log out of the current account and login to another account. Refresh the balance again. You will see an error appear:
@@ -136,7 +139,7 @@ This will transfer tokens to the `0x179b6b1cb6755e31` account. Log in to that ac
 
 <img src="https://i.imgur.com/jU9sRiL.png" alt="generate key pair" />
 
-> 👛 Create your **deployer account** by going to https://testnet-faucet.onflow.org/, pasting in your public key from above, and clicking `CREATE ACCOUNT`: 
+> 👛 Create your **deployer account** by going to https://testnet-faucet.onflow.org/, pasting in your public key from above, and clicking `CREATE ACCOUNT`:
 
 <img src="https://i.imgur.com/OitvEoO.png" alt="configure testnet account on the website" width="400" />
 
@@ -186,11 +189,12 @@ flow project deploy --network=testnet
 > Lastly, configure your .env file to point to Flow TestNet so we can interact with your new contract.
 
 In your .env file, change the following:
+
 1. `NEXT_PUBLIC_CONTRACT_ADDRESS` to your generated testnet address
 2. `NEXT_PUBLIC_STANDARD_ADDRESS` to `0x9a0766d93b6608b7`
 3. `PRIVATE_KEY` to your private key
 4. `NEXT_PUBLIC_ACCESS_NODE` to `https://rest-testnet.onflow.org`
-5. `NEXT_PUBLIC_WALLET` to `https://fcl-discovery.onflow.org/testnet/authn` 
+5. `NEXT_PUBLIC_WALLET` to `https://fcl-discovery.onflow.org/testnet/authn`
 
 You can now terminate all your terminals since we no longer need to run our own local blockchain or wallet. Everything lives on testnet!
 
@@ -220,4 +224,3 @@ Let's try out our DApp on testnet:
 > 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
 
 > 👉 Problems, questions, comments on the stack? Post them to the [💎 Emerald City Discord](https://discord.gg/emeraldcity).
- 

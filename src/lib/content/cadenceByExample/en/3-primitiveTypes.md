@@ -1,10 +1,10 @@
 ---
 title: Primitive Types
 language: en
-layout: false
+layout: examples
 ---
 
-```js
+```cadence
 pub fun main() {
    pub let number: Int
    pub let name: String

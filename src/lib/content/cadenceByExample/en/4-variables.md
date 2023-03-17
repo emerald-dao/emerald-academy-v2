@@ -1,10 +1,10 @@
 ---
 title: Variables
 language: en
-layout: false
+layout: examples
 ---
 
-```js
+```cadence
 pub contract Variables {
    pub var num1: Int
    pub let num2: Int

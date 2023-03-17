@@ -1,5 +1,5 @@
 ---
-layout: false
+layout: examples
 ---
 
 # 💎 Emerald Academy
@@ -7,7 +7,8 @@ layout: false
 ## 🚩 Challenge 4: Voting
 
 🎫 Deploy a Voting contract to learn the basics of voting inside of a DAO on the Flow blockchain and Cadence. You'll use:
-- The local Flow emulator to deploy smart contracts. 
+
+- The local Flow emulator to deploy smart contracts.
 - The local Flow dev wallet to log into test accounts.
 - A template Next.js app with sample scripts and transactions to interact with your contract.
 
@@ -19,10 +20,11 @@ layout: false
 
 # 📦 Checkpoint 0: Install
 
-Required: 
-* [Git](https://git-scm.com/downloads)
-* [Node](https://nodejs.org/dist/latest-v16.x/)  (🧨 Use Node v16 or a previous version as v17 may cause errors 🧨). You know you have installed it if you type `node -v` in your terminal and it prints a version.
-* [Flow CLI](https://docs.onflow.org/flow-cli/install/)  (🧨 Make sure to install the correct link for your system 🧨). You know you have installed it if you type `flow version` in your terminal and it prints a version.
+Required:
+
+- [Git](https://git-scm.com/downloads)
+- [Node](https://nodejs.org/dist/latest-v16.x/) (🧨 Use Node v16 or a previous version as v17 may cause errors 🧨). You know you have installed it if you type `node -v` in your terminal and it prints a version.
+- [Flow CLI](https://docs.onflow.org/flow-cli/install/) (🧨 Make sure to install the correct link for your system 🧨). You know you have installed it if you type `flow version` in your terminal and it prints a version.
 
 ```sh
 git clone https://github.com/emerald-dao/4-voting.git
@@ -43,7 +45,7 @@ cd 4-voting
 flow emulator start -v
 ```
 
-*Note: the `-v` flag means to print transaction and script output to your local emulator*
+_Note: the `-v` flag means to print transaction and script output to your local emulator_
 
 > in a third terminal window, 💾 deploy your contract and 💸 start your local wallet:
 
@@ -89,7 +91,7 @@ Now that we have given our DAO a name & description, let's join the DAO!
 
 If you click "Approve", you will be granted access to the DAO's main dashboard.
 
-Under the hood, you just set up your own token vault for the token that is governing this DAO. 
+Under the hood, you just set up your own token vault for the token that is governing this DAO.
 
 > To see the smart contract for this token, you can go to `./flow/cadence/ExampleToken.cdc`
 
@@ -102,6 +104,7 @@ After joining the DAO, you will be brought to the main dashboard of your DAO. Yo
 > Press the "Submit Proposal" button on the right side
 
 To create a proposal, you must fill in:
+
 - The name of the proposal
 - The image of the proposal
 - A start & end date
@@ -113,7 +116,7 @@ To create a proposal, you must fill in:
 
 <img src="https://i.imgur.com/Fg8Qmuz.png" alt="run submit proposal tx" width="400" />
 
-A popup will appear to create your new proposal. This is a transaction that will change data on the blockchain. Specifically, it is creating a new `Proposal` resource and storing it in your DAOs collection of proposals. 
+A popup will appear to create your new proposal. This is a transaction that will change data on the blockchain. Specifically, it is creating a new `Proposal` resource and storing it in your DAOs collection of proposals.
 
 > To see how this transaction was run, check out the `submitProposal` function inside of `./pages/submit.js`
 
@@ -132,6 +135,7 @@ Now that a proposal has been created, lets click on it and see what it looks lik
 <img src="https://i.imgur.com/R78d772.png" alt="active proposal" width="400" />
 
 You should see:
+
 - Name
 - Description
 - Image
@@ -190,7 +194,7 @@ Let's try to submit a vote from another account!
 
 <img src="https://i.imgur.com/jU9sRiL.png" alt="generate key pair" />
 
-> 👛 Create your **deployer account** by going to https://testnet-faucet.onflow.org/, pasting in your public key from above, and clicking `CREATE ACCOUNT`: 
+> 👛 Create your **deployer account** by going to https://testnet-faucet.onflow.org/, pasting in your public key from above, and clicking `CREATE ACCOUNT`:
 
 <img src="https://i.imgur.com/OitvEoO.png" alt="configure testnet account on the website" width="400" />
 
@@ -242,11 +246,12 @@ flow project deploy --network=testnet
 > Lastly, configure your .env file to point to Flow TestNet so we can interact with your new contract.
 
 In your .env file, change the following:
+
 1. `NEXT_PUBLIC_CONTRACT_ADDRESS` to your generated testnet address
 2. `NEXT_PUBLIC_STANDARD_ADDRESS` to `0x9a0766d93b6608b7`
 3. `PRIVATE_KEY` to your private key
 4. `NEXT_PUBLIC_ACCESS_NODE` to `https://rest-testnet.onflow.org`
-5. `NEXT_PUBLIC_WALLET` to `https://fcl-discovery.onflow.org/testnet/authn` 
+5. `NEXT_PUBLIC_WALLET` to `https://fcl-discovery.onflow.org/testnet/authn`
 
 You can now terminate all your terminals since we no longer need to run our own local blockchain or wallet. Everything lives on testnet!
 

@@ -1,5 +1,5 @@
 ---
-layout: false
+layout: examples
 ---
 
 # 💎 Emerald Academy
@@ -7,7 +7,8 @@ layout: false
 ## 🚩 Challenge 1: NonFungibleToken
 
 🎫 Deploy your own NFT contract to learn the basics of the Flow blockchain and Cadence. You'll use:
-- The local Flow emulator to deploy smart contracts. 
+
+- The local Flow emulator to deploy smart contracts.
 - The local Flow dev wallet to log into test accounts.
 - A template Next.js app with sample scripts and transactions to interact with your contract.
 
@@ -19,16 +20,17 @@ layout: false
 
 # Video Walkthrough
 
-Want a video walkthrough? Check out Jacob Tucker's walkthrough here: [![Challenge #1 (NonFungibleToken) Walkthrough](https://i.imgur.com/BmiGz8T.jpg)](https://www.youtube.com/watch?v=MYEON2T7z9c "Emerald Academy - Challenge #1 (NonFungibleToken) Walkthrough")
+Want a video walkthrough? Check out Jacob Tucker's walkthrough here: [![Challenge #1 (NonFungibleToken) Walkthrough](https://i.imgur.com/BmiGz8T.jpg)](https://www.youtube.com/watch?v=MYEON2T7z9c 'Emerald Academy - Challenge #1 (NonFungibleToken) Walkthrough')
 
 ---
 
 # 📦 Checkpoint 0: Install
 
-Required: 
-* [Git](https://git-scm.com/downloads)
-* [Node](https://nodejs.org/dist/latest-v16.x/)  (🧨 Use Node v16 or a previous version as v17 may cause errors 🧨). You know you have installed it if you type `node -v` in your terminal and it prints a version.
-* [Flow CLI](https://docs.onflow.org/flow-cli/install/)  (🧨 Make sure to install the correct link for your system 🧨). You know you have installed it if you type `flow version` in your terminal and it prints a version.
+Required:
+
+- [Git](https://git-scm.com/downloads)
+- [Node](https://nodejs.org/dist/latest-v16.x/) (🧨 Use Node v16 or a previous version as v17 may cause errors 🧨). You know you have installed it if you type `node -v` in your terminal and it prints a version.
+- [Flow CLI](https://docs.onflow.org/flow-cli/install/) (🧨 Make sure to install the correct link for your system 🧨). You know you have installed it if you type `flow version` in your terminal and it prints a version.
 
 ```sh
 git clone https://github.com/emerald-dao/1-non-fungible-token.git
@@ -49,7 +51,7 @@ cd 1-non-fungible-token
 flow emulator start -v
 ```
 
-*Note: the `-v` flag means to print transaction and script output to your local emulator*
+_Note: the `-v` flag means to print transaction and script output to your local emulator_
 
 > in a third terminal window, 💾 deploy your contract and 💸 start your local wallet:
 
@@ -105,7 +107,7 @@ This will mint 3 NFTs to the supplied address (`0xf8d6e0586b0a20c7`).
 
 ---
 
-# 📘 Checkpoint 4: Setup empty user Collection 
+# 📘 Checkpoint 4: Setup empty user Collection
 
 > Log out of the current account and login to another account. Click `Get NFTs` again. You will see an error appear:
 
@@ -139,7 +141,7 @@ This will transfer an NFT to the `0x179b6b1cb6755e31` account. Log in to that ac
 
 <img src="https://i.imgur.com/Rf0f1ox.png" alt="generate key pair" />
 
-> 👛 Create your **deployer account** by going to https://testnet-faucet.onflow.org/, pasting in your public key from above, and clicking `CREATE ACCOUNT`: 
+> 👛 Create your **deployer account** by going to https://testnet-faucet.onflow.org/, pasting in your public key from above, and clicking `CREATE ACCOUNT`:
 
 <img src="https://i.imgur.com/mkNCf1o.png" alt="configure testnet account on the website" width="400" />
 
@@ -193,10 +195,11 @@ flow project deploy --network=testnet
 > Lastly, configure your .env file to point to Flow TestNet so we can interact with your new contract.
 
 In your .env file, change the following:
+
 1. `NEXT_PUBLIC_CONTRACT_ADDRESS` to your generated testnet address
 2. `NEXT_PUBLIC_STANDARD_ADDRESS` to `0x631e88ae7f1d7c20`
 3. `PRIVATE_KEY` to your private key
-4. `NEXT_PUBLIC_ACCESS_NODE` to `https://rest-testnet.onflow.org` 
+4. `NEXT_PUBLIC_ACCESS_NODE` to `https://rest-testnet.onflow.org`
 5. `NEXT_PUBLIC_WALLET` to `https://fcl-discovery.onflow.org/testnet/authn`
 
 You can now terminate all your terminals since we no longer need to run our own local blockchain or wallet. Everything lives on testnet!
@@ -230,4 +233,3 @@ Let's try out our DApp on testnet:
 > 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
 
 > 👉 Problems, questions, comments on the stack? Post them to the [💎 Emerald City Discord](https://discord.gg/emeraldcity).
-

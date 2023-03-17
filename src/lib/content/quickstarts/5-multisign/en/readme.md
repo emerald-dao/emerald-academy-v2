@@ -1,5 +1,5 @@
 ---
-layout: false
+layout: examples
 ---
 
 # 💎 Emerald Academy
@@ -7,7 +7,8 @@ layout: false
 ## 🚩 Challenge 5: Multisign
 
 🎫 Deploy a Multisign contract to learn the basics of multisigning withdraws and deposits to a DAO Treasury on the Flow blockchain and Cadence. You'll use:
-- The local Flow emulator to deploy smart contracts. 
+
+- The local Flow emulator to deploy smart contracts.
 - The local Flow dev wallet to log into test accounts.
 - A template Next.js app with sample scripts and transactions to interact with your contract.
 
@@ -19,10 +20,11 @@ layout: false
 
 # 📦 Checkpoint 0: Install
 
-Required: 
-* [Git](https://git-scm.com/downloads)
-* [Node](https://nodejs.org/dist/latest-v16.x/)  (🧨 Use Node v16 or a previous version as v17 may cause errors 🧨). You know you have installed it if you type `node -v` in your terminal and it prints a version.
-* [Flow CLI](https://docs.onflow.org/flow-cli/install/)  (🧨 Make sure to install the correct link for your system 🧨). You know you have installed it if you type `flow version` in your terminal and it prints a version.
+Required:
+
+- [Git](https://git-scm.com/downloads)
+- [Node](https://nodejs.org/dist/latest-v16.x/) (🧨 Use Node v16 or a previous version as v17 may cause errors 🧨). You know you have installed it if you type `node -v` in your terminal and it prints a version.
+- [Flow CLI](https://docs.onflow.org/flow-cli/install/) (🧨 Make sure to install the correct link for your system 🧨). You know you have installed it if you type `flow version` in your terminal and it prints a version.
 
 ```sh
 git clone https://github.com/emerald-dao/5-multisign.git
@@ -43,7 +45,7 @@ cd 5-multisign
 flow emulator start -v
 ```
 
-*Note: the `-v` flag means to print transaction and script output to your local emulator*
+_Note: the `-v` flag means to print transaction and script output to your local emulator_
 
 > in a third terminal window, 💾 deploy your contract and 💸 start your local wallet:
 
@@ -95,7 +97,7 @@ Now that we have deposited $FLOW to the treasury, let's test out making a withdr
 
 > Click "Request Withdraw" and you will notice a transaction popup appear.
 
-After clicking Approve, you will notice that the balance in the Treasury *does not* get updated. This is because Admins of the treasury must all sign the request in order for it to go through. However, a "Pending" history is shown:
+After clicking Approve, you will notice that the balance in the Treasury _does not_ get updated. This is because Admins of the treasury must all sign the request in order for it to go through. However, a "Pending" history is shown:
 
 <img src="https://i.imgur.com/13YPTA5.png" alt="pending" width="400" />
 
@@ -105,7 +107,7 @@ You can view all the Admins of the treasury on the main page. Initially, only th
 
 > From the main page, click "View Admin Dashboard".
 
-You will see all the pending withdraw requests that you must vote on. 
+You will see all the pending withdraw requests that you must vote on.
 
 > Click on the request and you will be taken to a page describing the request:
 
@@ -113,7 +115,7 @@ You will see all the pending withdraw requests that you must vote on.
 
 > Sign the transaction by clicking the "Sign Request" button. Approve the transaction.
 
-After signing the transaction, you will notice "Pending" switches to "Complete" in the top left. This is because all of the admins have approved the withdraw request. 
+After signing the transaction, you will notice "Pending" switches to "Complete" in the top left. This is because all of the admins have approved the withdraw request.
 
 In addition, the $FLOW token was withdrawn from the treasury and deposited to the beneficiary (`0xf8d6e0586b0a20c7`).
 
@@ -147,7 +149,7 @@ Now it has officially gone through!
 
 <img src="https://i.imgur.com/jU9sRiL.png" alt="generate key pair" />
 
-> 👛 Create your **deployer account** by going to https://testnet-faucet.onflow.org/, pasting in your public key from above, and clicking `CREATE ACCOUNT`: 
+> 👛 Create your **deployer account** by going to https://testnet-faucet.onflow.org/, pasting in your public key from above, and clicking `CREATE ACCOUNT`:
 
 <img src="https://i.imgur.com/OitvEoO.png" alt="configure testnet account on the website" width="400" />
 
@@ -197,12 +199,13 @@ flow project deploy --network=testnet
 > Lastly, configure your .env file to point to Flow TestNet so we can interact with your new contract.
 
 In your .env file, change the following:
+
 1. `NEXT_PUBLIC_CONTRACT_ADDRESS` to your generated testnet address
 2. `NEXT_PUBLIC_STANDARD_ADDRESS` to `0x9a0766d93b6608b7`
 3. `NEXT_PUBLIC_FLOW_TOKEN_ADDRESS` to `0x7e60df042a9c0868`
 4. `PRIVATE_KEY` to your private key
 5. `NEXT_PUBLIC_ACCESS_NODE` to `https://rest-testnet.onflow.org`
-6. `NEXT_PUBLIC_WALLET` to `https://fcl-discovery.onflow.org/testnet/authn` 
+6. `NEXT_PUBLIC_WALLET` to `https://fcl-discovery.onflow.org/testnet/authn`
 
 You can now terminate all your terminals since we no longer need to run our own local blockchain or wallet. Everything lives on testnet!
 
@@ -213,7 +216,7 @@ Let's try out our application on testnet:
 3. Fund your testnet account by pasting your address into https://testnet-faucet.onflow.org/fund-account
 4. Deposit $FLOW into the treasury.
 5. Make a new withdraw request.
-6. By default, the Admin of the treasury is the account you deployed your contract to. However, we do not have this account in a wallet like Lilico or Blocto, so we will have some trouble signing the withdraw request. To fix that, we created a command for you to sign proposals from your terminal: 
+6. By default, the Admin of the treasury is the account you deployed your contract to. However, we do not have this account in a wallet like Lilico or Blocto, so we will have some trouble signing the withdraw request. To fix that, we created a command for you to sign proposals from your terminal:
 
 - In your terminal, type `npm run sign [THE PROPOSAL ID]` (you can get the `proposalId` by clicking on the request and seeing its number)
 - You should see a printed "Transaction Id". If you go to [Testnet Flowscan](https://testnet.flowscan.org/) and paste in that Transaction Id, you should see information about that minting transaction.

@@ -1,10 +1,10 @@
 ---
 title: Transactions
 language: en
-layout: false
+layout: examples
 ---
 
-```js
+```cadence
 import Counter from 0x01
 
 transaction() {

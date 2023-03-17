@@ -1,10 +1,10 @@
 ---
 title: Hola Mundo
 language: en
-layout: false
+layout: examples
 ---
 
-```swift
+```cadence
 pub contract HelloWorld {
    pub let greet: String
 
