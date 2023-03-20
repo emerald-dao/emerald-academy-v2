@@ -14,7 +14,19 @@
 </section>
 <section class="container-small main-diamond-wrapper">
 	{#if value <= 10}
-		<img src="/main-diamond-1.png" alt="Your diamond!" />
+		{#if value <= 3}
+			<video height="400px" width="auto" autoplay loop muted>
+				<source src="/diamonds/diamond-1-1.mp4" type="video/mp4" />
+			</video>
+		{:else if value > 3 && value <= 7}
+			<video height="400px" width="auto" autoplay loop muted>
+				<source src="/diamonds/diamond-1-2.mp4" type="video/mp4" />
+			</video>
+		{:else if value > 7 && value <= 10}
+			<video height="400px" width="auto" autoplay loop muted>
+				<source src="/diamonds/diamond-1-3.mp4" type="video/mp4" />
+			</video>
+		{/if}
 		<h4 class="heading tagline">Diamantis</h4>
 		<ProgressBar
 			{value}
@@ -26,7 +38,19 @@
 			size="large"
 		/>
 	{:else if value > 10 && value <= 30}
-		<img src="/main-diamond-2.png" alt="Your diamond!" />
+		{#if value > 10 && value <= 17}
+			<video height="400px" width="auto" autoplay loop muted>
+				<source src="/diamonds/diamond-2-1.mp4" type="video/mp4" />
+			</video>
+		{:else if value > 17 && value <= 24}
+			<video height="400px" width="auto" autoplay loop muted>
+				<source src="/diamonds/diamond-2-2.mp4" type="video/mp4" />
+			</video>
+		{:else if value > 24 && value <= 30}
+			<video height="400px" width="auto" autoplay loop muted>
+				<source src="/diamonds/diamond-2-3.mp4" type="video/mp4" />
+			</video>
+		{/if}
 		<h4 class="heading tagline">Diamantis</h4>
 		<ProgressBar
 			{value}
@@ -38,7 +62,19 @@
 			size="large"
 		/>
 	{:else if value > 30 && value <= 60}
-		<img src="/main-diamond-3.png" alt="Your diamond!" />
+		{#if value > 30 && value <= 40}
+			<video height="400px" width="auto" autoplay loop muted>
+				<source src="/diamonds/diamond-3-1.mp4" type="video/mp4" />
+			</video>
+		{:else if value > 40 && value <= 50}
+			<video height="400px" width="auto" autoplay loop muted>
+				<source src="/diamonds/diamond-3-2.mp4" type="video/mp4" />
+			</video>
+		{:else if value > 50 && value <= 60}
+			<video height="400px" width="auto" autoplay loop muted>
+				<source src="/diamonds/diamond-3-3.mp4" type="video/mp4" />
+			</video>
+		{/if}
 		<h4 class="tagline">Diamantis</h4>
 		<ProgressBar
 			{value}
@@ -76,10 +112,10 @@
 		border-radius: var(--radius-8);
 		padding: var(--space-8) 0;
 
-		img {
+		/* video {
 			height: 400px;
 			width: auto;
-		}
+		} */
 
 		h4 {
 			color: var(--clr-heading-main);
