@@ -24,7 +24,7 @@
 		display: flex;
 		flex-direction: column;
 
-		@include mq(small) {
+		@include mq(medium) {
 			display: grid;
 			grid-template-columns: 65ch auto;
 			gap: var(--space-12);
@@ -40,7 +40,7 @@
 
 	aside {
 		display: none;
-		@include mq(small) {
+		@include mq(medium) {
 			display: block;
 			position: sticky;
 			top: 140px;
