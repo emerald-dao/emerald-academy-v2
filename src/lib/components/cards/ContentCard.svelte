@@ -12,11 +12,11 @@
 	if (overview.contentType === ContentTypeEnum.Blog) {
 		link = overview.link;
 	} else {
-		link = `/${$locale}/catalog/${overview.slug}`;
+		link = `/catalog/${overview.slug}`;
 	}
 </script>
 
-<a href={link}>
+<a href={`/${$locale}${link}`}>
 	<div class="card-primary">
 		<ContentLabel type={overview.contentType} color="primary">
 			{$LL[overview.contentType]()}
