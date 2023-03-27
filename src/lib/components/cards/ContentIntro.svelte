@@ -7,7 +7,6 @@
 	import { page } from '$app/stores';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 	import { daysOfDifference } from '$lib/utilities/dataTransformation/daysOfDifference';
-	import { onMount } from 'svelte/internal';
 	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
 
 	export let overview: Overview;
@@ -48,78 +47,100 @@
 	}
 </script>
 
-<div class="main-wrapper">
-	{#if showBreadcrumbs}
-		<Breadcrumbs {routes} />
-	{/if}
-	<h2>
-		{overview.title}
-	</h2>
-	<div class="metadata-labels">
-		<ContentLabel type={overview.contentType} color="neutral">
-			{firstCapital(overview.contentType)}
-		</ContentLabel>
-		<Label size="small" iconLeft="tabler:flame" color="transparent">
-			Level: {overview.metadata.expertise}
-		</Label>
-		<Label size="small" color="transparent" iconLeft="tabler:hourglass-high">
-			{overview.metadata.duration}
-		</Label>
-		{#if overview.contentType === ContentTypeEnum.Bootcamp}
-			{#if daysOfDifference(new Date(), startDate) > 0}
-				<Label size="small" color="transparent" iconLeft="ic:outline-access-time">
-					Starting soon
-				</Label>
-			{:else if daysOfDifference(startDate, new Date()) > 0 && daysOfDifference(new Date(), endDate) > 0}
-				<Label size="small" color="transparent" iconLeft="ic:outline-access-time">
-					In progress
-				</Label>
-			{:else}
-				<Label size="small" color="transparent" iconLeft="ic:outline-access-time">
-					Bootcamp has ended
-				</Label>
-			{/if}
+<section class="section-large">
+	<div class="container-small">
+		{#if showBreadcrumbs}
+			<Breadcrumbs {routes} />
 		{/if}
-	</div>
-	{#if overview.contentType === ContentTypeEnum.Bootcamp}
-		<div class="row-10">
-			<span
-				>Start Date: {startDate.toLocaleDateString('en-US', {
-					month: 'numeric',
-					day: 'numeric',
-					year: 'numeric'
-				})}
-			</span>
-			<span
-				>End Date: {endDate.toLocaleDateString('en-US', {
-					month: 'numeric',
-					day: 'numeric',
-					year: 'numeric'
-				})}
-			</span>
+		<h1>
+			{overview.title}
+		</h1>
+		<div class="column-6">
+			<div class="metadata-labels">
+				<ContentLabel type={overview.contentType} color="primary">
+					{firstCapital(overview.contentType)}
+				</ContentLabel>
+				<Label size="small" iconLeft="tabler:flame" color="transparent" hasBorder={false}>
+					Level: {overview.metadata.expertise}
+				</Label>
+				<Label size="small" color="transparent" iconLeft="tabler:hourglass-high" hasBorder={false}>
+					{overview.metadata.duration}
+				</Label>
+				{#if overview.contentType === ContentTypeEnum.Bootcamp}
+					{#if daysOfDifference(new Date(), startDate) > 0}
+						<Label
+							size="small"
+							color="transparent"
+							iconLeft="ic:outline-access-time"
+							hasBorder={false}
+						>
+							Starting soon
+						</Label>
+					{:else if daysOfDifference(startDate, new Date()) > 0 && daysOfDifference(new Date(), endDate) > 0}
+						<Label
+							size="small"
+							color="transparent"
+							iconLeft="ic:outline-access-time"
+							hasBorder={false}
+						>
+							In progress
+						</Label>
+					{:else}
+						<Label
+							size="small"
+							color="transparent"
+							iconLeft="ic:outline-access-time"
+							hasBorder={false}
+						>
+							Bootcamp has ended
+						</Label>
+					{/if}
+				{/if}
+			</div>
+			{#if overview.contentType === ContentTypeEnum.Bootcamp}
+				<div class="row-10">
+					<span
+						>Start Date: {startDate.toLocaleDateString('en-US', {
+							month: 'numeric',
+							day: 'numeric',
+							year: 'numeric'
+						})}
+					</span>
+					<span
+						>End Date: {endDate.toLocaleDateString('en-US', {
+							month: 'numeric',
+							day: 'numeric',
+							year: 'numeric'
+						})}
+					</span>
+				</div>
+			{/if}
+			<p>
+				{overview.excerpt}
+			</p>
 		</div>
-	{/if}
-	<p>
-		{overview.excerpt}
-	</p>
-	<slot />
-</div>
+		<slot />
+	</div>
+</section>
 
 <style type="scss">
-	.main-wrapper {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-4);
-
-		.metadata-labels {
+	section {
+		border-bottom: 0.5px solid var(--clr-border-primary);
+		.container-small {
 			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			gap: var(--space-2);
-		}
+			flex-direction: column;
+			gap: var(--space-8);
 
-		p {
-			max-width: 50ch;
+			.metadata-labels {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				gap: var(--space-2);
+			}
+
+			p {
+				max-width: 50ch;
+			}
 		}
 	}
 </style>

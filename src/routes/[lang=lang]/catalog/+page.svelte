@@ -7,11 +7,13 @@
 	import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 	import type { Overview } from '$lib/types/content/content-overview.interface';
 	import type { Filter } from '$lib/types/content/filters/filter.interface';
-	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
+	import { firstCapital as uppercaseFirstLetter } from '$lib/utilities/dataTransformation/firstCapital';
 	import { page } from '$app/stores';
 	import type { SubjectOverview } from '$lib/types/content/subjects.interface';
 	import type { Locale } from 'typesafe-i18n/types/runtime/src/core.mjs';
 	import { transformHeadingToUrl } from '$lib/utilities/dataTransformation/transformHeadingToUrl';
+	import Icon from '@iconify/svelte';
+	import CatalogSection from '$lib/features/catalog-list/CatalogSection.svelte';
 
 	export let data: Data;
 
@@ -20,134 +22,39 @@
 		featuredSubjects: SubjectOverview[];
 		locale: Locale;
 	}
-
-	let filters: Filter[] = [
-		{
-			title: 'Type of content',
-			filterElement: [
-				{
-					icon: 'icon',
-					slug: ContentTypeEnum.Bootcamp
-				},
-				{
-					icon: 'icon',
-					slug: ContentTypeEnum.Course
-				},
-				{
-					icon: 'icon',
-					slug: ContentTypeEnum.Roadmap
-				},
-				{
-					icon: 'icon',
-					slug: ContentTypeEnum.Blog
-				}
-			],
-			filterBucket: []
-		},
-		{
-			title: 'Subject',
-			filterElement: Object.values(SubjectsEnum).map((sub) => {
-				return {
-					icon: 'icon',
-					slug: sub
-				};
-			}),
-			filterBucket: []
-		},
-		{
-			title: 'Expertise',
-			filterElement: Object.values(ExpertiseEnum).map((sub) => {
-				return {
-					icon: 'icon',
-					slug: sub
-				};
-			}),
-			filterBucket: []
-		}
-	];
-
-	$: $LL && (filters = filters);
 </script>
 
-<section class="container">
-	<h1 class="w-medium heading">Catalog</h1>
-	<h5 class="w-medium heading">What would you like to learn?</h5>
-	<div class="first-wrapper">
-		{#each data.featuredSubjects as subject}
-			<a class="card column-2" href={`${$page.url.href}/${transformHeadingToUrl(subject.name)}`}>
-				<h4>{`Learn ${firstCapital(subject.name)}`}</h4>
-				<p>{firstCapital(subject.description)}</p>
-			</a>
-		{/each}
-	</div>
-	<div class="second-wrapper">
-		<div class="sidebar"><Filters bind:filters /></div>
-		<div class="main">
-			{#each data.content as content}
-				{#if filters[0].filterBucket.includes(content.contentType) || filters[0].filterBucket.length < 1}
-					{#if filters[1].filterBucket.some( (item) => content.metadata.subjects.includes(item) ) || filters[1].filterBucket.length < 1}
-						{#if filters[2].filterBucket.includes(content.metadata.expertise) || filters[2].filterBucket.length < 1}
-							<ContentCard overview={content} />
-						{/if}
-					{/if}
-				{/if}
+<section>
+	<div class="container">
+		<h1 class="w-medium">Catalog</h1>
+		<h5>What would you like to learn?</h5>
+		<div class="first-wrapper">
+			{#each data.featuredSubjects as subject}
+				<a class="card column-2" href={`${$page.url.href}/${transformHeadingToUrl(subject.name)}`}>
+					<div class="row-3 align-center">
+						<div class="subject-icon">
+							<Icon icon={subject.icon} width="1.3rem" color="var(--clr-tertiary-main)" />
+						</div>
+						<h4>{`Learn ${uppercaseFirstLetter(subject.name)}`}</h4>
+					</div>
+					<p>{uppercaseFirstLetter(subject.description)}</p>
+				</a>
 			{/each}
 		</div>
 	</div>
 </section>
+<CatalogSection contentList={data.content} />
 
 <style type="scss">
-	h5 {
-		margin-top: var(--space-10);
-	}
+	section {
+		border-bottom: 0.5px var(--clr-border-primary) solid;
 
-	.first-wrapper {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-10);
-
-		@include mq(medium) {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: var(--space-10);
+		h5 {
+			margin-block: var(--space-12) var(--space-4);
+			color: var(--clr-text-primary);
 		}
 
-		p {
-			color: var(--clr-text-main);
-		}
-	}
-
-	.second-wrapper {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-5);
-		margin-top: var(--space-12);
-
-		@include mq(medium) {
-			display: grid;
-			grid-template-columns: 1fr 3fr;
-			gap: var(--space-10);
-		}
-
-		.sidebar {
-			display: flex;
-			flex-direction: column;
-			gap: var(--space-4);
-			border-bottom: var(--border-width-primary) var(--clr-border-primary) solid;
-			height: fit-content;
-			padding-bottom: var(--space-4);
-
-			@include mq(medium) {
-				padding-block: var(--space-9);
-				gap: var(--space-10);
-				border-bottom: none;
-				border-right: var(--border-width-primary) var(--clr-border-primary) solid;
-				position: sticky;
-				top: 50px;
-			}
-		}
-
-		.main {
+		.first-wrapper {
 			display: flex;
 			flex-direction: column;
 			gap: var(--space-10);
@@ -156,6 +63,20 @@
 				display: grid;
 				grid-template-columns: 1fr 1fr;
 				gap: var(--space-10);
+			}
+
+			.subject-icon {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 2.5rem;
+				height: 2.5rem;
+				border-radius: 50%;
+				background-color: var(--clr-tertiary-badge);
+			}
+
+			p {
+				color: var(--clr-text-main);
 			}
 		}
 	}

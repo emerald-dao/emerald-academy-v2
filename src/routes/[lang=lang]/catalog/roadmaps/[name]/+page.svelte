@@ -20,10 +20,15 @@
 	</div>
 </section>
 
-<section class="container-small">
-	{#each data.roadmap.contents as roadmapContent}
-		<RoadmapContentCard {roadmapContent} />
-	{/each}
+<section class="secondary-section">
+	<div class="container-small column-10">
+		<h4>Contents</h4>
+		<div class="column-2">
+			{#each data.roadmap.contents as roadmapContent, i}
+				<RoadmapContentCard {roadmapContent} {i} />
+			{/each}
+		</div>
+	</div>
 </section>
 
 <style type="scss">
@@ -31,10 +36,15 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-8);
+
 		@include mq(small) {
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			justify-content: space-between;
 		}
+	}
+
+	.secondary-section {
+		border-block: 1px var(--clr-border-primary) solid;
 	}
 </style>

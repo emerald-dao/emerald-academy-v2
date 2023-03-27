@@ -1,9 +1,10 @@
-import type { SubjectsEnum } from "./metadata/subject.enum";
+import type { SubjectsEnum } from './metadata/subject.enum';
 
 export interface SubjectOverview {
 	name: SubjectsEnum.Cadence | SubjectsEnum.DApp;
 	description: string;
 	shortcuts: ContentShortcuts[];
+	icon: string;
 }
 
 export interface ContentShortcuts {

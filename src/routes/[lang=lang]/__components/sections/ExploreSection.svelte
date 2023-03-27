@@ -15,15 +15,11 @@
 	export let roadmaps: RoadmapOverview[];
 
 	let activeContent: number = 0;
-	let typeOfContentToShow: sideContent[] = [
+	let filters = [
 		{ contentType: ContentTypeEnum.Course, icon: icon.Course },
 		{ contentType: ContentTypeEnum.Bootcamp, icon: icon.Bootcamp },
 		{ contentType: ContentTypeEnum.Roadmap, icon: icon.Roadmap }
 	];
-	interface sideContent {
-		contentType: ContentTypeEnum;
-		icon: icon;
-	}
 
 	const clickedContent = (i: number) => {
 		activeContent = i;
@@ -38,27 +34,27 @@
 
 	<div class="content-wrapper">
 		<div class="sidebar">
-			{#each typeOfContentToShow as type, i}
+			{#each filters as type, i}
 				<div
 					on:click={() => clickedContent(i)}
 					class="sidebar-link"
 					class:active={activeContent === i}
 				>
-					<Icon icon={typeOfContentToShow[i].icon} />{firstCapital(type.contentType)}
+					<Icon icon={filters[i].icon} />{firstCapital(type.contentType)}
 				</div>
 			{/each}
 		</div>
 
 		<div class="cards-wrapper">
-			{#if ContentTypeEnum.Course === typeOfContentToShow[activeContent].contentType}
+			{#if ContentTypeEnum.Course === filters[activeContent].contentType}
 				{#each courses as course}
 					<ContentCard overview={course} />
 				{/each}
-			{:else if ContentTypeEnum.Bootcamp === typeOfContentToShow[activeContent].contentType}
+			{:else if ContentTypeEnum.Bootcamp === filters[activeContent].contentType}
 				{#each bootcamps as boot}
 					<ContentCard overview={boot} />
 				{/each}
-			{:else if ContentTypeEnum.Roadmap === typeOfContentToShow[activeContent].contentType}
+			{:else if ContentTypeEnum.Roadmap === filters[activeContent].contentType}
 				{#each roadmaps as road}
 					<ContentCard overview={road} />
 				{/each}
@@ -69,6 +65,7 @@
 
 <style type="scss">
 	section {
+		min-height: 700px;
 		.title-wrapper {
 			display: flex;
 			flex-direction: column;
@@ -84,7 +81,7 @@
 		.sidebar {
 			display: flex;
 			flex-direction: column;
-			gap: var(--space-5);
+			gap: var(--space-8);
 		}
 
 		.content-wrapper {
