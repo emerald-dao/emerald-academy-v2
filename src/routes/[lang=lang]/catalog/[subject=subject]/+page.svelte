@@ -76,7 +76,7 @@
 </script>
 
 <section>
-	<div class="container">
+	<div class="container column-15">
 		<div class="first-section-wrapper">
 			<div class="title-wrapper">
 				<Breadcrumbs {routes} />
@@ -87,40 +87,42 @@
 			</div>
 			{#if data.featuredRoadmap}
 				<div class="roadmap-wrapper">
-					<h5 class="w-medium">Become an expert with our full Roadmap</h5>
-					<a class="card" href={`${data.featuredRoadmap.slug}`}>
-						<ContentIntro overview={data.featuredRoadmap} />
-					</a>
+					<h5>Become an expert with our full Roadmap</h5>
+					<ContentCard overview={data.featuredRoadmap} />
 				</div>
 			{/if}
-
 			<div class="sidebar column-3">
 				<h5 class="w-medium">Shortcuts</h5>
 				<ul>
 					{#each data.overview.shortcuts as shortcut}
-						<li><a href={shortcut.url} target="_blank" rel="noreferrer">{shortcut.name}</a></li>
+						<li>
+							<a href={shortcut.url} target="_blank" rel="noreferrer" class="header-link"
+								>{shortcut.name}</a
+							>
+						</li>
 					{/each}
 				</ul>
 			</div>
 		</div>
-
-		<h5>Full {subject} catalog</h5>
-		<div class="second-section-wrapper">
-			<div class="sidebar"><Filters bind:filters /></div>
-			<div class="cards">
-				{#each data.content as overview}
-					{#if filters[0].filterBucket.includes(overview.contentType) || filters[0].filterBucket.length < 1}
-						{#if filters[1].filterBucket.some( (item) => overview.metadata.expertise.includes(item) ) || filters[1].filterBucket.length < 1}
-							{#each overview.metadata.subjects as sub}
-								{#if sub === SubjectsEnum.Cadence.toLowerCase()}
-									<div class="catalog">
-										<ContentCard {overview} />
-									</div>
-								{/if}
-							{/each}
+		<div class="column-10">
+			<h4>Full {subject} catalog</h4>
+			<div class="second-section-wrapper">
+				<div class="sidebar"><Filters bind:filters /></div>
+				<div class="cards">
+					{#each data.content as overview}
+						{#if filters[0].filterBucket.includes(overview.contentType) || filters[0].filterBucket.length < 1}
+							{#if filters[1].filterBucket.some( (item) => overview.metadata.expertise.includes(item) ) || filters[1].filterBucket.length < 1}
+								{#each overview.metadata.subjects as sub}
+									{#if sub === SubjectsEnum.Cadence.toLowerCase()}
+										<div class="catalog">
+											<ContentCard {overview} />
+										</div>
+									{/if}
+								{/each}
+							{/if}
 						{/if}
-					{/if}
-				{/each}
+					{/each}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -155,23 +157,13 @@
 
 		.roadmap-wrapper {
 			grid-area: bottom;
-
-			h5 {
-				margin-top: 0;
-			}
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-3);
+			max-width: 600px;
 
 			@include mq(medium) {
 				grid-area: content;
-			}
-
-			.card {
-				color: var(--clr-text-main);
-				display: grid;
-				width: 100%;
-
-				@include mq(medium) {
-					width: 90%;
-				}
 			}
 		}
 
@@ -181,12 +173,12 @@
 			@include mq(medium) {
 				grid-area: sidebar;
 				display: block;
-				border-left: var(--border-width-primary) var(--clr-border-primary) solid;
+				border-left: 0.5px var(--clr-border-primary) solid;
 				height: fit-content;
 				padding-block: var(--space-9);
 				padding-left: var(--space-5);
 				position: sticky;
-				top: 80px;
+				top: 120px;
 			}
 
 			h5 {
@@ -201,20 +193,11 @@
 
 			li {
 				margin: var(--space-4) 0;
-				text-indent: -0.7em;
+				text-indent: -0.1em;
 
 				&::before {
 					content: '•';
-					color: var(--clr-primary-300);
 					padding-right: var(--space-2);
-				}
-			}
-
-			a {
-				text-decoration: none;
-
-				&:hover {
-					text-decoration: underline;
 				}
 			}
 		}
@@ -231,7 +214,7 @@
 			display: flex;
 			flex-direction: column;
 			gap: var(--space-5);
-			border-bottom: var(--border-width-primary) var(--clr-border-primary) solid;
+			border-bottom: 0.5px var(--clr-border-primary) solid;
 			height: fit-content;
 			padding-bottom: var(--space-4);
 
@@ -239,9 +222,9 @@
 				padding-block: var(--space-9);
 				gap: var(--space-10);
 				border-bottom: none;
-				border-right: var(--border-width-primary) var(--clr-border-primary) solid;
+				border-right: 0.5px var(--clr-border-primary) solid;
 				position: sticky;
-				top: 70px;
+				top: 130px;
 			}
 		}
 
@@ -254,10 +237,10 @@
 				grid-template-columns: 1fr 1fr;
 				gap: var(--space-10);
 			}
-
-			.catalog {
-				margin-top: var(--space-6);
-			}
 		}
+	}
+
+	h5 {
+		margin-block: 0;
 	}
 </style>
