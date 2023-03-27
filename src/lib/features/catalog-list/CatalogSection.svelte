@@ -52,7 +52,6 @@
 
 <style type="scss">
 	section {
-		background-color: var(--clr-background-secondary);
 		border-bottom: 1px var(--clr-border-primary) solid;
 
 		.content-wrapper {

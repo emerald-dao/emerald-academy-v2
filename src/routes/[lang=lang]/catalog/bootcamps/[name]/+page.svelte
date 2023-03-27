@@ -1,6 +1,6 @@
 <script type="ts">
 	import { Accordion, Button } from '@emerald-dao/component-library';
-	import SpecificContentCard from '$lib/components/cards/ContentIntro.svelte';
+	import ContentIntro from '$lib/components/cards/ContentIntro.svelte';
 	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
 	import { onBoardingSteps, onBoardingActiveStep } from '$stores/onBoarding/OnBoardingSteps';
 	import { Modal, getModal } from '@emerald-dao/component-library';
@@ -16,16 +16,14 @@
 	}
 </script>
 
-<section class="container-small">
-	<SpecificContentCard overview={data.overview} showBreadcrumbs={true}>
-		<Button size="large" on:click={() => getModal().open()}>Enroll</Button>
-		<Modal>
-			<div class="modal-content">
-				<svelte:component this={$onBoardingSteps[$onBoardingActiveStep].component} />
-			</div>
-		</Modal>
-	</SpecificContentCard>
-</section>
+<ContentIntro overview={data.overview} showBreadcrumbs={true}>
+	<Button size="large" width="extended" on:click={() => getModal().open()}>Enroll</Button>
+	<Modal>
+		<div class="modal-content">
+			<svelte:component this={$onBoardingSteps[$onBoardingActiveStep].component} />
+		</div>
+	</Modal>
+</ContentIntro>
 <section class="container-small">
 	{#each data.overview.videos as video, i}
 		<div class="accordion">

@@ -11,13 +11,15 @@
 	export let data: CourseData;
 </script>
 
-<section class="container-small">
-	<ContentIntro overview={data.overview} showBreadcrumbs={true}>
-		<Button size="large" href={`/${Object.values(data.contents)[0].contents[0].slug}`}>
-			Start<Icon icon="tabler:arrow-right" />
-		</Button>
-	</ContentIntro>
-</section>
+<ContentIntro overview={data.overview} showBreadcrumbs={true}>
+	<Button
+		size="large"
+		width="extended"
+		href={`/${Object.values(data.contents)[0].contents[0].slug}`}
+	>
+		Start<Icon icon="tabler:arrow-right" />
+	</Button>
+</ContentIntro>
 <section class="container-small">
 	{#each Object.values(data.contents) as chapter, i}
 		<div class="accordion">
