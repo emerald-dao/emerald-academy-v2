@@ -72,7 +72,7 @@
 
 			&:hover {
 				border-color: var(--clr-text-off);
-				background-color: var(--clr-background-secondary);
+				background-color: var(--clr-surface-primary);
 			}
 
 			h4 {

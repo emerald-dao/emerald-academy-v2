@@ -1,15 +1,12 @@
 <script type="ts">
 	import { page } from '$app/stores';
 	import ContentCard from '$lib/components/cards/ContentCard.svelte';
-	import Filters from '$lib/components/filters/Filters.svelte';
 	import { Breadcrumbs } from '@emerald-dao/component-library';
-	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
-	import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
-	import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
-	import type { Filter } from '$lib/types/content/filters/filter.interface';
 	import type { Overview } from '$lib/types/content/content-overview.interface';
 	import type { SubjectOverview } from '$lib/types/content/subjects.interface';
 	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
+	import CatalogSection from '$lib/features/catalog-list/CatalogSection.svelte';
+	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
 
 	export let data: Data;
 
@@ -33,48 +30,9 @@
 			label: `${subjectCapital}`
 		}
 	];
-
-	let filters: Filter[] = [
-		{
-			title: 'Type of Content',
-			filterElement: [
-				{
-					icon: 'icon',
-					slug: ContentTypeEnum.Bootcamp
-				},
-				{
-					icon: 'icon',
-					slug: ContentTypeEnum.Course
-				},
-				{
-					icon: 'icon',
-					slug: ContentTypeEnum.Roadmap
-				}
-			],
-			filterBucket: []
-		},
-		{
-			title: 'Expertise',
-			filterElement: [
-				{
-					icon: 'icon',
-					slug: ExpertiseEnum.Beginner
-				},
-				{
-					icon: 'icon',
-					slug: ExpertiseEnum.Intermediate
-				},
-				{
-					icon: 'icon',
-					slug: ExpertiseEnum.Advanced
-				}
-			],
-			filterBucket: []
-		}
-	];
 </script>
 
-<section class="primary-section">
+<section>
 	<div class="container column-15">
 		<div class="title-wrapper">
 			<Breadcrumbs {routes} />
@@ -103,31 +61,16 @@
 		</div>
 	</div>
 </section>
-<section class="container column-10">
-	<h4>Full {subject} catalog</h4>
-	<div class="second-section-wrapper">
-		<div class="sidebar"><Filters bind:filters /></div>
-		<div class="cards">
-			{#each data.content as overview}
-				{#if filters[0].filterBucket.includes(overview.contentType) || filters[0].filterBucket.length < 1}
-					{#if filters[1].filterBucket.some( (item) => overview.metadata.expertise.includes(item) ) || filters[1].filterBucket.length < 1}
-						{#each overview.metadata.subjects as sub}
-							{#if sub === SubjectsEnum.Cadence.toLowerCase()}
-								<div class="catalog">
-									<ContentCard {overview} />
-								</div>
-							{/if}
-						{/each}
-					{/if}
-				{/if}
-			{/each}
-		</div>
-	</div>
-</section>
+<CatalogSection
+	contentList={data.content}
+	subjectFilter={false}
+	title={`All ${firstCapital(subject)} contents`}
+/>
 
 <style type="scss">
-	.primary-section {
+	section {
 		border-bottom: 0.5px var(--clr-border-primary) solid;
+
 		.container {
 			display: grid;
 			grid-template-rows: repeat(3, auto);
@@ -197,45 +140,9 @@
 					&::before {
 						content: '•';
 						padding-right: var(--space-2);
+						color: var(--clr-tertiary-main);
 					}
 				}
-			}
-		}
-	}
-
-	.second-section-wrapper {
-		@include mq(medium) {
-			display: grid;
-			grid-template-columns: 1fr 3fr;
-			gap: var(--space-10);
-		}
-
-		.sidebar {
-			display: flex;
-			flex-direction: column;
-			gap: var(--space-5);
-			border-bottom: 0.5px var(--clr-border-primary) solid;
-			height: fit-content;
-			padding-bottom: var(--space-4);
-
-			@include mq(medium) {
-				padding-block: var(--space-9);
-				gap: var(--space-10);
-				border-bottom: none;
-				border-right: 1px var(--clr-neutral-badge) solid;
-				position: sticky;
-				top: 130px;
-			}
-		}
-
-		.cards {
-			display: flex;
-			flex-direction: column;
-
-			@include mq(medium) {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: var(--space-10);
 			}
 		}
 	}
