@@ -7,7 +7,7 @@
 	import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 	import type { Overview } from '$lib/types/content/content-overview.interface';
 	import type { Filter } from '$lib/types/content/filters/filter.interface';
-	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
+	import { firstCapital as uppercaseFirstLetter } from '$lib/utilities/dataTransformation/firstCapital';
 	import { page } from '$app/stores';
 	import type { SubjectOverview } from '$lib/types/content/subjects.interface';
 	import type { Locale } from 'typesafe-i18n/types/runtime/src/core.mjs';
@@ -75,8 +75,8 @@
 	<div class="first-wrapper">
 		{#each data.featuredSubjects as subject}
 			<a class="card column-2" href={`${$page.url.href}/${transformHeadingToUrl(subject.name)}`}>
-				<h4>{`Learn ${firstCapital(subject.name)}`}</h4>
-				<p>{firstCapital(subject.description)}</p>
+				<h4>{`Learn ${uppercaseFirstLetter(subject.name)}`}</h4>
+				<p>{uppercaseFirstLetter(subject.description)}</p>
 			</a>
 		{/each}
 	</div>
@@ -136,6 +136,7 @@
 			border-bottom: var(--border-width-primary) var(--clr-border-primary) solid;
 			height: fit-content;
 			padding-bottom: var(--space-4);
+			padding-right: var(--space-4);
 
 			@include mq(medium) {
 				padding-block: var(--space-9);

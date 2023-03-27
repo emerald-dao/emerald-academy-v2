@@ -20,7 +20,9 @@
 	<label for={name}>
 		<input type="checkbox" id={name} {name} bind:checked={value} />
 		<Label iconLeft={icon} state={value ? 'on' : 'off'} color={value ? 'tertiary' : 'neutral'}>
-			<slot />
+			<span class="w-regular">
+				<slot />
+			</span>
 		</Label>
 	</label>
 </div>
