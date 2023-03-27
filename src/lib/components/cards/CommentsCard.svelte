@@ -11,34 +11,47 @@
 </script>
 
 <div class="card-primary">
-	<div>
+	<div class="comment-wrapper">
 		<p class="quotation-marks">“</p>
-	</div>
-	<div class="comment">
+
 		<p>{comment.comment}</p>
 	</div>
 	<div class="data">
 		<img src={comment.img} alt="avatar" class="image" />
 		<div class="name">
-			<p>{comment.name}</p>
-			<p>{comment.username}</p>
+			<p class="strong">{comment.name}</p>
+			<p class="soft">{comment.username}</p>
 		</div>
 	</div>
-	<div class="social-media" />
 </div>
 
 <style type="scss">
 	.card-primary {
 		background-color: var(--clr-background-secondary);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+		gap: var(--space-4);
+		border: none;
+
 		.data {
 			display: flex;
 			flex-direction: row;
-			align-items: left;
+			align-items: center;
 
 			.name {
 				display: flex;
 				flex-direction: column;
-				margin: var(--space-3);
+				margin-left: var(--space-3);
+
+				.strong {
+					color: var(--clr-heading-main);
+				}
+
+				.soft {
+					color: var(--clr-text-off);
+				}
 			}
 
 			.image {
@@ -46,23 +59,20 @@
 				width: 50px;
 				background-color: var(--clr-surface-primary);
 				border-radius: 50%;
-				display: inline-block;
-				margin: var(--space-3) 0 var(--space-3) 0;
 			}
 		}
-		p {
-			font-family: Inter;
-		}
-		.quotation-marks {
-			font-size: var(--font-size-10);
-			font-family: Inter;
-			font-weight: var(--font-weight-bold);
-		}
 
-		.social-media {
-			display: flex;
-			flex-direction: row;
-			justify-content: flex-end;
+		.comment-wrapper {
+			position: relative;
+
+			.quotation-marks {
+				position: absolute;
+				left: -12px;
+				top: 10px;
+				font-size: var(--font-size-11);
+				color: var(--clr-text-off);
+				opacity: 0.2;
+			}
 		}
 	}
 </style>
