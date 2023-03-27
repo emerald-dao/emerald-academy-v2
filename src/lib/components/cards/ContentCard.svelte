@@ -4,6 +4,7 @@
 	import ContentLabel from '../label/ContentLabel.svelte';
 	import { locale, LL } from '$i18n/i18n-svelte';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+	import { fly } from 'svelte/transition';
 
 	export let overview: Overview;
 
@@ -16,7 +17,7 @@
 	}
 </script>
 
-<a href={`/${$locale}${link}`}>
+<a href={`/${$locale}${link}`} in:fly={{ y: 30, duration: 400 }}>
 	<div class="card-primary">
 		<ContentLabel type={overview.contentType} color="primary">
 			{$LL[overview.contentType]()}

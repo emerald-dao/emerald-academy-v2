@@ -38,6 +38,6 @@ export const load: PageLoad = async ({ params }) => {
 			roadmaps
 		};
 	} catch (e) {
-		throw error(404, 'The language you are looking for does not exist');
+		throw error(404, "Couldn't find data for the language you are looking");
 	}
 };
