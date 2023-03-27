@@ -19,17 +19,30 @@
 <div>
 	<label for={name}>
 		<input type="checkbox" id={name} {name} bind:checked={value} />
-		<Label iconLeft={icon} state={value ? 'on' : 'off'} color={value ? 'tertiary' : 'neutral'}>
-			<span class="w-regular">
+		<Label
+			iconLeft={icon}
+			state={value ? 'on' : 'off'}
+			color={value ? 'tertiary' : 'neutral'}
+			hasBorder={false}
+		>
+			<span class="w-regular small" class:on={value}>
 				<slot />
 			</span>
 		</Label>
 	</label>
 </div>
 
-<style>
+<style lang="scss">
 	label {
 		cursor: pointer;
+	}
+
+	span {
+		color: var(--clr-text-off);
+
+		&.on {
+			color: var(--clr-tertiary-main);
+		}
 	}
 
 	input {

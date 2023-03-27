@@ -12,6 +12,7 @@
 	import type { SubjectOverview } from '$lib/types/content/subjects.interface';
 	import type { Locale } from 'typesafe-i18n/types/runtime/src/core.mjs';
 	import { transformHeadingToUrl } from '$lib/utilities/dataTransformation/transformHeadingToUrl';
+	import Icon from '@iconify/svelte';
 
 	export let data: Data;
 
@@ -52,7 +53,7 @@
 					slug: sub
 				};
 			}),
-			filterBucket: []
+			filterBucket: [] as SubjectsEnum[]
 		},
 		{
 			title: 'Expertise',
@@ -67,38 +68,67 @@
 	];
 
 	$: $LL && (filters = filters);
+
+	const filteredContent = (_filters: Filter[]) => {
+		const contents = data.content.filter((content) => {
+			return (
+				(_filters[0].filterBucket.includes(content.contentType) ||
+					_filters[0].filterBucket.length < 1) &&
+				(_filters[1].filterBucket.some((item) =>
+					content.metadata.subjects.includes(item as SubjectsEnum)
+				) ||
+					_filters[1].filterBucket.length < 1) &&
+				(_filters[2].filterBucket.includes(content.metadata.expertise) ||
+					_filters[2].filterBucket.length < 1)
+			);
+		});
+
+		return contents;
+	};
+
+	$: contents = filteredContent(filters);
 </script>
 
-<section class="container">
-	<h1 class="w-medium heading">Catalog</h1>
-	<h5 class="w-medium heading">What would you like to learn?</h5>
-	<div class="first-wrapper">
-		{#each data.featuredSubjects as subject}
-			<a class="card column-2" href={`${$page.url.href}/${transformHeadingToUrl(subject.name)}`}>
-				<h4>{`Learn ${uppercaseFirstLetter(subject.name)}`}</h4>
-				<p>{uppercaseFirstLetter(subject.description)}</p>
-			</a>
-		{/each}
-	</div>
-	<div class="second-wrapper">
-		<div class="sidebar"><Filters bind:filters /></div>
-		<div class="main">
-			{#each data.content as content}
-				{#if filters[0].filterBucket.includes(content.contentType) || filters[0].filterBucket.length < 1}
-					{#if filters[1].filterBucket.some( (item) => content.metadata.subjects.includes(item) ) || filters[1].filterBucket.length < 1}
-						{#if filters[2].filterBucket.includes(content.metadata.expertise) || filters[2].filterBucket.length < 1}
-							<ContentCard overview={content} />
-						{/if}
-					{/if}
-				{/if}
+<section class="primary-section">
+	<div class="container">
+		<h1 class="w-medium">Catalog</h1>
+		<h5>What would you like to learn?</h5>
+		<div class="first-wrapper">
+			{#each data.featuredSubjects as subject}
+				<a class="card column-2" href={`${$page.url.href}/${transformHeadingToUrl(subject.name)}`}>
+					<div class="row-3 align-center">
+						<div class="subject-icon">
+							<Icon icon={subject.icon} width="1.3rem" color="var(--clr-tertiary-main)" />
+						</div>
+						<h4>{`Learn ${uppercaseFirstLetter(subject.name)}`}</h4>
+					</div>
+					<p>{uppercaseFirstLetter(subject.description)}</p>
+				</a>
 			{/each}
 		</div>
 	</div>
 </section>
+<section class="second-wrapper container">
+	<div class="sidebar"><Filters bind:filters /></div>
+	<div class="main">
+		{#if contents.length > 0}
+			{#each contents as content}
+				<ContentCard overview={content} />
+			{/each}
+		{:else}
+			<span><em>No content found</em></span>
+		{/if}
+	</div>
+</section>
 
 <style type="scss">
+	.primary-section {
+		border-bottom: 0.5px var(--clr-border-primary) solid;
+	}
+
 	h5 {
-		margin-top: var(--space-10);
+		margin-block: var(--space-12) var(--space-4);
+		color: var(--clr-text-primary);
 	}
 
 	.first-wrapper {
@@ -112,6 +142,16 @@
 			gap: var(--space-10);
 		}
 
+		.subject-icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 2.5rem;
+			height: 2.5rem;
+			border-radius: 50%;
+			background-color: var(--clr-tertiary-badge);
+		}
+
 		p {
 			color: var(--clr-text-main);
 		}
@@ -120,6 +160,7 @@
 	.second-wrapper {
 		display: flex;
 		flex-direction: column;
+		align-items: flex-start;
 		gap: var(--space-5);
 		margin-top: var(--space-12);
 
@@ -133,7 +174,7 @@
 			display: flex;
 			flex-direction: column;
 			gap: var(--space-4);
-			border-bottom: var(--border-width-primary) var(--clr-border-primary) solid;
+			border-bottom: 0.5px var(--clr-neutral-primary) solid;
 			height: fit-content;
 			padding-bottom: var(--space-4);
 			padding-right: var(--space-4);
@@ -142,7 +183,7 @@
 				padding-block: var(--space-9);
 				gap: var(--space-10);
 				border-bottom: none;
-				border-right: var(--border-width-primary) var(--clr-border-primary) solid;
+				border-right: 0.5px var(--clr-border-primary) solid;
 				position: sticky;
 				top: 50px;
 			}
@@ -157,6 +198,11 @@
 				display: grid;
 				grid-template-columns: 1fr 1fr;
 				gap: var(--space-10);
+			}
+
+			span:has(em) {
+				margin-top: var(--space-8);
+				color: var(--clr-text-off);
 			}
 		}
 	}

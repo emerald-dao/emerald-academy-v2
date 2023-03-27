@@ -10,23 +10,23 @@
 </script>
 
 {#if type === ContentTypeEnum.Course}
-	<Label size="small" iconLeft="tabler:tag" {color} {state}><slot /></Label>
+	<Label size="small" iconLeft="tabler:tag" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Bootcamp}
-	<Label size="small" iconLeft="tabler:video" {color} {state}><slot /></Label>
+	<Label size="small" iconLeft="tabler:video" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Roadmap}
-	<Label size="small" iconLeft="tabler:road" {color} {state}><slot /></Label>
+	<Label size="small" iconLeft="tabler:road" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Blog}
-	<Label size="small" iconLeft="tabler:book" {color} {state}><slot /></Label>
+	<Label size="small" iconLeft="tabler:book" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === SubjectsEnum.Backend}
-	<Label size="small" {color} {state}><slot /></Label>
+	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === SubjectsEnum.Cadence}
-	<Label size="small" {color} {state}><slot /></Label>
+	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === SubjectsEnum.Webdev}
-	<Label size="small" {color} {state}><slot /></Label>
+	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ExpertiseEnum.Beginner}
-	<Label size="small" {color} {state}><slot /></Label>
+	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ExpertiseEnum.Intermediate}
-	<Label size="small" {color} {state}><slot /></Label>
+	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ExpertiseEnum.Advanced}
-	<Label size="small" {color} {state}><slot /></Label>
+	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>
 {/if}
