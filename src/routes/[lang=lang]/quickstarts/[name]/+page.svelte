@@ -28,7 +28,7 @@
 </script>
 
 <section class="container-medium">
-	<div>
+	<div class="main-wrapper">
 		<Breadcrumbs {routes} />
 		<div class="template">&lt/&gt Quickstart</div>
 		<article>
@@ -50,27 +50,31 @@
 
 		@include mq(medium) {
 			display: grid;
-			grid-template-columns: 3fr 1fr;
+			grid-template-columns: 1fr 2fr !important;
 			gap: var(--space-10);
 		}
 
-		.template {
-			width: fit-content;
-			color: var(--clr-primary-main);
-			background-color: var(--clr-primary-badge);
-			border: var(--border-width-primary) var(--clr-primary-main) solid;
-			border-radius: var(--radius-2);
-			padding: var(--space-3) var(--space-4);
-			margin-top: var(--space-6);
-			font-size: var(--font-size-1);
-		}
-		article {
-			margin-top: var(--space-6);
+		.main-wrapper {
+			.template {
+				width: fit-content;
+				color: var(--clr-primary-main);
+				background-color: var(--clr-primary-badge);
+				border: var(--border-width-primary) var(--clr-primary-main) solid;
+				border-radius: var(--radius-2);
+				padding: var(--space-3) var(--space-4);
+				margin-top: var(--space-6);
+				font-size: var(--font-size-1);
+			}
 
-			.readme-wrapper {
-				border: var(--border-width-primary) var(--clr-border-primary) solid;
-				border-radius: var(--space-5);
-				padding: var(--space-10);
+			article {
+				margin-top: var(--space-6);
+				max-width: 85ch;
+
+				.readme-wrapper {
+					border: var(--border-width-primary) var(--clr-border-primary) solid;
+					border-radius: var(--space-5);
+					padding: var(--space-10);
+				}
 			}
 		}
 	}
