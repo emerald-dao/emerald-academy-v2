@@ -2,14 +2,8 @@
 	import LL from '$i18n/i18n-svelte';
 	import TemplatesCard from '$lib/components/cards/TemplatesCard.svelte';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
-	import type { Template } from '$lib/types/content/templates.interface';
 
-	export let data: Data;
-
-	interface Data {
-		quickstarts: Template[];
-		locale: string;
-	}
+	export let data;
 </script>
 
 <section class="container">

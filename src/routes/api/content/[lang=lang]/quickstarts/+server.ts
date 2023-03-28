@@ -1,11 +1,13 @@
-import type { RequestHandler } from './$types';
 import { json, error } from '@sveltejs/kit';
 import { fetchOverviews } from '$lib/utilities/api/content/fetchOverviews';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+import type { Locales } from '$i18n/i18n-types';
 
-export const GET: RequestHandler = async ({ params }) => {
+export const GET = async ({ params }) => {
+	const locale = params.lang as Locales;
+
 	try {
-		const allQuickstartsOverviews = await fetchOverviews(ContentTypeEnum.Quickstart, params.lang);
+		const allQuickstartsOverviews = await fetchOverviews(ContentTypeEnum.Quickstart, locale);
 
 		return json(allQuickstartsOverviews);
 	} catch (e) {

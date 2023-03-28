@@ -2,19 +2,10 @@
 	import { page } from '$app/stores';
 	import ContentCard from '$lib/components/cards/ContentCard.svelte';
 	import { Breadcrumbs } from '@emerald-dao/component-library';
-	import type { Overview } from '$lib/types/content/content-overview.interface';
-	import type { SubjectOverview } from '$lib/types/content/subjects.interface';
-	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 	import CatalogSection from '$lib/features/catalog-list/CatalogSection.svelte';
 	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
 
-	export let data: Data;
-
-	interface Data {
-		content: Overview[];
-		overview: SubjectOverview;
-		featuredRoadmap: RoadmapOverview;
-	}
+	export let data;
 
 	const subject = $page.params.subject;
 

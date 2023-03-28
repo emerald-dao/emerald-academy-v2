@@ -1,8 +1,7 @@
 import { featuredContent } from '$lib/config/featuredContent';
-import type { PageLoad } from './$types';
 import { error } from '@sveltejs/kit';
 
-export const load: PageLoad = async ({ params }) => {
+export const load = async ({ params }) => {
 	try {
 		const courses = [];
 		const bootcamps = [];

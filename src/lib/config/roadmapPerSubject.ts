@@ -1,6 +1,7 @@
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
-import { transformHeadingToUrl } from '$lib/utilities/dataTransformation/transformHeadingToUrl';
 
-export const roadmapPerSubject = {
-	[SubjectsEnum.Cadence]: 'cadence',
+export const roadmapPerSubject: {
+	[key in SubjectsEnum]?: string;
+} = {
+	[SubjectsEnum.Cadence]: 'cadence'
 };

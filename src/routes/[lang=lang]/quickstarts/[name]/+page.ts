@@ -1,8 +1,7 @@
-import type { PageLoad } from './$types';
 import { fetchGithubUser } from '$lib/utilities/api/githubApi/fetchGithubUser';
 import { error } from '@sveltejs/kit';
 
-export const load: PageLoad = async ({ params }) => {
+export const load = async ({ params }) => {
 	try {
 		const overviewFile = await import(
 			`../../../../lib/content/quickstarts/${params.name}/${params.lang}/overview.ts`

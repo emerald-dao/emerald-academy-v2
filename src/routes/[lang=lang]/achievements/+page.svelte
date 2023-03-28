@@ -1,7 +1,6 @@
 <script type="ts">
 	import { LL } from '$i18n/i18n-svelte';
 	import DiamondsCards from '$lib/components/cards/DiamondsCards.svelte';
-	import { achievements } from '$stores/AchievementsTest';
 	import { ProgressBar } from '@emerald-dao/component-library';
 
 	const greenDiamond: Achievement = {

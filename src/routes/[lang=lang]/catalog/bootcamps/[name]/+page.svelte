@@ -1,7 +1,6 @@
 <script type="ts">
 	import { Accordion, Button } from '@emerald-dao/component-library';
 	import ContentIntro from '$lib/components/cards/ContentIntro.svelte';
-	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
 	import { onBoardingSteps, onBoardingActiveStep } from '$stores/onBoarding/OnBoardingSteps';
 	import { Modal, getModal } from '@emerald-dao/component-library';
 	import CourseDetailsHeader from '$lib/components/cards/CourseDetailsHeader.svelte';
@@ -9,11 +8,7 @@
 	import Questions from '$lib/components/faqs/Questions.svelte';
 	import Answers from '$lib/components/faqs/Answers.svelte';
 
-	export let data: Data;
-
-	interface Data {
-		overview: BootcampOverview;
-	}
+	export let data;
 </script>
 
 <ContentIntro overview={data.overview} showBreadcrumbs={true}>

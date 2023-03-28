@@ -1,19 +1,11 @@
 <script type="ts">
 	import { Breadcrumbs } from '@emerald-dao/component-library';
 	import Sidebar from '../__components/Sidebar.svelte';
-	import type { Template } from '$lib/types/content/templates.interface';
 	import { page } from '$app/stores';
 	import LL from '$i18n/i18n-svelte';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
-	export let data: Data;
-
-	interface Data {
-		githubUser: any;
-		readme: any;
-		overview: Template;
-		locale: string;
-	}
+	export let data;
 
 	$: routes = [
 		{

@@ -7,7 +7,6 @@
 	import '$lib/styles/_articles.scss';
 	import { setLocale, locale } from '$i18n/i18n-svelte';
 	import HeadHrefLangs from '$lib/components/i18n/HeadHrefLangs.svelte';
-	import type { LayoutData } from './$types';
 	import { Header, Footer } from '@emerald-dao/component-library';
 	import { emeraldTools, socialMedia } from '$lib/config/navigation';
 	import { theme } from '$stores/ThemeStore';
@@ -18,7 +17,7 @@
 	import dappInfo from '$lib/config/config';
 	import { network } from '$flow/config';
 
-	export let data: LayoutData;
+	export let data;
 
 	// at the very top, set the locale before you access the store and before the actual rendering takes place
 	setLocale(data.locale);

@@ -3,10 +3,10 @@
 	import { locale } from '$i18n/i18n-svelte';
 	import CourseTitlesHeader from '$lib/components/cards/CourseTitlesHeader.svelte';
 	import CourseTitlesOpen from '$lib/components/cards/CourseTitlesOpen.svelte';
-	import type { CourseData } from '$lib/types/content/course.interface';
 	import { Accordion } from '@emerald-dao/component-library';
 	import Icon from '@iconify/svelte';
-	export let data: CourseData;
+
+	export let data;
 
 	let open: boolean;
 
@@ -17,8 +17,10 @@
 
 <div class="container-large">
 	<div class="sidebar">
-		<a class="header-link" href={`/${$locale}/catalog/${data.overview.slug}`}>Course Overview</a>
-		{#each Object.values(data.contents) as chapterContent, index}
+		<a class="header-link" href={`/${$locale}/catalog/${data.course.overview.slug}`}
+			>Course Overview</a
+		>
+		{#each Object.values(data.course.contents) as chapterContent, index}
 			<div class="column-4">
 				<p class="chapter small">{`${index + 1}. ${chapterContent.overview.title}`}</p>
 				{#each chapterContent.contents as lesson, i}
@@ -40,7 +42,7 @@
 			<Icon icon="tabler:chevron-down" />
 		</div>
 		{#if open}
-			{#each Object.values(data.contents) as chapterContent, i}
+			{#each Object.values(data.course.contents) as chapterContent, i}
 				<Accordion>
 					<div slot="header">
 						<CourseTitlesHeader data={chapterContent} {i} />

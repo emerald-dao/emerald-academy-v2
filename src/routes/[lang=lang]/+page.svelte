@@ -1,7 +1,4 @@
 <script type="ts">
-	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
-	import type { CourseOverview } from '$lib/types/content/course.interface';
-	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 	import { StatsSection, PoweredByECDAO } from '@emerald-dao/component-library';
 	import {
 		HeroSection,
@@ -10,13 +7,7 @@
 		SocialMediaSection
 	} from './__components';
 
-	export let data: Data;
-
-	interface Data {
-		courses: CourseOverview[];
-		bootcamps: BootcampOverview[];
-		roadmaps: RoadmapOverview[];
-	}
+	export let data;
 </script>
 
 <HeroSection />

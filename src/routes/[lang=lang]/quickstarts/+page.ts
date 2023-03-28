@@ -1,7 +1,6 @@
-import type { PageLoad } from './$types';
 import { error } from '@sveltejs/kit';
 
-export const load: PageLoad = async ({ fetch, params }) => {
+export const load = async ({ fetch, params }) => {
 	try {
 		const response = await fetch(`/api/content/${params.lang}/quickstarts`);
 		const quickstarts = await response.json();

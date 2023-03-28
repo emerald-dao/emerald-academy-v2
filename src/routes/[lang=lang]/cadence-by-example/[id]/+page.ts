@@ -1,22 +1,13 @@
 import { error } from '@sveltejs/kit';
-import type { PageLoad } from './$types';
 
-export const load: PageLoad = async ({ params }) => {
+export const load = async ({ params }) => {
 	try {
-		let cadenceByExampleMarkdownFile;
-
-		try {
-			cadenceByExampleMarkdownFile = await import(
-				`../../../../lib/content/cadenceByExample/${params.lang}/${params.id}.md`
-			);
-		} catch (e) {
-			cadenceByExampleMarkdownFile = await import(
-				`../../../../lib/content/cadenceByExample/en/${params.id}.md`
-			);
-		}
+		const cadenceByExampleMarkdownFile = await import(
+			`../../../../lib/content/cadenceByExample/${params.lang}/${params.id}.md`
+		);
 
 		const meta = cadenceByExampleMarkdownFile.metadata;
-		const content = cadenceByExampleMarkdownFile.default;
+		const content = cadenceByExampleMarkdownFile.default as ConstructorOfATypedSvelteComponent;
 		const slug = params.id;
 
 		return {

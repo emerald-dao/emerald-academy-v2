@@ -1,23 +1,12 @@
 <script type="ts">
 	import { InputWrapper } from '@emerald-dao/component-library';
 	import { locale, LL } from '$i18n/i18n-svelte';
-	import type { MarkdownMeta } from '$lib/types/content/metadata/markdown-meta.interfaces';
 	import { createSearchStore, searchHandler } from '$stores/searchBar';
 	import { onDestroy } from 'svelte';
 
-	export let data: Data;
+	export let data;
 
-	interface Data {
-		content: CadenceByExample[];
-		locale: string;
-	}
-
-	interface CadenceByExample {
-		meta: MarkdownMeta;
-		path: string;
-	}
-
-	$: searchCadence = data.content.map((example: CadenceByExample) => ({
+	$: searchCadence = data.content.map((example) => ({
 		...example,
 		searchTerms: `${example.meta.title}`
 	}));

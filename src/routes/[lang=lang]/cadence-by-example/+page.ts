@@ -1,10 +1,10 @@
+import type { CadenceByExampleOverview } from '$lib/types/content/cadence-by-example.interface';
 import { error } from '@sveltejs/kit';
-import type { PageLoad } from './$types';
 
-export const load: PageLoad = async ({ fetch, params }) => {
+export const load = async ({ fetch, params }) => {
 	try {
 		const response = await fetch(`/api/content/${params.lang}/cadenceByExample`);
-		const content = await response.json();
+		const content = (await response.json()) as CadenceByExampleOverview[];
 
 		return {
 			content

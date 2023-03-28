@@ -1,27 +1,11 @@
 <script type="ts">
-	import { LL } from '$i18n/i18n-svelte';
-	import Filters from '$lib/components/filters/Filters.svelte';
-	import ContentCard from '$lib/components/cards/ContentCard.svelte';
-	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
-	import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
-	import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
-	import type { Overview } from '$lib/types/content/content-overview.interface';
-	import type { Filter } from '$lib/types/content/filters/filter.interface';
 	import { firstCapital as uppercaseFirstLetter } from '$lib/utilities/dataTransformation/firstCapital';
 	import { page } from '$app/stores';
-	import type { SubjectOverview } from '$lib/types/content/subjects.interface';
-	import type { Locale } from 'typesafe-i18n/types/runtime/src/core.mjs';
 	import { transformHeadingToUrl } from '$lib/utilities/dataTransformation/transformHeadingToUrl';
 	import Icon from '@iconify/svelte';
 	import CatalogSection from '$lib/features/catalog-list/CatalogSection.svelte';
 
-	export let data: Data;
-
-	interface Data {
-		content: Overview[];
-		featuredSubjects: SubjectOverview[];
-		locale: Locale;
-	}
+	export let data;
 </script>
 
 <section>

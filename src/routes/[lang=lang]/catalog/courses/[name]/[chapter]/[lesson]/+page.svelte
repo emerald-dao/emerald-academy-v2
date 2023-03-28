@@ -1,22 +1,11 @@
 <script type="ts">
 	import { page } from '$app/stores';
-	import type {
-		ChapterMetadata,
-		CourseContents,
-		CourseOverview
-	} from '$lib/types/content/course.interface';
+	import type { ChapterMetadata } from '$lib/types/content/course.interface';
 	import { transformUrlToHeading } from '$lib/utilities/dataTransformation/transformUrlToHeading';
 	import { Breadcrumbs } from '@emerald-dao/component-library';
 	import Icon from '@iconify/svelte';
 
-	interface Data {
-		content: ConstructorOfATypedSvelteComponent;
-		contents: CourseContents;
-		lesson: number;
-		overview: CourseOverview;
-	}
-
-	export let data: Data;
+	export let data;
 
 	let routes = [
 		{
@@ -38,7 +27,7 @@
 		metadata: ChapterMetadata;
 	}[] = [];
 
-	Object.values(data.contents).map((chapter) => {
+	Object.values(data.course.contents).map((chapter) => {
 		chapter.contents.map((lesson) => {
 			allContents.push(lesson);
 		});

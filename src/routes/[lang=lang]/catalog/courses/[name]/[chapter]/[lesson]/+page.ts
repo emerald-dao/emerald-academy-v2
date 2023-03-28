@@ -1,14 +1,20 @@
-import type { PageLoad } from './$types';
+import type { CourseContents, CourseOverview } from '$lib/types/content/course.interface';
 import { error } from '@sveltejs/kit';
 
-export const load: PageLoad = async ({ params }) => {
+export const load = async ({ params }) => {
 	try {
 		const courses = await import(
 			`../../../../../../../lib/content/courses/${params.name}/${params.lang}/${params.chapter}/${params.lesson}.md`
 		);
 
-		const { title, lesson } = courses.metadata;
-		const content = courses.default;
+		const {
+			title,
+			lesson
+		}: {
+			title: string;
+			lesson: number;
+		} = courses.metadata;
+		const content = courses.default as ConstructorOfATypedSvelteComponent;
 
 		return {
 			content,

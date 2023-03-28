@@ -1,14 +1,9 @@
 <script type="ts">
 	import RoadmapContentCard from './__components/RoadmapContentCard.svelte';
 	import SpecificContentCard from '$lib/components/cards/ContentIntro.svelte';
-	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 	import RoadmapOverviewModal from '$lib/components/cards/RoadmapOverviewModal.svelte';
 
-	export let data: Data;
-
-	interface Data {
-		roadmap: RoadmapOverview;
-	}
+	export let data;
 </script>
 
 <section class="container-small main-wrapper">
