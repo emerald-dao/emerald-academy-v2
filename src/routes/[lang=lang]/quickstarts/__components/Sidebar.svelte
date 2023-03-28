@@ -54,8 +54,11 @@
 		<Button
 			href={`https://${thisTemplateOverview.templateRepositoryUrl}`}
 			target="_blank"
-			width="full-width">Open in GitHub</Button
+			width="full-width"
 		>
+			<Icon icon="tabler:brand-github" />
+			Open in GitHub
+		</Button>
 	</div>
 </div>
 
