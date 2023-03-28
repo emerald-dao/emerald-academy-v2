@@ -32,7 +32,7 @@
 
 	const { value } = data; */
 
-	let value = 301;
+	let value = 20;
 </script>
 
 <section class="container-small main">
