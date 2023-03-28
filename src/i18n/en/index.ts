@@ -26,6 +26,7 @@ const en: BaseTranslation = {
 
 	// Cadence by example
 	SEARCH: 'Search',
+	NO_EXAMPLES_FOUND: 'No examples found for this language',
 
 	// Your achievements
 	ACHIEVEMENTS_H1: 'Your achievements',
@@ -51,7 +52,10 @@ const en: BaseTranslation = {
 	// Expertise
 	[ExpertiseEnum.Advanced]: 'Advanced',
 	[ExpertiseEnum.Intermediate]: 'Intermediate',
-	[ExpertiseEnum.Beginner]: 'Beginner'
+	[ExpertiseEnum.Beginner]: 'Beginner',
+
+	// Quickstarts
+	NO_QUICKSTARTS_FOUND: 'No quickstarts found for this lenguage'
 };
 
 export default en;

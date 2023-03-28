@@ -24,11 +24,9 @@
 		image: string;
 	}
 
-	/* export let data;
+	export let data;
 
-	const { value } = data; */
-
-	let value = 299;
+	const { value } = data;
 </script>
 
 <section class="container-small main">

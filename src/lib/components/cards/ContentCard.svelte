@@ -68,7 +68,7 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			background-color: transparent;
+			background-color: var(--clr-background-primary);
 
 			&:hover {
 				border-color: var(--clr-text-off);

@@ -26,6 +26,7 @@ const es: Translation = {
 
 	// Cadence by example
 	SEARCH: 'Buscar',
+	NO_EXAMPLES_FOUND: 'No se encontraron ejemplos para este lenguaje',
 
 	// Your achievements
 	ACHIEVEMENTS_H1: 'Tus logros',
@@ -51,7 +52,10 @@ const es: Translation = {
 	// Expertise
 	[ExpertiseEnum.Advanced]: 'Avanzado',
 	[ExpertiseEnum.Intermediate]: 'Intermedio',
-	[ExpertiseEnum.Beginner]: 'Principiante'
+	[ExpertiseEnum.Beginner]: 'Principiante',
+
+	// Quickstarts
+	NO_QUICKSTARTS_FOUND: 'No se encontraron plantillas para este lenguaje'
 };
 
 export default es;

@@ -15,9 +15,13 @@
 <section class="container">
 	<h1 class="w-medium heading">{$LL[ContentTypeEnum.Quickstart]()}</h1>
 	<div class="templates-wrapper">
-		{#each data.quickstarts as quickstartData}
-			<TemplatesCard templateData={quickstartData} />
-		{/each}
+		{#if data.quickstarts.length > 0}
+			{#each data.quickstarts as quickstartData}
+				<TemplatesCard templateData={quickstartData} />
+			{/each}
+		{:else}
+			<p><em>{$LL.NO_QUICKSTARTS_FOUND()}</em></p>
+		{/if}
 	</div>
 </section>
 
