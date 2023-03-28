@@ -4,7 +4,6 @@
 	interface Achievement {
 		title: string;
 		image: string;
-		description: string;
 	}
 </script>
 
@@ -14,7 +13,6 @@
 			<source src={achievement.image} type="video/webm" />
 		</video>
 		<h5>{achievement.title}</h5>
-		<p>{achievement.description}</p>
 	</div>
 </div>
 
