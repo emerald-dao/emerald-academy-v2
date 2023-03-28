@@ -33,26 +33,30 @@
 
 <section class="container-small column-10">
 	<h1>Cadence by Example</h1>
-	<div class="main-wrapper">
-		<div class="sidebar">
-			<h5>{$LL.SEARCH()}</h5>
-			<InputWrapper name="search" errors={[]} isValid={false} icon="tabler:search">
-				<input type="text" placeholder="Search..." bind:value={$searchStore.search} />
-			</InputWrapper>
+	{#if data.content.length === 0}
+		<p><em>{$LL.NO_EXAMPLES_FOUND()}</em></p>
+	{:else}
+		<div class="main-wrapper">
+			<div class="sidebar">
+				<h5>{$LL.SEARCH()}</h5>
+				<InputWrapper name="search" errors={[]} isValid={false} icon="tabler:search">
+					<input type="text" placeholder="Search..." bind:value={$searchStore.search} />
+				</InputWrapper>
+			</div>
+			<div class="main">
+				{#if $searchStore.search.length > 0 && $searchStore.filtered.length === 0}
+					<p>No results found</p>
+				{/if}
+				{#each $searchStore.filtered as content, i}
+					<a
+						class="card heading"
+						href={`/${$locale}/cadence-by-example/${content.path.split('/')[3]}`}
+						>{`${i + 1}. ${content.meta.title}`}</a
+					>
+				{/each}
+			</div>
 		</div>
-		<div class="main">
-			{#if $searchStore.search.length > 0 && $searchStore.filtered.length === 0}
-				<p>No results found</p>
-			{/if}
-			{#each $searchStore.filtered as content, i}
-				<a
-					class="card heading"
-					href={`/${$locale}/cadence-by-example/${content.path.split('/')[3]}`}
-					>{`${i + 1}. ${content.meta.title}`}</a
-				>
-			{/each}
-		</div>
-	</div>
+	{/if}
 </section>
 
 <style type="scss">

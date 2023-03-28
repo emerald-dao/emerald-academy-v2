@@ -26,6 +26,7 @@ const ru: BaseTranslation = {
 
 	// Cadence by example
 	SEARCH: 'Поиск',
+	NO_EXAMPLES_FOUND: 'Примеры не найдены для этого языка',
 
 	// Your achievements
 	ACHIEVEMENTS_H1: 'Ваши достижения',
@@ -50,7 +51,10 @@ const ru: BaseTranslation = {
 	// Expertise
 	[ExpertiseEnum.Advanced]: 'Продвинутый',
 	[ExpertiseEnum.Intermediate]: 'Средний',
-	[ExpertiseEnum.Beginner]: 'Начинающий'
+	[ExpertiseEnum.Beginner]: 'Начинающий',
+
+	// Quickstarts
+	NO_QUICKSTARTS_FOUND: 'Шаблоны не найдены для этого языка'
 };
 
 export default ru;
