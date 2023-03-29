@@ -66,7 +66,9 @@
 		}
 
 		.main-wrapper {
-			width: 90%;
+			@include mq(medium) {
+				width: 90%;
+			}
 
 			.adjacents-wrapper {
 				display: flex;

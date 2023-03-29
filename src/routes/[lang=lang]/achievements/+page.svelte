@@ -188,13 +188,21 @@
 
 		.diamonds-wrapper {
 			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-around;
+			flex-direction: column;
+			align-items: center;
 			gap: var(--space-4);
+
+			@include mq(small) {
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: space-around;
+			}
 		}
 
 		.specific-card {
-			width: 32%;
+			@include mq(medium) {
+				width: 32%;
+			}
 		}
 	}
 </style>

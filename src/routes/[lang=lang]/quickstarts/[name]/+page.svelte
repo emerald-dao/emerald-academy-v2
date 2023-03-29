@@ -65,7 +65,11 @@
 				.readme-wrapper {
 					border: var(--border-width-primary) var(--clr-border-primary) solid;
 					border-radius: var(--space-5);
-					padding: var(--space-10);
+					padding: var(--space-5);
+
+					@include mq(medium) {
+						padding: var(--space-10);
+					}
 				}
 			}
 		}
