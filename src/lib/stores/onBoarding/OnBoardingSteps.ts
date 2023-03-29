@@ -9,14 +9,15 @@ import { createActiveStep } from '$stores/custom/steps/ActiveStep';
 import emailjs from '@emailjs/browser';
 import { createBootcampOnboardingStore } from '$stores/BootcampOnboardingStore';
 import { get } from 'svelte/store';
+import { env } from '$env/dynamic/public';
 
 const sendEmail = async () => {
 	emailjs
 		.send(
-			'service_v2qa1om',
-			'template_j0mkz6j',
+			env.PUBLIC_EMAIL_SERVICE_ID,
+			env.PUBLIC_EMAIL_TEMPLATE_ID,
 			get(createBootcampOnboardingStore),
-			'IGzpHwMNeQiWCm1_R'
+			env.PUBLIC_EMAIL_KEY
 		)
 		.then(
 			(result) => {
