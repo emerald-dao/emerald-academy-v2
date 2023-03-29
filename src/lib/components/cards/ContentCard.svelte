@@ -10,14 +10,14 @@
 
 	let link: string;
 
-	if (overview.contentType === ContentTypeEnum.Blog) {
-		link = overview.link;
+	$: if (overview.contentType != ContentTypeEnum.Blog) {
+		link = `/${$locale}/catalog/${overview.slug}`;
 	} else {
-		link = `/catalog/${overview.slug}`;
+		link = overview.link;
 	}
 </script>
 
-<a href={`/${$locale}${link}`} in:fly={{ y: 30, duration: 400 }}>
+<a href={`${link}`} in:fly={{ y: 30, duration: 400 }}>
 	<div class="card-primary">
 		<div>
 			<ContentLabel type={overview.contentType} color="primary">
