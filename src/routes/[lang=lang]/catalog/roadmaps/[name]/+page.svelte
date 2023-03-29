@@ -6,14 +6,14 @@
 	export let data;
 </script>
 
-<section class="container-small main-wrapper">
+<div class="container-small main-wrapper">
 	<div class="content">
 		<SpecificContentCard overview={data.roadmap} showBreadcrumbs={true} />
 	</div>
 	<div class="overview-wrapper">
 		<RoadmapOverviewModal overview={data.roadmap} />
 	</div>
-</section>
+</div>
 
 <section class="secondary-section">
 	<div class="container-small column-10">
@@ -30,6 +30,7 @@
 	.main-wrapper {
 		display: flex;
 		flex-direction: column;
+		margin-bottom: var(--space-7);
 		gap: var(--space-8);
 
 		@include mq(small) {

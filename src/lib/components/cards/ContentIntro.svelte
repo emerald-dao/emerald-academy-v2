@@ -47,7 +47,7 @@
 	}
 </script>
 
-<section class="section-large">
+<section>
 	<div class="container-small">
 		{#if showBreadcrumbs}
 			<Breadcrumbs {routes} />
