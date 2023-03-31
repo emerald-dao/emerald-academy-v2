@@ -4,6 +4,7 @@
 	import { Breadcrumbs } from '@emerald-dao/component-library';
 	import CatalogSection from '$lib/features/catalog-list/CatalogSection.svelte';
 	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
+	import Seo from '$lib/components/seo/Seo.svelte';
 
 	export let data;
 
@@ -56,6 +57,12 @@
 	contentList={data.content}
 	subjectFilter={false}
 	title={`All ${firstCapital(subject)} contents`}
+/>
+
+<Seo
+	title={`${subjectCapital} | Subject | Emerald Academy`}
+	description={data.overview.description}
+	type="WebPage"
 />
 
 <style type="scss">

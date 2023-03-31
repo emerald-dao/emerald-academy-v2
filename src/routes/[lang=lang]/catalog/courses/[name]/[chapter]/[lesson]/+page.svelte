@@ -1,5 +1,6 @@
 <script type="ts">
 	import { page } from '$app/stores';
+	import Seo from '$lib/components/seo/Seo.svelte';
 	import type { ChapterMetadata } from '$lib/types/content/course.interface';
 	import { transformUrlToHeading } from '$lib/utilities/dataTransformation/transformUrlToHeading';
 	import { Breadcrumbs } from '@emerald-dao/component-library';
@@ -70,6 +71,12 @@
 		{/if}
 	</div>
 </section>
+
+<Seo
+	title={`${transformUrlToHeading($page.params.name)} | Course | Emerald Academy`}
+	description="sample"
+	type="WebPage"
+/>
 
 <style type="scss">
 	section {

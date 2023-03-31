@@ -3,6 +3,7 @@
 	import { locale, LL } from '$i18n/i18n-svelte';
 	import { createSearchStore, searchHandler } from '$stores/searchBar';
 	import { onDestroy } from 'svelte';
+	import Seo from '$lib/components/seo/Seo.svelte';
 
 	export let data;
 
@@ -47,6 +48,12 @@
 		</div>
 	{/if}
 </section>
+
+<Seo
+	title={`Cadence by Example | Emerald Academy`}
+	description="Basic Cadence code examples"
+	type="WebPage"
+/>
 
 <style type="scss">
 	section {

@@ -2,6 +2,7 @@
 	import RoadmapContentCard from './__components/RoadmapContentCard.svelte';
 	import SpecificContentCard from '$lib/components/cards/ContentIntro.svelte';
 	import RoadmapOverviewModal from '$lib/components/cards/RoadmapOverviewModal.svelte';
+	import Seo from '$lib/components/seo/Seo.svelte';
 
 	export let data;
 </script>
@@ -26,6 +27,12 @@
 	</div>
 </section>
 
+<Seo
+	title={`${data.roadmap.title} | Roadmap | Emerald Academy`}
+	description="Full action plan"
+	type="WebPage"
+/>
+
 <style type="scss">
 	.main-wrapper {
 		display: flex;
@@ -37,6 +44,12 @@
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			justify-content: space-between;
+		}
+
+		.overview-wrapper {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
 		}
 	}
 

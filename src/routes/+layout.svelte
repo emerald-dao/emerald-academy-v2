@@ -14,7 +14,6 @@
 	import { user } from '$stores/flow/FlowStore';
 	import { getFindProfile } from '$flow/utils';
 	import LocaleSwitcher from '$lib/components/i18n/LocaleSwitcher.svelte';
-	import dappInfo from '$lib/config/config';
 	import { network } from '$flow/config';
 
 	export let data;
@@ -84,6 +83,5 @@
 />
 
 <svelte:head>
-	<title>{dappInfo.title}</title>
 	<HeadHrefLangs />
 </svelte:head>

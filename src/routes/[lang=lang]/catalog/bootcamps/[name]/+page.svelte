@@ -7,6 +7,7 @@
 	import CourseDetailsOpen from '$lib/components/cards/CourseDetailsOpen.svelte';
 	import Questions from '$lib/components/faqs/Questions.svelte';
 	import Answers from '$lib/components/faqs/Answers.svelte';
+	import Seo from '$lib/components/seo/Seo.svelte';
 
 	export let data;
 </script>
@@ -49,6 +50,12 @@
 		{/each}
 	{/if}
 </section>
+
+<Seo
+	title={`${data.overview.title} | Bootcamp | Emerald Academy`}
+	description={data.overview.excerpt}
+	type="WebPage"
+/>
 
 <style type="scss">
 	.accordion {
