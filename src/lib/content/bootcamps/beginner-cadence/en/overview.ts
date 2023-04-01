@@ -97,7 +97,7 @@ export const overview: BootcampOverview = {
 			name: 'Workshop #2',
 			excerpt: 'Chapters 2.3 - 2.4',
 			link: 'https://www.youtube/test',
-			subjects: [SubjectsEnum.Webdev],
+			subjects: [SubjectsEnum.Web],
 			date: new Date(2023, 5, 17, 15, 30),
 			chapters: [
 				{

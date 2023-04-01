@@ -44,7 +44,7 @@ const es: Translation = {
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',
-	[SubjectsEnum.Webdev]: 'Desarrollo Web',
+	[SubjectsEnum.Web]: 'Desarrollo Web',
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',

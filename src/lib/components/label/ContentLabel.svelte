@@ -21,7 +21,7 @@
 	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === SubjectsEnum.Cadence}
 	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>
-{:else if type === SubjectsEnum.Webdev}
+{:else if type === SubjectsEnum.Web}
 	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ExpertiseEnum.Beginner}
 	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>

@@ -43,7 +43,7 @@ const zh: BaseTranslation = {
 
 	// Subjects
 	[SubjectsEnum.Backend]: '后端',
-	[SubjectsEnum.Webdev]: 'Web开发',
+	[SubjectsEnum.Web]: 'Web开发',
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',

@@ -43,7 +43,7 @@ const ru: BaseTranslation = {
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Бэкенд',
-	[SubjectsEnum.Webdev]: 'Веб-разработка',
+	[SubjectsEnum.Web]: 'Веб-разработка',
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',

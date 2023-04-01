@@ -4,7 +4,7 @@ import type { SubjectOverview } from '$lib/types/content/subjects.interface';
 export const overview: SubjectOverview = {
 	name: SubjectsEnum.DApp,
 	description:
-		'Las aplicaciones descentralizadas (dApps) son aplicaciones o programas digitales que se ejecutan en una red descentralizada, en lugar de en un solo ordenador o servidor. Se construyen con tecnología de blockchain y utilizan criptomonedas como medio de intercambio.',
+		'Las aplicaciones descentralizadas (DApps) son aplicaciones o programas digitales que se ejecutan en una red descentralizada, en lugar de en un solo ordenador o servidor. Se construyen con tecnología de blockchain y utilizan criptomonedas como medio de intercambio.',
 	shortcuts: [
 		{
 			name: 'Documentación de Cadence',
