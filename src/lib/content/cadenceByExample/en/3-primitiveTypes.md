@@ -5,7 +5,7 @@ layout: examples
 ---
 
 ```cadence
-pub fun main() {
+pub contract Variables {
    pub let number: Int
    pub let name: String
    pub let address: Address

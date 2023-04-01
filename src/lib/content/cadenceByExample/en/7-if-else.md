@@ -14,9 +14,8 @@ pub fun main(x: Int): Int {
       return 2;
    }
 }
-``
+```
 
 # If / Else
 
 Cadence supports conditional statements `if`, `else if` and `else`.
-```
