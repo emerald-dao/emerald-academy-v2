@@ -7,15 +7,14 @@
 	export let data;
 </script>
 
-<div class="container-small main-wrapper">
+<section class="section-small container-small main-wrapper">
 	<div class="content">
 		<SpecificContentCard overview={data.roadmap} showBreadcrumbs={true} />
 	</div>
 	<div class="overview-wrapper">
 		<RoadmapOverviewModal overview={data.roadmap} />
 	</div>
-</div>
-
+</section>
 <section class="secondary-section">
 	<div class="container-small column-10">
 		<h4>Contents</h4>
