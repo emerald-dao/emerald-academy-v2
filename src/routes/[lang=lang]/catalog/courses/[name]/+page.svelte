@@ -4,9 +4,8 @@
 	import Icon from '@iconify/svelte';
 	import CourseDetailsHeader from '$lib/components/cards/CourseDetailsHeader.svelte';
 	import CourseDetailsOpen from '$lib/components/cards/CourseDetailsOpen.svelte';
-	import Questions from '$lib/components/faqs/Questions.svelte';
-	import Answers from '$lib/components/faqs/Answers.svelte';
 	import Seo from '$lib/components/seo/Seo.svelte';
+	import FaqsSection from '$lib/components/faqs/FaqsSection.svelte';
 
 	export let data;
 
@@ -36,22 +35,9 @@
 		</div>
 	{/each}
 </section>
-<section class="container-small">
-	{#if data.course.overview.metadata.faqs}
-		{#each data.course.overview.metadata.faqs as questionAnswer}
-			<div class="accordion">
-				<Accordion>
-					<div slot="header">
-						<Questions {questionAnswer} />
-					</div>
-					<div slot="open">
-						<Answers {questionAnswer} />
-					</div>
-				</Accordion>
-			</div>
-		{/each}
-	{/if}
-</section>
+{#if data.course.overview.metadata.faqs}
+	<FaqsSection faqs={data.course.overview.metadata.faqs} />
+{/if}
 
 <Seo
 	title={`${data.course.overview.title} | Course | Emerald Academy`}

@@ -5,9 +5,8 @@
 	import { Modal, getModal } from '@emerald-dao/component-library';
 	import CourseDetailsHeader from '$lib/components/cards/CourseDetailsHeader.svelte';
 	import CourseDetailsOpen from '$lib/components/cards/CourseDetailsOpen.svelte';
-	import Questions from '$lib/components/faqs/Questions.svelte';
-	import Answers from '$lib/components/faqs/Answers.svelte';
 	import Seo from '$lib/components/seo/Seo.svelte';
+	import FaqsSection from '$lib/components/faqs/FaqsSection.svelte';
 
 	export let data;
 </script>
@@ -34,22 +33,9 @@
 		</div>
 	{/each}
 </section>
-<section class="container-small">
-	{#if data.overview.metadata.faqs}
-		{#each data.overview.metadata.faqs as questionAnswer}
-			<div class="accordion">
-				<Accordion>
-					<div slot="header">
-						<Questions {questionAnswer} />
-					</div>
-					<div slot="open">
-						<Answers {questionAnswer} />
-					</div>
-				</Accordion>
-			</div>
-		{/each}
-	{/if}
-</section>
+{#if data.overview.metadata.faqs}
+	<FaqsSection faqs={data.overview.metadata.faqs} />
+{/if}
 
 <Seo
 	title={`${data.overview.title} | Bootcamp | Emerald Academy`}

@@ -16,10 +16,10 @@ interface ContentMetadata {
 	prerequisites: string[];
 	subjects: SubjectsEnum[];
 	price?: string;
-	faqs?: Question[];
+	faqs?: Faq[];
 }
 
-interface Question {
+export interface Faq {
 	question: string;
 	answer: string;
 }
