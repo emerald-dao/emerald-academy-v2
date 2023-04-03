@@ -1,10 +1,10 @@
 ---
 title: First App
 language: en
-layout: false
+layout: examples
 ---
 
-```js
+```cadence
 pub contract Counter {
    pub var count: Int
 

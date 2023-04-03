@@ -1,23 +1,13 @@
 <script type="ts">
 	import { InputWrapper } from '@emerald-dao/component-library';
 	import { locale, LL } from '$i18n/i18n-svelte';
-	import type { MarkdownMeta } from '$lib/types/content/metadata/markdown-meta.interfaces';
 	import { createSearchStore, searchHandler } from '$stores/searchBar';
 	import { onDestroy } from 'svelte';
+	import Seo from '$lib/components/seo/Seo.svelte';
 
-	export let data: Data;
+	export let data;
 
-	interface Data {
-		content: CadenceByExample[];
-		locale: string;
-	}
-
-	interface CadenceByExample {
-		meta: MarkdownMeta;
-		path: string;
-	}
-
-	$: searchCadence = data.content.map((example: CadenceByExample) => ({
+	$: searchCadence = data.content.map((example) => ({
 		...example,
 		searchTerms: `${example.meta.title}`
 	}));
@@ -33,27 +23,37 @@
 
 <section class="container-small column-10">
 	<h1>Cadence by Example</h1>
-	<div class="main-wrapper">
-		<div class="sidebar">
-			<h5>{$LL.SEARCH()}</h5>
-			<InputWrapper name="search" errors={[]} isValid={false} icon="tabler:search">
-				<input type="text" placeholder="Search..." bind:value={$searchStore.search} />
-			</InputWrapper>
+	{#if data.content.length === 0}
+		<p><em>{$LL.NO_EXAMPLES_FOUND()}</em></p>
+	{:else}
+		<div class="main-wrapper">
+			<div class="sidebar">
+				<h5>{$LL.SEARCH()}</h5>
+				<InputWrapper name="search" errors={[]} isValid={false} icon="tabler:search">
+					<input type="text" placeholder="Search..." bind:value={$searchStore.search} />
+				</InputWrapper>
+			</div>
+			<div class="main">
+				{#if $searchStore.search.length > 0 && $searchStore.filtered.length === 0}
+					<p>No results found</p>
+				{/if}
+				{#each $searchStore.filtered as content, i}
+					<a
+						class="card heading"
+						href={`/${$locale}/cadence-by-example/${content.path.split('/')[3]}`}
+						>{`${i + 1}. ${content.meta.title}`}</a
+					>
+				{/each}
+			</div>
 		</div>
-		<div class="main">
-			{#if $searchStore.search.length > 0 && $searchStore.filtered.length === 0}
-				<p>No results found</p>
-			{/if}
-			{#each $searchStore.filtered as content, i}
-				<a
-					class="card heading"
-					href={`/${$locale}/cadence-by-example/${content.path.split('/')[3]}`}
-					>{`${i + 1}. ${content.meta.title}`}</a
-				>
-			{/each}
-		</div>
-	</div>
+	{/if}
 </section>
+
+<Seo
+	title={`Cadence by Example | Emerald Academy`}
+	description="Basic Cadence code examples"
+	type="WebPage"
+/>
 
 <style type="scss">
 	section {

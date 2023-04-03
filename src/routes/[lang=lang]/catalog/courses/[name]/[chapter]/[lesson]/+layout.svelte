@@ -1,15 +1,26 @@
 <script type="ts">
 	import { page } from '$app/stores';
 	import { locale } from '$i18n/i18n-svelte';
-	import type { CourseData } from '$lib/types/content/course.interface';
+	import CourseTitlesHeader from '$lib/components/cards/CourseTitlesHeader.svelte';
+	import CourseTitlesOpen from '$lib/components/cards/CourseTitlesOpen.svelte';
+	import { Accordion } from '@emerald-dao/component-library';
+	import Icon from '@iconify/svelte';
 
-	export let data: CourseData;
+	export let data;
+
+	let open: boolean;
+
+	const handleClick = () => (open = !open);
+
+	$: $page.params && (open = false);
 </script>
 
 <div class="container-large">
 	<div class="sidebar">
-		<a class="header-link" href={`/${$locale}/catalog/${data.overview.slug}`}>Course Overview</a>
-		{#each Object.values(data.contents) as chapterContent, index}
+		<a class="header-link" href={`/${$locale}/catalog/${data.course.overview.slug}`}
+			>Course Overview</a
+		>
+		{#each Object.values(data.course.contents) as chapterContent, index}
 			<div class="column-4">
 				<p class="chapter small">{`${index + 1}. ${chapterContent.overview.title}`}</p>
 				{#each chapterContent.contents as lesson, i}
@@ -24,6 +35,24 @@
 				{/each}
 			</div>
 		{/each}
+	</div>
+	<div class="accordion">
+		<div on:click={handleClick} on:keydown>
+			<span>Course Overview</span>
+			<Icon icon="tabler:chevron-down" />
+		</div>
+		{#if open}
+			{#each Object.values(data.course.contents) as chapterContent, i}
+				<Accordion>
+					<div slot="header">
+						<CourseTitlesHeader data={chapterContent} {i} />
+					</div>
+					<div slot="open">
+						<CourseTitlesOpen data={chapterContent} {i} />
+					</div>
+				</Accordion>
+			{/each}
+		{/if}
 	</div>
 	<slot />
 </div>
@@ -43,14 +72,10 @@
 	}
 
 	.sidebar {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		gap: var(--space-5);
-		border-bottom: var(--border-width-primary) var(--clr-border-primary) solid;
-		padding-block: var(--space-8);
+		display: none;
 
 		@include mq(medium) {
+			display: flex;
 			flex-direction: column;
 			justify-content: flex-start;
 			border-right: var(--border-width-primary) var(--clr-border-primary) solid;
@@ -61,10 +86,19 @@
 			position: sticky;
 			top: 0;
 			height: 100vh;
+			padding-block: var(--space-8);
 		}
 
 		.header-link {
 			line-height: 1.4;
+		}
+	}
+
+	.accordion {
+		border-bottom: var(--border-width-primary) var(--clr-border-primary) solid;
+		padding-block: var(--space-8);
+		@include mq(medium) {
+			display: none;
 		}
 	}
 

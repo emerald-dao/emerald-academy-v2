@@ -2,6 +2,6 @@ export enum SubjectsEnum {
 	Cadence = 'cadence',
 	DApp = 'dapp dev',
 	Backend = 'backend',
-	Webdev = 'web dev',
+	Web = 'web dev',
 	Javascript = 'javascript'
 }

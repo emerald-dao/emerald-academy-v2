@@ -26,6 +26,7 @@ const es: Translation = {
 
 	// Cadence by example
 	SEARCH: 'Buscar',
+	NO_EXAMPLES_FOUND: 'No se encontraron ejemplos para este lenguaje',
 
 	// Your achievements
 	ACHIEVEMENTS_H1: 'Tus logros',
@@ -37,12 +38,13 @@ const es: Translation = {
 	[ContentTypeEnum.Course]: 'Curso',
 	[ContentTypeEnum.Bootcamp]: 'Bootcamp',
 	[ContentTypeEnum.Roadmap]: 'Camino de aprendizaje',
-	[ContentTypeEnum.Template]: 'Plantillas',
+	[ContentTypeEnum.Quickstart]: 'Plantillas',
 	[ContentTypeEnum.Resources]: 'Recursos',
+	[ContentTypeEnum.Blog]: 'Blog',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',
-	[SubjectsEnum.Webdev]: 'Desarrollo Web',
+	[SubjectsEnum.Web]: 'Desarrollo Web',
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',
@@ -50,7 +52,10 @@ const es: Translation = {
 	// Expertise
 	[ExpertiseEnum.Advanced]: 'Avanzado',
 	[ExpertiseEnum.Intermediate]: 'Intermedio',
-	[ExpertiseEnum.Beginner]: 'Principiante'
+	[ExpertiseEnum.Beginner]: 'Principiante',
+
+	// Quickstarts
+	NO_QUICKSTARTS_FOUND: 'No se encontraron plantillas para este lenguaje'
 };
 
 export default es;

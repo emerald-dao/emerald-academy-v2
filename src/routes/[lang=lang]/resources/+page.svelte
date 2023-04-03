@@ -4,6 +4,7 @@
 	import LL from '$i18n/i18n-svelte';
 
 	import { resources } from '$lib/config/resources';
+	import Seo from '$lib/components/seo/Seo.svelte';
 </script>
 
 <section class="container">
@@ -14,6 +15,12 @@
 		{/each}
 	</div>
 </section>
+
+<Seo
+	title={`Resources | Emerald Academy`}
+	description="Resources in addition to all the material provided within the academy"
+	type="WebPage"
+/>
 
 <style type="scss">
 	.resources-wrapper {

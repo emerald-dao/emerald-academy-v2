@@ -5,10 +5,8 @@
 	import '@emerald-dao/design-system/build/variables.css';
 	import '@emerald-dao/component-library/styles/app.scss';
 	import '$lib/styles/_articles.scss';
-	import '$lib/styles/_code.scss';
 	import { setLocale, locale } from '$i18n/i18n-svelte';
 	import HeadHrefLangs from '$lib/components/i18n/HeadHrefLangs.svelte';
-	import type { LayoutData } from './$types';
 	import { Header, Footer } from '@emerald-dao/component-library';
 	import { emeraldTools, socialMedia } from '$lib/config/navigation';
 	import { theme } from '$stores/ThemeStore';
@@ -16,10 +14,9 @@
 	import { user } from '$stores/flow/FlowStore';
 	import { getFindProfile } from '$flow/utils';
 	import LocaleSwitcher from '$lib/components/i18n/LocaleSwitcher.svelte';
-	import dappInfo from '$lib/config/config';
 	import { network } from '$flow/config';
 
-	export let data: LayoutData;
+	export let data;
 
 	// at the very top, set the locale before you access the store and before the actual rendering takes place
 	setLocale(data.locale);
@@ -41,8 +38,8 @@
 			prefetch: true
 		},
 		{
-			name: 'Templates',
-			url: `/${$locale}/templates`,
+			name: 'Quickstarts',
+			url: `/${$locale}/quickstarts`,
 			prefetch: true
 		}
 	];
@@ -67,15 +64,24 @@
 	{network}
 	avatarDropDownNavigation={avatarDropdownNav}
 	logoHref={`/${$locale}/`}
+	logoUrl="/EA_Iso.svg"
+	logoText="Emerald Academy"
 >
 	<LocaleSwitcher slot="commands" />
 </Header>
 <main>
 	<slot />
 </main>
-<Footer {navElements} {emeraldTools} socials={socialMedia} logoHref={`/${$locale}/`} />
+
+<Footer
+	{navElements}
+	{emeraldTools}
+	socials={socialMedia}
+	logoHref={`/${$locale}/`}
+	logoUrl="/EA_Iso.svg"
+	logoText="Emerald Academy"
+/>
 
 <svelte:head>
-	<title>{dappInfo.title}</title>
 	<HeadHrefLangs />
 </svelte:head>

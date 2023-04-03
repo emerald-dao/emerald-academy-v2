@@ -1,5 +1,4 @@
 <script type="ts">
-	import type { CourseData } from '$lib/types/content/course.interface';
 	import ContentIntro from '$lib/components/cards/ContentIntro.svelte';
 	import { Accordion, Button } from '@emerald-dao/component-library';
 	import Icon from '@iconify/svelte';
@@ -7,34 +6,39 @@
 	import CourseDetailsOpen from '$lib/components/cards/CourseDetailsOpen.svelte';
 	import Questions from '$lib/components/faqs/Questions.svelte';
 	import Answers from '$lib/components/faqs/Answers.svelte';
+	import Seo from '$lib/components/seo/Seo.svelte';
 
-	export let data: CourseData;
+	export let data;
+
+	$: courseContents = Object.values(data.course.contents);
 </script>
 
+<ContentIntro overview={data.course.overview} showBreadcrumbs={true}>
+	<Button size="large" width="extended" href={`/${courseContents[0].contents[0].slug}`}>
+		Start<Icon icon="tabler:arrow-right" />
+	</Button>
+</ContentIntro>
 <section class="container-small">
-	<ContentIntro overview={data.overview}>
-		<Button size="large" href={`/${Object.values(data.contents)[0].contents[0].slug}`}>
-			Start<Icon icon="tabler:arrow-right" />
-		</Button>
-	</ContentIntro>
-</section>
-<section class="container-small">
-	{#each Object.values(data.contents) as chapter, i}
+	{#each Object.values(data.course.contents) as chapter, i}
 		<div class="accordion">
 			<Accordion>
 				<div slot="header">
-					<CourseDetailsHeader data={chapter} {i} typeOfcontent={data.overview.contentType} />
+					<CourseDetailsHeader
+						data={chapter}
+						{i}
+						typeOfcontent={data.course.overview.contentType}
+					/>
 				</div>
 				<div slot="open">
-					<CourseDetailsOpen data={chapter} {i} typeOfcontent={data.overview.contentType} />
+					<CourseDetailsOpen data={chapter} {i} typeOfcontent={data.course.overview.contentType} />
 				</div>
 			</Accordion>
 		</div>
 	{/each}
 </section>
 <section class="container-small">
-	{#if data.overview.metadata.faqs}
-		{#each data.overview.metadata.faqs as questionAnswer}
+	{#if data.course.overview.metadata.faqs}
+		{#each data.course.overview.metadata.faqs as questionAnswer}
 			<div class="accordion">
 				<Accordion>
 					<div slot="header">
@@ -48,6 +52,12 @@
 		{/each}
 	{/if}
 </section>
+
+<Seo
+	title={`${data.course.overview.title} | Course | Emerald Academy`}
+	description={data.course.overview.excerpt}
+	type="WebPage"
+/>
 
 <style type="scss">
 	.accordion {

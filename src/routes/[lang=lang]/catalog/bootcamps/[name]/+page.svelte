@@ -1,29 +1,25 @@
 <script type="ts">
 	import { Accordion, Button } from '@emerald-dao/component-library';
-	import SpecificContentCard from '$lib/components/cards/ContentIntro.svelte';
-	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
+	import ContentIntro from '$lib/components/cards/ContentIntro.svelte';
 	import { onBoardingSteps, onBoardingActiveStep } from '$stores/onBoarding/OnBoardingSteps';
 	import { Modal, getModal } from '@emerald-dao/component-library';
 	import CourseDetailsHeader from '$lib/components/cards/CourseDetailsHeader.svelte';
 	import CourseDetailsOpen from '$lib/components/cards/CourseDetailsOpen.svelte';
+	import Questions from '$lib/components/faqs/Questions.svelte';
+	import Answers from '$lib/components/faqs/Answers.svelte';
+	import Seo from '$lib/components/seo/Seo.svelte';
 
-	export let data: Data;
-
-	interface Data {
-		overview: BootcampOverview;
-	}
+	export let data;
 </script>
 
-<section class="container-small">
-	<SpecificContentCard overview={data.overview}>
-		<Button size="large" on:click={() => getModal().open()}>Enroll</Button>
-		<Modal>
-			<div class="modal-content">
-				<svelte:component this={$onBoardingSteps[$onBoardingActiveStep].component} />
-			</div>
-		</Modal>
-	</SpecificContentCard>
-</section>
+<ContentIntro overview={data.overview} showBreadcrumbs={true}>
+	<Button size="large" width="extended" on:click={() => getModal().open()}>Enroll</Button>
+	<Modal>
+		<div class="modal-content">
+			<svelte:component this={$onBoardingSteps[$onBoardingActiveStep].component} />
+		</div>
+	</Modal>
+</ContentIntro>
 <section class="container-small">
 	{#each data.overview.videos as video, i}
 		<div class="accordion">
@@ -38,6 +34,28 @@
 		</div>
 	{/each}
 </section>
+<section class="container-small">
+	{#if data.overview.metadata.faqs}
+		{#each data.overview.metadata.faqs as questionAnswer}
+			<div class="accordion">
+				<Accordion>
+					<div slot="header">
+						<Questions {questionAnswer} />
+					</div>
+					<div slot="open">
+						<Answers {questionAnswer} />
+					</div>
+				</Accordion>
+			</div>
+		{/each}
+	{/if}
+</section>
+
+<Seo
+	title={`${data.overview.title} | Bootcamp | Emerald Academy`}
+	description={data.overview.excerpt}
+	type="WebPage"
+/>
 
 <style type="scss">
 	.accordion {

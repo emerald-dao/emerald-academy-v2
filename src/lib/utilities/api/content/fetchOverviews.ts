@@ -1,12 +1,14 @@
 import type { Locales } from '$i18n/i18n-types';
 import type { Overview } from '$lib/types/content/content-overview.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
+import { getBootcampEndDate } from '$lib/utilities/dataTransformation/getBootcampDates';
 
 export const fetchOverviews = async (
 	contentType?:
 		| ContentTypeEnum.Bootcamp
 		| ContentTypeEnum.Course
-		| ContentTypeEnum.Template
+		| ContentTypeEnum.Quickstart
 		| ContentTypeEnum.Roadmap,
 	locale?: Locales
 ) => {
@@ -21,8 +23,8 @@ export const fetchOverviews = async (
 			overviews = import.meta.glob('/src/lib/content/bootcamps/**/*.ts');
 			break;
 
-		case ContentTypeEnum.Template:
-			overviews = import.meta.glob('/src/lib/content/templates/**/**/*.ts');
+		case ContentTypeEnum.Quickstart:
+			overviews = import.meta.glob('/src/lib/content/quickstarts/**/**/*.ts');
 			break;
 
 		case ContentTypeEnum.Roadmap:
@@ -59,5 +61,22 @@ export const fetchOverviews = async (
 		})
 	);
 
-	return allOverviews;
+	// In case we are looking for bootcamp overviews we have to filter so we don´t show bootcamps that are over
+	const notFinishedBootcamps: BootcampOverview[] = [];
+	if (contentType === ContentTypeEnum.Bootcamp) {
+		if (allOverviews.length > 0) {
+			allOverviews.forEach(async (overview) => {
+				const endDate = getBootcampEndDate(overview as BootcampOverview);
+
+				if (endDate > new Date()) {
+					notFinishedBootcamps.push(overview as BootcampOverview);
+				}
+			});
+		}
+	}
+	if (contentType === ContentTypeEnum.Bootcamp) {
+		return notFinishedBootcamps;
+	} else {
+		return allOverviews;
+	}
 };

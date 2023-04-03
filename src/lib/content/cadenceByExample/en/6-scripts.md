@@ -1,10 +1,31 @@
 ---
 title: Scripts
 language: en
-layout: false
+layout: examples
 ---
 
-```js
+```cadence
+// Contract file: Counter.cdc
+// Deployed to 0x01
+pub contract Counter {
+   pub var count: Int
+
+   pub fun increment() {
+      self.count = self.count + 1
+   }
+
+   pub fun decrement() {
+      self.count = self.count - 1
+   }
+
+   pub fun get(): Int {
+      return self.count
+   }
+}
+```
+
+```cadence
+// Script file: get_count.cdc
 import Counter from 0x01
 
 pub fun main(): Int {

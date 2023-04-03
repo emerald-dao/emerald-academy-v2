@@ -26,6 +26,7 @@ const zh: BaseTranslation = {
 
 	// Cadence by example
 	SEARCH: '搜索',
+	NO_EXAMPLES_FOUND: '没有找到该语言的示例',
 
 	// Your achievements
 	ACHIEVEMENTS_H1: '你的成就',
@@ -37,12 +38,12 @@ const zh: BaseTranslation = {
 	[ContentTypeEnum.Course]: '课程',
 	[ContentTypeEnum.Bootcamp]: '训练营',
 	[ContentTypeEnum.Roadmap]: '学习路线',
-	[ContentTypeEnum.Template]: '模板',
+	[ContentTypeEnum.Quickstart]: '模板',
 	[ContentTypeEnum.Resources]: '资源',
 
 	// Subjects
 	[SubjectsEnum.Backend]: '后端',
-	[SubjectsEnum.Webdev]: 'Web开发',
+	[SubjectsEnum.Web]: 'Web开发',
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',
@@ -50,7 +51,10 @@ const zh: BaseTranslation = {
 	// Expertise
 	[ExpertiseEnum.Advanced]: '高级',
 	[ExpertiseEnum.Intermediate]: '中级',
-	[ExpertiseEnum.Beginner]: '初级'
+	[ExpertiseEnum.Beginner]: '初级',
+
+	// Quickstarts
+	NO_QUICKSTARTS_FOUND: '没有找到该语言的模板'
 };
 
 export default zh;

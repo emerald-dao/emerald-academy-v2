@@ -1,10 +1,10 @@
 ---
 title: Variables
 language: en
-layout: false
+layout: examples
 ---
 
-```js
+```cadence
 pub contract Variables {
    pub var num1: Int
    pub let num2: Int
@@ -22,5 +22,6 @@ pub contract Variables {
 # Variables
 
 There are 2 types of variables in Cadence:
+
 1. **var** - can be changed
 2. **let** - a constant

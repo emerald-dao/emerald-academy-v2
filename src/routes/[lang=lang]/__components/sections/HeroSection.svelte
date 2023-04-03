@@ -95,6 +95,9 @@
 </section>
 
 <style type="scss">
+	section {
+		overflow: hidden;
+	}
 	.container {
 		display: flex;
 		flex-direction: column;

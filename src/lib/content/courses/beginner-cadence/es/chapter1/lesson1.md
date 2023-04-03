@@ -94,7 +94,7 @@ Es posible que haya oído estas cosas, pero ¿qué significa realmente?
 - Cuando tu aplicación es totalmente listo, le pones en MainNet para usuarios a interactuarlo.
 - Si algo malo pasó, eso es muy malo.
 
-## Aplicaciones Descentralizadas (dApps)
+## Aplicaciones Descentralizadas (DApps)
 
 <img src="/courses/beginner-cadence/dapps.jpeg" alt="drawing" width="300"/>
 

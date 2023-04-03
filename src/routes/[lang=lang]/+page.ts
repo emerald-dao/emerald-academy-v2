@@ -1,45 +1,54 @@
 import { featuredContent } from '$lib/config/featuredContent';
-import type { PageLoad } from './$types';
 import { error } from '@sveltejs/kit';
 
-export const load: PageLoad = async ({ params }) => {
+export const load = async ({ params }) => {
 	try {
-		const featuredCourse1 = await import(
-			`../../lib/content/courses/${featuredContent.courses[0]}/${params.lang}/overview.ts`
-		);
-		featuredCourse1.overview.slug = `courses/${featuredContent.courses[0]}`;
+		const courses = [];
+		const bootcamps = [];
+		const roadmaps = [];
 
-		const featuredCourse2 = await import(
-			`../../lib/content/courses/${featuredContent.courses[1]}/${params.lang}/overview.ts`
-		);
-		featuredCourse2.overview.slug = `courses/${featuredContent.courses[1]}`;
+		for (const featuredCourse of featuredContent.courses) {
+			try {
+				const course = await import(
+					`../../lib/content/courses/${featuredCourse}/${params.lang}/overview.ts`
+				);
+				course.overview.slug = `courses/${featuredCourse}`;
+				courses.push(course.overview);
+			} catch (e) {
+				console.error('Featured course missing for this language');
+			}
+		}
 
-		const featuredBootcamp1 = await import(
-			`../../lib/content/bootcamps/${featuredContent.bootcamps[0]}/en/overview.ts`
-		);
-		featuredBootcamp1.overview.slug = `bootcamps/${featuredContent.courses[0]}`;
+		for (const featuredBootcamp of featuredContent.bootcamps) {
+			try {
+				const bootcamp = await import(
+					`../../lib/content/bootcamps/${featuredBootcamp}/${params.lang}/overview.ts`
+				);
+				bootcamp.overview.slug = `bootcamps/${featuredBootcamp}`;
+				bootcamps.push(bootcamp.overview);
+			} catch (e) {
+				console.error('Featured bootcamp missing for this language');
+			}
+		}
 
-		const featuredBootcamp2 = await import(
-			`../../lib/content/bootcamps/${featuredContent.bootcamps[1]}/en/overview.ts`
-		);
-		featuredBootcamp2.overview.slug = `bootcamps/${featuredContent.courses[1]}`;
-
-		const featuredRoadmap1 = await import(
-			`../../lib/content/roadmaps/${featuredContent.roadmaps[0]}/${params.lang}/overview.ts`
-		);
-		featuredRoadmap1.overview.slug = `roadmaps/${featuredContent.courses[0]}`;
-
-		const featuredRoadmap2 = await import(
-			`../../lib/content/roadmaps/${featuredContent.roadmaps[1]}/${params.lang}/overview.ts`
-		);
-		featuredRoadmap2.overview.slug = `roadmaps/${featuredContent.courses[1]}`;
+		for (const featuredRoadmap of featuredContent.roadmaps) {
+			try {
+				const roadmap = await import(
+					`../../lib/content/roadmaps/${featuredRoadmap}/${params.lang}/overview.ts`
+				);
+				roadmap.overview.slug = `roadmaps/${featuredRoadmap}`;
+				roadmaps.push(roadmap.overview);
+			} catch (e) {
+				console.error('Featured roadmap missing for this language');
+			}
+		}
 
 		return {
-			courses: [featuredCourse1.overview, featuredCourse2.overview],
-			bootcamps: [featuredBootcamp1.overview, featuredBootcamp2.overview],
-			roadmaps: [featuredRoadmap1.overview, featuredRoadmap2.overview]
+			courses,
+			bootcamps,
+			roadmaps
 		};
 	} catch (e) {
-		throw error(404, 'The language you are looking for does not exist');
+		throw error(404, "Couldn't find data for the language you are looking");
 	}
 };

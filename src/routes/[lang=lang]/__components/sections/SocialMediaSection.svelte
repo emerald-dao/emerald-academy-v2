@@ -78,10 +78,13 @@
 			border-radius: 50%;
 			position: absolute;
 			top: -115px;
-			left: 38%;
 			filter: blur(100px);
 			opacity: 0.2;
 			z-index: -1;
+
+			@include mq(small) {
+				left: 38%;
+			}
 		}
 	}
 </style>

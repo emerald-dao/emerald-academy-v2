@@ -15,60 +15,59 @@
 	export let roadmaps: RoadmapOverview[];
 
 	let activeContent: number = 0;
-	let typeOfContentToShow: sideContent[] = [
-		{ contentType: ContentTypeEnum.Course, icon: icon.Course },
-		{ contentType: ContentTypeEnum.Bootcamp, icon: icon.Bootcamp },
-		{ contentType: ContentTypeEnum.Roadmap, icon: icon.Roadmap }
+	$: contents = [
+		{ type: ContentTypeEnum.Course, icon: icon.Course, contents: courses },
+		{ type: ContentTypeEnum.Bootcamp, icon: icon.Bootcamp, contents: bootcamps },
+		{ type: ContentTypeEnum.Roadmap, icon: icon.Roadmap, contents: roadmaps }
 	];
-	interface sideContent {
-		contentType: ContentTypeEnum;
-		icon: icon;
-	}
 
 	const clickedContent = (i: number) => {
 		activeContent = i;
 	};
 </script>
 
-<section class="container">
-	<div class="title-wrapper">
-		<div class="tagline">{$LL.EXPLORE_TAGLINE()}</div>
-		<h3>{$LL.EXPLORE_H1()}</h3>
-	</div>
-
-	<div class="content-wrapper">
-		<div class="sidebar">
-			{#each typeOfContentToShow as type, i}
-				<div
-					on:click={() => clickedContent(i)}
-					class="sidebar-link"
-					class:active={activeContent === i}
-				>
-					<Icon icon={typeOfContentToShow[i].icon} />{firstCapital(type.contentType)}
-				</div>
-			{/each}
+{#if courses.length > 0 || bootcamps.length > 0 || roadmaps.length > 0}
+	<section class="container">
+		<div class="title-wrapper">
+			<div class="tagline">{$LL.EXPLORE_TAGLINE()}</div>
+			<h3>{$LL.EXPLORE_H1()}</h3>
 		</div>
-
-		<div class="cards-wrapper">
-			{#if ContentTypeEnum.Course === typeOfContentToShow[activeContent].contentType}
-				{#each courses as course}
-					<ContentCard overview={course} />
+		<div class="content-wrapper">
+			<div class="sidebar">
+				{#each contents as content, i}
+					{#if content.contents.length > 0}
+						<div
+							on:click={() => clickedContent(i)}
+							class="sidebar-link"
+							class:active={activeContent === i}
+						>
+							<Icon icon={content.icon} />{firstCapital(content.type)}
+						</div>
+					{/if}
 				{/each}
-			{:else if ContentTypeEnum.Bootcamp === typeOfContentToShow[activeContent].contentType}
-				{#each bootcamps as boot}
-					<ContentCard overview={boot} />
-				{/each}
-			{:else if ContentTypeEnum.Roadmap === typeOfContentToShow[activeContent].contentType}
-				{#each roadmaps as road}
-					<ContentCard overview={road} />
-				{/each}
-			{/if}
+			</div>
+			<div class="cards-wrapper">
+				{#if ContentTypeEnum.Course === contents[activeContent].type}
+					{#each courses as course}
+						<ContentCard overview={course} />
+					{/each}
+				{:else if ContentTypeEnum.Bootcamp === contents[activeContent].type}
+					{#each bootcamps as boot}
+						<ContentCard overview={boot} />
+					{/each}
+				{:else if ContentTypeEnum.Roadmap === contents[activeContent].type}
+					{#each roadmaps as road}
+						<ContentCard overview={road} />
+					{/each}
+				{/if}
+			</div>
 		</div>
-	</div>
-</section>
+	</section>
+{/if}
 
 <style type="scss">
 	section {
+		min-height: 700px;
 		.title-wrapper {
 			display: flex;
 			flex-direction: column;
@@ -84,7 +83,7 @@
 		.sidebar {
 			display: flex;
 			flex-direction: column;
-			gap: var(--space-5);
+			gap: var(--space-8);
 		}
 
 		.content-wrapper {

@@ -1,7 +1,6 @@
 import { error } from '@sveltejs/kit';
-import type { PageLoad } from './$types';
 
-export const load: PageLoad = async ({ fetch, params }) => {
+export const load = async ({ fetch, params }) => {
 	try {
 		const response = await fetch(`/api/content/${params.lang}`);
 		const content = await response.json();
@@ -10,7 +9,7 @@ export const load: PageLoad = async ({ fetch, params }) => {
 			`../../../lib/content/subjects/cadence/${params.lang}/overview.ts`
 		);
 		const subjectDappDevelopmentOverview = await import(
-			`../../../lib/content/subjects/dapp-development/${params.lang}/overview.ts`
+			`../../../lib/content/subjects/dapp-dev/${params.lang}/overview.ts`
 		);
 
 		return {

@@ -1,11 +1,11 @@
 ---
 title: Primitive Types
 language: en
-layout: false
+layout: examples
 ---
 
-```js
-pub fun main() {
+```cadence
+pub contract Variables {
    pub let number: Int
    pub let name: String
    pub let address: Address

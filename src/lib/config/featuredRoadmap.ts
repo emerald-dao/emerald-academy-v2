@@ -1,3 +1,3 @@
 export const featuredContent = {
-	roadmaps: ['roadmaps/basic-dapp']
+	roadmaps: ['roadmaps/cadence']
 };

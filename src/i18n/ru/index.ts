@@ -26,6 +26,7 @@ const ru: BaseTranslation = {
 
 	// Cadence by example
 	SEARCH: 'Поиск',
+	NO_EXAMPLES_FOUND: 'Примеры не найдены для этого языка',
 
 	// Your achievements
 	ACHIEVEMENTS_H1: 'Ваши достижения',
@@ -37,12 +38,12 @@ const ru: BaseTranslation = {
 	[ContentTypeEnum.Course]: 'Курс',
 	[ContentTypeEnum.Bootcamp]: 'Буткемп',
 	[ContentTypeEnum.Roadmap]: 'Путь обучения',
-	[ContentTypeEnum.Template]: 'Шаблоны',
+	[ContentTypeEnum.Quickstart]: 'Шаблоны',
 	[ContentTypeEnum.Resources]: 'Ресурсы',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Бэкенд',
-	[SubjectsEnum.Webdev]: 'Веб-разработка',
+	[SubjectsEnum.Web]: 'Веб-разработка',
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',
@@ -50,7 +51,10 @@ const ru: BaseTranslation = {
 	// Expertise
 	[ExpertiseEnum.Advanced]: 'Продвинутый',
 	[ExpertiseEnum.Intermediate]: 'Средний',
-	[ExpertiseEnum.Beginner]: 'Начинающий'
+	[ExpertiseEnum.Beginner]: 'Начинающий',
+
+	// Quickstarts
+	NO_QUICKSTARTS_FOUND: 'Шаблоны не найдены для этого языка'
 };
 
 export default ru;

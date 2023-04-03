@@ -2,6 +2,7 @@
 	import { slide } from 'svelte/transition';
 	import type { BootcampVideo } from '$lib/types/content/bootcamp.interface';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+	import { page } from '$app/stores';
 
 	export let data: BootcampVideo | any;
 	export let i: number;
@@ -17,7 +18,12 @@
 		{/each}
 	{:else if typeOfcontent === ContentTypeEnum.Bootcamp}
 		{#each data.chapters as chapter}
-			<a href={chapter.link} target="_blank" rel="noreferrer" class="header-link">
+			<a
+				href={`/${$page.params.lang}` + chapter.link}
+				target="_blank"
+				rel="noreferrer"
+				class="header-link"
+			>
 				{chapter.name}
 			</a>
 		{/each}

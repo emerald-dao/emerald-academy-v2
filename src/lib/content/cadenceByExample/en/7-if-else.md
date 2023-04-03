@@ -1,10 +1,10 @@
 ---
 title: If-Else
 language: en
-layout: false
+layout: examples
 ---
 
-```js
+```cadence
 pub fun main(x: Int): Int {
    if (x < 10) {
       return 0;
