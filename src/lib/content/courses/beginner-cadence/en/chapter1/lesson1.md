@@ -5,6 +5,11 @@ language: en
 excerpt: basic blockchain concepts
 ---
 
+<script>
+  import { Button } from '@emerald-dao/component-library';
+	import Icon from '@iconify/svelte';
+</script>
+
 # Chapter 1 Lesson 1 - Learning Blockchain Concepts
 
 Hello! Yes, it is me. Your favourite developer of all time, Jacob. You are currently viewing the first lesson of the entire course. Let's start this journey together.
@@ -120,4 +125,7 @@ You are free to answer these questions in your own language of choice. And no, I
 
 3. Explain the difference between a script and a transaction.
 
-# <a href="https://forms.gle/dCaMDJWoko54xkiv5">Quiz</a>
+<Button href="https://forms.gle/dCaMDJWoko54xkiv5" size="large" width="extended">
+  <Icon icon="tabler:notes" />
+  Quiz
+</Button>

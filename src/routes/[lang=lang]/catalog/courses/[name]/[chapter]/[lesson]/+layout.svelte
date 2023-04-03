@@ -21,7 +21,7 @@
 			>Course Overview</a
 		>
 		{#each Object.values(data.course.contents) as chapterContent, index}
-			<div class="column-4">
+			<div class="column-3">
 				<p class="chapter small">{`${index + 1}. ${chapterContent.overview.title}`}</p>
 				{#each chapterContent.contents as lesson, i}
 					<a
@@ -66,8 +66,8 @@
 
 		@include mq(medium) {
 			display: grid;
-			grid-template-columns: 2fr 7fr;
-			gap: var(--space-14);
+			grid-template-columns: 1fr 4fr;
+			gap: var(--space-16);
 		}
 	}
 
@@ -78,35 +78,54 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-start;
-			border-right: var(--border-width-primary) var(--clr-border-primary) solid;
+			border-right: 0.5px var(--clr-border-primary) solid;
 			border-bottom: none;
-			padding-right: var(--space-5);
-			gap: var(--space-10);
+			padding-right: var(--space-12);
+			gap: var(--space-11);
 			overflow-y: auto;
 			position: sticky;
 			top: 0;
 			height: 100vh;
 			padding-block: var(--space-8);
+			// background-color: var(--clr-background-secondary);
 		}
 
 		.header-link {
 			line-height: 1.4;
+			font-size: 0.83rem;
+			color: var(--clr-text-off);
+
+			&.active {
+				color: var(--clr-heading-main);
+			}
 		}
 	}
 
 	.accordion {
 		border-bottom: var(--border-width-primary) var(--clr-border-primary) solid;
 		padding-block: var(--space-8);
+
 		@include mq(medium) {
 			display: none;
 		}
 	}
 
 	.chapter {
-		color: var(--clr-text-off);
-		border-bottom: 1px var(--clr-surface-secondary) solid;
-		padding-bottom: var(--space-1);
+		color: var(--clr-text-main);
+		border-bottom: 1px var(--clr-neutral-badge) solid;
+		padding-bottom: var(--space-2);
 		font-family: var(--font-heading);
-		font-size: var(--font-size-2);
+		font-size: 0.9rem;
+	}
+
+	::-webkit-scrollbar {
+		width: 7px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: var(--clr-neutral-badge);
+		border-radius: 3px;
+		transition: 1.7s;
+		cursor: pointer;
 	}
 </style>
