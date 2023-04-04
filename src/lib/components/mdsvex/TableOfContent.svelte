@@ -81,20 +81,26 @@
 <div class="column-10">
 	<ProgressSteps
 		{steps}
-		diameter={0.6}
+		diameter={0.5}
 		direction="column-reverse"
-		fontSize="small"
-		gap={0.8}
+		fontSize="xsmall"
+		gap={0.4}
 		cutLineEnds={false}
+		lineHeight="1"
 	/>
-	<Button
+	<a
 		href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/${$page.params.name}/${$page.params.lang}/${$page.params.chapter}/${$page.params.lesson}.md`}
 		target="_blank"
-		width="extended"
-		color="neutral"
-		type="ghost"
+		rel="noopener noreferrer"
+		class="header-link row-2 align-center"
 	>
 		<Icon icon="tabler:brand-github" />
 		Edit content
-	</Button>
+	</a>
 </div>
+
+<style lang="scss">
+	a {
+		margin-left: var(--space-1);
+	}
+</style>

@@ -27,7 +27,7 @@
 		@include mq(medium) {
 			display: grid;
 			grid-template-columns: 65ch auto;
-			gap: var(--space-12);
+			gap: var(--space-18);
 		}
 	}
 
@@ -40,6 +40,7 @@
 
 	aside {
 		display: none;
+
 		@include mq(medium) {
 			display: block;
 			position: sticky;

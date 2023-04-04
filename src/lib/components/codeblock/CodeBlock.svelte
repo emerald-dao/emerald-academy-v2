@@ -43,7 +43,7 @@
 	.code {
 		border-radius: var(--radius-1);
 		border: 1px var(--clr-border-primary) solid;
-		margin-bottom: var(--space-4);
+		margin-block: var(--space-4) var(--space-8);
 		background: var(--clr-background-secondary);
 
 		.language-wrapper {

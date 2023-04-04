@@ -11,6 +11,7 @@
 
 	export let overview: Overview;
 	export let showBreadcrumbs: boolean = false;
+
 	let param;
 	let startDate: Date;
 	let endDate: Date;
@@ -125,7 +126,6 @@
 
 <style type="scss">
 	section {
-		border-bottom: 0.5px solid var(--clr-border-primary);
 		.container-small {
 			display: flex;
 			flex-direction: column;

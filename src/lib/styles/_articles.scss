@@ -3,7 +3,12 @@ article {
 	li,
 	ul,
 	span {
-		font-size: var(--font-size-2);
+		font-size: 0.95rem;
+	}
+
+	p {
+		max-width: 100% !important;
+		--font-weight: 300;
 	}
 
 	h1,
@@ -36,10 +41,10 @@ article {
 	.h2::before {
 		content: '';
 		width: 50px;
-		height: 2px;
-		background: var(--clr-primary-main);
+		height: 0.5px;
+		background: var(--clr-border-primary);
 		display: block;
-		margin: 0 0 0.6em;
+		margin: 0 0 0.8em;
 	}
 
 	h3 {
@@ -75,6 +80,6 @@ article {
 	}
 
 	img {
-		margin-bottom: var(--space-4);
+		margin-block: var(--space-4) var(--space-8);
 	}
 }
