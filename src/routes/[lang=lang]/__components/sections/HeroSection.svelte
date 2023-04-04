@@ -39,7 +39,7 @@
 </script>
 
 <video width="0" height="0" controls bind:this={vidRef} style="display: none;" on:ended={handleEnd}>
-	<source src={'http://media.w3.org/2010/05/sintel/trailer.ogv'} type="video/mp4" />
+	<source src="/presentation-video.mp4" type="video/mp4" />
 	<track kind="captions" />
 </video>
 <section>
