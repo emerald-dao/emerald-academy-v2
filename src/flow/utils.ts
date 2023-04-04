@@ -1,9 +1,8 @@
 import { addresses } from '$stores/flow/FlowStore';
 import { transactionStore } from '$stores/flow/TransactionStore';
 import * as fcl from '@onflow/fcl';
-import { get } from 'svelte/store';
 
-export function replaceWithProperValues(script) {
+export function replaceWithProperValues(script: string) {
   return (
     script
       // For Tx/Scripts
@@ -40,11 +39,11 @@ export const executeTransaction = async (
   }
 };
 
-export const getFindProfile = async (address) => {
+export const getFindProfile = async (address: string) => {
   try {
     return await fcl.query({
       cadence: `
-        import FIND from ${get(addresses).FIND}
+        import FIND from ${addresses.FIND}
         pub fun main(address: Address): Profile? {
             if let name = FIND.reverseLookup(address) {
               let profile = FIND.lookup(name)!
