@@ -8,10 +8,6 @@
 
 	export let data;
 
-	const subject = $page.params.subject;
-
-	const subjectCapital = subject.charAt(0).toUpperCase() + subject.slice(1);
-
 	let routes = [
 		{
 			path: `/${$page.params.lang}/catalog`,
@@ -19,7 +15,7 @@
 		},
 		{
 			path: `/${$page.params.lang}/catalog/${$page.params.subject}`,
-			label: `${subjectCapital}`
+			label: `${data.overview.title}`
 		}
 	];
 </script>
@@ -28,7 +24,7 @@
 	<div class="container column-15">
 		<div class="title-wrapper">
 			<Breadcrumbs {routes} />
-			<h1>{subjectCapital}</h1>
+			<h1>{data.overview.title}</h1>
 			<p>
 				{data.overview.description}
 			</p>
@@ -56,11 +52,11 @@
 <CatalogSection
 	contentList={data.content}
 	subjectFilter={false}
-	title={`All ${firstCapital(subject)} contents`}
+	title={`All ${data.overview.title} contents`}
 />
 
 <Seo
-	title={`${subjectCapital} | Subject | Emerald Academy`}
+	title={`${data.overview.title} | Subject | Emerald Academy`}
 	description={data.overview.description}
 	type="WebPage"
 />

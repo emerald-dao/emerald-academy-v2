@@ -3,6 +3,7 @@ import type { SubjectOverview } from '$lib/types/content/subjects.interface';
 
 export const overview: SubjectOverview = {
 	name: SubjectsEnum.Cadence,
+	title: 'Cadence',
 	description:
 		'Cadence es un lenguaje de programación orientado a recursos que introduce nuevas características en la programación de contratos inteligentes que ayudan a los desarrolladores a garantizar que su código sea seguro, claro y accesible.',
 	shortcuts: [
