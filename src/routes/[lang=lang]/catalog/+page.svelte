@@ -5,13 +5,14 @@
 	import Icon from '@iconify/svelte';
 	import CatalogSection from '$lib/features/catalog-list/CatalogSection.svelte';
 	import Seo from '$lib/components/seo/Seo.svelte';
+	import { LL } from '$i18n/i18n-svelte';
 
 	export let data;
 </script>
 
 <section>
 	<div class="container">
-		<h1 class="w-medium">Catalog</h1>
+		<h1 class="w-medium">{$LL.CATALOG()}</h1>
 		<h5>What would you like to learn?</h5>
 		<div class="first-wrapper">
 			{#each data.featuredSubjects as subject}
@@ -20,7 +21,7 @@
 						<div class="subject-icon">
 							<Icon icon={subject.icon} width="1.3rem" color="var(--clr-tertiary-main)" />
 						</div>
-						<h4>{`Learn ${subject.title}`}</h4>
+						<h4>{`${$LL.LEARN()} ${subject.title}`}</h4>
 					</div>
 					<p>{uppercaseFirstLetter(subject.description)}</p>
 				</a>

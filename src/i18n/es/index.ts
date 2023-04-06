@@ -35,6 +35,8 @@ const es: Translation = {
 	SKILLS_YOU_WILL_LEARN: 'Habilidades que aprenderás',
 
 	START: "Comenzar",
+	CATALOG: "Catalogar",
+	LEARN: 'Aprender',
 
 	// Type of content
 	[ContentTypeEnum.Course]: 'Curso',
