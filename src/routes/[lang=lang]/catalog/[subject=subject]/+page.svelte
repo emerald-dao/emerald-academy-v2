@@ -30,10 +30,7 @@
 			</p>
 		</div>
 		{#if data.featuredRoadmap}
-			<div class="roadmap-wrapper">
-				<h5>Become an expert with our full Roadmap</h5>
-				<ContentCard overview={data.featuredRoadmap} />
-			</div>
+			<ContentCard overview={data.featuredRoadmap} />
 		{/if}
 		<div class="sidebar column-3">
 			<h5>Shortcuts</h5>

@@ -32,9 +32,11 @@
 						{overview.metadata.price}
 					</Label>
 				{/if}
-				<Label size="x-small" iconLeft="tabler:flame" color="neutral" hasBorder={false}>
-					{$LL[overview.metadata.expertise]()}
-				</Label>
+				{#if overview.metadata.expertise}
+					<Label size="x-small" iconLeft="tabler:flame" color="neutral" hasBorder={false}>
+						{$LL[overview.metadata.expertise]()}
+					</Label>
+				{/if}
 				<Label size="x-small" color="neutral" iconLeft="tabler:hourglass-high" hasBorder={false}>
 					{overview.metadata.duration}
 				</Label>
