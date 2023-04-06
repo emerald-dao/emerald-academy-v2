@@ -4,7 +4,7 @@ export const createBootcampOnboardingStore = writable({
 	name: '',
 	email: '',
 	codingExperience: '',
-	codingExperience2: '',
+	product: '',
 	discordHandle: '',
-	bloctoAddress: ''
+	walletAddress: ''
 });

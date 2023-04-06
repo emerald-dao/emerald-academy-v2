@@ -40,7 +40,7 @@
 
 <Seo
 	title={`Resources | Emerald Academy`}
-	description="Resources in addition to all the material provided within the academy"
+	description="Essential things that all developers use on Flow."
 	type="WebPage"
 />
 

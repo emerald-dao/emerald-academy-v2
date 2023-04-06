@@ -35,16 +35,16 @@
 			</InputWrapper>
 
 			<InputWrapper
-				name="blocto-address"
-				label="What's your Blocto address"
-				errors={res.getErrors('blocto-address')}
-				isValid={res.isValid('blocto-address')}
+				name="wallet-address"
+				label="What's your wallet address?"
+				errors={res.getErrors('wallet-address')}
+				isValid={res.isValid('wallet-address')}
 			>
 				<input
-					name="blocto-address"
+					name="wallet-address"
 					type="text"
 					placeholder="0x99bd48c8035kdjeu504"
-					bind:value={$createBootcampOnboardingStore.bloctoAddress}
+					bind:value={$createBootcampOnboardingStore.walletAddress}
 					on:input={handleChange}
 				/>
 			</InputWrapper>

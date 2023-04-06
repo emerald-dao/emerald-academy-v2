@@ -12,21 +12,28 @@ import { get } from 'svelte/store';
 import { env } from '$env/dynamic/public';
 
 const sendEmail = async () => {
-	emailjs
-		.send(
+	try {
+		const response = await emailjs.send(
 			env.PUBLIC_EMAIL_SERVICE_ID,
 			env.PUBLIC_EMAIL_TEMPLATE_ID,
 			get(createBootcampOnboardingStore),
 			env.PUBLIC_EMAIL_KEY
-		)
-		.then(
-			(result) => {
-				console.log('SUCCESS!', result.text);
-			},
-			(error) => {
-				console.log('FAILED...', error.text);
-			}
 		);
+		console.log('SUCCESS!', response.text);
+	} catch(e) {
+		console.log('FAILED...', e);
+	}
+
+	const res = await fetch('/api/content/en/signup', {
+		method: 'POST',
+		body: JSON.stringify({
+			signupData: get(createBootcampOnboardingStore)
+		}),
+		headers: {
+			'content-type': 'application/json'
+		}
+	});
+	
 };
 
 export const onBoardingSteps = createSteps([

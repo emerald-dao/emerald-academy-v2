@@ -11,21 +11,21 @@
 		<form action="">
 			<p>What is your coding experience level? *</p>
 			<div class="form-group">
-				<label name="level">
+				<label for="never">
 					<input
-						name="level"
+						name="never"
 						type="radio"
 						bind:group={$createBootcampOnboardingStore.codingExperience}
 						value="never"
 					/>
-					I've never coded before</label
+					I've never coded before.</label
 				>
 			</div>
 
 			<div class="form-group">
-				<label name="level">
+				<label for="years ago">
 					<input
-						name="level"
+						name="years ago"
 						type="radio"
 						bind:group={$createBootcampOnboardingStore.codingExperience}
 						value="years ago"
@@ -34,71 +34,71 @@
 				</label>
 			</div>
 			<div class="form-group">
-				<label name="level">
+				<label for="now and then">
 					<input
-						name="level"
+						name="now and then"
 						type="radio"
 						bind:group={$createBootcampOnboardingStore.codingExperience}
 						value="now and then"
 					/>
-					I code a little bit here and there</label
+					I code a little bit here and there.</label
 				>
 			</div>
 
 			<div class="form-group">
-				<label name="level">
+				<label for="all the time">
 					<input
-						name="level"
+						name="all the time"
 						type="radio"
 						bind:group={$createBootcampOnboardingStore.codingExperience}
 						value="all the time"
 					/>
-					I code all the time</label
+					I code all the time.</label
 				>
 			</div>
 		</form>
 		<form action="" class="second-form">
 			<p>Which Emerald City product have you used the most? *</p>
 			<div class="form-group">
-				<label name="level2">
+				<label for="FLOAT">
 					<input
-						name="level2"
+						name="FLOAT"
 						type="radio"
-						bind:group={$createBootcampOnboardingStore.codingExperience2}
-						value="never"
+						bind:group={$createBootcampOnboardingStore.product}
+						value="FLOAT"
 					/>
 					FLOAT
 				</label>
 			</div>
 			<div class="form-group">
-				<label name="level2">
+				<label for="Emerald bot">
 					<input
-						name="level2"
+						name="Emerald bot"
 						type="radio"
-						bind:group={$createBootcampOnboardingStore.codingExperience2}
-						value="years ago"
+						bind:group={$createBootcampOnboardingStore.product}
+						value="Emerald bot"
 					/>
 					Emerald bot
 				</label>
 			</div>
 			<div class="form-group">
-				<label name="level2">
+				<label for="Touchstone">
 					<input
-						name="level2"
+						name="Touchstone"
 						type="radio"
-						bind:group={$createBootcampOnboardingStore.codingExperience2}
-						value="now and then"
+						bind:group={$createBootcampOnboardingStore.product}
+						value="Touchstone"
 					/>
 					Touchstone
 				</label>
 			</div>
 			<div class="form-group">
-				<label name="level2">
+				<label for="none">
 					<input
-						name="level2"
+						name="none"
 						type="radio"
-						bind:group={$createBootcampOnboardingStore.codingExperience2}
-						value="all the time"
+						bind:group={$createBootcampOnboardingStore.product}
+						value="N/A"
 					/>
 					None
 				</label>

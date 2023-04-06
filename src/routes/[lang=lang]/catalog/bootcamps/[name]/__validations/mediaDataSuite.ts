@@ -11,12 +11,12 @@ const mediaDataSuite = create((data = {}, currentField) => {
 		enforce(data.discordHandle).isNotBlank();
 	});
 
-	test('blocto-address', 'Blocto address is required', () => {
-		enforce(data.bloctoAddress).isNotBlank();
+	test('wallet-address', 'Wallet address is required', () => {
+		enforce(data.walletAddress).isNotBlank();
 	});
 
-	test('blocto-address', 'Blocto address should be 18 chars long', () => {
-		enforce(data.bloctoAddress).lengthEquals(18);
+	test('wallet-address', 'Wallet address should be 18 characters long', () => {
+		enforce(data.walletAddress).lengthEquals(18);
 	});
 });
 
