@@ -105,7 +105,7 @@
 			</div>
 		</form>
 	</div>
-	<StepButton active={true} />
+	<StepButton active={$createBootcampOnboardingStore.product !== '' && $createBootcampOnboardingStore.codingExperience !== ''} />
 </div>
 
 <style type="scss">

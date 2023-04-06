@@ -6,8 +6,11 @@
 	import { Modal, getModal } from '@emerald-dao/component-library';
 	import Seo from '$lib/components/seo/Seo.svelte';
 	import FaqsSection from '$lib/components/faqs/FaqsSection.svelte';
+	import { createBootcampOnboardingStore } from '$stores/BootcampOnboardingStore.ts';
 
 	export let data;
+
+	$createBootcampOnboardingStore.bootcamp_name = data.overview.title + ' Bootcamp';
 </script>
 
 <ContentIntro overview={data.overview} showBreadcrumbs={true}>
