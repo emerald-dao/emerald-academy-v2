@@ -8,7 +8,6 @@
 	import { setLocale, locale } from '$i18n/i18n-svelte';
 	import HeadHrefLangs from '$lib/components/i18n/HeadHrefLangs.svelte';
 	import { Header, Footer } from '@emerald-dao/component-library';
-	import { emeraldTools, socialMedia } from '$lib/config/navigation';
 	import { theme } from '$stores/ThemeStore';
 	import { logIn, unauthenticate } from '$flow/actions';
 	import { user } from '$stores/flow/FlowStore';
@@ -75,8 +74,6 @@
 
 <Footer
 	{navElements}
-	{emeraldTools}
-	socials={socialMedia}
 	logoHref={`/${$locale}/`}
 	logoUrl="/EA_Iso.svg"
 	logoText="Emerald Academy"
