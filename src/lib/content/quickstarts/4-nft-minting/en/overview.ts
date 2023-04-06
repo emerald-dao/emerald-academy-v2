@@ -2,7 +2,7 @@ import type { Template } from '$lib/types/content/templates.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
 export const overview: Template = {
-	title: 'Groups',
+	title: 'NFT Minting',
 	contentType: ContentTypeEnum.Quickstart,
 	audited: true,
 	web: 'React.js',
@@ -11,9 +11,9 @@ export const overview: Template = {
 		userAvatarUrl: 'https://avatars.githubusercontent.com/u/15198786?v=4',
 		github: 'emerald-dao',
 		twitter: 'emerald_dao',
-		discord: '143100912687251456'
+		discord: 'emeraldcity'
 	},
-	templateRepositoryUrl: 'github.com/emerald-dao/6-groups',
+	templateRepositoryUrl: 'github.com/emerald-dao/3-nft-minting',
 	description:
-		'A DApp that allows users to create Groups, join & leave them, discover Groups, and chat inside of them.'
+		'A DApp that lets an admin create an NFT Collection and display available NFTs for purchase on a minting site. Users will be able to see their purchased NFTs as well.'
 };

@@ -2,7 +2,7 @@ import type { Template } from '$lib/types/content/templates.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
 export const overview: Template = {
-	title: 'NFT Minting',
+	title: 'Multisign',
 	contentType: ContentTypeEnum.Quickstart,
 	audited: true,
 	web: 'React.js',
@@ -11,9 +11,9 @@ export const overview: Template = {
 		userAvatarUrl: 'https://avatars.githubusercontent.com/u/15198786?v=4',
 		github: 'emerald-dao',
 		twitter: 'emerald_dao',
-		discord: '143100912687251456'
+		discord: 'emeraldcity'
 	},
-	templateRepositoryUrl: 'github.com/emerald-dao/3-nft-minting',
+	templateRepositoryUrl: 'github.com/emerald-dao/5-multisign',
 	description:
-		'A DApp that lets an admin create an NFT Collection and display available NFTs for purchase on a minting site. Users will be able to see their purchased NFTs as well.'
+		'A DApp that allows anyone to deposit $FLOW to a DAO Treasury, of which admins must multisign actions to withdraw that $FLOW from the Treasury.'
 };

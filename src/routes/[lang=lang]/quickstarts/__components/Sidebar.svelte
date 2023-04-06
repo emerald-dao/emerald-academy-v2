@@ -15,7 +15,7 @@
 		{:else}
 			<img src="/avatar-header.png" alt="Generic avatar" />
 		{/if}
-		<p class="username">{thisTemplateUser.login}</p>
+		<p class="username">{data.overview.user.name}</p>
 	</div>
 	<div class="row-2 social-media-wrapper">
 		{#if thisTemplateOverview.user.github}
@@ -34,7 +34,7 @@
 		{/if}
 		{#if thisTemplateOverview.user.discord}
 			<a
-				href="https://discord.com/users/{thisTemplateOverview.user.discord}"
+				href="https://discord.gg/{thisTemplateOverview.user.discord}"
 				target="_blank"
 				rel="noreferrer"><Icon icon="tabler:brand-discord" color="var(--clr-text-main)" /></a
 			>
