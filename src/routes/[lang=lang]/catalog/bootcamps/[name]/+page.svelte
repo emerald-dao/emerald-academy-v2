@@ -6,15 +6,25 @@
 	import { Modal, getModal } from '@emerald-dao/component-library';
 	import Seo from '$lib/components/seo/Seo.svelte';
 	import FaqsSection from '$lib/components/faqs/FaqsSection.svelte';
-	import { createBootcampOnboardingStore } from '$stores/BootcampOnboardingStore.ts';
+	import { createBootcampOnboardingStore } from '$stores/BootcampOnboardingStore';
+	import { user } from '$stores/flow/FlowStore';
+	import { logIn } from '$flow/actions.js';
 
 	export let data;
 
 	$createBootcampOnboardingStore.bootcamp_name = data.overview.title + ' Bootcamp';
+
+	async function openModal() {
+		if (!$user.loggedIn) {
+			await logIn();
+		}
+		$createBootcampOnboardingStore.walletAddress = $user.addr;
+		getModal().open()
+	}
 </script>
 
 <ContentIntro overview={data.overview} showBreadcrumbs={true}>
-	<Button size="large" width="extended" on:click={() => getModal().open()}>Enroll</Button>
+	<Button size="large" width="extended" on:click={openModal}>Enroll</Button>
 	<Modal>
 		<div class="modal-content">
 			<svelte:component this={$onBoardingSteps[$onBoardingActiveStep].component} />

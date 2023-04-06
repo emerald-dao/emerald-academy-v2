@@ -10,14 +10,6 @@ const mediaDataSuite = create((data = {}, currentField) => {
 	test('discord-handle', 'Discord handle is required', () => {
 		enforce(data.discordHandle).isNotBlank();
 	});
-
-	test('wallet-address', 'Wallet address is required', () => {
-		enforce(data.walletAddress).isNotBlank();
-	});
-
-	test('wallet-address', 'Wallet address should be 18 characters long', () => {
-		enforce(data.walletAddress).lengthEquals(18);
-	});
 });
 
 export default mediaDataSuite;

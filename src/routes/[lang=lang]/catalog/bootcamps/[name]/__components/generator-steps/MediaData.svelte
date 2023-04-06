@@ -28,23 +28,8 @@
 				<input
 					name="discord-handle"
 					type="text"
-					placeholder="tsnakjake#233"
+					placeholder="coolperson#1234"
 					bind:value={$createBootcampOnboardingStore.discordHandle}
-					on:input={handleChange}
-				/>
-			</InputWrapper>
-
-			<InputWrapper
-				name="wallet-address"
-				label="What's your wallet address?"
-				errors={res.getErrors('wallet-address')}
-				isValid={res.isValid('wallet-address')}
-			>
-				<input
-					name="wallet-address"
-					type="text"
-					placeholder="0x99bd48c8035kdjeu504"
-					bind:value={$createBootcampOnboardingStore.walletAddress}
 					on:input={handleChange}
 				/>
 			</InputWrapper>
