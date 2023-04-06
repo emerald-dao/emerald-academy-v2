@@ -1,5 +1,4 @@
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
-import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 
@@ -8,7 +7,6 @@ export const overview: RoadmapOverview = {
 	contentType: ContentTypeEnum.Roadmap,
 	excerpt: 'Go from zero to hero in Cadence.',
 	metadata: {
-		expertise: ExpertiseEnum.Beginner,
 		duration: '11 chapters',
 		prerequisites: ['None'],
 		subjects: [SubjectsEnum.Cadence]

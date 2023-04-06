@@ -34,6 +34,10 @@ const en: BaseTranslation = {
 	// ContentCard
 	SKILLS_YOU_WILL_LEARN: "Skills you'll learn",
 
+	START: "Start",
+	CATALOG: "Catalog",
+	LEARN: "Learn",
+
 	// Type of content
 	[ContentTypeEnum.Course]: 'Course',
 	[ContentTypeEnum.Bootcamp]: 'Bootcamp',

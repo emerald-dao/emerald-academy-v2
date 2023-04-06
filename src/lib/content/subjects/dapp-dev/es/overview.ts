@@ -8,16 +8,12 @@ export const overview: SubjectOverview = {
 		'Las aplicaciones descentralizadas (DApps) son aplicaciones o programas digitales que se ejecutan en una red descentralizada, en lugar de en un solo ordenador o servidor. Se construyen con tecnología de blockchain y utilizan criptomonedas como medio de intercambio.',
 	shortcuts: [
 		{
-			name: 'Documentación de Cadence',
-			url: 'https://docs.onflow.org/cadence'
+			name: 'Ver DApps de ejemplo',
+			url: '/en/quickstarts'
 		},
 		{
-			name: 'Ejercitar Cadence',
-			url: 'https://play.onflow.org'
-		},
-		{
-			name: 'Referencia del lenguaje Cadence',
-			url: 'https://docs.onflow.org/cadence/language/'
+			name: 'DApp SDKs',
+			url: 'https://developers.flow.com/tools#sdks'
 		}
 	],
 	icon: 'tabler:app-window'

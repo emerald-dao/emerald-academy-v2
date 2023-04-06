@@ -5,6 +5,7 @@
 	import Seo from '$lib/components/seo/Seo.svelte';
 	import FaqsSection from '$lib/components/faqs/FaqsSection.svelte';
 	import ContentsAccordionSection from '$lib/components/contents-accordion/ContentsAccordionSection.svelte';
+	import { locale, LL } from '$i18n/i18n-svelte';
 
 	export let data;
 
@@ -13,7 +14,7 @@
 
 <ContentIntro overview={data.course.overview} showBreadcrumbs={true}>
 	<Button size="large" width="extended" href={`/${courseContents[0].contents[0].slug}`}>
-		Start<Icon icon="tabler:arrow-right" />
+		{$LL.START()}<Icon icon="tabler:arrow-right" />
 	</Button>
 </ContentIntro>
 <ContentsAccordionSection overview={data.course.overview} contents={data.course.contents} />

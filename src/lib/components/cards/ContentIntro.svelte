@@ -61,12 +61,19 @@
 				<ContentLabel type={overview.contentType} color="primary">
 					{firstCapital(overview.contentType)}
 				</ContentLabel>
-				<Label size="small" iconLeft="tabler:flame" color="transparent" hasBorder={false}>
-					Level: {overview.metadata.expertise}
-				</Label>
+				{#if overview.metadata.expertise}
+					<Label size="small" iconLeft="tabler:flame" color="transparent" hasBorder={false}>
+						Level: {overview.metadata.expertise}
+					</Label>
+				{/if}
 				<Label size="small" color="transparent" iconLeft="tabler:hourglass-high" hasBorder={false}>
 					{overview.metadata.duration}
 				</Label>
+				{#if overview.metadata.price}
+					<Label size="x-small" iconLeft="tabler:currency-dollar" color="neutral" hasBorder={false}>
+						{overview.metadata.price}
+					</Label>
+				{/if}
 				{#if overview.contentType === ContentTypeEnum.Bootcamp}
 					{#if daysOfDifference(new Date(), startDate) > 0}
 						<Label
