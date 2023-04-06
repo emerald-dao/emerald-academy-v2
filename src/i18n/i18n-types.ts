@@ -140,7 +140,7 @@ export type TranslationFunctions = {
 	 */
 	PATHS_H1: () => LocalizedString;
 	/**
-	 * Moree than 1000 students recommended us
+	 * More than 1000 students recommended us
 	 */
 	SOCIAL_H1: () => LocalizedString;
 	/**
