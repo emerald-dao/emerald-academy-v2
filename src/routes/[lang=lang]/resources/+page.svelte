@@ -8,29 +8,29 @@
 </script>
 
 <section class="container">
-	<!-- <h1 class="w-medium heading">{$LL[ContentTypeEnum.Resources]()}</h1> -->
-	<h2>YouTube Channels</h2>
+	<h1 class="w-medium heading">A list of essential things that everyone uses.</h1>
+	<h3>YouTube Channels</h3>
 	<div class="resources-wrapper">
 		{#each youtube as resource}
 			<ResourcesCard {resource} />
 		{/each}
 	</div>
 
-	<h2>Developer Resources</h2>
+	<h3>Developer Resources</h3>
 	<div class="resources-wrapper">
 		{#each developerResources as resource}
 			<ResourcesCard {resource} />
 		{/each}
 	</div>
 
-	<h2>Network Discovery</h2>
+	<h3>Network Discovery</h3>
 	<div class="resources-wrapper">
 		{#each networkDiscovery as resource}
 			<ResourcesCard {resource} />
 		{/each}
 	</div>
 
-	<h2>Blogs</h2>
+	<h3>Blogs</h3>
 	<div class="resources-wrapper">
 		{#each blogs as resource}
 			<ResourcesCard {resource} />
@@ -45,8 +45,11 @@
 />
 
 <style type="scss">
-	h2 {
-		margin-bottom: var(--space-5);
+	.title {
+		margin-bottom: 20px;
+	}
+	h1 {
+		margin-bottom: var(--space-15);
 	}
 
 	.resources-wrapper {
