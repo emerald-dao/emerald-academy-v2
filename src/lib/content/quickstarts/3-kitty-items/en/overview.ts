@@ -15,5 +15,5 @@ export const overview: Template = {
 	},
 	templateRepositoryUrl: 'github.com/onflow/kitty-items',
 	description:
-		"CryptoKitties Sample App is a **complete NFT marketplace** built with [Cadence](https://docs.onflow.org/cadence), Flow's resource-oriented smart contract programming language."
+		"CryptoKitties Sample App is a complete NFT marketplace built with Cadence, Flow's resource-oriented smart contract programming language."
 };
