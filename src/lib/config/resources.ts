@@ -1,4 +1,4 @@
-export const resources: Resources[] = [
+export const youtube: Resources[] = [
 	{
 		image: '/Jacob.jpeg',
 		title: "Jacob Tucker's Youtube Channel",
@@ -6,17 +6,23 @@ export const resources: Resources[] = [
 		link: 'https://www.youtube.com/channel/UCf6DzMRwj7SJ3nPrZqd5hHw'
 	},
 	{
+		image: '/flow-logo.png',
+		title: "Flow's YouTube Channel",
+		excerpt: 'The (far inferior but) official Flow YouTube channel.',
+		link: 'https://www.youtube.com/c/flowblockchain'
+	}
+]
+
+export const blogs: Resources[] = [
+	{
 		image: '/amethyst.jpeg',
 		title: "Amethyst's Blog",
-		excerpt: 'Very organized & clear threads on Flow .',
+		excerpt: 'Very organized & clear threads on Flow.',
 		link: 'https://amethystcodes.hashnode.dev/'
 	},
-	{
-		image: '/flow-logo.png',
-		title: 'Flow Docs',
-		excerpt: 'Official link to all documentation related to Flow & Cadence.',
-		link: 'https://docs.flow.com'
-	},
+]
+
+export const developerResources: Resources[] = [
 	{
 		image: 'https://play.flow.com/flow_logo.jpg',
 		title: 'Flow Playground',
@@ -30,22 +36,10 @@ export const resources: Resources[] = [
 		link: 'https://developers.flow.com/tools/flow-cli'
 	},
 	{
-		image: 'https://flowscan.org/images/flowscan-logo-only.svg',
-		title: 'Flowscan',
-		excerpt: 'Discover network information such as transaction data.',
-		link: 'https://flowscan.org/'
-	},
-	{
 		image: '/flow-logo.png',
-		title: 'Flow View Source',
-		excerpt: 'Browse contract code, account, and key information',
-		link: 'https://flow-view-source.com/mainnet/account/'
-	},
-	{
-		image: '/flow-logo.png',
-		title: "Flow's YouTube Channel",
-		excerpt: 'The (far inferior but) official Flow YouTube channel.',
-		link: 'https://www.youtube.com/c/flowblockchain'
+		title: 'Flow Docs',
+		excerpt: 'Official link to all documentation related to Flow & Cadence.',
+		link: 'https://docs.flow.com'
 	},
 	{
 		image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png',
@@ -53,8 +47,34 @@ export const resources: Resources[] = [
 		excerpt: 'Receive syntax highlighting and live compile erorrs.',
 		link: 'https://developers.flow.com/tools/vscode-extension'
 	}
+]
+
+export const networkDiscovery: Resources[] = [
+	{
+		image: 'https://flowscan.org/images/flowscan-logo-only.svg',
+		title: 'Flowscan',
+		excerpt: 'Block explorer.',
+		link: 'https://flowscan.org/'
+	},
+	{
+		image: '/flow-logo.png',
+		title: 'Flow View Source',
+		excerpt: 'Browse contract code, account, and key information.',
+		link: 'https://flow-view-source.com/mainnet/account/'
+	},
+	{
+		image: 'https://contractbrowser.com/logo.png',
+		title: 'Contract Browser',
+		excerpt: 'Discover contracts.',
+		link: 'https://contractbrowser.com/'
+	},
+	{
+		image: 'https://www.flowview.app/_next/image?url=%2Flogo.png&w=384&q=75',
+		title: 'Flowview',
+		excerpt: 'Explore Flow account information.',
+		link: 'https://contractbrowser.com/'
+	}
 ];
-//cambiar imageUrl
 
 interface Resources {
 	image: string;
