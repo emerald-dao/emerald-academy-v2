@@ -69,11 +69,19 @@ export const overview: BootcampOverview = {
 	},
 	videos: [
 		{
+			name: 'Introduction Video',
+			excerpt: 'Learn about the bootcamp.',
+			link: '',
+			subjects: [SubjectsEnum.Cadence],
+			date: new Date(2023, 3, 17, 11, 0),
+			chapters: []
+		},
+		{
 			name: 'Workshop #1',
 			excerpt: 'Chapters 1.1 - 2.2',
-			link: 'https://www.youtube/test',
+			link: '',
 			subjects: [SubjectsEnum.Cadence],
-			date: new Date(2023, 4, 20, 13, 30),
+			date: new Date(2023, 3, 19, 11, 0),
 			chapters: [
 				{
 					name: 'Chapter 1, Lesson 1',
@@ -96,9 +104,9 @@ export const overview: BootcampOverview = {
 		{
 			name: 'Workshop #2',
 			excerpt: 'Chapters 2.3 - 2.4',
-			link: 'https://www.youtube/test',
-			subjects: [SubjectsEnum.Web],
-			date: new Date(2023, 5, 17, 15, 30),
+			link: '',
+			subjects: [SubjectsEnum.Cadence],
+			date: new Date(2023, 3, 21, 11, 0),
 			chapters: [
 				{
 					name: 'Chapter 2, Lesson 3',
@@ -107,6 +115,104 @@ export const overview: BootcampOverview = {
 				{
 					name: 'Chapter 2, Lesson 4',
 					link: '/catalog/courses/beginner-cadence/chapter2/lesson4'
+				}
+			]
+		},
+		{
+			name: 'Workshop #3',
+			excerpt: 'Chapters 3.1 - 3.3',
+			link: '',
+			subjects: [SubjectsEnum.Cadence],
+			date: new Date(2023, 3, 26, 11, 0),
+			chapters: [
+				{
+					name: 'Chapter 3, Lesson 1',
+					link: '/catalog/courses/beginner-cadence/chapter3/lesson1'
+				},
+				{
+					name: 'Chapter 3, Lesson 3',
+					link: '/catalog/courses/beginner-cadence/chapter3/lesson3'
+				}
+			]
+		},
+		{
+			name: 'Workshop #4',
+			excerpt: 'Chapters 3.4 - 3.5',
+			link: '',
+			subjects: [SubjectsEnum.Cadence],
+			date: new Date(2023, 3, 28, 11, 0),
+			chapters: [
+				{
+					name: 'Chapter 3, Lesson 4',
+					link: '/catalog/courses/beginner-cadence/chapter3/lesson4'
+				},
+				{
+					name: 'Chapter 3, Lesson 5',
+					link: '/catalog/courses/beginner-cadence/chapter3/lesson5'
+				}
+			]
+		},
+		{
+			name: 'Workshop #5',
+			excerpt: 'Chapters 4.1 - 4.2',
+			link: '',
+			subjects: [SubjectsEnum.Cadence],
+			date: new Date(2023, 4, 3, 11, 0),
+			chapters: [
+				{
+					name: 'Chapter 4, Lesson 1',
+					link: '/catalog/courses/beginner-cadence/chapter4/lesson1'
+				},
+				{
+					name: 'Chapter 4, Lesson 2',
+					link: '/catalog/courses/beginner-cadence/chapter4/lesson2'
+				}
+			]
+		},
+		{
+			name: 'Workshop #6',
+			excerpt: 'Chapters 4.3 - 4.4',
+			link: '',
+			subjects: [SubjectsEnum.Cadence],
+			date: new Date(2023, 4, 5, 11, 0),
+			chapters: [
+				{
+					name: 'Chapter 4, Lesson 3',
+					link: '/catalog/courses/beginner-cadence/chapter4/lesson3'
+				},
+				{
+					name: 'Chapter 4, Lesson 4',
+					link: '/catalog/courses/beginner-cadence/chapter4/lesson4'
+				}
+			]
+		},
+		{
+			name: 'Workshop #7',
+			excerpt: 'Chapters 5.1 - 5.2',
+			link: '',
+			subjects: [SubjectsEnum.Cadence],
+			date: new Date(2023, 4, 10, 11, 0),
+			chapters: [
+				{
+					name: 'Chapter 5, Lesson 1',
+					link: '/catalog/courses/beginner-cadence/chapter5/lesson1'
+				},
+				{
+					name: 'Chapter 5, Lesson 2',
+					link: '/catalog/courses/beginner-cadence/chapter5/lesson2'
+				}
+			]
+		},
+		{
+			name: 'Workshop #8',
+			excerpt: 'Chapter 5.3',
+			link: '',
+			subjects: [SubjectsEnum.Cadence],
+			date: new Date(2023, 4, 12, 11, 0),
+			chapters: [
+				{
+					name: 'Chapter 5, Lesson 3',
+					link: '/catalog/courses/beginner-cadence/chapter5/lesson3'
 				}
 			]
 		}

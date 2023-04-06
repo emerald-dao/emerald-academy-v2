@@ -12,7 +12,7 @@ export const overview: CourseOverview = {
 		expertise: ExpertiseEnum.Beginner,
 		duration: '5 chapters',
 		prerequisites: ['javascript'],
-		subjects: [SubjectsEnum.Web, SubjectsEnum.Cadence, SubjectsEnum.Javascript],
+		subjects: [SubjectsEnum.DApp, SubjectsEnum.Web, SubjectsEnum.Cadence, SubjectsEnum.Javascript],
 		price: 'Free',
 		faqs: [
 			{

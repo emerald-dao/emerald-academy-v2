@@ -32,11 +32,12 @@
 			<div class="title-wrapper">
 				{#if typeOfcontent === ContentTypeEnum.Course}
 					<div class="column-1">
-						<h5>{`${data.overview.title}`}</h5>
-						<span class="xsmall">{`${data.overview.description}`}</span>
+						<h5>{data.overview.title}</h5>
+						<span class="xsmall">{data.overview.description}</span>
 					</div>
 				{:else if typeOfcontent === ContentTypeEnum.Bootcamp}
 					<h5>{data.name}</h5>
+					<span class="xsmall">{data.excerpt}</span>
 				{/if}
 			</div>
 		</div>
