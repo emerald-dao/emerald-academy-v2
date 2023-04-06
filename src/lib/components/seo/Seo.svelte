@@ -4,6 +4,7 @@
 	export let title: string;
 	export let description: string;
 	export let type: string;
+  export let image: string = "/favicon.png"
 
 	$: url = $page.url.href;
 </script>
@@ -11,6 +12,7 @@
 <svelte:head>
 	<title>{title}</title>
 	<meta name="description" content={description} />
+  <meta name="image" content={image} />
 	{@html `<script type="application/ld+json">
         {
          "@context": "https://schema.org/",
