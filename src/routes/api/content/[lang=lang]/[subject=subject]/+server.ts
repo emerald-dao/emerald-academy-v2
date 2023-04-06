@@ -3,10 +3,11 @@ import { fetchOverviews } from '$lib/utilities/api/content/fetchOverviews';
 import { json, error } from '@sveltejs/kit';
 import type { Locales } from '$i18n/i18n-types';
 import type { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
+import { transformUrlToSubject } from '$lib/utilities/dataTransformation/transformUrlToSubject';
 
 export const GET = async ({ params }) => {
 	const locale = params.lang as Locales;
-	const subject = params.subject as SubjectsEnum;
+	const subject = transformUrlToSubject(params.subject) as SubjectsEnum;
 
 	try {
 		const allCourses = (await fetchOverviews(ContentTypeEnum.Course, locale)) ?? [];

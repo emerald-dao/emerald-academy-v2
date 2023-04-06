@@ -20,7 +20,7 @@
 						<div class="subject-icon">
 							<Icon icon={subject.icon} width="1.3rem" color="var(--clr-tertiary-main)" />
 						</div>
-						<h4>{`Learn ${uppercaseFirstLetter(subject.name)}`}</h4>
+						<h4>{`Learn ${subject.title}`}</h4>
 					</div>
 					<p>{uppercaseFirstLetter(subject.description)}</p>
 				</a>
@@ -39,6 +39,10 @@
 <style type="scss">
 	section {
 		border-bottom: 0.5px var(--clr-border-primary) solid;
+
+		a {
+			text-decoration: none;
+		}
 
 		h5 {
 			margin-block: var(--space-12) var(--space-4);

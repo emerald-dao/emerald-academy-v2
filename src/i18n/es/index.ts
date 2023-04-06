@@ -34,6 +34,8 @@ const es: Translation = {
 	// ContentCard
 	SKILLS_YOU_WILL_LEARN: 'Habilidades que aprenderás',
 
+	START: "Comenzar",
+
 	// Type of content
 	[ContentTypeEnum.Course]: 'Curso',
 	[ContentTypeEnum.Bootcamp]: 'Bootcamp',

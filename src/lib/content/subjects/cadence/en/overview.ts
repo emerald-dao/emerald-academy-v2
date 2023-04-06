@@ -16,8 +16,8 @@ export const overview: SubjectOverview = {
 			url: 'https://play.onflow.org'
 		},
 		{
-			name: 'Cadence Language Reference',
-			url: 'https://docs.onflow.org/cadence/language/'
+			name: 'Beginner Course',
+			url: '/en/catalog/courses/beginner-cadence'
 		}
 	],
 	icon: 'tabler:file-code'

@@ -34,6 +34,8 @@ const zh: BaseTranslation = {
 	// ContentCard
 	SKILLS_YOU_WILL_LEARN: '你将学到的技能',
 
+	START: '开始',
+
 	// Type of content
 	[ContentTypeEnum.Course]: '课程',
 	[ContentTypeEnum.Bootcamp]: '训练营',

@@ -34,6 +34,8 @@ const ru: BaseTranslation = {
 	// ContentCard
 	SKILLS_YOU_WILL_LEARN: 'Навыки, которые вы изучите',
 
+	START: "Начинать",
+
 	// Type of content
 	[ContentTypeEnum.Course]: 'Курс',
 	[ContentTypeEnum.Bootcamp]: 'Буткемп',

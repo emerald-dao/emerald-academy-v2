@@ -8,13 +8,13 @@ export const load = async ({ fetch, params }) => {
 		const subjectCadenceOverview = await import(
 			`../../../lib/content/subjects/cadence/${params.lang}/overview.ts`
 		);
-		const subjectDappDevelopmentOverview = await import(
+		const subjectDAppDevOverview = await import(
 			`../../../lib/content/subjects/dapp-dev/${params.lang}/overview.ts`
 		);
 
 		return {
 			content,
-			featuredSubjects: [subjectCadenceOverview.overview, subjectDappDevelopmentOverview.overview]
+			featuredSubjects: [subjectCadenceOverview.overview, subjectDAppDevOverview.overview]
 		};
 	} catch (e) {
 		throw error(404, 'The catalog you are looking for does not exist');
