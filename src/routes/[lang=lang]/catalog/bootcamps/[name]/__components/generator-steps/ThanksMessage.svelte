@@ -4,17 +4,13 @@
 
 <div class="main-wrapper">
 	<div class="title-wrapper">
-		<h3>Welcome!</h3>
+		<h3>You're signed up!</h3>
 	</div>
 	<div class="message-wrapper">
-		<h5>Add some special message</h5>
 		<p>
-			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, enim? Ab officiis commodi
-			magnam labore! Ratione provident ut at omnis ab autem et exercitationem obcaecati, libero
-			dolores sed illum sequi?
+			All updates from here on will be in the announcements channel of the Emerald City Discord.
 		</p>
 	</div>
-	<StepButton active={true} />
 </div>
 
 <style type="scss">

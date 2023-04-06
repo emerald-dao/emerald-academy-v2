@@ -38,13 +38,13 @@ export const onBoardingSteps = createSteps([
 		action: null,
 		form: false
 	},
-	{
-		title: 'WatchThisVideo',
-		slug: 'WatchThisVideo',
-		component: WatchThisVideo,
-		action: null,
-		form: false
-	},
+	// {
+	// 	title: 'WatchThisVideo',
+	// 	slug: 'WatchThisVideo',
+	// 	component: WatchThisVideo,
+	// 	action: null,
+	// 	form: false
+	// },
 	{ title: 'Join', slug: 'Join', component: Join, action: null, form: false },
 	{ title: 'MediaData', slug: 'MediaData', component: MediaData, action: sendEmail, form: false },
 	{

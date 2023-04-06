@@ -15,7 +15,7 @@
 
 <div class="main-wrapper">
 	<div>
-		<h3>One more thing to do</h3>
+		<h3>Almost there...</h3>
 	</div>
 	<div class="form-wrapper">
 		<form action="" autocomplete="off">

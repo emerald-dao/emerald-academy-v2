@@ -15,7 +15,7 @@
 
 <div class="main-wrapper">
 	<div>
-		<h3>Welcome aboard</h3>
+		<h3>Sign Up</h3>
 	</div>
 	<div class="form-wrapper">
 		<form action="" autocomplete="off">

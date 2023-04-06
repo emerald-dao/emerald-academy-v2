@@ -6,8 +6,6 @@
 
 	export let faqs: Faq[];
 
-	console.log(faqs);
-
 	let open: boolean;
 </script>
 
