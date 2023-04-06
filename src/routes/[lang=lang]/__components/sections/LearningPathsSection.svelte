@@ -61,6 +61,10 @@
 				--font-weight: var(--font-weight-medium);
 				text-align: right;
 				max-width: 14ch;
+
+				@media all and (max-width: 700px) {
+					text-align: left;
+				}
 			}
 		}
 

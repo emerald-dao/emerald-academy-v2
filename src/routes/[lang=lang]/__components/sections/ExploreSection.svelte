@@ -91,6 +91,11 @@
 			grid-template-columns: 1fr 6fr;
 			gap: var(--space-12);
 
+			@media all and (max-width: 700px) {
+				display: flex;
+				flex-direction: column;
+			}
+
 			.cards-wrapper {
 				display: flex;
 				flex-direction: column;
