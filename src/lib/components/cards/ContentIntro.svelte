@@ -152,24 +152,6 @@
 					{/if}
 				{/if}
 			</div>
-			{#if overview.contentType === ContentTypeEnum.Bootcamp}
-				<div class="row-10">
-					<span
-						>Start Date: {startDate.toLocaleDateString('en-US', {
-							month: 'numeric',
-							day: 'numeric',
-							year: 'numeric'
-						})}
-					</span>
-					<span
-						>End Date: {endDate.toLocaleDateString('en-US', {
-							month: 'numeric',
-							day: 'numeric',
-							year: 'numeric'
-						})}
-					</span>
-				</div>
-			{/if}
 			<p>
 				{overview.excerpt}
 			</p>
