@@ -13,6 +13,14 @@ export const overview: RoadmapOverview = {
 	},
 	contents: [
 		{
+			title: 'Cadence by Example',
+			excerpt: 'Learn Cadence through simple examples.',
+			contentType: ContentTypeEnum.External,
+			duration: '1 week',
+			subjects: [SubjectsEnum.Cadence],
+			url: 'cadence-by-example'
+		},
+		{
 			title: 'Beginner Cadence Course',
 			excerpt: 'Get an introduction to Cadence.',
 			contentType: ContentTypeEnum.Course,
