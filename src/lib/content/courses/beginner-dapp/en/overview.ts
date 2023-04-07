@@ -53,7 +53,7 @@ export const overview: CourseOverview = {
 			{
 				question: '🙋 How do I submit quests?',
 				answer:
-					'When you finish a quest, please store all your quests together. Then, when you want them to be reviewed, submit them in the #quest-submissions channel inside the <a href="https://discord.com/invite/wjA875sMjV" target="_blank">Emerald Academy Discord</a> and our instructors will review them.'
+					'When you finish a quest, please store all your quests together. Then, when you want them to be reviewed, submit them in the #quest-submissions channel inside the <a href="https://discord.gg/emeraldcity" target="_blank">Emerald City Discord</a> and our instructors will review them.'
 			}
 		]
 	}

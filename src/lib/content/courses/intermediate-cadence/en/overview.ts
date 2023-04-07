@@ -44,17 +44,12 @@ export const overview: CourseOverview = {
 			{
 				question: 'How do I submit quests?',
 				answer:
-					'When you finish a quest, please store all your quests together. Then, when you want them to be reviewed, submit them in the #quest-submissions channel inside the <a href="https://discord.com/invite/wjA875sMjV" target="_blank">Emerald Academy Discord</a> and our instructors will review them.'
+					'When you finish a quest, please store all your quests together. Then, when you want them to be reviewed, submit them in the #quest-submissions channel inside the <a href="https://discord.gg/emeraldcity" target="_blank">Emerald City Discord</a> and our instructors will review them.'
 			},
 			{
 				question: 'What are quizzes?',
 				answer:
 					"Every lesson also has a quiz associated with it to test your knowledge. It is a simple Google Form you can fill out to test your understanding for that lesson's content.<br/><br/><i>All of these quizzes are entirely thanks to FrankenSense. Thank you for being an absolute legend!</i>"
-			},
-			{
-				question: 'Multiple languages?',
-				answer:
-					'This course is currently available in English (README.md), Chinese (README_ZH.md), Spanish (README_ES.md), and Russian (README_RU.md). Under each lesson of content, you will see a matching README file for your language of choice.'
 			}
 		]
 	}
