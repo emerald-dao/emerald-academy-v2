@@ -5,6 +5,7 @@
 	import CatalogSection from '$lib/features/catalog-list/CatalogSection.svelte';
 	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
 	import Seo from '$lib/components/seo/Seo.svelte';
+	import { LL } from '$i18n/i18n-svelte';
 
 	export let data;
 
@@ -31,7 +32,7 @@
 		</div>
 		{#if data.featuredRoadmap}
 			<div class="roadmap-wrapper">
-				<h5>New to {data.overview.title}? Start here</h5>
+				<h5>{$LL.NEW_TO()} {data.overview.title}? {$LL.START_HERE()}</h5>
 				<ContentCard overview={data.featuredRoadmap} />
 			</div>
 		{/if}

@@ -37,6 +37,8 @@ const zh: BaseTranslation = {
 	START: '开始',
 	CATALOG: "目录",
 	LEARN: '学习',
+	NEW_TO: '新的',
+	START_HERE: '从这里开始',
 
 	// Type of content
 	[ContentTypeEnum.Course]: '课程',

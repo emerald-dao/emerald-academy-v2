@@ -37,6 +37,8 @@ const ru: BaseTranslation = {
 	START: "Начинать",
 	CATALOG: "Каталог",
 	LEARN: "Учиться",
+	NEW_TO: 'новичок в',
+	START_HERE: 'Начни здесь',
 
 	// Type of content
 	[ContentTypeEnum.Course]: 'Курс',

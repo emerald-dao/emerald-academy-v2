@@ -37,6 +37,8 @@ const es: Translation = {
 	START: "Comenzar",
 	CATALOG: "Catalogar",
 	LEARN: 'Aprender',
+	NEW_TO: 'Nuevo en',
+	START_HERE: 'Empieza aqui',
 
 	// Type of content
 	[ContentTypeEnum.Course]: 'Curso',

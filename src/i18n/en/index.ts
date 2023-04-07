@@ -37,6 +37,8 @@ const en: BaseTranslation = {
 	START: "Start",
 	CATALOG: "Catalog",
 	LEARN: "Learn",
+	NEW_TO: 'New to',
+	START_HERE: 'Start here',
 
 	// Type of content
 	[ContentTypeEnum.Course]: 'Course',
