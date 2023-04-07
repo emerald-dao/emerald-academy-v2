@@ -1,6 +1,6 @@
 <script type="ts">
 	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
-	import { Label, Breadcrumbs } from '@emerald-dao/component-library';
+	import { Label, Breadcrumbs, Button } from '@emerald-dao/component-library';
 	import ContentLabel from '../label/ContentLabel.svelte';
 	import type { Overview } from '$lib/types/content/content-overview.interface';
 	import { transformUrlToHeading } from '$lib/utilities/dataTransformation/transformUrlToHeading';
@@ -8,9 +8,18 @@
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 	import { daysOfDifference } from '$lib/utilities/dataTransformation/daysOfDifference';
 	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
+	import Icon from '@iconify/svelte';
+	import { user } from '$stores/flow/FlowStore';
+	import { logIn } from '$flow/actions.js';
+	import type { CourseOverview } from '$lib/types/content/course.interface';
 
 	export let overview: Overview;
 	export let showBreadcrumbs: boolean = false;
+
+	// Only for courses
+	export let stars: string[] = []
+	$: starred = $user.loggedIn && stars.includes($user.addr);
+	$: starCount = stars.length;
 
 	let param;
 	let startDate: Date;
@@ -46,6 +55,26 @@
 		startDate = new Date(Math.min(...dates.map((date: Date) => date.getTime())));
 		endDate = new Date(Math.max(...dates.map((date: Date) => date.getTime())));
 	}
+
+	async function starCourse() {
+		if (!$user.loggedIn) {
+			await logIn();
+		}
+		if (stars.includes($user.addr)) {
+			return;
+		}
+		stars = [...stars, $user.addr];
+		const res = await fetch('/api/content/en/star', {
+			method: 'POST',
+			body: JSON.stringify({
+				user: $user,
+				course_id: (overview as CourseOverview).id
+			}),
+			headers: {
+				'content-type': 'application/json'
+			}
+		});
+	}
 </script>
 
 <section>
@@ -53,9 +82,26 @@
 		{#if showBreadcrumbs}
 			<Breadcrumbs {routes} />
 		{/if}
-		<h1>
-			{overview.title}
-		</h1>
+		<div class="title">
+			<h1>
+				{overview.title}
+			</h1>
+			{#if overview.contentType === ContentTypeEnum.Course}
+					{#if starred}
+						<Button state='active' size="small" type="ghost">
+							<Icon icon="tabler:star-filled" />
+							starred
+							<Label size="xx-small" color="neutral" hasBorder={false}>{starCount}</Label>
+						</Button>
+					{:else}
+						<Button state='active' size="small" type="ghost" on:click={() => starCourse()}>
+							<Icon icon="tabler:star" />
+							star
+							<Label size="xx-small" color="neutral" hasBorder={false}>{starCount}</Label>
+						</Button>
+					{/if}
+			{/if}
+		</div>
 		<div class="column-6">
 			<div class="metadata-labels">
 				<ContentLabel type={overview.contentType} color="primary">
@@ -133,6 +179,11 @@
 
 <style type="scss">
 	section {
+		.title {
+			display: flex;
+			align-items: center;
+			gap: var(--space-8);
+		}
 		.container-small {
 			display: flex;
 			flex-direction: column;
@@ -142,6 +193,7 @@
 				display: flex;
 				flex-direction: row;
 				flex-wrap: wrap;
+				align-items: center;
 				gap: var(--space-2);
 			}
 

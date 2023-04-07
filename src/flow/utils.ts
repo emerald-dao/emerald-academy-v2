@@ -1,6 +1,7 @@
 import { addresses } from '$stores/flow/FlowStore';
 import { transactionStore } from '$stores/flow/TransactionStore';
 import * as fcl from '@onflow/fcl';
+import { network } from './config';
 
 export function replaceWithProperValues(script: string) {
   return (
@@ -70,4 +71,16 @@ export const getFindProfile = async (address: string) => {
   } catch (e) {
     return null;
   }
+};
+
+export const verifyAccountOwnership = async (userObject) => {
+	if (!userObject.loggedIn) {
+		return false;
+	}
+	const accountProofService = userObject.services.find(
+		(services) => services.type === 'account-proof'
+	);
+	return await fcl.AppUtils.verifyAccountProof('Emerald Academy', accountProofService.data, {
+		fclCryptoContract: null
+	});
 };

@@ -4,6 +4,7 @@ import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: CourseOverview = {
+	id: 2,
 	title: 'Intermediate Cadence',
 	contentType: ContentTypeEnum.Course,
 	excerpt:
