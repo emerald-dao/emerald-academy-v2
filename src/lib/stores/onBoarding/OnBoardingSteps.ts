@@ -13,6 +13,7 @@ import { env } from '$env/dynamic/public';
 
 const sendEmail = async () => {
 	try {
+		createBootcampOnboardingStore.update(state => ({...state, loading: true}))
 		const response = await emailjs.send(
 			env.PUBLIC_EMAIL_SERVICE_ID,
 			env.PUBLIC_EMAIL_TEMPLATE_ID,
@@ -33,7 +34,7 @@ const sendEmail = async () => {
 			'content-type': 'application/json'
 		}
 	});
-	
+	createBootcampOnboardingStore.update(state => ({...state, loading: false}))
 };
 
 export const onBoardingSteps = createSteps([

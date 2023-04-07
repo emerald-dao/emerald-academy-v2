@@ -13,6 +13,7 @@
 	export let data;
 
 	$createBootcampOnboardingStore.bootcamp_name = data.overview.title + ' Bootcamp';
+	$createBootcampOnboardingStore.bootcamp_id = data.overview.id;
 
 	async function openModal() {
 		if (!$user.loggedIn) {
@@ -24,7 +25,11 @@
 </script>
 
 <ContentIntro overview={data.overview} showBreadcrumbs={true}>
-	<Button size="large" width="extended" on:click={openModal}>Enroll</Button>
+	{#if $user.loggedIn && data.signUps.includes($user.addr)}
+		<Button size="large" width="extended" state="disabled">Enrolled</Button>
+	{:else}
+		<Button size="large" width="extended" on:click={openModal}>Enroll</Button>
+	{/if}
 	<Modal>
 		<div class="modal-content">
 			<svelte:component this={$onBoardingSteps[$onBoardingActiveStep].component} />

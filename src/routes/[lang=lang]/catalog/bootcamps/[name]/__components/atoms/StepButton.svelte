@@ -1,4 +1,5 @@
 <script type="ts">
+	import { createBootcampOnboardingStore } from '$stores/BootcampOnboardingStore';
 	import { onBoardingActiveStep } from '$stores/onBoarding/OnBoardingSteps';
 	import { Button } from '@emerald-dao/component-library';
 	import Icon from '@iconify/svelte';
@@ -13,7 +14,7 @@
 
 	<Button
 		width="full-width"
-		state={active ? 'active' : 'disabled'}
+		state={$createBootcampOnboardingStore.loading ? 'loading' : active ? 'active' : 'disabled'}
 		on:click={onBoardingActiveStep.increment}
 		>Next
 		<Icon icon="tabler:arrow-right" style="color: var(--clr-heading-inverse);" />
