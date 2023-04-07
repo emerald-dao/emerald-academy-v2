@@ -60,7 +60,7 @@ export const networkDiscovery: Resources[] = [
 		image: '/flow-logo.png',
 		title: 'Flow View Source',
 		excerpt: 'Browse contract code, account, and key information.',
-		link: 'https://flow-view-source.com/mainnet/account/'
+		link: 'https://f.dnz.dev'
 	},
 	{
 		image: 'https://contractbrowser.com/logo.png',
