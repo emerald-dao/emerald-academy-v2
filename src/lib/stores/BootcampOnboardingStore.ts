@@ -7,5 +7,6 @@ export const createBootcampOnboardingStore = writable({
 	product: '',
 	discordHandle: '',
 	walletAddress: '',
-	bootcamp_name: ''
+	bootcamp_name: '',
+	bootcamp_id: 0
 });

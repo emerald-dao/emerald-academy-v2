@@ -24,7 +24,7 @@ const sendEmail = async () => {
 		console.log('FAILED...', e);
 	}
 
-	const res = await fetch('/api/content/en/signup', {
+	const res = await fetch('/api/signup', {
 		method: 'POST',
 		body: JSON.stringify({
 			signupData: get(createBootcampOnboardingStore)

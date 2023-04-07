@@ -15,7 +15,8 @@ export async function POST({ request }: { request: RequestHandler }) {
 		experience: signupData.codingExperience,
 		product: signupData.product,
 		wallet_address: signupData.walletAddress,
-    discord: signupData.discordHandle
+    discord: signupData.discordHandle,
+		bootcamp_id: signupData.bootcamp_id
 	});
 	console.log('Error signing up', error);
 

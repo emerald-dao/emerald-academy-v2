@@ -12,6 +12,7 @@
 	import { user } from '$stores/flow/FlowStore';
 	import { logIn } from '$flow/actions.js';
 	import type { CourseOverview } from '$lib/types/content/course.interface';
+	import { getInitialStars } from '$lib/config/initialStars';
 
 	export let overview: Overview;
 	export let showBreadcrumbs: boolean = false;
@@ -19,7 +20,7 @@
 	// Only for courses
 	export let stars: string[] = []
 	$: starred = $user.loggedIn && stars.includes($user.addr);
-	$: starCount = stars.length;
+	$: starCount = stars.length + getInitialStars((overview as CourseOverview).id);
 
 	let param;
 	let startDate: Date;
@@ -64,7 +65,7 @@
 			return;
 		}
 		stars = [...stars, $user.addr];
-		const res = await fetch('/api/content/en/star', {
+		const res = await fetch('/api/star', {
 			method: 'POST',
 			body: JSON.stringify({
 				user: $user,

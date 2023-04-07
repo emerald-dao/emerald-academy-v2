@@ -12,6 +12,11 @@ export const handle: Handle = async ({ event, resolve }) => {
 	// read language slug
 	const [, lang] = urlParams;
 
+	// if this is an api request, don't do any forwarding
+	if (lang === 'api') {
+		return await resolve(event);
+	}
+
 	// redirect to base locale if no locale slug was found
 	if (!lang) {
 		const locale = getPreferredLocale(event);
