@@ -17,7 +17,7 @@ const ru: BaseTranslation = {
 	PATHS_H1: 'Следуйте одному из наших путей обучения',
 
 	// Home / SocialMediaSection
-	SOCIAL_H1: 'Более 1000 студентов рекомендуют нас',
+	SOCIAL_H1: 'Более 1,000 студентов рекомендуют нас',
 
 	// Catalog / Sidebar
 	TYPE_OF_CONTENT: 'Тип контента',

@@ -17,7 +17,7 @@ const en: BaseTranslation = {
 	PATHS_H1: 'Follow one of our learning paths',
 
 	// Home / SocialMediaSection
-	SOCIAL_H1: 'More than 1000 students recommend us',
+	SOCIAL_H1: 'More than 1,000 students recommend us',
 
 	// Catalog / Sidebar
 	TYPE_OF_CONTENT: 'Type of content',

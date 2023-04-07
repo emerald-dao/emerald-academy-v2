@@ -17,7 +17,7 @@ const zh: BaseTranslation = {
 	PATHS_H1: '选择一个学习路径',
 
 	// Home / SocialMediaSection
-	SOCIAL_H1: '超过1000名学生推荐我们',
+	SOCIAL_H1: '超过1,000名学生推荐我们',
 
 	// Catalog / Sidebar
 	TYPE_OF_CONTENT: '内容类型',

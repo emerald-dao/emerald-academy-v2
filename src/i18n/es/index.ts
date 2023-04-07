@@ -17,7 +17,7 @@ const es: Translation = {
 	PATHS_H1: 'Sigue uno de nuestros caminos de aprendizaje',
 
 	// HomePage / SocialMediaSection
-	SOCIAL_H1: 'Más de 1000 estudiantes nos recomiendan',
+	SOCIAL_H1: 'Más de 1,000 estudiantes nos recomiendan',
 
 	// Catalog / Sidebar
 	TYPE_OF_CONTENT: 'Tipo de contenido',
