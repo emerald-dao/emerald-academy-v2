@@ -9,11 +9,12 @@
 	import { createBootcampOnboardingStore } from '$stores/BootcampOnboardingStore';
 	import { user } from '$stores/flow/FlowStore';
 	import { logIn } from '$flow/actions.js';
+	import { page } from '$app/stores';
 
 	export let data;
 
 	$createBootcampOnboardingStore.bootcamp_name = data.overview.title + ' Bootcamp';
-	$createBootcampOnboardingStore.bootcamp_id = data.overview.id;
+	$createBootcampOnboardingStore.bootcamp_id = $page.params.name;
 
 	async function openModal() {
 		if (!$user.loggedIn) {

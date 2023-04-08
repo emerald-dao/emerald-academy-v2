@@ -7,7 +7,7 @@ export const load = async ({ fetch, params }) => {
 		const response = await fetch(`/api/content/${params.lang}/courses/${params.name}`);
 		const course = (await response.json()) as CourseProps;
 
-		const { data } = await academySupabase.from('stars').select('wallet_address').eq('course_id', course.overview.id);
+		const { data } = await academySupabase.from('stars').select('wallet_address').eq('course_id', params.name);
 		const stars = data?.map(ele => ele.wallet_address);
 
 		return {

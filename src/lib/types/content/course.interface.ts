@@ -6,9 +6,7 @@ export interface CourseData {
 	contents: CourseContents;
 }
 
-export interface CourseOverview extends Overview {
-	id: number;
-}
+export type CourseOverview = Overview;
 
 export interface CourseContents {
 	[chapter: string]: {

@@ -5,11 +5,6 @@ language: en
 excerpt: basic Flow & Cadence concepts
 ---
 
-<script>
-  import { Button } from '@emerald-dao/component-library';
-	import Icon from '@iconify/svelte';
-</script>
-
 # Chapter 1 Lesson 2 - The Flow Blockchain & Cadence
 
 Yo yo yo! It's meeeeee! Jacob here. Hello. Now that we learned what the Blockchain is, Lesson 2 will cover why we have decided to learn the Flow Blockchain and how it compares to other Blockchains out there.

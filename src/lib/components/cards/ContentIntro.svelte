@@ -20,7 +20,7 @@
 	// Only for courses
 	export let stars: string[] = []
 	$: starred = $user.loggedIn && stars.includes($user.addr);
-	$: starCount = stars.length + getInitialStars((overview as CourseOverview).id);
+	$: starCount = stars.length + getInitialStars($page.params.name);
 
 	let param;
 	let startDate: Date;
@@ -69,7 +69,7 @@
 			method: 'POST',
 			body: JSON.stringify({
 				user: $user,
-				course_id: (overview as CourseOverview).id
+				course_id: $page.params.name
 			}),
 			headers: {
 				'content-type': 'application/json'

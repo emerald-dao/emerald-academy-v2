@@ -6,7 +6,7 @@ export const load = async ({ params, fetch }) => {
 		const overviewFile = await import(
 			`../../../../../lib/content/bootcamps/${params.name}/${params.lang}/overview.ts`
 		);
-		const response = await fetch('/api/getSignup/' + overviewFile.overview.id);
+		const response = await fetch('/api/getSignup/' + params.name);
 		const signUps = await response.json();
 		return {
 			overview: overviewFile.overview as BootcampOverview,

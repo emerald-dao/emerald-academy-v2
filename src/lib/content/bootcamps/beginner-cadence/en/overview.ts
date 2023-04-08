@@ -4,7 +4,6 @@ import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: BootcampOverview = {
-	id: 3,
 	title: 'Beginner Cadence',
 	contentType: ContentTypeEnum.Bootcamp,
 	excerpt:

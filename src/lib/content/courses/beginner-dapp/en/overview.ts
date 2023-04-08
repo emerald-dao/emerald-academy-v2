@@ -4,7 +4,6 @@ import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: CourseOverview = {
-	id: 1,
 	title: 'Beginner DApp',
 	contentType: ContentTypeEnum.Course,
 	excerpt:
