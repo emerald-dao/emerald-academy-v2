@@ -7,7 +7,7 @@ const pt: BaseTranslation = {
 
 	// HomePage / HeroSection
 	MAIN_HEADING_1: 'Aprenda tudo sobre a',
-	MAIN_HEADING_2: 'Flow Blockchain',ß
+	MAIN_HEADING_2: 'Flow Blockchain',
 	WELCOME: 'Bem-vindo',
 
 	// HomePage / ExploreSection
