@@ -1,9 +1,9 @@
-import type { Translation } from '../i18n-types';
+import type { BaseTranslation } from '../i18n-types';
 import { ContentTypeEnum } from '../../lib/types/content/metadata/content-types.enum';
 import { SubjectsEnum } from '../../lib/types/content/metadata/subject.enum';
 import { ExpertiseEnum } from '../../lib/types/content/metadata/expertise.enum';
 
-const es: Translation = {
+const es: BaseTranslation = {
 	// HomePage / HeroSection
 	MAIN_HEADING_1: 'Aprende todo sobre la',
 	MAIN_HEADING_2: 'Flow Blockchain',
