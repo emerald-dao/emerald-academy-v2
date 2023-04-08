@@ -47,6 +47,7 @@ const ru: BaseTranslation = {
 	[ContentTypeEnum.Roadmap]: 'Дорожная карта',
 	[ContentTypeEnum.Quickstart]: 'Шаблоны',
 	[ContentTypeEnum.Resources]: 'Ресурсы',
+	[ContentTypeEnum.Tutorial]: 'Руководство',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Бэкенд',

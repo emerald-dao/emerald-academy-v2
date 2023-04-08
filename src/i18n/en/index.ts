@@ -47,6 +47,7 @@ const en: BaseTranslation = {
 	[ContentTypeEnum.Quickstart]: 'Quickstart',
 	[ContentTypeEnum.Resources]: 'Resources',
 	[ContentTypeEnum.Blog]: 'Blog',
+	[ContentTypeEnum.Tutorial]: 'Tutorial',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',

@@ -1,5 +1,5 @@
 <script type="ts">
-	import { locale } from '$i18n/i18n-svelte';
+	import { locale, LL } from '$i18n/i18n-svelte';
 	import { Label } from '@emerald-dao/component-library';
 	import type { RoadmapContent } from '$lib/types/content/roadmap.interface';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
@@ -26,7 +26,7 @@
 	</div>
 	<div class="type-wrapper">
 		<ContentLabel type={roadmapContent.contentType} color="primary">
-			{roadmapContent.contentType}
+			{$LL[roadmapContent.contentType]()}
 		</ContentLabel>
 		<Label color="neutral" hasBorder={false} size="small">{roadmapContent.duration}</Label>
 	</div>
