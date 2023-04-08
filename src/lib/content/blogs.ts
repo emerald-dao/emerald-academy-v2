@@ -5,7 +5,7 @@ import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const blogs: BlogOverview[] = [
 	{
-		image: '/blogs/amethyst-flow-playground.avif',
+		image: 'https://cdn.hashnode.com/res/hashnode/image/upload/v1666188602240/0RuRrh87k.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp',
 		title: 'Flow Playground: Getting Started',
 		author: 'Amethyst',
 		authorLink: 'https://amethystcodes.hashnode.dev/',
