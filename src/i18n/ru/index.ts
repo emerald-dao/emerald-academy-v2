@@ -17,7 +17,7 @@ const ru: BaseTranslation = {
 	PATHS_H1: 'Следуйте одному из наших путей обучения',
 
 	// Home / SocialMediaSection
-	SOCIAL_H1: 'Более 1,000 студентов рекомендуют нас',
+	SOCIAL_H1: 'Более 1000 студентов рекомендуют нас',
 
 	// Catalog / Sidebar
 	TYPE_OF_CONTENT: 'Тип контента',
@@ -25,6 +25,7 @@ const ru: BaseTranslation = {
 	EXPERTISE: 'Уровень',
 
 	// Cadence by example
+	// Title(H1): 'Cadence на примере'
 	SEARCH: 'Поиск',
 	NO_EXAMPLES_FOUND: 'Примеры не найдены для этого языка',
 
@@ -34,16 +35,16 @@ const ru: BaseTranslation = {
 	// ContentCard
 	SKILLS_YOU_WILL_LEARN: 'Навыки, которые вы изучите',
 
-	START: "Начинать",
+	START: "Начать",
 	CATALOG: "Каталог",
-	LEARN: "Учиться",
+	LEARN: "Изучить",
 	NEW_TO: 'новичок в',
 	START_HERE: 'Начни здесь',
 
 	// Type of content
 	[ContentTypeEnum.Course]: 'Курс',
 	[ContentTypeEnum.Bootcamp]: 'Буткемп',
-	[ContentTypeEnum.Roadmap]: 'Путь обучения',
+	[ContentTypeEnum.Roadmap]: 'Дорожная карта',
 	[ContentTypeEnum.Quickstart]: 'Шаблоны',
 	[ContentTypeEnum.Resources]: 'Ресурсы',
 
@@ -57,7 +58,7 @@ const ru: BaseTranslation = {
 	// Expertise
 	[ExpertiseEnum.Advanced]: 'Продвинутый',
 	[ExpertiseEnum.Intermediate]: 'Средний',
-	[ExpertiseEnum.Beginner]: 'Начинающий',
+	[ExpertiseEnum.Beginner]: 'Начальный',
 
 	// Quickstarts
 	NO_QUICKSTARTS_FOUND: 'Шаблоны не найдены для этого языка'
