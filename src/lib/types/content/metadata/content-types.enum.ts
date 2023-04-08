@@ -5,5 +5,6 @@ export enum ContentTypeEnum {
 	External = 'external',
 	Quickstart = 'quickstart',
 	Resources = 'resources',
-	Blog = 'blog'
+	Blog = 'blog',
+	Tutorial = 'tutorial',
 }

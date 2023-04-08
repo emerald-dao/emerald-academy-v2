@@ -15,7 +15,7 @@ export const overview: RoadmapOverview = {
 		{
 			title: 'Cadence by Example',
 			excerpt: 'Learn Cadence through simple examples.',
-			contentType: ContentTypeEnum.External,
+			contentType: ContentTypeEnum.Tutorial,
 			duration: '1 week',
 			subjects: [SubjectsEnum.Cadence],
 			url: 'cadence-by-example'
