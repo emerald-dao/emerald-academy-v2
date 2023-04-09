@@ -242,8 +242,8 @@ Vamos testar nosso DApp no testnet:
 > 🏃 Siga para o próximo desafio aqui.
 > 
 
-> 💬 Encontre outros desenvolvedores trabalhando neste desafio e obtenha ajuda no 💎 Discord Emerald City!
+> 💬 Encontre outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
 > 
 
-> 👉 Problemas, perguntas, comentários sobre a pilha? Publique-os no 💎 Discord Emerald City.
+> 👉 Problemas, perguntas, comentários sobre a pilha? Publique-os no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
 >
