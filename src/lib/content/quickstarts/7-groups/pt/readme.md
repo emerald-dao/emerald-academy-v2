@@ -273,8 +273,8 @@ async function uploadToIPFS(file) {
 > 🏃 Mais desafios em breve...
 > 
 
-> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no 💎 [Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
 > 
 
-> 👉 Problemas, perguntas, comentários sobre a pilha? Publique-os no 💎 [Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 👉 Problemas, perguntas, comentários sobre a pilha? Publique-os no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
 >

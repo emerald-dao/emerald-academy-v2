@@ -259,8 +259,8 @@ Vamos experimentar nossa aplicação no testnet:
 > 🏃 Vá para o seu próximo desafio aqui.
 > 
 
-> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no 💎 Discord Emerald City!
+> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
 > 
 
-> 👉 Problemas, perguntas, comentários sobre a pilha? Poste-os no 💎 Discord Emerald City.
+> 👉 Problemas, perguntas, comentários sobre a pilha? Poste-os no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
 >
