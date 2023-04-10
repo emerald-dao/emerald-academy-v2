@@ -72,7 +72,5 @@ export const createFilters = (activeFilters: {
 		filters.push(expertiseFilter);
 	}
 
-	console.log(filters);
-
 	return filters;
 };
