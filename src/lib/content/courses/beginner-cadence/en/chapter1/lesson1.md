@@ -120,7 +120,4 @@ You are free to answer these questions in your own language of choice. And no, I
 
 3. Explain the difference between a script and a transaction.
 
-<Button href="https://forms.gle/dCaMDJWoko54xkiv5" size="large" width="extended">
-  <Icon icon="tabler:notes" />
-  Quiz
-</Button>
+# <a href="https://forms.gle/dCaMDJWoko54xkiv5">Quiz</a>
