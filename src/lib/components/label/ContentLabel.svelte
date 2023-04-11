@@ -23,6 +23,8 @@
 	<Label size="small" iconLeft="tabler:news" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === SubjectsEnum.Backend}
 	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>
+{:else if type === SubjectsEnum.IPFS}
+	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === SubjectsEnum.Cadence}
 	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === SubjectsEnum.Web}

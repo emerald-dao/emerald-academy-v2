@@ -54,6 +54,7 @@ const zh: BaseTranslation = {
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',
+	[SubjectsEnum.IPFS]: 'IPFS',
 
 	// Expertise
 	[ExpertiseEnum.Advanced]: '高级',

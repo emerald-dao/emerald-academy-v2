@@ -3,5 +3,6 @@ export enum SubjectsEnum {
 	DApp = 'dapp dev',
 	Backend = 'backend',
 	Web = 'web dev',
-	Javascript = 'javascript'
+	Javascript = 'javascript',
+	IPFS = 'ipfs'
 }
