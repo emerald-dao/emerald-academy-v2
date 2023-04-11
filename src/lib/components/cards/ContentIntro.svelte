@@ -18,7 +18,7 @@
 	export let showBreadcrumbs: boolean = false;
 
 	// Only for courses
-	export let stars: string[] = []
+	export let stars: string[] = [];
 	$: starred = $user.loggedIn && stars.includes($user.addr);
 	$: starCount = stars.length + getInitialStars($page.params.name);
 
@@ -88,19 +88,19 @@
 				{overview.title}
 			</h1>
 			{#if overview.contentType === ContentTypeEnum.Course}
-					{#if starred}
-						<Button state='active' size="small" type="ghost">
-							<Icon icon="tabler:star-filled" />
-							starred
-							<Label size="xx-small" color="neutral" hasBorder={false}>{starCount}</Label>
-						</Button>
-					{:else}
-						<Button state='active' size="small" type="ghost" on:click={() => starCourse()}>
-							<Icon icon="tabler:star" />
-							star
-							<Label size="xx-small" color="neutral" hasBorder={false}>{starCount}</Label>
-						</Button>
-					{/if}
+				{#if starred}
+					<Button state="active" size="small" type="ghost">
+						<Icon icon="tabler:star-filled" />
+						starred
+						<Label size="xx-small" color="neutral" hasBorder={false}>{starCount}</Label>
+					</Button>
+				{:else}
+					<Button state="active" size="small" type="ghost" on:click={() => starCourse()}>
+						<Icon icon="tabler:star" />
+						star
+						<Label size="xx-small" color="neutral" hasBorder={false}>{starCount}</Label>
+					</Button>
+				{/if}
 			{/if}
 		</div>
 		<div class="column-6">
@@ -164,8 +164,16 @@
 	section {
 		.title {
 			display: flex;
-			align-items: center;
+			flex-direction: column;
 			gap: var(--space-8);
+			align-items: flex-start;
+			width: 50%;
+
+			@include mq(small) {
+				flex-direction: row;
+				align-items: center;
+				width: auto;
+			}
 		}
 		.container-small {
 			display: flex;

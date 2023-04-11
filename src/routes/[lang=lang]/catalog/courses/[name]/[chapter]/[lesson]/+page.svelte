@@ -88,6 +88,7 @@
 	}
 	article {
 		margin-top: var(--space-6);
+		word-break: break-word;
 	}
 
 	.adjacents-wrapper {
