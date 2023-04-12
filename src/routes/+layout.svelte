@@ -72,13 +72,16 @@
 	<slot />
 </main>
 
-<Footer
-	{navElements}
-	logoHref={`/${$locale}/`}
-	logoUrl="/EA_Iso.svg"
-	logoText="Emerald Academy"
-/>
+<Footer {navElements} logoHref={`/${$locale}/`} logoUrl="/EA_Iso.svg" logoText="Emerald Academy" />
 
 <svelte:head>
 	<HeadHrefLangs />
 </svelte:head>
+
+<style type="scss">
+	main {
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden;
+	}
+</style>
