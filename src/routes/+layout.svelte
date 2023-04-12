@@ -82,6 +82,6 @@
 	main {
 		display: flex;
 		flex-direction: column;
-		overflow-x: auto;
+		overflow-x: hidden;
 	}
 </style>
