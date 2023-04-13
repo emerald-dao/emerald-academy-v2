@@ -68,7 +68,7 @@ export const overview: BootcampOverview = {
 			excerpt: 'Learn about the bootcamp.',
 			link: '',
 			subjects: [SubjectsEnum.Cadence],
-			date: new Date(2023, 3, 17, 11, 0),
+			date: new Date(2023, 3, 17, 15, 0),
 			chapters: []
 		},
 		{
@@ -76,7 +76,7 @@ export const overview: BootcampOverview = {
 			excerpt: 'Chapters 1.1 - 2.2',
 			link: '',
 			subjects: [SubjectsEnum.Cadence],
-			date: new Date(2023, 3, 19, 11, 0),
+			date: new Date(2023, 3, 19, 15, 0),
 			chapters: [
 				{
 					name: 'Chapter 1, Lesson 1',
@@ -101,7 +101,7 @@ export const overview: BootcampOverview = {
 			excerpt: 'Chapters 2.3 - 2.4',
 			link: '',
 			subjects: [SubjectsEnum.Cadence],
-			date: new Date(2023, 3, 21, 11, 0),
+			date: new Date(2023, 3, 21, 15, 0),
 			chapters: [
 				{
 					name: 'Chapter 2, Lesson 3',
@@ -118,7 +118,7 @@ export const overview: BootcampOverview = {
 			excerpt: 'Chapters 3.1 - 3.3',
 			link: '',
 			subjects: [SubjectsEnum.Cadence],
-			date: new Date(2023, 3, 26, 11, 0),
+			date: new Date(2023, 3, 26, 15, 0),
 			chapters: [
 				{
 					name: 'Chapter 3, Lesson 1',
@@ -135,7 +135,7 @@ export const overview: BootcampOverview = {
 			excerpt: 'Chapters 3.4 - 3.5',
 			link: '',
 			subjects: [SubjectsEnum.Cadence],
-			date: new Date(2023, 3, 28, 11, 0),
+			date: new Date(2023, 3, 28, 15, 0),
 			chapters: [
 				{
 					name: 'Chapter 3, Lesson 4',
@@ -152,7 +152,7 @@ export const overview: BootcampOverview = {
 			excerpt: 'Chapters 4.1 - 4.2',
 			link: '',
 			subjects: [SubjectsEnum.Cadence],
-			date: new Date(2023, 4, 3, 11, 0),
+			date: new Date(2023, 4, 3, 15, 0),
 			chapters: [
 				{
 					name: 'Chapter 4, Lesson 1',
@@ -169,7 +169,7 @@ export const overview: BootcampOverview = {
 			excerpt: 'Chapters 4.3 - 4.4',
 			link: '',
 			subjects: [SubjectsEnum.Cadence],
-			date: new Date(2023, 4, 5, 11, 0),
+			date: new Date(2023, 4, 5, 15, 0),
 			chapters: [
 				{
 					name: 'Chapter 4, Lesson 3',
@@ -186,7 +186,7 @@ export const overview: BootcampOverview = {
 			excerpt: 'Chapters 5.1 - 5.2',
 			link: '',
 			subjects: [SubjectsEnum.Cadence],
-			date: new Date(2023, 4, 10, 11, 0),
+			date: new Date(2023, 4, 10, 15, 0),
 			chapters: [
 				{
 					name: 'Chapter 5, Lesson 1',
@@ -203,7 +203,7 @@ export const overview: BootcampOverview = {
 			excerpt: 'Chapter 5.3',
 			link: '',
 			subjects: [SubjectsEnum.Cadence],
-			date: new Date(2023, 4, 12, 11, 0),
+			date: new Date(2023, 4, 12, 15, 0),
 			chapters: [
 				{
 					name: 'Chapter 5, Lesson 3',

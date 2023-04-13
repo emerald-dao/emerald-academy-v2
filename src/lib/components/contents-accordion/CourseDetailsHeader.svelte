@@ -10,14 +10,17 @@
 	export let typeOfcontent: ContentTypeEnum;
 	export let open = false;
 
-	let startTimeInISO: Number;
+	let startTimeInISO: string;
 	let finishTime;
-	let finishTimeInISO: String;
+	let finishTimeInISO: string;
 
 	if (typeOfcontent === ContentTypeEnum.Bootcamp) {
-		startTimeInISO = data.date.toISOString().replace(/[:.-]/g, '');
-		// Add 1 hour to start time
-		finishTime = new Date(data.date);
+		const timezoneOffset = new Date().getTimezoneOffset() * 60000;
+		const clientTimezoneStartTime = new Date(data.date.getTime() - timezoneOffset);
+
+		startTimeInISO = clientTimezoneStartTime.toISOString().replace(/[:.-]/g, '');
+
+		finishTime = new Date(clientTimezoneStartTime);
 		finishTime.setHours(finishTime.getHours() + 1);
 		finishTimeInISO = finishTime.toISOString().replace(/[:.-]/g, '');
 	}

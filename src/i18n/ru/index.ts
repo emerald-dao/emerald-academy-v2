@@ -48,6 +48,8 @@ const ru: BaseTranslation = {
 	[ContentTypeEnum.Quickstart]: 'Шаблоны',
 	[ContentTypeEnum.Resources]: 'Ресурсы',
 	[ContentTypeEnum.Tutorial]: 'Руководство',
+	[ContentTypeEnum.Blog]: 'Blog',
+	[ContentTypeEnum.Tweet]: 'Tweet',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Бэкенд',

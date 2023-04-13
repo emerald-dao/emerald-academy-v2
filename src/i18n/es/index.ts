@@ -47,6 +47,7 @@ const es: Translation = {
 	[ContentTypeEnum.Quickstart]: 'Plantillas',
 	[ContentTypeEnum.Resources]: 'Recursos',
 	[ContentTypeEnum.Blog]: 'Blog',
+	[ContentTypeEnum.Tweet]: 'Tweet',
 	[ContentTypeEnum.Tutorial]: 'Tutorial',
 
 	// Subjects
