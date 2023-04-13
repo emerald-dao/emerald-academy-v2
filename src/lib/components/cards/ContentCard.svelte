@@ -10,14 +10,17 @@
 
 	let link: string;
 
-	$: if (overview.contentType != ContentTypeEnum.Blog) {
+	$: if (
+		overview.contentType != ContentTypeEnum.Blog &&
+		overview.contentType != ContentTypeEnum.Tweet
+	) {
 		link = `/${$locale}/catalog/${overview.slug}`;
 	} else {
 		link = overview.link;
 	}
 </script>
 
-<a href={`${link}`} in:fly={{ y: 30, duration: 400 }}>
+<a href={`${link}`} in:fly={{ y: 30, duration: 400 }} target="_blank" rel="noreferrer">
 	<div class="card-primary">
 		<div>
 			<ContentLabel type={overview.contentType} color="primary">
@@ -48,7 +51,21 @@
 		<div>
 			{#if overview.contentType === ContentTypeEnum.Blog}
 				<!-- <img src={overview.image} alt="blog image" /> -->
-				<h5>Author: <a href={overview.authorLink}>{overview.author}</a></h5>
+				<h5>
+					Author: <a href={overview.authorLink} target="_blank" rel="noreferrer"
+						>{overview.author}</a
+					>
+				</h5>
+			{:else if overview.contentType === ContentTypeEnum.Tweet}
+				<h5>
+					Author: <a
+						href={`https://twitter.com/${overview.authorUsername}`}
+						target="_blank"
+						rel="noreferrer"
+					>
+						{overview.authorUsername}
+					</a>
+				</h5>
 			{:else}
 				<h5 class="skills">{$LL.SKILLS_YOU_WILL_LEARN()}</h5>
 				<div class="skill-labels-wrapper">
