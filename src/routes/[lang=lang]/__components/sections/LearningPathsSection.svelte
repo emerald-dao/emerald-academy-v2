@@ -41,32 +41,46 @@
 
 <style type="scss">
 	section {
-		display: grid;
-		grid-template-columns: 2fr 3fr;
-		gap: var(--space-9);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		@include mq(small) {
+			display: grid;
+			grid-template-columns: 2fr 3fr;
+			gap: var(--space-9);
+		}
 
 		.sidebar {
 			text-align: right;
 			display: flex;
 			flex-direction: column;
-			align-items: flex-end;
 			gap: var(--space-5);
+			align-items: center;
+
+			@include mq(medium) {
+				align-items: flex-end;
+			}
 
 			h3 {
 				--font-weight: var(--font-weight-medium);
-				text-align: right;
 				max-width: 14ch;
+				text-align: center;
 
-				@media all and (max-width: 700px) {
-					text-align: left;
+				@include mq(medium) {
+					text-align: right;
 				}
 			}
 		}
 
 		.cards-wrapper {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: var(--space-3);
+			margin-top: var(--space-9);
+
+			@include mq(small) {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: var(--space-3);
+			}
 		}
 	}
 </style>

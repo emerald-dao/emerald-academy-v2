@@ -47,6 +47,8 @@ const en: BaseTranslation = {
 	[ContentTypeEnum.Quickstart]: 'Quickstart',
 	[ContentTypeEnum.Resources]: 'Resources',
 	[ContentTypeEnum.Blog]: 'Blog',
+	[ContentTypeEnum.Tweet]: 'Tweet',
+	[ContentTypeEnum.Tutorial]: 'Tutorial',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',
@@ -54,6 +56,7 @@ const en: BaseTranslation = {
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',
+	[SubjectsEnum.IPFS]: 'IPFS',
 
 	// Expertise
 	[ExpertiseEnum.Advanced]: 'Advanced',

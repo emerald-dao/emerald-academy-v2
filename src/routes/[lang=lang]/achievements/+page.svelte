@@ -184,6 +184,10 @@
 		h4 {
 			color: var(--clr-heading-main);
 		}
+
+		video {
+			width: 100%;
+		}
 	}
 	.gems-collection {
 		.gems-collection-title-wrapper {

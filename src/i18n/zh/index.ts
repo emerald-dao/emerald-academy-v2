@@ -46,6 +46,9 @@ const zh: BaseTranslation = {
 	[ContentTypeEnum.Roadmap]: '学习路线',
 	[ContentTypeEnum.Quickstart]: '模板',
 	[ContentTypeEnum.Resources]: '资源',
+	[ContentTypeEnum.Tutorial]: '教程',
+	[ContentTypeEnum.Blog]: 'Blog',
+	[ContentTypeEnum.Tweet]: 'Tweet',
 
 	// Subjects
 	[SubjectsEnum.Backend]: '后端',
@@ -53,6 +56,7 @@ const zh: BaseTranslation = {
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',
+	[SubjectsEnum.IPFS]: 'IPFS',
 
 	// Expertise
 	[ExpertiseEnum.Advanced]: '高级',

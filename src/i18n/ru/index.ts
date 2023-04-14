@@ -47,6 +47,9 @@ const ru: BaseTranslation = {
 	[ContentTypeEnum.Roadmap]: 'Дорожная карта',
 	[ContentTypeEnum.Quickstart]: 'Шаблоны',
 	[ContentTypeEnum.Resources]: 'Ресурсы',
+	[ContentTypeEnum.Tutorial]: 'Руководство',
+	[ContentTypeEnum.Blog]: 'Blog',
+	[ContentTypeEnum.Tweet]: 'Tweet',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Бэкенд',
@@ -54,6 +57,7 @@ const ru: BaseTranslation = {
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',
+	[SubjectsEnum.IPFS]: 'IPFS',
 
 	// Expertise
 	[ExpertiseEnum.Advanced]: 'Продвинутый',

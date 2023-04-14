@@ -17,11 +17,15 @@
 	<Label size="small" iconLeft="tabler:road" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Blog}
 	<Label size="small" iconLeft="tabler:book" {color} {state} hasBorder={false}><slot /></Label>
+{:else if type === ContentTypeEnum.Tweet}
+	<Label size="small" iconLeft="tabler:bird" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.External}
 	<Label size="small" iconLeft="tabler:link" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Tutorial}
 	<Label size="small" iconLeft="tabler:news" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === SubjectsEnum.Backend}
+	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>
+{:else if type === SubjectsEnum.IPFS}
 	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === SubjectsEnum.Cadence}
 	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>

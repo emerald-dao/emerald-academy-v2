@@ -13,7 +13,6 @@ export const blogs: BlogOverview[] = [
 			'Covers the basics of the Flow Playground, how to deploy a contract and how to interact with deployed contracts using transactions and scripts.',
 		link: 'https://amethystcodes.hashnode.dev/flow-playground-getting-started',
 		contentType: ContentTypeEnum.Blog,
-		slug: 'blogs',
 		metadata: {
 			expertise: ExpertiseEnum.Beginner,
 			duration: '5 minutes',
