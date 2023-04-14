@@ -9,8 +9,7 @@ export const blogs: BlogOverview[] = [
 		title: 'Flow Playground: Getting Started',
 		author: 'Amethyst',
 		authorLink: 'https://amethystcodes.hashnode.dev/',
-		excerpt:
-			'Covers the basics of the Flow Playground, how to deploy a contract and how to interact with deployed contracts using transactions and scripts.',
+		excerpt: 'Covers the basics of the Flow Playground, how to deploy a contract and how to interact with deployed contracts using transactions and scripts.',
 		link: 'https://amethystcodes.hashnode.dev/flow-playground-getting-started',
 		contentType: ContentTypeEnum.Blog,
 		metadata: {
@@ -25,16 +24,14 @@ export const blogs: BlogOverview[] = [
 		title: 'Flow Wallets and Account Addresses: Understanding Non-Custodial and Custodial Accounts',
 		author: 'RMT Books',
 		authorLink: 'https://www.rmtbooks.com/',
-		excerpt:
-			'The article discusses the difference between wallets and account addresses in the context of digital asset storage and exchange, and explains the concept of custodial and non-custodial accounts, with a focus on the Flow blockchain, including how to create both types of assets, and how collectors and developers use account addresses for different purposes.',
+		excerpt: 'The article discusses the difference between wallets and account addresses in the context of digital asset storage and exchange, and explains the concept of custodial and non-custodial accounts, with a focus on the Flow blockchain, including how to create both types of assets, and how collectors and developers use account addresses for different purposes.',
 		link: 'https://www.rmtbooks.com/post/custodial-vs-non-custodial-wallets-on-flow',
 		contentType: ContentTypeEnum.Blog,
-		slug: 'blogs',
 		metadata: {
 			expertise: ExpertiseEnum.Beginner,
 			duration: '5 minutes',
 			prerequisites: [],
-			subjects: [SubjectsEnum.Cadence]
+			subjects: []
 		}
 	}
 ];

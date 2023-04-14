@@ -47,6 +47,8 @@ const zh: BaseTranslation = {
 	[ContentTypeEnum.Quickstart]: '模板',
 	[ContentTypeEnum.Resources]: '资源',
 	[ContentTypeEnum.Tutorial]: '教程',
+	[ContentTypeEnum.Blog]: 'Blog',
+	[ContentTypeEnum.Tweet]: 'Tweet',
 
 	// Subjects
 	[SubjectsEnum.Backend]: '后端',

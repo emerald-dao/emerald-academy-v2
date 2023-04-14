@@ -23,3 +23,7 @@ Add your own course folder to <a href="https://github.com/emerald-dao/emerald-ac
 ## Add Your Own Blog
 
 Add your blog to <a href="https://github.com/emerald-dao/emerald-academy-v2/blob/main/src/lib/content/blogs.ts">this array</a> and make a Pull Request.
+
+## Add Your Own Tweet
+
+Add your tweet to <a href="https://github.com/emerald-dao/emerald-academy-v2/blob/main/src/lib/content/tweets.ts">this array</a> and make a Pull Request.
