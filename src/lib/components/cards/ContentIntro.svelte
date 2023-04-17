@@ -103,6 +103,18 @@
 				{/if}
 			{/if}
 		</div>
+		{#if overview.contentType === ContentTypeEnum.Course}
+			<div class="author-wrapper">
+				<a
+					href={overview.author?.authorLink}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="header-link row-2 align-center"
+				>
+					<span>Author: {overview.author?.authorName}</span>
+				</a>
+			</div>
+		{/if}
 		<div class="column-6">
 			<div class="metadata-labels">
 				<ContentLabel type={overview.contentType} color="primary">
@@ -175,6 +187,13 @@
 				width: auto;
 			}
 		}
+
+		.author-wrapper {
+			a {
+				text-decoration: underline;
+			}
+		}
+
 		.container-small {
 			display: flex;
 			flex-direction: column;

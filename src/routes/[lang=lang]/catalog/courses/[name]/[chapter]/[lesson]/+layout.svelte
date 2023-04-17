@@ -5,14 +5,16 @@
 	import CourseTitlesOpen from '$lib/components/cards/CourseTitlesOpen.svelte';
 	import { Accordion } from '@emerald-dao/component-library';
 	import Icon from '@iconify/svelte';
+	import { setContext } from 'svelte';
 
 	export let data;
-
 	let open: boolean;
 
 	const handleClick = () => (open = !open);
 
 	$: $page.params && (open = false);
+
+	setContext('author-context', data.course.overview.author);
 </script>
 
 <div class="container-large">
