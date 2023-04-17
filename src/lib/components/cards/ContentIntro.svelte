@@ -143,7 +143,7 @@
 						>
 							Starting soon
 						</Label>
-					{:else if daysOfDifference(startDate, new Date()) > 0 && daysOfDifference(new Date(), endDate) > 0}
+					{:else if daysOfDifference(startDate, new Date()) >= 0 && daysOfDifference(new Date(), endDate) > 0}
 						<Label
 							size="small"
 							color="transparent"
