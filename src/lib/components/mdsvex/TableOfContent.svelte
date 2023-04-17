@@ -1,6 +1,6 @@
 <script type="ts">
 	import { transformHeadingToUrl } from '$lib/utilities/dataTransformation/transformHeadingToUrl';
-	import { onMount, tick } from 'svelte';
+	import { getContext, onMount, tick } from 'svelte';
 	import { Button, ProgressSteps } from '@emerald-dao/component-library';
 	import type { ProgressStates } from '@emerald-dao/component-library/components/ProgressStep/progress-states.type';
 	import { page } from '$app/stores';
@@ -69,6 +69,8 @@
 		});
 	}
 
+	const author = getContext('author-context');
+
 	onMount(() => {
 		grabElements();
 		trackScroll();
@@ -78,7 +80,7 @@
 
 <svelte:window on:scroll={trackScroll} />
 
-<div class="column-10">
+<div class="column-5">
 	<ProgressSteps
 		{steps}
 		diameter={0.5}
@@ -88,6 +90,18 @@
 		cutLineEnds={false}
 		lineHeight="1"
 	/>
+	{#if author}
+		<div class="author-wrapper">
+			<a
+				href={author.authorLink}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="header-link row-2 align-center"
+			>
+				<span>Author: {author.authorName}</span>
+			</a>
+		</div>
+	{/if}
 	<a
 		href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/${$page.params.name}/${$page.params.lang}/${$page.params.chapter}/${$page.params.lesson}.md`}
 		target="_blank"
@@ -100,6 +114,16 @@
 </div>
 
 <style lang="scss">
+	.author-wrapper {
+		a {
+			text-decoration: underline;
+		}
+		span {
+			font-size: var(--font-size-0);
+			margin-left: var(--space-1);
+		}
+	}
+
 	a {
 		margin-left: var(--space-1);
 	}

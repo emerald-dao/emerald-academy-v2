@@ -14,6 +14,7 @@
 	import { getFindProfile } from '$flow/utils';
 	import LocaleSwitcher from '$lib/components/i18n/LocaleSwitcher.svelte';
 	import { network } from '$flow/config';
+	import { page } from '$app/stores';
 
 	export let data;
 
@@ -51,6 +52,10 @@
 			icon: 'tabler:diamond'
 		}
 	];
+
+	let headerWidth: 'medium' | 'large' = 'medium';
+
+	$: headerWidth = $page.params.lesson ? 'large' : 'medium';
 </script>
 
 <Header
@@ -65,13 +70,13 @@
 	logoHref={`/${$locale}/`}
 	logoUrl="/EA_Iso.svg"
 	logoText="Emerald Academy"
+	width={headerWidth}
 >
 	<LocaleSwitcher slot="commands" />
 </Header>
 <main>
 	<slot />
 </main>
-
 <Footer {navElements} logoHref={`/${$locale}/`} logoUrl="/EA_Iso.svg" logoText="Emerald Academy" />
 
 <svelte:head>
@@ -82,6 +87,6 @@
 	main {
 		display: flex;
 		flex-direction: column;
-		overflow-x: hidden;
+		min-width: 0;
 	}
 </style>
