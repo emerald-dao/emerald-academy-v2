@@ -10,6 +10,7 @@
 	import { user } from '$stores/flow/FlowStore';
 	import { logIn } from '$flow/actions.js';
 	import { page } from '$app/stores';
+	import Icon from '@iconify/svelte';
 
 	export let data;
 
@@ -21,16 +22,26 @@
 			await logIn();
 		}
 		$createBootcampOnboardingStore.walletAddress = $user.addr;
-		getModal().open()
+		getModal().open();
 	}
 </script>
 
 <ContentIntro overview={data.overview} showBreadcrumbs={true}>
-	{#if $user.loggedIn && data.signUps.includes($user.addr)}
-		<Button size="large" width="extended" state="disabled">Enrolled</Button>
-	{:else}
-		<Button size="large" width="extended" on:click={openModal}>Enroll</Button>
-	{/if}
+	<div class="row-6">
+		{#if $user.loggedIn && data.signUps.includes($user.addr)}
+			<Button size="large" width="extended" state="disabled">Enrolled</Button>
+		{:else}
+			<Button size="large" width="extended" on:click={openModal}>Enroll</Button>
+		{/if}
+		<Button
+			size="large"
+			type="ghost"
+			color="neutral"
+			href={data.overview.googleCalendarLink}
+			target="_blank"
+			><Icon icon="ph:calendar-plus" color="var(--clr-heading-main)" />Add to calendar</Button
+		>
+	</div>
 	<Modal>
 		<div class="modal-content">
 			<svelte:component this={$onBoardingSteps[$onBoardingActiveStep].component} />
