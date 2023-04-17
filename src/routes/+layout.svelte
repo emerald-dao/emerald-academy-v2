@@ -77,7 +77,6 @@
 <main>
 	<slot />
 </main>
-
 <Footer {navElements} logoHref={`/${$locale}/`} logoUrl="/EA_Iso.svg" logoText="Emerald Academy" />
 
 <svelte:head>
@@ -88,5 +87,6 @@
 	main {
 		display: flex;
 		flex-direction: column;
+		min-width: 0;
 	}
 </style>
