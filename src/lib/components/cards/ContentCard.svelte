@@ -20,7 +20,7 @@
 	}
 </script>
 
-<a href={`${link}`} in:fly={{ y: 30, duration: 400 }} target="_blank" rel="noreferrer">
+<a href={`${link}`} in:fly={{ y: 30, duration: 400 }}>
 	<div class="card-primary">
 		<div>
 			<ContentLabel type={overview.contentType} color="primary">
