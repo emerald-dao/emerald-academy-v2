@@ -4,6 +4,14 @@ language: en
 layout: examples
 ---
 
+# Optionals
+
+An optional type means: "This value is either the type, or `nil`."
+
+For example, `Int?` means: "This value is either `Int`, or `nil`."
+
+`nil` simply means nothing, or `null` in other languages.
+
 ```cadence
 pub fun main() {
    let test_one: Int? = 3 // valid
@@ -16,13 +24,11 @@ pub fun main() {
 }
 ```
 
-# Optionals
+# Optionals with Dictionaries
 
-An optional type means: "This value is either the type, or `nil`."
+When indexing into dictionaries, we get optional types back.
 
-For example, `Int?` means: "This value is either `Int`, or `nil`."
-
-`nil` simply means nothing, or `null` in other languages.
+To get rid of the optional type, we can use the force-unwrap operator `!` to get rid of the optional.
 
 ```cadence
 pub fun main() {
@@ -43,9 +49,3 @@ pub fun main() {
    let test_five: Int = map[0x05]! // compiles, but run time error: cannot cast nil to Int
 }
 ```
-
-# Optionals with Dictionaries
-
-When indexing into dictionaries, we get optional types back.
-
-To get rid of the optional type, we can use the force-unwrap operator `!` to get rid of the optional.

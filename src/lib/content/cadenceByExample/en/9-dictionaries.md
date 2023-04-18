@@ -4,6 +4,10 @@ language: en
 layout: examples
 ---
 
+# Dictionaries
+
+When retrieving a value from a dictionary, an optional type is returned. More on that next.
+
 ```cadence
 pub contract Dictionaries {
    pub let map: {Address: Int}
@@ -29,7 +33,3 @@ pub contract Dictionaries {
    }
 }
 ```
-
-# Dictionaries
-
-When retrieving a value from a dictionary, an optional type is returned. More on that next.
