@@ -8,6 +8,10 @@ export const overview: CourseOverview = {
 	contentType: ContentTypeEnum.Course,
 	excerpt:
 		'Learn to make a DApp on the Flow blockchain. You will learn the major aspects of DApp development.',
+	author: {
+		authorName: 'Jacob Tucker',
+		authorLink: 'https://twitter.com/jacobmtucker'
+	},
 	metadata: {
 		expertise: ExpertiseEnum.Beginner,
 		duration: '5 chapters',

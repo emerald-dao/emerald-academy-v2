@@ -21,8 +21,7 @@
 
 <style type="scss">
 	section {
-		overflow: hidden;
-		width: 100vw;
+		overflow-x: hidden;
 
 		h4 {
 			text-align: center;
