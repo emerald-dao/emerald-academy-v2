@@ -80,7 +80,7 @@
 
 <svelte:window on:scroll={trackScroll} />
 
-<div class="column-5">
+<div class="column-10">
 	<ProgressSteps
 		{steps}
 		diameter={0.5}
@@ -90,26 +90,28 @@
 		cutLineEnds={false}
 		lineHeight="1"
 	/>
-	{#if author}
+	<div class="column-1">
+		{#if author}
+			<a
+				href={author.authorLink}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="header-link row-2 align-center"
+			>
+				<Icon icon="tabler:pencil" />
+				{author.authorName}
+			</a>
+		{/if}
 		<a
-			href={author.authorLink}
+			href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/${$page.params.name}/${$page.params.lang}/${$page.params.chapter}/${$page.params.lesson}.md`}
 			target="_blank"
 			rel="noopener noreferrer"
 			class="header-link row-2 align-center"
 		>
-			<Icon icon="tabler:pencil" />
-			{author.authorName}
+			<Icon icon="tabler:brand-github" />
+			Edit content
 		</a>
-	{/if}
-	<a
-		href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/${$page.params.name}/${$page.params.lang}/${$page.params.chapter}/${$page.params.lesson}.md`}
-		target="_blank"
-		rel="noopener noreferrer"
-		class="header-link row-2 align-center"
-	>
-		<Icon icon="tabler:brand-github" />
-		Edit content
-	</a>
+	</div>
 </div>
 
 <style lang="scss">
