@@ -91,16 +91,15 @@
 		lineHeight="1"
 	/>
 	{#if author}
-		<div class="author-wrapper">
-			<a
-				href={author.authorLink}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="header-link row-2 align-center"
-			>
-				<span>Author: {author.authorName}</span>
-			</a>
-		</div>
+		<a
+			href={author.authorLink}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="header-link row-2 align-center"
+		>
+			<Icon icon="tabler:pencil" />
+			{author.authorName}
+		</a>
 	{/if}
 	<a
 		href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/${$page.params.name}/${$page.params.lang}/${$page.params.chapter}/${$page.params.lesson}.md`}
@@ -114,14 +113,9 @@
 </div>
 
 <style lang="scss">
-	.author-wrapper {
-		a {
-			text-decoration: underline;
-		}
-		span {
-			font-size: var(--font-size-0);
-			margin-left: var(--space-1);
-		}
+	span {
+		font-size: var(--font-size-0);
+		margin-left: var(--space-1);
 	}
 
 	a {

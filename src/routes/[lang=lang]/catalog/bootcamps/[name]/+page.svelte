@@ -35,7 +35,7 @@
 		{/if}
 		<Button
 			size="large"
-			type="ghost"
+			type="transparent"
 			color="neutral"
 			href={data.overview.googleCalendarLink}
 			target="_blank"
