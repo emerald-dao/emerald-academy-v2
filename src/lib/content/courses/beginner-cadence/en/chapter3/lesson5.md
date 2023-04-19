@@ -63,6 +63,8 @@ This means we can access our thing anywhere inside the contract that it is defin
 
 ### 4. Account Scope
 
+<img src="/courses/beginner-cadence/accountscope.PNG" />
+
 This means we can access our thing anywhere inside the account that it is defined. This means all of the contracts that are in the account. Remember: we can deploy multiple contracts to one account.
 
 ## Back to Access Modifiers
