@@ -91,7 +91,7 @@
 		cutLineEnds={false}
 		lineHeight="1"
 	/>
-	<div class="column-1">
+	<div class="column-1 down-links-wrapper">
 		{#if author}
 			<a
 				href={author.authorLink}
@@ -106,13 +106,12 @@
 		<EditContent
 			href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/${$page.params.name}/${$page.params.lang}/${$page.params.chapter}/${$page.params.lesson}.md`}
 			target="_blank"
-			rowDistance={2}
 		/>
 	</div>
 </div>
 
 <style lang="scss">
-	a {
+	.down-links-wrapper {
 		margin-left: var(--space-1);
 	}
 </style>

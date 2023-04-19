@@ -49,7 +49,6 @@
 		<EditContent
 			href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/cadenceByExample/${$page.params.lang}/${$page.params.id}.md`}
 			target="_blank"
-			rowDistance={3}
 		/>
 	</div>
 </section>
@@ -127,7 +126,7 @@
 				height: fit-content;
 				position: sticky;
 				top: 100px;
-				padding-left: var(--space-4);
+				padding-left: var(--space-5);
 				padding-top: 0;
 				padding-block: var(--space-2);
 			}
