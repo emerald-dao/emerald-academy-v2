@@ -76,7 +76,7 @@ export const overview: BootcampOverview = {
 		{
 			name: 'Workshop #1',
 			excerpt: 'Chapters 1.1 - 2.2',
-			link: '',
+			link: 'https://www.youtube.com/watch?v=wqmsO3COVWE',
 			subjects: [SubjectsEnum.Cadence],
 			date: new Date(2023, 3, 19, 16, 0),
 			chapters: [
