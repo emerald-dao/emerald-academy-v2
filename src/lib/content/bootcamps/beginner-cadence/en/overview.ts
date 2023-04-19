@@ -62,6 +62,8 @@ export const overview: BootcampOverview = {
 			}
 		]
 	},
+	googleCalendarLink:
+		'https://calendar.google.com/calendar/u/0?cid=ODUwOGVhNWFkYWI4NjNiZTA2MTRkODUxYzE5MTEzNTdjZDM3ZDgxMTJmMjk3M2JhYTAyMjkyZWM4NGE3ZmNjOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t',
 	videos: [
 		{
 			name: 'Introduction Video',

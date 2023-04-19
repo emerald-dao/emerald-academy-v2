@@ -8,6 +8,10 @@ export const overview: CourseOverview = {
 	contentType: ContentTypeEnum.Course,
 	excerpt:
 		'Learn Cadence. During this course, you will learn ALL of the major aspects of the language. In addition to writing & deploying your own NFT Contract during the course, you will have the knowledge to write your own contracts too.',
+	author: {
+		authorName: 'Jacob Tucker',
+		authorLink: 'https://twitter.com/jacobmtucker'
+	},
 	metadata: {
 		expertise: ExpertiseEnum.Beginner,
 		duration: '6 chapters',

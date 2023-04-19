@@ -4,6 +4,21 @@ language: en
 layout: examples
 ---
 
+# Scripts
+
+In order to read data from a contract, you need to execute a script.
+
+Like transactions, scripts are separate from the contract layer, and are written in different files.
+
+Scripts always look like:
+```cadence
+pub fun main() {
+  
+}
+```
+
+## Example Contract & Script
+
 ```cadence
 // Contract file: Counter.cdc
 // Deployed to 0x01
@@ -12,14 +27,6 @@ pub contract Counter {
 
    pub fun increment() {
       self.count = self.count + 1
-   }
-
-   pub fun decrement() {
-      self.count = self.count - 1
-   }
-
-   pub fun get(): Int {
-      return self.count
    }
 }
 ```
@@ -32,9 +39,3 @@ pub fun main(): Int {
    return Counter.count
 }
 ```
-
-# Scripts
-
-In order to read data from a contract, you need to execute a script.
-
-Like transactions, scripts are separate from the contract layer, and are written in different files.

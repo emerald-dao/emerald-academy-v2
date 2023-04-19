@@ -62,18 +62,12 @@
 						<Icon icon="bi:camera-video" color="var(--clr-heading-inverse)" />
 						View Video
 					</Button>
+				{:else if daysOfDifference(new Date(), data.date) === 0}
+					<span class="small w-medium">Starts today</span>
 				{:else}
-					<span class="small w-medium">
-						Starts in {daysOfDifference(new Date(), data.date)} days
-					</span>
-					<Button
-						size="small"
-						href={`https://calendar.google.com/calendar/render?action=TEMPLATE&dates=${startTimeInISO}Z%2F${finishTimeInISO}Z&text=${data.name}`}
-						target="_blank"
-						>
-						<Icon icon="ph:calendar-plus" color="var(--clr-heading-inverse)" />
-						Add to calendar
-					</Button>
+					<span class="small w-medium"
+						>Starts in {daysOfDifference(new Date(), data.date)} days</span
+					>
 				{/if}
 			{/if}
 		</div>

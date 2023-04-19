@@ -68,6 +68,7 @@
 		.main-wrapper {
 			@include mq(medium) {
 				width: 90%;
+				overflow: hidden;
 			}
 
 			.adjacents-wrapper {

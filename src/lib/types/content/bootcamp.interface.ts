@@ -2,6 +2,7 @@ import type { Overview } from './content-overview.interface';
 import type { SubjectsEnum } from './metadata/subject.enum';
 
 export interface BootcampOverview extends Overview {
+	googleCalendarLink: string;
 	videos: BootcampVideo[];
 }
 

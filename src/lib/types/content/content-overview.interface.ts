@@ -8,6 +8,7 @@ export interface Overview {
 	contentType: ContentTypeEnum;
 	excerpt: string;
 	metadata: ContentMetadata;
+	author?: Author;
 }
 
 interface ContentMetadata {
@@ -22,4 +23,9 @@ interface ContentMetadata {
 export interface Faq {
 	question: string;
 	answer: string;
+}
+
+export interface Author {
+	authorName: string;
+	authorLink: string;
 }
