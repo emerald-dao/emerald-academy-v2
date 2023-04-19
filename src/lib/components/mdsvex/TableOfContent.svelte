@@ -5,6 +5,7 @@
 	import type { ProgressStates } from '@emerald-dao/component-library/components/ProgressStep/progress-states.type';
 	import { page } from '$app/stores';
 	import Icon from '@iconify/svelte';
+	import EditContent from '../atoms/EditContent.svelte';
 
 	export let headings: Heading[];
 
@@ -90,7 +91,7 @@
 		cutLineEnds={false}
 		lineHeight="1"
 	/>
-	<div class="column-1">
+	<div class="column-1 down-links-wrapper">
 		{#if author}
 			<a
 				href={author.authorLink}
@@ -102,25 +103,15 @@
 				{author.authorName}
 			</a>
 		{/if}
-		<a
+		<EditContent
 			href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/${$page.params.name}/${$page.params.lang}/${$page.params.chapter}/${$page.params.lesson}.md`}
 			target="_blank"
-			rel="noopener noreferrer"
-			class="header-link row-2 align-center"
-		>
-			<Icon icon="tabler:brand-github" />
-			Edit content
-		</a>
+		/>
 	</div>
 </div>
 
 <style lang="scss">
-	span {
-		font-size: var(--font-size-0);
-		margin-left: var(--space-1);
-	}
-
-	a {
+	.down-links-wrapper {
 		margin-left: var(--space-1);
 	}
 </style>

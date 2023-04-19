@@ -1,6 +1,6 @@
 <script type="ts">
 	import { page } from '$app/stores';
-	import { Button } from '@emerald-dao/component-library';
+	import EditContent from '$lib/components/atoms/EditContent.svelte';
 	import Icon from '@iconify/svelte';
 
 	export let data;
@@ -46,11 +46,10 @@
 		</div>
 	</div>
 	<div class="sidebar-wrapper">
-		<Button
+		<EditContent
 			href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/cadenceByExample/${$page.params.lang}/${$page.params.id}.md`}
 			target="_blank"
-			width="full-width">Edit this page</Button
-		>
+		/>
 	</div>
 </section>
 
@@ -127,8 +126,9 @@
 				height: fit-content;
 				position: sticky;
 				top: 100px;
-				padding-left: var(--space-8);
+				padding-left: var(--space-5);
 				padding-top: 0;
+				padding-block: var(--space-2);
 			}
 		}
 	}
