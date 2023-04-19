@@ -47,7 +47,7 @@
 	"type": "module",
 	"dependencies": {
 		"@emailjs/browser": "^3.10.0",
-		"@emerald-dao/component-library": "^3.77.2",
+		"@emerald-dao/component-library": "^3.78.1",
 		"@emerald-dao/design-system": "^2.0.0",
 		"@onflow/fcl": "^1.2.1",
 		"@splidejs/svelte-splide": "^0.2.9",
