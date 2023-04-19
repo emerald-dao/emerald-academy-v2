@@ -127,6 +127,10 @@ export const overview: BootcampOverview = {
 					link: '/catalog/courses/beginner-cadence/chapter3/lesson1'
 				},
 				{
+					name: 'Chapter 3, Lesson 2',
+					link: '/catalog/courses/beginner-cadence/chapter3/lesson2'
+				},
+				{
 					name: 'Chapter 3, Lesson 3',
 					link: '/catalog/courses/beginner-cadence/chapter3/lesson3'
 				}
