@@ -4,6 +4,8 @@ language: en
 layout: examples
 ---
 
+# Arrays
+
 ```cadence
 pub contract Arrays {
    pub let names: [String]
@@ -25,5 +27,3 @@ pub contract Arrays {
    }
 }
 ```
-
-# Arrays

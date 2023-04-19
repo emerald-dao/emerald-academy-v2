@@ -4,6 +4,10 @@ language: en
 layout: examples
 ---
 
+# Primitive Types
+
+Some of the basic types in Cadence.
+
 ```cadence
 pub contract Variables {
    pub let number: Int
@@ -19,7 +23,3 @@ pub contract Variables {
    }
 }
 ```
-
-# Primitive Types
-
-Some of the basic types in Cadence.

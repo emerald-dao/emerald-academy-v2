@@ -103,17 +103,16 @@
 				{/if}
 			{/if}
 		</div>
-		{#if overview.contentType === ContentTypeEnum.Course}
-			<div class="author-wrapper">
-				<a
-					href={overview.author?.authorLink}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="header-link row-2 align-center"
-				>
-					<span>Author: {overview.author?.authorName}</span>
-				</a>
-			</div>
+		{#if overview.author}
+			<a
+				href={overview.author?.authorLink}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="header-link row-2 align-center"
+			>
+				<Icon icon="tabler:pencil" />
+				{overview.author?.authorName}
+			</a>
 		{/if}
 		<div class="column-6">
 			<div class="metadata-labels">
@@ -143,7 +142,7 @@
 						>
 							Starting soon
 						</Label>
-					{:else if daysOfDifference(startDate, new Date()) > 0 && daysOfDifference(new Date(), endDate) > 0}
+					{:else if daysOfDifference(startDate, new Date()) >= 0 && daysOfDifference(new Date(), endDate) > 0}
 						<Label
 							size="small"
 							color="transparent"
@@ -185,12 +184,6 @@
 				flex-direction: row;
 				align-items: center;
 				width: auto;
-			}
-		}
-
-		.author-wrapper {
-			a {
-				text-decoration: underline;
 			}
 		}
 

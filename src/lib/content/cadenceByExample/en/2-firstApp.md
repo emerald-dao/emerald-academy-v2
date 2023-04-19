@@ -4,6 +4,10 @@ language: en
 layout: examples
 ---
 
+# First Application
+
+Here is a simple contract that you can get, increment and decrement the count store in this contract.
+
 ```cadence
 pub contract Counter {
    pub var count: Int
@@ -21,7 +25,3 @@ pub contract Counter {
    }
 }
 ```
-
-# First Application
-
-Here is a simple contract that you can get, increment and decrement the count store in this contract.

@@ -4,6 +4,12 @@ language: en
 layout: examples
 ---
 
+# Hello World
+
+Declare a contract called `HelloWorld`.
+
+Initialize a `greet` variable to "Hello, World!"
+
 ```cadence
 pub contract HelloWorld {
    pub let greet: String
@@ -13,9 +19,3 @@ pub contract HelloWorld {
    }
 }
 ```
-
-# Hello World
-
-Declare a contract called `HelloWorld`.
-
-Initialize a `greet` variable to "Hello, World!"

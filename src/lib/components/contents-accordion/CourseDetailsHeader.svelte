@@ -50,27 +50,23 @@
 					<Icon icon="tabler:chevron-down" />
 				</div>
 			{:else if typeOfcontent === ContentTypeEnum.Bootcamp}
-				{#if daysOfDifference(new Date(), data.date) < 0}
-					{#if !data.link}
-						<span class="small w-medium">Video available soon</span>
-						<Button state="disabled" size="small"
-							><Icon icon="bi:camera-video" color="var(--clr-heading-inverse)" />View Video</Button
-						>
-					{:else}
-						<span class="small w-medium">Finished</span>
-						<Button target="_blank" href={`${data.link}`} size="small"
-							><Icon icon="bi:camera-video" color="var(--clr-heading-inverse)" />View Video</Button
-						>
-					{/if}
+				{#if data.link}
+					<span class="small w-medium">Finished</span>
+					<Button target="_blank" href={`${data.link}`} size="small">
+						<Icon icon="bi:camera-video" color="var(--clr-heading-inverse)" />
+						View Video
+					</Button>
+				{:else if daysOfDifference(new Date(), data.date) < 0}
+					<span class="small w-medium">Video available soon</span>
+					<Button state="disabled" size="small">
+						<Icon icon="bi:camera-video" color="var(--clr-heading-inverse)" />
+						View Video
+					</Button>
+				{:else if daysOfDifference(new Date(), data.date) === 0}
+					<span class="small w-medium">Starts today</span>
 				{:else}
 					<span class="small w-medium"
 						>Starts in {daysOfDifference(new Date(), data.date)} days</span
-					>
-					<Button
-						size="small"
-						href={`https://calendar.google.com/calendar/render?action=TEMPLATE&dates=${startTimeInISO}Z%2F${finishTimeInISO}Z&text=${data.name}`}
-						target="_blank"
-						><Icon icon="ph:calendar-plus" color="var(--clr-heading-inverse)" />Add to calendar</Button
 					>
 				{/if}
 			{/if}

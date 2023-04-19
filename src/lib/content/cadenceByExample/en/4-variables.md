@@ -4,6 +4,13 @@ language: en
 layout: examples
 ---
 
+# Variables
+
+There are 2 types of variables in Cadence:
+
+1. **var** - can be changed
+2. **let** - a constant
+
 ```cadence
 pub contract Variables {
    pub var num1: Int
@@ -18,10 +25,3 @@ pub contract Variables {
    }
 }
 ```
-
-# Variables
-
-There are 2 types of variables in Cadence:
-
-1. **var** - can be changed
-2. **let** - a constant

@@ -4,6 +4,10 @@ language: en
 layout: examples
 ---
 
+# If / Else
+
+Cadence supports conditional statements `if`, `else if` and `else`.
+
 ```cadence
 pub fun main(x: Int): Int {
    if (x < 10) {
@@ -15,7 +19,3 @@ pub fun main(x: Int): Int {
    }
 }
 ```
-
-# If / Else
-
-Cadence supports conditional statements `if`, `else if` and `else`.
