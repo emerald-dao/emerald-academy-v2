@@ -33,5 +33,20 @@ export const blogs: BlogOverview[] = [
 			prerequisites: [],
 			subjects: []
 		}
+	},
+	{
+		image: 'https://static.wixstatic.com/media/1e611b_b3cd45fa5395489fbbaad519fb6e0ef1~mv2.png/v1/fill/w_499,h_375,fp_0.50_0.50,q_95,enc_auto/1e611b_b3cd45fa5395489fbbaad519fb6e0ef1~mv2.png',
+		title: 'Mastering Flow Testnet: Setting Up an Account, Configuring flow.json, and Deploying Contracts',
+		author: 'RMT Books',
+		authorLink: 'https://www.rmtbooks.com/',
+		excerpt: 'Discover how to seamlessly set up a Flow Testnet account, configure flow.json, and deploy contracts with this comprehensive, step-by-step guide.',
+		link: 'https://www.rmtbooks.com/post/mastering-flow-testnet-setting-up-an-account-configuring-flow-json-and-deploying-contracts',
+		contentType: ContentTypeEnum.Blog,
+		metadata: {
+			expertise: ExpertiseEnum.Beginner,
+			duration: '5 minutes',
+			prerequisites: [],
+			subjects: []
+		}
 	}
 ];
