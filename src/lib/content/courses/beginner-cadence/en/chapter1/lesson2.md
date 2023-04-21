@@ -3,7 +3,13 @@ title: The Flow Blockchain & Cadence
 lesson: 2
 language: en
 excerpt: basic Flow & Cadence concepts
+videoId: iVevnipJbHo
+quizUrl: https://forms.gle/RxwXCUrj6kakid529
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 1 Lesson 2 - The Flow Blockchain & Cadence
 
@@ -13,7 +19,7 @@ Yo yo yo! It's meeeeee! Jacob here. Hello. Now that we learned what the Blockcha
 
 If you'd like to learn with a video, you can do that from the link below.
 
-[Introduction to Flow and Cadence](https://www.youtube.com/watch?v=iVevnipJbHo)
+<LessonVideo {videoId}/>
 
 ## The Flow Blockchain
 
@@ -60,7 +66,7 @@ If you do not understand these, that is perfectly fine. We will touch on these t
 
 That about wraps things up for today! In the next lesson, we will start getting into some Cadence code.
 
-# Quests
+## Quests
 
 Please feel free to answer in the language of your choice.
 
