@@ -105,13 +105,13 @@
 		</div>
 		{#if overview.author}
 			<a
-				href={overview.author?.authorLink}
+				href={overview.author?.socialMediaUrl}
 				target="_blank"
 				rel="noopener noreferrer"
 				class="header-link row-2 align-center"
 			>
 				<Icon icon="tabler:pencil" />
-				{overview.author?.authorName}
+				{overview.author?.name}
 			</a>
 		{/if}
 		<div class="column-6">
