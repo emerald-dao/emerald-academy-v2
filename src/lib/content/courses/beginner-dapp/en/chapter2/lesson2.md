@@ -219,7 +219,7 @@ Because this is not necessarily a course on frontend development, if you'd like 
 
 > If you have any other resources that have helped you, and you want us to list them, please let me know!
 
-# Quests
+## Quests
 
 1. Change the color of "Emerald DApp" to whatever color you want
 2. Change the font size of the title

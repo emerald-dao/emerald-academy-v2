@@ -141,7 +141,7 @@ Remember I said Smart Contracts are both programs and rulebooks. They allow us t
 
 Today, we learned how to deploy our first contract, declare a variable, write a function, and execute a script. Wow! That's a lot. But it wasn't too bad, right?
 
-# Quests
+## Quests
 
 For todays quest, please load up a new Flow playground by going to https://play.onflow.org just like we did in this lesson. You will use that for writing your code.
 

@@ -175,7 +175,7 @@ All we wanted you to do today was install a Next.js project and run the project.
 
 In tomorrow's content, we will explain what all the code is actually doing, and make some changes.
 
-# Quests
+## Quests
 
 For your quest today, you have one task:
 
