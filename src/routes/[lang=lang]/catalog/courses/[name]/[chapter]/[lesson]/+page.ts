@@ -7,19 +7,11 @@ export const load = async ({ params }) => {
 			`../../../../../../../lib/content/courses/${params.name}/${params.lang}/${params.chapter}/${params.lesson}.md`
 		);
 
-		const {
-			title,
-			lesson
-		}: {
-			title: string;
-			lesson: number;
-		} = courses.metadata;
 		const content = courses.default as ConstructorOfATypedSvelteComponent;
 
 		return {
 			content,
-			title,
-			lesson
+			metadata: courses.metadata
 		};
 	} catch (e) {
 		throw error(404, 'The chapter or lesson you are looking for does not exist');

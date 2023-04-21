@@ -5,6 +5,7 @@
 	import { transformUrlToHeading } from '$lib/utilities/dataTransformation/transformUrlToHeading';
 	import { Breadcrumbs } from '@emerald-dao/component-library';
 	import Icon from '@iconify/svelte';
+	import { setContext } from 'svelte';
 
 	export let data;
 
@@ -41,6 +42,8 @@
 			obj.slug ===
 			`${$page.params.lang}/catalog/courses/${$page.params.name}/${$page.params.chapter}/${$page.params.lesson}`
 	);
+
+	$: setContext('metadata-context', data.metadata);
 </script>
 
 <section>
