@@ -9,8 +9,8 @@ export const overview: CourseOverview = {
 	excerpt:
 		'Изучите Cadence. Во время этого курса вы изучите ВСЕ основные аспекты языка. В дополнение к написанию и развертыванию собственного контракта NFT вы также узнаете, как писать свои собственные контракты в ходе курса.',
 	author: {
-		authorName: 'Jacob Tucker',
-		authorLink: 'https://twitter.com/jacobmtucker'
+		name: 'Jacob Tucker',
+		socialMediaUrl: 'https://twitter.com/jacobmtucker'
 	},
 	metadata: {
 		expertise: ExpertiseEnum.Beginner,
