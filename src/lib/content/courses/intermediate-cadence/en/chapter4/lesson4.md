@@ -3,15 +3,12 @@ title: Borrowing Contracts
 lesson: 4
 language: en
 excerpt: This lesson will be pretty short, but it is a very new feature of Cadence that I think is pretty cool, and potentially has some really cool use cases that are undiscovered!
+lessonVideoUrl: https://www.youtube.com/embed/fM7UYt9p7ik
 ---
 
 # Chapter 4 Lesson 4 - Borrowing Contracts
 
 Heyo! This lesson will be pretty short, but it is a very new feature of Cadence that I think is pretty cool, and potentially has some really cool use cases that are undiscovered!
-
-## Video
-
-If you'd like to watch a video, you can here: https://www.youtube.com/watch?v=fM7UYt9p7ik
 
 ## The 'Why?'
 

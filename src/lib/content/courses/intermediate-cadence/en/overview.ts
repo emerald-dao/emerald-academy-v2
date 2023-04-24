@@ -10,7 +10,8 @@ export const overview: CourseOverview = {
 		'Learn intermediate Cadence concepts & patterns. During the course, you will extend your basic Cadence knowledge to include more advanced patterns you will likely utilize when developing real applications.',
 	author: {
 		name: 'Jacob Tucker',
-		socialMediaUrl: 'https://twitter.com/jacobmtucker'
+		socialMediaUrl: 'https://twitter.com/jacobmtucker',
+		avatarUrl: 'https://avatars.githubusercontent.com/u/15198786?v=4'
 	},
 	metadata: {
 		expertise: ExpertiseEnum.Intermediate,

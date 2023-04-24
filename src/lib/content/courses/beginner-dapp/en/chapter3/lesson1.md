@@ -3,6 +3,8 @@ title: Our First Smart Contract
 lesson: 1
 language: en
 excerpt: Our First Smart Contract
+lessonVideoUrl: https://www.youtube.com/embed/QbqNM4k76B0
+lessonVideoDescription: Overview of smart contracts, accounts, and deploying our first contract
 ---
 
 # Chapter 3 Lesson 1 - Our First Smart Contract
@@ -10,13 +12,6 @@ excerpt: Our First Smart Contract
 Hello beautiful people! Welcome to the glorious Chapter 3, in which we will start diving into actual Blockchain stuff. Before we do some blockchain stuff in our DApp, it's important to give a brief (2 lesson long) introduction to Cadence.
 
 Today, we will be learning the very basics of Cadence code by implementing our first Smart Contract. That is, how to declare a variable, how to write a function, etc.
-
-## Video
-
-If you'd like some videos to watch, you can watch these two videos (they are very similar):
-
-1. https://www.youtube.com/watch?v=QbqNM4k76B0 (overview of smart contracts, accounts, and deploying our first contract)
-2. https://www.youtube.com/watch?v=DSwNNOEdBXU (explanation behind some basic syntax + deploying a contract) **NOTE**: watch this video from 00:00 - 07:23. Anything beyond 07:23 is not covered in this lesson.
 
 ## Our First Smart Contract
 
