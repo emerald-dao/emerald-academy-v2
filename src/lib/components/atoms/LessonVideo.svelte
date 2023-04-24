@@ -1,5 +1,6 @@
 <script type="ts">
 	export let lessonVideoUrl: string;
+	export let lessonVideoDescription: string;
 </script>
 
 <div>
@@ -11,10 +12,16 @@
 		frameborder="0"
 		allowfullscreen
 	/>
+	<span>{lessonVideoDescription}</span>
 </div>
 
 <style type="scss">
 	div {
 		margin-bottom: var(--space-4);
+		text-align: center;
+
+		span {
+			font-size: var(--font-size-0);
+		}
 	}
 </style>
