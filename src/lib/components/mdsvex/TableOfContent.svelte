@@ -118,9 +118,9 @@
 		/>
 	</div>
 	<div class="column-6 bottom-links-wrapper">
-		{#if metadata.videoId || metadata.quizUrl || questsExist}
+		{#if metadata.lessonVideoUrl || metadata.quizUrl || questsExist}
 			<div class="column-3">
-				{#if metadata.videoId}
+				{#if metadata.lessonVideoUrl}
 					<a href="#video" class={`header-link row-2 align-center`}>
 						<Icon icon="bi:camera-video" />
 						<p class="w-small">Video lesson</p>

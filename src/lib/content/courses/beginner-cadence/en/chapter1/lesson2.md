@@ -3,7 +3,7 @@ title: The Flow Blockchain & Cadence
 lesson: 2
 language: en
 excerpt: basic Flow & Cadence concepts
-videoId: iVevnipJbHo
+lessonVideoUrl: https://www.youtube.com/embed/iVevnipJbHo
 quizUrl: https://forms.gle/RxwXCUrj6kakid529
 ---
 
@@ -19,7 +19,7 @@ Yo yo yo! It's meeeeee! Jacob here. Hello. Now that we learned what the Blockcha
 
 If you'd like to learn with a video, you can do that from the link below.
 
-<LessonVideo {videoId}/>
+<LessonVideo {lessonVideoUrl}/>
 
 ## The Flow Blockchain
 
