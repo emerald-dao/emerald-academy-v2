@@ -3,6 +3,7 @@ title: Basic Computer Programming Concepts
 lesson: 3
 language: en
 excerpt: basic Computer Programming Concepts
+quizUrl: https://forms.gle/MFqBPtkdcwMBF31g8
 ---
 
 # Chapter 1.5 - Basic Computer Programming Concepts(optional)

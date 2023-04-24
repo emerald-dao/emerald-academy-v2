@@ -3,15 +3,20 @@ title: 'Creating an NFT Contract: Transferring, Minting, and Borrowing (Part 2/3
 lesson: 4
 language: en
 excerpt: 'Creating an NFT Contract: Transferring, Minting, and Borrowing (Part 2/3)'
+lessonVideoUrl: https://www.youtube.com/embed/bQVXSpg6GE8
+lessonVideoDescription: Today, we'll cover 20:35 - 31:20.
+quizUrl: https://forms.gle/4rP2JpDpEjbw8xEQ6
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 4 Lesson 4 - Creating an NFT Contract: Transferring, Minting, and Borrowing (Part 2/3)
 
 Let's keep building our NFT contract! :D
 
-## Video
-
-Today, we'll cover 20:35 - 31:20: https://www.youtube.com/watch?v=bQVXSpg6GE8
+<LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
 
 ## Recap so Far
 
@@ -412,5 +417,3 @@ pub contract CryptoPoops {
   }
 }
 ```
-
-# <a href="https://forms.gle/4rP2JpDpEjbw8xEQ6">Quiz</a>

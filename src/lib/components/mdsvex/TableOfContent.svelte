@@ -121,7 +121,7 @@
 		{#if metadata.lessonVideoUrl || metadata.quizUrl || questsExist}
 			<div class="column-3">
 				{#if metadata.lessonVideoUrl}
-					<a href="#video" class={`header-link row-2 align-center`}>
+					<a href="#" class={`header-link row-2 align-center`}>
 						<Icon icon="bi:camera-video" />
 						<p class="w-small">Video lesson</p>
 					</a>

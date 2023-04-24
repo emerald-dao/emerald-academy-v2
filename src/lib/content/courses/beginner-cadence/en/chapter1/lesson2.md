@@ -16,8 +16,6 @@ quizUrl: https://forms.gle/RxwXCUrj6kakid529
 
 Yo yo yo! It's meeeeee! Jacob here. Hello. Now that we learned what the Blockchain is, Lesson 2 will cover why we have decided to learn the Flow Blockchain and how it compares to other Blockchains out there.
 
-## Video
-
 <LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
 
 ## The Flow Blockchain
@@ -72,5 +70,3 @@ Please feel free to answer in the language of your choice.
 1. What are the 5 Cadence Programming Language Pillars?
 
 2. In your opinion, even without knowing anything about the Blockchain or coding, why could the 5 Pillars be useful (you don't have to answer this for #5)?
-
-# <a href="https://forms.gle/RxwXCUrj6kakid529">Quiz</a>

@@ -3,15 +3,19 @@ title: Contract Interfaces
 lesson: 2
 language: en
 excerpt: Contract Interfaces
+lessonVideoUrl: https://www.youtube.com/embed/NHMBE6iRyfY
+quizUrl: https://forms.gle/oeLaw1zyAgYhnBqR7
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 5 Lesson 2 - Contract Interfaces
 
 Today, we will learn the last remaining concept needed to finish our NFT smart contract.
 
-## Video
-
-Contract Interfaces: https://www.youtube.com/watch?v=NHMBE6iRyfY
+<LessonVideo {lessonVideoUrl} />
 
 ## Contract Interfaces
 
@@ -257,5 +261,3 @@ pub contract Test {
   }
 }
 ```
-
-# <a href="https://forms.gle/oeLaw1zyAgYhnBqR7">Quiz</a>

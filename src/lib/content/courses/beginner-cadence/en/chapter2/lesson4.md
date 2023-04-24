@@ -3,15 +3,20 @@ title: Basic Structs
 lesson: 4
 language: en
 excerpt: Basic Structs
+lessonVideoUrl: https://www.youtube.com/embed/LAUN7hqlL0w
+lessonVideoDescription: Watch this video from 12:10-The End.
+quizUrl: https://forms.gle/B57pWEphAUJAMVyd6
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 2 Lesson 4 - Basic Structs
 
 Hello idiots. Today is your lesson to learn Structs! The good news is structs are pretty simple to learn, so today won't be too long. Woooohoooo! Let's get into it.
 
-## Video
-
-1. (Structs + Dictionaries & Optionals) - Watch this video from 12:10-The End: https://www.youtube.com/watch?v=LAUN7hqlL0w
+<LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
 
 ## Structs
 
@@ -182,5 +187,3 @@ Also notice the return type here: `Authentication.Profile`. That is because we a
 5. Add a script to read the Struct you defined.
 
 That's all! See you tomorrow folks ;)
-
-# <a href="https://forms.gle/B57pWEphAUJAMVyd6">Quiz</a>

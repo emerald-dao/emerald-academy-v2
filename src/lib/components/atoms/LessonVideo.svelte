@@ -1,6 +1,6 @@
 <script type="ts">
 	export let lessonVideoUrl: string;
-	export let lessonVideoDescription: string;
+	export let lessonVideoDescription: string = "";
 </script>
 
 <div>
@@ -12,7 +12,9 @@
 		frameborder="0"
 		allowfullscreen
 	/>
-	<span>{lessonVideoDescription}</span>
+	{#if lessonVideoDescription}
+		<span>{lessonVideoDescription}</span>
+	{/if}
 </div>
 
 <style type="scss">

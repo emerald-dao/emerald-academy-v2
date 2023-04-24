@@ -3,6 +3,7 @@ title: Learning Blockchain Concepts
 lesson: 1
 language: en
 excerpt: basic blockchain concepts
+quizUrl: https://forms.gle/dCaMDJWoko54xkiv5
 ---
 
 # Chapter 1 Lesson 1 - Learning Blockchain Concepts

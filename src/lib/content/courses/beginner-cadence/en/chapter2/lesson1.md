@@ -3,7 +3,14 @@ title: Our First Smart Contract
 lesson: 1
 language: en
 excerpt: first Smart Contract
+lessonVideoUrl: https://www.youtube.com/embed/QbqNM4k76B0
+lessonVideoDescription: Overview of smart contracts, accounts, and deploying our first contract
+quizUrl: https://forms.gle/PPJb9iHFGu91Nuis9
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 2 Lesson 1 - Our First Smart Contract
 
@@ -11,12 +18,7 @@ Hello beautiful people! Welcome to the glorious Chapter 2, in which we will star
 
 Today, we will be learning the very basics of Cadence code by implementing our first Smart Contract. That is, how to declare a variable, how to write a function, etc.
 
-## Video
-
-If you'd like some videos to watch, you can watch these two videos (they are very similar):
-
-1. https://www.youtube.com/watch?v=QbqNM4k76B0 (overview of smart contracts, accounts, and deploying our first contract)
-2. https://www.youtube.com/watch?v=DSwNNOEdBXU (explanation behind some basic syntax + deploying a contract) **NOTE**: watch this video from 00:00 - 07:23. Anything beyond 07:23 is not covered in this lesson.
+<LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
 
 ## Our First Smart Contract
 
@@ -144,5 +146,3 @@ For todays quest, please load up a new Flow playground by going to https://play.
 It's so awesome that I get to make these quests. I love this.
 
 Anyways, please remember to store your answers in some way so I can review them if you submit them to me. Good luck!
-
-# <a href="https://forms.gle/PPJb9iHFGu91Nuis9">Quiz</a>

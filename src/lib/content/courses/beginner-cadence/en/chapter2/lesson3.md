@@ -3,19 +3,20 @@ title: Arrays, Dictionaries, and Optionals
 lesson: 3
 language: en
 excerpt: Arrays, Dictionaries, and Optionals
+lessonVideoUrl: https://www.youtube.com/embed/LAUN7hqlL0w
+lessonVideoDescription: Watch this video from 00:00-12:10. Do not watch passed 12:10, that will be covered tomorrow.
+quizUrl: https://forms.gle/thWXL8MkboadnBtLA
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 2 Lesson 3 - Arrays, Dictionaries, and Optionals
 
 Whatsup Cadence noobs. Today, we will be learning some of the most important types that you will use in nearly every contract you write.
 
-## Video
-
-This is in order:
-
-1. (Arrays & Dictionaries in Cadence) Watch this video from 00:00-12:10. Do not watch passed 12:10, that will be covered tomorrow: https://www.youtube.com/watch?v=LAUN7hqlL0w
-
-2. (Optionals in Cadence) Watch this video: https://www.youtube.com/watch?v=I9Z1z9BsZ0I
+<LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
 
 ## Types
 
@@ -301,5 +302,3 @@ The main takeaway is that when accessing values of a dictionary, you will always
    - How to fix it
 
 <img src="/courses/beginner-cadence/wrongcode.png" alt="drawing" size="400" />
-
-# <a href="https://forms.gle/thWXL8MkboadnBtLA">Quiz</a>

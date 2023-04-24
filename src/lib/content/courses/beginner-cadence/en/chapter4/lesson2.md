@@ -3,7 +3,14 @@ title: Capabilities
 lesson: 2
 language: en
 excerpt: Capabilities
+lessonVideoUrl: https://www.youtube.com/embed/01zvWVoDKmU
+lessonVideoDescription: You can watch this video from 14:45 to the end (we watched the first half in the last lesson).
+quizUrl: https://forms.gle/ZG13mJCD77cCPnnK7
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 4 Lesson 2 - Capabilities
 
@@ -11,9 +18,7 @@ In yesterday's chapter, we talked about the `/storage/` path of an account's sto
 
 **NOTE: THIS CHAPTER CAN GET VERY CONFUSING**. If you feel lost along the way, I will give you a virtual ghost hug. I promise, if you read through it a few times, you will get it eventually.
 
-## Video
-
-You can watch this video from 14:45 to the end (we watched the first half in the last lesson): https://www.youtube.com/watch?v=01zvWVoDKmU
+<LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
 
 ## Review from Yesterday
 
@@ -331,5 +336,3 @@ Please answer in the language of your choice.
    2. Run a script that tries to access a non-exposed field in the resource interface, and see the error pop up.
 
    3. Run the script and access something you CAN read from. Return it from the script.
-
-# <a href="https://forms.gle/ZG13mJCD77cCPnnK7">Quiz</a>
