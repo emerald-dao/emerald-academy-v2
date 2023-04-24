@@ -3,17 +3,19 @@ title: Pre/Post Conditions & Events
 lesson: 1
 language: en
 excerpt: Pre/Post Conditions & Events
+lessonVideoUrl: https://www.youtube.com/embed/WFqoCZY36b0
+quizUrl: https://forms.gle/o1jy1vMgqGLsAr259
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 5 Lesson 1 - Pre/Post Conditions & Events
 
 Today, we will learn 2 concepts that, although fairly easy, are very common in Cadence.
 
-## Video
-
-Pre/Post Conditions: https://www.youtube.com/watch?v=WFqoCZY36b0
-
-Events: https://www.youtube.com/watch?v=xRHG6Kgkxpg
+<LessonVideo {lessonVideoUrl} />
 
 ## Pre/Post Conditions
 
@@ -222,5 +224,3 @@ pub contract Test {
 
 }
 ```
-
-# <a href="https://forms.gle/o1jy1vMgqGLsAr259">Quiz</a>

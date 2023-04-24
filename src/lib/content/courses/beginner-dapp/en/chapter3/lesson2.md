@@ -3,15 +3,12 @@ title: Transactions and Scripts
 lesson: 2
 language: en
 excerpt: Transactions and Scripts
+lessonVideoUrl: https://www.youtube.com/embed/T2QTTFnQa5k
 ---
 
 # Chapter 3 Lesson 2 - Transactions and Scripts
 
 Hey there you crazy Cadence people! We are BACK for another lesson of content, and in this lesson, we will be going more in-depth on transactions and scripts. If you haven't already, make sure you read the [introductory part to transactions and scripts in Chapter 1 Lesson 1](https://github.com/emerald-dao/beginner-cadence-course/tree/main/chapter1.0/lesson1#transactions--scripts).
-
-## Video
-
-If you'd like to consume this (incredible) content in a video format, you can check out this video: https://www.youtube.com/watch?v=T2QTTFnQa5k
 
 ## Transactions & Scripts
 

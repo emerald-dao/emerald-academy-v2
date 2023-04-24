@@ -3,15 +3,20 @@ title: Resources
 lesson: 1
 language: en
 excerpt: Resources
+lessonVideoUrl: https://www.youtube.com/embed/SGa2mnDFafc
+lessonVideoDescription: You can watch this video from 00:00 - 08:00 (we will cover the rest later).
+quizUrl: https://forms.gle/hjfCUpifLnbkJ7Lu5
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 3 Lesson 1 - Resources
 
 Uh oh. We're on the most important topic in all of Cadence: Resources. Seriously, this is the most important thing you'll learn from me. Let's get into it!
 
-## Video
-
-1. You can watch this video from 00:00 - 08:00 (we will cover the rest later): https://www.youtube.com/watch?v=SGa2mnDFafc
+<LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
 
 ## Resources
 
@@ -197,5 +202,3 @@ pub contract Test {
     }
 }
 ```
-
-# <a href="https://forms.gle/hjfCUpifLnbkJ7Lu5">Quiz</a>

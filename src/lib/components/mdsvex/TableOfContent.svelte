@@ -1,7 +1,7 @@
 <script type="ts">
 	import { transformHeadingToUrl } from '$lib/utilities/dataTransformation/transformHeadingToUrl';
 	import { getContext, onMount, tick } from 'svelte';
-	import { Button, ProgressSteps } from '@emerald-dao/component-library';
+	import { ProgressSteps } from '@emerald-dao/component-library';
 	import type { ProgressStates } from '@emerald-dao/component-library/components/ProgressStep/progress-states.type';
 	import { page } from '$app/stores';
 	import Icon from '@iconify/svelte';
@@ -71,6 +71,10 @@
 	}
 
 	const author = getContext('author-context');
+	const metadata = getContext('metadata-context');
+
+	let questsExist = false;
+	$: questsExist = headings.some((item) => item.title === 'Quests');
 
 	onMount(() => {
 		grabElements();
@@ -82,26 +86,64 @@
 <svelte:window on:scroll={trackScroll} />
 
 <div class="column-10">
-	<ProgressSteps
-		{steps}
-		diameter={0.5}
-		direction="column-reverse"
-		fontSize="xsmall"
-		gap={0.4}
-		cutLineEnds={false}
-		lineHeight="1"
-	/>
-	<div class="column-1 down-links-wrapper">
-		{#if author}
-			<a
-				href={author.authorLink}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="header-link row-2 align-center"
-			>
-				<Icon icon="tabler:pencil" />
-				{author.authorName}
-			</a>
+	{#if author}
+		<div class="row-2">
+			{#if author.avatarUrl}
+				<img src={author.avatarUrl} alt="User avatar" />
+			{:else}
+				<img src="/new-avatar.png" alt="Generic avatar" />
+			{/if}
+			<div class="column">
+				<p>Author</p>
+				<a
+					href={author.socialMediaUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="header-link row-2 align-center"
+				>
+					<p>{author.name} ↗</p>
+				</a>
+			</div>
+		</div>
+	{/if}
+	<div class="steps-wrapper">
+		<ProgressSteps
+			{steps}
+			diameter={0.5}
+			direction="column-reverse"
+			fontSize="xsmall"
+			gap={0.4}
+			cutLineEnds={false}
+			lineHeight="1"
+		/>
+	</div>
+	<div class="column-6 bottom-links-wrapper">
+		{#if metadata.lessonVideoUrl || metadata.quizUrl || questsExist}
+			<div class="column-3">
+				{#if metadata.lessonVideoUrl}
+					<a href="#" class={`header-link row-2 align-center`}>
+						<Icon icon="bi:camera-video" />
+						<p class="w-small">Video lesson</p>
+					</a>
+				{/if}
+				{#if metadata.quizUrl}
+					<a
+						href={metadata.quizUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class={`header-link row-2 align-center`}
+					>
+						<Icon icon="tabler:zoom-question" />
+						<p class="w-small">Quiz</p>
+					</a>
+				{/if}
+				{#if questsExist}
+					<a href="#quests" class={`header-link row-2 align-center`}>
+						<Icon icon="tabler:diamond" />
+						<p class="w-small">Quests</p>
+					</a>
+				{/if}
+			</div>
 		{/if}
 		<EditContent
 			href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/${$page.params.name}/${$page.params.lang}/${$page.params.chapter}/${$page.params.lesson}.md`}
@@ -111,7 +153,28 @@
 </div>
 
 <style lang="scss">
-	.down-links-wrapper {
-		margin-left: var(--space-1);
+	a {
+		color: var(--clr-heading-main);
+	}
+	.row-2 {
+		align-items: center;
+
+		img {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			margin-block: 0;
+		}
+		p {
+			margin-bottom: 0px;
+			margin-top: 0px;
+		}
+	}
+
+	.steps-wrapper {
+		margin-left: 10px;
+	}
+	.bottom-links-wrapper {
+		margin-left: var(--space-4);
 	}
 </style>

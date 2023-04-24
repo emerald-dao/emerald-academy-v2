@@ -3,15 +3,13 @@ title: Running a Script
 lesson: 2
 language: en
 excerpt: Running a Script
+lessonVideoUrl: https://www.youtube.com/embed/XjderBnmPtU
+lessonVideoDescription: If you watch this video, it will help you understand the content for today. Note that they are different, but the concept is the same.
 ---
 
 # Chapter 4 Lesson 2 - Running a Script
 
 Yoooooooooo yo yo YO! Today we are going to learn how to run a script on the Blockchain to read our `greeting` variable from our smart contract.
-
-## Videos
-
-If you watch this video, it will help you understand the content for today. Note that they are different, but the concept is the same: https://www.youtube.com/watch?v=XjderBnmPtU
 
 ## Quick Overview of Scripts
 

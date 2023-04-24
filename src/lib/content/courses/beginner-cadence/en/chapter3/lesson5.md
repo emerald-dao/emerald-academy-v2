@@ -3,15 +3,19 @@ title: Access Control
 lesson: 5
 language: en
 excerpt: Access Control
+lessonVideoUrl: https://www.youtube.com/embed/ly3rNs0xCRQ&t
+quizUrl: https://forms.gle/nn7xho4BmG51Nq3L7
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 3 Lesson 5 - Access Control
 
 SUUUUUUUUP! Today, we're learning about access control. Let's learn.
 
-## Video
-
-I STRONGLY ENCOURAGE you watch the video for today's content. It will help you so much because access control is very confusing: https://www.youtube.com/watch?v=ly3rNs0xCRQ&t
+<LessonVideo {lessonVideoUrl} />
 
 ## Introduction to Access Control & Access Modifiers
 
@@ -260,5 +264,3 @@ pub fun main() {
   /**************/
 }
 ```
-
-# <a href="https://forms.gle/nn7xho4BmG51Nq3L7">Quiz</a>

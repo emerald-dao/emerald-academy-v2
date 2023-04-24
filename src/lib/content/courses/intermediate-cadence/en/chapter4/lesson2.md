@@ -3,15 +3,12 @@ title: Time in Cadence
 lesson: 2
 language: en
 excerpt: Welcome back to another lesson, it's your favorite (and hottest) instructor back again to teach you how to measure time in Cadence. Woohoo!
+lessonVideoUrl: https://www.youtube.com/embed/oBwFnsBSaK8
 ---
 
 # Chapter 4 Lesson 2 - Time in Cadence
 
 Welcome back to another lesson, it's your favorite (and hottest) instructor back again to teach you how to measure time in Cadence. Woohoo!
-
-## Video
-
-You can watch a video on this lesson here: https://www.youtube.com/watch?v=oBwFnsBSaK8
 
 ## How to Represent Time
 

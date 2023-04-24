@@ -112,7 +112,7 @@ Well, because that's what this course is all about, knucklehead! In this course,
 
 Jacob is the best. No, no. That's not the conclusion. The conclusion is that although all of this stuff sounds very complicated, it really isn't. And if you still don't understand ANY of this, that's totally okay. Sometimes it's better to jump into some examples to make things make more sense. We'll be doing that in the upcoming lessons.
 
-# Quests
+## Quests
 
 You are free to answer these questions in your own language of choice. And no, I don't mean computer programming language, haha.
 

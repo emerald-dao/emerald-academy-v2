@@ -3,15 +3,12 @@ title: Storage Iteration
 lesson: 3
 language: en
 excerpt: Today, we'll be talking about a feature actually quite new to Cadence, Storage Iteration! It may look hard at first, but it's actually pretty easy.
+lessonVideoUrl: https://www.youtube.com/embed/bwtQ0ettqLU
 ---
 
 # Chapter 3 Lesson 3 - Storage Iteration
 
 Yo yo! Today, we'll be talking about a feature actually quite new to Cadence: Storage Iteration! It may look hard at first, but it's actually pretty easy.
-
-## Video
-
-Check out a video of this lecture here: https://www.youtube.com/watch?v=bwtQ0ettqLU
 
 ## What is Storage Iteration?
 

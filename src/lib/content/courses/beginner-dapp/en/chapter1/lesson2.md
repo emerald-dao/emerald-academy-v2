@@ -44,6 +44,6 @@ We will be writing Cadence code throughout this bootcamp since we are making our
 
 That about wraps things up for today! In the next lesson, we will start by creating our first DApp.
 
-# Quests
+## Quests
 
 There are no quests for today. But don't think we're taking it easy on ya. Get ready for the next chapter ;)

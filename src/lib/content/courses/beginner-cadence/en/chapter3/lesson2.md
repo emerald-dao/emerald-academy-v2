@@ -3,15 +3,20 @@ title: Resources in Dictionaries & Arrays
 lesson: 2
 language: en
 excerpt: Resources in Dictionaries & Arrays
+lessonVideoUrl: https://www.youtube.com/embed/SGa2mnDFafc
+lessonVideoDescription: You can watch this video from 08:00 - The End (we covered the beginning in the last lesson).
+quizUrl: https://forms.gle/NfDsHkwk5TyVA2uV9
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 3 Lesson 2 - Resources in Dictionaries & Arrays
 
 Hellooooooo peoples. Today we will be taking our understanding of Resources and applying it to arrays and dictionaries, something we covered in Chapter 2. On their own they may be somewhat easy to handle, but you put them together and it gets a bit complicated.
 
-## Video
-
-You can watch this video from 08:00 - The End (we covered the beginning in the last lesson): https://www.youtube.com/watch?v=SGa2mnDFafc
+<LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
 
 ## Why Dictionaries & Arrays?
 
@@ -301,5 +306,3 @@ That's all for today! :D Now, you may be wondering: "What if I want to _access_ 
 For today's quest, you'll have 1 large quest instead of a few little ones.
 
 1. Write your own smart contract that contains two state variables: an array of resources, and a dictionary of resources. Add functions to remove and add to each of them. They must be different from the examples above.
-
-# <a href="https://forms.gle/NfDsHkwk5TyVA2uV9">Quiz</a>

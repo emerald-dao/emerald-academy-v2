@@ -3,15 +3,20 @@ title: 'Creating an NFT Contract: Collections (Part 1/3)'
 lesson: 3
 language: en
 excerpt: 'Creating an NFT Contract: Collections (Part 1/3)'
+lessonVideoUrl: https://www.youtube.com/embed/bQVXSpg6GE8
+lessonVideoDescription: In the next few chapters, we'll be doing exactly what I do in this video. Today, we'll only go from 00:00 - 20:35.
+quizUrl: https://forms.gle/HxGckQ6D81kp2Qr16
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 4 Lesson 3 - Creating an NFT Contract: Collections (Part 1/3)
 
 You have learned a lot so far. Let's apply everything you've learned to make your own NFT contract.
 
-## Video
-
-In the next few chapters, we'll be doing exactly what I do in this video. Today, we'll only go from 00:00 - 20:35: https://www.youtube.com/watch?v=bQVXSpg6GE8
+<LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
 
 ## Review
 
@@ -392,5 +397,3 @@ And with that, give yourself a round of applause. You implemented a functioning 
    - Idea #1: Do we really want everyone to be able to mint an NFT? 🤔.
 
    - Idea #2: If we want to read information about our NFTs inside our Collection, right now we have to take it out of the Collection to do so. Is this good?
-
-# <a href="https://forms.gle/HxGckQ6D81kp2Qr16">Quiz</a>

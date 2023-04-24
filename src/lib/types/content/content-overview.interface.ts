@@ -26,6 +26,7 @@ export interface Faq {
 }
 
 export interface Author {
-	authorName: string;
-	authorLink: string;
+	name: string;
+	socialMediaUrl: string;
+	avatarUrl?: string;
 }

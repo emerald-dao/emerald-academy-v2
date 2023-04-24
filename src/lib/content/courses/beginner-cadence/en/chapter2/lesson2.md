@@ -3,15 +3,19 @@ title: Transactions and Scripts
 lesson: 2
 language: en
 excerpt: Transactions and Scripts
+lessonVideoUrl: https://www.youtube.com/embed/T2QTTFnQa5k
+quizUrl: https://forms.gle/1qe7kv4WZyxuJAi88
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 2 Lesson 2 - Transactions and Scripts
 
 Hey there you crazy Cadence people! We are BACK for another lesson of content, and in this lesson, we will be going more in-depth on transactions and scripts. If you haven't already, make sure you read the [introductory part to transactions and scripts in Chapter 1 Lesson 1](https://github.com/emerald-dao/beginner-cadence-course/tree/main/chapter1.0/lesson1#transactions--scripts).
 
-## Video
-
-If you'd like to consume this (incredible) content in a video format, you can check out this video: https://www.youtube.com/watch?v=T2QTTFnQa5k
+<LessonVideo {lessonVideoUrl} />
 
 ## Transactions & Scripts
 
@@ -161,5 +165,3 @@ Please answer in the language of your choice.
 - Add a script that reads `myNumber` from the contract
 
 - Add a transaction that takes in a parameter named `myNewNumber` and passes it into the `updateMyNumber` function. Verify that your number changed by running the script again.
-
-# <a href="https://forms.gle/1qe7kv4WZyxuJAi88">Quiz</a>

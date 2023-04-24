@@ -3,7 +3,14 @@ title: 'Creating an NFT Contract: Implementing the NonFungibleToken Standard (Pa
 lesson: 3
 language: en
 excerpt: 'Creating an NFT Contract: Implementing the NonFungibleToken Standard (Part 3/3)'
+lessonVideoUrl: https://www.youtube.com/embed/bQVXSpg6GE8
+lessonVideoDescription: Today, we'll cover 31:20 - The End.
+quizUrl: https://forms.gle/dtwAhuovbTWFpgV37
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 5 Lesson 3 - Creating an NFT Contract: Implementing the NonFungibleToken Standard (Part 3/3)
 
@@ -11,9 +18,7 @@ Let's finish our CryptoPoops NFT Contract from Chapter 4 using our new knowledge
 
 We will spend this entire lesson just reforming our NFT Contract to fit the standard, found here: https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc
 
-## Video
-
-Today, we'll cover 31:20 - The End: https://www.youtube.com/watch?v=bQVXSpg6GE8
+<LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
 
 ## Implementing the NonFungibleToken Standard
 
@@ -790,5 +795,3 @@ pub contract CryptoPoops: NonFungibleToken {
 and add a function called `borrowAuthNFT` just like we did in the section called "The Problem" above. Then, find a way to make it publically accessible to other people so they can read our NFT's metadata. Then, run a script to display the NFTs metadata for a certain `id`.
 
 You will have to write all the transactions to set up the accounts, mint the NFTs, and then the scripts to read the NFT's metadata. We have done most of this in the chapters up to this point, so you can look for help there :)
-
-# <a href="https://forms.gle/dtwAhuovbTWFpgV37">Quiz</a>
