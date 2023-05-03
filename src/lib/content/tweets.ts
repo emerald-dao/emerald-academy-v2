@@ -6,7 +6,12 @@ import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 export const tweets: TweetOverview[] = [
 	{
 		title: 'Cadence: What are attachments?',
-		authorUsername: '@jacobmtucker',
+		author: {
+			name: 'Jacob Tucker',
+			socialMediaUrl: 'https://twitter.com/jacobmtucker',
+			avatarUrl: 'https://pbs.twimg.com/profile_images/1529533498847109128/td04l9Ra_400x400.jpg',
+			isVerified: true
+		},
 		excerpt: 'Overviews an upcoming feature to the Cadence language: Attachments! Learn how to attach composable additions to resources on Flow.',
 		link: 'https://twitter.com/jacobmtucker/status/1641218434343026695',
 		contentType: ContentTypeEnum.Tweet,
@@ -19,7 +24,12 @@ export const tweets: TweetOverview[] = [
 	},
 	{
 		title: 'A storage capacity story',
-		authorUsername: '@alxocity',
+		author: {
+			name: 'alxocity',
+			socialMediaUrl: 'https://twitter.com/alxocity',
+			avatarUrl: 'https://pbs.twimg.com/profile_images/1645724830359257088/D-6I04ol_400x400.jpg',
+			isVerified: true
+		},
 		excerpt: 'Explaining storage capacity on Flow though a legendary story based on real events.',
 		link: 'https://twitter.com/alxocity/status/1646314776744857600',
 		contentType: ContentTypeEnum.Tweet,

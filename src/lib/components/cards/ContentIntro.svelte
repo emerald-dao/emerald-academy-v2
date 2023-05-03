@@ -1,6 +1,6 @@
 <script type="ts">
 	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
-	import { Label, Breadcrumbs, Button } from '@emerald-dao/component-library';
+	import { Label, Breadcrumbs, Button, TooltipIcon } from '@emerald-dao/component-library';
 	import ContentLabel from '../label/ContentLabel.svelte';
 	import type { Overview } from '$lib/types/content/content-overview.interface';
 	import { transformUrlToHeading } from '$lib/utilities/dataTransformation/transformUrlToHeading';
@@ -13,6 +13,7 @@
 	import { logIn } from '$flow/actions.js';
 	import type { CourseOverview } from '$lib/types/content/course.interface';
 	import { getInitialStars } from '$lib/config/initialStars';
+	import Author from '../atoms/Author.svelte';
 
 	export let overview: Overview;
 	export let showBreadcrumbs: boolean = false;
@@ -104,15 +105,14 @@
 			{/if}
 		</div>
 		{#if overview.author}
-			<a
-				href={overview.author?.socialMediaUrl}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="header-link row-2 align-center"
-			>
-				<Icon icon="tabler:pencil" />
-				{overview.author?.name}
-			</a>
+			<div class="course-author-wrapper">
+				<Author
+					name={overview.author.name}
+					avatarUrl={overview.author.avatarUrl}
+					socialMediaUrl={overview.author.socialMediaUrl}
+					isVerified={overview.author.isVerified}
+				/>
+			</div>
 		{/if}
 		<div class="column-6">
 			<div class="metadata-labels">
@@ -203,6 +203,11 @@
 			p {
 				max-width: 50ch;
 			}
+		}
+
+		.course-author-wrapper {
+			color: var(--clr-text-main);
+			font-size: 0.82rem;
 		}
 	}
 </style>

@@ -11,7 +11,8 @@ export const overview: CourseOverview = {
 	author: {
 		name: 'Arun Nadarasa',
 		socialMediaUrl: 'https://twitter.com/krumpverse',
-		avatarUrl: 'https://www.linkpicture.com/view.php?img=LPic6449a057b22c6654556806'
+		avatarUrl: 'https://www.linkpicture.com/q/Arun_Avatar4_4.png',
+		isVerified: false
 	},
 	metadata: {
 		expertise: ExpertiseEnum.Beginner,
@@ -53,7 +54,7 @@ export const overview: CourseOverview = {
 			{
 				question: '📝 What is the quiz?',
 				answer:
-					"There will be a quiz at the end of the course to test your knowledge. It is a simple Typeform quiz.<br/><br/><i>"
+					'There will be a quiz at the end of the course to test your knowledge. It is a simple Typeform quiz.<br/><br/><i>'
 			}
 		]
 	}

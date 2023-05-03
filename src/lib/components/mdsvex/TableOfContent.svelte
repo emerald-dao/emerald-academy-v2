@@ -6,6 +6,7 @@
 	import { page } from '$app/stores';
 	import Icon from '@iconify/svelte';
 	import EditContent from '../atoms/EditContent.svelte';
+	import Author from '../atoms/Author.svelte';
 
 	export let headings: Heading[];
 
@@ -87,24 +88,12 @@
 
 <div class="column-10">
 	{#if author}
-		<div class="row-2">
-			{#if author.avatarUrl}
-				<img src={author.avatarUrl} alt="User avatar" />
-			{:else}
-				<img src="/new-avatar.png" alt="Generic avatar" />
-			{/if}
-			<div class="column">
-				<p>Author</p>
-				<a
-					href={author.socialMediaUrl}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="header-link row-2 align-center"
-				>
-					<p>{author.name} ↗</p>
-				</a>
-			</div>
-		</div>
+		<Author
+			name={author.name}
+			avatarUrl={author.avatarUrl}
+			socialMediaUrl={author.socialMediaUrl}
+			isVerified={author.isVerified}
+		/>
 	{/if}
 	<div class="steps-wrapper">
 		<ProgressSteps
@@ -155,20 +144,6 @@
 <style lang="scss">
 	a {
 		color: var(--clr-heading-main);
-	}
-	.row-2 {
-		align-items: center;
-
-		img {
-			width: 40px;
-			height: 40px;
-			border-radius: 50%;
-			margin-block: 0;
-		}
-		p {
-			margin-bottom: 0px;
-			margin-top: 0px;
-		}
 	}
 
 	.steps-wrapper {

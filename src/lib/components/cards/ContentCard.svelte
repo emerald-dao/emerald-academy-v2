@@ -5,6 +5,7 @@
 	import { locale, LL } from '$i18n/i18n-svelte';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 	import { fly } from 'svelte/transition';
+	import Author from '../atoms/Author.svelte';
 
 	export let overview: Overview;
 
@@ -44,36 +45,29 @@
 					{overview.metadata.duration}
 				</Label>
 			</div>
+			{#if overview.contentType !== ContentTypeEnum.Bootcamp && overview.contentType !== ContentTypeEnum.Roadmap}
+				{#if overview.author}
+					<div class="course-author-wrapper">
+						<Author
+							name={overview.author.name}
+							avatarUrl={overview.author.avatarUrl}
+							socialMediaUrl={overview.author.socialMediaUrl}
+							isVerified={overview.author.isVerified}
+						/>
+					</div>
+				{/if}
+			{/if}
 			<p>
 				{overview.excerpt}
 			</p>
 		</div>
 		<div>
-			{#if overview.contentType === ContentTypeEnum.Blog}
-				<!-- <img src={overview.image} alt="blog image" /> -->
-				<h5>
-					Author: <a href={overview.authorLink} target="_blank" rel="noreferrer"
-						>{overview.author}</a
-					>
-				</h5>
-			{:else if overview.contentType === ContentTypeEnum.Tweet}
-				<h5>
-					Author: <a
-						href={`https://twitter.com/${overview.authorUsername}`}
-						target="_blank"
-						rel="noreferrer"
-					>
-						{overview.authorUsername}
-					</a>
-				</h5>
-			{:else}
-				<h5 class="skills">{$LL.SKILLS_YOU_WILL_LEARN()}</h5>
-				<div class="skill-labels-wrapper">
-					{#each overview.metadata.subjects as subs}
-						<Label size="x-small" color="neutral" hasBorder={false}>{subs}</Label>
-					{/each}
-				</div>
-			{/if}
+			<h5 class="skills">{$LL.SKILLS_YOU_WILL_LEARN()}</h5>
+			<div class="skill-labels-wrapper">
+				{#each overview.metadata.subjects as subs}
+					<Label size="x-small" color="neutral" hasBorder={false}>{subs}</Label>
+				{/each}
+			</div>
 		</div>
 	</div>
 </a>
@@ -128,6 +122,12 @@
 				flex-direction: row;
 				flex-wrap: wrap;
 				gap: var(--space-3);
+			}
+
+			.course-author-wrapper {
+				color: var(--clr-text-main);
+				margin-bottom: var(--space-3);
+				font-size: 0.82rem;
 			}
 		}
 	}
