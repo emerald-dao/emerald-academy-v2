@@ -5,7 +5,7 @@
 	import { locale, LL } from '$i18n/i18n-svelte';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 	import { fly } from 'svelte/transition';
-	import Icon from '@iconify/svelte';
+	import Author from '../atoms/Author.svelte';
 
 	export let overview: Overview;
 
@@ -46,20 +46,16 @@
 				</Label>
 			</div>
 			{#if overview.contentType !== ContentTypeEnum.Bootcamp && overview.contentType !== ContentTypeEnum.Roadmap}
-				<div class="course-author-wrapper">
-					<Icon icon="tabler:pencil" />
-					<span>{overview.author?.name}</span>
-					{#if overview.author?.isVerified}
-						<div class="tooltip-wrapper" data-tooltip="This author is from Emerald City">
-							<Icon
-								icon="material-symbols:verified-outline-rounded"
-								color="var(--clr-primary-main)"
-								width="14.5"
-								height="14.5"
-							/>
-						</div>
-					{/if}
-				</div>
+				{#if overview.author}
+					<div class="course-author-wrapper">
+						<Author
+							name={overview.author.name}
+							avatarUrl={overview.author.avatarUrl}
+							socialMediaUrl={overview.author.socialMediaUrl}
+							isVerified={overview.author.isVerified}
+						/>
+					</div>
+				{/if}
 			{/if}
 			<p>
 				{overview.excerpt}
@@ -129,16 +125,9 @@
 			}
 
 			.course-author-wrapper {
-				display: flex;
-				align-items: center;
-				gap: var(--space-1);
 				color: var(--clr-text-main);
 				margin-bottom: var(--space-3);
 				font-size: 0.82rem;
-				.tooltip-wrapper {
-					position: relative;
-					display: flex;
-				}
 			}
 		}
 	}
