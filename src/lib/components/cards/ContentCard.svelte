@@ -45,19 +45,18 @@
 					{overview.metadata.duration}
 				</Label>
 			</div>
-			{#if overview.contentType === ContentTypeEnum.Course}
+			{#if overview.contentType !== ContentTypeEnum.Bootcamp && overview.contentType !== ContentTypeEnum.Roadmap}
 				<div class="course-author-wrapper">
 					<Icon icon="tabler:pencil" />
 					<span>{overview.author?.name}</span>
 					{#if overview.author?.isVerified}
-						<div class="tooltip-wrapper">
+						<div class="tooltip-wrapper" data-tooltip="This author is from Emerald City">
 							<Icon
 								icon="material-symbols:verified-outline-rounded"
 								color="var(--clr-primary-main)"
 								width="14.5"
 								height="14.5"
 							/>
-							<span class="tooltip-text">This author is from Emerald City</span>
 						</div>
 					{/if}
 				</div>
@@ -67,31 +66,12 @@
 			</p>
 		</div>
 		<div>
-			{#if overview.contentType === ContentTypeEnum.Blog}
-				<!-- <img src={overview.image} alt="blog image" /> -->
-				<h5>
-					Author: <a href={overview.authorLink} target="_blank" rel="noreferrer"
-						>{overview.author}</a
-					>
-				</h5>
-			{:else if overview.contentType === ContentTypeEnum.Tweet}
-				<h5>
-					Author: <a
-						href={`https://twitter.com/${overview.authorUsername}`}
-						target="_blank"
-						rel="noreferrer"
-					>
-						{overview.authorUsername}
-					</a>
-				</h5>
-			{:else}
-				<h5 class="skills">{$LL.SKILLS_YOU_WILL_LEARN()}</h5>
-				<div class="skill-labels-wrapper">
-					{#each overview.metadata.subjects as subs}
-						<Label size="x-small" color="neutral" hasBorder={false}>{subs}</Label>
-					{/each}
-				</div>
-			{/if}
+			<h5 class="skills">{$LL.SKILLS_YOU_WILL_LEARN()}</h5>
+			<div class="skill-labels-wrapper">
+				{#each overview.metadata.subjects as subs}
+					<Label size="x-small" color="neutral" hasBorder={false}>{subs}</Label>
+				{/each}
+			</div>
 		</div>
 	</div>
 </a>
@@ -158,40 +138,6 @@
 				.tooltip-wrapper {
 					position: relative;
 					display: flex;
-
-					.tooltip-text {
-						visibility: hidden;
-						width: 160px;
-						background-color: #333;
-						color: #fff;
-						text-align: center;
-						border-radius: 6px;
-						padding: 5px 0;
-						font-size: 0.645rem;
-
-						/* Position the tooltip text */
-						position: absolute;
-						z-index: 1;
-						top: -10px;
-						left: 0%;
-						right: 100%;
-						margin-left: var(--space-5);
-
-						&::after {
-							content: '';
-							position: absolute;
-							top: 50%;
-							right: 100%;
-							margin-top: -5px;
-							border-width: 5px;
-							border-style: solid;
-							border-color: transparent #333 transparent transparent;
-						}
-					}
-
-					&:hover .tooltip-text {
-						visibility: visible;
-					}
 				}
 			}
 		}
