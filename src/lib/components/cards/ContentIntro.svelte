@@ -110,8 +110,21 @@
 				rel="noopener noreferrer"
 				class="header-link row-2 align-center"
 			>
-				<Icon icon="tabler:pencil" />
-				{overview.author?.name}
+				<div class="course-author-wrapper">
+					<Icon icon="tabler:pencil" />
+					<span>{overview.author?.name}</span>
+					{#if overview.author?.isVerified}
+						<div class="tooltip-wrapper">
+							<Icon
+								icon="material-symbols:verified-outline-rounded"
+								color="var(--clr-primary-main)"
+								width="14.5"
+								height="14.5"
+							/>
+							<span class="tooltip-text">This author is from Emerald City</span>
+						</div>
+					{/if}
+				</div>
 			</a>
 		{/if}
 		<div class="column-6">
@@ -202,6 +215,52 @@
 
 			p {
 				max-width: 50ch;
+			}
+		}
+
+		.course-author-wrapper {
+			display: flex;
+			align-items: center;
+			gap: var(--space-1);
+			color: var(--clr-text-main);
+			font-size: 0.82rem;
+			.tooltip-wrapper {
+				position: relative;
+				display: flex;
+
+				.tooltip-text {
+					visibility: hidden;
+					width: 160px;
+					background-color: #333;
+					color: #fff;
+					text-align: center;
+					border-radius: 6px;
+					padding: 5px 0;
+					font-size: 0.645rem;
+
+					/* Position the tooltip text */
+					position: absolute;
+					z-index: 1;
+					top: -10px;
+					left: 0%;
+					right: 100%;
+					margin-left: var(--space-5);
+
+					&::after {
+						content: '';
+						position: absolute;
+						top: 50%;
+						right: 100%;
+						margin-top: -5px;
+						border-width: 5px;
+						border-style: solid;
+						border-color: transparent #333 transparent transparent;
+					}
+				}
+
+				&:hover .tooltip-text {
+					visibility: visible;
+				}
 			}
 		}
 	}
