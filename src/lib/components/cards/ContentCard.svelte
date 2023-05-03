@@ -125,9 +125,7 @@
 			}
 
 			.course-author-wrapper {
-				color: var(--clr-text-main);
 				margin-bottom: var(--space-3);
-				font-size: 0.82rem;
 			}
 		}
 	}

@@ -25,7 +25,7 @@
 				<p>{name} ↗</p>
 			</a>
 			{#if isVerified}
-				<div data-tooltip="This author is from Emerald City">
+				<div class="verified-wrapper" data-tooltip="This author is from Emerald City">
 					<Icon icon="material-symbols:verified-outline-rounded" color="var(--clr-primary-main)" />
 				</div>
 			{/if}
@@ -46,10 +46,18 @@
 
 		.column {
 			line-height: 100%;
-		}
+			.author-word {
+				color: var(--clr-text-off);
+			}
 
-		.author-word {
-			color: var(--clr-text-off);
+			p {
+				font-size: 0.82rem;
+				margin-bottom: 0px;
+			}
+
+			.verified-wrapper {
+				color: var(--clr-text-main);
+			}
 		}
 	}
 </style>

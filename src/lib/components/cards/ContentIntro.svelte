@@ -105,14 +105,12 @@
 			{/if}
 		</div>
 		{#if overview.author}
-			<div class="course-author-wrapper">
-				<Author
-					name={overview.author.name}
-					avatarUrl={overview.author.avatarUrl}
-					socialMediaUrl={overview.author.socialMediaUrl}
-					isVerified={overview.author.isVerified}
-				/>
-			</div>
+			<Author
+				name={overview.author.name}
+				avatarUrl={overview.author.avatarUrl}
+				socialMediaUrl={overview.author.socialMediaUrl}
+				isVerified={overview.author.isVerified}
+			/>
 		{/if}
 		<div class="column-6">
 			<div class="metadata-labels">
@@ -203,11 +201,6 @@
 			p {
 				max-width: 50ch;
 			}
-		}
-
-		.course-author-wrapper {
-			color: var(--clr-text-main);
-			font-size: 0.82rem;
 		}
 	}
 </style>
