@@ -123,13 +123,13 @@
 						class={`header-link row-2 align-center`}
 					>
 						<Icon icon="tabler:zoom-question" />
-						<p class="w-small">Quiz</p>
+						<p class="w-small no-margin">Quiz</p>
 					</a>
 				{/if}
 				{#if questsExist}
 					<a href="#quests" class={`header-link row-2 align-center`}>
 						<Icon icon="tabler:diamond" />
-						<p class="w-small">Quests</p>
+						<p class="w-small no-margin">Quests</p>
 					</a>
 				{/if}
 			</div>
@@ -142,6 +142,9 @@
 </div>
 
 <style lang="scss">
+	.no-margin {
+		margin: 0px;
+	}
 	a {
 		color: var(--clr-heading-main);
 	}
