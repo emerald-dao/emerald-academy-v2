@@ -1,0 +1,16 @@
+# robots.txt file for Emerald Academy
+
+User-agent: *
+Disallow: /*/achievements
+Disallow: /*/catalog/courses/*/*/*
+Allow: /*
+Allow: /*/catalog
+Allow: /*/cadence-by-example
+Allow: /*/resources
+Allow: /*/quickstarts
+Allow: /*/catalog/*
+Allow: /*/catalog/courses/*
+Allow: /*/catalog/roadmaps/*
+Allow: /*/catalog/bootcamps/*
+
+# In the near future, the Sitemap will be available here
