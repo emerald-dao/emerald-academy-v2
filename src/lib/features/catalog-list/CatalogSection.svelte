@@ -28,12 +28,9 @@
 		filters = createFilters(activeFilters);
 	});
 
-	$: filteredContent =
-		filters.length > 0 ? filterContent(filters, contentList, activeFilters) : contentList;
-
 	$: searchCadence = contentList.map((example) => ({
 		...example,
-		searchTerms: `${example.title}`
+		searchTerms: `${example.title} ${example.author?.name}`
 	}));
 
 	$: searchStore = createSearchStore(searchCadence);
@@ -43,6 +40,18 @@
 	onDestroy(() => {
 		unsubscribe();
 	});
+
+	let filteredContent: Promise<Overview[]> | Overview[];
+
+	$: if (filters.length > 0 && $searchStore.search.length > 0) {
+		filteredContent = filterContent(filters, $searchStore.filtered, activeFilters);
+	} else if (filters.length > 0) {
+		filteredContent = filterContent(filters, contentList, activeFilters);
+	} else if ($searchStore.search.length > 0) {
+		filteredContent = $searchStore.filtered;
+	} else {
+		filteredContent = contentList;
+	}
 </script>
 
 <section>
@@ -53,19 +62,19 @@
 				<div>
 					<h5>{$LL.SEARCH()}</h5>
 					<InputWrapper name="search" errors={[]} isValid={false} icon="tabler:search">
-						<input type="text" placeholder="Search..." bind:value={$searchStore.search} />
+						<input
+							type="text"
+							placeholder="Search by title or author..."
+							bind:value={$searchStore.search}
+						/>
 					</InputWrapper>
 				</div>
 				<Filters bind:filters />
 			</div>
 			<div class="main">
 				{#await filteredContent then contents}
-					{#if contents.length > 0 && $searchStore.search.length <= 0}
+					{#if contents.length > 0}
 						{#each contents as content}
-							<ContentCard overview={content} />
-						{/each}
-					{:else if $searchStore.filtered.length > 0 && contents.length > 0}
-						{#each $searchStore.filtered as content}
 							<ContentCard overview={content} />
 						{/each}
 					{:else}
