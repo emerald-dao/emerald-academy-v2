@@ -6,7 +6,9 @@
 	import { filterContent } from './functions/filterContent';
 	import { createFilters } from './functions/filters';
 	import type { Filter } from '$lib/types/content/filters/filter.interface';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
+	import { InputWrapper } from '@emerald-dao/component-library';
+	import { createSearchStore, searchHandler } from '$stores/searchBar';
 
 	export let contentList: Overview[];
 	export let title: string = 'All contents';
@@ -28,17 +30,42 @@
 
 	$: filteredContent =
 		filters.length > 0 ? filterContent(filters, contentList, activeFilters) : contentList;
+
+	$: searchCadence = contentList.map((example) => ({
+		...example,
+		searchTerms: `${example.title}`
+	}));
+
+	$: searchStore = createSearchStore(searchCadence);
+
+	$: unsubscribe = searchStore.subscribe((model) => searchHandler(model));
+
+	onDestroy(() => {
+		unsubscribe();
+	});
 </script>
 
 <section>
 	<div class="container">
 		<h3>{title}</h3>
 		<div class="content-wrapper">
-			<div class="sidebar"><Filters bind:filters /></div>
+			<div class="sidebar">
+				<div>
+					<h5>{$LL.SEARCH()}</h5>
+					<InputWrapper name="search" errors={[]} isValid={false} icon="tabler:search">
+						<input type="text" placeholder="Search..." bind:value={$searchStore.search} />
+					</InputWrapper>
+				</div>
+				<Filters bind:filters />
+			</div>
 			<div class="main">
 				{#await filteredContent then contents}
-					{#if contents.length > 0}
+					{#if contents.length > 0 && $searchStore.search.length <= 0}
 						{#each contents as content}
+							<ContentCard overview={content} />
+						{/each}
+					{:else if $searchStore.filtered.length > 0 && contents.length > 0}
+						{#each $searchStore.filtered as content}
 							<ContentCard overview={content} />
 						{/each}
 					{:else}
@@ -83,6 +110,11 @@
 					border-right: 1px var(--clr-neutral-badge) solid;
 					position: sticky;
 					top: 110px;
+				}
+				h5 {
+					font-size: var(--font-size-4);
+					margin-bottom: var(--space-2);
+					margin-top: 0;
 				}
 			}
 
