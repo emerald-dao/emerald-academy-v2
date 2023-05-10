@@ -46,6 +46,6 @@ pub fun main() {
    // use the force-unwrap operator `!` to get rid of the optional
    let test_four: Int = map[0x01]! // 1
 
-   let test_five: Int = map[0x05]! // compiles, but run time error: cannot cast nil to Int
+   let test_five: Int = map[0x05]! // run-time error: cannot cast nil to Int
 }
 ```

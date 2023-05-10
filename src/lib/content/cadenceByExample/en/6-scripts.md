@@ -17,7 +17,7 @@ pub fun main() {
 }
 ```
 
-## Example Contract & Script
+# Example Contract & Script
 
 ```cadence
 // Contract file: Counter.cdc
@@ -27,6 +27,10 @@ pub contract Counter {
 
    pub fun increment() {
       self.count = self.count + 1
+   }
+
+   init() {
+      self.count = 0
    }
 }
 ```
