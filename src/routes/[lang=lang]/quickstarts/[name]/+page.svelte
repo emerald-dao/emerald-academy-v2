@@ -23,7 +23,6 @@
 <section class="container-medium">
 	<div class="main-wrapper">
 		<Breadcrumbs {routes} />
-		<div class="template">&lt/&gt Quickstart</div>
 		<ContentIntro overview={data.overview} showBreadcrumbs={false} />
 		<article>
 			<div class="readme-wrapper">
