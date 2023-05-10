@@ -50,13 +50,13 @@
 					<Icon icon="tabler:chevron-down" />
 				</div>
 			{:else if typeOfcontent === ContentTypeEnum.Bootcamp}
-				{#if data.link}
+				{#if daysOfDifference(new Date(), data.date) < 0 && data.link}
 					<span class="small w-medium">Finished</span>
 					<Button target="_blank" href={`${data.link}`} size="small">
 						<Icon icon="bi:camera-video" color="var(--clr-heading-inverse)" />
 						View Video
 					</Button>
-				{:else if daysOfDifference(new Date(), data.date) < 0}
+				{:else if daysOfDifference(new Date(), data.date) < 0 && !data.link}
 					<span class="small w-medium">Video available soon</span>
 					<Button state="disabled" size="small">
 						<Icon icon="bi:camera-video" color="var(--clr-heading-inverse)" />
