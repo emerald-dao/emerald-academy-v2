@@ -34,9 +34,9 @@ const en: BaseTranslation = {
 	// ContentCard
 	SKILLS_YOU_WILL_LEARN: "Skills you'll learn",
 
-	START: "Start",
-	CATALOG: "Catalog",
-	LEARN: "Learn",
+	START: 'Start',
+	CATALOG: 'Catalog',
+	LEARN: 'Learn',
 	NEW_TO: 'New to',
 	START_HERE: 'Start here',
 
@@ -44,7 +44,7 @@ const en: BaseTranslation = {
 	[ContentTypeEnum.Course]: 'Course',
 	[ContentTypeEnum.Bootcamp]: 'Bootcamp',
 	[ContentTypeEnum.Roadmap]: 'Roadmap',
-	[ContentTypeEnum.Quickstart]: 'Quickstart',
+	[ContentTypeEnum.Quickstart]: 'Quickstarts',
 	[ContentTypeEnum.Resources]: 'Resources',
 	[ContentTypeEnum.Blog]: 'Blog',
 	[ContentTypeEnum.Tweet]: 'Tweet',

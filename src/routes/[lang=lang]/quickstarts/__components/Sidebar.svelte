@@ -67,7 +67,7 @@
 		border-top: var(--border-width-primary) var(--clr-border-primary) solid;
 		padding-top: var(--space-5);
 
-		@include mq(small) {
+		@include mq(medium) {
 			border-top: none;
 			border-left: var(--border-width-primary) var(--clr-border-primary) solid;
 			height: fit-content;

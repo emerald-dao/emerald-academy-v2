@@ -12,11 +12,13 @@
 	$: courseContents = Object.values(data.course.contents);
 </script>
 
-<ContentIntro overview={data.course.overview} showBreadcrumbs={true} stars={data.stars}>
-	<Button size="large" width="extended" href={`/${courseContents[0].contents[0].slug}`}>
-		{$LL.START()}<Icon icon="tabler:arrow-right" />
-	</Button>
-</ContentIntro>
+<section class="container-small">
+	<ContentIntro overview={data.course.overview} showBreadcrumbs={true} stars={data.stars}>
+		<Button size="large" width="extended" href={`/${courseContents[0].contents[0].slug}`}>
+			{$LL.START()}<Icon icon="tabler:arrow-right" />
+		</Button>
+	</ContentIntro>
+</section>
 <ContentsAccordionSection overview={data.course.overview} contents={data.course.contents} />
 {#if data.course.overview.metadata.faqs}
 	<FaqsSection faqs={data.course.overview.metadata.faqs} />

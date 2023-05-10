@@ -8,7 +8,7 @@
 </script>
 
 <section class="container">
-	<h1 class="w-medium heading">{$LL[ContentTypeEnum.Quickstart]()}s</h1>
+	<h1 class="w-medium heading">{$LL[ContentTypeEnum.Quickstart]()}</h1>
 	<div class="templates-wrapper">
 		{#if data.quickstarts.length > 0}
 			{#each data.quickstarts as quickstartData}
