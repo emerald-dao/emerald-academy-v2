@@ -22,8 +22,10 @@
 
 <section class="container-medium">
 	<div class="main-wrapper">
-		<Breadcrumbs {routes} />
-		<ContentIntro overview={data.overview} showBreadcrumbs={false} />
+		<div class="title-wrapper">
+			<Breadcrumbs {routes} />
+			<ContentIntro overview={data.overview} showBreadcrumbs={false} />
+		</div>
 		<article>
 			<div class="readme-wrapper">
 				<svelte:component this={data.readme} />
@@ -43,6 +45,12 @@
 			display: grid;
 			grid-template-columns: 1fr 2fr !important;
 			gap: var(--space-10);
+		}
+
+		.title-wrapper {
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-8);
 		}
 
 		.main-wrapper {
