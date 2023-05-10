@@ -4,6 +4,7 @@
 	import { page } from '$app/stores';
 	import LL from '$i18n/i18n-svelte';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+	import ContentIntro from '$lib/components/cards/ContentIntro.svelte';
 
 	export let data;
 
@@ -23,9 +24,8 @@
 	<div class="main-wrapper">
 		<Breadcrumbs {routes} />
 		<div class="template">&lt/&gt Quickstart</div>
+		<ContentIntro overview={data.overview} showBreadcrumbs={false} />
 		<article>
-			<h1 class="heading w-medium">{data.overview.title}</h1>
-			<p class="w-medium">{data.overview.description}</p>
 			<div class="readme-wrapper">
 				<svelte:component this={data.readme} />
 			</div>
@@ -55,11 +55,12 @@
 				border-radius: var(--radius-2);
 				padding: var(--space-3) var(--space-4);
 				margin-top: var(--space-6);
+				margin-bottom: var(--space-6);
 				font-size: var(--font-size-1);
 			}
 
 			article {
-				margin-top: var(--space-6);
+				margin-top: var(--space-9);
 				max-width: 85ch;
 
 				.readme-wrapper {
