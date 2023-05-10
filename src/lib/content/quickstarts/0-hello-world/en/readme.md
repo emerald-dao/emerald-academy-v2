@@ -2,6 +2,11 @@
 layout: examples
 ---
 
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+  const lessonVideoUrl = 'https://www.youtube.com/embed/4HiXSGES8_o'
+</script>
+
 # 💎 Emerald Academy
 
 ## 🚩 Challenge 0: Hello World
@@ -16,13 +21,10 @@ layout: examples
 
 💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emeraldcity)!
 
----
-
 # Video Walkthrough
 
-Want a video walkthrough? Check out Jacob Tucker's walkthrough here: [![Challenge #0 (Hello World) Walkthrough](https://i.imgur.com/mlDKsL6.jpg)](https://www.youtube.com/watch?v=4HiXSGES8_o 'Emerald Academy - Challenge #0 (Hello World) Walkthrough')
-
----
+Want a video walkthrough? Check out Jacob Tucker's walkthrough here: 
+<LessonVideo {lessonVideoUrl} />
 
 # 📦 Checkpoint 0: Install
 
@@ -65,23 +67,17 @@ flow dev-wallet
 
 📱 Open http://localhost:3000 to see the app
 
----
-
 # 👛 Checkpoint 1: Wallets
 
 We'll be using **the local Flow dev wallet**.
 
 > Click the "Log In" button and notice a window appears with different accounts to select, each with their own Flow Token balance. Select the first account to log in to it.
 
----
-
 # 📘 Checkpoint 2: Reading the Greeting
 
 > 👀 Click the `Get Greeting` button to see your greeting:
 
 <img src="https://i.imgur.com/PsK32ap.png" alt="get greeting" />
-
----
 
 # ✏️ Checkpoint 3: Changing the Greeting
 
@@ -92,8 +88,6 @@ We'll be using **the local Flow dev wallet**.
 > 👀 Click "APPROVE" and then click the `Get Greeting` button again. You should now see your new greeting:
 
 <img src="https://i.imgur.com/cOW1PXB.png" alt="new greeting" />
-
----
 
 # 💾 Checkpoint 4: Deploy it to testnet!
 
@@ -162,8 +156,6 @@ You can now terminate all your terminals since we no longer need to run our own 
 
 > Run `npm run dev` to start your application in a terminal, and have a blast with your DApp!
 
----
-
 # 📝 Make Edits!
 
 🔏 You can also check out your smart contract `HelloWorld.cdc` in `flow/cadence/HelloWorld.cdc`.
@@ -174,7 +166,7 @@ You can now terminate all your terminals since we no longer need to run our own 
 
 # ⚔️ Side Quests
 
-> 🏃 Head to your next challenge [here](https://academy.ecdao.org/challenges/non-fungible-token).
+> 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstars/1-non-fungible-token).
 
 > 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
 

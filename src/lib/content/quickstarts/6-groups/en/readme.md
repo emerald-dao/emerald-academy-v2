@@ -15,8 +15,6 @@ layout: examples
 
 💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emeraldcity)!
 
----
-
 # 📦 Checkpoint 0: Install
 
 Required: 
@@ -57,15 +55,11 @@ flow dev-wallet
 
 📱 Open http://localhost:3000 to see the app
 
----
-
 # 👛 Checkpoint 1: Wallets
 
 We'll be using **the local Flow dev wallet**.
 
 > Click the "Log In" button and notice a window appears with different accounts to select, each with their own Flow Token balance. Select the first account to log in to it.
-
----
 
 # 🔖 Checkpoint 2: Viewing a Group
 
@@ -105,8 +99,6 @@ Now that we joined the group, we can start to use the forum!
 
 Your message has been added to the community forum, stored completely on-chain!
 
----
-
 # 👀 Checkpoint 5: Creating a Group
 
 To create a group, head back to the main page and click "Create Group". Once you are there, you must fill in:
@@ -129,8 +121,6 @@ A popup will appear to create your new proposal. This is a transaction that will
 After clicking "Approve", you will be taken back to the main dashboard. You should now see your group:
 
 <img src="" alt="see your new group" width="400" />
-
----
 
 # 💾 Checkpoint 6: Deploy it to testnet!
 
@@ -203,8 +193,6 @@ Let's try out our application on testnet:
 3. Join the Emerald City group by running the associated transaction. Wait ~30 seconds and then refresh the page. You should now be in the group.
 4. Create a new group, same as before.
 5. Chat in any group of your wish.
-
----
 
 # Storing Image Assets
 
