@@ -12,7 +12,8 @@ export const overview: CourseOverview = {
 		name: 'Arun Nadarasa',
 		socialMediaUrl: 'https://twitter.com/krumpverse',
 		avatarUrl: 'https://www.linkpicture.com/q/Arun_Avatar4_4.png',
-		isVerified: false
+		isVerified: false,
+		walletAddress: '0x63eb2498e9e28565'
 	},
 	metadata: {
 		expertise: ExpertiseEnum.Beginner,

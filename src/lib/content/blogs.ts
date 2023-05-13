@@ -11,7 +11,8 @@ export const blogs: BlogOverview[] = [
 			name: 'Amethyst',
 			socialMediaUrl: 'https://twitter.com/AmethystCodes',
 			avatarUrl: 'https://pbs.twimg.com/profile_images/1533718381425197062/qVzq1q2z_400x400.jpg',
-			isVerified: true
+			isVerified: true,
+			walletAddress: '0x1ab55f0b6fda6ba9'
 		},
 		excerpt: 'Covers the basics of the Flow Playground, how to deploy a contract and how to interact with deployed contracts using transactions and scripts.',
 		link: 'https://amethystcodes.hashnode.dev/flow-playground-getting-started',
@@ -30,7 +31,8 @@ export const blogs: BlogOverview[] = [
 			name: 'RMT Books',
 			socialMediaUrl: 'https://twitter.com/books_rmt',
 			avatarUrl: 'https://pbs.twimg.com/profile_images/1631577606825861121/D7NOiQWx_400x400.jpg',
-			isVerified: true
+			isVerified: true,
+			walletAddress: '0xc67642a8dd697e51'
 		},
 		excerpt: 'The article discusses the difference between wallets and account addresses in the context of digital asset storage and exchange, and explains the concept of custodial and non-custodial accounts, with a focus on the Flow blockchain, including how to create both types of assets, and how collectors and developers use account addresses for different purposes.',
 		link: 'https://www.rmtbooks.com/post/custodial-vs-non-custodial-wallets-on-flow',

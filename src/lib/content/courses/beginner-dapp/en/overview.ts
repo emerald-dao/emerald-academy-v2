@@ -12,7 +12,8 @@ export const overview: CourseOverview = {
 		name: 'Jacob Tucker',
 		socialMediaUrl: 'https://twitter.com/jacobmtucker',
 		avatarUrl: 'https://avatars.githubusercontent.com/u/15198786?v=4',
-		isVerified: true
+		isVerified: true,
+		walletAddress: '0x99bd48c8036e2876'
 	},
 	metadata: {
 		expertise: ExpertiseEnum.Beginner,

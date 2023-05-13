@@ -10,7 +10,8 @@ export const tweets: TweetOverview[] = [
 			name: 'Jacob Tucker',
 			socialMediaUrl: 'https://twitter.com/jacobmtucker',
 			avatarUrl: 'https://pbs.twimg.com/profile_images/1529533498847109128/td04l9Ra_400x400.jpg',
-			isVerified: true
+			isVerified: true,
+			walletAddress: '0x99bd48c8036e2876'
 		},
 		excerpt: 'Overviews an upcoming feature to the Cadence language: Attachments! Learn how to attach composable additions to resources on Flow.',
 		link: 'https://twitter.com/jacobmtucker/status/1641218434343026695',

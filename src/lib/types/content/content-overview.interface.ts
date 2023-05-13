@@ -30,4 +30,5 @@ export interface Author {
 	socialMediaUrl: string;
 	avatarUrl?: string;
 	isVerified: boolean;
+	walletAddress?: string;
 }
