@@ -1,10 +1,13 @@
 <script type="ts">
 	import Icon from '@iconify/svelte';
+	import Tip from './Tip.svelte';
 
 	export let name: string;
 	export let avatarUrl: string | undefined;
 	export let socialMediaUrl: string;
 	export let isVerified: boolean;
+	export let walletAddress: string | undefined;
+	export let tip: boolean = true;
 </script>
 
 <div class="row-2">
@@ -22,10 +25,13 @@
 				rel="noopener noreferrer"
 				class="header-link row-2 align-center"
 			>
-				<p>{name} ↗</p>
+				<p>{name}</p>
 			</a>
+			{#if tip && walletAddress}
+				<Tip {name} {walletAddress} />
+			{/if}
 			{#if isVerified}
-				<div class="verified-wrapper" data-tooltip="This author is from Emerald City">
+				<div data-tooltip="This author is from Emerald City">
 					<Icon icon="material-symbols:verified-outline-rounded" color="var(--clr-primary-main)" />
 				</div>
 			{/if}
@@ -53,10 +59,6 @@
 			p {
 				font-size: 0.82rem;
 				margin-bottom: 0px;
-			}
-
-			.verified-wrapper {
-				color: var(--clr-text-main);
 			}
 		}
 	}
