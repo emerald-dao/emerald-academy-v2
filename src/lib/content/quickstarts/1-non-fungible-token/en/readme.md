@@ -7,8 +7,6 @@ layout: examples
   const lessonVideoUrl = 'https://www.youtube.com/embed/MYEON2T7z9c'
 </script>
 
-# 💎 Emerald Academy
-
 ## 🚩 Challenge 1: NonFungibleToken
 
 🎫 Deploy your own NFT contract to learn the basics of the Flow blockchain and Cadence. You'll use:

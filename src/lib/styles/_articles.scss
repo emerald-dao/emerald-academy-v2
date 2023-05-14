@@ -77,4 +77,8 @@ article {
 	img {
 		margin-block: var(--space-4) var(--space-8);
 	}
+
+	iframe {
+		max-width: 700px;
+	}
 }

@@ -54,32 +54,9 @@
 		}
 
 		.main-wrapper {
-			.template {
-				width: fit-content;
-				color: var(--clr-primary-main);
-				background-color: var(--clr-primary-badge);
-				border: var(--border-width-primary) var(--clr-primary-main) solid;
-				border-radius: var(--radius-2);
-				padding: var(--space-3) var(--space-4);
-				margin-top: var(--space-6);
-				margin-bottom: var(--space-6);
-				font-size: var(--font-size-1);
-			}
-
 			article {
 				margin-top: var(--space-9);
 				max-width: 85ch;
-
-				.readme-wrapper {
-					border: var(--border-width-primary) var(--clr-border-primary) solid;
-					border-radius: var(--space-5);
-					padding: var(--space-5);
-					word-break: break-word;
-
-					@include mq(medium) {
-						padding: var(--space-10);
-					}
-				}
 			}
 		}
 	}

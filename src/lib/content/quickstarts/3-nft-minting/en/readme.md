@@ -2,8 +2,6 @@
 layout: examples
 ---
 
-# 💎 Emerald Academy
-
 ## 🚩 Challenge 3: NFT Minting
 
 🎫 Setup your own NFT collection and minting site while learning the basics of the Flow blockchain and Cadence. You'll use:
