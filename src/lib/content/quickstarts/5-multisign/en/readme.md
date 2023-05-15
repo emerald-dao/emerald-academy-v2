@@ -2,8 +2,6 @@
 layout: examples
 ---
 
-# 💎 Emerald Academy
-
 ## 🚩 Challenge 5: Multisign
 
 🎫 Deploy a Multisign contract to learn the basics of multisigning withdraws and deposits to a DAO Treasury on the Flow blockchain and Cadence. You'll use:
