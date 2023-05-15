@@ -73,7 +73,7 @@ transaction(rarity: String, name: String) {
 ```
 
 ```cadence
-// Transaction file: read_nft.cdc
+// Script file: read_nft.cdc
 import Test from 0x01
 
 pub fun main(owner: Address): NFTData {
