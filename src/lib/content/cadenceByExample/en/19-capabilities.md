@@ -86,7 +86,10 @@ pub fun main(owner: Address): NFTData {
    let nftRef: &Test.NFT{Test.INFT} = nftCapability.borrow() ?? panic("Not a valid NFT capability.")
 
    /*
-    INVALID: `changeName` is not accessible on the restricted type
+    INVALID: `changeName` is not accessible on the restricted type.
+    NOTE: Calling changeName in this script wouldn't do anything
+    because scripts don't modify data. But you can imagine
+    allowing this to be called in a transaction would be a problem.
    
     nftRef.changeName(newName: "Jacob")
    */
