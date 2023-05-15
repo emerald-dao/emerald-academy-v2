@@ -8,7 +8,7 @@
 	$: routes = [
 		{
 			path: `/${$page.params.lang}/cadence-by-example`,
-			label: 'Cadence by example'
+			label: 'Cadence by Example'
 		},
 		{
 			path: `/${$page.params.lang}/cadence-by-example/${data.slug}`,

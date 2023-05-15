@@ -28,7 +28,7 @@
 			prefetch: true
 		},
 		{
-			name: 'Cadence By Example',
+			name: 'Cadence by Example',
 			url: `/${$locale}/cadence-by-example`,
 			prefetch: true
 		},

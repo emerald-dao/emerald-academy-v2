@@ -70,8 +70,19 @@ transaction(name: String, favNumber: Int) {
    }
 
    execute {
-      let newProfile = Test.Profile(name: name, address: self.SignerAddress, favNumber: favNumber)
+      // the type is `Test.Profile`
+      let newProfile: Test.Profile = Test.Profile(name: name, address: self.SignerAddress, favNumber: favNumber)
       Test.addProfile(profile: newProfile)
    }
+}
+```
+
+```cadence
+// Script file: read_profile.cdc
+import Test from 0x01
+
+pub fun main(address: Address): String {
+   let profile: Test.Profile? = Test.getProfile(address: address)
+   return profile!.getIntroduction()
 }
 ```
