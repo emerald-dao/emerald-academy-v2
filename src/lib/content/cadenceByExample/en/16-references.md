@@ -82,7 +82,7 @@ import Test from 0x01
 pub fun main(id: UInt64): NFTData {
    let nftRef: &Test.NFT = Test.getNFTRef(id: id) 
                ?? panic("This NFT does not exist.") // unwrap the optional with a `panic`
-   return NFTData(id: nftRef.id, rarity: nftRef.rarity, name: nftRef.name)
+   return NFTData(nftRef.id, nftRef.rarity, nftRef.name)
 }
 
 pub struct NFTData {
@@ -90,10 +90,10 @@ pub struct NFTData {
    pub let rarity: String
    pub let name: String
 
-   init(id: UInt64, rarity: String, name: String) {
-      self.id = id
-      self.rarity = rarity
-      self.name = name
+   init(_ i: UInt64, _ r: String, _ n: String) {
+      self.id = i
+      self.rarity = r
+      self.name = n
    }
 }
 ```
