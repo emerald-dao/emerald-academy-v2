@@ -39,7 +39,7 @@ pub contract Test {
       }
    }
 
-   pub fun createNFT(rarity: String, name: String): @NFT {
+   pub fun createNFT(rarity: String, name: String) {
       let nft <- create NFT(rarity: rarity, name: name)
       self.nfts[nft.id] <-! nft
    }

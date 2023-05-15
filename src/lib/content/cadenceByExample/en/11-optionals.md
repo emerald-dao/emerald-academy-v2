@@ -18,9 +18,17 @@ pub fun main() {
    
    let test_two: Int? = nil // valid
 
-   let test_three: Int? = "gg" // compile error: a string is not an integer or nil
+   /*
+    compile error: a string is not an integer or nil
+   
+    let test_three: Int? = "gg"
+   */
 
-   let test_four: Int = nil // compile error: nil is not an integer
+   /*
+    compile error: nil is not an integer
+
+    let test_four: Int = nil
+   */
 }
 ```
 
@@ -41,11 +49,19 @@ pub fun main() {
    
    let test_two: Int? = map[0x05] // nil (because nothing was there)
 
-   let test_three: Int = map[0x01] // compile error: we get an optional back, but trying to cast to Int
+   /*
+    compile error: we get an optional back, but trying to cast to Int
+   
+    let test_three: Int = map[0x01]
+   */
 
    // use the force-unwrap operator `!` to get rid of the optional
    let test_four: Int = map[0x01]! // 1
 
-   let test_five: Int = map[0x05]! // run-time error: cannot cast nil to Int
+   /*
+    run-time error: cannot cast nil to Int
+   
+    let test_five: Int = map[0x05]!
+   */
 }
 ```

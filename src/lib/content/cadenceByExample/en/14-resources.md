@@ -72,8 +72,11 @@ transaction(rarity: String, name: String) {
      // or we will get a `loss of resource` error
      destroy nft
 
-     // `nft` no longer exists here
-     log(nft.name) // ERROR
+     /*
+      ERROR: `nft` no longer exists here
+     
+      log(nft.name)
+     */
    }
 }
 ```

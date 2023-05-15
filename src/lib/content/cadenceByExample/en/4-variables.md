@@ -21,7 +21,12 @@ pub contract Variables {
       self.number1 = 2 // good
 
       self.number2 = 1
-      self.number2 = 2 // not allowed
+
+      /*
+       ERROR: not allowed
+       
+       self.number2 = 2
+      */
    }
 }
 ```
