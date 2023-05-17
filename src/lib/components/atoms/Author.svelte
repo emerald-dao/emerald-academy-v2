@@ -28,7 +28,9 @@
 				<p>{name}</p>
 			</a>
 			{#if tip && walletAddress}
-				<Tip authorName={name} {walletAddress} authorAvatar={avatarUrl} />
+				<div data-tooltip="Tip this author">
+					<Icon icon="material-symbols:attach-money" color="var(--clr-primary-main)" />
+				</div>
 			{/if}
 			{#if isVerified}
 				<div data-tooltip="This author is from Emerald City">
