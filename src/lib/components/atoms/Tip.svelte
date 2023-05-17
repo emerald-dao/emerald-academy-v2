@@ -3,5 +3,5 @@
 
 	export let walletAddress: string;
 	export let authorName: string;
-	export let authorAvatar: string;
+	export let authorAvatar: string | undefined;
 </script>
