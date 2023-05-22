@@ -68,7 +68,7 @@
 	{network}
 	avatarDropDownNavigation={avatarDropdownNav}
 	logoHref={`/${$locale}/`}
-	logoUrl="/EA_Iso.svg"
+	logoUrl="/ea-logo.png"
 	logoText="Emerald Academy"
 	width={headerWidth}
 >
@@ -77,7 +77,7 @@
 <main>
 	<slot />
 </main>
-<Footer {navElements} logoHref={`/${$locale}/`} logoUrl="/EA_Iso.svg" logoText="Emerald Academy" />
+<Footer {navElements} logoHref={`/${$locale}/`} logoUrl="/ea-logo.png" logoText="Emerald Academy" />
 
 <svelte:head>
 	<HeadHrefLangs />
