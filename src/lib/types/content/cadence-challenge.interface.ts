@@ -1,5 +1,6 @@
 import type { ContentTypeEnum } from './metadata/content-types.enum';
 import type { Author } from './content-overview.interface';
+import type { SubjectsEnum } from './metadata/subject.enum';
 
 export interface CadenceChallenge {
 	title: string;
@@ -13,4 +14,5 @@ export interface CadenceChallenge {
 		author: Author;
 		answerDescription?: string;
 	};
+	subjects: SubjectsEnum[];
 }
