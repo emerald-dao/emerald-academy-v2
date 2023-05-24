@@ -8,27 +8,13 @@
 <section class="container">
 	<h1 class="w-medium heading">{$LL.CHALLENGE_TITLE()}</h1>
 	<div class="status-wrapper">
-		<h2>{$LL.CHALLENGES_UNSOLVED()}</h2>
 		<div class="challenges-wrapper">
-			{#if data.challenges.length === 0}
-				{$LL.NO_CHALLENGES_AVAILABLE()}
-			{:else}
-				{#each data.challenges.filter((challenge) => !challenge.solved) as challenge}
-					<ChallengeCard {challenge} />
-				{/each}
-			{/if}
-		</div>
-	</div>
-	<div class="status-wrapper">
-		<h2>{$LL.CHALLENGES_SOLVED()}</h2>
-		<div class="challenges-wrapper">
-			{#if data.challenges.length === 0}
-				{$LL.NO_CHALLENGES_AVAILABLE()}
-			{:else}
-				{#each data.challenges.filter((challenge) => challenge.solved) as challenge}
-					<ChallengeCard {challenge} />
-				{/each}
-			{/if}
+			{#each data.challenges.filter((challenge) => !challenge.solved) as challenge}
+				<ChallengeCard {challenge} />
+			{/each}
+			{#each data.challenges.filter((challenge) => challenge.solved) as challenge}
+				<ChallengeCard {challenge} />
+			{/each}
 		</div>
 	</div>
 </section>
@@ -37,7 +23,7 @@
 	.container {
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-15);
+		gap: var(--space-5);
 		.status-wrapper {
 			display: flex;
 			flex-direction: column;
