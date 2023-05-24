@@ -34,8 +34,8 @@ const es: Translation = {
 	// ContentCard
 	SKILLS_YOU_WILL_LEARN: 'Habilidades que aprenderás',
 
-	START: "Comenzar",
-	CATALOG: "Catalogar",
+	START: 'Comenzar',
+	CATALOG: 'Catalogar',
 	LEARN: 'Aprender',
 	NEW_TO: 'Nuevo en',
 	START_HERE: 'Empieza aqui',
@@ -49,7 +49,7 @@ const es: Translation = {
 	[ContentTypeEnum.Blog]: 'Blog',
 	[ContentTypeEnum.Tweet]: 'Tweet',
 	[ContentTypeEnum.Tutorial]: 'Tutorial',
-
+	[ContentTypeEnum.Challenge]: 'Desafíos',
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',
 	[SubjectsEnum.Web]: 'Desarrollo Web',
@@ -64,7 +64,13 @@ const es: Translation = {
 	[ExpertiseEnum.Beginner]: 'Principiante',
 
 	// Quickstarts
-	NO_QUICKSTARTS_FOUND: 'No se encontraron plantillas para este lenguaje'
+	NO_QUICKSTARTS_FOUND: 'No se encontraron plantillas para este lenguaje',
+
+	// Challenge
+	CHALLENGE_TITLE: 'Desafíos',
+	CHALLENGES_SOLVED: 'Desafíos resueltos',
+	CHALLENGES_UNSOLVED: 'Desafíos sin resolver',
+	NO_CHALLENGES_AVAILABLE: 'No hay desafíos disponibles para este lenguaje'
 };
 
 export default es;
