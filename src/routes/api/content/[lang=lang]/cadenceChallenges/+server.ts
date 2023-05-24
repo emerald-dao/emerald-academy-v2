@@ -7,7 +7,7 @@ export const GET = async ({ params }) => {
 	const locale = params.lang as Locales;
 
 	try {
-		const allChallenges = await fetchOverviews(ContentTypeEnum.Challenge, locale);
+		const allChallenges = await fetchOverviews(ContentTypeEnum.Challenge, undefined);
 
 		return json(allChallenges);
 	} catch (e) {

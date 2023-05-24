@@ -3,7 +3,7 @@ import { error } from '@sveltejs/kit';
 export const load = async ({ params }) => {
 	try {
 		const overviewFile = await import(
-			`../../../../lib/content/cadence-challenges/${params.name}/${params.lang}/overview.ts`
+			`../../../../lib/content/cadence-challenges/${params.name}/overview.ts`
 		);
 
 		return {
