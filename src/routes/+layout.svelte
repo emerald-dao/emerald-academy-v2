@@ -33,8 +33,8 @@
 			prefetch: true
 		},
 		{
-			name: 'Resources',
-			url: `/${$locale}/resources`,
+			name: 'Challenges',
+			url: `/${$locale}/cadence-challenges`,
 			prefetch: true
 		},
 		{
