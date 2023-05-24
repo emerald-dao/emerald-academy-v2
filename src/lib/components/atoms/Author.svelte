@@ -5,6 +5,7 @@
 	export let avatarUrl: string | undefined;
 	export let socialMediaUrl: string;
 	export let isVerified: boolean;
+	export let challengeAuthor: boolean = false;
 </script>
 
 <div class="row-2">
@@ -14,7 +15,11 @@
 		<img src="/new-avatar.png" alt="Generic avatar" />
 	{/if}
 	<div class="column">
-		<p class="author-word">Author</p>
+		{#if challengeAuthor}
+			<p class="author-word">Completed by</p>
+		{:else}
+			<p class="author-word">Author</p>
+		{/if}
 		<div class="row-1">
 			<a
 				href={socialMediaUrl}
