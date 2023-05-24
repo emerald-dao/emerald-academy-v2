@@ -12,16 +12,17 @@
 		solution.
 	</p>
 	<p>
-		To submit a solution, make a Pull Request on the <a
-			href="https://github.com/emerald-dao/emerald-academy-v2"
+		To submit a solution, make a pull request on the
+		<a href="https://github.com/emerald-dao/emerald-academy-v2" target="_blank">
+			Emerald Academy repository
+		</a>
+		by adding a 'solved' object to a challenge's README. See
+		<a
+			href="https://github.com/emerald-dao/emerald-academy-v2/blob/main/src/lib/content/cadence-challenges/example-challenge/overview.ts#L13-L23"
 			target="_blank"
 		>
-			Emerald Academy repository
-		</a>, adding a 'solved' object to a challenge's README. See
-		<a
-			href="https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/cadence-challenges/example-challenge/overview.ts"
-			target="_blank">this</a
-		> for an example.
+			this
+		</a> for an example.
 	</p>
 	<div class="status-wrapper">
 		<div class="challenges-wrapper">
