@@ -18,7 +18,8 @@ export const overview: CadenceChallenge = {
 			socialMediaUrl: 'https://www.google.com',
 			isVerified: false
 		},
-		answerDescription: 'https://www.google.com'
+		answerDescription:
+			'This is the first challenge description. The first challenge description. This is the first challenge description.This is the first challenge description. The first challenge description. This is the first challenge description'
 	},
 	subjects: [SubjectsEnum.Cadence, SubjectsEnum.Backend]
 };

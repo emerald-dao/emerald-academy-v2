@@ -16,10 +16,11 @@ export const overview: CadenceChallenge = {
 		author: {
 			name: 'Nacho',
 			socialMediaUrl: 'https://www.google.com',
-			isVerified: true,
+			isVerified: false,
 			avatarUrl: 'https://avatars.githubusercontent.com/u/15198786?v=4'
 		},
-		answerDescription: 'https://www.google.com'
+		answerDescription:
+			'This is the first challenge description. The first challenge description. This is the first challenge description.This is the first challenge description. The first challenge description. This is the first challenge description'
 	},
 	subjects: [SubjectsEnum.Cadence, SubjectsEnum.Backend]
 };
