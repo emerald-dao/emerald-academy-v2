@@ -27,7 +27,7 @@
 	<div class="routes-wrapper">
 		<Breadcrumbs {routes} />
 	</div>
-	<ChallengeContent {challenge} />
+	<ChallengeContent {challenge} card={false} />
 	<div class="button-wrapper">
 		<Button size={'large'} href={`${challenge.link}`} target={'_blank'}>
 			Go to Playground

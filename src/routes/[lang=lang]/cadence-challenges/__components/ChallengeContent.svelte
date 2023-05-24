@@ -5,15 +5,16 @@
 	import { Label } from '@emerald-dao/component-library';
 
 	export let challenge: CadenceChallenge;
+	export let card: boolean = true;
 </script>
 
-<div class="labels-wrapper">
+<div class="labels-wrapper" class:add-gap={card}>
 	<ContentLabel type={challenge.contentType} color="primary">Challenge</ContentLabel>
 	<FlowPrize completed={challenge.solved != undefined} prize={challenge.prize} />
 </div>
 <div class="text-wrapper">
 	<h5>{challenge.title}</h5>
-	<p>{challenge.description}</p>
+	<p class:clamp={card}>{challenge.description}</p>
 </div>
 <div class="skills">
 	<p>Skills to test</p>
@@ -28,7 +29,12 @@
 	.labels-wrapper {
 		padding: var(--space-5);
 		display: flex;
+		gap: var(--space-5);
+	}
+
+	.add-gap {
 		justify-content: space-between;
+		gap: unset;
 	}
 
 	.text-wrapper {
@@ -44,6 +50,13 @@
 		p {
 			text-decoration: none;
 			color: var(--clr-text-main);
+		}
+
+		.clamp {
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
 		}
 	}
 	.skills {
