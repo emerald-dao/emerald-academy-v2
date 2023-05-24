@@ -12,7 +12,7 @@ export interface CadenceChallenge {
 	solved?: {
 		answerLink: string;
 		author: Author;
-		answerDescription?: string;
+		answerDescription: string;
 	};
 	subjects: SubjectsEnum[];
 }

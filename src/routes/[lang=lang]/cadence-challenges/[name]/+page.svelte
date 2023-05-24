@@ -21,11 +21,19 @@
 
 <style type="scss">
 	.container-small {
-		padding: var(--space-15);
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		gap: var(--space-16);
+		padding: var(--space-10) 0;
+
+		@include mq(small) {
+			padding: var(--space-10);
+		}
+
+		@include mq(medium) {
+			padding: var(--space-15);
+		}
 	}
 </style>

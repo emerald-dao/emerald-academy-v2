@@ -30,7 +30,7 @@
 	<ChallengeContent {challenge} card={false} />
 	<div class="button-wrapper">
 		<Button size={'large'} href={`${challenge.link}`} target={'_blank'}>
-			Go to Playground
+			Go to playground
 			<Icon icon="tabler:arrow-right" style="color: var(--clr-heading-inverse);" />
 		</Button>
 	</div>
