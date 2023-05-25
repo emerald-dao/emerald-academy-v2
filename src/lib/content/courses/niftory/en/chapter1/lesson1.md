@@ -16,6 +16,7 @@ At Niftory, our mission is to
 > Empower developers, brands and businesses to embrace web3
 
 While that may sound like a pie in the sky idea, we've really built something to help people do just that. One of the main reasons developers shy away from developing DApps is the level of complexity managing both web3 infrastructure (like wallets and on-chain transactions) as well as web2 infrastructure for basic database calls and authentication. The Niftory API distills everything you need to integrate web3 concepts like NFTs in your application into a platform that any developer can use.
+
 Whether you are trying to build your own digital marketplace, or experimenting with completely new web3 use-cases we haven't even dreamt of, Niftory will work for you!
 
 ## What problem does Niftory solve? 
@@ -30,13 +31,19 @@ These are our core set of Capabilities and during this course, we'll go over eac
 3. **GraphQL API**. Easy way of querying, minting and transferring NFTs. 
 4. **Scalable**. All of this is built on scalable micro-service architecture and industrial grade data storage.
 
+## So, what IS Niftory? 
+
+Great question. Niftory is a set of tools to help you build, launch and maintain DApps. It consists of two different, interrelated pieces: 
+1. **The Niftory Web3 API**. The Niftory API is all you need to launch a new Web3 experience, without having to think about the blockchain or any complex infrastructure setup. 
+2. **The Admin panel**. The Admin Portal is where you deploy your smart contract, get your API keys, manage your team, design NFTs, and track how your app is doing as users interact with your NFTs.
+
 ## Same functionality, different tools
 
 To see Niftory in action, it's useful to see it compared to the code you'd have to write if you were to develop your app exclusively on top of Flow (using the Cadence programming language). Here, we're going to show 
 
 Present sample code with and without Niftory to highlight the difference and simplicity that Niftory brings.
 
-### Using Cadence and FLow directly
+### Using Cadence and Flow directly
 
 This code has been pulled from the [flow example](https://github.com/onflow/kitty-items/). 
 
