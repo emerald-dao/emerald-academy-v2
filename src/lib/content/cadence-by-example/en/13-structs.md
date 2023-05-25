@@ -25,9 +25,9 @@ pub contract Test {
       pub let favNumber: Int
 
       pub fun getIntroduction(): String {
-         "Hi! I am ".concat(self.name)
+         return("Hi! I am ".concat(self.name)
                     .concat(" and my favorite number is: ")
-                    .concat(self.favNumber.toString())
+                    .concat(self.favNumber.toString()))
       }
       
       init(name: String, address: Address, favNumber: Int) {
