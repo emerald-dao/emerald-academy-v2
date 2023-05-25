@@ -13,8 +13,12 @@ In Cadence, transactions (and scripts) are separate from the contract layer, and
 Transactions always look like:
 ```cadence
 transaction() {
-   prepare(signer: AuthAccount) {}
-   execute {}
+   prepare(signer: AuthAccount) {
+
+   }
+   execute {
+
+   }
 }
 ```
 
@@ -23,7 +27,7 @@ Transactions have 2 main stages:
 1. **prepare** - to access data/information inside the `signer`'s account (allowed by the `AuthAccount` type)
 2. **execute** - to execute actions
 
-## Example Contract & Transaction
+# Example Contract & Transaction
 
 ```cadence
 // Contract file: Counter.cdc
@@ -34,6 +38,10 @@ pub contract Counter {
    pub fun increment() {
       self.count = self.count + 1
    }
+
+   init() {
+      self.count = 0
+   }
 }
 ```
 
@@ -43,16 +51,13 @@ import Counter from 0x01
 
 transaction() {
 
-   let SignerAddress: Address
-
    prepare(signer: AuthAccount) {
-      // save the signer's address
-      self.SignerAddress = signer.address
+      // we don't need to do anything 
+      // with the signer's data
    }
 
    execute {
       Counter.increment()
-      log(self.SignerAddress) // prints the signer's address because... just because
    }
 }
 ```

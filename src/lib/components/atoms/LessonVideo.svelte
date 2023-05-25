@@ -1,6 +1,6 @@
 <script type="ts">
 	export let lessonVideoUrl: string;
-	export let lessonVideoDescription: string = "";
+	export let lessonVideoDescription: string = '';
 </script>
 
 <div>
@@ -20,7 +20,7 @@
 <style type="scss">
 	div {
 		margin-bottom: var(--space-4);
-		text-align: center;
+		// text-align: center;
 
 		span {
 			font-size: var(--font-size-0);

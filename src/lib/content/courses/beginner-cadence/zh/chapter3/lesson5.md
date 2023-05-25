@@ -11,7 +11,7 @@ GM！今天，我们将学习访问控制。
 
 ## 视频
 
-我强烈建议大家观看今天内容的视频。它会帮你很多，因为访问控制非常容易混淆：https://www.youtube.com/watch?v=ly3rNs0xCRQ&t
+我强烈建议大家观看今天内容的视频。它会帮你很多，因为访问控制非常容易混淆：https://www.youtube.com/watch?v=ly3rNs0xCRQ
 
 ## 访问控制和访问修饰符的简述
 

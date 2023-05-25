@@ -139,7 +139,7 @@ export const overview: BootcampOverview = {
 		{
 			name: 'Workshop #4',
 			excerpt: 'Chapters 3.4 - 3.5',
-			link: '',
+			link: 'https://www.youtube.com/watch?v=4CPfPpsconU',
 			subjects: [SubjectsEnum.Cadence],
 			date: new Date(2023, 3, 28, 16, 0),
 			chapters: [
@@ -156,7 +156,7 @@ export const overview: BootcampOverview = {
 		{
 			name: 'Workshop #5',
 			excerpt: 'Chapters 4.1 - 4.2',
-			link: '',
+			link: 'https://www.youtube.com/watch?v=2tkl32nhyFs',
 			subjects: [SubjectsEnum.Cadence],
 			date: new Date(2023, 4, 3, 16, 0),
 			chapters: [
@@ -173,7 +173,7 @@ export const overview: BootcampOverview = {
 		{
 			name: 'Workshop #6',
 			excerpt: 'Chapters 4.3 - 4.4',
-			link: '',
+			link: 'https://www.youtube.com/watch?v=jXHvNp5aDcE',
 			subjects: [SubjectsEnum.Cadence],
 			date: new Date(2023, 4, 5, 16, 0),
 			chapters: [
@@ -190,7 +190,7 @@ export const overview: BootcampOverview = {
 		{
 			name: 'Workshop #7',
 			excerpt: 'Chapters 5.1 - 5.2',
-			link: '',
+			link: 'https://www.youtube.com/watch?v=LA3EdbXL4DY',
 			subjects: [SubjectsEnum.Cadence],
 			date: new Date(2023, 4, 10, 16, 0),
 			chapters: [
@@ -207,7 +207,7 @@ export const overview: BootcampOverview = {
 		{
 			name: 'Workshop #8',
 			excerpt: 'Chapter 5.3',
-			link: '',
+			link: 'https://www.youtube.com/watch?v=UF-v3leF_XE',
 			subjects: [SubjectsEnum.Cadence],
 			date: new Date(2023, 4, 12, 16, 0),
 			chapters: [

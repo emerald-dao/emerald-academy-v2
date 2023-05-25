@@ -1,6 +1,6 @@
 <script type="ts">
 	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
-	import { Label, Breadcrumbs, Button } from '@emerald-dao/component-library';
+	import { Label, Breadcrumbs, Button, TooltipIcon } from '@emerald-dao/component-library';
 	import ContentLabel from '../label/ContentLabel.svelte';
 	import type { Overview } from '$lib/types/content/content-overview.interface';
 	import { transformUrlToHeading } from '$lib/utilities/dataTransformation/transformUrlToHeading';
@@ -13,6 +13,7 @@
 	import { logIn } from '$flow/actions.js';
 	import type { CourseOverview } from '$lib/types/content/course.interface';
 	import { getInitialStars } from '$lib/config/initialStars';
+	import Author from '../atoms/Author.svelte';
 
 	export let overview: Overview;
 	export let showBreadcrumbs: boolean = false;
@@ -78,43 +79,40 @@
 	}
 </script>
 
-<section>
-	<div class="container-small">
-		{#if showBreadcrumbs}
-			<Breadcrumbs {routes} />
-		{/if}
-		<div class="title">
-			<h1>
-				{overview.title}
-			</h1>
-			{#if overview.contentType === ContentTypeEnum.Course}
-				{#if starred}
-					<Button state="active" size="small" type="ghost">
-						<Icon icon="tabler:star-filled" />
-						starred
-						<Label size="xx-small" color="neutral" hasBorder={false}>{starCount}</Label>
-					</Button>
-				{:else}
-					<Button state="active" size="small" type="ghost" on:click={() => starCourse()}>
-						<Icon icon="tabler:star" />
-						star
-						<Label size="xx-small" color="neutral" hasBorder={false}>{starCount}</Label>
-					</Button>
-				{/if}
+<div class="main-wrapper">
+	{#if showBreadcrumbs}
+		<Breadcrumbs {routes} />
+	{/if}
+	<div class="title">
+		<h1>
+			{overview.title}
+		</h1>
+		{#if overview.contentType === ContentTypeEnum.Course}
+			{#if starred}
+				<Button state="active" size="small" type="ghost">
+					<Icon icon="tabler:star-filled" />
+					starred
+					<Label size="xx-small" color="neutral" hasBorder={false}>{starCount}</Label>
+				</Button>
+			{:else}
+				<Button state="active" size="small" type="ghost" on:click={() => starCourse()}>
+					<Icon icon="tabler:star" />
+					star
+					<Label size="xx-small" color="neutral" hasBorder={false}>{starCount}</Label>
+				</Button>
 			{/if}
-		</div>
-		{#if overview.author}
-			<a
-				href={overview.author?.socialMediaUrl}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="header-link row-2 align-center"
-			>
-				<Icon icon="tabler:pencil" />
-				{overview.author?.name}
-			</a>
 		{/if}
-		<div class="column-6">
+	</div>
+	{#if overview.author}
+		<Author
+			name={overview.author.name}
+			avatarUrl={overview.author.avatarUrl}
+			socialMediaUrl={overview.author.socialMediaUrl}
+			isVerified={overview.author.isVerified}
+		/>
+	{/if}
+	<div class="column-6">
+		{#if overview.contentType !== ContentTypeEnum.Quickstart}
 			<div class="metadata-labels">
 				<ContentLabel type={overview.contentType} color="primary">
 					{firstCapital(overview.contentType)}
@@ -163,46 +161,48 @@
 					{/if}
 				{/if}
 			</div>
-			<p>
+		{/if}
+		<p>
+			{#if overview.contentType === ContentTypeEnum.Quickstart}
+				{overview.description}
+			{:else}
 				{overview.excerpt}
-			</p>
-		</div>
-		<slot />
+			{/if}
+		</p>
 	</div>
-</section>
+	<slot />
+</div>
 
 <style type="scss">
-	section {
-		.title {
-			display: flex;
-			flex-direction: column;
-			gap: var(--space-8);
-			align-items: flex-start;
-			width: 50%;
+	.title {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-8);
+		align-items: flex-start;
+		width: 50%;
 
-			@include mq(small) {
-				flex-direction: row;
-				align-items: center;
-				width: auto;
-			}
+		@include mq(small) {
+			flex-direction: row;
+			align-items: center;
+			width: auto;
+		}
+	}
+
+	.main-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-8);
+
+		.metadata-labels {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: var(--space-2);
 		}
 
-		.container-small {
-			display: flex;
-			flex-direction: column;
-			gap: var(--space-8);
-
-			.metadata-labels {
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
-				align-items: center;
-				gap: var(--space-2);
-			}
-
-			p {
-				max-width: 50ch;
-			}
+		p {
+			max-width: 50ch;
 		}
 	}
 </style>

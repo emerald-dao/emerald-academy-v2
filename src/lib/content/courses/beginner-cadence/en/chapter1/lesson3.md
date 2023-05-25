@@ -181,5 +181,3 @@ In all seriousness, if you want to learn more about basic computer programming c
 That's all, and enjoy the course! With love,
 
 Jacob
-
-# <a href="https://forms.gle/MFqBPtkdcwMBF31g8">Quiz</a>

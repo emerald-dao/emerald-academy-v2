@@ -2,8 +2,6 @@
 layout: examples
 ---
 
-# 💎 Emerald Academy
-
 ## 🚩 Challenge 3: NFT Minting
 
 🎫 Setup your own NFT collection and minting site while learning the basics of the Flow blockchain and Cadence. You'll use:
@@ -15,14 +13,6 @@ layout: examples
 🌟 The final deliverable is a DApp that lets an admin create an NFT Collection and display available NFTs for purchase on a minting site. Users will be able to see their purchased NFTs as well.
 
 💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emeraldcity)!
-
----
-
-# Video Walkthrough
-
-Want a video walkthrough? Check out Jacob Tucker's walkthrough here: COMING SOON
-
----
 
 # 📦 Checkpoint 0: Install
 
@@ -65,15 +55,11 @@ flow dev-wallet
 
 📱 Open http://localhost:3000 to see the app
 
----
-
 # 👛 Checkpoint 1: Wallets
 
 We'll be using **the local Flow dev wallet**.
 
 > Click the "Connect" button and notice a window appears with different accounts to select, each with their own Flow Token balance. Select the first account to log in to it.
-
----
 
 # ✏️ Checkpoint 2: Minting some NFT’s
 
@@ -89,8 +75,6 @@ This will mint 3 NFTs and store them in the contract. They will be ready for pur
 
 <img src="https://i.imgur.com/s5uAUMW.png" alt="NFTs now appear on the frontend" />
 
----
-
 # 📘 Checkpoint 3: Purchase NFTs
 
 Now that there are NFTs available for purchase, we can go ahead and buy some NFTs.
@@ -104,8 +88,6 @@ Now that there are NFTs available for purchase, we can go ahead and buy some NFT
 If you click approve, you will see that the NFT successfully gets taken off the market and put under the "Purchased NFTs" category:
 
 <img src="https://i.imgur.com/aMv2KOI.png" alt="nft is now purchased" />
-
----
 
 # 💾 Checkpoint 4: Fund an Account
 
@@ -122,8 +104,6 @@ Before we try to purchase with another account, we have to make sure they have e
 Now you will have enough Flow to purchase with Account A. Try to buy an NFT!
 
 After buying an NFT, you should notice the balance of the account decrease.
-
----
 
 # 💾 Checkpoint 5: Deploy it to testnet!
 
@@ -212,8 +192,6 @@ Let's try out our DApp on testnet:
 
 \*Note: If you want to fund a testnet account with Flow Tokens to test your application, you can use the [Testnet Faucet](https://testnet-faucet.onflow.org/fund-account)
 
----
-
 # 📝 Make Edits!
 
 🔏 You can also check out your smart contract `ExampleNFT.cdc` in `flow/cadence/ExampleNFT.cdc`.
@@ -224,7 +202,7 @@ Let's try out our DApp on testnet:
 
 # ⚔️ Side Quests
 
-> 🏃 Head to your next challenge [here](https://academy.ecdao.org/challenges/voting).
+> 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/4-voting).
 
 > 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
 

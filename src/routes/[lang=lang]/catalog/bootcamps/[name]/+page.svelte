@@ -26,28 +26,31 @@
 	}
 </script>
 
-<ContentIntro overview={data.overview} showBreadcrumbs={true}>
-	<div class="row-6">
-		{#if $user.loggedIn && data.signUps.includes($user.addr)}
-			<Button size="large" width="extended" state="disabled">Enrolled</Button>
-		{:else}
-			<Button size="large" width="extended" on:click={openModal}>Enroll</Button>
-		{/if}
-		<Button
-			size="large"
-			type="transparent"
-			color="neutral"
-			href={data.overview.googleCalendarLink}
-			target="_blank"
-			><Icon icon="ph:calendar-plus" color="var(--clr-heading-main)" />Add to calendar</Button
-		>
-	</div>
-	<Modal>
-		<div class="modal-content">
-			<svelte:component this={$onBoardingSteps[$onBoardingActiveStep].component} />
+<section class="container-small">
+	<ContentIntro overview={data.overview} showBreadcrumbs={true}>
+		<div class="row-6">
+			{#if $user.loggedIn && data.signUps.includes($user.addr)}
+				<Button size="large" width="extended" state="disabled">Enrolled</Button>
+			{:else}
+				<Button size="large" width="extended" on:click={openModal}>Enroll</Button>
+			{/if}
+			<Button
+				size="large"
+				type="transparent"
+				color="neutral"
+				href={data.overview.googleCalendarLink}
+				target="_blank"
+				><Icon icon="ph:calendar-plus" color="var(--clr-heading-main)" />Add to calendar</Button
+			>
 		</div>
-	</Modal>
-</ContentIntro>
+		<Modal>
+			<div class="modal-content">
+				<svelte:component this={$onBoardingSteps[$onBoardingActiveStep].component} />
+			</div>
+		</Modal>
+	</ContentIntro>
+</section>
+
 <ContentsAccordionSection overview={data.overview} contents={data.overview.videos} />
 {#if data.overview.metadata.faqs}
 	<FaqsSection faqs={data.overview.metadata.faqs} />

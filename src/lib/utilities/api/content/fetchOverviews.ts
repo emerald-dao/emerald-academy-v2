@@ -9,7 +9,8 @@ export const fetchOverviews = async (
 		| ContentTypeEnum.Bootcamp
 		| ContentTypeEnum.Course
 		| ContentTypeEnum.Quickstart
-		| ContentTypeEnum.Roadmap,
+		| ContentTypeEnum.Roadmap
+		| ContentTypeEnum.Challenge,
 	locale?: Locales
 ) => {
 	let overviews;
@@ -29,6 +30,10 @@ export const fetchOverviews = async (
 
 		case ContentTypeEnum.Roadmap:
 			overviews = import.meta.glob('/src/lib/content/roadmaps/**/*.ts');
+			break;
+
+		case ContentTypeEnum.Challenge:
+			overviews = import.meta.glob('/src/lib/content/cadence-challenges/**/*.ts');
 			break;
 
 		case undefined:

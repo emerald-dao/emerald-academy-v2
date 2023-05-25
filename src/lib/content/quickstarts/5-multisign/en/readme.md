@@ -2,8 +2,6 @@
 layout: examples
 ---
 
-# 💎 Emerald Academy
-
 ## 🚩 Challenge 5: Multisign
 
 🎫 Deploy a Multisign contract to learn the basics of multisigning withdraws and deposits to a DAO Treasury on the Flow blockchain and Cadence. You'll use:
@@ -15,8 +13,6 @@ layout: examples
 🌟 The final deliverable is a DApp that allows anyone to deposit $FLOW to a DAO Treasury, of which admins must multisign actions to withdraw that $FLOW from the Treasury.
 
 💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emeraldcity)!
-
----
 
 # 📦 Checkpoint 0: Install
 
@@ -59,15 +55,11 @@ flow dev-wallet
 
 📱 Open http://localhost:3000 to see the app
 
----
-
 # 👛 Checkpoint 1: Wallets
 
 We'll be using **the local Flow dev wallet**.
 
 > Click the "Log In" button and notice a window appears with different accounts to select, each with their own Flow Token balance. Select the first account to log in to it.
-
----
 
 # 🔖 Checkpoint 2: Deposit $FLOW
 
@@ -121,8 +113,6 @@ In addition, the $FLOW token was withdrawn from the treasury and deposited to th
 
 If you return back to the main page, you will notice there is now history marking the completed withdraw.
 
----
-
 # 👀 Checkpoint 5: Add a New Admin
 
 Let's test out adding a new Admin to the Treasury. Once we do so, the new admin will also have to sign withdraw requests in order for them to go through.
@@ -138,8 +128,6 @@ After doing that, you will notice that when we sign the new withdraw request fro
 > Log in to Account A, visit the Admin dashboard, and sign the new withdraw request.
 
 Now it has officially gone through!
-
----
 
 # 💾 Checkpoint 6: Deploy it to testnet!
 
@@ -221,8 +209,6 @@ Let's try out our application on testnet:
 - In your terminal, type `npm run sign [THE PROPOSAL ID]` (you can get the `proposalId` by clicking on the request and seeing its number)
 - You should see a printed "Transaction Id". If you go to [Testnet Flowscan](https://testnet.flowscan.org/) and paste in that Transaction Id, you should see information about that minting transaction.
 
----
-
 # 📝 Make Edits!
 
 🔏 You can also check out your multisign smart contract `Multisign.cdc` in `flow/cadence/Multisign.cdc`.
@@ -233,7 +219,7 @@ Let's try out our application on testnet:
 
 # ⚔️ Side Quests
 
-> 🏃 Head to your next challenge [here](https://academy.ecdao.org/challenges/groups).
+> 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/6-groups).
 
 > 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
 

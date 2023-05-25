@@ -5,7 +5,7 @@ import type {
 } from '$lib/types/content/cadence-by-example.interface';
 
 export const fetchAllCadenceByExampleOverviews = async (requestLocale: Locales) => {
-	const allCandenceByExampleFiles = import.meta.glob('/src/lib/content/cadenceByExample/**/*.md');
+	const allCandenceByExampleFiles = import.meta.glob('/src/lib/content/cadence-by-example/**/*.md');
 	const iterableFiles = Object.entries(allCandenceByExampleFiles);
 
 	const allCadenceByExampleMetadata = async () => {

@@ -7,5 +7,6 @@ export enum ContentTypeEnum {
 	Resources = 'resources',
 	Blog = 'blog',
 	Tutorial = 'tutorial',
-	Tweet = 'tweet'
+	Tweet = 'tweet',
+	Challenge = 'challenge'
 }

@@ -34,9 +34,9 @@ const en: BaseTranslation = {
 	// ContentCard
 	SKILLS_YOU_WILL_LEARN: "Skills you'll learn",
 
-	START: "Start",
-	CATALOG: "Catalog",
-	LEARN: "Learn",
+	START: 'Start',
+	CATALOG: 'Catalog',
+	LEARN: 'Learn',
 	NEW_TO: 'New to',
 	START_HERE: 'Start here',
 
@@ -44,11 +44,12 @@ const en: BaseTranslation = {
 	[ContentTypeEnum.Course]: 'Course',
 	[ContentTypeEnum.Bootcamp]: 'Bootcamp',
 	[ContentTypeEnum.Roadmap]: 'Roadmap',
-	[ContentTypeEnum.Quickstart]: 'Quickstart',
+	[ContentTypeEnum.Quickstart]: 'Quickstarts',
 	[ContentTypeEnum.Resources]: 'Resources',
 	[ContentTypeEnum.Blog]: 'Blog',
 	[ContentTypeEnum.Tweet]: 'Tweet',
 	[ContentTypeEnum.Tutorial]: 'Tutorial',
+	[ContentTypeEnum.Challenge]: 'Challenges',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',
@@ -64,7 +65,13 @@ const en: BaseTranslation = {
 	[ExpertiseEnum.Beginner]: 'Beginner',
 
 	// Quickstarts
-	NO_QUICKSTARTS_FOUND: 'No quickstarts found for this lenguage'
+	NO_QUICKSTARTS_FOUND: 'No quickstarts found for this lenguage',
+
+	// Challenge
+	CHALLENGE_TITLE: 'Cadence Challenges',
+	CHALLENGES_SOLVED: 'Challenges Solved',
+	CHALLENGES_UNSOLVED: 'Challenges Unsolved',
+	NO_CHALLENGES_AVAILABLE: 'No challenges available'
 };
 
 export default en;

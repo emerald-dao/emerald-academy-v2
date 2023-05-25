@@ -15,11 +15,11 @@
 			label: 'Catalog'
 		},
 		{
-			path: `/${$page.params.lang}/catalog`,
+			path: `/${$page.params.lang}/catalog/courses/${$page.params.name}`,
 			label: 'Course'
 		},
 		{
-			path: `/catalog/${$page.params.name}`,
+			path: `/${$page.params.lang}/catalog/courses/${$page.params.name}/${$page.params.chapter}/${$page.params.lesson}`,
 			label: transformUrlToHeading($page.params.name)
 		}
 	];
