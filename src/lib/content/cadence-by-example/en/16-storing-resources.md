@@ -90,7 +90,7 @@ pub contract TestArrays {
    }
 
    init() {
-      self.nfts <- {}
+      self.nfts <- []
    }
 }
 ```
