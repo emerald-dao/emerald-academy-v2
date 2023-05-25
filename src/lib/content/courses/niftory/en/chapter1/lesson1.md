@@ -1,125 +1,253 @@
 ---
-title: Learning Blockchain Concepts
+title: Why Niftory? 
 lesson: 1
 language: en
-excerpt: basic blockchain concepts
+excerpt: why niftory
 ---
 
-# Chapter 1 Lesson 1 - Learning Blockchain Concepts
+# Chapter 1 Lesson 1 - Niftory and it's advantages
 
-Hello! Yes, it is me. Your favourite developer of all time, Jacob. You are currently viewing the first lesson of the entire course. Let's start this journey together.
+Hello! It's your friendly Niftory team, here to tell you about the fastest way to bring your NFT ideas to market.  
 
-Let's start off our first lesson by going over what seems to be complicated terms that you will need to understand for the journey ahead.
+We'll use this first lesson to go over some of Niftory's key capabilities and why you would begin using it instead of writing a Distributed Application (AKA DApp) yourself. 
 
-## What the heck is a Blockchain?
+At Niftory, our mission is to 
 
-<img src="/courses/beginner-dapp/blockchain.png" alt="drawing" width="600"/>
+> Empower developers, brands and businesses to embrace web3
 
-_If you already understand what the Blockchain is or you simply don't care (that's fair!), you can skip this section._
+While that may sound like a pie in the sky idea, we've really built something to help people do just that. One of the main reasons developers shy away from developing DApps is the level of complexity managing both web3 infrastructure (like wallets and on-chain transactions) as well as web2 infrastructure for basic database calls and authentication. The Niftory API distills everything you need to integrate web3 concepts like NFTs in your application into a platform that any developer can use.
+Whether you are trying to build your own digital marketplace, or experimenting with completely new web3 use-cases we haven't even dreamt of, Niftory will work for you!
 
-When learning about the Blockchain, you may find some complicated articles. It's easy to get completely lost in the sauce and feel like you want to give up. So, I'm going to explain the Blockchain in a very easy way that may have some innacuracies/left out information but is meant to help you get started. **Specifically, I will help you understand the Blockchain from the perspective of someone who is looking to code Smart Contracts or make some Decentralized Applications (both of which we will do!).**
+## What problem does Niftory solve? 
 
-In one sentence: the Blockchain is an open, decentralized, shared database that allows anyone to store stuff publically.
+The API and platform is designed to be used by all developers, especially those who just want to integrate web3 content into their applications without the overhead of becoming blockchain engineers.
+We don’t require you to deploy your own smart contracts, and our API is a normal GraphQL endpoint—you can be a complete beginner in web3 and still launch a digital marketplace in minutes. 
 
-Okay, woah. What does that mean?
+These are our core set of Capabilities and during this course, we'll go over each of them to see how they will help you build the DApp of your dreams: 
 
-1. **OPEN**: Anyone can interact with it. There are no restrictions.
-2. **DECENTRALIZED**: Nobody owns it. There is no central authority dictating stuff.
-3. **DATABASE**: You can store information on it.
-4. **PUBLIC**: Anyone can view the data on it.
+1. **Data management**. Off-chain and on-chain data managed through a single API. We combine the reliability and persistence of the Flow blockchain with the speed and cost of traditional web2 data management.
+2. **User authentication**. Using OAuth 2.0, as well as wallet management and verification.
+3. **GraphQL API**. Easy way of querying, minting and transferring NFTs. 
+4. **Scalable**. All of this is built on scalable micro-service architecture and industrial grade data storage.
 
-Because of these things, we can interact with the Blockchain however we please. Often times, we may want to set up "rulebooks" that determine how people can interact with specific parts of the Blockchain so that it has some functionality - specifically our own applications that we will define. This is done with Smart Contracts.
+## Same functionality, different tools
 
-It's also important to note that there are many different Blockchains out there. For example, Ethereum is probably the most popular Blockchain. In this course, we will be learning about the wonderful Flow Blockchain, because that's where my expertise lies ;)
+To see Niftory in action, it's useful to see it compared to the code you'd have to write if you were to develop your app exclusively on top of Flow (using the Cadence programming language). Here, we're going to show 
 
-## Smart Contracts? Ooo, that sounds cool.
+Present sample code with and without Niftory to highlight the difference and simplicity that Niftory brings.
 
-<img src="/courses/beginner-dapp/smart contract.png" alt="drawing" width="600"/>
+### Using Cadence and FLow directly
 
-Why yes, yes it is. Smart Contracts are very cool. Smart Contracts are programs, or "rulebooks" that developers make. Developers create them because it allows us to specify some functionality that users can interact with. For example, if I want to make an application that allows users to store their favourite fruit on the Blockchain, I need to make a Smart Contract that:
+This code has been pulled from the [flow example](https://github.com/onflow/kitty-items/). 
 
-1. Has a function that anyone can call
-2. Takes in a parameter (the person's favourite fruit)
-3. Stores that parameter in some data
-4. Sends the updated data to the Blockchain (happens automatically)
+It consists of three parts: 
+1. Javascript Function to call the transfer
+2. Transfer in Cadence. 
+3. Flow Service (for signing, creating transactions, etc with FCL - Flow Client Library)
 
-If I created this Smart Contract and "deployed" it to the Blockchain (deployed means we put the contract onto the Blockchain so people can interact with it), then anyone could put their favourite fruit on the Blockchain, and it would live there forever and ever! Unless we also had a function to remove that data.
+You will also have to update the Front-end to invoke a button that calls the transfer but we've skipped it for this example since that would be the same between Niftory and Cadence. 
 
-So, why do we use Smart Contracts?
+1. Javascript To Call Transfer: 
 
-1. **Speed, efficiency and accuracy**: Smart Contracts are fast, and there is no middleman. There is also no paperwork. If I want to update the data on the Blockchain by using a Smart Contract that allows me to call some function, I can just do it. I don't have to get approval from my parents or my bank.
-2. **Trust and transparency**: The Blockchain, and thus Smart Contracts, are extremely secure if we make them that way. It is near impossible to hack or alter the state of the Blockchain, and while that's due to other reasons, it is largely because of Smart Contracts. If a Smart Contract doesn't let me do something, I simply can't do it. There's no way around it.
+```js
+  transfer = async (recipient: string, itemID: number) => {
+    const authorization = this.flowService.authorizeMinter()
+    const transaction = fs
+      .readFileSync(
+        path.join(
+          __dirname,
+          `../../../cadence/transactions/kittyItems/transfer_kitty_item.cdc`
+        ),
+        "utf8"
+      )
+      .replace(
+        nonFungibleTokenPath,
+        fcl.withPrefix(this.nonFungibleTokenAddress)
+      )
+      .replace(kittyItemsPath, fcl.withPrefix(this.kittyItemsAddress))
+    return this.flowService.sendTx({
+      transaction,
+      args: [fcl.arg(recipient, t.Address), fcl.arg(itemID, t.UInt64)],
+      authorizations: [authorization],
+      payer: authorization,
+      proposer: authorization,
+    })
+  }
 
-What are some downsides?
+```
 
-1. **Hard to get right**: While Smart Contracts are cool, they are NOT smart. They require sophisticated levels of expertise from the developer's side to make sure they have no security problems, they are cheap, and they do what we want them to do. We will learn all of this later.
-2. **Can be malicious if the developer is mean**: If a developer wants to make a Smart Contract that steals your money, and then tricks you into calling a function that does that, your money will be stolen. In the world of the Blockchain, you must make sure you interact with Smart Contracts that you know are secure.
-3. **Cannot undo something**: You can't just undo something. Unless you have a function that allows you to.
+2. Cadence
 
-## Transactions & Scripts
+```js
 
-<img src="/courses/beginner-dapp/transaction.jpeg" alt="drawing" width="600"/>
+import NonFungibleToken from "../../contracts/NonFungibleToken.cdc"
+import KittyItems from "../../contracts/KittyItems.cdc"
 
-_"Okay, so we have a Smart Contract. How do I actually interact with it? You keep saying call a function, but what does that mean!?"_
+// This transaction transfers a Kitty Item from one account to another.
+transaction(recipient: Address, withdrawID: UInt64) {
+    prepare(signer: AuthAccount) {
+        
+        // get the recipients public account object
+        let recipient = getAccount(recipient)
+        // borrow a reference to the signer's NFT collection
+        let collectionRef = signer.borrow<&KittyItems.Collection>(from: KittyItems.CollectionStoragePath)
+            ?? panic("Could not borrow a reference to the owner's collection")
+        // borrow a public reference to the receivers collection
+        let depositRef = recipient.getCapability(KittyItems.CollectionPublicPath)!.borrow<&{NonFungibleToken.CollectionPublic}>()!
+        // withdraw the NFT from the owner's collection
+        let nft <- collectionRef.withdraw(withdrawID: withdrawID)
+        // Deposit the NFT in the recipient's collection
+        depositRef.deposit(token: <-nft)
+    }
+}
+```
 
-**A transaction is a glorified, paid function call.** That's pretty much the simplest I can put it. What's important to know is that a transaction CHANGES the data on the Blockchain, and usually is the ONLY way we can change the data on the Blockchain. Transactions can cost different amounts of money depending on which Blockchain you are on. On Ethereum, to store your favourite fruit on the Blockchain, it could cost dang near 100$. On Flow, it's fractions of a cent.
+3. FlowService: 
 
-On the other hand, a script is used to VIEW data on the Blockchain, they do not change it. Scripts do not cost any money, that'd be ridiculous.
+```js
+import * as fcl from "@onflow/fcl";
+import { ec as EC } from "elliptic";
+import { SHA3 } from "sha3";
+const ec: EC = new EC("p256");
+class FlowService {
+  constructor(
+    private readonly minterFlowAddress: string,
+    private readonly minterPrivateKeyHex: string,
+    private readonly minterAccountIndex: string | number
+  ) {}
+  authorizeMinter = () => {
+    return async (account: any = {}) => {
+      const user = await this.getAccount(this.minterFlowAddress);
+      const key = user.keys[this.minterAccountIndex];
+      const sign = this.signWithKey;
+      const pk = this.minterPrivateKeyHex;
+      return {
+        ...account,
+        tempId: `${user.address}-${key.index}`,
+        addr: fcl.sansPrefix(user.address),
+        keyId: Number(key.index),
+        signingFunction: (signable) => {
+          return {
+            addr: fcl.withPrefix(user.address),
+            keyId: Number(key.index),
+            signature: sign(pk, signable.message),
+          };
+        },
+      };
+    };
+  };
+  getAccount = async (addr: string) => {
+    const { account } = await fcl.send([fcl.getAccount(addr)]);
+    return account;
+  };
+  private signWithKey = (privateKey: string, msg: string) => {
+    const key = ec.keyFromPrivate(Buffer.from(privateKey, "hex"));
+    const sig = key.sign(this.hashMsg(msg));
+    const n = 32;
+    const r = sig.r.toArrayLike(Buffer, "be", n);
+    const s = sig.s.toArrayLike(Buffer, "be", n);
+    return Buffer.concat([r, s]).toString("hex");
+  };
+  private hashMsg = (msg: string) => {
+    const sha = new SHA3(256);
+    sha.update(Buffer.from(msg, "hex"));
+    return sha.digest();
+  };
+  sendTx = async ({
+    transaction,
+    args,
+    proposer,
+    authorizations,
+    payer,
+    skipSeal
+  }: any): Promise<any> => {
+    const response = await fcl.mutate(
+      {
+        cadence: transaction,
+        args: (_arg, _t) => args,
+        proposer,
+        authorizations,
+        payer,
+        limit: 9999,
+      },
+    )
+    if (skipSeal) return response;
+    return await fcl.tx(response).onceSealed();
+  };
+  async executeScript<T>({ script, args }): Promise<T> {
+    return await fcl.query(
+      {
+        cadence: script,
+        args: (_arg, _t) => args,
+      },
+    );
+  }
+  async getLatestBlockHeight() {
+    const block = await fcl.send([fcl.getBlock(true)]);
+    const decoded = await fcl.decode(block);
+    return decoded.height;
+  }
+}
+export { FlowService };
 
-Here is the normal workflow:
+```
 
-1. A developer "deploys" a Smart Contract to the Blockchain
-2. A user runs a "transaction" that takes in some payment (to pay for gas fees, execution, etc) that calls some functions in the Smart Contract
-3. **The Smart Contract changes its data in some way**
+Phew, that was a lot. Let's look at the corresponding code when we use Niftory's managed APIs. 
+### Using Niftory
 
-## "MainNet" vs. "TestNet"
+Doing the same transaction in Niftory, you need two parts: 
+1. Create Niftory Client
+2. Call Transfer
 
-<img src="/courses/beginner-dapp/tvm.PNG" alt="drawing" width="600"/>
+Here they are in code. 
 
-You may have heard these terms come up, but what do they actually mean?
+1. Create Niftory Client
 
-**TestNet** is an environment where developers test their applications before releasing it to the public. This is a perfect space to figure out what's wrong with your application before actually releasing it to the public to use. Here are a few additional notes:
+```js
 
-- Everything is fake
-- No actual money involved
-- Transactions cost fake money
-- A good way for developers to test their smart contracts and applications BEFORE releasing to the public
-- If something bad happens, no one cares.
+import { EnvironmentName, NiftoryClient } from "@niftory/sdk"
+let client: NiftoryClient
 
-**MainNet** is an environment where everything is real. When you release your application to the public, you put it on MainNet. On MainNet, everything is live, so things cost real money, there are risks, and you must make sure everything is working correctly. Here are a few additional notes:
+/**
+ * Gets a NIFTORY client.
+ * @returns A NiftorySdk client.
+ */
 
-- Everything is real
-- Money is involved
-- Transactions cost real money
-- When your application is fully ready, you put it on MainNet for users to interact with.
-- If something bad happens, that's really bad.
+export function getNiftoryClient() {
+  client =
+    client ||
+    new NiftoryClient({
+      environmentName: process.env.NEXT_PUBLIC_BLOCKCHAIN_ENV as EnvironmentName,
+      appId: process.env.NEXT_PUBLIC_CLIENT_ID,
+      apiKey: process.env.NEXT_PUBLIC_API_KEY,
+      clientSecret: process.env.CLIENT_SECRET,
+    })
+  return client
+}
 
-## Decentralized Applications (DApps)
+```
 
-<img src="/courses/beginner-dapp/dapps.jpeg" alt="drawing" width="300"/>
+2. Call Transfer
 
-Oh no, this sounds complicated. Nope! It's not. DApps are literally just normal applications (Javascript, Python, etc) that ALSO have Smart Contracts involved. That's it.
+```js
+const client = await getNiftoryClient()
 
-For example, Instagram is an application that is not a "DApp" because it doesn't involve any blockchain code. However, after Flow's recent announcement of NFT integration into Instagram, we can officially call Instagram a DApp. Examples of other DApps includes <a href="https://floats.city/" target="_blank">FLOAT</a>.
-
-Also, we will be building a DApp throughout this course :)
+const transferResponse = await client.transfer({
+nftModelId: nftModelId as string,
+userId: userToken.sub,
+})
+```
 
 ## Why do I care about all this?
 
-Well, because that's what this course is all about, knucklehead! In this course, we will be making our own Smart Contracts, specifically on the Flow Blockchain. In addition, we will be making Decentralized Applications that _use_ those Smart Contracts.
+If you want to build DApps quickly and you want them to be cost-effective in the long-run, it's super useful to learn how to build with tools to make your life easier. And that means Niftory if you want to build on Flow. 
 
 ## Conclusion
 
-Jacob is the best. No, no. That's not the conclusion. The conclusion is that although all of this stuff sounds very complicated, it really isn't. And if you still don't understand ANY of this, that's totally okay. Sometimes it's better to jump into some examples to make things make more sense. We'll be doing that in the upcoming lessons.
+Niftory will solve all your problems and do your taxes... is NOT what we'd want you to conclude here. We've shown you a few use cases where Niftory will be helpful along with some code snippets that should show how much easier basic operation are when you use our managed API. Don't worry if things don't seem clear just yet. That's totally okay. Much will be clearer after we jump into some examples. We'll be doing that in the upcoming lessons.
 
 ## Quests
 
-You are free to answer these questions in your own language of choice. And no, I don't mean computer programming language, haha.
+1. Why would a developer use Niftory rather than deploying and managing their own smart contracts? 
 
-1. Explain what the Blockchain is in your own words. You can read this to help you, but you don't have to: https://www.investopedia.com/terms/b/blockchain.asp
-
-2. Explain what a Smart Contract is. You can read this to help you, but you don't have to: https://www.ibm.com/topics/smart-contracts
-
-3. Explain the difference between a script and a transaction.
-
-4. What is the difference between Testnet and Mainnet? When would you develop on each?
+2. Who is Niftory designed for?
