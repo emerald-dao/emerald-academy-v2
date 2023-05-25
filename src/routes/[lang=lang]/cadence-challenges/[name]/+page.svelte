@@ -8,7 +8,7 @@
 
 <div
 	class="background"
-	style={`background: linear-gradient(360deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%),
+	style={`background: linear-gradient(360deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 100%),
 	no-repeat url(${data.overview.image}); background-size: cover; background-position-y: 25%;`}
 >
 	<div class="container-small">

@@ -1,8 +1,5 @@
 <script type="ts">
 	import { page } from '$app/stores';
-	import { locale } from '$i18n/i18n-svelte';
-	import FlowPrize from '$lib/components/atoms/FlowPrize.svelte';
-	import ContentLabel from '$lib/components/label/ContentLabel.svelte';
 	import type { CadenceChallenge } from '$lib/types/content/cadence-challenge.interface';
 	import { transformUrlToHeading } from '$lib/utilities/dataTransformation/transformUrlToHeading';
 	import { Breadcrumbs, Button, Label } from '@emerald-dao/component-library';
@@ -38,6 +35,10 @@
 
 <style type="scss">
 	.card-primary {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+
 		.routes-wrapper {
 			padding: var(--space-5) var(--space-5) var(--space-3) var(--space-5);
 		}
