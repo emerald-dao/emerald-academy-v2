@@ -15,7 +15,7 @@ pub contract Test {
 
    pub resource interface INFT {
       pub var name: String
-      pub fun updateNumber(newNumber: Int): Int
+      pub fun updateNumber(newNumber: Int)
    }
 
    pub resource NFT: INFT {

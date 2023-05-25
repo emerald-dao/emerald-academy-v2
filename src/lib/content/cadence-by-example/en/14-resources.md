@@ -48,6 +48,7 @@ pub contract Test {
    // resource types have a `@` in front
    pub fun mintNFT(rarity: String, name: String): @NFT {
       let nft <- create NFT(rarity: rarity, name: name)
+      return <-nft
    }
 
    init() {
