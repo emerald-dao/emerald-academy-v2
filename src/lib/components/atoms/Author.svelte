@@ -1,6 +1,6 @@
 <script type="ts">
+	import TippingModal from '$lib/features/tipping/components/TippingModal.svelte';
 	import Icon from '@iconify/svelte';
-	import Tip from './Tip.svelte';
 
 	export let name: string;
 	export let avatarUrl: string | undefined;
@@ -28,9 +28,7 @@
 				<p>{name}</p>
 			</a>
 			{#if tip && walletAddress}
-				<div data-tooltip="Tip this author">
-					<Icon icon="material-symbols:attach-money" color="var(--clr-primary-main)" />
-				</div>
+				<TippingModal />
 			{/if}
 			{#if isVerified}
 				<div data-tooltip="This author is from Emerald City">
