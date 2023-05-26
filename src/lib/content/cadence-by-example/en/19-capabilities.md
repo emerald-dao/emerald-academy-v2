@@ -63,7 +63,7 @@ transaction(rarity: String, name: String) {
       // Notice we restrict the linked type to `&NFT{INFT}`, so the public
       // won't be able to call our `changeName` function since it's not in the
       // `INFT` interface.
-      signer.link<&Test.NFT{Test.INFT}>(/public/MyPublicNFT, /storage/MyNFT)
+      signer.link<&Test.NFT{Test.INFT}>(/public/MyPublicNFT, target:/storage/MyNFT)
    }
 
    execute {
