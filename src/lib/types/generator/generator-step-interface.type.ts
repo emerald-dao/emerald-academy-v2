@@ -8,4 +8,8 @@ export interface Step {
 	action: null | (() => Promise<void>);
 	form: boolean;
 	state?: StepState;
+	button?: {
+		text: string;
+		icon?: string;
+	};
 }

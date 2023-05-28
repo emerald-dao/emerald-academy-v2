@@ -8,7 +8,7 @@
 	import FaqsSection from '$lib/components/faqs/FaqsSection.svelte';
 	import { createBootcampOnboardingStore } from '$stores/BootcampOnboardingStore';
 	import { user } from '$stores/flow/FlowStore';
-	import { logIn } from '$flow/actions.js';
+	import { logIn } from '$flow/actions';
 	import { page } from '$app/stores';
 	import Icon from '@iconify/svelte';
 

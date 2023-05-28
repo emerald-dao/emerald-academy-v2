@@ -10,7 +10,7 @@
 	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
 	import Icon from '@iconify/svelte';
 	import { user } from '$stores/flow/FlowStore';
-	import { logIn } from '$flow/actions.js';
+	import { logIn } from '$flow/actions';
 	import type { CourseOverview } from '$lib/types/content/course.interface';
 	import { getInitialStars } from '$lib/config/initialStars';
 	import Author from '../atoms/Author.svelte';
@@ -109,6 +109,7 @@
 			avatarUrl={overview.author.avatarUrl}
 			socialMediaUrl={overview.author.socialMediaUrl}
 			isVerified={overview.author.isVerified}
+			walletAddress={overview.author.walletAddress}
 		/>
 	{/if}
 	<div class="column-6">

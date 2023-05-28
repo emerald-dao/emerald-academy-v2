@@ -1,20 +1,21 @@
 import FlowToken from "../utility/FlowToken.cdc"
 import FungibleToken from "../utility/FungibleToken.cdc"
+import SendTokenMessage from "../SendTokenMessage.cdc"
 
-transaction(amount: UFix64, receiver: Address) {
+transaction(amount: UFix64, receiver: Address, message: String?) {
 
-  let FlowVault: &FlowToken.Vault
+  let Payment: @FlowToken.Vault
   let ReceiverVault: &FlowToken.Vault{FungibleToken.Receiver}
   
   prepare(signer: AuthAccount) {
-    self.FlowVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)!
+    let paymentVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)!
+    self.Payment <- paymentVault.withdraw(amount: amount) as! @FlowToken.Vault
     self.ReceiverVault = getAccount(receiver).getCapability(/public/flowTokenReceiver)
                     .borrow<&FlowToken.Vault{FungibleToken.Receiver}>()!
   }
 
   execute {
-    let tip <- self.FlowVault.withdraw(amount: amount)
-    self.ReceiverVault.deposit(from: <- tip)
+    SendTokenMessage.deliver(vault: <- self.Payment, receiverPath: /public/flowTokenReceiver, receiver: receiver, message: message)
   }
 }
  
