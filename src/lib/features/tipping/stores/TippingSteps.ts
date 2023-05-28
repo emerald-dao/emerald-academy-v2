@@ -3,17 +3,18 @@ import { createSteps } from '$stores/custom/steps/Steps';
 import { get } from 'svelte/store';
 import Tip from '../components/steps/1-tip/Tip.svelte';
 import Thanks from '../components/steps/2-thanks/Thanks.svelte';
+import { submitPayment } from '../functions/submitPayment';
+import { tippingData } from './TippingData';
 
 export const tippingSteps = createSteps([
 	{
 		title: 'Tip',
 		component: Tip,
-		/* action: () => submitPayment(get(paymentData)), */
-		action: null,
+		action: () => submitPayment(get(tippingData)),
 		form: false,
 		state: 'inactive',
 		button: {
-			text: 'Pay',
+			text: 'Tip',
 			icon: 'tabler:cash'
 		}
 	},

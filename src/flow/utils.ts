@@ -2,41 +2,102 @@ import { addresses } from '$stores/flow/FlowStore';
 import { transactionStore } from '$stores/flow/TransactionStore';
 import * as fcl from '@onflow/fcl';
 import { network } from './config';
+import type { TransactionStatusObject } from '@onflow/fcl';
+import type { ActionExecutionResult } from '$lib/stores/custom/steps/step.interface';
+import { ECurrencies } from '$lib/types/common/enums';
 
 export function replaceWithProperValues(script: string) {
   return (
     script
       // For Tx/Scripts
-      .replace('"../../utility/FlowToken.cdc"', addresses.FlowToken)
-      .replace('"../../utility/FUSD.cdc"', addresses.FUSD)
-      .replace('"../../utility/FungibleToken.cdc"', addresses.FungibleToken)
+      .replace('"../utility/FlowToken.cdc"', addresses.FlowToken)
+      .replace('"../utility/FUSD.cdc"', addresses.FUSD)
+      .replace('"../utility/FiatToken.cdc"', addresses.FiatToken)
+      .replace('"../utility/FungibleToken.cdc"', addresses.FungibleToken)
   );
 }
 
-export const executeTransaction = async (
-  transaction: () => Promise<any>,
-  actionAfterSucceed: () => Promise<any>
-) => {
+export function switchToToken(script: string, currency: ECurrencies) {
+  if (currency === ECurrencies.USDC) {
+    return (
+      script
+        .replaceAll('flowTokenReceiver', 'USDCVaultReceiver')
+        .replaceAll('flowTokenVault', 'USDCVault')
+        .replaceAll('FlowToken', 'FiatToken')
+    );
+  }
+  return script;
+}
+
+export const executeTransaction: (
+  transaction: () => Promise<string>,
+  actionAfterSucceed?: (res: TransactionStatusObject) => Promise<ActionExecutionResult>
+) => Promise<ActionExecutionResult> = async (transaction, actionAfterSucceed) => {
   transactionStore.initTransaction();
 
   try {
+    // We start the transaction
     const transactionId = await transaction();
+    console.log('Transaction Id', transactionId);
 
-    fcl.tx(transactionId).subscribe(async (res) => {
+    // We connect our TransactionStore to the transaction to get the status
+    fcl.tx(transactionId).subscribe(async (res: TransactionStatusObject) => {
+      console.log(res);
       transactionStore.subscribeTransaction(res);
-
-      if (res.status === 4) {
-        if (res.statusCode === 0 && actionAfterSucceed != undefined) {
-          await actionAfterSucceed(res);
-          transactionStore.resetTransaction();
-          return;
-        }
-        setTimeout(() => transactionStore.resetTransaction(), 2000);
-      }
     });
+
+    // We wait for the transaction to be sealed to get the result
+    const executionResult = (await fcl.tx(transactionId).onceSealed()) as TransactionStatusObject;
+
+    // Once sealed, we check if the execution has an actionAfterSucceed, if so, we execute it
+    if (actionAfterSucceed) {
+      try {
+        // We execute the actionAfterSucceed and return the result
+        const action = await actionAfterSucceed(executionResult);
+
+        setTimeout(() => {
+          transactionStore.resetTransaction();
+        }, 1000);
+
+        return action;
+      } catch (e) {
+        transactionStore.resetTransaction();
+
+        return {
+          state: 'error',
+          errorMessage: 'Error executing actionAfterSucceed: ' + e
+        } as ActionExecutionResult;
+      }
+    } else {
+      setTimeout(() => {
+        transactionStore.resetTransaction();
+      }, 1000);
+
+      return {
+        state: 'success',
+        errorMessage: ''
+      } as ActionExecutionResult;
+    }
   } catch (e) {
-    transactionStore.resetTransaction();
-    throw e;
+    transactionStore.subscribeTransaction({
+      blockId: '',
+      events: [],
+      status: 4,
+      statusString: '',
+      errorMessage: e as string,
+      statusCode: 1
+    });
+
+    setTimeout(() => {
+      transactionStore.resetTransaction();
+    }, 6000);
+
+    console.log('Error in executeTransaction: ', e);
+
+    return {
+      state: 'error',
+      errorMessage: e
+    } as ActionExecutionResult;
   }
 };
 
@@ -74,13 +135,13 @@ export const getFindProfile = async (address: string) => {
 };
 
 export const verifyAccountOwnership = async (userObject) => {
-	if (!userObject.loggedIn) {
-		return false;
-	}
-	const accountProofService = userObject.services.find(
-		(services) => services.type === 'account-proof'
-	);
-	return await fcl.AppUtils.verifyAccountProof('Emerald Academy', accountProofService.data, {
-		fclCryptoContract: null
-	});
+  if (!userObject.loggedIn) {
+    return false;
+  }
+  const accountProofService = userObject.services.find(
+    (services) => services.type === 'account-proof'
+  );
+  return await fcl.AppUtils.verifyAccountProof('Emerald Academy', accountProofService.data, {
+    fclCryptoContract: null
+  });
 };

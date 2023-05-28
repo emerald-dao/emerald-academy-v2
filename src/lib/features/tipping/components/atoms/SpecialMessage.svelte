@@ -1,7 +1,7 @@
 <script type="ts">
 	import { fly } from 'svelte/transition';
 	import { tippingData } from '../../stores/TippingData';
-	import Icon from '@iconify/svelte';
+	import IconCircle from '$lib/components/atoms/IconCircle.svelte';
 
 	let viewSpecialMessage = false;
 	let specialMessageInput: HTMLInputElement;
@@ -26,8 +26,8 @@
 <div class="main-wrapper row-1 align-center">
 	{#if !viewSpecialMessage}
 		<button on:click|preventDefault={onToggleSpecialMessage} class="row-2">
-			<div in:fly|local={{ duration: 200, x: -10 }} class="icon-wrapper">
-				<Icon icon="tabler:plus" width={'0.9rem'} />
+			<div in:fly|local={{ duration: 200, x: -10 }}>
+				<IconCircle icon="tabler:plus" color="neutral" />
 			</div>
 			Add a special message
 		</button>
@@ -65,29 +65,18 @@
 			&:hover {
 				color: var(--clr-heading-main);
 			}
-
-			.icon-wrapper {
-				border-radius: 50%;
-				width: 1.7em;
-				height: 1.7em;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				background-color: var(--clr-neutral-badge);
-				color: var(--clr-neutral-main);
-			}
 		}
 
 		.message-wrapper {
 			width: 100%;
 
 			input[name='message'] {
-				border: var(--border-width-primary) solid var(--clr-border-primary);
+				border: none;
 				width: 100%;
 				font-size: var(--font-size-0);
 				color: var(--clr-heading-main);
-				padding: var(--space-5);
-				border-radius: var(--radius-2);
+				padding: 0;
+				border-radius: 0;
 			}
 		}
 	}

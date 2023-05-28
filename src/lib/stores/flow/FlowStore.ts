@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 import { network } from '$flow/config.js';
-import type { FlowUser } from '$lib/types/flow/user.interface';
+import type { CurrentUserObject } from '@onflow/fcl';
 
 const contractData = {
 	NonFungibleToken: {
@@ -28,6 +28,11 @@ const contractData = {
 		testnet: '0x7e60df042a9c0868',
 		mainnet: '0x1654653399040a61'
 	},
+	FiatToken: {
+		emulator: '0xf8d6e0586b0a20c7',
+		testnet: '0xa983fecbed621163',
+		mainnet: '0xb19436aae4d94622'
+	},
 	FUSD: {
 		emulator: '0xf8d6e0586b0a20c7',
 		testnet: '0xe223d8a629e49c68',
@@ -45,13 +50,12 @@ const contractData = {
 		testnet: '0xa16ab1d0abde3625',
 		mainnet: '0x097bafa4e0b48eef'
 	},
-	FN: {
-		testnet: '0xb05b2abb42335e88',
-		mainnet: '0x233eb012d34b0070'
-	}
 };
 
-export const user = writable<FlowUser>({ loggedIn: false });
+export const user = writable<CurrentUserObject | { loggedIn: false; addr: null }>({
+	loggedIn: false,
+	addr: null
+});
 export const profile = writable(null);
 // export const transactionStatus = writable({});
 // export const transactionInProgress = writable(false);
@@ -65,5 +69,5 @@ export const addresses = {
 	ECTreasury: contractData.ECTreasury[network],
 	FLOAT: contractData.FLOAT[network],
 	FIND: contractData.FIND[network],
-	FN: contractData.FN[network]
+	FiatToken: contractData.FiatToken[network]
 };

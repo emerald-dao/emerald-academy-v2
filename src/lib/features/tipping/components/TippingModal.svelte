@@ -7,28 +7,19 @@
 	import Tip from './steps/1-tip/Tip.svelte';
 	import { fade } from 'svelte/transition';
 
-	/* export let daoData: DAOProject; */
-	export let paymentType = 'donate';
+	export let authorAddress: string;
+	export let authorName: string;
 
-	/* const id = `${paymentType}-${daoData.generalInfo.project_id}`; */
-	let title = '';
-
-	const PAYMENT_DATA = {
-		donate: {
-			title: 'Donate',
-			icon: 'tabler:heart-handshake',
-			action: () => initPayment('donation')
-		}
-	};
-
-	const initPayment = (paymentType: 'fund' | 'donation') => {
+	const initPayment = () => {
 		tippingActiveStep.reset();
+		$tippingData.authorAddress = authorAddress;
+		$tippingData.authorName = authorName;
 
 		getModal().open();
 	};
 </script>
 
-<div data-tooltip="Tip this author" on:click={PAYMENT_DATA[paymentType].action} on:keydown>
+<div data-tooltip="Tip this author" on:click={initPayment} on:keydown>
 	<Icon icon="material-symbols:attach-money" color="var(--clr-primary-main)" />
 </div>
 
@@ -36,7 +27,7 @@
 	<div class="round-modal-wrapper">
 		<div class="main-wrapper column-space-between">
 			<div class="title-wrapper column-1">
-				<h4>Donate</h4>
+				<h4>Tip {authorName}</h4>
 			</div>
 		</div>
 		<div class="form-wrapper">
@@ -80,7 +71,6 @@
 		padding: var(--space-9);
 
 		.main-wrapper {
-			padding-top: var(--space-4);
 			width: 100%;
 
 			.title-wrapper {

@@ -28,7 +28,7 @@
 				<p>{name}</p>
 			</a>
 			{#if tip && walletAddress}
-				<TippingModal />
+				<TippingModal authorAddress={walletAddress} authorName={name} />
 			{/if}
 			{#if isVerified}
 				<div data-tooltip="This author is from Emerald City">

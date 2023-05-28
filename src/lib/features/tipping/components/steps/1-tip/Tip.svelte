@@ -27,14 +27,12 @@
 	autocomplete="off"
 	in:fade={{ duration: 200 }}
 >
-	<!-- {#if $tippingData.type === 'donation'} -->
 	<div class="currency-select-wrapper">
 		<CurrencySelect
 			currencies={[ECurrencies.FLOW, ECurrencies.USDC]}
 			bind:value={$tippingData.currency}
 		/>
 	</div>
-	<!-- {/if} -->
 	<div>
 		<CurrencyInput
 			autofocus
