@@ -6,14 +6,22 @@
 	import { tippingData } from '../stores/TippingData';
 	import Tip from './steps/1-tip/Tip.svelte';
 	import { fade } from 'svelte/transition';
+	import { ECurrencies } from '$lib/types/common/enums';
 
 	export let authorAddress: string;
 	export let authorName: string;
+	export let authorAvatar: string;
 
 	const initPayment = () => {
 		tippingActiveStep.reset();
-		$tippingData.authorAddress = authorAddress;
-		$tippingData.authorName = authorName;
+		tippingData.set({
+			currency: ECurrencies.FLOW,
+			amount: 0,
+			specialMessage: '',
+			authorAddress,
+			authorName,
+			authorAvatar
+		});
 
 		getModal().open();
 	};
@@ -27,11 +35,11 @@
 	<div class="round-modal-wrapper">
 		<div class="main-wrapper column-space-between">
 			<div class="title-wrapper column-1">
-				<h4>Tip {authorName}</h4>
+				<h4>{$tippingSteps[$tippingActiveStep].name}</h4>
 			</div>
 		</div>
 		<div class="form-wrapper">
-			<Tip />
+			<svelte:component this={$tippingSteps[$tippingActiveStep].component} />
 			{#each $tippingSteps as step, i}
 				{#if $tippingActiveStep === i}
 					{#if step.button}

@@ -5,7 +5,7 @@ import type { TippingData } from '../types/tipping-data.interface';
 export const tippingData = writable<TippingData>({
 	authorName: '',
 	authorAddress: '',
-	payerAddress: '',
+	authorAvatar: '',
 	currency: ECurrencies.FLOW,
 	amount: 0,
 	specialMessage: ''

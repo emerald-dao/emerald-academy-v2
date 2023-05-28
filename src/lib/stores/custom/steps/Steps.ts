@@ -1,26 +1,21 @@
-import type { Step } from '$lib/types/generator/generator-step-interface.type';
-import type { StepState } from '$lib/types/generator/generator-step-state.type';
+import type { ProgressStates } from '@emerald-dao/component-library/components/ProgressStep/progress-states.type';
 import { writable } from 'svelte/store';
+import type { Step } from './step.interface';
 
 export function createSteps(steps: Step[]) {
-    //los paso por parametros porque no los hardcodeo, despues los voy a crear en algun momento
-    //aca tenemos el estado inicial
 	steps.forEach((step, index) => {
 		index > 0 ? (step.state = 'inactive') : (step.state = 'active');
 	});
 
-    //destructuring
-	const { subscribe, update } = writable(steps);
+	const { subscribe, update, set } = writable(steps);
 
-    //cambiamos el stepstate
-	function changeStepState(index: number, state: StepState) {
+	function changeStepState(index: number, state: ProgressStates) {
 		update((steps) => {
 			steps[index].state = state;
 			return steps;
 		});
 	}
 
-    //reseteamos el stepstate
 	function resetStates() {
 		update((steps) => {
 			for (let index = 0; index < steps.length; index++) {
@@ -34,10 +29,9 @@ export function createSteps(steps: Step[]) {
 		});
 	}
 
-    //retornamos
-
 	return {
 		subscribe,
+		set,
 		changeStepState,
 		resetStates
 	};

@@ -8,7 +8,7 @@ import { tippingData } from './TippingData';
 
 export const tippingSteps = createSteps([
 	{
-		title: 'Tip',
+		name: `Tip`,
 		component: Tip,
 		action: () => submitPayment(get(tippingData)),
 		form: false,
@@ -19,7 +19,7 @@ export const tippingSteps = createSteps([
 		}
 	},
 	{
-		title: 'Thank You!',
+		name: 'Thank You!',
 		component: Thanks,
 		action: null,
 		form: false,
