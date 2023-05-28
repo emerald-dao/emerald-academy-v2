@@ -11,7 +11,7 @@ export const overview: CourseOverview = {
 	author: {
 		name: 'Arun Nadarasa',
 		socialMediaUrl: 'https://twitter.com/krumpverse',
-		avatarUrl: 'https://www.linkpicture.com/q/Arun_Avatar4_4.png',
+		avatarUrl: 'https://pbs.twimg.com/profile_images/1619098686616649730/juU004rF_400x400.jpg',
 		isVerified: false,
 		walletAddress: '0x63eb2498e9e28565'
 	},

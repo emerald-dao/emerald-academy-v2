@@ -10,7 +10,7 @@
 
 	export let authorAddress: string;
 	export let authorName: string;
-	export let authorAvatar: string;
+	export let authorAvatar: string | undefined;
 
 	const initPayment = () => {
 		tippingActiveStep.reset();
@@ -20,7 +20,7 @@
 			specialMessage: '',
 			authorAddress,
 			authorName,
-			authorAvatar
+			authorAvatar: authorAvatar || '/new-avatar.png'
 		});
 
 		getModal().open();
