@@ -9,7 +9,7 @@
 	$: nextExample = data.content[findExampleIndex + 1];
 
 	$: findExampleIndex = data.content.findIndex(
-		(obj) => obj.path === `content/cadenceByExample/${$page.params.lang}/${$page.params.id}`
+		(obj) => obj.path === `content/cadence-by-example/${$page.params.lang}/${$page.params.id}`
 	);
 </script>
 
@@ -47,7 +47,7 @@
 	</div>
 	<div class="sidebar-wrapper">
 		<EditContent
-			href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/cadenceByExample/${$page.params.lang}/${$page.params.id}.md`}
+			href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/cadence-by-example/${$page.params.lang}/${$page.params.id}.md`}
 			target="_blank"
 		/>
 	</div>

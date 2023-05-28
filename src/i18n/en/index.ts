@@ -49,6 +49,7 @@ const en: BaseTranslation = {
 	[ContentTypeEnum.Blog]: 'Blog',
 	[ContentTypeEnum.Tweet]: 'Tweet',
 	[ContentTypeEnum.Tutorial]: 'Tutorial',
+	[ContentTypeEnum.Challenge]: 'Challenges',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',
@@ -64,7 +65,13 @@ const en: BaseTranslation = {
 	[ExpertiseEnum.Beginner]: 'Beginner',
 
 	// Quickstarts
-	NO_QUICKSTARTS_FOUND: 'No quickstarts found for this lenguage'
+	NO_QUICKSTARTS_FOUND: 'No quickstarts found for this lenguage',
+
+	// Challenge
+	CHALLENGE_TITLE: 'Cadence Challenges',
+	CHALLENGES_SOLVED: 'Challenges Solved',
+	CHALLENGES_UNSOLVED: 'Challenges Unsolved',
+	NO_CHALLENGES_AVAILABLE: 'No challenges available'
 };
 
 export default en;

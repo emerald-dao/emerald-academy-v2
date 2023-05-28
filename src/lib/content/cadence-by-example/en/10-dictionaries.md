@@ -20,7 +20,7 @@ pub contract Dictionaries {
       self.map.remove(key: address)
    }
 
-   pub fun get(address: Int): String? {
+   pub fun get(address: Address): Int? {
       return self.map[address]
    }
 

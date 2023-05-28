@@ -3,7 +3,7 @@ title: Access Control
 lesson: 5
 language: en
 excerpt: Access Control
-lessonVideoUrl: https://www.youtube.com/embed/ly3rNs0xCRQ&t
+lessonVideoUrl: https://www.youtube.com/embed/ly3rNs0xCRQ
 quizUrl: https://forms.gle/nn7xho4BmG51Nq3L7
 ---
 

@@ -114,7 +114,7 @@
 				{#if metadata.lessonVideoUrl}
 					<a href="#" class={`header-link row-2 align-center`}>
 						<Icon icon="bi:camera-video" />
-						<p class="w-small">Video lesson</p>
+						<p class="w-small no-margin">Video lesson</p>
 					</a>
 				{/if}
 				{#if metadata.quizUrl}

@@ -29,13 +29,13 @@
 			prefetch: true
 		},
 		{
-			name: 'Cadence By Example',
+			name: 'Cadence by Example',
 			url: `/${$locale}/cadence-by-example`,
 			prefetch: true
 		},
 		{
-			name: 'Resources',
-			url: `/${$locale}/resources`,
+			name: 'Challenges',
+			url: `/${$locale}/cadence-challenges`,
 			prefetch: true
 		},
 		{
@@ -75,7 +75,7 @@
 	{network}
 	avatarDropDownNavigation={avatarDropdownNav}
 	logoHref={`/${$locale}/`}
-	logoUrl="/EA_Iso.svg"
+	logoUrl="/ea-logo.png"
 	logoText="Emerald Academy"
 	width={headerWidth}
 >
@@ -84,7 +84,7 @@
 <main>
 	<slot />
 </main>
-<Footer {navElements} logoHref={`/${$locale}/`} logoUrl="/EA_Iso.svg" logoText="Emerald Academy" />
+<Footer {navElements} logoHref={`/${$locale}/`} logoUrl="/ea-logo.png" logoText="Emerald Academy" />
 
 <svelte:head>
 	<HeadHrefLangs />

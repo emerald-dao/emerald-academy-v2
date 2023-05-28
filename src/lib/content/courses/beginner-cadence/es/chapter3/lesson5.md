@@ -11,7 +11,7 @@ excerpt: Control de Acceso
 
 ## Video
 
-Recomiendo que veas el video para el contenido de hoy. Se va a ayudar mucho porque el control de acceso está super confuso: https://www.youtube.com/watch?v=ly3rNs0xCRQ&t
+Recomiendo que veas el video para el contenido de hoy. Se va a ayudar mucho porque el control de acceso está super confuso: https://www.youtube.com/watch?v=ly3rNs0xCRQ
 
 ## Introducción a Control de Acceso y los Modificadores de Acceso
 

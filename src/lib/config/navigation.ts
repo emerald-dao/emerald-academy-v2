@@ -9,7 +9,7 @@ export const navElements = [
 		prefetch: true
 	},
 	{
-		name: 'Cadence By Example',
+		name: 'Cadence by Example',
 		url: '/cadence-by-example',
 		prefetch: true
 	},

@@ -3,7 +3,7 @@ import { error } from '@sveltejs/kit';
 export const load = async ({ params }) => {
 	try {
 		const cadenceByExampleMarkdownFile = await import(
-			`../../../../lib/content/cadenceByExample/${params.lang}/${params.id}.md`
+			`../../../../lib/content/cadence-by-example/${params.lang}/${params.id}.md`
 		);
 
 		const meta = cadenceByExampleMarkdownFile.metadata;
