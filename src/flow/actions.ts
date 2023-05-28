@@ -2,7 +2,7 @@ import './config';
 import * as fcl from '@onflow/fcl';
 import { browser } from '$app/environment';
 import { user } from '$stores/flow/FlowStore';
-import { executeTransaction, replaceWithProperValues, switchToToken } from './utils';
+import { executeTransaction, formatFix, replaceWithProperValues, switchToToken } from './utils';
 
 import tipTx from './cadence/transactions/tip.cdc?raw';
 import getEmeraldIDScript from './cadence/scripts/get_emerald_id.cdc?raw';
@@ -19,7 +19,7 @@ export const unauthenticate = () => fcl.unauthenticate();
 export const logIn = async () => await fcl.logIn();
 export const signUp = () => fcl.signUp();
 
-const tip = async (amount: string, recipient: string, currency: ECurrencies) => {
+const tip = async (amount: string, recipient: string, currency: ECurrencies, message: string) => {
 	let txCode = tipTx;
 	if (currency === ECurrencies.USDC) {
 		txCode = switchToToken(txCode, ECurrencies.USDC);
@@ -27,8 +27,9 @@ const tip = async (amount: string, recipient: string, currency: ECurrencies) => 
 	return await fcl.mutate({
 		cadence: replaceWithProperValues(txCode),
 		args: (arg, t) => [
-			arg(amount, t.UFix64),
-			arg(recipient, t.Address)
+			arg(formatFix(amount), t.UFix64),
+			arg(recipient, t.Address),
+			arg(message ? message : null, t.Optional(t.String))
 		],
 		proposer: fcl.authz,
 		payer: fcl.authz,
@@ -37,7 +38,8 @@ const tip = async (amount: string, recipient: string, currency: ECurrencies) => 
 	});
 };
 
-export const tipExecution = (amount: string, recipient: string, currency: ECurrencies) => executeTransaction(() => tip(amount, recipient, currency));
+export const tipExecution = (amount: string, recipient: string, currency: ECurrencies, message: string) =>
+	executeTransaction(() => tip(amount, recipient, currency, message));
 
 export const getEmeraldID = async (address: string) => {
 	try {

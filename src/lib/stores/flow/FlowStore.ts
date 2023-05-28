@@ -50,6 +50,10 @@ const contractData = {
 		testnet: '0xa16ab1d0abde3625',
 		mainnet: '0x097bafa4e0b48eef'
 	},
+	SendTokenMessage: {
+		emulator: '0xf8d6e0586b0a20c7',
+		mainnet: '0x3d64e203dbb5eafb'
+	}
 };
 
 export const user = writable<CurrentUserObject | { loggedIn: false; addr: null }>({
@@ -69,5 +73,6 @@ export const addresses = {
 	ECTreasury: contractData.ECTreasury[network],
 	FLOAT: contractData.FLOAT[network],
 	FIND: contractData.FIND[network],
-	FiatToken: contractData.FiatToken[network]
+	FiatToken: contractData.FiatToken[network],
+	SendTokenMessage: contractData.SendTokenMessage[network]
 };

@@ -7,7 +7,7 @@
 	import '$lib/styles/_articles.scss';
 	import { setLocale, locale } from '$i18n/i18n-svelte';
 	import HeadHrefLangs from '$lib/components/i18n/HeadHrefLangs.svelte';
-	import { Header, Footer } from '@emerald-dao/component-library';
+	import { Header, Footer, TransactionModal } from '@emerald-dao/component-library';
 	import { theme } from '$stores/ThemeStore';
 	import { logIn, unauthenticate } from '$flow/actions';
 	import { user } from '$stores/flow/FlowStore';
@@ -15,6 +15,7 @@
 	import LocaleSwitcher from '$lib/components/i18n/LocaleSwitcher.svelte';
 	import { network } from '$flow/config';
 	import { page } from '$app/stores';
+	import { transactionStore } from '$stores/flow/TransactionStore';
 
 	export let data;
 
@@ -57,6 +58,12 @@
 
 	$: headerWidth = $page.params.lesson ? 'large' : 'medium';
 </script>
+
+<TransactionModal
+	transactionInProgress={$transactionStore.progress}
+	transactionStatus={$transactionStore.transaction}
+	on:close={() => transactionStore.resetTransaction()}
+/>
 
 <Header
 	themeStore={theme}

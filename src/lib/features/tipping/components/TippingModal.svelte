@@ -39,7 +39,7 @@
 							<Button
 								size="large"
 								width="extended"
-								state="active"
+								state={step.state === 'loading' ? 'loading' : 'active'}
 								on:click={tippingActiveStep.increment}
 							>
 								{step.button.text}

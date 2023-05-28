@@ -1,7 +1,6 @@
 import { addresses } from '$stores/flow/FlowStore';
 import { transactionStore } from '$stores/flow/TransactionStore';
 import * as fcl from '@onflow/fcl';
-import { network } from './config';
 import type { TransactionStatusObject } from '@onflow/fcl';
 import type { ActionExecutionResult } from '$lib/stores/custom/steps/step.interface';
 import { ECurrencies } from '$lib/types/common/enums';
@@ -14,6 +13,7 @@ export function replaceWithProperValues(script: string) {
       .replace('"../utility/FUSD.cdc"', addresses.FUSD)
       .replace('"../utility/FiatToken.cdc"', addresses.FiatToken)
       .replace('"../utility/FungibleToken.cdc"', addresses.FungibleToken)
+      .replace('"../SendTokenMessage.cdc"', addresses.SendTokenMessage)
   );
 }
 
@@ -99,6 +99,14 @@ export const executeTransaction: (
       errorMessage: e
     } as ActionExecutionResult;
   }
+};
+
+export const formatFix = (value) => {
+  const i = Number.parseFloat(value);
+  if (i % 1 == 0) {
+    return i.toFixed(4);
+  }
+  return i.toFixed(4);
 };
 
 export const getFindProfile = async (address: string) => {
