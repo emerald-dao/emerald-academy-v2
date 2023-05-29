@@ -69,17 +69,20 @@ In Niftory, you can switch from TestNet to MainNet with a toggle. This is a part
 
 ## Authentication modes
   
-Authentication can be particularly difficult when working with DApps. Explain the different authentication modes: 
+Authentication can be particularly difficult when working with DApps. We have two main authentication modes we use in Niftory (and you'll explore in more detail in the next lesson with the sample app). 
 
-They can use either OAuth or API Keys but not both. 
+### API-key-only authentication
 
-If OAuth: 
-1. User Access (Front end authentication). Regular OAuth (Google as sign-in provider)
-2. Admin/Privileged access (Back end authentication). OAuth Client Credentials grant.
+If the user isn't signed in, the above client will make requests without an `Authorization` header. This allows users to view available NFTs without signing in.
 
-If API Key: 
-1. API Access. No special privilege, just ID yourself as a Niftory client. Only needs API key. 
-2. Privileged access. Pass client secret as well. 
+Before claiming an NFT, the app will prompt the user to sign in and set up their wallet.
+
+### Backend authentication
+
+Transferring NFTs is a privileged operation, so we will use the [client credentials OAuth flow](lib/oauth.ts) to get a token that represents the app itself.
+
+It passes in the client credentials token to the [backend GraphQL client](lib/graphql/backendClient.ts). 
+
 
 <!-- Placeholder content - needs to be rewritten. 
 
