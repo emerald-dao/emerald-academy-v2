@@ -15,6 +15,7 @@
 				avatarUrl={challengeSolved.author.avatarUrl}
 				socialMediaUrl={challengeSolved.author.socialMediaUrl}
 				isVerified={challengeSolved.author.isVerified}
+				walletAddress={challengeSolved.author.walletAddress}
 				challengeAuthor={true}
 			/>
 		{/if}

@@ -6,6 +6,7 @@
 	import { page } from '$app/stores';
 	import Icon from '@iconify/svelte';
 	import EditContent from '../atoms/EditContent.svelte';
+	import type { Author as IAuthor } from '$lib/types/content/content-overview.interface';
 	import Author from '../atoms/Author.svelte';
 
 	export let headings: Heading[];
@@ -71,7 +72,7 @@
 		});
 	}
 
-	const author = getContext('author-context');
+	const author: IAuthor = getContext('author-context');
 	const metadata = getContext('metadata-context');
 
 	let questsExist = false;
@@ -93,6 +94,7 @@
 			avatarUrl={author.avatarUrl}
 			socialMediaUrl={author.socialMediaUrl}
 			isVerified={author.isVerified}
+			walletAddress={author.walletAddress}
 		/>
 	{/if}
 	<div class="steps-wrapper">

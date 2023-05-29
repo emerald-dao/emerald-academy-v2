@@ -1,37 +1,46 @@
 import { get, writable } from 'svelte/store';
-import type { Step } from '$lib/types/generator/generator-step-interface.type';
+import type { Subscriber, Unsubscriber } from 'svelte/store';
+import type { ProgressStates } from '@emerald-dao/component-library/components/ProgressStep/progress-states.type';
+import type { Step } from './step.interface';
 
-export function createActiveStep(steps) {
-    //Para hacer una custom store, creo función.
-    //los custom stores sirven para tener aca todas las funciones que va a poder hacer el step by step en este caso
-    //lo hacemos writable e inicializamos en 0
-    //creamos una variable donde vamos a tener el active step
+export function createActiveStep(steps: {
+	subscribe: (this: void, run: Subscriber<Step[]>) => Unsubscriber;
+	changeStepState: (index: number, state: ProgressStates) => void;
+	resetStates: () => void;
+}) {
 	const activeStep = writable(0);
-    //destructuring
 	const { subscribe, set, update } = activeStep;
 
-    //funciones que voy a utilizar
 	async function increment() {
 		const activeStepNumber = get(activeStep);
 		const action = get(steps)[activeStepNumber].action;
 		const numberOfSteps = get(steps).length;
 
-		if (numberOfSteps > activeStepNumber) {
+		if (numberOfSteps - 1 >= activeStepNumber) {
 			if (action != null) {
 				steps.changeStepState(activeStepNumber, 'loading');
-				try {
-					await action();
-					steps.changeStepState(activeStepNumber, 'success');
-					steps.changeStepState(activeStepNumber + 1, 'active');
-					update((n) => n + 1);
-				} catch (e) {
-					console.error('Error has occured: ' + e);
+				console.log('doing action')
+				const actionResult = await action();
+				console.log(actionResult)
+
+				if (actionResult.state === 'error') {
 					steps.changeStepState(activeStepNumber, 'error');
+					console.error('Error in action: ' + actionResult.errorMessage);
+					return;
+				} else if (actionResult.state === 'success') {
+					steps.changeStepState(activeStepNumber, 'success');
+					if (numberOfSteps - 1 !== activeStepNumber) {
+						console.log('changing step state!')
+						steps.changeStepState(activeStepNumber + 1, 'active');
+						update((n) => n + 1);
+					}
 				}
 			} else {
 				steps.changeStepState(activeStepNumber, 'success');
-				steps.changeStepState(activeStepNumber + 1, 'active');
-				update((n) => n + 1);
+				if (numberOfSteps - 1 !== activeStepNumber) {
+					steps.changeStepState(activeStepNumber + 1, 'active');
+					update((n) => n + 1);
+				}
 			}
 		}
 	}
@@ -47,9 +56,9 @@ export function createActiveStep(steps) {
 	}
 
 	function goToStep(i: number) {
-		const activeStepNumber = get(activeStep);
-
-		steps.changeStepState(activeStepNumber, 'inactive');
+		for (let j = i + 1; j < get(steps).length; j++) {
+			steps.changeStepState(j, 'inactive');
+		}
 		steps.changeStepState(i, 'active');
 		set(i);
 	}

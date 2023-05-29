@@ -53,6 +53,8 @@
 							avatarUrl={overview.author.avatarUrl}
 							socialMediaUrl={overview.author.socialMediaUrl}
 							isVerified={overview.author.isVerified}
+							walletAddress={overview.author.walletAddress}
+							tip={false}
 						/>
 					</div>
 				{/if}
