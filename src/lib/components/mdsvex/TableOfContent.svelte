@@ -1,7 +1,7 @@
 <script type="ts">
 	import { transformHeadingToUrl } from '$lib/utilities/dataTransformation/transformHeadingToUrl';
 	import { getContext, onMount, tick } from 'svelte';
-	import { ProgressSteps } from '@emerald-dao/component-library';
+	import { Button, ProgressSteps } from '@emerald-dao/component-library';
 	import type { ProgressStates } from '@emerald-dao/component-library/components/ProgressStep/progress-states.type';
 	import { page } from '$app/stores';
 	import Icon from '@iconify/svelte';
@@ -10,6 +10,7 @@
 	import Author from '../atoms/Author.svelte';
 
 	export let headings: Heading[];
+	export let quickstartAuthor: IAuthor | undefined = undefined;
 
 	interface Heading {
 		level: number;
@@ -57,6 +58,7 @@
 	interface Step {
 		name: string;
 		state: ProgressStates;
+		url?: string;
 	}
 
 	function tranformHeadingsToSteps() {
@@ -96,6 +98,14 @@
 			isVerified={author.isVerified}
 			walletAddress={author.walletAddress}
 		/>
+	{:else if quickstartAuthor}
+		<Author
+			name={quickstartAuthor.name}
+			avatarUrl={quickstartAuthor.avatarUrl}
+			socialMediaUrl={quickstartAuthor.socialMediaUrl}
+			isVerified={quickstartAuthor.isVerified}
+			walletAddress={quickstartAuthor.walletAddress}
+		/>
 	{/if}
 	<div class="steps-wrapper">
 		<ProgressSteps
@@ -109,37 +119,58 @@
 		/>
 	</div>
 	<div class="column-6 bottom-links-wrapper">
-		{#if metadata.lessonVideoUrl || metadata.quizUrl || questsExist}
-			<div class="column-3">
-				{#if metadata.lessonVideoUrl}
-					<a href="#" class={`header-link row-2 align-center`}>
-						<Icon icon="bi:camera-video" />
-						<p class="w-small no-margin">Video lesson</p>
-					</a>
-				{/if}
-				{#if metadata.quizUrl}
-					<a
-						href={metadata.quizUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-						class={`header-link row-2 align-center`}
-					>
-						<Icon icon="tabler:zoom-question" />
-						<p class="w-small no-margin">Quiz</p>
-					</a>
-				{/if}
-				{#if questsExist}
-					<a href="#quests" class={`header-link row-2 align-center`}>
-						<Icon icon="tabler:diamond" />
-						<p class="w-small no-margin">Quests</p>
-					</a>
-				{/if}
-			</div>
+		{#if metadata}
+			{#if metadata.lessonVideoUrl || metadata.quizUrl || questsExist}
+				<div class="column-3">
+					{#if metadata.lessonVideoUrl}
+						<a href="#" class={`header-link row-2 align-center`}>
+							<Icon icon="bi:camera-video" />
+							<p class="w-small no-margin">Video lesson</p>
+						</a>
+					{/if}
+					{#if metadata.quizUrl}
+						<a
+							href={metadata.quizUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							class={`header-link row-2 align-center`}
+						>
+							<Icon icon="tabler:zoom-question" />
+							<p class="w-small no-margin">Quiz</p>
+						</a>
+					{/if}
+					{#if questsExist}
+						<a href="#quests" class={`header-link row-2 align-center`}>
+							<Icon icon="tabler:diamond" />
+							<p class="w-small no-margin">Quests</p>
+						</a>
+					{/if}
+				</div>
+			{/if}
+		{:else}
+			<Button
+				size="small"
+				type="ghost"
+				color="neutral"
+				target="_blank"
+				width="full-width"
+				href={`https://github.com/emerald-dao/${$page.params.name}/fork`}
+			>
+				<Icon icon="tabler:brand-github" />
+				Fork Quickstart
+			</Button>
 		{/if}
-		<EditContent
-			href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/${$page.params.name}/${$page.params.lang}/${$page.params.chapter}/${$page.params.lesson}.md`}
-			target="_blank"
-		/>
+		{#if $page.params.lesson}
+			<EditContent
+				href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/${$page.params.name}/${$page.params.lang}/${$page.params.chapter}/${$page.params.lesson}.md`}
+				target="_blank"
+			/>
+		{:else}
+			<EditContent
+				href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/quickstarts/${$page.params.name}/${$page.params.lang}/readme.md`}
+				target="_blank"
+			/>
+		{/if}
 	</div>
 </div>
 
