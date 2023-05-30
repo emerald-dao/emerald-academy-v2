@@ -150,8 +150,7 @@
 		{:else}
 			<Button
 				size="small"
-				type="ghost"
-				color="neutral"
+				color="primary"
 				target="_blank"
 				width="full-width"
 				href={`https://github.com/emerald-dao/${$page.params.name}/fork`}
