@@ -14,7 +14,7 @@ layout: examples
 
 💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emeraldcity)!
 
-# 📦 Checkpoint 0: Install
+## 📦 Checkpoint 0: Install
 
 Required:
 
@@ -55,13 +55,13 @@ flow dev-wallet
 
 📱 Open http://localhost:3000 to see the app
 
-# 👛 Checkpoint 1: Wallets
+## 👛 Checkpoint 1: Wallets
 
 We'll be using **the local Flow dev wallet**.
 
 > Click the "Connect" button and notice a window appears with different accounts to select, each with their own Flow Token balance. Select the first account to log in to it.
 
-# ✏️ Checkpoint 2: Minting some NFT’s
+## ✏️ Checkpoint 2: Minting some NFT’s
 
 Before we allow users to purchase NFTs, we have to mint them first!
 
@@ -75,7 +75,7 @@ This will mint 3 NFTs and store them in the contract. They will be ready for pur
 
 <img src="https://i.imgur.com/s5uAUMW.png" alt="NFTs now appear on the frontend" />
 
-# 📘 Checkpoint 3: Purchase NFTs
+## 📘 Checkpoint 3: Purchase NFTs
 
 Now that there are NFTs available for purchase, we can go ahead and buy some NFTs.
 
@@ -89,7 +89,7 @@ If you click approve, you will see that the NFT successfully gets taken off the 
 
 <img src="https://i.imgur.com/aMv2KOI.png" alt="nft is now purchased" />
 
-# 💾 Checkpoint 4: Fund an Account
+## 💾 Checkpoint 4: Fund an Account
 
 Before we try to purchase with another account, we have to make sure they have enough Flow Tokens to buy with.
 
@@ -105,7 +105,7 @@ Now you will have enough Flow to purchase with Account A. Try to buy an NFT!
 
 After buying an NFT, you should notice the balance of the account decrease.
 
-# 💾 Checkpoint 5: Deploy it to testnet!
+## 💾 Checkpoint 5: Deploy it to testnet!
 
 📔 Ready to deploy to a public testnet?!?
 
@@ -192,7 +192,7 @@ Let's try out our DApp on testnet:
 
 \*Note: If you want to fund a testnet account with Flow Tokens to test your application, you can use the [Testnet Faucet](https://testnet-faucet.onflow.org/fund-account)
 
-# 📝 Make Edits!
+## 📝 Make Edits!
 
 🔏 You can also check out your smart contract `ExampleNFT.cdc` in `flow/cadence/ExampleNFT.cdc`.
 
@@ -200,7 +200,7 @@ Let's try out our DApp on testnet:
 
 📝 If you want to make frontend edits, open `index.js` in `pages/index.js`.
 
-# ⚔️ Side Quests
+## ⚔️ Side Quests
 
 > 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/4-voting).
 

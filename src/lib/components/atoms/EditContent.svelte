@@ -6,7 +6,7 @@
 	export let target: '_blank' | '_self' | '_parent' | '_top';
 </script>
 
-<Button size="small" type="ghost" color="neutral" {href} {target}>
+<Button width="full-width" size="small" type="ghost" color="neutral" {href} {target}>
 	<Icon icon="tabler:brand-github" />
 	Edit content
 </Button>
