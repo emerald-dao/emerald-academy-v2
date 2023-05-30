@@ -5,6 +5,7 @@
 	import LL from '$i18n/i18n-svelte';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 	import ContentIntro from '$lib/components/cards/ContentIntro.svelte';
+	import TableOfContent from '$lib/components/mdsvex/TableOfContent.svelte';
 
 	export let data;
 
@@ -32,7 +33,9 @@
 			</div>
 		</article>
 	</div>
-	<Sidebar {data} />
+	<div class="toc-wrapper">
+		<TableOfContent headings={data.metadata.headings} quickstartAuthor={data.overview.author} />
+	</div>
 </section>
 
 <style type="scss">
@@ -57,6 +60,17 @@
 			article {
 				margin-top: var(--space-9);
 				max-width: 85ch;
+			}
+		}
+
+		.toc-wrapper {
+			display: none;
+
+			@include mq(medium) {
+				display: block;
+				position: sticky;
+				top: 140px;
+				height: fit-content;
 			}
 		}
 	}
