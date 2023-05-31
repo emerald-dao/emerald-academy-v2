@@ -1,18 +1,9 @@
 <script type="ts">
 	import { locale } from '$i18n/i18n-svelte';
 	import type { Template } from '$lib/types/content/templates.interface';
-	import { fetchGithubUser } from '$lib/utilities/api/githubApi/fetchGithubUser';
-	import { Button } from '@emerald-dao/component-library';
 	import Icon from '@iconify/svelte';
-	import { onMount } from 'svelte';
 
 	export let templateData: Template;
-
-	let githubUser;
-
-	onMount(async () => {
-		githubUser = await fetchGithubUser(templateData.user.github);
-	});
 </script>
 
 <a class="card" href={`/${$locale}/${templateData.slug}`}>
@@ -23,12 +14,12 @@
 	<div class="row-wrapper">
 		<div class="row-7">
 			<div class="row-2">
-				{#if githubUser && githubUser.json.avatar_url}
-					<img src={githubUser.json.avatar_url} alt="User avatar" />
+				{#if templateData.author.avatarUrl}
+					<img src={templateData.author.avatarUrl} alt="User avatar" />
 				{:else}
 					<img src="/avatar-header.png" alt="Generic avatar" />
 				{/if}
-				<p class="xsmall w-medium">{templateData.user.github}</p>
+				<p class="xsmall w-medium">{templateData.author.name}</p>
 			</div>
 			{#if templateData.audited}
 				<div class="row-2">

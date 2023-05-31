@@ -5,7 +5,8 @@ layout: examples
 ## 🚩 Challenge 6: Groups
 
 🎫 Deploy a subcommunities contract to learn the basics of voting inside of a DAO on the Flow blockchain and Cadence. You'll use:
-- The local Flow emulator to deploy smart contracts. 
+
+- The local Flow emulator to deploy smart contracts.
 - The local Flow dev wallet to log into test accounts.
 - A template Next.js app with sample scripts and transactions to interact with your contract.
 
@@ -13,12 +14,13 @@ layout: examples
 
 💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emeraldcity)!
 
-# 📦 Checkpoint 0: Install
+## 📦 Checkpoint 0: Install
 
-Required: 
-* [Git](https://git-scm.com/downloads)
-* [Node](https://nodejs.org/dist/latest-v16.x/)  (🧨 Use Node v16 or a previous version as v17 may cause errors 🧨). You know you have installed it if you type `node -v` in your terminal and it prints a version.
-* [Flow CLI](https://docs.onflow.org/flow-cli/install/)  (🧨 Make sure to install the correct link for your system 🧨). You know you have installed it if you type `flow version` in your terminal and it prints a version.
+Required:
+
+- [Git](https://git-scm.com/downloads)
+- [Node](https://nodejs.org/dist/latest-v16.x/) (🧨 Use Node v16 or a previous version as v17 may cause errors 🧨). You know you have installed it if you type `node -v` in your terminal and it prints a version.
+- [Flow CLI](https://docs.onflow.org/flow-cli/install/) (🧨 Make sure to install the correct link for your system 🧨). You know you have installed it if you type `flow version` in your terminal and it prints a version.
 
 ```sh
 git clone https://github.com/emerald-dao/6-groups.git
@@ -39,7 +41,7 @@ cd 6-groups
 flow emulator start -v
 ```
 
-*Note: the `-v` flag means to print transaction and script output to your local emulator*
+_Note: the `-v` flag means to print transaction and script output to your local emulator_
 
 > in a third terminal window, 💾 deploy your contract and 💸 start your local wallet:
 
@@ -53,13 +55,13 @@ flow dev-wallet
 
 📱 Open http://localhost:3000 to see the app
 
-# 👛 Checkpoint 1: Wallets
+## 👛 Checkpoint 1: Wallets
 
 We'll be using **the local Flow dev wallet**.
 
 > Click the "Log In" button and notice a window appears with different accounts to select, each with their own Flow Token balance. Select the first account to log in to it.
 
-# 🔖 Checkpoint 2: Viewing a Group
+## 🔖 Checkpoint 2: Viewing a Group
 
 After logging in to our DApp, you will notice that there is already a community up and running: Emerald City!
 
@@ -73,13 +75,13 @@ You will be taken to a page that shows all the details of Emerald City:
 
 Because you are logged in to the Service Account, and that account is the owner of this group, you are in the community already. Let's try to log into a different account and join this community.
 
-# 👪 Checkpoint 3: Joining a Group
+## 👪 Checkpoint 3: Joining a Group
 
 Let's join the Emerald City group from a different account!
 
 > At the top, click "Logout" and log back in with Account A
 
-Account A does not belong to this group, so we cannot do thing like see the group's forum. 
+Account A does not belong to this group, so we cannot do thing like see the group's forum.
 
 > To join, click the "Join Community" button and you will see a transaction model pop up:
 
@@ -87,7 +89,7 @@ Account A does not belong to this group, so we cannot do thing like see the grou
 
 If you click "Approve", you will notice that your address is now added to the members list. Woohoo! We successfully joined the group. If you wanted to, you could also leave the group.
 
-# 📑 Checkpoint 4: Type a Message
+## 📑 Checkpoint 4: Type a Message
 
 Now that we joined the group, we can start to use the forum!
 
@@ -97,9 +99,10 @@ Now that we joined the group, we can start to use the forum!
 
 Your message has been added to the community forum, stored completely on-chain!
 
-# 👀 Checkpoint 5: Creating a Group
+## 👀 Checkpoint 5: Creating a Group
 
 To create a group, head back to the main page and click "Create Group". Once you are there, you must fill in:
+
 - An image for your group
 - The name of your group
 - A description for your group
@@ -120,7 +123,7 @@ After clicking "Approve", you will be taken back to the main dashboard. You shou
 
 <img src="" alt="see your new group" width="400" />
 
-# 💾 Checkpoint 6: Deploy it to testnet!
+## 💾 Checkpoint 6: Deploy it to testnet!
 
 📔 Ready to deploy to a public testnet?!?
 
@@ -128,7 +131,7 @@ After clicking "Approve", you will be taken back to the main dashboard. You shou
 
 <img src="https://i.imgur.com/jU9sRiL.png" alt="generate key pair" />
 
-> 👛 Create your **deployer account** by going to https://testnet-faucet.onflow.org/, pasting in your public key from above, and clicking `CREATE ACCOUNT`: 
+> 👛 Create your **deployer account** by going to https://testnet-faucet.onflow.org/, pasting in your public key from above, and clicking `CREATE ACCOUNT`:
 
 <img src="https://i.imgur.com/OitvEoO.png" alt="configure testnet account on the website" width="400" />
 
@@ -178,9 +181,10 @@ flow project deploy --network=testnet
 > Lastly, configure your .env file to point to Flow TestNet so we can interact with your new contract.
 
 In your .env file, change the following:
+
 1. `NEXT_PUBLIC_CONTRACT_ADDRESS` to your generated testnet address
 2. `NEXT_PUBLIC_ACCESS_NODE` to `https://rest-testnet.onflow.org`
-3. `NEXT_PUBLIC_WALLET` to `https://fcl-discovery.onflow.org/testnet/authn` 
+3. `NEXT_PUBLIC_WALLET` to `https://fcl-discovery.onflow.org/testnet/authn`
 
 You can now terminate all your terminals since we no longer need to run our own local blockchain or wallet. Everything lives on testnet!
 
@@ -192,22 +196,23 @@ Let's try out our application on testnet:
 4. Create a new group, same as before.
 5. Chat in any group of your wish.
 
-# Storing Image Assets
+## Storing Image Assets
 
-You may be wondering: How are you storing images? Where do they go? 
+You may be wondering: How are you storing images? Where do they go?
 
 Thanks to our amazing supporters at <a href="https://filecoin.io/">Filecoin</a>, we decided to use <a href="https://nft.storage/">NFT.Storage</a> to store our image assets on IPFS. NFT.Storage allows you to upload an image, and in return it gives you what's called a "CID", or a long list of random numbers and letters. You can use this to fetch your image from a URL and properly display it.
 
 This is also especially useful when we think about storage costs. We would never want to store images directly in our smart contract because that would be expensive (having to store hundreds of Megabytes, or potentially Gigabytes). Instead, we store the CID, which is just a small string and much cheaper.
 
 This is how simple it is to store images on IPFS in your code:
+
 1. `npm install nft.storage`
 2. Go to <a href="https://nft.storage/">NFT.Storage</a> > Login > API Keys > + New Key > Actions > Copy
 3. Paste your key in your `.env` file
 4. Added the following code in our `/pages/create.js` file:
 
 ```jsx
-import { NFTStorage } from "nft.storage";
+import { NFTStorage } from 'nft.storage';
 
 const [preview, setPreview] = useState('');
 const [ipfsCid, setIpfsCid] = useState('');
@@ -216,16 +221,16 @@ const NFT_STORAGE_TOKEN = process.env.NEXT_PUBLIC_NFTSTORAGE_KEY;
 const client = new NFTStorage({ token: NFT_STORAGE_TOKEN });
 
 async function uploadToIPFS(file) {
-  let prev = URL.createObjectURL(file)
-  setPreview(prev)
-  const cid = await client.storeBlob(file);
-  setIpfsCid(cid);
+	let prev = URL.createObjectURL(file);
+	setPreview(prev);
+	const cid = await client.storeBlob(file);
+	setIpfsCid(cid);
 }
 ```
 
 5. Store the IPFS CID in your smart contract code. Inside `/flow/cadence/Groups.cdc`, check out the `image` variable under the `GroupInfo` struct. That stores the IPFS CID.
 
-# 📝 Make Edits!
+## 📝 Make Edits!
 
 🔏 You can also check out your groups smart contract `Groups.cdc` in `flow/cadence/Groups.cdc`.
 
@@ -233,7 +238,7 @@ async function uploadToIPFS(file) {
 
 📝 If you want to make frontend edits, open `index.js` in `pages/index.js`.
 
-# ⚔️ Side Quests
+## ⚔️ Side Quests
 
 > 🏃 More challenges coming soon...
 
