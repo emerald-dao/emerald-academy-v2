@@ -9,13 +9,13 @@ export const overview: CourseOverview = {
 	excerpt:
 		'Learn to deploy a new contract on the flow blockchain. You will learn the major aspects of DApp development.',
 	author: {
-		name: 'Kiran Pathakota',
-		socialMediaUrl: 'https://twitter.com/imkpats',
+		name: 'Team Niftory',
+		socialMediaUrl: 'https://twitter.com/niftory',
 		avatarUrl: ''
 	},
 	metadata: {
 		expertise: ExpertiseEnum.Beginner,
-		duration: '5 chapters',
+		duration: '1 chapter',
 		prerequisites: ['javascript'],
 		subjects: [SubjectsEnum.DApp, SubjectsEnum.Web, SubjectsEnum.Cadence, SubjectsEnum.Javascript],
 		price: 'Free',
@@ -23,22 +23,7 @@ export const overview: CourseOverview = {
 			{
 				question: '📖 What is this course?',
 				answer:
-					'You will explore how to make a DApp on the Flow blockchain. During the bootcamp, you will learn the major aspects of DApp development, including: <ul><li>Next.js (a front-end framework)</li><li>Cadence (smart contract development)</li><li>FCL (Flow Client Library)</li><li>CSS (for styling)</li></ul>During the course, we will be creating a DApp together. However, after completing the course, you will have the knowledge to develop your own DApps too.'
-			},
-			{
-				question: '🚀 What will I know by the end?',
-				answer:
-					'<ul><li>An intro to the Flow blockchain (Chapter 1)</li><li>Do some front-end development (Chapter 2)</li><li>How to do basic styling (Chapter 2)</li><li>How to make your own DApp (Chapters 2-5)</li><li>How to do some Cadence coding (Chapter 3)</li><li>Connect your DApp to the blockchain (Chapter 3-5)</li></ul>'
-			},
-			{
-				question: '🔖 What will I create?',
-				answer:
-					'Click <a href="https://beginner-emerald-dapp.vercel.app/" target="_blank">here</a> to see what you will be creating.'
-			},
-			{
-				question: '😇 Who is this course NOT meant for?',
-				answer:
-					'<ul><li>People who have already created very basic DApps using FCL. This will be too boring for you.</li></ul>'
+					'You will explore how to make a DApp on the Flow blockchain, using Niftory.'
 			},
 			{
 				question: '📚 How does it work?',
