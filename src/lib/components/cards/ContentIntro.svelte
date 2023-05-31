@@ -103,14 +103,16 @@
 			{/if}
 		{/if}
 	</div>
-	{#if overview.author}
-		<Author
-			name={overview.author.name}
-			avatarUrl={overview.author.avatarUrl}
-			socialMediaUrl={overview.author.socialMediaUrl}
-			isVerified={overview.author.isVerified}
-			walletAddress={overview.author.walletAddress}
-		/>
+	{#if overview.contentType === ContentTypeEnum.Course || overview.contentType === ContentTypeEnum.Bootcamp}
+		{#if overview.author}
+			<Author
+				name={overview.author.name}
+				avatarUrl={overview.author.avatarUrl}
+				socialMediaUrl={overview.author.socialMediaUrl}
+				isVerified={overview.author.isVerified}
+				walletAddress={overview.author.walletAddress}
+			/>
+		{/if}
 	{/if}
 	<div class="column-6">
 		{#if overview.contentType !== ContentTypeEnum.Quickstart}

@@ -19,12 +19,12 @@ layout: examples
 
 💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emeraldcity)!
 
-# Video Walkthrough
+## 📹 Video Walkthrough
 
-Want a video walkthrough? Check out Jacob Tucker's walkthrough here: 
+Want a video walkthrough? Check out Jacob Tucker's walkthrough here:
 <LessonVideo {lessonVideoUrl} />
 
-# 📦 Checkpoint 0: Install
+## 📦 Checkpoint 0: Install
 
 Required:
 
@@ -65,13 +65,13 @@ flow dev-wallet
 
 📱 Open http://localhost:3000 to see the app
 
-# 👛 Checkpoint 1: Wallets
+## 👛 Checkpoint 1: Wallets
 
 We'll be using **the local Flow dev wallet**.
 
 > Click the "Log In" button and notice a window appears with different accounts to select, each with their own Flow Token balance. Select the first account to log in to it.
 
-# 👀 Checkpoint 2: See your NFTs
+## 👀 Checkpoint 2: See your NFTs
 
 > After logging in to the account with address `0xf8d6e0586b0a20c7`, click the `Get NFTs` button. Notice that you get an error:
 
@@ -87,7 +87,7 @@ This will set up the user's account so it can receive NFTs.
 
 > Try clicking `Get NFTs`. You will see no NFTs appear. So let's mint some NFTs!
 
-# ✏️ Checkpoint 3: Minting the NFT’s
+## ✏️ Checkpoint 3: Minting the NFT’s
 
 Now that we have set up the user's account, we can mint some NFTs to it.
 
@@ -101,7 +101,7 @@ This will mint 3 NFTs to the supplied address (`0xf8d6e0586b0a20c7`).
 
 <img src="https://i.imgur.com/CZSwxxJ.png" alt="NFTs now appear on the frontend" />
 
-# 📘 Checkpoint 4: Setup empty user Collection
+## 📘 Checkpoint 4: Setup empty user Collection
 
 > Log out of the current account and login to another account. Click `Get NFTs` again. You will see an error appear:
 
@@ -115,7 +115,7 @@ This will set up the user's account so it can receive NFTs.
 
 > Try clicking `Get NFTs`. You will see no NFTs appear. So let's transfer some from the other account!
 
-# 💾 Checkpoint 5: Transfer an NFT
+## 💾 Checkpoint 5: Transfer an NFT
 
 > 📔 Log out of your account and go back to the Service Account. In one of the NFT boxes, copy and paste `0x179b6b1cb6755e31` and click `Transfer`:
 
@@ -123,7 +123,7 @@ This will set up the user's account so it can receive NFTs.
 
 This will transfer an NFT to the `0x179b6b1cb6755e31` account. Log in to that account, click `Get NFTs`, and you will see it has an NFT now!
 
-# 💾 Checkpoint 6: Deploy it to testnet!
+## 💾 Checkpoint 6: Deploy it to testnet!
 
 📔 Ready to deploy to a public testnet?!?
 
@@ -206,7 +206,7 @@ Let's try out our DApp on testnet:
 5. In your terminal, you should see a printed "Transaction Id". If you go to [Testnet Flowscan](https://testnet.flowscan.org/) and paste in that Transaction Id, you should see information about that minting transaction.
 6. Click "Get NFTs", and you should see all your NFTs in your account!
 
-# 📝 Make Edits!
+## 📝 Make Edits!
 
 🔏 You can also check out your smart contract `ExampleNFT.cdc` in `flow/cadence/ExampleNFT.cdc`.
 
@@ -214,7 +214,7 @@ Let's try out our DApp on testnet:
 
 📝 If you want to make frontend edits, open `index.js` in `pages/index.js`.
 
-# ⚔️ Side Quests
+## ⚔️ Side Quests
 
 > 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/2-fungible-token).
 
