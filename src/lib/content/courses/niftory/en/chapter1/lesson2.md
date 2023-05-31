@@ -42,15 +42,6 @@ Now, we're going to deploy a contract in under 30s. Ready? LFG!
 
 And voila! You've just deployed your first Flow contract. 
 
-## Creating a collection 
-
-- Set > Collectibles > NFTs
-- Mint the collectible (not the NFT)
-- List the NFT (auto-mint by Niftory) OR handle the mint in code by yourself. 
-
-## Minting NFTs on the contract
-
-- Code Snippet for minting. 
 
 ## Mainnet vs. Testnet
 
@@ -66,41 +57,18 @@ In Niftory, you can switch from TestNet to MainNet with a toggle. This is a part
 
 <img src="/courses/niftory/niftory-admin.png" alt="drawing" width="600"/>
 
+## Creating a collection 
 
-## Authentication modes
-  
-Authentication can be particularly difficult when working with DApps. We have two main authentication modes we use in Niftory (and you'll explore in more detail in the next lesson with the sample app). 
+You're now ready to create your very first collection of NFTs! We're not going to need to code at all during this stage. Simply navigate to the "Collection" page of the Niftory admin panel, and follow these steps. Don't worry too much about filling in all the non-required text fields because you should do this *all* on testnet: 
 
-### API-key-only authentication
+1. Create a set. 
+2. Create a collectible in the set. Remember, this is just the template of the NFT and not an NFT itself. 
+3. List the NFT. Niftory will handle the first mint for the collectible specified. Once the NFTs have been minted, they should be ready to transfer to customers. Alternatively, there's an API that you could trigger to allow users to kickoff the mint themselves. 
 
-If the user isn't signed in, the above client will make requests without an `Authorization` header. This allows users to view available NFTs without signing in.
-
-Before claiming an NFT, the app will prompt the user to sign in and set up their wallet.
-
-### Backend authentication
-
-Transferring NFTs is a privileged operation, so we will use the [client credentials OAuth flow](lib/oauth.ts) to get a token that represents the app itself.
-
-It passes in the client credentials token to the [backend GraphQL client](lib/graphql/backendClient.ts). 
-
-
-<!-- Placeholder content - needs to be rewritten. 
-
-
-### API Keys
-Each application gets an API Key when registered with Niftory for project-level authentication. This key needs to be passed as X-Niftory-API-Key header alongside every API request. This key identifies that the application calling the Niftory API is *yours*. You can find your API key in the admin dashboard under "Your App > Your API Keys". 
-
-Simply using the API key will give your application 
-
-### OAuth 2.0
-Authentication and authorization can be hard in any application, especially in a space as confusing as web3. For any operations that require user or app authorization, we use OAuth 2.0.
-Each application gets a client ID and a client secret from Niftory that can be used to authenticate the application itself, as well as its users, to use the Niftory API.
-
- -->
 ## Conclusion
 
 That about wraps things up for today! In the next lesson, we will walk through the current Niftory sample so you can use it as a template to get started on your own DApp. 
 
 ## Quests
 
-1. Go on ahead and [get your API keys](https://docs.niftory.com/home/get-your-api-keys). Don't worry, it's free! This quest will get you to deploy a contract onto the flow blockchain
+1. Go on ahead and [get your API keys](https://docs.niftory.com/home/get-your-api-keys). Don't worry, it's free! If you followed the steps in the lesson, you should already have the API key, have deployed your contract *and* have your first collection ready to go. 

@@ -44,12 +44,9 @@ There are two main sections of the Data model which intersect at the NFT.
 1. *User*. An `AppUser` has a `Wallet`. The `Wallet` stores NFTs. Pretty simple. 
 2. *NFT*. The `NFT` is the atomic store of value. It is minted from `NFTModel` which is simply a template. The `NFTSet` is meant simply for you to organize various NFTModels. For example, if you were to develop a pet-rearing game, the NFT would be Mr. Ruffles - the bowler hat wearing Burmese. The NFTModel would be "Cats" and the NFTSet would be Pets. Perhaps if you started an NFT line of in-game pet houses, that would be a different NFTSet.
 
-## Sample App Walkthrough
-
-
 ## Conclusion
 
-That about wraps things up for us in the Niftory mini-course! You now know what Niftory is, why you'd use it and how you'd incorporate it into your projects. 
+Almost done! We have one bonus lesson centered around authentication types but, you're well on your way. You now know what Niftory is, why you'd use it and how you'd incorporate it into your projects. 
 
 ## Quests
 
