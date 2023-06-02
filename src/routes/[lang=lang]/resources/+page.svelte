@@ -1,10 +1,7 @@
 <script type="ts">
 	import ResourcesCard from '$lib/components/cards/ResourcesCard.svelte';
-	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
-	import LL from '$i18n/i18n-svelte';
-
+	import { Seo } from '@emerald-dao/component-library';
 	import { blogs, developerResources, networkDiscovery, youtube } from '$lib/config/resources';
-	import Seo from '$lib/components/seo/Seo.svelte';
 </script>
 
 <section class="container">
@@ -42,6 +39,7 @@
 	title={`Resources | Emerald Academy`}
 	description="Essential things that all developers use on Flow."
 	type="WebPage"
+	image="https://academy.ecdao.org/favicon.png"
 />
 
 <style type="scss">

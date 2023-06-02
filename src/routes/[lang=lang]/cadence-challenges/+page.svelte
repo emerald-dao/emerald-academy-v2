@@ -1,5 +1,6 @@
 <script type="ts">
 	import LL from '$i18n/i18n-svelte';
+	import { Seo } from '@emerald-dao/component-library';
 	import ChallengeCard from './__components/ChallengeCard.svelte';
 
 	export let data;
@@ -35,6 +36,13 @@
 		</div>
 	</div>
 </section>
+
+<Seo
+	title={`Cadence Challenges | Emerald Academy`}
+	description="Cadence challenges"
+	type="WebPage"
+	image="https://academy.ecdao.org/favicon.png"
+/>
 
 <style type="scss">
 	.container {

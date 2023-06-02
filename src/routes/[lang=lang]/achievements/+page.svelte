@@ -2,7 +2,7 @@
 	import { LL } from '$i18n/i18n-svelte';
 	import CollectedGem from '$lib/components/cards/CollectedGem.svelte';
 	import UnknownGem from '$lib/components/cards/UnknownGem.svelte';
-	import Seo from '$lib/components/seo/Seo.svelte';
+	import { Seo } from '@emerald-dao/component-library';
 	import { ProgressBar } from '@emerald-dao/component-library';
 
 	const greenDiamond: Achievement = {
@@ -163,6 +163,7 @@
 	title="My achievements | Emerald Academy"
 	description="Accomplishments achieved within the Emerald Academy due to levels reached"
 	type="WebPage"
+	image="https://academy.ecdao.org/favicon.png"
 />
 
 <style type="scss">

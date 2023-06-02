@@ -2,7 +2,7 @@
 	import ContentIntro from '$lib/components/cards/ContentIntro.svelte';
 	import { Button } from '@emerald-dao/component-library';
 	import Icon from '@iconify/svelte';
-	import Seo from '$lib/components/seo/Seo.svelte';
+	import { Seo } from '@emerald-dao/component-library';
 	import FaqsSection from '$lib/components/faqs/FaqsSection.svelte';
 	import ContentsAccordionSection from '$lib/components/contents-accordion/ContentsAccordionSection.svelte';
 	import { locale, LL } from '$i18n/i18n-svelte';
@@ -28,4 +28,5 @@
 	title={`${data.course.overview.title} | Course | Emerald Academy`}
 	description={data.course.overview.excerpt}
 	type="WebPage"
+	image="https://academy.ecdao.org/favicon.png"
 />

@@ -4,7 +4,7 @@
 	import { Breadcrumbs } from '@emerald-dao/component-library';
 	import CatalogSection from '$lib/features/catalog-list/CatalogSection.svelte';
 	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
-	import Seo from '$lib/components/seo/Seo.svelte';
+	import { Seo } from '@emerald-dao/component-library';
 	import { LL } from '$i18n/i18n-svelte';
 
 	export let data;
@@ -60,6 +60,7 @@
 	title={`${data.overview.title} | Subject | Emerald Academy`}
 	description={data.overview.description}
 	type="WebPage"
+	image="https://academy.ecdao.org/favicon.png"
 />
 
 <style type="scss">

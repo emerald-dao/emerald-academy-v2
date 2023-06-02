@@ -4,7 +4,7 @@
 	import { transformHeadingToUrl } from '$lib/utilities/dataTransformation/transformHeadingToUrl';
 	import Icon from '@iconify/svelte';
 	import CatalogSection from '$lib/features/catalog-list/CatalogSection.svelte';
-	import Seo from '$lib/components/seo/Seo.svelte';
+	import { Seo } from '@emerald-dao/component-library';
 	import { LL } from '$i18n/i18n-svelte';
 
 	export let data;
@@ -35,6 +35,7 @@
 	title={`Catalog | Emerald Academy`}
 	description="Complete catalog of all courses, bootcamps, roadmaps and subjects offered at Emerald Academy"
 	type="WebPage"
+	image="https://academy.ecdao.org/favicon.png"
 />
 
 <style type="scss">

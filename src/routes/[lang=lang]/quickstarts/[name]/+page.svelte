@@ -1,6 +1,5 @@
 <script type="ts">
-	import { Breadcrumbs } from '@emerald-dao/component-library';
-	import Sidebar from '../__components/Sidebar.svelte';
+	import { Breadcrumbs, Seo } from '@emerald-dao/component-library';
 	import { page } from '$app/stores';
 	import LL from '$i18n/i18n-svelte';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
@@ -37,6 +36,13 @@
 		<TableOfContent headings={data.metadata.headings} quickstartAuthor={data.overview.author} />
 	</div>
 </section>
+
+<Seo
+	title={`${data.overview.title} | Quickstart | Emerald Academy`}
+	description="Some codes for quick implementation"
+	type="WebPage"
+	image="https://academy.ecdao.org/favicon.png"
+/>
 
 <style type="scss">
 	section {

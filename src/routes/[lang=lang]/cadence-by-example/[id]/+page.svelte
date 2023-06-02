@@ -1,7 +1,7 @@
 <script type="ts">
 	import { page } from '$app/stores';
 	import { transformUrlToHeading } from '$lib/utilities/dataTransformation/transformUrlToHeading';
-	import { Breadcrumbs } from '@emerald-dao/component-library';
+	import { Breadcrumbs, Seo } from '@emerald-dao/component-library';
 
 	export let data;
 
@@ -21,6 +21,13 @@
 <article>
 	<svelte:component this={data.content} />
 </article>
+
+<Seo
+	title={`${data.meta.title} | Cadence example | Emerald Academy`}
+	description="Basic Cadence code examples"
+	type="WebPage"
+	image="https://academy.ecdao.org/favicon.png"
+/>
 
 <style type="scss">
 	article {
