@@ -39,9 +39,9 @@ Great question. Niftory is a set of tools to help you build, launch and maintain
 
 ## Same functionality, different tools
 
-To see Niftory in action, it's useful to see it compared to the code you'd have to write if you were to develop your app exclusively on top of Flow (using the Cadence programming language). Here, we're going to show 
+To see Niftory in action, it's useful to see it compared to the code you'd have to write if you were to develop your app exclusively on top of Flow (using the Cadence programming language). 
 
-Present sample code with and without Niftory to highlight the difference and simplicity that Niftory brings.
+Here, we're going to present sample code with and without Niftory to highlight the difference and simplicity that Niftory brings.
 
 ### Using Cadence and Flow directly
 
