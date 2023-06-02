@@ -2,7 +2,7 @@
 	import RoadmapContentCard from './__components/RoadmapContentCard.svelte';
 	import SpecificContentCard from '$lib/components/cards/ContentIntro.svelte';
 	import RoadmapOverviewModal from '$lib/components/cards/RoadmapOverviewModal.svelte';
-	import Seo from '$lib/components/seo/Seo.svelte';
+	import { Seo } from '@emerald-dao/component-library';
 
 	export let data;
 </script>
@@ -30,6 +30,7 @@
 	title={`${data.roadmap.title} | Roadmap | Emerald Academy`}
 	description="Full action plan"
 	type="WebPage"
+	image="https://academy.ecdao.org/favicon.png"
 />
 
 <style type="scss">

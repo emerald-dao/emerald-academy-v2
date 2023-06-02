@@ -1,6 +1,6 @@
 <script type="ts">
 	import { page } from '$app/stores';
-	import Seo from '$lib/components/seo/Seo.svelte';
+	import { Seo } from '@emerald-dao/component-library';
 	import type { ChapterMetadata } from '$lib/types/content/course.interface';
 	import { transformUrlToHeading } from '$lib/utilities/dataTransformation/transformUrlToHeading';
 	import { Breadcrumbs } from '@emerald-dao/component-library';
@@ -79,6 +79,7 @@
 	title={`${transformUrlToHeading($page.params.name)} | Course | Emerald Academy`}
 	description="sample"
 	type="WebPage"
+	image="https://academy.ecdao.org/favicon.png"
 />
 
 <style type="scss">

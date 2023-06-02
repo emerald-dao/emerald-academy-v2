@@ -1,5 +1,6 @@
 <script type="ts">
 	import { overview } from '$lib/content/bootcamps/beginner-cadence/en/overview';
+	import { Seo } from '@emerald-dao/component-library';
 	import ChallengePageCard from '../__components/ChallengePageCard.svelte';
 	import ChallengeSolvedCard from '../__components/ChallengeSolvedCard.svelte';
 
@@ -18,6 +19,13 @@
 		{/if}
 	</div>
 </div>
+
+<Seo
+	title={`${data.overview.title} | Challenge | Emerald Academy`}
+	description="Cadence challenges"
+	type="WebPage"
+	image="https://academy.ecdao.org/favicon.png"
+/>
 
 <style type="scss">
 	.container-small {

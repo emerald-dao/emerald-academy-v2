@@ -4,7 +4,7 @@
 	import ContentIntro from '$lib/components/cards/ContentIntro.svelte';
 	import { onBoardingSteps, onBoardingActiveStep } from '$stores/onBoarding/OnBoardingSteps';
 	import { Modal, getModal } from '@emerald-dao/component-library';
-	import Seo from '$lib/components/seo/Seo.svelte';
+	import { Seo } from '@emerald-dao/component-library';
 	import FaqsSection from '$lib/components/faqs/FaqsSection.svelte';
 	import { createBootcampOnboardingStore } from '$stores/BootcampOnboardingStore';
 	import { user } from '$stores/flow/FlowStore';
@@ -60,4 +60,5 @@
 	title={`${data.overview.title} | Bootcamp | Emerald Academy`}
 	description={data.overview.excerpt}
 	type="WebPage"
+	image="https://academy.ecdao.org/favicon.png"
 />

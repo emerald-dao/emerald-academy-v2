@@ -1,8 +1,8 @@
 <script type="ts">
 	import LL from '$i18n/i18n-svelte';
 	import TemplatesCard from '$lib/components/cards/TemplatesCard.svelte';
-	import Seo from '$lib/components/seo/Seo.svelte';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+	import { Seo } from '@emerald-dao/component-library';
 
 	export let data;
 </script>
@@ -24,6 +24,7 @@
 	title="Quickstarts | Emerald Academy"
 	description="Some codes for quick implementation"
 	type="WebPage"
+	image="https://academy.ecdao.org/favicon.png"
 />
 
 <style type="scss">
