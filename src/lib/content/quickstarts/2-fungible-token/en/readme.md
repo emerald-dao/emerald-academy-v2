@@ -138,6 +138,7 @@ This will transfer tokens to the `0x179b6b1cb6755e31` account. Log in to that ac
 > ⛽️ Add your new testnet account to your `flow.json` by modifying the following lines of code. Paste your address you copied above to where it says "YOUR GENERATED ADDRESS", and paste your private key where it says "YOUR PRIVATE KEY".
 
 ```json
+{
 "accounts": {
   "emulator-account": {
     "address": "f8d6e0586b0a20c7",
@@ -165,6 +166,7 @@ This will transfer tokens to the `0x179b6b1cb6755e31` account. Log in to that ac
       "ExampleToken"
     ]
   }
+}
 }
 ```
 
