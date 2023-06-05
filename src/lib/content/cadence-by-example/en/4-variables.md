@@ -17,15 +17,15 @@ pub contract Variables {
    pub let num2: Int
 
    init() {
-      self.number1 = 1
-      self.number1 = 2 // good
+      self.num1 = 1
+      self.num1 = 2 // good
 
-      self.number2 = 1
+      self.num2 = 1
 
       /*
        ERROR: not allowed
        
-       self.number2 = 2
+       self.numr2 = 2
       */
    }
 }
