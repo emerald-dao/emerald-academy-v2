@@ -24,7 +24,7 @@ Today, we will be learning the very basics of Cadence code by implementing our f
 
 _Before going on, make sure you've read Chapter 1, Lesson 1. That lesson covers everything you need to know about Smart Contracts up to this point._
 
-In order to start making our first Smart Contract, we need to figure out a place to actually put it! To do that, launch a browser of your choice (I would recommend Google Chrome), go to the Flow playground by pasting in this URL: https://play.onflow.org. After you do that, do the following
+In order to start making our first Smart Contract, we need to figure out a place to actually put it! To do that, launch a browser of your choice (I would recommend Google Chrome), go to the Flow playground by pasting in this URL: https://play.flow.com. After you do that, do the following
 
 1. On the left hand side, click the '0x01' tab.
 2. Delete everything in that page.
