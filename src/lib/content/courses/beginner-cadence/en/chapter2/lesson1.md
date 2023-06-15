@@ -42,7 +42,7 @@ But what actually IS an address? Well, you can think of them as a user. When I w
 
 ### Where do smart contracts live?
 
-Smart Contracts are deployed accounts. As we mentioned above, accounts are owned by a user, and every account has an address associated with it that always begins with `0x`. In this case, since we are on the Flow playground, it has automatically given us 5 accounts, namely `0x01`, `0x02`, and so on. Thus, Smart Contracts live at an address. So when we deploy a contract named "Hello World" to account `0x01`, that is how we identify it. If we wanted to interact with it, we would have to know both the name of the contract and the address. We'll see this more in-depth when we import stuff later on.
+Smart Contracts are deployed in accounts. As we mentioned above, accounts are owned by a user, and every account has an address associated with it that always begins with `0x`. In this case, since we are on the Flow playground, it has automatically given us 5 accounts, namely `0x01`, `0x02`, and so on. Thus, Smart Contracts live at an address. So when we deploy a contract named "Hello World" to account `0x01`, that is how we identify it. If we wanted to interact with it, we would have to know both the name of the contract and the address. We'll see this more in-depth when we import stuff later on.
 
 ### Back to our example...
 
