@@ -45,6 +45,7 @@ const en: BaseTranslation = {
 	[ContentTypeEnum.Bootcamp]: 'Bootcamp',
 	[ContentTypeEnum.Roadmap]: 'Roadmap',
 	[ContentTypeEnum.Quickstart]: 'Quickstarts',
+	[ContentTypeEnum.MobileQuickstart]: 'Mobile Quickstarts',
 	[ContentTypeEnum.Resources]: 'Resources',
 	[ContentTypeEnum.Blog]: 'Blog',
 	[ContentTypeEnum.Tweet]: 'Tweet',
