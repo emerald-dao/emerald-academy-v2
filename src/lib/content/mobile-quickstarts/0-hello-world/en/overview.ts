@@ -14,5 +14,5 @@ export const overview: Template = {
 		isVerified: true
 	},
 	templateRepositoryUrl: 'github.com/boiseitguru/0-hello-world-ios',
-	description: 'A DApp that lets users read and change a greeting field on Flow testnet.'
+	description: 'A mobile DApp that lets users read and change a greeting field on Flow testnet.'
 };

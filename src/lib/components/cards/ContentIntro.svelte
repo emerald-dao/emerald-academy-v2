@@ -115,7 +115,7 @@
 		{/if}
 	{/if}
 	<div class="column-6">
-		{#if overview.contentType !== ContentTypeEnum.Quickstart}
+		{#if overview.contentType !== ContentTypeEnum.Quickstart && overview.contentType !== ContentTypeEnum.MobileQuickstart}
 			<div class="metadata-labels">
 				<ContentLabel type={overview.contentType} color="primary">
 					{firstCapital(overview.contentType)}
@@ -166,7 +166,7 @@
 			</div>
 		{/if}
 		<p>
-			{#if overview.contentType === ContentTypeEnum.Quickstart}
+			{#if overview.contentType === ContentTypeEnum.Quickstart || ContentTypeEnum.MobileQuickstart}
 				{overview.description}
 			{:else}
 				{overview.excerpt}
