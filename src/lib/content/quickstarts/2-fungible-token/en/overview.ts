@@ -5,6 +5,7 @@ export const overview: Template = {
 	title: 'Fungible Token',
 	contentType: ContentTypeEnum.Quickstart,
 	audited: true,
+	mobile: false,
 	web: 'React.js',
 	author: {
 		name: 'Emerald City',
