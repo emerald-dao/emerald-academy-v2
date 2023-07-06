@@ -4,5 +4,6 @@ export enum SubjectsEnum {
 	Backend = 'backend',
 	Web = 'web dev',
 	Javascript = 'javascript',
-	IPFS = 'ipfs'
+	IPFS = 'ipfs',
+	Mobile = 'mobile dev'
 }
