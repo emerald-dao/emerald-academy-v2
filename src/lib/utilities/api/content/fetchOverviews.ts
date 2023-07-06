@@ -9,7 +9,6 @@ export const fetchOverviews = async (
 		| ContentTypeEnum.Bootcamp
 		| ContentTypeEnum.Course
 		| ContentTypeEnum.Quickstart
-		| ContentTypeEnum.MobileQuickstart
 		| ContentTypeEnum.Roadmap
 		| ContentTypeEnum.Challenge,
 	locale?: Locales
@@ -29,10 +28,6 @@ export const fetchOverviews = async (
 			overviews = import.meta.glob('/src/lib/content/quickstarts/**/**/*.ts');
 			break;
 
-		case ContentTypeEnum.MobileQuickstart:
-			overviews = import.meta.glob('/src/lib/content/mobile-quickstarts/**/**/*.ts');
-			break;
-
 		case ContentTypeEnum.Roadmap:
 			overviews = import.meta.glob('/src/lib/content/roadmaps/**/*.ts');
 			break;
@@ -49,8 +44,8 @@ export const fetchOverviews = async (
 
 	const thisLangFiles = locale
 		? iterableFiles.filter(([path]) => {
-				return path.split('/')[6] == locale;
-		  })
+			return path.split('/')[6] == locale;
+		})
 		: iterableFiles;
 
 	const allOverviews = await Promise.all(

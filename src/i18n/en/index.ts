@@ -45,7 +45,6 @@ const en: BaseTranslation = {
 	[ContentTypeEnum.Bootcamp]: 'Bootcamp',
 	[ContentTypeEnum.Roadmap]: 'Roadmap',
 	[ContentTypeEnum.Quickstart]: 'Quickstarts',
-	[ContentTypeEnum.MobileQuickstart]: 'Mobile Quickstarts',
 	[ContentTypeEnum.Resources]: 'Resources',
 	[ContentTypeEnum.Blog]: 'Blog',
 	[ContentTypeEnum.Tweet]: 'Tweet',
@@ -66,6 +65,7 @@ const en: BaseTranslation = {
 	[ExpertiseEnum.Beginner]: 'Beginner',
 
 	// Quickstarts
+	MOBILE_QUICKSTARTS: 'Mobile Quickstarts',
 	NO_QUICKSTARTS_FOUND: 'No quickstarts found for this language',
 
 	// Challenge

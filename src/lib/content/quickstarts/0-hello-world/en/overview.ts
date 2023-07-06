@@ -3,6 +3,7 @@ import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum'
 
 export const overview: Template = {
 	title: 'Hello World',
+	mobile: false,
 	contentType: ContentTypeEnum.Quickstart,
 	audited: true,
 	web: 'React.js',
