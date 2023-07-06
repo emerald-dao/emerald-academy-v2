@@ -20,6 +20,19 @@
 	</div>
 </section>
 
+<section class="container">
+	<h1 class="w-medium heading">{$LL[ContentTypeEnum.MobileQuickstart]()}</h1>
+	<div class="templates-wrapper">
+		{#if data.mobileQuickstarts.length > 0}
+			{#each data.mobileQuickstarts as quickstartData}
+				<TemplatesCard templateData={quickstartData} />
+			{/each}
+		{:else}
+			<p><em>{$LL.NO_QUICKSTARTS_FOUND()}</em></p>
+		{/if}
+	</div>
+</section>
+
 <Seo
 	title="Quickstarts | Emerald Academy"
 	description="Some codes for quick implementation"
