@@ -17,7 +17,7 @@ Start by downloading [Lilico](https://apps.apple.com/us/app/lilico/id1644169603)
 
 After Lilico finishes downloading, open the app and press Skip to continue past the info pages. After that you will need to accept the Legal Information, then pick your username.
 
-<div align="center">
+<div class="md-images">
   <img src="https://i.imgur.com/MUyrKvyl.png" alt="legal-info" />
   <img src="https://i.imgur.com/IEeE5bYl.png" alt="pick-username" />
 </div>
@@ -26,10 +26,19 @@ After Lilico finishes downloading, open the app and press Skip to continue past 
 
 Once your account has been created, we need to enable Developer Mode to access our testnet account. Head to the "Settings" tab (it's the 'profile' icon in the bottom right corner of the screen) then click on "Developer Mode". On the next screen press the toggle to enable Developer Mode and select "Testnet". You can now navigate back to the main account page, once there you should see a green "TESTNET" badge next to your account name in the upper right corner of the screen.
 
-<div align="center">
+<div class="md-images">
   <img src="https://i.imgur.com/PFb2lk1l.png" alt="account-tab" />
   <img src="https://i.imgur.com/ar5LVnml.png" alt="developer-settings" />
   <img src="https://i.imgur.com/BHy5sHQl.png" alt="main-tab" />
+</div>
+
+## Switching Accounts Or Creating Additional Accounts
+
+To switch accounts or create additional accounts simply click on your profile image in the upper right hand corner of the main account page. From this screen you can select which wallet you wish to use or press the 3 dots in the upper right hand corner to switch/create accounts. The process of creating additional accounts is the same as above.
+
+<div class="md-images">
+  <img src="https://i.imgur.com/BHy5sHQl.png" alt="main-tab" />
+  <img src="https://i.imgur.com/td8NzKml.png" alt="accounts-overlay" />
 </div>
 
 ## Quests
