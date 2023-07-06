@@ -39,10 +39,21 @@ To switch accounts or create additional accounts simply click on your profile im
 <div class="md-images">
   <img src="https://i.imgur.com/BHy5sHQl.png" alt="main-tab" />
   <img src="https://i.imgur.com/td8NzKml.png" alt="accounts-overlay" />
+  <img src="https://i.imgur.com/q6Q47l7l.jpg" alt="accounts-selection" />
+</div>
+
+## Funding Testnet Accounts
+
+Funding your newly created testnet accounts is easy using the testnet faucet! Simply navigate to "https://testnet-faucet.onflow.org" then click "FUND ACCOUNT" in the upper right corner of the page. Simply enter you testnet account address, confirm your a human, and then click "FUND YOUR ACCOUNT".
+
+<div class="md-images">
+  <img src="https://i.imgur.com/z4qt9yMl.png" alt="faucet-page" />
+  <img src="https://i.imgur.com/2ye5r7Il.png" alt="fund-account" />
+  <img src="https://i.imgur.com/bJmpm7al.png" alt="fund-account-confirm" />
 </div>
 
 ## Quests
 
-1. Create a second Lilico Wallet account.
+1. Create & fund a second Lilico Wallet account.
 
 2. Enable Developer Mode for your second account.
