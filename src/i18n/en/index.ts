@@ -65,7 +65,8 @@ const en: BaseTranslation = {
 	[ExpertiseEnum.Beginner]: 'Beginner',
 
 	// Quickstarts
-	NO_QUICKSTARTS_FOUND: 'No quickstarts found for this lenguage',
+	MOBILE_QUICKSTARTS: 'Mobile Quickstarts',
+	NO_QUICKSTARTS_FOUND: 'No quickstarts found for this language',
 
 	// Challenge
 	CHALLENGE_TITLE: 'Cadence Challenges',

@@ -12,7 +12,24 @@
 	<div class="templates-wrapper">
 		{#if data.quickstarts.length > 0}
 			{#each data.quickstarts as quickstartData}
-				<TemplatesCard templateData={quickstartData} />
+				{#if !quickstartData.mobile}
+					<TemplatesCard templateData={quickstartData} />
+				{/if}
+			{/each}
+		{:else}
+			<p><em>{$LL.NO_QUICKSTARTS_FOUND()}</em></p>
+		{/if}
+	</div>
+</section>
+
+<section class="container">
+	<h1 class="w-medium heading">{$LL.MOBILE_QUICKSTARTS()}</h1>
+	<div class="templates-wrapper">
+		{#if data.quickstarts.length > 0}
+			{#each data.quickstarts as quickstartData}
+				{#if quickstartData.mobile}
+					<TemplatesCard templateData={quickstartData} />
+				{/if}
 			{/each}
 		{:else}
 			<p><em>{$LL.NO_QUICKSTARTS_FOUND()}</em></p>

@@ -44,8 +44,8 @@ export const fetchOverviews = async (
 
 	const thisLangFiles = locale
 		? iterableFiles.filter(([path]) => {
-				return path.split('/')[6] == locale;
-		  })
+			return path.split('/')[6] == locale;
+		})
 		: iterableFiles;
 
 	const allOverviews = await Promise.all(

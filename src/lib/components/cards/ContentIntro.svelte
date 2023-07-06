@@ -1,6 +1,6 @@
 <script type="ts">
 	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
-	import { Label, Breadcrumbs, Button, TooltipIcon } from '@emerald-dao/component-library';
+	import { Label, Breadcrumbs, Button } from '@emerald-dao/component-library';
 	import ContentLabel from '../label/ContentLabel.svelte';
 	import type { Overview } from '$lib/types/content/content-overview.interface';
 	import { transformUrlToHeading } from '$lib/utilities/dataTransformation/transformUrlToHeading';
@@ -11,11 +11,11 @@
 	import Icon from '@iconify/svelte';
 	import { user } from '$stores/flow/FlowStore';
 	import { logIn } from '$flow/actions';
-	import type { CourseOverview } from '$lib/types/content/course.interface';
 	import { getInitialStars } from '$lib/config/initialStars';
 	import Author from '../atoms/Author.svelte';
 
 	export let overview: Overview;
+	console.log(overview);
 	export let showBreadcrumbs: boolean = false;
 
 	// Only for courses
