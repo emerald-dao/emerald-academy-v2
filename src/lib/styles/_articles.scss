@@ -83,6 +83,7 @@ article {
 
 	.md-images {
 		display: flex;
+		flex-wrap: wrap;
 		margin-left: auto;
 		margin-right: auto;
 	}
