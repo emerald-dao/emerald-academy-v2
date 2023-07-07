@@ -1,3 +1,7 @@
+---
+layout: examples
+---
+
 ## 🚩 Challenge 1: Non-Fungible Token - iOS/iPadOS
 
 🎫 Deploy your own NFT contract to learn the basics of the Flow blockchain and Cadence. You'll use:
