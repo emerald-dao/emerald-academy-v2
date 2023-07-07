@@ -7,7 +7,7 @@ excerpt: let's get started!
 
 # Chapter 1 Lesson 1 - Download & Setup Lilico Wallet
 
-Since the FCL-Swift SDK does not work with the Flow dev wallet, it's important to ensure you have a wallet capable of supporting multiple accounts and that those accounts have been funded on the Flow testnet. Unfunded testnet accounts will often run into storage capacity errors when attempting to interact with the blockchain.
+When testing your DApps on the Flow testnet, it's important to ensure you have a wallet capable of supporting multiple accounts and that those accounts have been funded. Unfunded testnet accounts will often run into storage capacity errors when attempting to interact with the blockchain.
 
 ## Download Lilico Wallet
 
