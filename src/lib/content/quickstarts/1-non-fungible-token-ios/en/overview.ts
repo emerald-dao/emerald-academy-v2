@@ -2,7 +2,7 @@ import type { Template } from '$lib/types/content/templates.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
 export const overview: Template = {
-	title: 'Hello World - Swift (iOS/iPadOS)',
+	title: 'Non Fungible Token (NFT) - Swift (iOS/iPadOS)',
 	mobile: true,
 	contentType: ContentTypeEnum.Quickstart,
 	audited: true,
@@ -15,6 +15,7 @@ export const overview: Template = {
 		isVerified: true,
 		walletAddress: '0x76d988a29af9ea8d'
 	},
-	templateRepositoryUrl: 'github.com/boiseitguru/0-hello-world-ios',
-	description: 'A mobile DApp that lets users read and change a greeting field on Flow testnet.'
+	templateRepositoryUrl: 'github.com/boiseitguru/1-non-fungible-token-ios',
+	description:
+		'A Mobile DApp that lets users create an empty collection, mint some pre-loaded NFTs, and transfer them to another account on Flow testnet.'
 };
