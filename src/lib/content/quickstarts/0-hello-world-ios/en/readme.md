@@ -41,7 +41,7 @@ open Hello\ World.xcodeproj/
 > Next we need to copy or rename `flow.json.example` to `flow.json`.
 
 ```sh
-cp flow.json.example flow.json
+mv flow.json.example flow.json
 ```
 
 > in a second terminal window, start your 👷‍ local emulator:
@@ -69,9 +69,9 @@ flow dev-wallet
 
 ## 👛 Checkpoint 1: Wallets
 
-We'll be using the **Blocto** testnet wallet for testing.
+We'll be using **the local Flow dev wallet**.
 
-> Click the "Log In" button and notice a pop up asking you to connect a wallet. Select `Dev Wallet` then wait for the authentication page to load. Notice a window appears with one or more accounts to select, each with their own Flow Token balance. Select the first account t
+> Click the "Log In" button and notice a pop up asking you to connect a wallet. Select `Dev Wallet` then wait for the authentication page to load. Notice a window appears with one or more accounts to select, each with their own Flow Token balance. Select the first account to log in to it.
 
 <div class="md-images">
   <img src="https://i.imgur.com/jUo8QDQl.png" alt="launch-screen" />
@@ -201,4 +201,4 @@ Lastly, run the app in the simulator or on your iOS/iPadOS Device.
 
 💼 Take a quick look at how your contract gets deployed in `flow.json`.
 
-📝 The app is written in SwiftUI, and implements a "No View Model" design. With the exception of the FlowManager service and a few UI helpers in the Misc directory, the design and direct functions
+📝 The app is written in SwiftUI, and implements a "No View Model" design. With the exception of the FlowManager service and a few UI helpers in the Misc directory, the design and direct functions can all be modified in the Views directory.
