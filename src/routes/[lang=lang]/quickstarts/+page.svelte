@@ -1,6 +1,6 @@
 <script type="ts">
 	import LL from '$i18n/i18n-svelte';
-	import TemplatesCard from '$lib/components/cards/TemplatesCard.svelte';
+	import QuickstartCard from '$lib/components/cards/QuickstartCard.svelte';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 	import { Seo } from '@emerald-dao/component-library';
 
@@ -13,7 +13,7 @@
 		{#if data.quickstarts.length > 0}
 			{#each data.quickstarts as quickstartData}
 				{#if !quickstartData.mobile}
-					<TemplatesCard templateData={quickstartData} />
+					<QuickstartCard {quickstartData} />
 				{/if}
 			{/each}
 		{:else}
@@ -28,7 +28,7 @@
 		{#if data.quickstarts.length > 0}
 			{#each data.quickstarts as quickstartData}
 				{#if quickstartData.mobile}
-					<TemplatesCard templateData={quickstartData} />
+					<QuickstartCard {quickstartData} />
 				{/if}
 			{/each}
 		{:else}

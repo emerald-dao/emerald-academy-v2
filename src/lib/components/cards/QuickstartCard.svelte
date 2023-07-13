@@ -1,27 +1,27 @@
 <script type="ts">
 	import { locale } from '$i18n/i18n-svelte';
-	import type { Template } from '$lib/types/content/templates.interface';
+	import type { Quickstart } from '$lib/types/content/quickstart.interface';
 	import Icon from '@iconify/svelte';
 
-	export let templateData: Template;
+	export let quickstartData: Quickstart;
 </script>
 
-<a class="card" href={`/${$locale}/${templateData.slug}`}>
+<a class="card" href={`/${$locale}/${quickstartData.slug}`}>
 	<div>
-		<h5 class="heading w-medium">{templateData.title}</h5>
-		<p>{templateData.description}</p>
+		<h5 class="heading w-medium">{quickstartData.title}</h5>
+		<p>{quickstartData.description}</p>
 	</div>
 	<div class="row-wrapper">
 		<div class="row-7">
 			<div class="row-2">
-				{#if templateData.author.avatarUrl}
-					<img src={templateData.author.avatarUrl} alt="User avatar" />
+				{#if quickstartData.author.avatarUrl}
+					<img src={quickstartData.author.avatarUrl} alt="User avatar" />
 				{:else}
 					<img src="/avatar-header.png" alt="Generic avatar" />
 				{/if}
-				<p class="xsmall w-medium">{templateData.author.name}</p>
+				<p class="xsmall w-medium">{quickstartData.author.name}</p>
 			</div>
-			{#if templateData.audited}
+			{#if quickstartData.audited}
 				<div class="row-2">
 					<Icon icon="tabler:shield-check" color="var(--clr-text-main)" />
 					<p class="xsmall w-medium">audited</p>

@@ -1,7 +1,7 @@
-import type { Template } from '$lib/types/content/templates.interface';
+import type { Quickstart } from '$lib/types/content/quickstart.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
-export const overview: Template = {
+export const overview: Quickstart = {
 	title: 'Hello World - Swift (iOS/iPadOS)',
 	mobile: true,
 	contentType: ContentTypeEnum.Quickstart,
@@ -15,6 +15,6 @@ export const overview: Template = {
 		isVerified: true,
 		walletAddress: '0x76d988a29af9ea8d'
 	},
-	templateRepositoryUrl: 'github.com/boiseitguru/0-hello-world-ios',
+	quickstartRepositoryUrl: 'github.com/boiseitguru/0-hello-world-ios',
 	description: 'A mobile DApp that lets users read and change a greeting field on Flow testnet.'
 };
