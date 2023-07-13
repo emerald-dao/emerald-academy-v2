@@ -33,7 +33,11 @@
 		</article>
 	</div>
 	<div class="toc-wrapper">
-		<TableOfContent headings={data.metadata.headings} quickstartAuthor={data.overview.author} />
+		<TableOfContent
+			headings={data.metadata.headings}
+			quickstartAuthor={data.overview.author}
+			contentType={ContentTypeEnum.Quickstart}
+		/>
 	</div>
 </section>
 

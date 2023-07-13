@@ -4,6 +4,8 @@
 	import LL from '$i18n/i18n-svelte';
 	import ContentIntro from '$lib/components/cards/ContentIntro.svelte';
 	import TableOfContent from '$lib/components/mdsvex/TableOfContent.svelte';
+	import { setContext } from 'svelte';
+	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
 	export let data;
 
@@ -17,6 +19,9 @@
 			label: `${data.overview.title}`
 		}
 	];
+
+	$: setContext('metadata-context', data.metadata);
+	$: setContext('author-context', data.overview.author);
 </script>
 
 <section class="container-medium">
@@ -32,7 +37,7 @@
 		</article>
 	</div>
 	<div class="toc-wrapper">
-		<TableOfContent headings={data.metadata.headings} quickstartAuthor={data.overview.author} />
+		<TableOfContent headings={data.metadata.headings} contentType={ContentTypeEnum.Tutorial} />
 	</div>
 </section>
 

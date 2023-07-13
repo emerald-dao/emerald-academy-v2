@@ -8,9 +8,14 @@
 	import EditContent from '../atoms/EditContent.svelte';
 	import type { Author as IAuthor } from '$lib/types/content/content-overview.interface';
 	import Author from '../atoms/Author.svelte';
+	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
 	export let headings: Heading[];
 	export let quickstartAuthor: IAuthor | undefined = undefined;
+	export let contentType:
+		| ContentTypeEnum.Quickstart
+		| ContentTypeEnum.Tutorial
+		| ContentTypeEnum.Course = ContentTypeEnum.Course;
 
 	interface Heading {
 		level: number;
@@ -159,14 +164,19 @@
 				Fork Quickstart
 			</Button>
 		{/if}
-		{#if $page.params.lesson}
+		{#if contentType === ContentTypeEnum.Course}
 			<EditContent
 				href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/${$page.params.name}/${$page.params.lang}/${$page.params.chapter}/${$page.params.lesson}.md`}
 				target="_blank"
 			/>
-		{:else}
+		{:else if contentType === ContentTypeEnum.Quickstart}
 			<EditContent
 				href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/quickstarts/${$page.params.name}/${$page.params.lang}/readme.md`}
+				target="_blank"
+			/>
+		{:else if contentType === ContentTypeEnum.Tutorial}
+			<EditContent
+				href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/tutorials/${$page.params.name}/${$page.params.lang}/readme.md`}
 				target="_blank"
 			/>
 		{/if}
