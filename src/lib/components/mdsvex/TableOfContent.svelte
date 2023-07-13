@@ -11,7 +11,6 @@
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
 	export let headings: Heading[];
-	export let quickstartAuthor: IAuthor | undefined = undefined;
 	export let contentType:
 		| ContentTypeEnum.Quickstart
 		| ContentTypeEnum.Tutorial
@@ -102,14 +101,6 @@
 			socialMediaUrl={author.socialMediaUrl}
 			isVerified={author.isVerified}
 			walletAddress={author.walletAddress}
-		/>
-	{:else if quickstartAuthor}
-		<Author
-			name={quickstartAuthor.name}
-			avatarUrl={quickstartAuthor.avatarUrl}
-			socialMediaUrl={quickstartAuthor.socialMediaUrl}
-			isVerified={quickstartAuthor.isVerified}
-			walletAddress={quickstartAuthor.walletAddress}
 		/>
 	{/if}
 	<div class="steps-wrapper">
