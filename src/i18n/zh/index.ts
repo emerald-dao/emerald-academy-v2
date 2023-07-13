@@ -58,6 +58,7 @@ const zh: BaseTranslation = {
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',
 	[SubjectsEnum.IPFS]: 'IPFS',
+	[SubjectsEnum.Mobile]: 'Mobile',
 
 	// Expertise
 	[ExpertiseEnum.Advanced]: '高级',

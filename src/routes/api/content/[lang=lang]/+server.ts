@@ -10,10 +10,11 @@ export const GET = async ({ params }) => {
 		const allCourses = await fetchOverviews(ContentTypeEnum.Course, params.lang as Locales);
 		const allBootcamps = await fetchOverviews(ContentTypeEnum.Bootcamp, params.lang as Locales);
 		const allRoadmaps = await fetchOverviews(ContentTypeEnum.Roadmap, params.lang as Locales);
+		const allTutorials = await fetchOverviews(ContentTypeEnum.Tutorial, params.lang as Locales)
 		const allBlogs = blogs;
 		const allTweets = tweets;
 
-		const allContent = allCourses.concat(allBootcamps, allRoadmaps, allBlogs, allTweets);
+		const allContent = allCourses.concat(allBootcamps, allRoadmaps, allTutorials, allBlogs, allTweets);
 
 		return json(allContent);
 	} catch (e) {

@@ -53,10 +53,11 @@ const en: BaseTranslation = {
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',
-	[SubjectsEnum.Web]: 'Web Dev',
+	[SubjectsEnum.Web]: 'Web',
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',
+	[SubjectsEnum.Mobile]: 'Mobile',
 	[SubjectsEnum.IPFS]: 'IPFS',
 
 	// Expertise

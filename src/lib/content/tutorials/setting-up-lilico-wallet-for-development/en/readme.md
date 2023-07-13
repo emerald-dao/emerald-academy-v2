@@ -1,8 +1,5 @@
 ---
-title: Download & Setup Lilico Wallet
-lesson: 1
-language: en
-excerpt: let's get started!
+layout: examples
 ---
 
 # Chapter 1 Lesson 1 - Download & Setup Lilico Wallet

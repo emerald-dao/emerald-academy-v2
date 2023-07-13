@@ -59,6 +59,7 @@ const ru: BaseTranslation = {
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',
 	[SubjectsEnum.IPFS]: 'IPFS',
+	[SubjectsEnum.Mobile]: 'Mobile',
 
 	// Expertise
 	[ExpertiseEnum.Advanced]: 'Продвинутый',

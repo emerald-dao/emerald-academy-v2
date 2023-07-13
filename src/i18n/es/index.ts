@@ -52,11 +52,12 @@ const es: Translation = {
 	[ContentTypeEnum.Challenge]: 'Desafíos',
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',
-	[SubjectsEnum.Web]: 'Desarrollo Web',
+	[SubjectsEnum.Web]: 'Web',
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',
 	[SubjectsEnum.IPFS]: 'IPFS',
+	[SubjectsEnum.Mobile]: 'Mobile',
 
 	// Expertise
 	[ExpertiseEnum.Advanced]: 'Avanzado',

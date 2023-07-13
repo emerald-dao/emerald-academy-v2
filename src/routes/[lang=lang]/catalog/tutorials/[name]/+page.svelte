@@ -2,7 +2,6 @@
 	import { Breadcrumbs, Seo } from '@emerald-dao/component-library';
 	import { page } from '$app/stores';
 	import LL from '$i18n/i18n-svelte';
-	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 	import ContentIntro from '$lib/components/cards/ContentIntro.svelte';
 	import TableOfContent from '$lib/components/mdsvex/TableOfContent.svelte';
 
@@ -10,11 +9,11 @@
 
 	$: routes = [
 		{
-			path: `/${$page.params.lang}/quickstarts`,
-			label: $LL[ContentTypeEnum.Quickstart]()
+			path: `/${$page.params.lang}/catalog`,
+			label: $LL.CATALOG()
 		},
 		{
-			path: `/${$page.params.lang}/quickstarts/${$page.params.name}`,
+			path: `/${$page.params.lang}/tutorials/${$page.params.name}`,
 			label: `${data.overview.title}`
 		}
 	];
@@ -38,8 +37,8 @@
 </section>
 
 <Seo
-	title={`${data.overview.title} | Quickstart | Emerald Academy`}
-	description="Some codes for quick implementation"
+	title={`${data.overview.title} | Tutorial | Emerald Academy`}
+	description={data.overview.description}
 	type="WebPage"
 	image="https://academy.ecdao.org/favicon.png"
 />
