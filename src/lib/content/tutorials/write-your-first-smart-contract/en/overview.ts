@@ -16,7 +16,7 @@ export const overview: Tutorial = {
     excerpt: 'Walk through the process of writing a smart contract on the Flow blockchain.',
     metadata: {
         expertise: ExpertiseEnum.Beginner,
-        duration: '5 minutes',
+        duration: '10 minutes',
         prerequisites: [],
         subjects: [SubjectsEnum.Cadence]
     }
