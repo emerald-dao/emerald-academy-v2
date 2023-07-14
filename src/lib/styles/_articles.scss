@@ -1,4 +1,5 @@
 article {
+
 	p,
 	li,
 	ul,
@@ -86,5 +87,9 @@ article {
 		flex-wrap: wrap;
 		margin-left: auto;
 		margin-right: auto;
+	}
+
+	code {
+		color: var(--clr-tertiary-main);
 	}
 }
