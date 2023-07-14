@@ -70,7 +70,10 @@
 			article {
 				margin-top: var(--space-9);
 				max-width: 85ch;
-				min-width: 85ch;
+
+				@include mq(medium) {
+					min-width: 85ch;
+				}
 			}
 		}
 
