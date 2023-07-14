@@ -12,6 +12,7 @@
 		frameborder="0"
 		allowfullscreen
 	/>
+	<br />
 	{#if lessonVideoDescription}
 		<span>{lessonVideoDescription}</span>
 	{/if}
@@ -20,7 +21,7 @@
 <style type="scss">
 	div {
 		margin-bottom: var(--space-4);
-		// text-align: center;
+		text-align: center;
 
 		span {
 			font-size: var(--font-size-0);
