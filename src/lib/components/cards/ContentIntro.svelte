@@ -168,7 +168,7 @@
 		<p>
 			{#if overview.contentType === ContentTypeEnum.Quickstart}
 				{overview.description}
-			{:else}
+			{:else if overview.contentType !== ContentTypeEnum.Tutorial}
 				{overview.excerpt}
 			{/if}
 		</p>
