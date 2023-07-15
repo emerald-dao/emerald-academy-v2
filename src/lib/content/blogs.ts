@@ -43,5 +43,25 @@ export const blogs: BlogOverview[] = [
 			prerequisites: [],
 			subjects: []
 		}
+	},
+	{
+		image: 'https://cdn.hashnode.com/res/hashnode/image/upload/v1689341854607/6284b68f-3fe1-4ac0-811d-e916967e1512.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp',
+		title: 'Demystifying the Flow.json File: A Comprehensive Guide',
+		author: {
+			name: 'Devsuite',
+			socialMediaUrl: 'https://twitter.com/Dev_suite',
+			avatarUrl: 'https://pbs.twimg.com/profile_images/1652017863954186243/QC486Y6B_400x400.jpg',
+			isVerified: true,
+			walletAddress: '0x751f799b8e4cb967'
+		},
+		excerpt: 'The article is all about flow.json file which is a crucial component in Flow blockchain development. It provides the necessary configuration and structure for your project, allowing you to define accounts, contracts, and deployment settings.',
+		link: 'https://devsuite.hashnode.dev/demystifying-the-flowjson-file-a-comprehensive-guide',
+		contentType: ContentTypeEnum.Blog,
+		metadata: {
+			expertise: ExpertiseEnum.Beginner,
+			duration: '5 minutes',
+			prerequisites: [],
+			subjects: []
+		}
 	}
 ];
