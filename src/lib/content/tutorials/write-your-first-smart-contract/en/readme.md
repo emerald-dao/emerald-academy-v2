@@ -184,7 +184,7 @@ transaction() {
         log(Race.totalCars) // 1
 
         destroy car
-        log(Race.totalCars) // 2
+        log(Race.totalCars) // 0
     }
 }
 ```
