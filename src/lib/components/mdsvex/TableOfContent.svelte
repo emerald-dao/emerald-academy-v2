@@ -119,17 +119,19 @@
 			walletAddress={author.walletAddress}
 		/>
 	{/if}
-	<div class="steps-wrapper">
-		<ProgressSteps
-			{steps}
-			diameter={0.5}
-			direction="column-reverse"
-			fontSize="xsmall"
-			gap={0.4}
-			cutLineEnds={false}
-			lineHeight="1"
-		/>
-	</div>
+	{#if steps.length > 0}
+		<div class="steps-wrapper">
+			<ProgressSteps
+				{steps}
+				diameter={0.5}
+				direction="column-reverse"
+				fontSize="xsmall"
+				gap={0.4}
+				cutLineEnds={false}
+				lineHeight="1"
+			/>
+		</div>
+	{/if}
 	<div class="column-6 bottom-links-wrapper">
 		{#if contentType === ContentTypeEnum.Course || contentType === ContentTypeEnum.Tutorial}
 			{#if metadata.lessonVideoUrl || metadata.quizUrl || questsExist}
@@ -164,7 +166,7 @@
 				<Icon icon="tabler:link" />
 				View Code
 			</Button>
-		{:else}
+		{:else if contentType === ContentTypeEnum.Quickstart}
 			<Button
 				size="small"
 				color="primary"
