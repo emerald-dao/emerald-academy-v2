@@ -5,7 +5,7 @@ import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: CourseOverview = {
 	title: 'Create a User Profile using Cadence',
-	contentType: ContentTypeEnum.Course,
+	contentType: ContentTypeEnum.Tutorial,
 	excerpt:
 		'Learn to write and deploy a new contract that can store user information, change user information or read from an account on the flow blockchain.',
 	author: {
