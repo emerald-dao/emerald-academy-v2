@@ -34,8 +34,8 @@
 			prefetch: true
 		},
 		{
-			name: 'Challenges',
-			url: `/${$locale}/cadence-challenges`,
+			name: 'Snippets',
+			url: `/${$locale}/snippets`,
 			prefetch: true
 		},
 		{

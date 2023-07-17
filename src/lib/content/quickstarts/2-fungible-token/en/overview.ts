@@ -1,5 +1,6 @@
 import type { Quickstart } from '$lib/types/content/quickstart.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: Quickstart = {
 	title: 'Fungible Token',
@@ -14,6 +15,9 @@ export const overview: Quickstart = {
 		isVerified: true
 	},
 	quickstartRepositoryUrl: 'github.com/emerald-dao/2-fungible-token',
-	description:
-		'A DApp that lets users create their own fungible token and transfer them to another account on Flow testnet.'
+	excerpt:
+		'A DApp that lets users create their own fungible token and transfer them to another account on Flow testnet.',
+	metadata: {
+		subjects: [SubjectsEnum.DApp]
+	}
 };

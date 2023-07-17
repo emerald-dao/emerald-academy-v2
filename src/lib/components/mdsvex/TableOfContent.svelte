@@ -14,7 +14,23 @@
 	export let contentType:
 		| ContentTypeEnum.Quickstart
 		| ContentTypeEnum.Tutorial
+		| ContentTypeEnum.Snippet
 		| ContentTypeEnum.Course = ContentTypeEnum.Course;
+	export let externalUrl: string | undefined = undefined;
+
+	function getEditContentUrl() {
+		if (contentType === ContentTypeEnum.Course) {
+			return `https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/${$page.params.name}/${$page.params.lang}/${$page.params.chapter}/${$page.params.lesson}.md`;
+		} else if (contentType === ContentTypeEnum.Quickstart) {
+			return `https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/quickstarts/${$page.params.name}/${$page.params.lang}/readme.md`;
+		} else if (contentType === ContentTypeEnum.Tutorial) {
+			return `https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/tutorials/${$page.params.name}/${$page.params.lang}/readme.md`;
+		} else if (contentType === ContentTypeEnum.Snippet) {
+			return `https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/snippets/${$page.params.name}/readme.md`;
+		} else {
+			return `https://github.com/emerald-dao/emerald-academy-v2/tree/main`;
+		}
+	}
 
 	interface Heading {
 		level: number;
@@ -115,7 +131,7 @@
 		/>
 	</div>
 	<div class="column-6 bottom-links-wrapper">
-		{#if metadata}
+		{#if contentType === ContentTypeEnum.Course || contentType === ContentTypeEnum.Tutorial}
 			{#if metadata.lessonVideoUrl || metadata.quizUrl || questsExist}
 				<div class="column-3">
 					{#if metadata.lessonVideoUrl}
@@ -143,34 +159,24 @@
 					{/if}
 				</div>
 			{/if}
+		{:else if contentType === ContentTypeEnum.Snippet}
+			<Button size="small" color="primary" target="_blank" width="full-width" href={externalUrl}>
+				<Icon icon="tabler:link" />
+				View Code
+			</Button>
 		{:else}
 			<Button
 				size="small"
 				color="primary"
 				target="_blank"
 				width="full-width"
-				href={`https://github.com/emerald-dao/${$page.params.name}/fork`}
+				href={externalUrl + '/fork'}
 			>
 				<Icon icon="tabler:brand-github" />
 				Fork Quickstart
 			</Button>
 		{/if}
-		{#if contentType === ContentTypeEnum.Course}
-			<EditContent
-				href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/${$page.params.name}/${$page.params.lang}/${$page.params.chapter}/${$page.params.lesson}.md`}
-				target="_blank"
-			/>
-		{:else if contentType === ContentTypeEnum.Quickstart}
-			<EditContent
-				href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/quickstarts/${$page.params.name}/${$page.params.lang}/readme.md`}
-				target="_blank"
-			/>
-		{:else if contentType === ContentTypeEnum.Tutorial}
-			<EditContent
-				href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/tutorials/${$page.params.name}/${$page.params.lang}/readme.md`}
-				target="_blank"
-			/>
-		{/if}
+		<EditContent href={getEditContentUrl()} target="_blank" />
 	</div>
 </div>
 

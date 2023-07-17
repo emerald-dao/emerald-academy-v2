@@ -36,6 +36,7 @@ const es: Translation = {
 
 	START: 'Comenzar',
 	CATALOG: 'Catalogar',
+	SNIPPETS: 'Snippets',
 	LEARN: 'Aprender',
 	NEW_TO: 'Nuevo en',
 	START_HERE: 'Empieza aqui',
@@ -50,6 +51,7 @@ const es: Translation = {
 	[ContentTypeEnum.Tweet]: 'Tweet',
 	[ContentTypeEnum.Tutorial]: 'Tutorial',
 	[ContentTypeEnum.Challenge]: 'Desafíos',
+	[ContentTypeEnum.Snippet]: 'Snippet',
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',
 	[SubjectsEnum.Web]: 'Web',
