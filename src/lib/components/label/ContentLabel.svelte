@@ -24,7 +24,7 @@
 {:else if type === ContentTypeEnum.Tutorial}
 	<Label size="small" iconLeft="tabler:news" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Snippet}
-	<Label size="small" iconLeft="tabler:keyboard" {color} {state} hasBorder={false}><slot /></Label>
+	<Label size="small" iconLeft="tabler:scissors" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Challenge}
 	<Label size="small" iconLeft="tabler:mountain" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Quickstart}

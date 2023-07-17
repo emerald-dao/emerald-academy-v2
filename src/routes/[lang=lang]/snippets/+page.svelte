@@ -100,6 +100,7 @@
 			display: flex;
 			flex-direction: column;
 			border-bottom: var(--border-width-primary) var(--clr-border-primary) solid;
+			padding-bottom: var(--space-2);
 
 			@include mq(small) {
 				border-bottom: 0;
