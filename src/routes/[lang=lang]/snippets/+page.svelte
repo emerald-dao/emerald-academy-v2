@@ -55,7 +55,7 @@
 	<p>Browse an entire list of code examples for you to copy.</p>
 	<p>
 		To add your own Snippet, make a Pull Request <a
-			href="https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/tutorials"
+			href="https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/snippets"
 			target="_blank"
 			rel="noreferrer">here</a
 		>.
