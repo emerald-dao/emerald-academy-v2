@@ -36,7 +36,11 @@
 		</article>
 	</div>
 	<div class="toc-wrapper">
-		<TableOfContent headings={data.metadata.headings} contentType={ContentTypeEnum.Quickstart} />
+		<TableOfContent
+			headings={data.metadata.headings}
+			contentType={ContentTypeEnum.Quickstart}
+			externalUrl={`https://github.com/emerald-dao/${$page.params.name}/fork`}
+		/>
 	</div>
 </section>
 
