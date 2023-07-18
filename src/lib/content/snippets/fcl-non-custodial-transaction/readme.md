@@ -25,14 +25,10 @@ const signWithKey = (privateKey, msgHex) => {
   return Buffer.concat([r, s]).toString("hex");
 };
 
-// This is freshly minted account done with faucet
-// Please, don't deplete it because it's being used for education purposes
-// Thanks in advance! 👋
-
 export const signer = async (account) => {
   // We are hard coding these values here, but you can pass those values from outside as well.
   // For example, you can create curried function:
-  // const signer = (keyId, accountAdddress, pkey) => (accouint) => {...}
+  // const signer = (keyId, accountAdddress, pkey) => (account) => {...}
   // and then create multiple signers for different key indices
 
   const keyId = 0;
@@ -46,7 +42,7 @@ export const signer = async (account) => {
     addr: sansPrefix(accountAddress), // the address of the signatory, currently it needs to be without a prefix right now
     keyId: Number(keyId), // this is the keyId for the accounts registered key that will be used to sign, make extra sure this is a number and not a string
 
-    // This is where magic happens! ✨
+    // This is where magic happens!
     signingFunction: async (signable) => {
       // Singing functions are passed a signable and need to return a composite signature
       // signable.message is a hex string of what needs to be signed.
