@@ -13,34 +13,35 @@ const pt: BaseTranslation = {
 	// HomePage / ExploreSection
 	EXPLORE_TAGLINE: 'Explore nossos conteúdos',
 	EXPLORE_H1: 'Recursos educacionais gratuitos da Flow Blockchain',
-	
+
 	// HomePage / LearningPathsSection
 	PATHS_H1: 'Siga um dos nossos caminhos de aprendizado',
-	
+
 	// HomePage / SocialMediaSection
 	SOCIAL_H1: 'Mais de 1.000 estudantes nos recomendam',
-	
+
 	// Catalog / Sidebar
 	TYPE_OF_CONTENT: 'Tipo de conteúdo',
 	SUBJECT: 'Tema',
 	EXPERTISE: 'Experiência',
-	
+
 	// Cadence by example
 	SEARCH: 'Buscar',
 	NO_EXAMPLES_FOUND: 'Nenhum exemplo encontrado para esta linguagem',
-	
+
 	// Your achievements
 	ACHIEVEMENTS_H1: 'Suas conquistas',
-	
+
 	// ContentCard
 	SKILLS_YOU_WILL_LEARN: 'Habilidades que você vai aprender',
-	
+
 	START: "Começar",
 	CATALOG: "Catálogo",
+	SNIPPETS: 'Snippets',
 	LEARN: 'Aprenda',
 	NEW_TO: 'Novo em',
 	START_HERE: 'Comece aqui',
-	
+
 	// Type of content
 	[ContentTypeEnum.Course]: 'Curso',
 	[ContentTypeEnum.Bootcamp]: 'Bootcamp',
@@ -48,22 +49,29 @@ const pt: BaseTranslation = {
 	[ContentTypeEnum.Quickstart]: 'Modelos',
 	[ContentTypeEnum.Resources]: 'Recursos',
 	[ContentTypeEnum.Blog]: 'Blog',
-	
+	[ContentTypeEnum.Tweet]: 'Tweet',
+	[ContentTypeEnum.Tutorial]: 'Tutorial',
+	[ContentTypeEnum.Challenge]: 'Challenge',
+	[ContentTypeEnum.Snippet]: 'Snippet',
+
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',
 	[SubjectsEnum.Web]: 'Desenvolvimento Web',
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',
-	
+	[SubjectsEnum.Mobile]: 'Mobile',
+	[SubjectsEnum.IPFS]: 'IPFS',
+
 	// Expertise
 	[ExpertiseEnum.Advanced]: 'Avançado',
 	[ExpertiseEnum.Intermediate]: 'Intermediário',
 	[ExpertiseEnum.Beginner]: 'Iniciante',
-	
+
 	// Quickstarts
+	MOBILE_QUICKSTARTS: 'Mobile Quickstarts',
 	NO_QUICKSTARTS_FOUND: 'Nenhum modelo encontrado para esta linguagem'
-	
+
 };
 
 export default pt;
