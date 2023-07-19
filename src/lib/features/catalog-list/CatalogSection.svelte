@@ -11,7 +11,6 @@
 	import { createSearchStore, searchHandler } from '$stores/searchBar';
 
 	export let contentList: Overview[];
-	console.log(contentList);
 	export let title: string = 'All contents';
 	export let typeOfContentFilter = true;
 	export let expertiseFilter = true;

@@ -1,5 +1,6 @@
 import type { Quickstart } from '$lib/types/content/quickstart.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: Quickstart = {
 	title: 'NFT Minting',
@@ -14,6 +15,9 @@ export const overview: Quickstart = {
 		isVerified: true
 	},
 	quickstartRepositoryUrl: 'github.com/emerald-dao/3-nft-minting',
-	description:
-		'A DApp that lets an admin create an NFT Collection and display available NFTs for purchase on a minting site. Users will be able to see their purchased NFTs as well.'
+	excerpt:
+		'A DApp that lets an admin create an NFT Collection and display available NFTs for purchase on a minting site. Users will be able to see their purchased NFTs as well.',
+	metadata: {
+		subjects: [SubjectsEnum.DApp]
+	}
 };

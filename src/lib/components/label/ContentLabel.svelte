@@ -23,8 +23,12 @@
 	<Label size="small" iconLeft="tabler:link" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Tutorial}
 	<Label size="small" iconLeft="tabler:news" {color} {state} hasBorder={false}><slot /></Label>
+{:else if type === ContentTypeEnum.Snippet}
+	<Label size="small" iconLeft="tabler:scissors" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Challenge}
 	<Label size="small" iconLeft="tabler:mountain" {color} {state} hasBorder={false}><slot /></Label>
+{:else if type === ContentTypeEnum.Quickstart}
+	<Label size="small" iconLeft="tabler:run" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === SubjectsEnum.Backend}
 	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === SubjectsEnum.IPFS}

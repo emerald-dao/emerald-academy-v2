@@ -36,6 +36,7 @@ const zh: BaseTranslation = {
 
 	START: '开始',
 	CATALOG: '目录',
+	SNIPPETS: 'Snippets',
 	LEARN: '学习',
 	NEW_TO: '新的',
 	START_HERE: '从这里开始',
@@ -50,6 +51,7 @@ const zh: BaseTranslation = {
 	[ContentTypeEnum.Blog]: 'Blog',
 	[ContentTypeEnum.Tweet]: 'Tweet',
 	[ContentTypeEnum.Challenge]: '挑战',
+	[ContentTypeEnum.Snippet]: 'Snippet',
 
 	// Subjects
 	[SubjectsEnum.Backend]: '后端',

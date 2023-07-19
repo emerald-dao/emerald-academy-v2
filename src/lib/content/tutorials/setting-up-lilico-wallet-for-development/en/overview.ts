@@ -1,9 +1,9 @@
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
-import type { Tutorial } from '$lib/types/content/tutorial.interface';
+import type { TutorialOverview } from '$lib/types/content/tutorial.interface';
 
-export const overview: Tutorial = {
+export const overview: TutorialOverview = {
 	title: 'Setting Up Lilico Wallet For Development',
 	contentType: ContentTypeEnum.Tutorial,
 	excerpt: 'Learn how to setup Lilico Wallet for developing DApps',

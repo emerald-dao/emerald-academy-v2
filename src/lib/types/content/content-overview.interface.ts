@@ -13,8 +13,8 @@ export interface Overview {
 
 interface ContentMetadata {
 	expertise?: ExpertiseEnum;
-	duration: string;
-	prerequisites: string[];
+	duration?: string;
+	prerequisites?: string[];
 	subjects: SubjectsEnum[];
 	price?: string;
 	faqs?: Faq[];

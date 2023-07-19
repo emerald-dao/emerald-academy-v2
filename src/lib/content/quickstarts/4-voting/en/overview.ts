@@ -1,5 +1,6 @@
 import type { Quickstart } from '$lib/types/content/quickstart.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: Quickstart = {
 	title: 'Voting',
@@ -14,6 +15,9 @@ export const overview: Quickstart = {
 		isVerified: true
 	},
 	quickstartRepositoryUrl: 'github.com/emerald-dao/4-voting',
-	description:
-		'A DApp that spins up an open DAO that lets community members create proposals and vote within it based on token holdings that govern the DAO.'
+	excerpt:
+		'A DApp that spins up an open DAO that lets community members create proposals and vote within it based on token holdings that govern the DAO.',
+	metadata: {
+		subjects: [SubjectsEnum.DApp]
+	}
 };
