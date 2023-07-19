@@ -104,9 +104,9 @@ Now, we will add our `UserProfile` resource. If you're not sure what resources a
 ```cadence
     access(all) resource UserProfile : IUserProfilePublic
     {
-        access(self) let id: UInt64;
-        access(self) let address: String;
-        access(self) var name: String;
+        access(all) let id: UInt64;
+        access(all) let address: String;
+        access(all) var name: String;
 
         access(all) fun getUserProfileInfo(): UserProfileInfo
         {
@@ -130,7 +130,7 @@ Now, we will add our `UserProfile` resource. If you're not sure what resources a
 
 1. `access(all) resource UserProfile : IUserProfilePublic`: This line declares a resource named `UserProfile` with the `access(all)` access type. A resource in Cadence is a type of object that is owned by a single account and can be moved or consumed during transactions. It also implements the `IUserProfilePublic` interface, which we will look at next, and why do we use it.
 
-2. `access(self) let id: UInt64;`, `access(self) let address: String;`, `access(self) var name: String;`: These lines declare three properties of the `UserProfile` resource: `id`, `address`, and `name`. All three properties have the `access(self)` access type, which means they can only be accessed within the same resource. Other functions or contracts cannot directly access or modify these properties.
+2. `access(all) let id: UInt64;`, `access(all) let address: String;`, `access(all) var name: String;`: These lines declare three properties of the `UserProfile` resource: `id`, `address`, and `name`. All three properties have the `access(all)` access type.
 
 3. `access(all) fun getUserProfileInfo(): UserProfileInfo`: This line declares a function named `getUserProfileInfo`. The function returns a value of type `UserProfileInfo`, which we defined in the previous step.
 
