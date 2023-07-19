@@ -13,7 +13,6 @@ export const load = async ({ params, fetch }) => {
 			signUps
 		};
 	} catch (e) {
-		console.log(e)
 		throw error(404, 'The bootcamp you are looking for does not exist');
 	}
 };

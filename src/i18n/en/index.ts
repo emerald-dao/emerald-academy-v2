@@ -34,9 +34,10 @@ const en: BaseTranslation = {
 	// ContentCard
 	SKILLS_YOU_WILL_LEARN: "Skills you'll learn",
 
-	START: "Start",
-	CATALOG: "Catalog",
-	LEARN: "Learn",
+	START: 'Start',
+	CATALOG: 'Catalog',
+	SNIPPETS: 'Snippets',
+	LEARN: 'Learn',
 	NEW_TO: 'New to',
 	START_HERE: 'Start here',
 
@@ -49,13 +50,16 @@ const en: BaseTranslation = {
 	[ContentTypeEnum.Blog]: 'Blog',
 	[ContentTypeEnum.Tweet]: 'Tweet',
 	[ContentTypeEnum.Tutorial]: 'Tutorial',
+	[ContentTypeEnum.Challenge]: 'Challenge',
+	[ContentTypeEnum.Snippet]: 'Snippet',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',
-	[SubjectsEnum.Web]: 'Web Dev',
+	[SubjectsEnum.Web]: 'Web',
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',
+	[SubjectsEnum.Mobile]: 'Mobile',
 	[SubjectsEnum.IPFS]: 'IPFS',
 
 	// Expertise
@@ -64,7 +68,14 @@ const en: BaseTranslation = {
 	[ExpertiseEnum.Beginner]: 'Beginner',
 
 	// Quickstarts
-	NO_QUICKSTARTS_FOUND: 'No quickstarts found for this lenguage'
+	MOBILE_QUICKSTARTS: 'Mobile Quickstarts',
+	NO_QUICKSTARTS_FOUND: 'No quickstarts found for this language',
+
+	// Challenge
+	CHALLENGE_TITLE: 'Cadence Challenges',
+	CHALLENGES_SOLVED: 'Challenges Solved',
+	CHALLENGES_UNSOLVED: 'Challenges Unsolved',
+	NO_CHALLENGES_AVAILABLE: 'No challenges available'
 };
 
 export default en;

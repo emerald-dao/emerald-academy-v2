@@ -9,11 +9,15 @@ export const typeOfContentFilter: Filter = {
 	filterElement: [
 		{
 			icon: 'icon',
-			slug: ContentTypeEnum.Bootcamp
+			slug: ContentTypeEnum.Course
 		},
 		{
 			icon: 'icon',
-			slug: ContentTypeEnum.Course
+			slug: ContentTypeEnum.Tutorial
+		},
+		{
+			icon: 'icon',
+			slug: ContentTypeEnum.Bootcamp
 		},
 		{
 			icon: 'icon',

@@ -7,7 +7,7 @@
 	import '$lib/styles/_articles.scss';
 	import { setLocale, locale } from '$i18n/i18n-svelte';
 	import HeadHrefLangs from '$lib/components/i18n/HeadHrefLangs.svelte';
-	import { Header, Footer } from '@emerald-dao/component-library';
+	import { Header, Footer, TransactionModal } from '@emerald-dao/component-library';
 	import { theme } from '$stores/ThemeStore';
 	import { logIn, unauthenticate } from '$flow/actions';
 	import { user } from '$stores/flow/FlowStore';
@@ -15,6 +15,7 @@
 	import LocaleSwitcher from '$lib/components/i18n/LocaleSwitcher.svelte';
 	import { network } from '$flow/config';
 	import { page } from '$app/stores';
+	import { transactionStore } from '$stores/flow/TransactionStore';
 
 	export let data;
 
@@ -28,13 +29,13 @@
 			prefetch: true
 		},
 		{
-			name: 'Cadence By Example',
+			name: 'Cadence by Example',
 			url: `/${$locale}/cadence-by-example`,
 			prefetch: true
 		},
 		{
-			name: 'Resources',
-			url: `/${$locale}/resources`,
+			name: 'Snippets',
+			url: `/${$locale}/snippets`,
 			prefetch: true
 		},
 		{
@@ -58,6 +59,12 @@
 	$: headerWidth = $page.params.lesson ? 'large' : 'medium';
 </script>
 
+<TransactionModal
+	transactionInProgress={$transactionStore.progress}
+	transactionStatus={$transactionStore.transaction}
+	on:close={() => transactionStore.resetTransaction()}
+/>
+
 <Header
 	themeStore={theme}
 	{logIn}
@@ -68,7 +75,7 @@
 	{network}
 	avatarDropDownNavigation={avatarDropdownNav}
 	logoHref={`/${$locale}/`}
-	logoUrl="/EA_Iso.svg"
+	logoUrl="/ea-logo.png"
 	logoText="Emerald Academy"
 	width={headerWidth}
 >
@@ -77,7 +84,7 @@
 <main>
 	<slot />
 </main>
-<Footer {navElements} logoHref={`/${$locale}/`} logoUrl="/EA_Iso.svg" logoText="Emerald Academy" />
+<Footer {navElements} logoHref={`/${$locale}/`} logoUrl="/ea-logo.png" logoText="Emerald Academy" />
 
 <svelte:head>
 	<HeadHrefLangs />

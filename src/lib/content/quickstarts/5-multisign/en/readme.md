@@ -2,8 +2,6 @@
 layout: examples
 ---
 
-# 💎 Emerald Academy
-
 ## 🚩 Challenge 5: Multisign
 
 🎫 Deploy a Multisign contract to learn the basics of multisigning withdraws and deposits to a DAO Treasury on the Flow blockchain and Cadence. You'll use:
@@ -16,9 +14,7 @@ layout: examples
 
 💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emeraldcity)!
 
----
-
-# 📦 Checkpoint 0: Install
+## 📦 Checkpoint 0: Install
 
 Required:
 
@@ -59,17 +55,13 @@ flow dev-wallet
 
 📱 Open http://localhost:3000 to see the app
 
----
-
-# 👛 Checkpoint 1: Wallets
+## 👛 Checkpoint 1: Wallets
 
 We'll be using **the local Flow dev wallet**.
 
 > Click the "Log In" button and notice a window appears with different accounts to select, each with their own Flow Token balance. Select the first account to log in to it.
 
----
-
-# 🔖 Checkpoint 2: Deposit $FLOW
+## 🔖 Checkpoint 2: Deposit $FLOW
 
 After logging in to your DApp, you will see a Treasury that current has 0 $FLOW inside of it. You will notice at the top that you currently have a large balance of $FLOW, so let's give our treasury some!
 
@@ -87,7 +79,7 @@ After clicking Approve, you will notice the balance in the Treasury get updated.
 
 <img src="https://i.imgur.com/E4bh4E5.png" alt="deposit history" width="400" />
 
-# 👪 Checkpoint 3: Withdraw $FLOW
+## 👪 Checkpoint 3: Withdraw $FLOW
 
 Now that we have deposited $FLOW to the treasury, let's test out making a withdraw.
 
@@ -101,7 +93,7 @@ After clicking Approve, you will notice that the balance in the Treasury _does n
 
 <img src="https://i.imgur.com/13YPTA5.png" alt="pending" width="400" />
 
-# 📑 Checkpoint 4: Sign Withdraw Request
+## 📑 Checkpoint 4: Sign Withdraw Request
 
 You can view all the Admins of the treasury on the main page. Initially, only the `0xf8d6e0586b0a20c7` account is an Admin, so if they sign a request, it will go through.
 
@@ -121,9 +113,7 @@ In addition, the $FLOW token was withdrawn from the treasury and deposited to th
 
 If you return back to the main page, you will notice there is now history marking the completed withdraw.
 
----
-
-# 👀 Checkpoint 5: Add a New Admin
+## 👀 Checkpoint 5: Add a New Admin
 
 Let's test out adding a new Admin to the Treasury. Once we do so, the new admin will also have to sign withdraw requests in order for them to go through.
 
@@ -139,9 +129,7 @@ After doing that, you will notice that when we sign the new withdraw request fro
 
 Now it has officially gone through!
 
----
-
-# 💾 Checkpoint 6: Deploy it to testnet!
+## 💾 Checkpoint 6: Deploy it to testnet!
 
 📔 Ready to deploy to a public testnet?!?
 
@@ -221,9 +209,7 @@ Let's try out our application on testnet:
 - In your terminal, type `npm run sign [THE PROPOSAL ID]` (you can get the `proposalId` by clicking on the request and seeing its number)
 - You should see a printed "Transaction Id". If you go to [Testnet Flowscan](https://testnet.flowscan.org/) and paste in that Transaction Id, you should see information about that minting transaction.
 
----
-
-# 📝 Make Edits!
+## 📝 Make Edits!
 
 🔏 You can also check out your multisign smart contract `Multisign.cdc` in `flow/cadence/Multisign.cdc`.
 
@@ -231,9 +217,9 @@ Let's try out our application on testnet:
 
 📝 If you want to make frontend edits, open `index.js` in `pages/index.js`.
 
-# ⚔️ Side Quests
+## ⚔️ Side Quests
 
-> 🏃 Head to your next challenge [here](https://academy.ecdao.org/challenges/groups).
+> 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/6-groups).
 
 > 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
 

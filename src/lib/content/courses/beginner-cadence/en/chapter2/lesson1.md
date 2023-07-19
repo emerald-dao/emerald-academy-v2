@@ -3,7 +3,14 @@ title: Our First Smart Contract
 lesson: 1
 language: en
 excerpt: first Smart Contract
+lessonVideoUrl: https://www.youtube.com/embed/QbqNM4k76B0
+lessonVideoDescription: Overview of smart contracts, accounts, and deploying our first contract
+quizUrl: https://forms.gle/PPJb9iHFGu91Nuis9
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 2 Lesson 1 - Our First Smart Contract
 
@@ -11,18 +18,13 @@ Hello beautiful people! Welcome to the glorious Chapter 2, in which we will star
 
 Today, we will be learning the very basics of Cadence code by implementing our first Smart Contract. That is, how to declare a variable, how to write a function, etc.
 
-## Video
-
-If you'd like some videos to watch, you can watch these two videos (they are very similar):
-
-1. https://www.youtube.com/watch?v=QbqNM4k76B0 (overview of smart contracts, accounts, and deploying our first contract)
-2. https://www.youtube.com/watch?v=DSwNNOEdBXU (explanation behind some basic syntax + deploying a contract) **NOTE**: watch this video from 00:00 - 07:23. Anything beyond 07:23 is not covered in this lesson.
+<LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
 
 ## Our First Smart Contract
 
 _Before going on, make sure you've read Chapter 1, Lesson 1. That lesson covers everything you need to know about Smart Contracts up to this point._
 
-In order to start making our first Smart Contract, we need to figure out a place to actually put it! To do that, launch a browser of your choice (I would recommend Google Chrome), go to the Flow playground by pasting in this URL: https://play.onflow.org. After you do that, do the following
+In order to start making our first Smart Contract, we need to figure out a place to actually put it! To do that, launch a browser of your choice (I would recommend Google Chrome), go to the Flow playground by pasting in this URL: https://play.flow.com. After you do that, do the following
 
 1. On the left hand side, click the '0x01' tab.
 2. Delete everything in that page.
@@ -40,7 +42,7 @@ But what actually IS an address? Well, you can think of them as a user. When I w
 
 ### Where do smart contracts live?
 
-Smart Contracts are deployed accounts. As we mentioned above, accounts are owned by a user, and every account has an address associated with it that always begins with `0x`. In this case, since we are on the Flow playground, it has automatically given us 5 accounts, namely `0x01`, `0x02`, and so on. Thus, Smart Contracts live at an address. So when we deploy a contract named "Hello World" to account `0x01`, that is how we identify it. If we wanted to interact with it, we would have to know both the name of the contract and the address. We'll see this more in-depth when we import stuff later on.
+Smart Contracts are deployed in accounts. As we mentioned above, accounts are owned by a user, and every account has an address associated with it that always begins with `0x`. In this case, since we are on the Flow playground, it has automatically given us 5 accounts, namely `0x01`, `0x02`, and so on. Thus, Smart Contracts live at an address. So when we deploy a contract named "Hello World" to account `0x01`, that is how we identify it. If we wanted to interact with it, we would have to know both the name of the contract and the address. We'll see this more in-depth when we import stuff later on.
 
 ### Back to our example...
 
@@ -133,7 +135,7 @@ Remember I said Smart Contracts are both programs and rulebooks. They allow us t
 
 Today, we learned how to deploy our first contract, declare a variable, write a function, and execute a script. Wow! That's a lot. But it wasn't too bad, right?
 
-# Quests
+## Quests
 
 For todays quest, please load up a new Flow playground by going to https://play.onflow.org just like we did in this lesson. You will use that for writing your code.
 
@@ -144,5 +146,3 @@ For todays quest, please load up a new Flow playground by going to https://play.
 It's so awesome that I get to make these quests. I love this.
 
 Anyways, please remember to store your answers in some way so I can review them if you submit them to me. Good luck!
-
-# <a href="https://forms.gle/PPJb9iHFGu91Nuis9">Quiz</a>

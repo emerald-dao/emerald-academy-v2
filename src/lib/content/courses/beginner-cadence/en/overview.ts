@@ -9,8 +9,11 @@ export const overview: CourseOverview = {
 	excerpt:
 		'Learn Cadence. During this course, you will learn ALL of the major aspects of the language. In addition to writing & deploying your own NFT Contract during the course, you will have the knowledge to write your own contracts too.',
 	author: {
-		authorName: 'Jacob Tucker',
-		authorLink: 'https://twitter.com/jacobmtucker'
+		name: 'Jacob Tucker',
+		socialMediaUrl: 'https://twitter.com/jacobmtucker',
+		avatarUrl: 'https://avatars.githubusercontent.com/u/15198786?v=4',
+		isVerified: true,
+		walletAddress: '0x99bd48c8036e2876'
 	},
 	metadata: {
 		expertise: ExpertiseEnum.Beginner,

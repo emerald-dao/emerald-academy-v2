@@ -1,9 +1,11 @@
 <script type="ts">
-	import { Breadcrumbs } from '@emerald-dao/component-library';
-	import Sidebar from '../__components/Sidebar.svelte';
+	import { Breadcrumbs, Seo } from '@emerald-dao/component-library';
 	import { page } from '$app/stores';
 	import LL from '$i18n/i18n-svelte';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+	import ContentIntro from '$lib/components/cards/ContentIntro.svelte';
+	import TableOfContent from '$lib/components/mdsvex/TableOfContent.svelte';
+	import { setContext } from 'svelte';
 
 	export let data;
 
@@ -17,22 +19,37 @@
 			label: `${data.overview.title}`
 		}
 	];
+
+	$: setContext('author-context', data.overview.author);
 </script>
 
 <section class="container-medium">
 	<div class="main-wrapper">
-		<Breadcrumbs {routes} />
-		<div class="template">&lt/&gt Quickstart</div>
+		<div class="title-wrapper">
+			<Breadcrumbs {routes} />
+			<ContentIntro overview={data.overview} showBreadcrumbs={false} />
+		</div>
 		<article>
-			<h1 class="heading w-medium">{data.overview.title}</h1>
-			<p class="w-medium">{data.overview.description}</p>
 			<div class="readme-wrapper">
 				<svelte:component this={data.readme} />
 			</div>
 		</article>
 	</div>
-	<Sidebar {data} />
+	<div class="toc-wrapper">
+		<TableOfContent
+			headings={data.metadata.headings}
+			contentType={ContentTypeEnum.Quickstart}
+			externalUrl={`https://github.com/emerald-dao/${$page.params.name}/fork`}
+		/>
+	</div>
 </section>
+
+<Seo
+	title={`${data.overview.title} | Quickstart | Emerald Academy`}
+	description="Some codes for quick implementation"
+	type="WebPage"
+	image="https://academy.ecdao.org/favicon.png"
+/>
 
 <style type="scss">
 	section {
@@ -46,32 +63,31 @@
 			gap: var(--space-10);
 		}
 
-		.main-wrapper {
-			.template {
-				width: fit-content;
-				color: var(--clr-primary-main);
-				background-color: var(--clr-primary-badge);
-				border: var(--border-width-primary) var(--clr-primary-main) solid;
-				border-radius: var(--radius-2);
-				padding: var(--space-3) var(--space-4);
-				margin-top: var(--space-6);
-				font-size: var(--font-size-1);
-			}
+		.title-wrapper {
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-8);
+		}
 
+		.main-wrapper {
 			article {
-				margin-top: var(--space-6);
+				margin-top: var(--space-9);
 				max-width: 85ch;
 
-				.readme-wrapper {
-					border: var(--border-width-primary) var(--clr-border-primary) solid;
-					border-radius: var(--space-5);
-					padding: var(--space-5);
-					word-break: break-word;
-
-					@include mq(medium) {
-						padding: var(--space-10);
-					}
+				@include mq(medium) {
+					min-width: 85ch;
 				}
+			}
+		}
+
+		.toc-wrapper {
+			display: none;
+
+			@include mq(medium) {
+				display: block;
+				position: sticky;
+				top: 140px;
+				height: fit-content;
 			}
 		}
 	}

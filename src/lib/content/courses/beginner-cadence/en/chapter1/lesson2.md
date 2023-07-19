@@ -3,17 +3,20 @@ title: The Flow Blockchain & Cadence
 lesson: 2
 language: en
 excerpt: basic Flow & Cadence concepts
+lessonVideoUrl: https://www.youtube.com/embed/iVevnipJbHo
+lessonVideoDescription: If you want to learn with a video, this is the way to do it.
+quizUrl: https://forms.gle/RxwXCUrj6kakid529
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 1 Lesson 2 - The Flow Blockchain & Cadence
 
 Yo yo yo! It's meeeeee! Jacob here. Hello. Now that we learned what the Blockchain is, Lesson 2 will cover why we have decided to learn the Flow Blockchain and how it compares to other Blockchains out there.
 
-## Video
-
-If you'd like to learn with a video, you can do that from the link below.
-
-[Introduction to Flow and Cadence](https://www.youtube.com/watch?v=iVevnipJbHo)
+<LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
 
 ## The Flow Blockchain
 
@@ -60,12 +63,10 @@ If you do not understand these, that is perfectly fine. We will touch on these t
 
 That about wraps things up for today! In the next lesson, we will start getting into some Cadence code.
 
-# Quests
+## Quests
 
 Please feel free to answer in the language of your choice.
 
 1. What are the 5 Cadence Programming Language Pillars?
 
 2. In your opinion, even without knowing anything about the Blockchain or coding, why could the 5 Pillars be useful (you don't have to answer this for #5)?
-
-# <a href="https://forms.gle/RxwXCUrj6kakid529">Quiz</a>

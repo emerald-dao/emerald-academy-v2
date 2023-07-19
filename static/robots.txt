@@ -1,0 +1,17 @@
+# robots.txt file for Emerald Academy
+
+User-agent: *
+Disallow: /*/achievements
+Disallow: /*/catalog/courses/*/*/*
+Allow: /*
+Allow: /*/catalog
+Allow: /*/cadence-by-example
+Allow: /*/cadence-challenges
+Allow: /*/cadence-challenges/*
+Allow: /*/quickstarts
+Allow: /*/catalog/*
+Allow: /*/catalog/courses/*
+Allow: /*/catalog/roadmaps/*
+Allow: /*/catalog/bootcamps/*
+
+Sitemap: https://academy.ecdao.org/sitemap.xml

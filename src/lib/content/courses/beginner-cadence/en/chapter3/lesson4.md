@@ -3,15 +3,19 @@ title: Resource/Struct Interfaces
 lesson: 4
 language: en
 excerpt: Resource/Struct Interfaces
+lessonVideoUrl: https://www.youtube.com/embed/5wnn9qsCXgE
+quizUrl: https://forms.gle/Cq9GKcFMdhyDAQBy7
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 3 Lesson 4 - Resource/Struct Interfaces
 
 Yooooo yo yo yo! We're BACK for another lesson of Cadence fun. Today, we'll be learning about resource interfaces.
 
-## Video
-
-If you'd like to watch a video on Resource Interfaces, you can go here: https://www.youtube.com/watch?v=5wnn9qsCXgE
+<LessonVideo {lessonVideoUrl} />
 
 ## What is an Interface?
 
@@ -291,5 +295,3 @@ pub contract Stuff {
     }
 }
 ```
-
-# <a href="https://forms.gle/Cq9GKcFMdhyDAQBy7">Quiz</a>

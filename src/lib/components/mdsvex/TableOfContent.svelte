@@ -5,8 +5,32 @@
 	import type { ProgressStates } from '@emerald-dao/component-library/components/ProgressStep/progress-states.type';
 	import { page } from '$app/stores';
 	import Icon from '@iconify/svelte';
+	import EditContent from '../atoms/EditContent.svelte';
+	import type { Author as IAuthor } from '$lib/types/content/content-overview.interface';
+	import Author from '../atoms/Author.svelte';
+	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
 	export let headings: Heading[];
+	export let contentType:
+		| ContentTypeEnum.Quickstart
+		| ContentTypeEnum.Tutorial
+		| ContentTypeEnum.Snippet
+		| ContentTypeEnum.Course = ContentTypeEnum.Course;
+	export let externalUrl: string | undefined = undefined;
+
+	function getEditContentUrl() {
+		if (contentType === ContentTypeEnum.Course) {
+			return `https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/${$page.params.name}/${$page.params.lang}/${$page.params.chapter}/${$page.params.lesson}.md`;
+		} else if (contentType === ContentTypeEnum.Quickstart) {
+			return `https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/quickstarts/${$page.params.name}/${$page.params.lang}/readme.md`;
+		} else if (contentType === ContentTypeEnum.Tutorial) {
+			return `https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/tutorials/${$page.params.name}/${$page.params.lang}/readme.md`;
+		} else if (contentType === ContentTypeEnum.Snippet) {
+			return `https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/snippets/${$page.params.name}/readme.md`;
+		} else {
+			return `https://github.com/emerald-dao/emerald-academy-v2/tree/main`;
+		}
+	}
 
 	interface Heading {
 		level: number;
@@ -54,6 +78,7 @@
 	interface Step {
 		name: string;
 		state: ProgressStates;
+		url?: string;
 	}
 
 	function tranformHeadingsToSteps() {
@@ -69,7 +94,11 @@
 		});
 	}
 
-	const author = getContext('author-context');
+	const author: IAuthor = getContext('author-context');
+	const metadata = getContext('metadata-context');
+
+	let questsExist = false;
+	$: questsExist = headings.some((item) => item.title === 'Quests');
 
 	onMount(() => {
 		grabElements();
@@ -81,46 +110,84 @@
 <svelte:window on:scroll={trackScroll} />
 
 <div class="column-10">
-	<ProgressSteps
-		{steps}
-		diameter={0.5}
-		direction="column-reverse"
-		fontSize="xsmall"
-		gap={0.4}
-		cutLineEnds={false}
-		lineHeight="1"
-	/>
-	<div class="column-1">
-		{#if author}
-			<a
-				href={author.authorLink}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="header-link row-2 align-center"
-			>
-				<Icon icon="tabler:pencil" />
-				{author.authorName}
-			</a>
+	{#if author}
+		<Author
+			name={author.name}
+			avatarUrl={author.avatarUrl}
+			socialMediaUrl={author.socialMediaUrl}
+			isVerified={author.isVerified}
+			walletAddress={author.walletAddress}
+		/>
+	{/if}
+	{#if steps.length > 0}
+		<div class="steps-wrapper">
+			<ProgressSteps
+				{steps}
+				diameter={0.5}
+				direction="column-reverse"
+				fontSize="xsmall"
+				gap={0.4}
+				cutLineEnds={false}
+				lineHeight="1"
+			/>
+		</div>
+	{/if}
+	<div class="column-6 bottom-links-wrapper">
+		{#if contentType === ContentTypeEnum.Course || contentType === ContentTypeEnum.Tutorial}
+			{#if metadata.lessonVideoUrl || metadata.quizUrl || questsExist}
+				<div class="column-3">
+					{#if metadata.lessonVideoUrl}
+						<a href="#" class={`header-link row-2 align-center`}>
+							<Icon icon="bi:camera-video" />
+							<p class="w-small no-margin">Video lesson</p>
+						</a>
+					{/if}
+					{#if metadata.quizUrl}
+						<a
+							href={metadata.quizUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							class={`header-link row-2 align-center`}
+						>
+							<Icon icon="tabler:zoom-question" />
+							<p class="w-small no-margin">Quiz</p>
+						</a>
+					{/if}
+					{#if questsExist}
+						<a href="#quests" class={`header-link row-2 align-center`}>
+							<Icon icon="tabler:diamond" />
+							<p class="w-small no-margin">Quests</p>
+						</a>
+					{/if}
+				</div>
+			{/if}
+		{:else if contentType === ContentTypeEnum.Snippet}
+			<Button size="small" color="primary" target="_blank" width="full-width" href={externalUrl}>
+				<Icon icon="tabler:link" />
+				View Code
+			</Button>
+		{:else if contentType === ContentTypeEnum.Quickstart}
+			<Button size="small" color="primary" target="_blank" width="full-width" href={externalUrl}>
+				<Icon icon="tabler:brand-github" />
+				Fork Quickstart
+			</Button>
 		{/if}
-		<a
-			href={`https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/${$page.params.name}/${$page.params.lang}/${$page.params.chapter}/${$page.params.lesson}.md`}
-			target="_blank"
-			rel="noopener noreferrer"
-			class="header-link row-2 align-center"
-		>
-			<Icon icon="tabler:brand-github" />
-			Edit content
-		</a>
+		<EditContent href={getEditContentUrl()} target="_blank" />
 	</div>
 </div>
 
 <style lang="scss">
-	span {
-		font-size: var(--font-size-0);
-		margin-left: var(--space-1);
+	.no-margin {
+		margin: 0px;
+	}
+	a {
+		color: var(--clr-heading-main);
 	}
 
-	a {
-		margin-left: var(--space-1);
+	.steps-wrapper {
+		margin-left: 10px;
+	}
+	.bottom-links-wrapper {
+		margin-left: var(--space-4);
 	}
 </style>

@@ -1,5 +1,6 @@
 <script lang="ts" context="module">
 	import block from '$lib/components/codeblock/CodeBlock.svelte';
+	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
 	export { block };
 </script>
@@ -15,7 +16,7 @@
 		<slot />
 	</div>
 	<aside>
-		<TableOfContent {headings} />
+		<TableOfContent {headings} contentType={ContentTypeEnum.Course} />
 	</aside>
 </div>
 

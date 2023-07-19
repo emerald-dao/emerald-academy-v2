@@ -3,17 +3,20 @@ title: Account Storage
 lesson: 1
 language: en
 excerpt: Account Storage
+lessonVideoUrl: https://www.youtube.com/embed/01zvWVoDKmU
+lessonVideoDescription: Watch this video up until 14:45.
+quizUrl: https://forms.gle/uE1K3MNqfPUc2hzA7
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 4 Lesson 1 - Account Storage
 
 Alriiiiighty then. We made it through 3 chapters. But there's lots to go ;) Let's do this.
 
-## Video
-
-Watch this video up until 14:45: https://www.youtube.com/watch?v=01zvWVoDKmU
-
-We will cover the rest tomorrow.
+<LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
 
 ## Accounts on Flow
 
@@ -240,5 +243,3 @@ As of now, you should understand what `/storage/` is. In tomorrow's chapter, we'
    1. A transaction that first saves the resource to account storage, then loads it out of account storage, logs a field inside the resource, and destroys it.
 
    2. A transaction that first saves the resource to account storage, then borrows a reference to it, and logs a field inside the resource.
-
-# <a href="https://forms.gle/uE1K3MNqfPUc2hzA7">Quiz</a>

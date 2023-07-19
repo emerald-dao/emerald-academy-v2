@@ -10,11 +10,12 @@
 	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
 	import Icon from '@iconify/svelte';
 	import { user } from '$stores/flow/FlowStore';
-	import { logIn } from '$flow/actions.js';
-	import type { CourseOverview } from '$lib/types/content/course.interface';
+	import { logIn } from '$flow/actions';
 	import { getInitialStars } from '$lib/config/initialStars';
+	import Author from '../atoms/Author.svelte';
 
 	export let overview: Overview;
+	console.log(overview);
 	export let showBreadcrumbs: boolean = false;
 
 	// Only for courses
@@ -78,131 +79,134 @@
 	}
 </script>
 
-<section>
-	<div class="container-small">
-		{#if showBreadcrumbs}
-			<Breadcrumbs {routes} />
-		{/if}
-		<div class="title">
-			<h1>
-				{overview.title}
-			</h1>
-			{#if overview.contentType === ContentTypeEnum.Course}
-				{#if starred}
-					<Button state="active" size="small" type="ghost">
-						<Icon icon="tabler:star-filled" />
-						starred
-						<Label size="xx-small" color="neutral" hasBorder={false}>{starCount}</Label>
-					</Button>
-				{:else}
-					<Button state="active" size="small" type="ghost" on:click={() => starCourse()}>
-						<Icon icon="tabler:star" />
-						star
-						<Label size="xx-small" color="neutral" hasBorder={false}>{starCount}</Label>
-					</Button>
-				{/if}
+<div class="main-wrapper">
+	{#if showBreadcrumbs}
+		<Breadcrumbs {routes} />
+	{/if}
+	<div class="title">
+		<h1>
+			{overview.title}
+		</h1>
+		{#if overview.contentType === ContentTypeEnum.Course}
+			{#if starred}
+				<Button state="active" size="small" type="ghost">
+					<Icon icon="tabler:star-filled" />
+					starred
+					<Label size="xx-small" color="neutral" hasBorder={false}>{starCount}</Label>
+				</Button>
+			{:else}
+				<Button state="active" size="small" type="ghost" on:click={() => starCourse()}>
+					<Icon icon="tabler:star" />
+					star
+					<Label size="xx-small" color="neutral" hasBorder={false}>{starCount}</Label>
+				</Button>
 			{/if}
-		</div>
-		{#if overview.author}
-			<a
-				href={overview.author?.authorLink}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="header-link row-2 align-center"
-			>
-				<Icon icon="tabler:pencil" />
-				{overview.author?.authorName}
-			</a>
 		{/if}
-		<div class="column-6">
-			<div class="metadata-labels">
-				<ContentLabel type={overview.contentType} color="primary">
-					{firstCapital(overview.contentType)}
-				</ContentLabel>
-				{#if overview.metadata.expertise}
-					<Label size="small" iconLeft="tabler:flame" color="transparent" hasBorder={false}>
-						Level: {overview.metadata.expertise}
-					</Label>
-				{/if}
+	</div>
+	{#if overview.contentType === ContentTypeEnum.Course || overview.contentType === ContentTypeEnum.Bootcamp}
+		{#if overview.author}
+			<Author
+				name={overview.author.name}
+				avatarUrl={overview.author.avatarUrl}
+				socialMediaUrl={overview.author.socialMediaUrl}
+				isVerified={overview.author.isVerified}
+				walletAddress={overview.author.walletAddress}
+			/>
+		{/if}
+	{/if}
+	<div class="column-6">
+		<div class="metadata-labels">
+			<ContentLabel type={overview.contentType} color="primary">
+				{firstCapital(overview.contentType)}
+			</ContentLabel>
+			{#if overview.metadata.expertise}
+				<Label size="small" iconLeft="tabler:flame" color="transparent" hasBorder={false}>
+					Level: {overview.metadata.expertise}
+				</Label>
+			{/if}
+			{#if overview.metadata.duration}
 				<Label size="small" color="transparent" iconLeft="tabler:hourglass-high" hasBorder={false}>
 					{overview.metadata.duration}
 				</Label>
-				{#if overview.metadata.price}
-					<Label size="x-small" iconLeft="tabler:currency-dollar" color="neutral" hasBorder={false}>
-						{overview.metadata.price}
+			{/if}
+			{#if overview.metadata.price}
+				<Label size="x-small" iconLeft="tabler:currency-dollar" color="neutral" hasBorder={false}>
+					{overview.metadata.price}
+				</Label>
+			{/if}
+			<Label size="x-small" iconLeft="tabler:list" color="transparent" hasBorder={false}>
+				{overview.metadata.subjects.join(', ')}
+			</Label>
+			{#if overview.contentType === ContentTypeEnum.Bootcamp}
+				{#if daysOfDifference(new Date(), startDate) > 0}
+					<Label
+						size="small"
+						color="transparent"
+						iconLeft="ic:outline-access-time"
+						hasBorder={false}
+					>
+						Starting soon
+					</Label>
+				{:else if daysOfDifference(startDate, new Date()) >= 0 && daysOfDifference(new Date(), endDate) > 0}
+					<Label
+						size="small"
+						color="transparent"
+						iconLeft="ic:outline-access-time"
+						hasBorder={false}
+					>
+						In progress
+					</Label>
+				{:else}
+					<Label
+						size="small"
+						color="transparent"
+						iconLeft="ic:outline-access-time"
+						hasBorder={false}
+					>
+						Bootcamp has ended
 					</Label>
 				{/if}
-				{#if overview.contentType === ContentTypeEnum.Bootcamp}
-					{#if daysOfDifference(new Date(), startDate) > 0}
-						<Label
-							size="small"
-							color="transparent"
-							iconLeft="ic:outline-access-time"
-							hasBorder={false}
-						>
-							Starting soon
-						</Label>
-					{:else if daysOfDifference(startDate, new Date()) >= 0 && daysOfDifference(new Date(), endDate) > 0}
-						<Label
-							size="small"
-							color="transparent"
-							iconLeft="ic:outline-access-time"
-							hasBorder={false}
-						>
-							In progress
-						</Label>
-					{:else}
-						<Label
-							size="small"
-							color="transparent"
-							iconLeft="ic:outline-access-time"
-							hasBorder={false}
-						>
-							Bootcamp has ended
-						</Label>
-					{/if}
-				{/if}
-			</div>
-			<p>
-				{overview.excerpt}
-			</p>
+			{/if}
 		</div>
-		<slot />
+		<p>
+			{#if overview.contentType !== ContentTypeEnum.Tutorial}
+				{overview.excerpt}
+			{/if}
+		</p>
 	</div>
-</section>
+	<slot />
+</div>
 
 <style type="scss">
-	section {
-		.title {
-			display: flex;
-			flex-direction: column;
-			gap: var(--space-8);
-			align-items: flex-start;
-			width: 50%;
+	.title {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-8);
+		align-items: flex-start;
+		width: 50%;
 
-			@include mq(small) {
-				flex-direction: row;
-				align-items: center;
-				width: auto;
-			}
+		@include mq(small) {
+			flex-direction: row;
+			align-items: center;
+			width: auto;
+		}
+	}
+
+	.main-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-8);
+
+		.metadata-labels {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: var(--space-2);
 		}
 
-		.container-small {
-			display: flex;
-			flex-direction: column;
-			gap: var(--space-8);
-
-			.metadata-labels {
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
-				align-items: center;
-				gap: var(--space-2);
-			}
-
-			p {
-				max-width: 50ch;
-			}
+		p {
+			max-width: 50ch;
 		}
 	}
 </style>

@@ -13,8 +13,8 @@ export interface Overview {
 
 interface ContentMetadata {
 	expertise?: ExpertiseEnum;
-	duration: string;
-	prerequisites: string[];
+	duration?: string;
+	prerequisites?: string[];
 	subjects: SubjectsEnum[];
 	price?: string;
 	faqs?: Faq[];
@@ -26,6 +26,9 @@ export interface Faq {
 }
 
 export interface Author {
-	authorName: string;
-	authorLink: string;
+	name: string;
+	socialMediaUrl: string;
+	avatarUrl?: string;
+	isVerified: boolean;
+	walletAddress?: string;
 }

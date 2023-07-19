@@ -35,9 +35,10 @@ const ru: BaseTranslation = {
 	// ContentCard
 	SKILLS_YOU_WILL_LEARN: 'Навыки, которые вы изучите',
 
-	START: "Начать",
-	CATALOG: "Каталог",
-	LEARN: "Изучить",
+	START: 'Начать',
+	CATALOG: 'Каталог',
+	SNIPPETS: 'Snippets',
+	LEARN: 'Изучить',
 	NEW_TO: 'новичок в',
 	START_HERE: 'Начни здесь',
 
@@ -50,6 +51,8 @@ const ru: BaseTranslation = {
 	[ContentTypeEnum.Tutorial]: 'Руководство',
 	[ContentTypeEnum.Blog]: 'Blog',
 	[ContentTypeEnum.Tweet]: 'Tweet',
+	[ContentTypeEnum.Challenge]: 'Задачи',
+	[ContentTypeEnum.Snippet]: 'Snippet',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Бэкенд',
@@ -58,6 +61,7 @@ const ru: BaseTranslation = {
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',
 	[SubjectsEnum.IPFS]: 'IPFS',
+	[SubjectsEnum.Mobile]: 'Mobile',
 
 	// Expertise
 	[ExpertiseEnum.Advanced]: 'Продвинутый',
@@ -65,7 +69,13 @@ const ru: BaseTranslation = {
 	[ExpertiseEnum.Beginner]: 'Начальный',
 
 	// Quickstarts
-	NO_QUICKSTARTS_FOUND: 'Шаблоны не найдены для этого языка'
+	NO_QUICKSTARTS_FOUND: 'Шаблоны не найдены для этого языка',
+
+	// Challenge
+	CHALLENGE_TITLE: 'Cadence задачи',
+	CHALLENGES_SOLVED: 'Решенные задачи',
+	CHALLENGES_UNSOLVED: 'Нерешенные задачи',
+	NO_CHALLENGES_AVAILABLE: 'Нет доступных задач'
 };
 
 export default ru;

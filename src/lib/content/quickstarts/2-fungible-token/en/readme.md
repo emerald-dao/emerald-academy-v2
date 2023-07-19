@@ -2,7 +2,10 @@
 layout: examples
 ---
 
-# 💎 Emerald Academy
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+  const lessonVideoUrl = 'https://www.youtube.com/embed/VXTOy7W7iQo'
+</script>
 
 ## 🚩 Challenge 2: Fungible Token
 
@@ -16,15 +19,12 @@ layout: examples
 
 💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emeraldcity)!
 
----
+## 📹 Video Walkthrough
 
-# Video Walkthrough
+Want a video walkthrough? Check out Jacob Tucker's walkthrough here:
+<LessonVideo {lessonVideoUrl} />
 
-Want a video walkthrough? Check out Jacob Tucker's walkthrough here: [![Challenge #2 (Fungible Token) Walkthrough](https://i.imgur.com/hbaBWoB.jpg)](https://www.youtube.com/watch?v=VXTOy7W7iQo 'Emerald Academy - Challenge #2 (Fungible Token) Walkthrough')
-
----
-
-# 📦 Checkpoint 0: Install
+## 📦 Checkpoint 0: Install
 
 Required:
 
@@ -65,17 +65,13 @@ flow dev-wallet
 
 📱 Open http://localhost:3000 to see the app
 
----
-
-# 👛 Checkpoint 1: Wallets
+## 👛 Checkpoint 1: Wallets
 
 We'll be using **the local Flow dev wallet**.
 
 > Click the "Log In" button and notice a window appears with different accounts to select, each with their own Flow Token balance. Select the first account to log in to it.
 
----
-
-# 📘 Checkpoint 2: Reading Your Balance
+## 📘 Checkpoint 2: Reading Your Balance
 
 > When you log in, click the little spinner next to your balance in the top right. Notice that you get an error:
 
@@ -91,7 +87,7 @@ This will set up the user's account so it can receive tokens.
 
 > Try refreshing the balance again. You will see a balance of 0.0. So let's mint some tokens!
 
-# ✏️ Checkpoint 3: Minting Fungible Tokens
+## ✏️ Checkpoint 3: Minting Fungible Tokens
 
 > In a terminal, run `npm run mint 0xf8d6e0586b0a20c7 30.0`.
 
@@ -101,9 +97,7 @@ This will mint 30 tokens to their address (`0xf8d6e0586b0a20c7`).
 
 > Go back to your application and refresh the balance again. Notice that you have a balance of 30.0 now! Woooohoooo.
 
----
-
-# 📘 Checkpoint 4: Setup Second User Vault
+## 📘 Checkpoint 4: Setup Second User Vault
 
 We want to transfer tokens to another account, but the problem is we don't have another account (that is set up properly) to transfer tokens to!
 
@@ -119,9 +113,7 @@ This will set up the user's account so it can receive tokens.
 
 > Try refreshing the balance again. You will see a balance of 0.0. So let's transfer some from the other account!
 
----
-
-# 💾 Checkpoint 5: Transfer Tokens
+## 💾 Checkpoint 5: Transfer Tokens
 
 > 📔 Log out of your account and go back to the Service Account. In the main box, put `0x179b6b1cb6755e31` as the recipient and `10.0` as the amount, then click `Transfer Tokens`:
 
@@ -129,9 +121,7 @@ This will set up the user's account so it can receive tokens.
 
 This will transfer tokens to the `0x179b6b1cb6755e31` account. Log in to that account, refresh the balance, and you will see you have 10.0 tokens now!
 
----
-
-# 💾 Checkpoint 6: Deploy it to testnet!
+## 💾 Checkpoint 6: Deploy it to testnet!
 
 📔 Ready to deploy to a public testnet?!?
 
@@ -148,6 +138,7 @@ This will transfer tokens to the `0x179b6b1cb6755e31` account. Log in to that ac
 > ⛽️ Add your new testnet account to your `flow.json` by modifying the following lines of code. Paste your address you copied above to where it says "YOUR GENERATED ADDRESS", and paste your private key where it says "YOUR PRIVATE KEY".
 
 ```json
+{
 "accounts": {
   "emulator-account": {
     "address": "f8d6e0586b0a20c7",
@@ -175,6 +166,7 @@ This will transfer tokens to the `0x179b6b1cb6755e31` account. Log in to that ac
       "ExampleToken"
     ]
   }
+}
 }
 ```
 
@@ -207,9 +199,7 @@ Let's try out our DApp on testnet:
 5. In your terminal, you should see a printed "Transaction Id". If you go to [Testnet Flowscan](https://testnet.flowscan.org/) and paste in that Transaction Id, you should see information about that minting transaction.
 6. Refresh the balance once again, and you should see tokens minted to your account :)
 
----
-
-# 📝 Make Edits!
+## 📝 Make Edits!
 
 🔏 You can also check out your smart contract `ExampleToken.cdc` in `flow/cadence/ExampleToken.cdc`.
 
@@ -217,9 +207,9 @@ Let's try out our DApp on testnet:
 
 📝 If you want to make frontend edits, open `index.js` in `pages/index.js`.
 
-# ⚔️ Side Quests
+## ⚔️ Side Quests
 
-> 🏃 Head to your next challenge [here](https://academy.ecdao.org/challenges/nft-minting).
+> 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/3-nft-minting).
 
 > 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
 

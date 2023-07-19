@@ -1,5 +1,5 @@
 <script type="ts">
-	import Seo from '$lib/components/seo/Seo.svelte';
+	import { Seo } from '@emerald-dao/component-library';
 	import dappInfo from '$lib/config/config';
 	import { StatsSection, PoweredByECDAO } from '@emerald-dao/component-library';
 	import {
@@ -26,4 +26,5 @@
 	title={dappInfo.title}
 	description="Learn everything about the Flow Blockchain. Explore our content. Flow free educational resources. Powered by Emerald City DAO"
 	type="WebSite"
+	image="https://academy.ecdao.org/favicon.png"
 />

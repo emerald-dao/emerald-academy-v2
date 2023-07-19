@@ -2,8 +2,6 @@
 layout: examples
 ---
 
-# 💎 Emerald Academy
-
 ## 🚩 Challenge 4: Voting
 
 🎫 Deploy a Voting contract to learn the basics of voting inside of a DAO on the Flow blockchain and Cadence. You'll use:
@@ -16,9 +14,7 @@ layout: examples
 
 💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emeraldcity)!
 
----
-
-# 📦 Checkpoint 0: Install
+## 📦 Checkpoint 0: Install
 
 Required:
 
@@ -59,17 +55,13 @@ flow dev-wallet
 
 📱 Open http://localhost:3000 to see the app
 
----
-
-# 👛 Checkpoint 1: Wallets
+## 👛 Checkpoint 1: Wallets
 
 We'll be using **the local Flow dev wallet**.
 
 > Click the "Log In" button and notice a window appears with different accounts to select, each with their own Flow Token balance. Select the first account to log in to it.
 
----
-
-# 🔖 Checkpoint 2: Name & Describe Your DAO
+## 🔖 Checkpoint 2: Name & Describe Your DAO
 
 After logging in to our DApp, you will see that there is no name or description for our DAO:
 
@@ -81,7 +73,7 @@ You will now see that being changed on your frontend:
 
 <img src="https://i.imgur.com/nRHh0Mr.png" alt="name & describe dao" width="400" />
 
-# 👪 Checkpoint 3: Join the DAO
+## 👪 Checkpoint 3: Join the DAO
 
 Now that we have given our DAO a name & description, let's join the DAO!
 
@@ -97,7 +89,7 @@ Under the hood, you just set up your own token vault for the token that is gover
 
 > To see how this transaction was run, check out the `joinDAO` function inside of `./pages/index.js`
 
-# 📑 Checkpoint 4: Create a Proposal
+## 📑 Checkpoint 4: Create a Proposal
 
 After joining the DAO, you will be brought to the main dashboard of your DAO. You can see there are no active proposals, so let's make one!
 
@@ -126,9 +118,7 @@ After clicking "Approve", you will be taken back to the main dashboard. You shou
 
 <img src="https://i.imgur.com/PQXUtbb.png" alt="a vote is now in play" width="400" />
 
----
-
-# 👀 Checkpoint 5: Viewing a Proposal
+## 👀 Checkpoint 5: Viewing a Proposal
 
 Now that a proposal has been created, lets click on it and see what it looks like:
 
@@ -146,9 +136,7 @@ You should see:
 
 In order to actually vote however, we must own some tokens inside the DAO!
 
----
-
-# 💸 Checkpoint 6: Obtaining Tokens
+## 💸 Checkpoint 6: Obtaining Tokens
 
 In order to obtain some tokens, let's actually mint some to our account.
 
@@ -162,9 +150,7 @@ If you go back to your application and refresh the page (making sure you are log
 
 > To see how this command minted tokens to our account, check out `./actions/mint_tokens.js`
 
----
-
-# 📤 Checkpoint 7: Voting
+## 📤 Checkpoint 7: Voting
 
 You can click to vote a certain way by clicking one of either "For", "Against", or "Abstain".
 
@@ -174,9 +160,7 @@ You can click to vote a certain way by clicking one of either "For", "Against", 
 
 If you click approve, you should see the vote tally change, and your address get added to the list of voters below. Remember, you can't vote again!
 
----
-
-# 📘 Checkpoint 8: Vote with a Different Account
+## 📘 Checkpoint 8: Vote with a Different Account
 
 Let's try to submit a vote from another account!
 
@@ -186,7 +170,7 @@ Let's try to submit a vote from another account!
 4. Click on the same proposal and vote once again.
 5. Watch the tally change!
 
-# 💾 Checkpoint 9: Deploy it to testnet!
+## 💾 Checkpoint 9: Deploy it to testnet!
 
 📔 Ready to deploy to a public testnet?!?
 
@@ -265,9 +249,7 @@ Let's try out our application on testnet:
 6. In your terminal, you should see a printed "Transaction Id". If you go to [Testnet Flowscan](https://testnet.flowscan.org/) and paste in that Transaction Id, you should see information about that minting transaction.
 7. Attempt to vote in your proposal.
 
----
-
-# 📝 Make Edits!
+## 📝 Make Edits!
 
 🔏 You can also check out your token smart contract `ExampleToken.cdc` in `flow/cadence/ExampleToken.cdc`, or your voting/DAO smart contract `Vote.cdc` in `flow/cadence/Vote.cdc`
 
@@ -275,9 +257,9 @@ Let's try out our application on testnet:
 
 📝 If you want to make frontend edits, open `index.js` in `pages/index.js`.
 
-# ⚔️ Side Quests
+## ⚔️ Side Quests
 
-> 🏃 Head to your next challenge [here](https://academy.ecdao.org/challenges/multisign).
+> 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/5-multisign).
 
 > 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
 

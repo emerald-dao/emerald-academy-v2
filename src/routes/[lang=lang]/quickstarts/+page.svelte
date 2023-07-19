@@ -1,18 +1,35 @@
 <script type="ts">
 	import LL from '$i18n/i18n-svelte';
-	import TemplatesCard from '$lib/components/cards/TemplatesCard.svelte';
-	import Seo from '$lib/components/seo/Seo.svelte';
+	import QuickstartCard from '$lib/components/cards/QuickstartCard.svelte';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+	import { Seo } from '@emerald-dao/component-library';
 
 	export let data;
 </script>
 
 <section class="container">
-	<h1 class="w-medium heading">{$LL[ContentTypeEnum.Quickstart]()}s</h1>
+	<h1 class="w-medium heading">{$LL[ContentTypeEnum.Quickstart]()}</h1>
 	<div class="templates-wrapper">
 		{#if data.quickstarts.length > 0}
 			{#each data.quickstarts as quickstartData}
-				<TemplatesCard templateData={quickstartData} />
+				{#if !quickstartData.mobile}
+					<QuickstartCard {quickstartData} />
+				{/if}
+			{/each}
+		{:else}
+			<p><em>{$LL.NO_QUICKSTARTS_FOUND()}</em></p>
+		{/if}
+	</div>
+</section>
+
+<section class="container">
+	<h1 class="w-medium heading">{$LL.MOBILE_QUICKSTARTS()}</h1>
+	<div class="templates-wrapper">
+		{#if data.quickstarts.length > 0}
+			{#each data.quickstarts as quickstartData}
+				{#if quickstartData.mobile}
+					<QuickstartCard {quickstartData} />
+				{/if}
 			{/each}
 		{:else}
 			<p><em>{$LL.NO_QUICKSTARTS_FOUND()}</em></p>
@@ -24,6 +41,7 @@
 	title="Quickstarts | Emerald Academy"
 	description="Some codes for quick implementation"
 	type="WebPage"
+	image="https://academy.ecdao.org/favicon.png"
 />
 
 <style type="scss">

@@ -1,10 +1,11 @@
 <script type="ts">
 	import { page } from '$app/stores';
-	import Seo from '$lib/components/seo/Seo.svelte';
+	import { Seo } from '@emerald-dao/component-library';
 	import type { ChapterMetadata } from '$lib/types/content/course.interface';
 	import { transformUrlToHeading } from '$lib/utilities/dataTransformation/transformUrlToHeading';
 	import { Breadcrumbs } from '@emerald-dao/component-library';
 	import Icon from '@iconify/svelte';
+	import { setContext } from 'svelte';
 
 	export let data;
 
@@ -14,11 +15,11 @@
 			label: 'Catalog'
 		},
 		{
-			path: `/${$page.params.lang}/catalog`,
+			path: `/${$page.params.lang}/catalog/courses/${$page.params.name}`,
 			label: 'Course'
 		},
 		{
-			path: `/catalog/${$page.params.name}`,
+			path: `/${$page.params.lang}/catalog/courses/${$page.params.name}/${$page.params.chapter}/${$page.params.lesson}`,
 			label: transformUrlToHeading($page.params.name)
 		}
 	];
@@ -41,6 +42,8 @@
 			obj.slug ===
 			`${$page.params.lang}/catalog/courses/${$page.params.name}/${$page.params.chapter}/${$page.params.lesson}`
 	);
+
+	$: setContext('metadata-context', data.metadata);
 </script>
 
 <section>
@@ -76,6 +79,7 @@
 	title={`${transformUrlToHeading($page.params.name)} | Course | Emerald Academy`}
 	description="sample"
 	type="WebPage"
+	image="https://academy.ecdao.org/favicon.png"
 />
 
 <style type="scss">

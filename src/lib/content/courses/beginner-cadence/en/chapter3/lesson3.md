@@ -3,15 +3,19 @@ title: References
 lesson: 3
 language: en
 excerpt: References
+lessonVideoUrl: https://www.youtube.com/embed/mI3KC-5e81E
+quizUrl: https://forms.gle/tfSyJaMm2cRRs1s26
 ---
+
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 # Chapter 3 Lesson 3 - References
 
 What's up Flow people. Today, we'll be talking about references, another important part of the Cadence programming language.
 
-## Video
-
-If you'd like to watch a video on References, you can go here: https://www.youtube.com/watch?v=mI3KC-5e81E
+<LessonVideo {lessonVideoUrl} />
 
 ## What is a Reference?
 
@@ -94,5 +98,3 @@ References are not going to go away, though. They will be EXTREMELY important wh
 2. Create a script that reads information from that resource using the reference from the function you defined in part 1.
 
 3. Explain, in your own words, why references can be useful in Cadence.
-
-# <a href="https://forms.gle/tfSyJaMm2cRRs1s26">Quiz</a>
