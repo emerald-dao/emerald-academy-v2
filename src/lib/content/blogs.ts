@@ -43,5 +43,25 @@ export const blogs: BlogOverview[] = [
 			prerequisites: [],
 			subjects: []
 		}
+	},
+	{
+		image: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*8Za6QwJWWWuTJbHFaOht9A.jpeg',
+		title: 'Flow CLI Configuration using flow.json',
+		author: {
+			name: 'Technomadlyf',
+			socialMediaUrl: 'https://twitter.com/technomadlyf',
+			avatarUrl: 'https://twitter.com/technomadlyf/photo',
+			isVerified: true,
+			walletAddress: '0x9472674db67d4844'
+		},
+		excerpt: 'The article discusses the basics of Flow CLI, flow.json. It discusses various parts of  flow.json, How to create an account using Flow CLI, & how to deploy and update contracts using Flow CLI.',
+		link: 'https://medium.com/@technomadlyf/flow-cli-configuration-using-flow-json-bd07ddf8a04b',
+		contentType: ContentTypeEnum.Blog,
+		metadata: {
+			expertise: ExpertiseEnum.Beginner,
+			duration: '4 minutes',
+			prerequisites: [],
+			subjects: []
+		}
 	}
 ];
