@@ -60,7 +60,6 @@ access(all) contract Profile
 }
 ```
 
-
 1. `access(all) contract Profile`: This line declares a contract named `Profile` with the `access(all)` access type. It means that this contract can be accessed from any account, both within and outside the contract.
 
 2. `access(contract) var totalUsersCount: UInt64;`: This line declares a variable named `totalUsersCount` of type `UInt64` (an unsigned 64-bit integer). The variable has the `access(contract)` access type, which means it can only be accessed within the same contract.
@@ -75,10 +74,35 @@ access(all) contract Profile
 
 Feel free to copy and paste the code snippet and modify to your needs.
 
+Now let's go ahead abit and define the `UserProfileInfo` struct that will be returned by `getUserProfileInfo()` in our next step.
+
+```cadence
+    access(all) struct UserProfileInfo
+    {
+        access(all) let id: UInt64;
+        access(all) let name: String;
+        access(all) let address: String;
+
+        init(_ id: UInt64, _ name: String, _ address: String)
+        {
+            self.id = id;
+            self.name = name;
+            self.address = address;
+        }
+    }
+```
+
+
+1. `access(all) struct UserProfileInfo`: This line declares a struct named `UserProfileInfo` with the `access(all)` access type. A struct in Cadence is a composite data type that can contain multiple fields.
+
+2. `access(all) let id: UInt64;`, `access(all) let name: String;`, `access(all) let address: String;`: These lines declare three properties of the `UserProfileInfo` struct: `id`, `name`, and `address`.
+
+3. `init(_ id: UInt64, _ name: String, _ address: String)`: This is the initialization function for the `UserProfileInfo` struct. It takes three parameters: `id` of type `UInt64`, `name` of type `String`, and `address` of type `String`. The function initializes the `id`, `name`, and `address` properties of the `UserProfileInfo` struct with the provided parameter values.
+
 Now, we will add our `UserProfile` resource. If you're not sure what resources are please refer to the [Beginner Cadence Course](https://academy.ecdao.org/en/catalog/courses/beginner-cadence/chapter3/lesson1).
 
 ```cadence
-    access(all) resource UserProfile 
+    access(all) resource UserProfile : IUserProfilePublic
     {
         access(self) let id: UInt64;
         access(self) let address: String;
@@ -104,11 +128,11 @@ Now, we will add our `UserProfile` resource. If you're not sure what resources a
 ```
 
 
-1. `access(all) resource UserProfile`: This line declares a resource named `UserProfile` with the `access(all)` access type. A resource in Cadence is a type of object that is owned by a single account and can be moved or consumed during transactions.
+1. `access(all) resource UserProfile : IUserProfilePublic`: This line declares a resource named `UserProfile` with the `access(all)` access type. A resource in Cadence is a type of object that is owned by a single account and can be moved or consumed during transactions. It also implements the `IUserProfilePublic` interface, which we will look at next, and why do we use it.
 
 2. `access(self) let id: UInt64;`, `access(self) let address: String;`, `access(self) var name: String;`: These lines declare three properties of the `UserProfile` resource: `id`, `address`, and `name`. All three properties have the `access(self)` access type, which means they can only be accessed within the same resource. Other functions or contracts cannot directly access or modify these properties.
 
-3. `access(all) fun getUserProfileInfo(): UserProfileInfo`: This line declares a function named `getUserProfileInfo`. The function returns a value of type `UserProfileInfo`, which we will define in the next step.
+3. `access(all) fun getUserProfileInfo(): UserProfileInfo`: This line declares a function named `getUserProfileInfo`. The function returns a value of type `UserProfileInfo`, which we defined in the previous step.
 
 4. `access(all) fun updateUserName(_ name: String)`: This line declares a function named `updateUserName` that takes a parameter `name` of type `String`. The function has the `access(all)` access type, making it accessible from any account. The function updates the `name` property of the `UserProfile` resource with the provided `name` parameter value.
 
@@ -116,30 +140,29 @@ Now, we will add our `UserProfile` resource. If you're not sure what resources a
 
 Feel free to copy and paste the code snippet and modify to your needs.
 
-Now let's go ahead and define the `UserProfileInfo` struct that is being returned by `getUserProfileInfo()`.
+Going ahead we will define the `IUserProfilePublic` interface first, then we will talk about why we need it! If you're not sure what interfaces are please chec out the [Beginner Cadence Course](https://academy.ecdao.org/en/catalog/courses/beginner-cadence/chapter5/lesson2)
 
 ```cadence
-    access(all) struct UserProfileInfo
+    access(all) resource interface IUserProfilePublic
     {
         access(all) let id: UInt64;
-        access(all) let name: String;
         access(all) let address: String;
-
-        init(_ id: UInt64, _ name: String, _ address: String)
-        {
-            self.id = id;
-            self.name = name;
-            self.address = address;
-        }
+        access(all) var name: String;
+        
+        access(all) fun getUserProfileInfo(): UserProfileInfo;
     }
 ```
 
 
-1. `access(all) struct UserProfileInfo`: This line declares a struct named `UserProfileInfo` with the `access(all)` access type. A struct in Cadence is a composite data type that can contain multiple fields.
+1. `access(all) resource interface IUserProfilePublic`: This line declares a resource interface named `IUserProfilePublic` with the `access(all)` access type. A resource interface in Cadence defines a set of properties and functions that can be implemented by a resource types.
 
-2. `access(all) let id: UInt64;`, `access(all) let name: String;`, `access(all) let address: String;`: These lines declare three properties of the `UserProfileInfo` struct: `id`, `name`, and `address`.
+2. `access(all) let id: UInt64;`, `access(all) let address: String;`, `access(all) var name: String;`: These lines declare three properties within the `IUserProfilePublic` interface: `id`, `address`, and `name`. Which is exactly same as what we defined in the resource.
 
-3. `init(_ id: UInt64, _ name: String, _ address: String)`: This is the initialization function for the `UserProfileInfo` struct. It takes three parameters: `id` of type `UInt64`, `name` of type `String`, and `address` of type `String`. The function initializes the `id`, `name`, and `address` properties of the `UserProfileInfo` struct with the provided parameter values.
+3. `access(all) fun getUserProfileInfo(): UserProfileInfo;`: This line declares a function within the `IUserProfilePublic` interface named `getUserProfileInfo`. Which is again same as we defined in the resource.
+
+You'll notice that the fuction has no boby, that's because the interface only defines it, and it must be implemented by the resource itself. Same goes with the variables we just define them in the interface and then initialize them in the resource.
+
+Another thing you'll notice is that the interface doesn't contain the `updateUserName` function. Which bring us to, why do we even need the interface? If you know a few things about Cadence you'll also know that you can borrow a resource and do things with it, now imagine if someone had the full access to our resource including the `updateUserName` function. Anyone would be able to borrow anyone's resource and change its name, which is not ideal. So we make an interface that doesn't have the `updateUserName` function, and then give everyone the access to this interface. Which means anyone will be able to see our name, id and address. But only the owner will be able to change it. Isn't that cool?
 
 And finally, we will define a function in the contract that we will be able to call from outside the contract from a trasaction, that will help us to create a user profile.
 
@@ -173,11 +196,20 @@ access(all) contract Profile
     access(all) var publicProfileStoragePath: PublicPath;
     access(all) var storageProfileStoragePath: StoragePath;
 
-    access(all) resource UserProfile 
+    access(all) resource interface IUserProfilePublic
     {
-        access(self) let id: UInt64;
-        access(self) let address: String;
-        access(self) var name: String;
+        access(all) let id: UInt64;
+        access(all) let address: String;
+        access(all) var name: String;
+        
+        access(all) fun getUserProfileInfo(): UserProfileInfo;
+    }
+
+    access(all) resource UserProfile : IUserProfilePublic
+    {
+        access(all) let id: UInt64;
+        access(all) let address: String;
+        access(all) var name: String;
 
         access(all) fun getUserProfileInfo(): UserProfileInfo
         {
@@ -248,7 +280,7 @@ transaction(name: String)
   {
     let newUserProfile <- Profile.createUserProfile(name, acct.address.toString());
     acct.save(<- newUserProfile, to: Profile.storageProfileStoragePath);
-    acct.link<&Profile.UserProfile>(Profile.publicProfileStoragePath, target: Profile.storageProfileStoragePath);
+    acct.link<&Profile.UserProfile{Profile.IUserProfilePublic}>(Profile.publicProfileStoragePath, target: Profile.storageProfileStoragePath);
   }
 }
 ```
@@ -264,7 +296,7 @@ transaction(name: String)
 
 5. `acct.save(<- newUserProfile, to: Profile.storageProfileStoragePath);`: This line saves the newly created user profile resource to the storage path specified by `Profile.storageProfileStoragePath`. The `<-` syntax is used again to move the resource from the variable to storage.
 
-6. `acct.link<&Profile.UserProfile>(Profile.publicProfileStoragePath, target: Profile.storageProfileStoragePath);`: This line establishes a link between the public storage path (`Profile.publicProfileStoragePath`) and the storage path where the user profile resource is stored (`Profile.storageProfileStoragePath`). The `link` function is called on the `acct` account object, specifying the type `&Profile.UserProfile` to indicate the resource type being linked. By doing this, we will be able to read the state of any User Profile from any Script.
+6. `acct.link<&Profile.UserProfile{Profile.IUserProfilePublic}>(Profile.publicProfileStoragePath, target: Profile.storageProfileStoragePath);`: This line establishes a link between the public storage path `Profile.publicProfileStoragePath` and the storage path where the user profile resource is stored `Profile.storageProfileStoragePath`. The `link` function is called on the `acct` account object, specifying the type `&Profile.UserProfile{Profile.IUserProfilePublic}` to indicate the resource interface type being linked. By doing this, we will be able to read the state of any User Profile from any Script.
 
 Wanna give it a spin? Type you name in the box below and hit Send. As shown in the image below!
 
@@ -280,25 +312,24 @@ transaction(name: String)
 {
   prepare(acct: AuthAccount) 
   {
-    let userInfo <- acct.load<@Profile.UserProfile>(from: Profile.storageProfileStoragePath) ?? panic("Can't find file in storage!");
+    let userInfo = acct.borrow<&Profile.UserProfile>(from: Profile.storageProfileStoragePath) ?? panic("Can't borrow the file from storage!");
     userInfo.updateUserName(name);
-    acct.save(<- userInfo, to: Profile.storageProfileStoragePath);
   }
 }
 ```
 
 
-1. `import Profile from 0x01;`: This line imports the contract named `Profile` from the address `0x01`.
+
+1. `import Profile from 0x01;`: This line imports the contract named `Profile` from the address `0x01`. It allows the transaction to use the functions and resources defined in the `Profile` contract.
 
 2. `transaction(name: String)`: This line declares a transaction that takes a parameter `name` of type `String`.
 
-3. `prepare(acct: AuthAccount)`: We have already covered this above.
+3. `prepare(acct: AuthAccount)`: This line defines the `prepare` block of the transaction. It takes an `AuthAccount` argument named `acct`, which represents the authenticated account initiating the transaction.
 
-4. `let userInfo <- acct.load<@Profile.UserProfile>(from: Profile.storageProfileStoragePath) ?? panic("Can't find file in storage!");`: This line loads the user profile resource from storage. It uses the `load` function on the `acct` account object to retrieve the resource of type `@Profile.UserProfile` from the storage path specified by `Profile.storageProfileStoragePath`. The `<-` syntax is used to move it inside the variable.
+4. `let userInfo = acct.borrow<&Profile.UserProfile>(from: Profile.storageProfileStoragePath) ?? panic("Can't borrow the file from storage!");`: This line borrows a reference to the user profile resource from storage. It uses the `borrow` function on the `acct` account object to borrow a reference to the `UserProfile` resource. The `&Profile.UserProfile` type parameter specifies the type of the resource being borrowed. The `from` keyword is used to indicate the storage path from which the resource is being borrowed. If the borrowing operation fails (i.e., the resource is not found), the `??` operator is used for error handling, and the program panics with the error message "Can't borrow the file from storage!".
 
-5. `userInfo.updateUserName(name);`: This line calls the `updateUserName` function on the `userInfo` resource to update the user's name with the provided `name` parameter.
+5. `userInfo.updateUserName(name);`: This line calls the `updateUserName` function on the borrowed reference `userInfo` to update the user's name with the provided `name` parameter.
 
-6. `acct.save(<- userInfo, to: Profile.storageProfileStoragePath);`: After we are done modifying we need to save the resource back in its place.
 
 Exited? Let's spin it! 
 
@@ -316,17 +347,16 @@ import Profile from 0x01;
 
 pub fun main(add: Address): Profile.UserProfileInfo
 {
-  let publicCap = getAccount(add).getCapability(Profile.publicProfileStoragePath).borrow<&Profile.UserProfile>() ?? panic("Can't find public path!");
+  let publicCap = getAccount(add).getCapability(Profile.publicProfileStoragePath).borrow<&Profile.UserProfile{Profile.IUserProfilePublic}>() ?? panic("Can't find public path!");
   return publicCap.getUserProfileInfo();
 }
 ```
-
 
 1. `import Profile from 0x01;`: This line imports the contract named `Profile` from the address `0x01`.
 
 2. `pub fun main(add: Address): Profile.UserProfileInfo`: This line declares a public function named `main`. The function takes an `add` parameter of type `Address` and returns a value of type `Profile.UserProfileInfo`.
 
-3. `let publicCap = getAccount(add).getCapability(Profile.publicProfileStoragePath).borrow<&Profile.UserProfile>() ?? panic("Can't find public path!");`: This line retrieves the capability for accessing the public storage path of the user profile. It first calls `getAccount(add)` to get the account object associated with the provided address. Then, it calls `getCapability(Profile.publicProfileStoragePath)` on that account object to obtain the capability for the specified public storage path. The `borrow` function is used to borrow the reference of type `Profile.UserProfile` from the storage. If the borrowing operation fails, the `??` operator is used for error handling, and the program panics with the error message "Can't find public path!".
+3. `let publicCap = getAccount(add).getCapability(Profile.publicProfileStoragePath).borrow<&Profile.UserProfile{Profile.IUserProfilePublic}>() ?? panic("Can't find public path!");`: This line retrieves the capability for accessing the public storage path of the user profile. It first calls `getAccount(add)` to get the account object associated with the provided address. Then, it calls `getCapability(Profile.publicProfileStoragePath)` on that account object to obtain the capability for the specified public storage path. The `borrow` function is used to borrow a reference to the `UserProfile` resource from the capability. The `&Profile.UserProfile{Profile.IUserProfilePublic}` type parameter specifies that the borrowed reference should conform to the `IUserProfilePublic` interface defined within the `UserProfile` resource. If the borrowing operation fails (i.e., the resource is not found or does not conform to the interface), the `??` operator is used for error handling, and the program panics with the error message "Can't find public path!".
 
 4. `return publicCap.getUserProfileInfo();`: This line calls the `getUserProfileInfo` function on the borrowed reference `publicCap` to retrieve the user profile information. The function returns this information as the result of the `main` function.
 
