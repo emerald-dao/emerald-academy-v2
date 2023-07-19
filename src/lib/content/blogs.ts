@@ -50,7 +50,7 @@ export const blogs: BlogOverview[] = [
 		author: {
 			name: 'Technomadlyf',
 			socialMediaUrl: 'https://twitter.com/technomadlyf',
-			avatarUrl: 'https://twitter.com/technomadlyf/photo',
+			avatarUrl: 'https://pbs.twimg.com/profile_images/1480727997954936833/aql00cvM_400x400.jpg',
 			isVerified: true,
 			walletAddress: '0x9472674db67d4844'
 		},
