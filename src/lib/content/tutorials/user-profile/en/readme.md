@@ -2,7 +2,7 @@
 layout: examples
 ---
 
-# Chapter 1 Lesson 1 - Making a User Profile using Cadence
+# Tutorial - Making a User Profile using Cadence
 
 GM! Welcome, everyone, to this session on developing our very first User Profile using Cadence. I am Memxor, your neighborhood's average nerdy developer, and I'm excited to guide you through this process.
 
