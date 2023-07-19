@@ -1,8 +1,5 @@
 ---
-title: User Profile with Cadence
-lesson: 1
-language: en
-excerpt: User Profile with Cadence
+layout: examples
 ---
 
 # Chapter 1 Lesson 1 - Making a User Profile using Cadence
@@ -262,8 +259,7 @@ access(all) contract Profile
 
 Now, Let's go ahead and deploy it to `0x01` account. Select `0x01` and then click on deploy. As shown in the image below!
 
-!["Deployment Example"](https://imgur.com/uG7Ag6B)
-
+![Deployment Example](https://imgur.com/uG7Ag6B)
 
 ## Step 2 - Making our transactions
 
