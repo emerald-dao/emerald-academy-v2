@@ -9,7 +9,7 @@
 <a class="card" href={`/${$locale}/${quickstartData.slug}`}>
 	<div>
 		<h5 class="heading w-medium">{quickstartData.title}</h5>
-		<p>{quickstartData.description}</p>
+		<p>{quickstartData.excerpt}</p>
 	</div>
 	<div class="row-wrapper">
 		<div class="row-7">

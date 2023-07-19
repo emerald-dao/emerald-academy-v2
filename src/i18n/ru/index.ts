@@ -37,6 +37,7 @@ const ru: BaseTranslation = {
 
 	START: 'Начать',
 	CATALOG: 'Каталог',
+	SNIPPETS: 'Snippets',
 	LEARN: 'Изучить',
 	NEW_TO: 'новичок в',
 	START_HERE: 'Начни здесь',
@@ -51,6 +52,7 @@ const ru: BaseTranslation = {
 	[ContentTypeEnum.Blog]: 'Blog',
 	[ContentTypeEnum.Tweet]: 'Tweet',
 	[ContentTypeEnum.Challenge]: 'Задачи',
+	[ContentTypeEnum.Snippet]: 'Snippet',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Бэкенд',

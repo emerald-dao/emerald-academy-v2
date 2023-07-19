@@ -1,5 +1,6 @@
 import type { Quickstart } from '$lib/types/content/quickstart.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: Quickstart = {
 	title: 'Non Fungible Token (NFT)',
@@ -14,6 +15,9 @@ export const overview: Quickstart = {
 		isVerified: true
 	},
 	quickstartRepositoryUrl: 'github.com/emerald-dao/1-non-fungible-token',
-	description:
-		'A DApp that lets users create an empty collection, mint some pre-loaded NFTs, and transfer them to another account on Flow testnet.'
+	excerpt:
+		'A DApp that lets users create an empty collection, mint some pre-loaded NFTs, and transfer them to another account on Flow testnet.',
+	metadata: {
+		subjects: [SubjectsEnum.DApp]
+	}
 };

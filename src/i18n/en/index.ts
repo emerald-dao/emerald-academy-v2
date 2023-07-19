@@ -36,6 +36,7 @@ const en: BaseTranslation = {
 
 	START: 'Start',
 	CATALOG: 'Catalog',
+	SNIPPETS: 'Snippets',
 	LEARN: 'Learn',
 	NEW_TO: 'New to',
 	START_HERE: 'Start here',
@@ -44,12 +45,13 @@ const en: BaseTranslation = {
 	[ContentTypeEnum.Course]: 'Course',
 	[ContentTypeEnum.Bootcamp]: 'Bootcamp',
 	[ContentTypeEnum.Roadmap]: 'Roadmap',
-	[ContentTypeEnum.Quickstart]: 'Quickstarts',
+	[ContentTypeEnum.Quickstart]: 'Quickstart',
 	[ContentTypeEnum.Resources]: 'Resources',
 	[ContentTypeEnum.Blog]: 'Blog',
 	[ContentTypeEnum.Tweet]: 'Tweet',
 	[ContentTypeEnum.Tutorial]: 'Tutorial',
-	[ContentTypeEnum.Challenge]: 'Challenges',
+	[ContentTypeEnum.Challenge]: 'Challenge',
+	[ContentTypeEnum.Snippet]: 'Snippet',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',

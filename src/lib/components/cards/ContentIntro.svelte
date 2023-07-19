@@ -115,60 +115,61 @@
 		{/if}
 	{/if}
 	<div class="column-6">
-		{#if overview.contentType !== ContentTypeEnum.Quickstart}
-			<div class="metadata-labels">
-				<ContentLabel type={overview.contentType} color="primary">
-					{firstCapital(overview.contentType)}
-				</ContentLabel>
-				{#if overview.metadata.expertise}
-					<Label size="small" iconLeft="tabler:flame" color="transparent" hasBorder={false}>
-						Level: {overview.metadata.expertise}
-					</Label>
-				{/if}
+		<div class="metadata-labels">
+			<ContentLabel type={overview.contentType} color="primary">
+				{firstCapital(overview.contentType)}
+			</ContentLabel>
+			{#if overview.metadata.expertise}
+				<Label size="small" iconLeft="tabler:flame" color="transparent" hasBorder={false}>
+					Level: {overview.metadata.expertise}
+				</Label>
+			{/if}
+			{#if overview.metadata.duration}
 				<Label size="small" color="transparent" iconLeft="tabler:hourglass-high" hasBorder={false}>
 					{overview.metadata.duration}
 				</Label>
-				{#if overview.metadata.price}
-					<Label size="x-small" iconLeft="tabler:currency-dollar" color="neutral" hasBorder={false}>
-						{overview.metadata.price}
+			{/if}
+			{#if overview.metadata.price}
+				<Label size="x-small" iconLeft="tabler:currency-dollar" color="neutral" hasBorder={false}>
+					{overview.metadata.price}
+				</Label>
+			{/if}
+			<Label size="x-small" iconLeft="tabler:list" color="transparent" hasBorder={false}>
+				{overview.metadata.subjects.join(', ')}
+			</Label>
+			{#if overview.contentType === ContentTypeEnum.Bootcamp}
+				{#if daysOfDifference(new Date(), startDate) > 0}
+					<Label
+						size="small"
+						color="transparent"
+						iconLeft="ic:outline-access-time"
+						hasBorder={false}
+					>
+						Starting soon
+					</Label>
+				{:else if daysOfDifference(startDate, new Date()) >= 0 && daysOfDifference(new Date(), endDate) > 0}
+					<Label
+						size="small"
+						color="transparent"
+						iconLeft="ic:outline-access-time"
+						hasBorder={false}
+					>
+						In progress
+					</Label>
+				{:else}
+					<Label
+						size="small"
+						color="transparent"
+						iconLeft="ic:outline-access-time"
+						hasBorder={false}
+					>
+						Bootcamp has ended
 					</Label>
 				{/if}
-				{#if overview.contentType === ContentTypeEnum.Bootcamp}
-					{#if daysOfDifference(new Date(), startDate) > 0}
-						<Label
-							size="small"
-							color="transparent"
-							iconLeft="ic:outline-access-time"
-							hasBorder={false}
-						>
-							Starting soon
-						</Label>
-					{:else if daysOfDifference(startDate, new Date()) >= 0 && daysOfDifference(new Date(), endDate) > 0}
-						<Label
-							size="small"
-							color="transparent"
-							iconLeft="ic:outline-access-time"
-							hasBorder={false}
-						>
-							In progress
-						</Label>
-					{:else}
-						<Label
-							size="small"
-							color="transparent"
-							iconLeft="ic:outline-access-time"
-							hasBorder={false}
-						>
-							Bootcamp has ended
-						</Label>
-					{/if}
-				{/if}
-			</div>
-		{/if}
+			{/if}
+		</div>
 		<p>
-			{#if overview.contentType === ContentTypeEnum.Quickstart}
-				{overview.description}
-			{:else if overview.contentType !== ContentTypeEnum.Tutorial}
+			{#if overview.contentType !== ContentTypeEnum.Tutorial}
 				{overview.excerpt}
 			{/if}
 		</p>

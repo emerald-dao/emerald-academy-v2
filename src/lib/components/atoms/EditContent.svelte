@@ -8,5 +8,5 @@
 
 <Button width="full-width" size="small" type="ghost" color="neutral" {href} {target}>
 	<Icon icon="tabler:brand-github" />
-	Edit content
+	Edit Content
 </Button>

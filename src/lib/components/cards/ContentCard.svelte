@@ -11,7 +11,9 @@
 
 	let link: string;
 
-	$: if (
+	$: if (overview.contentType === ContentTypeEnum.Snippet) {
+		link = `/${$locale}/${overview.slug}`;
+	} else if (
 		overview.contentType != ContentTypeEnum.Blog &&
 		overview.contentType != ContentTypeEnum.Tweet
 	) {
@@ -41,9 +43,11 @@
 						{$LL[overview.metadata.expertise]()}
 					</Label>
 				{/if}
-				<Label size="x-small" color="neutral" iconLeft="tabler:hourglass-high" hasBorder={false}>
-					{overview.metadata.duration}
-				</Label>
+				{#if overview.metadata.duration}
+					<Label size="x-small" color="neutral" iconLeft="tabler:hourglass-high" hasBorder={false}>
+						{overview.metadata.duration}
+					</Label>
+				{/if}
 			</div>
 			{#if overview.contentType !== ContentTypeEnum.Bootcamp && overview.contentType !== ContentTypeEnum.Roadmap}
 				{#if overview.author}
