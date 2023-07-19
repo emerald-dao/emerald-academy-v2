@@ -11,7 +11,9 @@ export const overview: TutorialOverview = {
 	author: {
 		name: 'Memxor',
 		socialMediaUrl: 'https://twitter.com/memxor_',
-		avatarUrl: 'https://imgur.com/a/CtEvT81'
+		avatarUrl: 'https://imgur.com/Nfww3sn',
+		isVerified: true,
+		walletAddress: '0x22f61baed6c7eede'
 	},
 	metadata: {
 		expertise: ExpertiseEnum.Beginner,

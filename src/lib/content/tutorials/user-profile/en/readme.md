@@ -259,8 +259,7 @@ access(all) contract Profile
 
 Now, Let's go ahead and deploy it to `0x01` account. Select `0x01` and then click on deploy. As shown in the image below!
 
-![Deployment Example](https://imgur.com/a/l6zJMln)
-
+![Deployment Example](https://imgur.com/uG7Ag6B)
 
 ## Step 2 - Making our transactions
 
@@ -297,7 +296,7 @@ transaction(name: String)
 
 Wanna give it a spin? Type you name in the box below and hit Send. As shown in the image below!
 
-![Trasaction of User Profile Creation Example](https://imgur.com/a/VwHnhpi)
+![Trasaction of User Profile Creation Example](https://imgur.com/JPtQrtq)
 
 
 ### Updating the name in a User Profile
@@ -332,7 +331,7 @@ Exited? Let's spin it!
 
 Type the new name, and hit Send. As shown in the example below!
 
-![Remaing Example](https://imgur.com/a/ehluqDP)
+![Remaing Example](https://imgur.com/WhGKu3r)
 
 
 ## Step 3 - Making our Scripts
@@ -359,7 +358,6 @@ pub fun main(add: Address): Profile.UserProfileInfo
 
 Fire it up! Put in the account address as `0x01` in the box and hit Execute. And you should be able to see the logs in the logs tab. As shown in the image below.
 
-![Getting Info from Scripts example](https://imgur.com/a/orkPvyg)
+![Getting Info from Scripts example](https://imgur.com/Bholhx9)
 
 WOW! You did it! Congratulations! Give yourself a pat in the back and buy ourself something nice to eat (please stop with those Doritos)!
-
