@@ -37,7 +37,7 @@ const pt: BaseTranslation = {
 	
 	START: "Começar",
 	CATALOG: "Catálogo",
-	LEARN: 'Aprender',
+	LEARN: 'Aprenda',
 	NEW_TO: 'Novo em',
 	START_HERE: 'Comece aqui',
 	
