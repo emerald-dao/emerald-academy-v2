@@ -5,5 +5,6 @@ export enum SubjectsEnum {
 	Web = 'web',
 	Javascript = 'javascript',
 	IPFS = 'ipfs',
-	Mobile = 'mobile'
+	Mobile = 'mobile',
+	Unity = 'unity'
 }

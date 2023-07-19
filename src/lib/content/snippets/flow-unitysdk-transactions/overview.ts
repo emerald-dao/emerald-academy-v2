@@ -14,6 +14,6 @@ export const overview: SnippetOverview = {
     walletAddress: '0x22f61baed6c7eede'
   },
   metadata: {
-    subjects: [SubjectsEnum.DApp]
+    subjects: [SubjectsEnum.DApp, SubjectsEnum.Unity]
   }
 };
