@@ -11,7 +11,8 @@ export const overview: CourseOverview = {
 	author: {
 		name: 'Team Niftory',
 		socialMediaUrl: 'https://twitter.com/niftory',
-		avatarUrl: 'https://i.imgur.com/bymjTdC.png'
+		avatarUrl: 'https://i.imgur.com/bymjTdC.png',
+		isVerified: true
 	},
 	metadata: {
 		expertise: ExpertiseEnum.Beginner,

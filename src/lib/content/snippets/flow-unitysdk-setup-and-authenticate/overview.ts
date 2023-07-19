@@ -9,11 +9,11 @@ export const overview: SnippetOverview = {
   author: {
     name: 'Memxor',
     socialMediaUrl: 'https://twitter.com/memxor_',
-    avatarUrl: 'https://imgur.com/Nfww3sn',
+    avatarUrl: 'https://i.imgur.com/Nfww3sn.png',
     isVerified: true,
     walletAddress: '0x22f61baed6c7eede'
   },
   metadata: {
-    subjects: [SubjectsEnum.DApp]
+    subjects: [SubjectsEnum.DApp, SubjectsEnum.Unity]
   }
 };

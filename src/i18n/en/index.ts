@@ -61,6 +61,7 @@ const en: BaseTranslation = {
 	[SubjectsEnum.Javascript]: 'Javascript',
 	[SubjectsEnum.Mobile]: 'Mobile',
 	[SubjectsEnum.IPFS]: 'IPFS',
+	[SubjectsEnum.Unity]: 'Unity',
 
 	// Expertise
 	[ExpertiseEnum.Advanced]: 'Advanced',
