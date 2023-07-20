@@ -63,5 +63,24 @@ export const blogs: BlogOverview[] = [
 			prerequisites: [],
 			subjects: []
 		}
+	},
+	{
+		image: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*6XXQ8uXLCdHxOXRTVp6raw.png',
+		title: 'Multi-signing Flow Blockchain Transactions with Go',
+		author: {
+			name: '0xhighskore',
+			socialMediaUrl: 'https://twitter.com/0xhighskore',
+			avatarUrl: 'https://pbs.twimg.com/profile_images/1681673345681571842/5-hvAsr5_400x400.jpg',
+			isVerified: true
+		},
+		excerpt: 'The article discusses how to multi-sign transactions with Go.',
+		link: 'https://medium.com/@lu_ka_ra_ch_ki/multi-signing-flow-blockchain-transactions-with-go-d88483638855',
+		contentType: ContentTypeEnum.Blog,
+		metadata: {
+			expertise: ExpertiseEnum.Intermediate,
+			duration: '4 minutes',
+			prerequisites: [],
+			subjects: [SubjectsEnum.Go]
+		}
 	}
 ];
