@@ -7,7 +7,7 @@ export const overview: TutorialOverview = {
 	title: 'Integrating User Profile with Flow Unity SDK',
 	contentType: ContentTypeEnum.Tutorial,
 	excerpt:
-		'Learn to use the Flow UnitySDK and create a User Profile in Unity.',
+		'Learn to use the Flow Unity SDK and create a User Profile in Unity.',
 	author: {
 		name: 'Memxor',
 		socialMediaUrl: 'https://twitter.com/memxor_',
