@@ -1,8 +1,5 @@
 ---
-title: User Profile with Flow Unity SDK
-lesson: 1
-language: en
-excerpt: User Profile with Flow Unity SDK
+layout: examples
 ---
 
 # Tutorial - Using Flow Unity SDK
