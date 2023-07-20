@@ -4,7 +4,7 @@ import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: TutorialOverview = {
-	title: 'Integrating User Profile with Flow UnitySDK',
+	title: 'Integrating User Profile with Flow Unity SDK',
 	contentType: ContentTypeEnum.Tutorial,
 	excerpt:
 		'Learn to use the Flow UnitySDK and create a User Profile in Unity.',
