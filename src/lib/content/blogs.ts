@@ -78,7 +78,7 @@ export const blogs: BlogOverview[] = [
 		contentType: ContentTypeEnum.Blog,
 		metadata: {
 			expertise: ExpertiseEnum.Intermediate,
-			duration: '4 minutes',
+			duration: '7 minutes',
 			prerequisites: [],
 			subjects: [SubjectsEnum.Go]
 		}
