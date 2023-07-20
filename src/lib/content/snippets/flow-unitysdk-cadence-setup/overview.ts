@@ -3,7 +3,7 @@ import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 import type { SnippetOverview } from '$lib/types/content/snippet.interface';
 
 export const overview: SnippetOverview = {
-  title: 'Cadence Setup using UnitySDK',
+  title: 'Cadence Setup using Unity SDK',
   contentType: ContentTypeEnum.Snippet,
   excerpt: 'Learn how to setup cadence using Flow Unity SDK.',
   author: {
