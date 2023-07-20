@@ -6,7 +6,6 @@ Before you get to this step, make sure you've downloaded Flow UnitySDK from the 
 Then put your .cdc files in a folder, we will soon assign them.
 
 ```cs
-
 public class Cadence()
 {
   public static Cadence Instance { get; private set; }

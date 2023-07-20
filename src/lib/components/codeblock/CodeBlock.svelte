@@ -13,7 +13,8 @@
 
 	const decodedCode = decodeURIComponent(code);
 
-	let formatLang = lang === 'cadence' || undefined ? 'js' : lang;
+	let formatLang =
+		lang === 'cadence' || lang === undefined || lang === 'csharp' || lang === 'cs' ? 'js' : lang;
 
 	onMount(() => {
 		Prism.highlightAll();
