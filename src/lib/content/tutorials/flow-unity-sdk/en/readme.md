@@ -1,19 +1,19 @@
 ---
-title: User Profile with Flow UnitySDK
+title: User Profile with Flow Unity SDK
 lesson: 1
 language: en
-excerpt: User Profile with Flow UnitySDK
+excerpt: User Profile with Flow Unity SDK
 ---
 
-# Tutorial - Using Flow UnitySDK
+# Tutorial - Using Flow Unity SDK
 
-GM! Welcome to another beautiful day of Cadence development! I'm Memxor and today we will learn how to use the Flow UnitySDK. 
+GM! Welcome to another beautiful day of Cadence development! I'm Memxor and today we will learn how to use the Flow Unity SDK. 
 In this tutorial we will be using the [User Profile Contract](https://academy.ecdao.org/en/catalog/tutorials/user-profile) tutorial. If you haven't gone through it, please do so we are on the same page. We will be implementing the same User Profile that we maded in Cadence into Unity.
 
 
 ## Step 1 - Setting up the Environemnt
 
-1. Go to Unity Asset Store and add the [Flow UnitySDK](https://assetstore.unity.com/packages/decentralization/flow-sdk-237172) to your account.
+1. Go to Unity Asset Store and add the [Flow Unity SDK](https://assetstore.unity.com/packages/decentralization/flow-sdk-237172) to your account.
 
 ![Asset Store](https://i.imgur.com/5sGD11H.png)
 
