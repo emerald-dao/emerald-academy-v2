@@ -96,6 +96,25 @@ In the example above, we used the `.link()` function to "link" our resource to t
 
 Now, anyone can run a script to read the `name` field on our resource. I will show you how to do that, but I need to introduce you to some things first.
 
+**`.link()` function is deprecated in a future release.**
+
+`.link()` function is deprecated in a future release. Instead, use `capabilities.storage.issue()`, and `capabilities.publish()`.
+
+```cadence
+import Stuff from 0x01
+transaction() {
+  prepare(signer: AuthAccount) {
+    // Publish our resource to the public so other people can now access it
+    let resource = signer.capabilities.storage.issue<&Stuff.Test>(/storage/MyTestResource)
+    signer.capabilities.publish(resource, at: /public/MyTestResource)
+  }
+
+  execute {
+
+  }
+}
+```
+
 ## Capabilities
 
 When you "link" something to the `/public/` or `/private/` paths, you are creating something called a capability. Nothing _actually_ lives in the `/public/` or `/private/` paths, everything lives in your `/storage/`. However, we can think of capabilities like "pointers" that point from a `/public/` or `/private/` path to its associated `/storage/` path. Here's a helpful visualization:
@@ -141,6 +160,23 @@ Sweet! We read the name of our resource from the `/public/` path. Here are the s
 4. Return the name: `return testResource.name`
 
 You may be wondering, why didn't we have to specify the type of the reference when we do `.borrow()`? The answer is because the capability already specifies the type, so it is assuming that is the type it's borrowing. If it borrows a different type, or the capability did not exist in the first place, it will return `nil` and panic.
+
+**`getCapability()` is deprecated in a future release.**
+
+`getCapability()` is deprecated in a future release. Use `capabilities.get()` instead.
+
+```cadence
+import Stuff from 0x01
+pub fun main(address: Address): String {
+  // gets the public capability that is pointing to a `&Stuff.Test` type
+  let publicCapability: Capability<&Stuff.Test> = getAccount(address).capabilities.get<&Stuff.Test>(/public/MyTestResource) ?? panic("The capability doesn't exist or you did not specify the right type when you got the capability.")
+
+  // Borrow the `&Stuff.Test` from the public capability
+  let testResource: &Stuff.Test = publicCapability.borrow() ?? panic("The capability doesn't exist or you did not specify the right type when you got the capability.")
+
+  return testResource.name // "Jacob"
+}
+```
 
 ## Using Public Capabilities to Restrict a Type
 
