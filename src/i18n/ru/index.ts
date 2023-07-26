@@ -63,6 +63,7 @@ const ru: BaseTranslation = {
 	[SubjectsEnum.IPFS]: 'IPFS',
 	[SubjectsEnum.Mobile]: 'Mobile',
 	[SubjectsEnum.Unity]: 'Unity',
+	[SubjectsEnum.Go]: 'Go',
 
 	// Expertise
 	[ExpertiseEnum.Advanced]: 'Продвинутый',

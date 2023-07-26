@@ -6,5 +6,6 @@ export enum SubjectsEnum {
 	Javascript = 'javascript',
 	IPFS = 'ipfs',
 	Mobile = 'mobile',
-	Unity = 'unity'
+	Unity = 'unity',
+	Go = 'go'
 }
