@@ -1,173 +1,149 @@
 ---
-title: Connecting the Blockchain
+title: Our First Smart Contract
 lesson: 1
 language: en
-excerpt: Connecting the Blockchain
+excerpt: Our First Smart Contract
+lessonVideoUrl: https://www.youtube.com/embed/QbqNM4k76B0
+lessonVideoDescription: Overview of smart contracts, accounts, and deploying our first contract
 ---
 
-# Chapter 3 Lesson 1 - Connecting the Blockchain
+# Chapter 3 Lesson 1 - Our First Smart Contract
 
-Welcome, noobs! Today, we are going to finally connect blockchain stuff directly into our frontend code. This is my specialty, so get ready to get your mind absolutely blown.
+Hello beautiful people! Welcome to the glorious Chapter 3, in which we will start diving into actual Blockchain stuff. Before we do some blockchain stuff in our DApp, it's important to give a brief (2 lesson long) introduction to Cadence.
 
-## Installing FCL
+Today, we will be learning the very basics of Cadence code by implementing our first Smart Contract. That is, how to declare a variable, how to write a function, etc.
 
-FCL, or the Flow Client Library, is something that will allow us to do tons of blockchain stuff in our DApp. It will let us send transactions, execute scripts, and tons of other stuff directly from our frontend code.
+## Our First Smart Contract
 
-> Go to your project directory in your terminal and type `npm install @onflow/fcl`. This will install the dependency:
+_Before going on, make sure you've read Chapter 1, Lesson 1. That lesson covers everything you need to know about Smart Contracts up to this point._
 
-<img src="/courses/beginner-dapp/install-fcl.png" />
+In order to start making our first Smart Contract, we need to figure out a place to actually put it! To do that, launch a browser of your choice (I would recommend Google Chrome), go to the Flow playground by pasting in this URL: https://play.onflow.org. After you do that, do the following
 
-## Importing & Connecting FCL
+1. On the left hand side, click the '0x01' tab.
+2. Delete everything in that page.
 
-> Go to your `flow` folder and create a file called `config.js`. Inside that file, put the following code:
+It should look like this:
+<img src="/courses/beginner-dapp/blanksc.png" alt="drawing" size="400" />
 
-```javascript
-import { config } from '@onflow/fcl';
+What we have done is clicked on the `Account` with address `0x01` and deleted the contract in its account. This brings up an important topic.
 
-config()
-	.put('accessNode.api', 'https://rest-testnet.onflow.org') // This connects us to Flow TestNet
-	.put('discovery.wallet', 'https://fcl-discovery.onflow.org/testnet/authn/') // Allows us to connect to Blocto & Lilico Wallet
-	.put('app.detail.title', 'Beginner Emerald DApp') // Will be the title when user clicks on wallet
-	.put('app.detail.icon', 'https://i.imgur.com/ux3lYB9.png'); // Will be the icon when user clicks on wallet
-```
+### What's an address?
 
-What this does is it connects our DApp to Flow TestNet and tells our DApp that when we go to log in, we can log in to Blocto & Lilico Wallet (which are both a part of something called "FCL Discovery").
+An address is something that looks like `0x` and then a bunch of random numbers and letters. Here's an example address on Flow: `0xe5a8b7f23e8b548f`. On the Flow playground, you'll see much shorter addresses like `0x01`. That's just to make things simpler.
 
-## Loggin In
+But what actually IS an address? Well, you can think of them as a user. When I want to do something on the blockchain, I need to have an account. Every account has an address associated with it. So when you see something like `0xe5a8b7f23e8b548f`, that's really just a person's account that they use to store data, send transactions, etc.
 
-Now that we have connected our DApp to the blockchain, let's try logging in!
+### Where do smart contracts live?
 
-> Go to `./components/Nav.jsx` and at the top, add three more imports:
+Smart Contracts are deployed accounts. As we mentioned above, accounts are owned by a user, and every account has an address associated with it that always begins with `0x`.
 
-```javascript
-import * as fcl from '@onflow/fcl';
-import '../flow/config.js';
-import { useState, useEffect } from 'react';
-```
+In this case, since we are on the Flow playground, it has automatically given us 5 accounts, namely `0x01`, `0x02`, and so on. Thus, Smart Contracts live at an address. So when we deploy a contract named "Hello World" to account `0x01`, that is how we identify it. If we wanted to interact with it, we would have to know both the name of the contract and the address.
 
-First, we import `fcl` so that we can call some functions to log in and log out. Second, we import the config we defined so our DApp knows what network (testnet) it is talking to. And third, we import `useState` (which we already know), and `useEffect` (which we'll learn soon).
+We'll see this more in-depth when we import stuff later on.
 
-> Inside of our `Nav` component, let's add a variable called `user` using `useState`:
+### Back to our example...
 
-```javascript
-const [user, setUser] = useState({ loggedIn: false });
-```
+In this case, we will be deploying our Smart Contract to account `0x01`. This means account `0x01` is the **owner** of this Smart Contract. In the real world, you would deploy your Smart Contract to **your** account, but because this is a fake-simulation world, we can choose any account we want, so we chose `0x01`.
 
-Note that when we put something inside the `useState` parenthesis (in this case: `{ loggedIn: false }`), that represents a default value of the variable. Because the user starts as logged out, it makes sense to have this be the default value.
+> Let's make our contract now. In the empty space, type the following:
 
-> Next, right below that, add this piece of code:
+```cadence
+pub contract HelloWorld {
 
-```javascript
-useEffect(() => {
-	fcl.currentUser.subscribe(setUser);
-}, []);
-```
+    init() {
 
-`useEffect` is a function that runs every time something happens. That "something" comes from what is put inside the `[]` brackets. In this case, because `[]` is empty, this means "every time the page is _refreshed_, run `fcl.currentUser.subscribe(setUser)`. It looks complicated, but all this code is doing is making sure the `user` variable retains its value even if the page is refreshed.
-
-Lastly, we want to be able to actually log in. Let's create a function to do this.
-
-> Right below our `useEffect`, make a new function called `handleAuthentication`:
-
-```javascript
-function handleAuthentication() {}
-```
-
-Inside the function, we're going to implement this logic:
-
-- If the user is logged in, then log out
-- If the user is logged out, then log in
-
-We can do that by doing this:
-
-```javascript
-function handleAuthentication() {
-	if (user.loggedIn) {
-		fcl.unauthenticate(); // logs the user out
-	} else {
-		fcl.authenticate(); // logs the user in
-	}
+    }
 }
 ```
 
-Now we want to be able to call this function when we click the "Log In" button.
+The `pub contract [contract name]` part will ALWAYS be what you type when you create a new contract. You can fill in `contract name` with whatever you'd like to call your contract.
 
-> Add an `onClick` handler to our `<button>` tag and when its clicked, have it call the function named `handleAuthentication`.
+The `init()` function is a function that every single contract MUST have. It is called when the Contract is initially deployed, which in the real world, only ever happens 1 time. So, we can initialize some stuff in it when we want to.
 
-Your button should now look like this:
+Okay, boom! This is your first Smart Contract, although it doesn't do anything ;( Let's make it store a `greeting` variable so we can store some data in this contract.
 
-```html
-<button onClick="{handleAuthentication}">Log In</button>
-```
+Modify your contract code so it looks like this:
 
-> Save your changes and go to your webpage. Click the log in button and see what happens! You should see this:
+```cadence
+pub contract HelloWorld {
 
-<img src="/courses/beginner-dapp/logging-in-iframe.png" />
+    pub var greeting: String
 
-Isn't this just so cool? Or am I a boring nerd. Your `Nav.jsx` file should now look like this:
-
-```javascript
-import styles from '../styles/Nav.module.css';
-import { useState, useEffect } from 'react';
-import * as fcl from '@onflow/fcl';
-import '../flow/config.js';
-
-export default function Nav() {
-	const [user, setUser] = useState({ loggedIn: false });
-
-	useEffect(() => {
-		fcl.currentUser.subscribe(setUser);
-	}, []);
-
-	function handleAuthentication() {
-		if (user.loggedIn) {
-			fcl.unauthenticate();
-		} else {
-			fcl.authenticate();
-		}
-	}
-
-	return (
-		<nav className={styles.nav}>
-			<h1>Emerald DApp</h1>
-			<button onClick={handleAuthentication}>Log In</button>
-		</nav>
-	);
+    init() {
+        self.greeting = "Hello, World!"
+    }
 }
 ```
 
-### Making our Button Respond
+In Cadence, when you declare a variable, you follow this format:
 
-The problem now is that, even when we log in with Blocto, there is no indication to the user that we are logged in.
+`[access modifier] [var/let] [variable name]: [type]`
 
-> To change that, let's make our button look like this:
+Using our example above...
 
-```html
-<button onClick="{handleAuthentication}">{user.loggedIn ? user.addr : "Log In"}</button>
+- Our access modifier is `pub`, which means anyone can read this variable. In the future, we will see lots of other access modifiers, but lets stick with `pub` for the next few lessons just to make life easy.
+- `let` means that this variable is a constant. If you've coded in other programming languages, a constant means that once we make this variable equal to something, we **cannot change it**. On the other hand, `var` means we can change it.
+- Our variable name is `greeting`
+- The type of our variable is a `String`. This means we can put stuff like "Hello", "Jacob is the best", "I love Jacob", stuff like that.
+
+Next, we put `self.greeting = "Hello, World!"` inside the `init()` function. Remember, the `init()` function is called when the contract is deployed, which only happens once. `self` is a keyword that means "the variable that is one layer above." In this case, `self.greeting` is referring to the `greeting` variable we declared right above it, and we set it equal to "Hello, World!"
+
+> To deploy this contract, click the green "Deploy" button.
+
+Your page should look like this:
+
+<img src="/courses/beginner-dapp/helloworld.png" alt="drawing" size="400" />
+
+> NOTE: If you're getting errors, try first refreshing the page.
+
+Awesome!!! You've deployed your first Smart Contract. Note that this is not the real blockchain, it a simulated one that only applies to you.
+
+## Reading our Greeting
+
+Let's make sure that our `greeting` variable actually got set to "Hello, World!". Remember, we can view data from the Blockchain using a script.
+
+> On the left hand side, under "Script Templates", click on the tab that says "Script" and delete everything inside of it.
+
+> Next, write the following code:
+
+```cadence
+import HelloWorld from 0x01
+
+pub fun main(): String {
+    return HelloWorld.greeting
+}
 ```
 
-We added some logic inbetween `{}` inside our button text. In Next.js (or React.js), when you put `{}` inside of an HTML tag, that indicates you are doing some Javascript stuff. `{user.loggedIn ? user.addr : "Log In"}` means:
+This Script will return the value of greeting, which is "Hello, World!" In order to do that, let's see what we did:
 
-- If the user is logged in, display `user.addr` (the address of the user is stored inside of the `user` variable)
-- If the user is not logged in, display "Log In"
+1. First, we imported our Smart Contract by doing `import HelloWorld from 0x01`. In Cadence, you import a contract by doing `import [contract name] from [address of that contract]`. Because we deployed HelloWorld to `0x01`, we wrote the above.
+2. Next, we wrote a function. In Cadence, you write a function by doing `[access modifier] fun [function name](): [return type] { ... }`. In this case, we used `pub` for our access modifier (more on that later), named our function `main`, and said we will be returning a `String` type, which remember, is the type of `greeting`.
+3. We then accessed the `greeting` variable from the contract using `HelloWorld.greeting`.
 
-Now when you are logged in, you should see this:
+> If you click "Execute" on the right side, you will see in the terminal it prints, "Hello, World!" like below:
 
-<img src="/courses/beginner-dapp/displaying-address-login.png" />
+<img src="/courses/beginner-dapp/hwscript.png" alt="drawing" size="400">
 
-> If you click the button again, it will log you back out, and you can log in again :)
+If yours looks like that, you have executed your first script!
+
+## Concept Check
+
+Okay, so we just wrote some code. That was fast. But how does all of this relate back to what I was saying in Chapter 1, Lesson 1?
+
+Remember I said Smart Contracts are both programs and rulebooks. They allow us to do certain things, nothing more and nothing less. In this example, our Smart Contract let us initialize `greeting` and read `greeting`. Notice that it does NOT let us change `greeting` to be something else. If we had wanted to add that functionality, we would've had to do it ahead of time, before we deployed it. This is why it's so crucial that as a developer of a Smart Contract, you implement all the functionality you want a user to have before you deploy the contract. Because after you deploy, there's nothing you can do. (Of course, on the Flow playground, we can deploy the contract again. But in the real world you cannot do this.)
 
 ## Conclusion
 
-Wooohooo! We figured out how to log in. That wasn't so bad, right?!
+Today, we learned how to deploy our first contract, declare a variable, write a function, and execute a script. Wow! That's a lot. But it wasn't too bad, right?
 
 ## Quests
 
-Feel free to answer in a language you're most comfortable in.
+For todays quest, please load up a new Flow playground by going to https://play.onflow.org just like we did in this lesson. You will use that for writing your code.
 
-1. How did we get the address of the user? Please explain in words and then in code.
-2. What do `fcl.authenticate` and `fcl.unauthenticate` do?
-3. Why did we make a `config.js` file? What does it do?
-4. What does our `useEffect` do?
-5. How do we import FCL?
-6. What does `fcl.currentUser.subscribe(setUser);` do?
+1. Deploy a contract to account `0x03` called "JacobTucker". Inside that contract, declare a **constant** variable named `is`, and make it have type `String`. Initialize it to "the best" when your contract gets deployed.
+
+2. Check that your variable `is` actually equals "the best" by executing a script to read that variable. Include a screenshot of the output.
+
+It's so awesome that I get to make these quests. I love this.
+
+Anyways, please remember to store your answers in some way so I can review them if you submit them to me. Good luck!

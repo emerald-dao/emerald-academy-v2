@@ -1,238 +1,173 @@
 ---
-title: Finishing our DApp
+title: Connecting the Blockchain
 lesson: 1
 language: en
-excerpt: Finishing our DApp
+excerpt: Connecting the Blockchain
 ---
 
-# Chapter 4 Lesson 1 - Finishing our DApp
+# Chapter 4 Lesson 1 - Connecting the Blockchain
 
-In today's lesson, we're going to finalize our DApp by finishing up the styling and adding a cool effect to our transaction.
+Welcome, noobs! Today, we are going to finally connect blockchain stuff directly into our frontend code. This is my specialty, so get ready to get your mind absolutely blown.
 
-## Styling
+## Installing FCL
 
-Because this course is not intended to be a styling course, I will not spend a ton of time reviewing what changes we are going to make today.
+FCL, or the Flow Client Library, is something that will allow us to do tons of blockchain stuff in our DApp. It will let us send transactions, execute scripts, and tons of other stuff directly from our frontend code.
 
-Also, if you have already added styling to your DApp, do not feel like you have to follow these instructions. This is simply to make peoples' unstyled DApps look a lot nicer ;)
+> Go to your project directory in your terminal and type `npm install @onflow/fcl`. This will install the dependency:
 
-### ./pages/index.js
+<img src="/courses/beginner-dapp/install-fcl.png" />
 
-First of all, we're going to restructure our `./pages/index.js` file before adding some styling.
+## Importing & Connecting FCL
 
-Replace the `<main>` tag and everything inside of it with this code:
+> Go to your `flow` folder and create a file called `config.js`. Inside that file, put the following code:
+
+```javascript
+import { config } from '@onflow/fcl';
+
+config()
+	.put('accessNode.api', 'https://rest-testnet.onflow.org') // This connects us to Flow TestNet
+	.put('discovery.wallet', 'https://fcl-discovery.onflow.org/testnet/authn/') // Allows us to connect to Blocto & Lilico Wallet
+	.put('app.detail.title', 'Beginner Emerald DApp') // Will be the title when user clicks on wallet
+	.put('app.detail.icon', 'https://i.imgur.com/ux3lYB9.png'); // Will be the icon when user clicks on wallet
+```
+
+What this does is it connects our DApp to Flow TestNet and tells our DApp that when we go to log in, we can log in to Blocto & Lilico Wallet (which are both a part of something called "FCL Discovery").
+
+## Loggin In
+
+Now that we have connected our DApp to the blockchain, let's try logging in!
+
+> Go to `./components/Nav.jsx` and at the top, add three more imports:
+
+```javascript
+import * as fcl from '@onflow/fcl';
+import '../flow/config.js';
+import { useState, useEffect } from 'react';
+```
+
+First, we import `fcl` so that we can call some functions to log in and log out. Second, we import the config we defined so our DApp knows what network (testnet) it is talking to. And third, we import `useState` (which we already know), and `useEffect` (which we'll learn soon).
+
+> Inside of our `Nav` component, let's add a variable called `user` using `useState`:
+
+```javascript
+const [user, setUser] = useState({ loggedIn: false });
+```
+
+Note that when we put something inside the `useState` parenthesis (in this case: `{ loggedIn: false }`), that represents a default value of the variable. Because the user starts as logged out, it makes sense to have this be the default value.
+
+> Next, right below that, add this piece of code:
+
+```javascript
+useEffect(() => {
+	fcl.currentUser.subscribe(setUser);
+}, []);
+```
+
+`useEffect` is a function that runs every time something happens. That "something" comes from what is put inside the `[]` brackets. In this case, because `[]` is empty, this means "every time the page is _refreshed_, run `fcl.currentUser.subscribe(setUser)`. It looks complicated, but all this code is doing is making sure the `user` variable retains its value even if the page is refreshed.
+
+Lastly, we want to be able to actually log in. Let's create a function to do this.
+
+> Right below our `useEffect`, make a new function called `handleAuthentication`:
+
+```javascript
+function handleAuthentication() {}
+```
+
+Inside the function, we're going to implement this logic:
+
+- If the user is logged in, then log out
+- If the user is logged out, then log in
+
+We can do that by doing this:
+
+```javascript
+function handleAuthentication() {
+	if (user.loggedIn) {
+		fcl.unauthenticate(); // logs the user out
+	} else {
+		fcl.authenticate(); // logs the user in
+	}
+}
+```
+
+Now we want to be able to call this function when we click the "Log In" button.
+
+> Add an `onClick` handler to our `<button>` tag and when its clicked, have it call the function named `handleAuthentication`.
+
+Your button should now look like this:
 
 ```html
-<div className="{styles.welcome}">
-	<h1 className="{styles.title}">
-		Welcome to my <a href="https://academy.ecdao.org" target="_blank">Emerald DApp!</a>
-	</h1>
-	<p>This is a DApp created by Jacob Tucker (<i>tsnakejake#8364</i>).</p>
-</div>
-
-<main className="{styles.main}">
-	<p>{greeting}</p>
-	<div className="{styles.flex}">
-		<input onChange={(e) => setNewGreeting(e.target.value)} placeholder="Hello, Idiots!" />
-		<button onClick="{runTransaction}">Run Transaction</button>
-	</div>
-</main>
+<button onClick="{handleAuthentication}">Log In</button>
 ```
 
-Boom! We're done with that part. Now onto the styling.
+> Save your changes and go to your webpage. Click the log in button and see what happens! You should see this:
 
-### ./styles/globals.css
+<img src="/courses/beginner-dapp/logging-in-iframe.png" />
 
-> In `./styles/globals.css`, under the `html, body` selector, add these lines of code:
-
-```css
-background-color: #011d30;
-color: white;
-```
-
-Right away, you'll notice this changes the background color of your DApp and makes the text white.
-
-> Then, at the bottom of the file, add this:
-
-```css
-button {
-	padding: 10px;
-	font-size: 16px;
-	font-weight: bold;
-	border-radius: 5px;
-	outline: 0;
-	border: 0px;
-	margin: 5px;
-	background-color: #35e9c6;
-	color: #1e3a8a;
-	cursor: pointer;
-}
-```
-
-### ./styles/Home.module.css
-
-Replace your `./styles/Home.module.css` file with this code:
-
-```css
-.welcome {
-	text-align: center;
-}
-
-.welcome h1 {
-	margin-bottom: 5px;
-}
-
-.title {
-	position: relative;
-	margin-top: 100px;
-	font-size: 50px;
-}
-
-.title a {
-	color: #35e8c5;
-	text-decoration: none;
-}
-
-.main {
-	position: relative;
-	top: 30px;
-	width: 30vw;
-	min-width: 300px;
-	height: 30vh;
-	min-height: 400px;
-	background-color: #176f6c;
-	border: 2px solid #35e9c6;
-	left: 50%;
-	transform: translateX(-50%);
-	text-align: center;
-}
-
-.main .flex {
-	position: absolute;
-	bottom: 5px;
-	display: flex;
-	flex-direction: column;
-	width: 75%;
-	left: 50%;
-	transform: translateX(-50%);
-}
-
-.main p {
-	position: relative;
-	font-size: 25px;
-	top: 20%;
-}
-
-.flex input {
-	padding: 10px;
-	font-size: 16px;
-	font-weight: bold;
-	border-radius: 5px;
-	outline: 0;
-	border: 0px;
-	margin: 5px;
-}
-```
-
-Your DApp should now look like this:
-
-<img src="/courses/beginner-dapp/almost-done-dapp.png" />
-
-## Transaction Loading State
-
-Your DApp is now looking super cool, and we're almost done.
-
-The only main issue now is that, when we run our transaction, we don't inform the user what is happening in the transaction, and it's hard to tell what stage of the transaction it's on. We're going to change that today!
-
-In our `runTransaction` function, at the bottom, we have the following code:
+Isn't this just so cool? Or am I a boring nerd. Your `Nav.jsx` file should now look like this:
 
 ```javascript
-console.log('Here is the transactionId: ' + transactionId);
-await fcl.tx(transactionId).onceSealed();
-executeScript();
-```
+import styles from '../styles/Nav.module.css';
+import { useState, useEffect } from 'react';
+import * as fcl from '@onflow/fcl';
+import '../flow/config.js';
 
-We're going to spice this up a bit.
+export default function Nav() {
+	const [user, setUser] = useState({ loggedIn: false });
 
-### Quick Modifications
+	useEffect(() => {
+		fcl.currentUser.subscribe(setUser);
+	}, []);
 
-> But first, make a new variable called `txStatus` using `useState` and set the default value as "Run Transaction".
-
-I'm not going to show you how to do this because we have covered it previously.
-
-Then, go down to the `<button>` tag that allows you to call `runTransaction` when you click it.
-
-> Instead of having "Run Transaction" as the text, make it be the `txStatus` variable instead.
-
-This way, the button's text will come from the `txStatus` variable.
-
-### Tracking Loading State
-
-Now, go back to your `runTransaction` function. After we `console.log` the `transactionId`, we're going to add code that will change the value of `txStatus` every time the status of the transaction changes.
-
-> To do this, add this piece of code after the `console.log`:
-
-```javascript
-fcl.tx(transactionId).subscribe((res) => {
-	console.log(res);
-});
-```
-
-What this will do is utilize a `subscribe` function that gives us the new status of the transaction every time it changes inside the `res` object.
-
-Go back to your webpage and run a transaction with the developer console open. Look at all the things being printed! They are being printed when the status of the transaction changes.
-
-> Now, to actually update the value of `txStatus` properly, let's add some stuff:
-
-```javascript
-fcl.tx(transactionId).subscribe((res) => {
-	console.log(res);
-	if (res.status === 0 || res.status === 1) {
-		setTxStatus('Pending...');
-	} else if (res.status === 2) {
-		setTxStatus('Finalized...');
-	} else if (res.status === 3) {
-		setTxStatus('Executed...');
-	} else if (res.status === 4) {
-		setTxStatus('Sealed!');
+	function handleAuthentication() {
+		if (user.loggedIn) {
+			fcl.unauthenticate();
+		} else {
+			fcl.authenticate();
+		}
 	}
-});
+
+	return (
+		<nav className={styles.nav}>
+			<h1>Emerald DApp</h1>
+			<button onClick={handleAuthentication}>Log In</button>
+		</nav>
+	);
+}
 ```
 
-Notice that we are changing the value of `txStatus` using `setTxStatus`, and doing it based off of what the `res.status` is.
+### Making our Button Respond
 
-> If you want more information about what these status codes mean, check out this page: https://docs.onflow.org/fcl/reference/api/#transaction-statuses
+The problem now is that, even when we log in with Blocto, there is no indication to the user that we are logged in.
 
-If you go back to your webpage and run another transaction, you will notice that the button text remains as "Sealed!" even after we are done. To change this, we can add one more line of code to our `subscribe` function:
+> To change that, let's make our button look like this:
 
-```javascript
-fcl.tx(transactionId).subscribe((res) => {
-	console.log(res);
-	if (res.status === 0 || res.status === 1) {
-		setTxStatus('Pending...');
-	} else if (res.status === 2) {
-		setTxStatus('Finalized...');
-	} else if (res.status === 3) {
-		setTxStatus('Executed...');
-	} else if (res.status === 4) {
-		setTxStatus('Sealed!');
-		setTimeout(() => setTxStatus('Run Transaction'), 2000); // We added this line
-	}
-});
+```html
+<button onClick="{handleAuthentication}">{user.loggedIn ? user.addr : "Log In"}</button>
 ```
 
-Notice that we added a `setTimeout` function inside our `if` statement that runs when the `res.status` is 4. A status of 4 means that the transaction is sealed, or completed. And what a `setTimeout` will do is run after a period of time, or in this case, after 2000 milliseconds (the number we provided as the second argument). So, after 2 seconds, it will change the button text back to "Run Transaction".
+We added some logic inbetween `{}` inside our button text. In Next.js (or React.js), when you put `{}` inside of an HTML tag, that indicates you are doing some Javascript stuff. `{user.loggedIn ? user.addr : "Log In"}` means:
+
+- If the user is logged in, display `user.addr` (the address of the user is stored inside of the `user` variable)
+- If the user is not logged in, display "Log In"
+
+Now when you are logged in, you should see this:
+
+<img src="/courses/beginner-dapp/displaying-address-login.png" />
+
+> If you click the button again, it will log you back out, and you can log in again :)
 
 ## Conclusion
 
-We have officially completed our Emerald DApp. The only remaining step is to deploy our DApp so everyone can see it.
+Wooohooo! We figured out how to log in. That wasn't so bad, right?!
 
 ## Quests
 
-1. List all the possible transaction status codes and what each of them mean.
+Feel free to answer in a language you're most comfortable in.
 
-2a. What does setTimeout do?
-2b. How would we change our code if we wanted the `txStatus` variable to reset back to its original state after 5 seconds?
-
-3. What does the `fcl.tx(transactionId).subscribe(res => {...})` function do?
-
-4. Make at least 3 changes to the styling of the application. It can be anything (part of this quest is being creative!). List the 3 changes and point them out in a screenshot.
+1. How did we get the address of the user? Please explain in words and then in code.
+2. What do `fcl.authenticate` and `fcl.unauthenticate` do?
+3. Why did we make a `config.js` file? What does it do?
+4. What does our `useEffect` do?
+5. How do we import FCL?
+6. What does `fcl.currentUser.subscribe(setUser);` do?

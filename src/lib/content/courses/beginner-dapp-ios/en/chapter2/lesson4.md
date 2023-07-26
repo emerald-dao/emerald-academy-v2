@@ -5,7 +5,7 @@ language: en
 excerpt: Finishing the Skeleton
 ---
 
-# Chapter 1 Lesson 4 - Finishing the Skeleton
+# Chapter 2 Lesson 4 - Finishing the Skeleton
 
 Hey there! In this lesson, we will finalize the base skeleton of our DApp so that, in Chapter 3, we can focus purely on the blockchain stuff.
 

@@ -1,149 +1,205 @@
 ---
-title: Our First Smart Contract
+title: Creating our Mobile (iOS) DApp
 lesson: 1
 language: en
-excerpt: Our First Smart Contract
-lessonVideoUrl: https://www.youtube.com/embed/QbqNM4k76B0
-lessonVideoDescription: Overview of smart contracts, accounts, and deploying our first contract
+excerpt: Creating our DApp
 ---
 
-# Chapter 2 Lesson 1 - Our First Smart Contract
+# Chapter 2 Lesson 1 - Creating our Mobile (iOS) DApp
 
-Hello beautiful people! Welcome to the glorious Chapter 3, in which we will start diving into actual Blockchain stuff. Before we do some blockchain stuff in our DApp, it's important to give a brief (2 lesson long) introduction to Cadence.
+> Developing apps for iOS requires using a Mac, if you don't have access to Mac the easiest way to get is started is by renting access to a Mac using services like [macincloud](https://checkout.macincloud.com)
 
-Today, we will be learning the very basics of Cadence code by implementing our first Smart Contract. That is, how to declare a variable, how to write a function, etc.
+In this lesson, we are going to actually jump into some code and start our Mobile (iOS) DApp development. We will be using Swift and SwiftUI to create our first DApp.
 
-## Our First Smart Contract
+# IMPORTANT NOTE
 
-_Before going on, make sure you've read Chapter 1, Lesson 1. That lesson covers everything you need to know about Smart Contracts up to this point._
+Chapter 2 will focus on frontend development, specifically the semantics of Swift and SwiftUI. If you are already comfortable with these languages, you still need to complete Chapter 2 because you will be setting up for other chapters. However it will be very quick for you, and you can skim through the lesson. That is totally okay.
 
-In order to start making our first Smart Contract, we need to figure out a place to actually put it! To do that, launch a browser of your choice (I would recommend Google Chrome), go to the Flow playground by pasting in this URL: https://play.onflow.org. After you do that, do the following
+## What is Swift and SwiftUI?
 
-1. On the left hand side, click the '0x01' tab.
-2. Delete everything in that page.
+> You can skip this section if you already know the basic of Swift/SwiftUI and frontend development
 
-It should look like this:
-<img src="/courses/beginner-dapp/blanksc.png" alt="drawing" size="400" />
+iOS apps are developed using Apples native programming languages Swift and SwiftUI, with the application "logic" or functionality being declared in Swift and the user inteface being defined in SwiftUI. With SwiftUI, we can define our user interface using a declarative syntax, making it easy to understand and maintain.
 
-What we have done is clicked on the `Account` with address `0x01` and deleted the contract in its account. This brings up an important topic.
+Before we get started, let's cover the difference between "frontend" and "backend" development
 
-### What's an address?
+### Frontend iOS Development
 
-An address is something that looks like `0x` and then a bunch of random numbers and letters. Here's an example address on Flow: `0xe5a8b7f23e8b548f`. On the Flow playground, you'll see much shorter addresses like `0x01`. That's just to make things simpler.
+When you visit a website or open a mobile app, you are presented with content on the screen. As a user, there are three primary aspects that immediately catch your attention:
 
-But what actually IS an address? Well, you can think of them as a user. When I want to do something on the blockchain, I need to have an account. Every account has an address associated with it. So when you see something like `0xe5a8b7f23e8b548f`, that's really just a person's account that they use to store data, send transactions, etc.
+1. **What is being displayed**: This refers to the actual content visible on the screen, such as text, images, buttons, and other elements.
+2. **How it looks (Styling)**: Styling encompasses the visual appearance of the content, including colors, fonts, layout, and overall design aesthetics.
+3. **What happens when you interact (Interactivity)**: This aspect pertains to the behavior of the app or website when you interact with it, such as clicking on buttons, scrolling through content, or triggering animations.
 
-### Where do smart contracts live?
+Collectively, these elements are integral to what we call "frontend" development. Frontend development focuses on crafting the user experience and interface that users interact with directly. For instance, when you use Instagram, activities like scrolling through your feed, viewing posts, searching for content, and liking posts by tapping the heart button are all part of the frontend components. It's the frontend that allows you to engage with the app's features and explore its functionalities, making it a crucial aspect of the overall user experience.
 
-Smart Contracts are deployed accounts. As we mentioned above, accounts are owned by a user, and every account has an address associated with it that always begins with `0x`.
+### Backend iOS Development
 
-In this case, since we are on the Flow playground, it has automatically given us 5 accounts, namely `0x01`, `0x02`, and so on. Thus, Smart Contracts live at an address. So when we deploy a contract named "Hello World" to account `0x01`, that is how we identify it. If we wanted to interact with it, we would have to know both the name of the contract and the address.
+In contrast to frontend development, there is a vital aspect known as "backend" development. And don't worry, it's not as hard as Jacob makes it sound in his web focused lessons! Backend development is responsible for handling operations that occur outside of your mobile device. While frontend development deals with what you see and interact with on your phone, the backend typically operates on a remote system running elsewhere. In the context of traditional Web2 applications like Instagram, backend development involves various essential tasks, including:
 
-We'll see this more in-depth when we import stuff later on.
+1. **Fetching Complicated Information**: The backend is responsible for retrieving and processing complex data from various sources, such as databases or external APIs. This information may require extensive computations or multiple data sources to provide the desired results.
+2. **Storing Data in a Database**: When you interact with an app, like making a post on Instagram, the backend handles the storage of that post's information in a database. The database serves as a centralized repository for all the app's data, making it accessible and persistent.
+3. **Handling Complex Procedures**: Certain operations, like performing extensive calculations or executing resource-intensive tasks, are better suited for backend processing. This avoids overburdening the frontend, ensuring a smoother user experience.
 
-### Back to our example...
+For instance, when you tap on a user's profile in the Instagram app, the backend springs into action. It gathers all the necessary data related to that user, such as their posts, followers, and other information, and then delivers it to the frontend. The frontend then displays this data to you, allowing you to view the user's profile.
 
-In this case, we will be deploying our Smart Contract to account `0x01`. This means account `0x01` is the **owner** of this Smart Contract. In the real world, you would deploy your Smart Contract to **your** account, but because this is a fake-simulation world, we can choose any account we want, so we chose `0x01`.
+Similarly, when you create a post on Instagram, the frontend sends the post's details, like the description and image, to the backend. The backend then handles the process of saving this post in a database, ensuring that your post is securely stored and accessible to other users.
 
-> Let's make our contract now. In the empty space, type the following:
+In summary, backend development plays a crucial role in managing the complex, behind-the-scenes operations of a mobile app, making it an indispensable component of the overall app development process.
 
-```cadence
-pub contract HelloWorld {
+### Back to our mobile development journey!
 
-    init() {
+Now that we have gotten some basics out of the way, we can start building our Mobile DApp, as you may have guessed the app will be our "frontend" and we will be using the Flow Blockchain as our "backend".
 
+## Setting Up the Environment
+
+Before we dive into the rest of the tutorial, let's make sure we have the necessary tools installed to develop our iOS app. If you need any help, please reach out in the [Emerald City Discord](https://discord.gg/emeraldcity).
+
+1. Xcode: Install Xcode from the Mac App Store. Xcode is the integrated development environment (IDE) for macOS that includes all the tools needed for iOS app development.
+2. Git: If you don't already have Git installed, you can follow the instructions on this website: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git. You can confirm that Git is installed by running git --version in the Terminal.
+
+## Creating Our DApp Project
+
+> Note I am using Xcode Version 15, your Xcode version might look slightly different as Apple releases new updates.
+
+1. Open Xcode, and from the welcome screen, select "Create a new Xcode project"
+   <img src="https://i.imgur.com/7IutQqM.png" />
+2. Choose "App" under the Multiplatform section, this way our app will work on both iOS and iPadOS.
+   <img src="https://i.imgur.com/GA18lwP.png" />
+3. On the next screen, enter `EmeraldDApp` for the product name, leave the default value for the rest of the options, and then click Next.
+   <img src="https://i.imgur.com/DftpgpA.png" />
+4. Select a location to save your project and be sure to check the `Create Git repository on my Mac` box so we can save this project to our GitHub repository later.
+   <img src="https://i.imgur.com/gSX1cMr.png" />
+5. The last thing we need to do is remove the Mac destination as the FCL-Swift sdk doesn't support it yet. Click on the the top `EmeraldDApp` in your project structure on the left. Select `Mac` in the Supported Destinations list, then click the minus button to remove it.
+   <img src="https://i.imgur.com/GNdCEPT.png" />
+
+## Understanding the Project Structure
+
+Your project in Xcode should have the following structure:
+
+> Note that Xcode hides the file extension of the files unless you are renaming them or viewing them in the Finder.
+
+```
+EmeraldDApp
+  ├── EmeraldDApp
+  │     ├── EmeraldDAppApp.swift
+  │     ├── ContentView.swift
+  │     ├── Assets.xcassets
+  │     └── EmeraldDApp.entitlements
+  └── Preview Content
+        ├── Preview Assets.xcassets
+        └── Preview Assets.xcassets
+```
+
+## Creating the User Interface
+
+Open ContentView.swift in Xcode. This is where we will define the user interface for our DApp.
+
+Replace the existing code with the following:
+
+```swift
+import SwiftUI
+
+struct ContentView: View {
+    var body: some View {
+        VStack {
+            Text("Welcome to Emerald DApp!")
+                .font(.title)
+                .padding()
+
+            Image("emerald_logo")
+                .resizable()
+                .frame(width: 200, height: 200)
+                .padding()
+
+            Spacer()
+        }
     }
 }
-```
 
-The `pub contract [contract name]` part will ALWAYS be what you type when you create a new contract. You can fill in `contract name` with whatever you'd like to call your contract.
-
-The `init()` function is a function that every single contract MUST have. It is called when the Contract is initially deployed, which in the real world, only ever happens 1 time. So, we can initialize some stuff in it when we want to.
-
-Okay, boom! This is your first Smart Contract, although it doesn't do anything ;( Let's make it store a `greeting` variable so we can store some data in this contract.
-
-Modify your contract code so it looks like this:
-
-```cadence
-pub contract HelloWorld {
-
-    pub var greeting: String
-
-    init() {
-        self.greeting = "Hello, World!"
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
+
 ```
 
-In Cadence, when you declare a variable, you follow this format:
+In this code, we have a simple Vertical Stack or `VStack` containing a Text view and an Image view. Notice that in the preview window on the right, no image is displayed though. This is because the Image view is looking for an image named `emerald_logo` in the `Assets` folder, lets add that now.
 
-`[access modifier] [var/let] [variable name]: [type]`
+1. Click the link to download the image: <a href="https://cdn.discordapp.com/attachments/1122027331570110504/1122027809632686150/ea-logo.png" download="emerald_logo.png">Download Image</a>
+2. Once Downloaded selected the `Assets` folder in Xcode to simply drag and drop the downloaded image into your project.
+   <img src="https://i.imgur.com/alDU945.gif" />
 
-Using our example above...
+If we go back to our `ContentView` file you should now see the image loading in the preview on the right.
+<img src="https://i.imgur.com/UiT9t8N.png" />
 
-- Our access modifier is `pub`, which means anyone can read this variable. In the future, we will see lots of other access modifiers, but lets stick with `pub` for the next few lessons just to make life easy.
-- `let` means that this variable is a constant. If you've coded in other programming languages, a constant means that once we make this variable equal to something, we **cannot change it**. On the other hand, `var` means we can change it.
-- Our variable name is `greeting`
-- The type of our variable is a `String`. This means we can put stuff like "Hello", "Jacob is the best", "I love Jacob", stuff like that.
+## Storing our iOS App on GitHub
 
-Next, we put `self.greeting = "Hello, World!"` inside the `init()` function. Remember, the `init()` function is called when the contract is deployed, which only happens once. `self` is a keyword that means "the variable that is one layer above." In this case, `self.greeting` is referring to the `greeting` variable we declared right above it, and we set it equal to "Hello, World!"
+As we wrap up this section, let's talk about GitHub, an indispensable tool for developers like us. GitHub provides a centralized platform to store and manage our code, allowing easy tracking of our project's progress. Whether you're working on personal projects or collaborating with a team, GitHub streamlines code sharing and version control.
 
-> To deploy this contract, click the green "Deploy" button.
+> If you don't have a GitHub account yet, [you can sign up here](https://github.com/).
 
-Your page should look like this:
+Let's take the code we've developed for our iOS app and add it to our own GitHub repository. In other words, we will "push" our code to GitHub, ensuring it is safely stored and accessible.
 
-<img src="/courses/beginner-dapp/helloworld.png" alt="drawing" size="400" />
+### Create a New Repository
 
-> NOTE: If you're getting errors, try first refreshing the page.
+In Git, a repository is like a container for our project.
 
-Awesome!!! You've deployed your first Smart Contract. Note that this is not the real blockchain, it a simulated one that only applies to you.
+1. Go to https://github.com/new and name your project "beginner-emerald-dapp"
+2. Set the repository visibility to "public."
+3. Click "Create repository."
 
-## Reading our Greeting
+You will now be taken to a page with no files inside of it. It should look like this:
 
-Let's make sure that our `greeting` variable actually got set to "Hello, World!". Remember, we can view data from the Blockchain using a script.
+<img src="/courses/beginner-dapp/empty-github.png" />
 
-> On the left hand side, under "Script Templates", click on the tab that says "Script" and delete everything inside of it.
+### Pushing to Our Repository
 
-> Next, write the following code:
+Let's now add (or "push") our iOS app code to GitHub. Open up a terminal on your computer and make sure you're in the base directory of your project.
 
-```cadence
-import HelloWorld from 0x01
+> Run the following lines of code:
 
-pub fun main(): String {
-    return HelloWorld.greeting
-}
+```bash
+git add .
+git commit -m "Initial commit: Adding my iOS app code"
+git branch -M main
+git remote add origin [THE URL OF YOUR GITHUB REPOSITORY]
+git push -u origin main
 ```
 
-This Script will return the value of greeting, which is "Hello, World!" In order to do that, let's see what we did:
+Replace [THE URL OF YOUR GITHUB REPOSITORY] with the actual URL of your newly created GitHub repository.
 
-1. First, we imported our Smart Contract by doing `import HelloWorld from 0x01`. In Cadence, you import a contract by doing `import [contract name] from [address of that contract]`. Because we deployed HelloWorld to `0x01`, we wrote the above.
-2. Next, we wrote a function. In Cadence, you write a function by doing `[access modifier] fun [function name](): [return type] { ... }`. In this case, we used `pub` for our access modifier (more on that later), named our function `main`, and said we will be returning a `String` type, which remember, is the type of `greeting`.
-3. We then accessed the `greeting` variable from the contract using `HelloWorld.greeting`.
+If this is your first time pushing to GitHub, it may prompt you to log in. After completing the push, you can visit your GitHub repository to verify that all your code is there, securely stored and ready for future development!
 
-> If you click "Execute" on the right side, you will see in the terminal it prints, "Hello, World!" like below:
+<img src="https://i.imgur.com/UZPdhw3.png" />
 
-<img src="/courses/beginner-dapp/hwscript.png" alt="drawing" size="400">
+### Making Changes
 
-If yours looks like that, you have executed your first script!
+Now, what if we make changes to our code? How to we put it on GitHub?
 
-## Concept Check
+When you make a change in your code and save the file, you can push it to GitHub by running:
 
-Okay, so we just wrote some code. That was fast. But how does all of this relate back to what I was saying in Chapter 1, Lesson 1?
-
-Remember I said Smart Contracts are both programs and rulebooks. They allow us to do certain things, nothing more and nothing less. In this example, our Smart Contract let us initialize `greeting` and read `greeting`. Notice that it does NOT let us change `greeting` to be something else. If we had wanted to add that functionality, we would've had to do it ahead of time, before we deployed it. This is why it's so crucial that as a developer of a Smart Contract, you implement all the functionality you want a user to have before you deploy the contract. Because after you deploy, there's nothing you can do. (Of course, on the Flow playground, we can deploy the contract again. But in the real world you cannot do this.)
+```bash
+git add .
+git commit -m "you can put any message about the code changes here"
+git push origin main
+```
 
 ## Conclusion
 
-Today, we learned how to deploy our first contract, declare a variable, write a function, and execute a script. Wow! That's a lot. But it wasn't too bad, right?
+All we wanted you to do today was install a Next.js project and run the project. If you could successfully do that, wooooohoooo! You will have no problem with the Quest.
+
+In tomorrow's content, we will explain what all the code is actually doing, and make some changes.
 
 ## Quests
 
-For todays quest, please load up a new Flow playground by going to https://play.onflow.org just like we did in this lesson. You will use that for writing your code.
+For your quest today, you have one task:
 
-1. Deploy a contract to account `0x03` called "JacobTucker". Inside that contract, declare a **constant** variable named `is`, and make it have type `String`. Initialize it to "the best" when your contract gets deployed.
+1. What is the difference between frontend and backend? Can you provide a real life example? Note: You can't use the one in this chapter.
 
-2. Check that your variable `is` actually equals "the best" by executing a script to read that variable. Include a screenshot of the output.
+2. What is the difference between global styling and module styling?
 
-It's so awesome that I get to make these quests. I love this.
+3. Take a screenshot of the running application and upload it to your quest submissions.
 
-Anyways, please remember to store your answers in some way so I can review them if you submit them to me. Good luck!
+4. Upload the link to your public GitHub repository.

@@ -5,7 +5,7 @@ language: en
 excerpt: Finishing the Skeleton
 ---
 
-# Chapter 3 Lesson 4 - Sending a Transaction
+# Chapter 4 Lesson 4 - Sending a Transaction
 
 Hi! Today, we will learn how to send a transaction using FCL so we can change our greeting in our DApp.
 
@@ -13,7 +13,7 @@ Hi! Today, we will learn how to send a transaction using FCL so we can change ou
 
 If you remember back from Chapter 1, a transaction will allow us to _change_ information inside our smart contracts. In addition, transactions cost **gas** and require someone to **sign** the transaction and send it to the blockchain.
 
-We will utilize a transaction to change our `greeting` variable inside our smart contract, which we deployed in Chapter 3 Lesson 3.
+We will utilize a transaction to change our `greeting` variable inside our smart contract, which we deployed in Chapter 4 Lesson 3.
 
 ## Overview of What We Have So Far
 
@@ -132,7 +132,7 @@ You already understand the `cadence` and `args` part. But what are the rest?
 
 > Quick side note: transactions on Flow are very unique in that they have 3 roles: a payer, proposer, and authorizor. If you want to learn more about it, go here: https://docs.onflow.org/concepts/transaction-signing/#signer-roles
 
-The cool thing is that all of this ends up being pretty easy in the end. In our case, we want to send a transaction that changes our greeting, or in other words, calls the `changeGreeting` function in our contract. We already wrote this transaction in Chapter 3 Lesson 2!
+The cool thing is that all of this ends up being pretty easy in the end. In our case, we want to send a transaction that changes our greeting, or in other words, calls the `changeGreeting` function in our contract. We already wrote this transaction in Chapter 4 Lesson 2!
 
 > Let's implement our function fully now...
 

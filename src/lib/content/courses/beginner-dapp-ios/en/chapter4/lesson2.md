@@ -1,48 +1,225 @@
 ---
-title: Deploying our DApp
+title: Running a Script
 lesson: 2
 language: en
-excerpt: Deploying our DApp
+excerpt: Running a Script
+lessonVideoUrl: https://www.youtube.com/embed/XjderBnmPtU
+lessonVideoDescription: If you watch this video, it will help you understand the content for today. Note that they are different, but the concept is the same.
 ---
 
-# Chapter 4 Lesson 2 - Deploying our DApp
+# Chapter 4 Lesson 2 - Running a Script
 
-In our last lesson (we're almost there!), we're going to be deploying our DApp to Vercel so everyone can see our DApp and interact with it.
+Yoooooooooo yo yo YO! Today we are going to learn how to run a script on the Blockchain to read our `greeting` variable from our smart contract.
 
-## Vercel
+## Quick Overview of Scripts
 
-What is Vercel? Well, it's basically magic. It allows you to select a GitHub repository and automatically deploy it for free so that it lives at a real URL, and then people can interact with it.
+If you remember back from Chapter 1, a script will allow us to _read_ information from our smart contracts. In addition, scripts are completely free.
 
-> _Important #1_: Delete the `.eslintrc.json` file in your project.
+We will utilize a script to read our `greeting` variable from our smart contract, which we deployed in Chapter 4 Lesson 3.
 
-> _Important #2_: Before you go on, make sure you have pushed your latest code to your GitHub repository. To remember how to do this, go back to the bottom of Chapter 2 Lesson 1.
+## Executing a Script using FCL
 
-> Go to https://vercel.com/ and create an account
+In our `./pages/index.js` file, let's add a function to execute a script on Flow using FCL.
 
-Then, go to your profile screen that looks like this:
+> Under the `runTransaction` function you made in the quests of Chapter 2 Lesson 4, make a new function called `executeScript`:
 
-<img src="/courses/beginner-dapp/select-deployment.png" />
+```javascript
+async function executeScript() {}
+```
 
-> Find the repository that says "beginner-emerald-dapp" and press "Import".
+What does `async` mean? `async` means this function is an "asynchronous function." The reason we must make it an asynchronous function is because we're going to be returning something called a `Promise` from our script call, and to wait for the result of that `Promise`, we need to use the `await` keyword. Let's keep going so you can see what I mean.
 
-> Then press "Deploy".
+Inside your function, let's actually execute a script using FCL by doing two things:
 
-<img src="/courses/beginner-dapp/deploy-dapp.png" />
+1. Importing `fcl` at the top of the file so we can call the `fcl.query` function:
 
-Wait a few minutes and make sure there are no errors. If there are, reach out in the Emerald Academy chat in the <a href="https://discord.gg/wjA875sMjV" target="_blank">Emerald City Discord</a>.
+```javascript
+import * as fcl from '@onflow/fcl';
+```
 
-Then, you should be able to go to your deployed project on Vercel and find the URL where your project is deployed.
+2. Adding this code inside the `executeScript` function:
 
-<img src="/courses/beginner-dapp/all-done.png" />
+```javascript
+async function executeScript() {
+	const response = await fcl.query({
+		cadence: ``, // CADENCE CODE GOES IN THESE ``
+		args: (arg, t) => [] // ARGUMENTS GO IN HERE
+	});
 
-Here is mine: https://beginner-emerald-dapp.vercel.app/
+	console.log('Response from our script: ' + response);
+}
+```
+
+Okay whoah. That's a lot. What just happened?
+
+1. `const response = await fcl.query()` - this part is saying, "We are going to execute a script using the `fcl.query` function. Then, we are going to _wait_ for that result using the `await` keyword (which is why we needed to make this function `async`), and then we are going to store the result inside the `response` variable.
+2. Inside the `fcl.query` function, it takes in an object with a few things inside of it: `cadence` (which is the Cadence code as a string), and `args` (which is a list of arguments needed for our script).
+3. We `console.log` the result afterwards.
+
+In this case, we want to read the `greeting` variable from our contract. Well, we actually already wrote it in Chapter 4 Lesson 1!
+
+> Go to your `./flow/cadence/scripts/readGreeting.cdc` function and copy everything in that file into your `cadence` string. It should look like this:
+
+```javascript
+async function executeScript() {
+	const response = await fcl.query({
+		cadence: `
+    import HelloWorld from "../contracts/HelloWorld.cdc"
+
+    pub fun main(): String {
+        return HelloWorld.greeting
+    }
+    `,
+		args: (arg, t) => [] // ARGUMENTS GO IN HERE
+	});
+
+	console.log('Response from our script: ' + response);
+}
+```
+
+Sweet! But there's one problem: The blockchain is going to have no idea what `"../contracts/HelloWorld.cdc"` means. Instead, we have to give it an address!
+
+In Chapter 4 Lesson 3, you deployed your contract to a testnet account.
+
+> Get the address for that account (you probably stored it in your `flow.json`) and replace it in the import, like so:
+
+```javascript
+async function executeScript() {
+	const response = await fcl.query({
+		cadence: `
+    import HelloWorld from 0x90250c4359cebac7 // THIS WAS MY ADDRESS, USE YOURS
+
+    pub fun main(): String {
+        return HelloWorld.greeting
+    }
+    `,
+		args: (arg, t) => [] // ARGUMENTS GO IN HERE
+	});
+
+	console.log('Response from our script: ' + response);
+}
+```
+
+Nice! Now let's figure out how to call that function in our code so we can see if it's working!
+
+## Seeing our Greeting
+
+We could make a button and call this function every time we click the button, but that's boring and we already know how to do that. Instead, lets call this function every time the page refreshes.
+
+We learned in Chapter 4 Lesson 1 (yesterday) that we can do this by using `useEffect` to do something every time something happens (which in this case is a page refresh). Let's do that in code by doing two things:
+
+1. Adding `useEffect` to our imports:
+
+```javascript
+import { useState, useEffect } from 'react';
+```
+
+2. Putting a `useEffect` underneath our `executeScript` function:
+
+```javascript
+useEffect(() => {
+	executeScript();
+});
+```
+
+But how do we make sure this happens every time we refresh the page? Remember from Chapter 4 Lesson 1 that you have to add the `[]`:
+
+```javascript
+useEffect(() => {
+	executeScript();
+}, []);
+```
+
+Now, if you go back to http://localhost:3000 and open your developer console, you should see your greeting appearing!
+
+<img src="/courses/beginner-dapp/reading-greeting.png" />
+
+Of course, mine is "Goodbye, Loser". How sweet of me.
 
 ## Conclusion
 
-YOU ARE DONE! AHHHHHHHH. YOU FINISHED THE BEGINNER DAPP COURSE! I am so proud of you.
+We did it! We are successfully reading from the blockchain. Here is what your `./pages/index.js` page should now look like:
 
-If you want to check out other courses, please see our main webpage: https://academy.ecdao.org/
+```javascript
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
+import Nav from '../components/Nav.jsx';
+import { useState, useEffect } from 'react';
+import * as fcl from '@onflow/fcl';
+
+export default function Home() {
+	const [newGreeting, setNewGreeting] = useState('');
+
+	function runTransaction() {
+		console.log('Running transaction!');
+		console.log('Changing the greeting to: ' + newGreeting);
+	}
+
+	async function executeScript() {
+		const response = await fcl.query({
+			cadence: `
+      import HelloWorld from 0x90250c4359cebac7 // THIS WAS MY ADDRESS, USE YOURS
+  
+      pub fun main(): String {
+          return HelloWorld.greeting
+      }
+      `,
+			args: (arg, t) => [] // ARGUMENTS GO IN HERE
+		});
+
+		console.log('Response from our script: ' + response);
+	}
+
+	useEffect(() => {
+		executeScript();
+	}, []);
+
+	return (
+		<div>
+			<Head>
+				<title>Emerald DApp</title>
+				<meta name="description" content="Created by Emerald Academy" />
+				<link rel="icon" href="https://i.imgur.com/hvNtbgD.png" />
+			</Head>
+
+			<Nav />
+
+			<main className={styles.main}>
+				<h1 className={styles.title}>
+					Welcome to my{' '}
+					<a href="https://academy.ecdao.org" target="_blank">
+						Emerald DApp!
+					</a>
+				</h1>
+				<p>This is a DApp created by Jacob Tucker.</p>
+
+				<div className={styles.flex}>
+					<button onClick={runTransaction}>Run Transaction</button>
+					<input onChange={(e) => setNewGreeting(e.target.value)} placeholder="Hello, Idiots!" />
+				</div>
+			</main>
+		</div>
+	);
+}
+```
 
 ## Quests
 
-1. Upload the URL to your application!
+You have a lot of tools under your belt now, in fact much more than you think you do. Let's see what you're capable of...
+
+1. Instead of console logging the result after the script executes, I want you to:
+
+- Make a new variable named `greeting` using `useState`
+- Set the `greeting` variable to the `response` of the script call
+- Create a `<p>` tag after the `<div className={styles.flex}>` tag
+- Put the `greeting` variable inside of that `<p>` tag. This will make the result of your script show on your webpage! It should look something like this:
+
+<img src="/courses/beginner-dapp/completed-lesson2-quest.png" />
+
+2a. I deployed a contract called `SimpleTest` to an account with an address of `0x6c0d53c676256e8c`. I want you to make a button that, when clicked, executes a script to read the `number` variable from that contract. If you're curious, you can see the contract here: https://flow-view-source.com/testnet/account/0x6c0d53c676256e8c/contract/SimpleTest
+
+Submit all the code you used to call the script, and the result of the script.
+
+2b. Then, I want you to remove the button, and make the script execute every time the page refreshes.
+
+Submit all the code you used to do this.

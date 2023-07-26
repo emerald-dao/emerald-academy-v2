@@ -1,186 +1,239 @@
 ---
-title: Transactions and Scripts
+title: Learning Frontend Code
 lesson: 2
 language: en
-excerpt: Transactions and Scripts
-lessonVideoUrl: https://www.youtube.com/embed/T2QTTFnQa5k
+excerpt: Learning Frontend Code
 ---
 
-# Chapter 2 Lesson 2 - Transactions and Scripts
+# Chapter 2 Lesson 2 - Learning Frontend Code
 
-Hey there you crazy Cadence people! We are BACK for another lesson of content, and in this lesson, we will be going more in-depth on transactions and scripts. If you haven't already, make sure you read the [introductory part to transactions and scripts in Chapter 1 Lesson 1](https://github.com/emerald-dao/beginner-cadence-course/tree/main/chapter1.0/lesson1#transactions--scripts).
+> If you have already worked with frontend code before, you may find this a bit boring. But it'll be really quick for you.
 
-## Transactions & Scripts
+Hiiiiii! In this chapter, we will be giving you an introduction to HTML & CSS code. This will help you understand all of the code behind your running application.
 
-Transactions and scripts are both essential to any blockchain application. Without them, we wouldn't be able to interact with the blockchain at all. On Flow, they are even more special because _they are both separate from the contract._ If you have coded on Ethereum before, you know that transactions are just functions you call inside the contract itself (if you don't know that, that's okay!). However, on Flow, transactions and scripts act as a sort of "middleman" between the person interacting with the blockchain and the smart contracts. It looks something like this:
+## What are HTML & CSS?
 
-<img src="/courses/beginner-dapp/sctsworkflow.png" alt="drawing" size="400" />
+HTML & CSS are languages used for frontend code.
 
-## Transactions vs. Scripts
+**HTML is _what_ is being displayed on your screen**. From our example yesterday...
 
-Now, what is the difference between transactions and scripts? Well, the biggest difference is that transactions **modify the data** on the blockchain, and scripts **view the data** on the blockchain. Here is a helpful diagram to understand the differences:
+<img src="/courses/beginner-dapp/base-nextjs.png" />
 
-<img src="/courses/beginner-dapp/transactionvscript.png" alt="drawing" size="400" />
+The "Welcome to Next.js!", the "Get started...", and the 4 boxes with all of their text, that is the _what_ is being displayed. That is thanks to HTML.
 
-As you can see, scripts also do not cost any money (phew!). Transactions on the other hand cost "gas," which is a form of payment needed to change the data on the blockchain.
+On the other hand, **CSS is the _styling_ of the application**. Using the same example, it is what makes the "Welcome to Next.js!" bigger than the rest, "Next.js" blue, the boxes appear in a grid format, etc.
 
-## Scripts
+Now, we will change up the application to make it simpler, and then explain what all of it is actually doing.
 
-During the last lesson, we actually implemented our first script on the Flow playground. Let's revisit that example:
+## Remove Boilerplate Code
 
-> Load up the flow playground (https://play.onflow.org), copy this contract into the `0x01` account, and click "Deploy":
+Let's remove some boilerplate code (code that is there at the start that just takes up space). We will explain what everything is afterwards.
 
-```cadence
-pub contract HelloWorld {
+> Open up your `./pages/index.js` file and replace everything in the file with this code:
 
-    pub var greeting: String
+```javascript
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
 
-    init() {
-        self.greeting = "Hello, World!"
-    }
+export default function Home() {
+	return (
+		<div className={styles.container}>
+			<Head>
+				<title>Emerald DApp</title>
+				<meta name="description" content="Created by Emerald Academy" />
+				<link rel="icon" href="https://i.imgur.com/hvNtbgD.png" />
+			</Head>
+
+			<main className={styles.main}>
+				<h1 className={styles.title}>
+					Welcome to my{' '}
+					<a href="https://academy.ecdao.org" target="_blank">
+						Emerald DApp!
+					</a>
+				</h1>
+			</main>
+		</div>
+	);
 }
 ```
 
-> Then, go to the Script tab on the left hand side and bring back our script from yesterday:
+> Then, open up your `./styles/Home.module.css` file and replace everything with this code:
 
-```cadence
-import HelloWorld from 0x01
+```css
+.main {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
-pub fun main(): String {
-    return HelloWorld.greeting
+.title {
+	font-size: 50px;
+}
+
+.title a {
+	color: #35e8c5;
+	text-decoration: none;
 }
 ```
 
-> If you click "Execute," you should see "Hello, World!" in the console.
+> Navigate back to http://localhost:3000/ and look at the changes. God Jacob, you are so talented. Our DApp looks SICK! I know, I know. I'm the best.
 
-Great! What you just did is run a script. Notice there was no payment needed and we **viewed** the data in our smart contract.
+It should look something like this:
 
-## Transactions
+<img src="/courses/beginner-dapp/base-emerald-dapp.png" />
 
-Now, let's do an example of a transaction.
+## Understanding What We Just Did
 
-> On the left hand side, under "Transaction Templates," click on the "Transaction" tab. Go ahead and delete everything in that tab so it looks like this:
+> If you already understand all of that, skip this section.
 
-<img src="/courses/beginner-dapp/emptytx.PNG" alt="drawing" size="400" />
+Let's understand what the heck we just did. First, let's start in the `./pages/index.js` file...
 
-Okay, cool. Now, we want to modify the data on the blockchain. In order to do that, let's set up our transaction.
+```javascript
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
+```
 
-> We can do that by putting this code into the page:
+- Importing something called `Head` and `styles`.
+- "Importing" just means we are bringing in some code to this file so we can use it somewhere.
+- `from` means where that code is coming from. In this case, `next/head` is a built in location we can use, so don't worry about it. On the other hand, you can actually find the place `styles` is coming from: `./styles/Home.module.css`. We wrote that ourselves!
+- We will see why we need these things soon.
 
-```cadence
-transaction() {
-    prepare(signer: AuthAccount) {}
+---
 
-    execute {}
+```javascript
+export default function Home() {}
+```
+
+- This creates something called a `Component` that is named "Home".
+- A component is a chunk of code that will get "rendered" (or put on the screen) if we return something from it
+- All of the following code is stuff that lives inside of the Home component
+
+---
+
+```javascript
+return <div></div>;
+```
+
+- Returns something from the component with the `return` keyword.
+- The `return` keyword takes all of the code inside of it and renders it on the screen.
+- In this case, we're returning a `<div>` block, which is basically just a container for other code.
+- When you return something from a component, you can only return 1 HTML tag. An HMTL tag is things like `<div>`, `<p>`, `<h1>`. They signal that they hold something inside of them, but are for different things. For example, `<h1>` is for a title, whereas `<p>` is for text, and `<img>` is for an image. If you want to see a list of tags, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank">here</a>.
+
+---
+
+```javascript
+<Head>
+	<title>Emerald DApp</title>
+	<meta name="description" content="Created by Emerald Academy" />
+	<link rel="icon" href="https://i.imgur.com/hvNtbgD.png" />
+</Head>
+```
+
+- Notice why we imported `Head`. We use it here (`Head` is a built-in thing provided by Next.js).
+- This changes the information in the browser tab. It looks like this:
+
+<img src="/courses/beginner-dapp/emerald-dapp-tab.png" target="_blank" />
+
+---
+
+```javascript
+<main className={styles.main}>
+	<h1 className={styles.title}>
+		Welcome to my{' '}
+		<a href="https://academy.ecdao.org" target="_blank">
+			Emerald DApp!
+		</a>
+	</h1>
+</main>
+```
+
+- Created another container of code using the `<main>` tag.
+- The `<main>` tag has something called a `className` (we will go over this later).
+- Inside the `<main>` tag is an `<h1>` tag that has some text in it.
+- Inside the `<h1>` tag is an `<a>` tag that links to the Emerald Academy site.
+- This piece of code is what you're seeing on the main page:
+
+<img src="/courses/beginner-dapp/emerald-dapp-home.png" target="_blank" />
+
+If it helps, you can think about this using the "box model":
+
+<img src="/courses/beginner-dapp/box-model.png" target="_blank" />
+
+Notice also that when you hover over "Emerald DApp", your cursor turns into a pointer. If you click it, it actually takes you to the Emerald Academy site. This is because it's an `<a>` tag in code, which is used for links!
+
+---
+
+Now that we have gone through all of our code, you should at least understand why the things on the screen are appearing there.
+
+## Understanding the Styling
+
+Now let's walk through the styling, or in other words, the CSS code. CSS is what gives our application code some spice and makes it look the way it does.
+
+Go to `./styles/Home.module.css` and let's break up the code just like we did before:
+
+```css
+.main {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 ```
 
-Boom! This is an empty transaction that doesn't do anything. In order to explain what `prepare` and `execute`, we need to take a quick break and talk about accounts on Flow.
+- This means that whatever has a `className` of "main" should have the styling inside the `{}`
+- `height: 100vh` means that this "box" takes up the whole height of the screen. `vh` is a measurement of the screen's dimensions, so `100vh` means the whole screen.
+- `display: flex`, `justify-content: center`, and `align-items: center` put the text in the middle of the screen.
 
-### Accounts on Flow
+---
 
-On Flow, accounts can store their own data. What does this mean? Well, if I own an NFT (NonFungibleToken) on Flow, that NFT gets stored in my account. This is _very different_ than other blockchains like Ethereum. On Ethereum, your NFT gets stored in the smart contract. On Flow, we actually allow accounts to store their own data themselves, which is super cool. But how do we access the data in their account? We can do that with the `AuthAccount` type. Every time a user (like you and me) sends a transaction, you have to pay for the transaction, and then you "sign" it. All that means is you clicked a button saying "hey, I want to approve this transaction." When you sign it, the transaction takes in your `AuthAccount` and can access the data in your account.
-
-You can see this being done in the `prepare` portion of the transaction, and that's the whole point of the `prepare` phase: to access the information/data in your account. On the other hand, the `execute` phase can't do that. But it can call functions and do stuff to change the data on the blockchain. NOTE: In reality, you never _actually_ need the `execute` phase. You could technically do everything in the `prepare` phase, but the code is less clear that way. It's better to separate the logic.
-
-### Back to our Example
-
-Alright, so we want to change our `greeting` field to be something other than "Hello, World!" But there's a problem. We never added a way to modify our data in the smart contract! So we have to add a function in the contract to do that.
-
-> Go back to account `0x01` and add this function inside the contract:
-
-```cadence
-pub fun changeGreeting(newGreeting: String) {
-    self.greeting = newGreeting
+```css
+.title {
+	font-size: 50px;
 }
 ```
 
-What does this mean? Remember from previous lessons what we said about functions. You set them up like so:
-`[access modifier] fun [function name](parameter1: Type, parameter2: Type, ...): [return type] {}`
+- This means that whatever has a `className` of "title" should have a `font-size` of `50px`.
 
-In order to keep things simple, we are using `pub` as our access modifier. `pub` means we can call this function from anywhere (in our contract or in a transaction). We also take in a `newGreeting` parameter that is a string, and we set our greeting equal to our new greeting.
+---
 
-But wait! There's an error in the contract. It says "cannot assign to constant member: `greeting`." Why is it saying that? Remember, we made our greeting be `let`. `let` means it's a constant, so if we want to change our `greeting`, we must change it to `var`. Make sure to hit "Deploy" again. Your code should now look like this:
-
-```cadence
-pub contract HelloWorld {
-
-    pub var greeting: String
-
-    pub fun changeGreeting(newGreeting: String) {
-        self.greeting = newGreeting
-    }
-
-    init() {
-        self.greeting = "Hello, World!"
-    }
+```css
+.title a {
+	color: #35e8c5;
+	text-decoration: none;
 }
 ```
 
-Now that we've set up our contract, let's go back to our transaction.
+- This means that any `<a>` tag inside of a tag with a `className` of "title" should be a certain color.
+- `text-decoration: none` just means it has no underline when we click the link.
 
-> First, let's make sure to `import` our HelloWorld contract, like so: `import HelloWorld from 0x01`.
+---
 
-Then, we must decide: where do we want to call `changeGreeting`? In the `prepare` phase, or the `execute` phase? The answer is the `execute` phase because we are not accessing any data in the account. We are just changing some data in the smart contract.
+PHEW! We are done. Wow, that was a lot. And maybe boring? I don't know. I hope you're still alive.
 
-> We can do that by adding this line in the `execute` phase:
+## Learn More
 
-```cadence
-HelloWorld.changeGreeting(newGreeting: myNewGreeting)
-```
+Because this is not necessarily a course on frontend development, if you'd like to learn more about HTML and CSS code, please check out these resources:
 
-When you call a function in Cadence, you pass in parameters by doing `(argumentLabel: value`), where `argumentLabel` is the name of the argument and `value` is the actual value. You will notice we get an error that `myNewGreeting` isn't defined, which makes sense, because we aren't getting it from anywhere.
+- https://www.codecademy.com/catalog/language/html-css
 
-> So let's add a parameter called `myNewGreeting` to our transaction so we can pass in a value for a new greeting. We can do that like so:
-
-```cadence
-import HelloWorld from 0x01
-
-transaction(myNewGreeting: String) {
-
-  prepare(signer: AuthAccount) {}
-
-  execute {
-    HelloWorld.changeGreeting(newGreeting: myNewGreeting)
-  }
-}
-```
-
-Now, on the right side, you'll see a prompt pop up. We can type in our new greeting into the little box! Let's type "Goodbye, World!":
-
-<img src="/courses/beginner-dapp/txgoodbye.PNG" alt="drawing" size="400" />
-
-Notice also that we can "sign" this transaction from any account. Since it doesn't really matter (we aren't accessing data in an account), feel free to choose any account you wish.
-
-> After you click "Send", go back to your Script and click "Execute". You should now see "Goodbye, World!" printed in the console.
-
-Boom, you just successfully implemented your first transaction.
-
-That wraps things up for today.
-
-## Conclusion
-
-We just spent 2 lessons on Cadence. This is all the Cadence we will cover in this course.
-
-If you want to learn more about Cadence, you should definitely check out our [Beginner Cadence Course](https://github.com/emerald-dao/beginner-cadence-course). It is structured the same way as this one, and in fact, all of Chapter 1 and Chapter 3 Lessons 1-2 were taken directly from that course!
+> If you have any other resources that have helped you, and you want us to list them, please let me know!
 
 ## Quests
 
-Please answer in the language of your choice.
+1. Change the color of "Emerald DApp" to whatever color you want
+2. Change the font size of the title
+3. Change the "Emerald DApp" link to a different link (this means messing with the `<a>` tag)
+4. There are two parts.
 
-1. Explain why we wouldn't call `changeGreeting` in a script.
+4a. Inside of your `<main>` tag, add a `<p>` tag and put whatever text you want in it.
 
-2. What does the `AuthAccount` mean in the `prepare` phase of the transaction?
+4b. Go to the `.main` class and add this line: `flex-direction: column`. Watch what it does!
 
-3. What is the difference between the `prepare` phase and the `execute` phase in the transaction?
+The box model for Quest #4 looks like this:
 
-4. This is the hardest quest so far, so if it takes you some time, do not worry! I can help you in the Discord if you have questions.
+<img src="/courses/beginner-dapp/quest-box-model.png" />
 
-- Add two new things inside your contract:
+---
 
-  - A variable named `myNumber` that has type `Int` (set it to 0 when the contract is deployed)
-  - A function named `updateMyNumber` that takes in a new number named `newNumber` as a parameter that has type `Int` and updates `myNumber` to be `newNumber`
-
-- Add a script that reads `myNumber` from the contract
-
-- Add a transaction that takes in a parameter named `myNewNumber` and passes it into the `updateMyNumber` function. Verify that your number changed by running the script again.
+Take a screenshot of your changes (both the code and the result) and upload it to your quests

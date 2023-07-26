@@ -1,163 +1,255 @@
 ---
-title: Passing in Arguments to a Script
+title: Bringing Cadence to our DApp & Deploying our Contract
 lesson: 3
 language: en
-excerpt: Passing in Arguments to a Script
-lessonVideoUrl: https://www.youtube.com/embed/w9UFsv5wqo4
-lessonVideoDescription: If you watch this video, it will help you understand the content for today. Note that they are different, but the concept is the same.
+excerpt: Bringing Cadence to our DApp & Deploying our Contract
 ---
 
-# Chapter 3 Lesson 3 - Passing in Arguments to a Script
+# Chapter 3 Lesson 3 - Bringing Cadence to our DApp & Deploying our Contract
 
-Yesterday we learned how to execute a script with FCL. Today, we're going to learn how to pass in arguments to the script.
+Today's lesson will be very short (WOOOHOOOO! We don't have to read Jacob's annoying course for too long!). We are going to bring our Cadence code into our DApp.
 
-## Important Note
+## Installing the Cadence VSCode Extension
 
-1. None of today's material will involve changing our Emerald DApp. This is a standalone lesson to help you understand arguments.
-2. All of what you learn today is **the exact same for transactions**. We will be using transactions tomorrow ;)
+Now that we're no longer on the playground, we want to be able to have errors show up in our VSCode when we're coding Cadence. There's an extension to do that!
 
-## Quick Overview of Yesterday
+> Open VSCode. On the left side of VSCode, there's an icon that looks like 4 squares. Click that and search "Cadence".
 
-Yesterday, we made executed a script using FCL like this:
+> Click on the following extension and press "Install":
 
-```javascript
-async function executeScript() {
-	const response = await fcl.query({
-		cadence: `
-    import HelloWorld from 0x90250c4359cebac7 // THIS WAS MY ADDRESS, USE YOURS
+<img src="/courses/beginner-dapp/cadence-vscode-extension.png" />
 
-    pub fun main(): String {
-        return HelloWorld.greeting
-    }
-    `,
-		args: (arg, t) => [] // ARGUMENTS GO IN HERE
-	});
+## Installing the Flow CLI & flow.json
 
-	console.log('Response from our script: ' + response);
-}
-```
+The Flow CLI will allow us to run transactions & scripts from the terminal, and allow us to do other Flow stuff like creating `flow.json` (coming soon...)
 
-But one missing piece was the `args` property. Why didn't we put anything there? Well, our Cadence code didn't take any arguments. If you look at the Cadence code...
+> Install the [Flow CLI](https://docs.onflow.org/flow-cli/install/). You can do that by:
 
-```cadence
-pub fun main(): String
-```
+**Mac**
 
-...you'll see it doesn't take any arguments. But what if we had a Cadence script like this?
+- Pasting `sh -ci "$(curl -fsSL https://storage.googleapis.com/flow-cli/install.sh)"` into a terminal
 
-```cadence
-pub fun main(a: Int, b: Int): Int {
-  // Example:
-  // a = 2
-  // b = 3
-  // result = 5
-  return a + b
-}
-```
+**Windows**
 
-Or something like this?
+- Pasting `iex "& { $(irm 'https://storage.googleapis.com/flow-cli/install.ps1') }"` into PowerShell
+
+**Linux**
+
+- Pasting `sh -ci "$(curl -fsSL https://storage.googleapis.com/flow-cli/install.sh)"` into a terminal
+
+You can confirm the Flow CLI is installed by going to a terminal and typing `flow version`. If a version appears, you're good to go.
+
+## Flow Folder
+
+Inside of our Emerald DApp, let's make a new folder called `flow`.
+
+Inside of the `flow` folder, let's make another folder called `cadence`.
+
+Inside of the `cadence` folder, let's make a `contracts` folder, a `transactions` folder, and a `scripts` folder.
+
+Inside of the `contracts` folder, add a new file called `HelloWorld.cdc`. In that file, put our contract code from yesterday:
 
 ```cadence
-pub fun main(greeting: String, person: String): String {
-  // Example:
-  // greeting = "Hello"
-  // person = "Jacob"
-  // result = "Hello, Jacob!"
-  return greeting.concat(", ").concat(person).concat("!")
-}
-```
+pub contract HelloWorld {
 
-Now we need to pass in arguments.
+    pub var greeting: String
 
-## Passing in Arguments Using FCL
-
-Here is an example of passing in arguments, and then we will explain...
-
-```javascript
-async function executeScript() {
-	const response = await fcl.query({
-		cadence: `
-    pub fun main(a: Int, b: Int): Int {
-      // Example:
-      // a = 2
-      // b = 3
-      // result = 5
-      return a + b
+    pub fun changeGreeting(newGreeting: String) {
+        self.greeting = newGreeting
     }
-    `,
-		args: (arg, t) => [arg('2', t.Int), arg('3', t.Int)]
-	});
-}
-```
 
-Now, there's a few things we should talk about to help you understand:
-
-1. All the arguments go inside the `[]`.
-2. You create a new argument with the `arg` keyword
-3. You put the value of the argument first (ex. `"2"`)
-4. You put the Cadence type of the value 2nd using `t` (ex. `t.Int`)
-
-You may be wondering, why are our Integers represented as strings? The answer is, I have no idea. The FCL team just wanted it like that.
-
-### Different Types
-
-Let's look at another example using tons of different types:
-
-```javascript
-async function executeScript() {
-	const response = await fcl.query({
-		cadence: `
-    pub fun main(
-      a: Int, 
-      b: String, 
-      c: UFix64, 
-      d: Address, 
-      e: Bool,
-      f: String?,
-      g: [Int],
-      h: {String: Address}
-    ) {
-      // Example:
-      // a = 2
-      // b = "Jacob is so cool"
-      // c = 5.0
-      // d = 0x6c0d53c676256e8c
-      // e = true
-      // f = nil
-      // g = [1, 2, 3]
-      // h = {"FLOAT": 0x2d4c3caffbeab845, "EmeraldID": 0x39e42c67cc851cfb}
-
-      // something happens here... but it doesn't matter
+    init() {
+        self.greeting = "Hello, World!"
     }
-    `,
-		args: (arg, t) => [
-			arg('2', t.Int),
-			arg('Jacob is so cool', t.String),
-			arg('5.0', t.UFix64),
-			arg('0x6c0d53c676256e8c', t.Address),
-			arg(true, t.Bool),
-			arg(null, t.Optional(t.String)),
-			arg([1, 2, 3], t.Array(t.Int)),
-			arg(
-				[
-					{ key: 'FLOAT', value: '0x2d4c3caffbeab845' },
-					{ key: 'EmeraldID', value: '0x39e42c67cc851cfb' }
-				],
-				t.Dictionary({ key: t.String, value: t.Address })
-			)
-		]
-	});
 }
 ```
 
-Hopefully this helps you understand the different types of arguments you can pass in :)
+---
+
+Inside the transactions folder, make a new file called `changeGreeting.cdc` and put our transaction code from yesterday:
+
+```cadence
+import HelloWorld from 0x01 // THIS IS NO LONGER CORRECT
+
+transaction(myNewGreeting: String) {
+
+  prepare(signer: AuthAccount) {}
+
+  execute {
+    HelloWorld.changeGreeting(newGreeting: myNewGreeting)
+  }
+}
+```
+
+Notice that the import is now wrong. We aren't importing from `0x01` anymore, that was just a playground thing. In this case, we are importing from a local contract that exists in our project. So change it to:
+
+```cadence
+import HelloWorld from "../contracts/HelloWorld.cdc"
+```
+
+---
+
+Inside the scripts folder, add a new file called `readGreeting.cdc` and put in our script code from yesterday:
+
+```cadence
+import HelloWorld from "../contracts/HelloWorld.cdc"
+
+pub fun main(): String {
+    return HelloWorld.greeting
+}
+```
+
+Your project directory should now look like this:
+
+<img src="/courses/beginner-dapp/layout.png" />
+
+---
+
+### flow.json
+
+> Now that we have our contract in our project directory, go to your terminal and `cd` into the base project directory.
+
+> Type `flow init`
+
+This will create a `flow.json` file inside your project. This is needed to deploy contracts and to give us compile errors inside our Cadence code.
+
+## Deploying our Greeting Contract to TestNet
+
+Sweet! Now let's deploy our contract to TestNet so that we can start interacting with it.
+
+## Configuring `flow.json`
+
+> Inside of your `flow.json` file, make the "contracts" object look like this:
+
+```json
+"contracts": {
+  "HelloWorld": "./flow/cadence/contracts/HelloWorld.cdc"
+},
+```
+
+This will allow your `flow.json` to know where your contracts live.
+
+## Creating an Account
+
+> 🔐 Generate a **deployer address** by typing `flow keys generate --network=testnet` into a terminal. Make sure to save your public key and private key somewhere, you will need them soon.
+
+<img src="https://i.imgur.com/HbF4C73.png" alt="generate key pair" />
+
+> 👛 Create your **deployer account** by going to https://testnet-faucet.onflow.org/, pasting in your public key from above, and clicking `CREATE ACCOUNT`:
+
+<img src="https://i.imgur.com/73OjT3K.png" alt="configure testnet account on the website" />
+
+> After it finishes, click `COPY ADDRESS` and make sure to save that address somewhere. You will need it!
+
+> ⛽️ Add your new testnet account to your `flow.json` by modifying the following lines of code. Paste your address you copied above to where it says "YOUR GENERATED ADDRESS", and paste your private key where it says "YOUR PRIVATE KEY".
+
+```json
+"accounts": {
+  "emulator-account": {
+    "address": "f8d6e0586b0a20c7",
+    "key": "5112883de06b9576af62b9aafa7ead685fb7fb46c495039b1a83649d61bff97c"
+  },
+  "testnet-account": {
+    "address": "YOUR GENERATED ADDRESS",
+    "key": {
+      "type": "hex",
+      "index": 0,
+      "signatureAlgorithm": "ECDSA_P256",
+      "hashAlgorithm": "SHA3_256",
+      "privateKey": "YOUR PRIVATE KEY"
+    }
+  }
+},
+"deployments": {
+  "testnet": {
+    "testnet-account": [
+      "HelloWorld"
+    ]
+  }
+}
+```
+
+> 🚀 Deploy your HelloWorld smart contract:
+
+```sh
+flow project deploy --network=testnet
+```
+
+<img src="/courses/beginner-dapp/deploy-contract.png" alt="deploy contract to testnet" />
+
+## Interacting with our Contract
+
+Now that we deployed our contract to testnet, we can interact with it in our terminal using the Flow CLI.
+
+### Informing flow.json of our Deployed Contract
+
+Before we run a script using the Flow CLI in our terminal, we have to tell our `flow.json` where our contract lives on testnet. This is because right now, the import path (`"../contracts/HelloWorld.cdc"`) is meaningless inside our script file.
+
+Now that we have deployed our contract to testnet, we can configure our `flow.json` to recognize that the contract exists at that address.
+
+Inside of your `flow.json`, change the "contracts" object to look like this:
+
+```json
+"contracts": {
+  "HelloWorld": {
+    "source": "./flow/cadence/contracts/HelloWorld.cdc",
+    "aliases": {
+      "testnet": "YOUR CONTRACT ADDRESS"
+    }
+  }
+}
+```
+
+Now, when you run your script, it will automatically replace the local import path to the deployed contract address.
+
+### Reading our Greeting
+
+To run our `readGreeting.cdc` script from the terminal, go to your project directory and type:
+
+```bash
+flow scripts execute ./flow/cadence/scripts/readGreeting.cdc --network=testnet
+```
+
+If it works properly, you will see this:
+
+<img src="/courses/beginner-dapp/interact-with-script.png" />
+
+Boom! It returned "Hello, World!", which is exactly what our `greeting` variable is in the contract. YAAAAAAAY!!
+
+### Changing our Greeting
+
+To run our `changeGreeting.cdc` transaction from the terminal, go to your project directory and type:
+
+```bash
+flow transactions send ./flow/cadence/transactions/changeGreeting.cdc "Goodbye, Loser" --network=testnet --signer=testnet-account
+```
+
+If it works properly, you will see this:
+
+<img src="/courses/beginner-dapp/interact-with-transaction.png" />
+
+That means the transaction is sealed (completed) and worked! If you run the script to read the greeting again, hopefully you will see:
+
+<img src="/courses/beginner-dapp/interact-with-scripts-2.png" />
+
+NICEEEEEE!!! We successfully changed our `greeting` in our contract. This is so cool.
 
 ## Conclusion
 
-That's it! Not so bad, right?
+That was a lot today, but how cool is this?! We deployed our own contract to Flow Testnet, ran a script to read our `greeting`, and then ran a transaction to change it. You are all doing amazing!
 
 ## Quests
 
-I only have one quest for you today, and it's almost exactly what we reviewed already :)
+1. Create a new smart contract in Cadence that has at least the following two things:
 
-1. Write a function that executes a script with all the Cadence types that we reviewed today. Call the script when the page refreshes. Return something random from the Cadence script, and console log it to prove to me your script actually worked.
+- A variable to hold a value (like a number or a piece of text)
+- A function to change that variable
+
+After, deploy that contract to the same testnet account you generated today.
+
+2. Send a screenshot of you reading the variable from your new contract using the Flow CLI
+3. Send a screenshot of you changing the variable from your new contract using the Flow CLI
+4. Send a screenshot of you reading your changed variable from your new contract using the Flow CLI
+5. Go to https://flow-view-source.com/testnet/. Where it says "Account", paste in the Flow address you generated and click "Go". On the left hand side, you should see your "HelloWorld" contract and your new contract. Isn't it so cool to see them live on Testnet? Then, send the URL to the page.
+
+- EXAMPLE: https://flow-view-source.com/testnet/account/0x90250c4359cebac7/

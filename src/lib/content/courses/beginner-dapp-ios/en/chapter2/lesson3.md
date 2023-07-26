@@ -1,255 +1,156 @@
 ---
-title: Bringing Cadence to our DApp & Deploying our Contract
+title: Adding Javascript Code
 lesson: 3
 language: en
-excerpt: Bringing Cadence to our DApp & Deploying our Contract
+excerpt: Adding Javascript Code
 ---
 
-# Chapter 2 Lesson 3 - Bringing Cadence to our DApp & Deploying our Contract
+# Chapter 2 Lesson 3 - Adding Javascript Code
 
-Today's lesson will be very short (WOOOHOOOO! We don't have to read Jacob's annoying course for too long!). We are going to bring our Cadence code into our DApp.
+> If you have already worked with React.js or Javascript code before, you may find this a bit boring. But it'll be really quick for you.
 
-## Installing the Cadence VSCode Extension
+Sup sup! In this chapter, we will be teaching you what Javascript code is and what it does. Then we will add some to our project.
 
-Now that we're no longer on the playground, we want to be able to have errors show up in our VSCode when we're coding Cadence. There's an extension to do that!
+> Also, before moving on, make sure to complete all previous quests. They are necessary to continuing at this point.
 
-> Open VSCode. On the left side of VSCode, there's an icon that looks like 4 squares. Click that and search "Cadence".
+## What is Javascript?
 
-> Click on the following extension and press "Install":
+When we talked about HTML & CSS, we concluded that HTML is the _what_, and CSS is the _styling_. Well, adding Javascript will allow us to _do things_ on the site.
 
-<img src="/courses/beginner-dapp/cadence-vscode-extension.png" />
+For example, when you go to an NFT marketplace and click a "buy" button, and it does something. Or when you load up Instagram and the application somehow fetches all your posts and likes from some database, that is Javascript.
 
-## Installing the Flow CLI & flow.json
+Woohoo, we love you Jacob! This sounds like so much fun. I know, it is. Let's dive into it.
 
-The Flow CLI will allow us to run transactions & scripts from the terminal, and allow us to do other Flow stuff like creating `flow.json` (coming soon...)
+## Adding Some Javascript
 
-> Install the [Flow CLI](https://docs.onflow.org/flow-cli/install/). You can do that by:
+Let's add some Javascript to our application, and maybe it will make more sense.
 
-**Mac**
+> Open up your `./pages/index.js` file. Under the `<p>` tag you added in the Quests of lesson 2, add this line of code: `<button>Hello</button>`
 
-- Pasting `sh -ci "$(curl -fsSL https://storage.googleapis.com/flow-cli/install.sh)"` into a terminal
+The surrounding code should now look something like this:
 
-**Windows**
+```javascript
+<main className={styles.main}>
+	<h1 className={styles.title}>
+		Welcome to my{' '}
+		<a href="https://academy.ecdao.org" target="_blank">
+			Emerald DApp!
+		</a>
+	</h1>
+	<p>This is a DApp created by Jacob Tucker.</p>
 
-- Pasting `iex "& { $(irm 'https://storage.googleapis.com/flow-cli/install.ps1') }"` into PowerShell
-
-**Linux**
-
-- Pasting `sh -ci "$(curl -fsSL https://storage.googleapis.com/flow-cli/install.sh)"` into a terminal
-
-You can confirm the Flow CLI is installed by going to a terminal and typing `flow version`. If a version appears, you're good to go.
-
-## Flow Folder
-
-Inside of our Emerald DApp, let's make a new folder called `flow`.
-
-Inside of the `flow` folder, let's make another folder called `cadence`.
-
-Inside of the `cadence` folder, let's make a `contracts` folder, a `transactions` folder, and a `scripts` folder.
-
-Inside of the `contracts` folder, add a new file called `HelloWorld.cdc`. In that file, put our contract code from yesterday:
-
-```cadence
-pub contract HelloWorld {
-
-    pub var greeting: String
-
-    pub fun changeGreeting(newGreeting: String) {
-        self.greeting = newGreeting
-    }
-
-    init() {
-        self.greeting = "Hello, World!"
-    }
-}
+	<button>Hello</button>
+</main>
 ```
 
 ---
 
-Inside the transactions folder, make a new file called `changeGreeting.cdc` and put our transaction code from yesterday:
+> Go back to your browser at http://localhost:3000 and see that there is now a button under to the text in the middle of the page. It should look like:
 
-```cadence
-import HelloWorld from 0x01 // THIS IS NO LONGER CORRECT
+<img src="/courses/beginner-dapp/begin-lesson3.png" />
 
-transaction(myNewGreeting: String) {
+---
 
-  prepare(signer: AuthAccount) {}
+Cool! Now let's make that button do something.
 
-  execute {
-    HelloWorld.changeGreeting(newGreeting: myNewGreeting)
-  }
+> Go back to your code and right before your `return` keyword, add this piece of code:
+
+```javascript
+function printHello() {
+	console.log('Hello there! Jacob is soooooo much cooler than me.');
 }
 ```
 
-Notice that the import is now wrong. We aren't importing from `0x01` anymore, that was just a playground thing. In this case, we are importing from a local contract that exists in our project. So change it to:
+> Then, change your `<button>` to be this:
 
-```cadence
-import HelloWorld from "../contracts/HelloWorld.cdc"
+```html
+<button onClick="{printHello}">Hello</button>
+```
+
+What we just did is add a function called `printHello` that will perform some task when it is called. In this case, the "something" is a `console.log` that prints something to the console.
+
+Then, we added an `onClick` "handler" to our button that will call the `printHello` function when we click the button on the screen.
+
+Your entire file should now look like this:
+
+```javascript
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
+
+export default function Home() {
+	function printHello() {
+		console.log('Hello there! Jacob is soooooo much cooler than me.');
+	}
+
+	return (
+		<div>
+			<Head>
+				<title>Emerald DApp</title>
+				<meta name="description" content="Created by Emerald Academy" />
+				<link rel="icon" href="https://i.imgur.com/hvNtbgD.png" />
+			</Head>
+
+			<main className={styles.main}>
+				<h1 className={styles.title}>
+					Welcome to my{' '}
+					<a href="https://academy.ecdao.org" target="_blank">
+						Emerald DApp!
+					</a>
+				</h1>
+				<p>This is a DApp created by Jacob Tucker.</p>
+
+				<button onClick={printHello}>Hello</button>
+			</main>
+		</div>
+	);
+}
 ```
 
 ---
 
-Inside the scripts folder, add a new file called `readGreeting.cdc` and put in our script code from yesterday:
+## Developer Console
 
-```cadence
-import HelloWorld from "../contracts/HelloWorld.cdc"
+The Developer Console is something we can use to actually see our `console.log`s from our code. In order to open the Developer Console:
 
-pub fun main(): String {
-    return HelloWorld.greeting
-}
-```
+1. Go back to your browser
+2. Right click the screen
+3. Click "inspect"
+4. Go to the "Console" tab
+5. Click the "Hello" button on the main screen
 
-Your project directory should now look like this:
+You will see something like this:
 
-<img src="/courses/beginner-dapp/layout.png" />
+<img src="/courses/beginner-dapp/developer-console.png" />
 
----
-
-### flow.json
-
-> Now that we have our contract in our project directory, go to your terminal and `cd` into the base project directory.
-
-> Type `flow init`
-
-This will create a `flow.json` file inside your project. This is needed to deploy contracts and to give us compile errors inside our Cadence code.
-
-## Deploying our Greeting Contract to TestNet
-
-Sweet! Now let's deploy our contract to TestNet so that we can start interacting with it.
-
-## Configuring `flow.json`
-
-> Inside of your `flow.json` file, make the "contracts" object look like this:
-
-```json
-"contracts": {
-  "HelloWorld": "./flow/cadence/contracts/HelloWorld.cdc"
-},
-```
-
-This will allow your `flow.json` to know where your contracts live.
-
-## Creating an Account
-
-> 🔐 Generate a **deployer address** by typing `flow keys generate --network=testnet` into a terminal. Make sure to save your public key and private key somewhere, you will need them soon.
-
-<img src="https://i.imgur.com/HbF4C73.png" alt="generate key pair" />
-
-> 👛 Create your **deployer account** by going to https://testnet-faucet.onflow.org/, pasting in your public key from above, and clicking `CREATE ACCOUNT`:
-
-<img src="https://i.imgur.com/73OjT3K.png" alt="configure testnet account on the website" />
-
-> After it finishes, click `COPY ADDRESS` and make sure to save that address somewhere. You will need it!
-
-> ⛽️ Add your new testnet account to your `flow.json` by modifying the following lines of code. Paste your address you copied above to where it says "YOUR GENERATED ADDRESS", and paste your private key where it says "YOUR PRIVATE KEY".
-
-```json
-"accounts": {
-  "emulator-account": {
-    "address": "f8d6e0586b0a20c7",
-    "key": "5112883de06b9576af62b9aafa7ead685fb7fb46c495039b1a83649d61bff97c"
-  },
-  "testnet-account": {
-    "address": "YOUR GENERATED ADDRESS",
-    "key": {
-      "type": "hex",
-      "index": 0,
-      "signatureAlgorithm": "ECDSA_P256",
-      "hashAlgorithm": "SHA3_256",
-      "privateKey": "YOUR PRIVATE KEY"
-    }
-  }
-},
-"deployments": {
-  "testnet": {
-    "testnet-account": [
-      "HelloWorld"
-    ]
-  }
-}
-```
-
-> 🚀 Deploy your HelloWorld smart contract:
-
-```sh
-flow project deploy --network=testnet
-```
-
-<img src="/courses/beginner-dapp/deploy-contract.png" alt="deploy contract to testnet" />
-
-## Interacting with our Contract
-
-Now that we deployed our contract to testnet, we can interact with it in our terminal using the Flow CLI.
-
-### Informing flow.json of our Deployed Contract
-
-Before we run a script using the Flow CLI in our terminal, we have to tell our `flow.json` where our contract lives on testnet. This is because right now, the import path (`"../contracts/HelloWorld.cdc"`) is meaningless inside our script file.
-
-Now that we have deployed our contract to testnet, we can configure our `flow.json` to recognize that the contract exists at that address.
-
-Inside of your `flow.json`, change the "contracts" object to look like this:
-
-```json
-"contracts": {
-  "HelloWorld": {
-    "source": "./flow/cadence/contracts/HelloWorld.cdc",
-    "aliases": {
-      "testnet": "YOUR CONTRACT ADDRESS"
-    }
-  }
-}
-```
-
-Now, when you run your script, it will automatically replace the local import path to the deployed contract address.
-
-### Reading our Greeting
-
-To run our `readGreeting.cdc` script from the terminal, go to your project directory and type:
-
-```bash
-flow scripts execute ./flow/cadence/scripts/readGreeting.cdc --network=testnet
-```
-
-If it works properly, you will see this:
-
-<img src="/courses/beginner-dapp/interact-with-script.png" />
-
-Boom! It returned "Hello, World!", which is exactly what our `greeting` variable is in the contract. YAAAAAAAY!!
-
-### Changing our Greeting
-
-To run our `changeGreeting.cdc` transaction from the terminal, go to your project directory and type:
-
-```bash
-flow transactions send ./flow/cadence/transactions/changeGreeting.cdc "Goodbye, Loser" --network=testnet --signer=testnet-account
-```
-
-If it works properly, you will see this:
-
-<img src="/courses/beginner-dapp/interact-with-transaction.png" />
-
-That means the transaction is sealed (completed) and worked! If you run the script to read the greeting again, hopefully you will see:
-
-<img src="/courses/beginner-dapp/interact-with-scripts-2.png" />
-
-NICEEEEEE!!! We successfully changed our `greeting` in our contract. This is so cool.
+When you click the button, you will see messages popping up in the "developer console" now. Usually, developers use the developer console to print error messages or debug their code when they don't know what is wrong. Or in this case, we used it just to make sure things were working.
 
 ## Conclusion
 
-That was a lot today, but how cool is this?! We deployed our own contract to Flow Testnet, ran a script to read our `greeting`, and then ran a transaction to change it. You are all doing amazing!
+That's all for today!
+
+Tomorrow, we will finish the base skeleton of our DApp.
 
 ## Quests
 
-1. Create a new smart contract in Cadence that has at least the following two things:
+Today, we will split the Quests into two different parts.
 
-- A variable to hold a value (like a number or a piece of text)
-- A function to change that variable
+1. In this part, we will be adding another button and changing up some styling.
 
-After, deploy that contract to the same testnet account you generated today.
+- Wrap the `<button>` tag we added inside of a `<div>`. Add a `className` called `styles.flex` to that `<div>`. Make sure the `<button>` is inside of it.
+- Then, add another `<button>` inside the `<div>` tag and put "Goodbye" inside of it.
+- In `./styles/Home.module.css`, add a new style for the "flex" class, and inside of it, add one line: `display: flex`.
+- Your page should now look like this:
 
-2. Send a screenshot of you reading the variable from your new contract using the Flow CLI
-3. Send a screenshot of you changing the variable from your new contract using the Flow CLI
-4. Send a screenshot of you reading your changed variable from your new contract using the Flow CLI
-5. Go to https://flow-view-source.com/testnet/. Where it says "Account", paste in the Flow address you generated and click "Go". On the left hand side, you should see your "HelloWorld" contract and your new contract. Isn't it so cool to see them live on Testnet? Then, send the URL to the page.
+<img src="/courses/beginner-dapp/lesson3-quest1.png" />
 
-- EXAMPLE: https://flow-view-source.com/testnet/account/0x90250c4359cebac7/
+Here is the box model for what your code should look like:
+
+<img src="/courses/beginner-dapp/box-model-quest1.png" />
+
+2. Now we're going to add an action to your new button.
+
+- To your second button, add an `onClick` handler and call a function named `printGoodbye`.
+- Define a new function called `printGoodbye` under the `printHello` function
+- Make it `console.log` "Goodbye"
+
+To submit your quests, take a picture of both the screen and the console logs in the developer console.
