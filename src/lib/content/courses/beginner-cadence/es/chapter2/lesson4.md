@@ -7,7 +7,7 @@ excerpt: Structs Básicos
 
 # Capítulo 2 Día 4 - Structs Básicos
 
-Hola idiotas. Hoy es tu dia para aprender Structs! Las buenas noticias es que el structs es bastante simple de aprender, así que hoy no será demasiado largo. ¡Wooohooo! Empezamos.
+Hola. Hoy es tu dia para aprender Structs! Las buenas noticias es que el structs es bastante simple de aprender, así que hoy no será demasiado largo. ¡Wooohooo! Empezamos.
 
 ## Video
 

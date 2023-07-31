@@ -14,7 +14,7 @@ quizUrl: https://forms.gle/B57pWEphAUJAMVyd6
 
 # Chapter 2 Lesson 4 - Basic Structs
 
-Hello idiots. Today is your lesson to learn Structs! The good news is structs are pretty simple to learn, so today won't be too long. Woooohoooo! Let's get into it.
+Hello peoples. Today is your lesson to learn Structs! The good news is structs are pretty simple to learn, so today won't be too long. Woooohoooo! Let's get into it.
 
 <LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
 

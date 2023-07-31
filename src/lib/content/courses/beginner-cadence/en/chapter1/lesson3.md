@@ -45,10 +45,10 @@ When you're coding a program, there are always a lot of useful tools to help you
 The most basic function in Cadence is `log`, which means, "print this to the screen so I can read it." You can write it in code like this:
 
 ```cadence
-log("Hello, idiot!")
+log("Hello, World!")
 ```
 
-See what we did? We wrote `log`, followed by a set of parenthesis. Functions always take in things called `arguments` (also called `parameters`) that get put into the function so it knows what to do. If we were to execute that program, it would say, "Hello, idiot!" which is exactly what we want. :)
+See what we did? We wrote `log`, followed by a set of parenthesis. Functions always take in things called `arguments` (also called `parameters`) that get put into the function so it knows what to do. If we were to execute that program, it would say, "Hello, World!" which is exactly what we want. :)
 
 Let's look at an example program I wrote in Cadence:
 
@@ -82,7 +82,7 @@ In Cadence, we call a number an "Integer". More specifically, it has type `Int`.
 
 ```cadence
 let x: Int = 5
-let text: String = "Hello idiot"
+let text: String = "Hello World"
 ```
 
 You can see the different types of the variables here. And don't worry, we will learn all about this later on.

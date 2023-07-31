@@ -7,7 +7,7 @@ excerpt: Creating our DApp
 
 # Chapter 2 Lesson 1 - Creating our DApp
 
-Hello you absolute idiots. In this lesson, we are going to actually jump into some code and start our DApp development. We will be using Next.js to create our first DApp.
+Hello you brilliant people. In this lesson, we are going to actually jump into some code and start our DApp development. We will be using Next.js to create our first DApp.
 
 # IMPORTANT NOTE
 
