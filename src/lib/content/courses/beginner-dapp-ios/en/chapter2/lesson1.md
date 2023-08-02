@@ -87,54 +87,36 @@ EmeraldDApp
   │     ├── Assets.xcassets
   │     └── EmeraldDApp.entitlements
   └── Preview Content
-        ├── Preview Assets.xcassets
         └── Preview Assets.xcassets
 ```
 
-## Creating the User Interface
+1. EmeraldDAppApp.swift is the main entry point for the project and defines the initial view to be displayed as well as hosting the app's life cycle. If you click on the file to open it you can see it contains a `WindowGroup` that loads the `ContentView`. Don't worry too much about how this works for now, the key thing to note is that when the application launches it will display our `ContentView`.
+2. ContentView.swift contains the inital view to be displayed in the application.
+3. Assets.xcassets is where we will place our image assets to be displayed inside our views.
+4. The remainder of the files are used by the Xcode compiler to build the application and are not relevant to the course.
 
-Open ContentView.swift in Xcode. This is where we will define the user interface for our DApp.
+## Viewing Our DApp Preview
 
-Replace the existing code with the following:
+Before we even jump into coding our DApp, let's explore how Xcode allows us to preview our DApp as it is developed. Previews are a powerful feature that allows developers to visualize and interact with SwiftUI views in real-time without running the entire app on a simulator or device. Previews provide a live preview of the user interface, enabling developers to see how their SwiftUI code will look and behave across various device sizes and orientations instantly. This streamlined workflow makes it easier for beginners and experienced developers alike to iterate and refine their user interfaces quickly, saving time and enhancing the development process.
 
-```swift
-import SwiftUI
+As we develop our DApp, the changes you make to your SwiftUI views will be updated in real time in the `Canvas` on the right side of the screen. If for any reason you don't see the Canvas interface, or you would like hide it to save screen space you can enabled/disable it by clicking the `Editor` menu and selecting `Canvas`.
 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Text("Welcome to Emerald DApp!")
-                .font(.title)
-                .padding()
+<img src="https://i.imgur.com/KflRwZS.png" />
+<img src="https://i.imgur.com/sQJsyhz.png" />
 
-            Image("emerald_logo")
-                .resizable()
-                .frame(width: 200, height: 200)
-                .padding()
+## Runing Our DApp On The Simulator
 
-            Spacer()
-        }
-    }
-}
+Xcode includes simulators for all currently supported Apple devices including iPhone, iPad, Apple Watch, and Apple TV. Simulators are usefull for testing your application on various devices however, it is always recommend to test on a physical device before deploying an application to the App Store. The simulator is a full-fledged virtual environment that mimics an Apple device, allowing developers to test their apps, while Xcode previews provide a lightweight, real-time preview of SwiftUI user interfaces directly within the Xcode editor.
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+To launch the simulator simply select a device from the drop down list, then press the "play" button.
 
-```
+<img src="https://i.imgur.com/16Sc44o.png" />
 
-In this code, we have a simple Vertical Stack or `VStack` containing a Text view and an Image view. Notice that in the preview window on the right, no image is displayed though. This is because the Image view is looking for an image named `emerald_logo` in the `Assets` folder, lets add that now.
+Once the simulator loads, it will automatically install and launch our DApp. Hopefully, it will look something like this:
 
-1. Click the link to download the image: <a href="https://cdn.discordapp.com/attachments/1122027331570110504/1122027809632686150/ea-logo.png" download="emerald_logo.png">Download Image</a>
-2. Once Downloaded selected the `Assets` folder in Xcode to simply drag and drop the downloaded image into your project.
-   <img src="https://i.imgur.com/alDU945.gif" />
+<img src="https://i.imgur.com/T1ask9Rl.png" />
 
-If we go back to our `ContentView` file you should now see the image loading in the preview on the right.
-<img src="https://i.imgur.com/UiT9t8N.png" />
-
-## Storing our iOS App on GitHub
+## Storing Our iOS DApp On GitHub
 
 As we wrap up this section, let's talk about GitHub, an indispensable tool for developers like us. GitHub provides a centralized platform to store and manage our code, allowing easy tracking of our project's progress. Whether you're working on personal projects or collaborating with a team, GitHub streamlines code sharing and version control.
 
@@ -142,7 +124,7 @@ As we wrap up this section, let's talk about GitHub, an indispensable tool for d
 
 Let's take the code we've developed for our iOS app and add it to our own GitHub repository. In other words, we will "push" our code to GitHub, ensuring it is safely stored and accessible.
 
-### Create a New Repository
+### Create A New Repository
 
 In Git, a repository is like a container for our project.
 
@@ -176,7 +158,7 @@ If this is your first time pushing to GitHub, it may prompt you to log in. After
 
 ### Making Changes
 
-Now, what if we make changes to our code? How to we put it on GitHub?
+Now, what if we make changes to our code? How do we put it on GitHub?
 
 When you make a change in your code and save the file, you can push it to GitHub by running:
 
@@ -188,7 +170,7 @@ git push origin main
 
 ## Conclusion
 
-All we wanted you to do today was install a Next.js project and run the project. If you could successfully do that, wooooohoooo! You will have no problem with the Quest.
+All we wanted you to do today was create the Xcode project and run the application on the simulator. If you could successfully do that, wooooohoooo! You will have no problem with the Quest.
 
 In tomorrow's content, we will explain what all the code is actually doing, and make some changes.
 
@@ -198,8 +180,6 @@ For your quest today, you have one task:
 
 1. What is the difference between frontend and backend? Can you provide a real life example? Note: You can't use the one in this chapter.
 
-2. What is the difference between global styling and module styling?
+2. What is the difference between the Preview and running the application on the Simulator?
 
-3. Take a screenshot of the running application and upload it to your quest submissions.
-
-4. Upload the link to your public GitHub repository.
+3. Take a screenshot of the application running on the Simulator and upload it to your quest submissions.

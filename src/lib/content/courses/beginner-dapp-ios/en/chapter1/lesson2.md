@@ -31,7 +31,7 @@ Here are some important characteristics that set Flow apart:
 
 2. **Emerging Platform**: As a relatively new blockchain, Flow is continually evolving and improving. While this means there may be occasional bugs, it also presents an excellent opportunity to learn and utilize Flow and Cadence.
 
-3. **Learning Resources**: As Flow is relatively new, learning resources may be scarce. This course aims to bridge that gap by providing comprehensive guidance on developing DApps with Flow and Cadence.
+3. **Learning Resources**: As Flow is relatively new, learning resources may be scarce. This course aims to bridge that gap by providing comprehensive guidance on developing iOS Moible DApps with Flow and Cadence.
 
 4. **Success Stories**: Flow has already witnessed successful DApps like NBATopShot, which achieved significant popularity and recognition.
 

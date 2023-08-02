@@ -19,7 +19,7 @@ export const overview: CourseOverview = {
 	metadata: {
 		expertise: ExpertiseEnum.Beginner,
 		duration: '5 chapters',
-		prerequisites: ['javascript'],
+		prerequisites: [],
 		subjects: [SubjectsEnum.DApp, SubjectsEnum.Web, SubjectsEnum.Cadence, SubjectsEnum.Javascript],
 		price: 'Free',
 		faqs: [

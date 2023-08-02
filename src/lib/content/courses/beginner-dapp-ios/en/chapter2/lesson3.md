@@ -1,128 +1,184 @@
 ---
-title: Adding Javascript Code
+title: Adding Interactivity To Our DApp
 lesson: 3
 language: en
-excerpt: Adding Javascript Code
+excerpt: Adding a button and functionality to a view
 ---
 
-# Chapter 2 Lesson 3 - Adding Javascript Code
+# Chapter 2 Lesson 3 - Adding Interactivity To Our DApp
 
-> If you have already worked with React.js or Javascript code before, you may find this a bit boring. But it'll be really quick for you.
+> Before we proceed, ensure that you have completed all the previous tasks as they are essential for continuing at this point.
 
-Sup sup! In this chapter, we will be teaching you what Javascript code is and what it does. Then we will add some to our project.
+## Adding A Button
 
-> Also, before moving on, make sure to complete all previous quests. They are necessary to continuing at this point.
+Open up your `ContentView` file in Xcode and add the code below between the `Image` and `Spacer()` views to add a button to our DApp.
 
-## What is Javascript?
-
-When we talked about HTML & CSS, we concluded that HTML is the _what_, and CSS is the _styling_. Well, adding Javascript will allow us to _do things_ on the site.
-
-For example, when you go to an NFT marketplace and click a "buy" button, and it does something. Or when you load up Instagram and the application somehow fetches all your posts and likes from some database, that is Javascript.
-
-Woohoo, we love you Jacob! This sounds like so much fun. I know, it is. Let's dive into it.
-
-## Adding Some Javascript
-
-Let's add some Javascript to our application, and maybe it will make more sense.
-
-> Open up your `./pages/index.js` file. Under the `<p>` tag you added in the Quests of lesson 2, add this line of code: `<button>Hello</button>`
-
-The surrounding code should now look something like this:
-
-```javascript
-<main className={styles.main}>
-	<h1 className={styles.title}>
-		Welcome to my{' '}
-		<a href="https://academy.ecdao.org" target="_blank">
-			Emerald DApp!
-		</a>
-	</h1>
-	<p>This is a DApp created by Jacob Tucker.</p>
-
-	<button>Hello</button>
-</main>
+```swift
+Button {
+	print("Hello There! Isn't SwiftUI super simple to use?")
+} label: {
+	Text("Hello")
+		.font(.title2)
+}
+	.frame(maxWidth: .infinity, maxHeight: 40)
+	.background(Color.green)
+	.cornerRadius(15)
+	.buttonStyle(PlainButtonStyle())
 ```
 
+This SwiftUI code creates a button with the label "Hello" and sets the font size to .title2. The button is then styled with a green background and rounded corners. When the button is tapped, it will print the message "Hello There! Isn't SwiftUI super simple to use?" to the console.
+
+Here is a breakdown of the code:
+
+1. **Button**: This creates a button view in SwiftUI. It takes two closures: the first closure contains the action to be performed when the button is tapped, and the second closure contains the content of the button (i.e., the label). In this case, the button's action is to print the given message when tapped.
+2. **print("Hello There! Isn't SwiftUI super simple to use?")**: This line is the action closure for the button. It prints the message "Hello There! Isn't SwiftUI super simple to use?" to the console when the button is tapped.
+3. **label**: This is a label closure that provides the content for the button. It contains a Text view with the text "Hello" and sets the font to .title2, which is a predefined text style in SwiftUI.
+4. **.frame(maxWidth: .infinity, maxHeight: 40)**: This modifier sets the frame size of the button's content. The button's width will be set to the maximum available width, and the height will be limited to 40 points.
+5. **.background(Color.green)**: This modifier sets the background color of the button to green.
+6. **.cornerRadius(15)**: This modifier adds rounded corners to the button, with a corner radius of 15 points. This gives the button a visually appealing appearance.
+7. **.buttonStyle(PlainButtonStyle())**: This modifier applies a button style to the button. In this case, `PlainButtonStyle()` is used, which is a simple and unstyled button.
+
 ---
 
-> Go back to your browser at http://localhost:3000 and see that there is now a button under to the text in the middle of the page. It should look like:
+> Now that we have added the button your Preview should look like this:
 
-<img src="/courses/beginner-dapp/begin-lesson3.png" />
+<img src="https://i.imgur.com/FM6IGOL.png" />
 
 ---
 
-Cool! Now let's make that button do something.
+Cool! Now let's run our DApp in the simulator to see what happens when you press the button.
 
-> Go back to your code and right before your `return` keyword, add this piece of code:
+In Xcode, press the play button to build and run the application on the simulator. Keep in mind that this may take a few minutes to launch the simulator depending on how powerfull of a Mac you are using.
 
-```javascript
-function printHello() {
-	console.log('Hello there! Jacob is soooooo much cooler than me.');
+When you launch an application in the simulator an output "console" pops up in the bottom of your Xcode project, this allows you to see any outputs or errors from the running applicaiton. Go ahead and click the "Hello" button on the simulator and watch what gets printed to the console. It should look something like this:
+
+> Note: I am using a beta version of Xcode that prints addtional information about how the simulator is responding to events/actions, you may not see any of the text highlighted in yellow.
+
+<img src="https://i.imgur.com/eLrVFch.png" />
+
+Usually, developers use the console to print error messages or debug their code when they don’t know what is wrong. In this case, we used it just to make sure things were working.
+
+## Adding A Text Field
+
+Now that we have a working button, lets add a text field so the user can enter a prompt for the button to print instead of the staticly defined text we currently have. To add a text field we first need to add a varible that will hold the inputed text. To do this add the below code just above the `body` of our `ContentView`:
+
+```swift
+@State var inputText = ""
+```
+
+Overall this is fairly self explanatory, we create a `var` or variable named `inputText` and initialize it with an empty string. However, notice the `@State` before the variable declaration. SwiftUI provides various "Property Wrappers" such as `@State` that enhance the functionality of our code, in paticular the `@State` property wrapper allows SwiftUI to track and update the value of a variable as it changes. It is often used for storing and managing the state of user interface elements since anytime it value changes the view is updated to reflect the new value.
+
+Now lets add the text field itself, place the below code just above the button we created earlier:
+
+```swift
+TextField("Change Greeting", text: $inputText)
+	.frame(maxWidth: .infinity, maxHeight: 50)
+	.cornerRadius(15)
+	.padding(3)
+	.overlay(
+		RoundedRectangle(cornerRadius: 15)
+			.stroke(Color.black, lineWidth: 3)
+	)
+	.padding(.bottom, 4)
+```
+
+This SwiftUI code creates a customized TextField with the placeholder text "Change Greeting." The text field has a black border with rounded corners, and padding around the content. The height of the text field is limited to 50 points. When the user types into the text field, the value will be bound to the inputText variable.
+
+Here is a breakdown of the code:
+
+1. **TextField("Change Greeting", text: $inputText)**: This creates a `TextField` view in SwiftUI. It displays a text input field where the user can type text. The first parameter is a placeholder text that will be displayed inside the text field when there is no user input. The second parameter, text, is a "binding" to the `inputText` property we discussed in the previous breakdown. Notice the "$" infront of it, this is what creates the "binding" and allows the text field to read and write the value of the inputText variable.
+2. **.frame(maxWidth: .infinity, maxHeight: 50)**: This modifier sets the frame size of the `TextField`. The width will be set to the maximum available width, and the height will be limited to 50 points.
+3. **.cornerRadius(15)**: This modifier adds rounded corners to the `TextField`, with a corner radius of 15 points. This gives the text field a visually appealing appearance.
+4. **.padding(3)**: This adds padding around the TextField's content. The text field's content will be indented by 3 points from all sides.
+5. **.overlay(RoundedRectangle(cornerRadius: 15).stroke(Color.black, lineWidth: 3))**: This modifier adds an overlay to the `TextField`. It creates a RoundedRectangle with a corner radius of 15 points and adds a black stroke (border) with a line width of 3 points around the `TextField`. This creates a border around the text field.
+6. **.padding(.bottom, 4)**: This adds additional padding at the bottom of the TextField. The content below the TextField will be pushed down by 4 points.
+
+Notice that we have addded the `.padding(...)` modifier twice. It is important to note that the order of the modifiers is extremely important in SwiftUI as they are applied in the same order by the system when displaying the view itself. In the above `TextField` the first padding modifier is adding a small amount of padding around the text that is inputed and the border created by the overlay modifier. Whereas the second padding modifier creates padding between the entire generated view and the content below it.
+
+## Updating Our Button's Action
+
+Now we can make a quick change to the action of our button so it prints the inputed text instead of the static text value. To do this all we need to is replace the text inside the `print(...)` function with the variable we created like so:
+
+```swift
+Button {
+	print(inputText)
+} label: {
+	Text("Hello")
+		.font(.title2)
+}
+	.frame(maxWidth: .infinity, maxHeight: 40)
+	.background(Color.green)
+	.cornerRadius(15)
+	.buttonStyle(PlainButtonStyle())
+```
+
+Since the `print(...)` function only reads from the `inputText` variable there is no need to use "$" in front of it to create a binding with the variable.
+
+The complete code should look like this:
+
+```swift
+import SwiftUI
+
+struct ContentView: View {
+    @State var inputText = ""
+
+    var body: some View {
+        VStack {
+            HStack {
+                Text("Welcome to")
+                    .font(.title)
+
+                Text("Emerald DApp!")
+                    .font(.title)
+                    .foregroundStyle(Color.green)
+            }
+            .padding()
+
+            Image("emerald_logo")
+                .resizable()
+                .frame(width: 200, height: 200)
+                .padding()
+
+            TextField("Change Greeting", text: $inputText)
+                .frame(maxWidth: .infinity, maxHeight: 50)
+                .cornerRadius(15)
+                .padding(3)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 15)
+                        .stroke(Color.black, lineWidth: 3)
+                )
+                .padding(.bottom, 4)
+
+            Button {
+                print(inputText)
+            } label: {
+                Text("Hello")
+                    .font(.title2)
+            }
+                .frame(maxWidth: .infinity, maxHeight: 40)
+                .background(Color.green)
+                .cornerRadius(15)
+                .buttonStyle(PlainButtonStyle())
+
+            Spacer()
+        }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
 ```
 
-> Then, change your `<button>` to be this:
+Now press the play button again to run the updated code in the simulator. Note this time you are prompted to replace the previous build of the application, go ahead and select `Replace` on the prompt.
 
-```html
-<button onClick="{printHello}">Hello</button>
-```
+<img src="https://i.imgur.com/Tqvg13U.png" />
 
-What we just did is add a function called `printHello` that will perform some task when it is called. In this case, the "something" is a `console.log` that prints something to the console.
+Once the application is launched on the simulator click into the `TextField` to type some text, then press the "Hello" `Button` to print it to the console. If everything is working correctly it should look like the below:
 
-Then, we added an `onClick` "handler" to our button that will call the `printHello` function when we click the button on the screen.
-
-Your entire file should now look like this:
-
-```javascript
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-
-export default function Home() {
-	function printHello() {
-		console.log('Hello there! Jacob is soooooo much cooler than me.');
-	}
-
-	return (
-		<div>
-			<Head>
-				<title>Emerald DApp</title>
-				<meta name="description" content="Created by Emerald Academy" />
-				<link rel="icon" href="https://i.imgur.com/hvNtbgD.png" />
-			</Head>
-
-			<main className={styles.main}>
-				<h1 className={styles.title}>
-					Welcome to my{' '}
-					<a href="https://academy.ecdao.org" target="_blank">
-						Emerald DApp!
-					</a>
-				</h1>
-				<p>This is a DApp created by Jacob Tucker.</p>
-
-				<button onClick={printHello}>Hello</button>
-			</main>
-		</div>
-	);
-}
-```
-
----
-
-## Developer Console
-
-The Developer Console is something we can use to actually see our `console.log`s from our code. In order to open the Developer Console:
-
-1. Go back to your browser
-2. Right click the screen
-3. Click "inspect"
-4. Go to the "Console" tab
-5. Click the "Hello" button on the main screen
-
-You will see something like this:
-
-<img src="/courses/beginner-dapp/developer-console.png" />
-
-When you click the button, you will see messages popping up in the "developer console" now. Usually, developers use the developer console to print error messages or debug their code when they don't know what is wrong. Or in this case, we used it just to make sure things were working.
+<img src="https://i.imgur.com/6GrWxvh.gif" />
 
 ## Conclusion
 
@@ -132,25 +188,9 @@ Tomorrow, we will finish the base skeleton of our DApp.
 
 ## Quests
 
-Today, we will split the Quests into two different parts.
+Today, we are making the Quests a little more challenging. We have covered all the concepts needed in today's lesson however, I didn't cover exactly how to complete below. Don't worry a thorough review of the code breakdowns should give you everything you need to figure it out, and if you have any questions or problems feel free to reach out in Discord!
 
-1. In this part, we will be adding another button and changing up some styling.
-
-- Wrap the `<button>` tag we added inside of a `<div>`. Add a `className` called `styles.flex` to that `<div>`. Make sure the `<button>` is inside of it.
-- Then, add another `<button>` inside the `<div>` tag and put "Goodbye" inside of it.
-- In `./styles/Home.module.css`, add a new style for the "flex" class, and inside of it, add one line: `display: flex`.
-- Your page should now look like this:
-
-<img src="/courses/beginner-dapp/lesson3-quest1.png" />
-
-Here is the box model for what your code should look like:
-
-<img src="/courses/beginner-dapp/box-model-quest1.png" />
-
-2. Now we're going to add an action to your new button.
-
-- To your second button, add an `onClick` handler and call a function named `printGoodbye`.
-- Define a new function called `printGoodbye` under the `printHello` function
-- Make it `console.log` "Goodbye"
+1. Currently our view spans the entire width of the screen, see if you can add a modifier to the `VStack` that creates "horiztonal" giving the entire view some padding around the left and right edges.
+2. Add some code to the button action that assigns an empty string to the `inputText` variable after it prints the user input.
 
 To submit your quests, take a picture of both the screen and the console logs in the developer console.
