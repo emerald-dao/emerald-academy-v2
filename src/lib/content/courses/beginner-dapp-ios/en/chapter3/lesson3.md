@@ -7,9 +7,11 @@ excerpt: Bringing Cadence to our DApp & Deploying our Contract
 
 # Chapter 3 Lesson 3 - Bringing Cadence to our DApp & Deploying our Contract
 
-Today's lesson will be very short (WOOOHOOOO! We don't have to read Jacob's annoying course for too long!). We are going to bring our Cadence code into our DApp.
+Today's lesson will be very short (WOOOHOOOO! We don't have to read Jacob's annoying lesson for too long!). We are going to bring our Cadence code into our DApp.
 
 ## Installing the Cadence VSCode Extension
+
+Xcode is specefic to development for Apple systems, paticulary Swift. Unfortunately it doesn't support working with Cadence, Open your project folder in VSCode for these next steps.
 
 Now that we're no longer on the playground, we want to be able to have errors show up in our VSCode when we're coding Cadence. There's an extension to do that!
 
@@ -29,21 +31,11 @@ The Flow CLI will allow us to run transactions & scripts from the terminal, and 
 
 - Pasting `sh -ci "$(curl -fsSL https://storage.googleapis.com/flow-cli/install.sh)"` into a terminal
 
-**Windows**
-
-- Pasting `iex "& { $(irm 'https://storage.googleapis.com/flow-cli/install.ps1') }"` into PowerShell
-
-**Linux**
-
-- Pasting `sh -ci "$(curl -fsSL https://storage.googleapis.com/flow-cli/install.sh)"` into a terminal
-
 You can confirm the Flow CLI is installed by going to a terminal and typing `flow version`. If a version appears, you're good to go.
 
-## Flow Folder
+## Cadence Folder
 
-Inside of our Emerald DApp, let's make a new folder called `flow`.
-
-Inside of the `flow` folder, let's make another folder called `cadence`.
+Inside of our Emerald DApp, let's make a new folder called `cadence`.
 
 Inside of the `cadence` folder, let's make a `contracts` folder, a `transactions` folder, and a `scripts` folder.
 
@@ -123,7 +115,7 @@ Sweet! Now let's deploy our contract to TestNet so that we can start interacting
 
 ```json
 "contracts": {
-  "HelloWorld": "./flow/cadence/contracts/HelloWorld.cdc"
+  "HelloWorld": "./cadence/contracts/HelloWorld.cdc"
 },
 ```
 
@@ -192,7 +184,7 @@ Inside of your `flow.json`, change the "contracts" object to look like this:
 ```json
 "contracts": {
   "HelloWorld": {
-    "source": "./flow/cadence/contracts/HelloWorld.cdc",
+    "source": "./cadence/contracts/HelloWorld.cdc",
     "aliases": {
       "testnet": "YOUR CONTRACT ADDRESS"
     }

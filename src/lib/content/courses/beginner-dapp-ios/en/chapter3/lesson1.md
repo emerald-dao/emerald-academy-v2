@@ -9,9 +9,7 @@ lessonVideoDescription: Overview of smart contracts, accounts, and deploying our
 
 # Chapter 3 Lesson 1 - Our First Smart Contract
 
-Hello beautiful people! Welcome to the glorious Chapter 3, in which we will start diving into actual Blockchain stuff. Before we do some blockchain stuff in our DApp, it's important to give a brief (2 lesson long) introduction to Cadence.
-
-Today, we will be learning the very basics of Cadence code by implementing our first Smart Contract. That is, how to declare a variable, how to write a function, etc.
+Welcome to Chapter 3, where we'll dive into the exciting world of Blockchain development. Before we start building our DApp, let's first get acquainted with Cadence, the programming language we'll be using for smart contract development. In this lesson, we'll learn the basics of Cadence code by creating our very first smart contract. We'll explore how to declare variables, write functions, and more.
 
 ## Our First Smart Contract
 
@@ -140,10 +138,8 @@ Today, we learned how to deploy our first contract, declare a variable, write a 
 
 For todays quest, please load up a new Flow playground by going to https://play.onflow.org just like we did in this lesson. You will use that for writing your code.
 
-1. Deploy a contract to account `0x03` called "JacobTucker". Inside that contract, declare a **constant** variable named `is`, and make it have type `String`. Initialize it to "the best" when your contract gets deployed.
+1. Deploy a contract to account `0x03` called "EmeraldAcademy". Inside that contract, declare a **constant** variable named `is`, and make it have type `String`. Initialize it to "the best" when your contract gets deployed.
 
 2. Check that your variable `is` actually equals "the best" by executing a script to read that variable. Include a screenshot of the output.
 
-It's so awesome that I get to make these quests. I love this.
-
-Anyways, please remember to store your answers in some way so I can review them if you submit them to me. Good luck!
+Please remember to store your answers in some way so I can review them if you submit them to me. Good luck!
