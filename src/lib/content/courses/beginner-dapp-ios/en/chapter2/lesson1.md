@@ -60,7 +60,7 @@ Before we dive into the rest of the tutorial, let's make sure we have the necess
 
 ## Creating Our DApp Project
 
-> Note I am using Xcode Version 15, your Xcode version might look slightly different as Apple releases new updates.
+> Note I am using Xcode Version 15 Beta, your Xcode version might look slightly different as Apple releases new updates.
 
 1. Open Xcode, and from the welcome screen, select "Create a new Xcode project"
    <img src="https://i.imgur.com/7IutQqM.png" />
