@@ -248,10 +248,11 @@ Xcode makes it super simple for us to create custom colors that can be applied t
 
 <img src="https://i.imgur.com/CYPh7XV.gif" />
 
-Now create two more custom colors:
+Now create three more custom colors:
 
-1. `defaultAccentColor` with a Hex value of `#38E8C6`
-2. `defaultTextColor` with a Hex value of `#1E3A8A`
+1. `defaultTextColor` with a Hex value of `#1E3A8A`
+2. `defaultAccentColor` with a Hex value of `#38E8C6`
+3. `secondaryAccentColor` with a Hex value of `#00344B`
 
 While we can access these colors by passing the name as a parameter to the `Color` view, that is prone to errors and is franky a pain the a\*\*. The good news is we can add something called an `extension` to make our custom colors work the same way as the system colors.
 
@@ -261,9 +262,10 @@ Create a new SwiftUI file called `Colors` and replace the boilerplate with the f
 import SwiftUI
 
 extension Color {
-    static let defaultBackgroundColor = Color("defualtBackgroundColor")
-    static let defaultAccentColor = Color("defualtAccentColor")
+    static let defaultBackgroundColor = Color("defaultBackgroundColor")
     static let defaultTextColor = Color("defaultTextColor")
+    static let defaultAccentColor = Color("defaultAccentColor")
+    static let secondaryAccentColor = Color("secondaryAccentColor")
 }
 ```
 
@@ -279,13 +281,13 @@ ZStack {
 	Color.defaultBackgroundColor
 		.ignoresSafeArea()
 
-	Group {
-...
+    ...
+}
 ```
 
 ### Refactoring `ContentView`
 
-Replace the code in `ContentView` with the following code:
+The DApp we are building is one where you can change a “Greeting” value inside our contract, and then display it to the public. Let's refactor our code in `ContentView` to provide a display for this data. Replace the code in `ContentView` with the following code:
 
 ```swift
 import SwiftUI
@@ -362,9 +364,10 @@ In Chapter 3, we will start exploring some blockchain code.
 
 ## Quests
 
-1. Change the `printHello` function to be called `runTransaction`.
-2. Change the "Hello" text inside the button to "Run Transaction".
-3. Inside the `runTransaction` function, add some code to console log your `newGreeting` variable to the developer console.
-4. Go back to your webpage, type something into the input box, and press "Run Transaction". Open your developer console and you will see some thing being printed!
+1. Update the background color of your `ButtonView` to use the `defaultAccentColor`.
+2. Update the `Text` of your `ButtonView` to 'defaultTextColor'.
+3. Update the "Welcome to" text in your `SignInView` to white.
+4. Update the "Emerald DApp!" text in your `SignInView` to use the `defaultAccentColor`.
+5. Add another `ButtonView` to the bottom of your `ContentView`, the action should set the `loggedIn` variable in your `RouterView` to `false`.
 
-To upload your quests, show us your `./pages/index.js` file and take a screenshot of your `newGreeting` being printed to the developer console.
+To upload your quests, show us your code for the modified files.
