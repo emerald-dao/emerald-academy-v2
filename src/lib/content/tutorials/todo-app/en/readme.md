@@ -14,7 +14,7 @@ Each todo item will be a resource. Resources are how unique digital assets are r
 
 ## Creating a resource
 
-3/ To declare a resource, we first need to specify what data is contained within it, along with an "init" function which sets its initial values. We'll also add a "markCompleted" function that will allow someone to denote the todo item as completed.
+To declare a resource, we first need to specify what data is contained within it, along with an "init" function which sets its initial values. We'll also add a "markCompleted" function that will allow someone to denote the todo item as completed.
 
 <img src="https://pbs.twimg.com/media/F2o-fKZbkAA6ghT?format=jpg&name=large" width="600" />
 
