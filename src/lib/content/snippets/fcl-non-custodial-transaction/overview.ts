@@ -13,7 +13,7 @@ export const overview: SnippetOverview = {
   },
   excerpt: 'Learn how to execute a basic transaction with FCL using a non-custodial wallet (aka with a private key).',
   metadata: {
-    subjects: [SubjectsEnum.DApp]
+    subjects: [SubjectsEnum.DApp, SubjectsEnum.Javascript]
   },
   codeLink: 'https://codesandbox.io/s/fcl-non-custodial-transaction-v1-zjp3pr'
 };

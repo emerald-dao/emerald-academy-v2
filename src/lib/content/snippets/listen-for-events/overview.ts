@@ -13,7 +13,7 @@ export const overview: SnippetOverview = {
   },
   excerpt: 'Poll for events happening on chain using FCL.',
   metadata: {
-    subjects: [SubjectsEnum.DApp]
+    subjects: [SubjectsEnum.DApp, SubjectsEnum.Javascript]
   },
   codeLink: 'https://codesandbox.io/s/listen-for-events-njfli3'
 };
