@@ -16,5 +16,4 @@ export const overview: SnippetOverview = {
     metadata: {
         subjects: [SubjectsEnum.Cadence]
     },
-    codeLink: 'https://github.com/OpeOginni/your-flow-token/blob/master/cadence/contracts/TokenWithInitMint.cdc'
 };

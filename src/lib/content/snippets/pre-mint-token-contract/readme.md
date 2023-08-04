@@ -3,7 +3,7 @@ layout: examples
 ---
 
 ```cadence
-import FungibleToken from "FungibleToken.cdc"
+import FungibleToken from 0xf233dcee88fe0abe
 
  access(all) contract ExampleToken: FungibleToken {
     pub var totalSupply: UFix64 
