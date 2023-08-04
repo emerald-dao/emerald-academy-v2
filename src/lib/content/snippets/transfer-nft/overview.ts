@@ -12,7 +12,7 @@ export const overview: SnippetOverview = {
         isVerified: true,
         walletAddress: '0x99bd48c8036e2876'
     },
-    excerpt: 'Transfer a NonFungibleToken-implementing NFT in Cadence.',
+    excerpt: 'Learn how to transfer an NFT in Cadence using the example Avataaars contract.',
     metadata: {
         subjects: [SubjectsEnum.Cadence]
     },

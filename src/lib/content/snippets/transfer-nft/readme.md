@@ -3,26 +3,26 @@ layout: examples
 ---
 
 ```cadence
-import NonFungibleToken from "NonFungibleToken"
-import ExampleNFT from "ExampleNFT"
+import NonFungibleToken from 0x1d7e57aa55817448
+import Avataaars from 0xcb9a812737bbc679
 
 // The person trasnferring the NFT is the one who signs this
 
 transaction(recipient: Address, nftID: UInt64) {
 
     // Reference to the withdrawer's collection
-    let withdrawRef: &ExampleNFT.Collection
+    let withdrawRef: &Avataaars.Collection
 
     // Reference of the collection to deposit the NFT to
-    let depositRef: &ExampleNFT.Collection{NonFungibleToken.Receiver}
+    let depositRef: &Avataaars.Collection{NonFungibleToken.Receiver}
 
     prepare(signer: AuthAccount) {
         // borrow a reference to the signer's NFT collection
-        self.withdrawRef = signer.borrow<&ExampleNFT.Collection>(from: ExampleNFT.CollectionStoragePath)
+        self.withdrawRef = signer.borrow<&Avataaars.Collection>(from: Avataaars.CollectionStoragePath)
                 ?? panic("Account does not store an object at the specified path")
 
-        self.depositRef = getAccount(recipient).getCapability(ExampleNFT.CollectionPublicPath)
-                            .borrow<&ExampleNFT.Collection{NonFungibleToken.CollectionPublic}>()
+        self.depositRef = getAccount(recipient).getCapability(Avataaars.CollectionPublicPath)
+                            .borrow<&Avataaars.Collection{NonFungibleToken.CollectionPublic}>()
                             ?? panic("Could not borrow a reference to the receiver's collection")
 
     }
