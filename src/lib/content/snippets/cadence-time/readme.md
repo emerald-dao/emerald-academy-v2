@@ -11,10 +11,10 @@ pub fun main() {
   let oneMinuteFromNow: UFix64 = currentTime + 60.0
 
   // 1 hour from now
-  let oneHourFromNow: UFix64 = oneMinuteFromNow * 60.0
+  let oneHourFromNow: UFix64 = currentTime + (60.0 * 60.0)
 
   // 1 day from now
-  let oneDayFromNow: UFix64 = oneHourFromNow * 24.0
+  let oneDayFromNow: UFix64 = currentTime + (60.0 * 60.0 * 24.0)
 
   // and so on...
 }
