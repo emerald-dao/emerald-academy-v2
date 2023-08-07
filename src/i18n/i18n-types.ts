@@ -124,7 +124,7 @@ type RootTranslation = {
 	/**
 	 * W​e​b​ ​D​e​v
 	 */
-	'web dev': string
+	web: string
 	/**
 	 * C​a​d​e​n​c​e
 	 */
@@ -132,7 +132,7 @@ type RootTranslation = {
 	/**
 	 * D​A​p​p
 	 */
-	'dapp dev': string
+	dapp: string
 	/**
 	 * J​a​v​a​s​c​r​i​p​t
 	 */
@@ -263,7 +263,7 @@ export type TranslationFunctions = {
 	/**
 	 * Web Dev
 	 */
-	'web dev': () => LocalizedString
+	web: () => LocalizedString
 	/**
 	 * Cadence
 	 */
@@ -271,7 +271,7 @@ export type TranslationFunctions = {
 	/**
 	 * DApp
 	 */
-	'dapp dev': () => LocalizedString
+	dapp: () => LocalizedString
 	/**
 	 * Javascript
 	 */
