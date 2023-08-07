@@ -4,6 +4,8 @@ layout: examples
 
 Your contract must implement a contract interface in order to be imported. In this case, we're borrowing a contract that implements the `NonFungibleToken` contract interface.
 
+You can only access fields/functions present in the contract interface.
+
 ```cadence
 import NonFungibleToken from 0x1d7e57aa55817448
 
