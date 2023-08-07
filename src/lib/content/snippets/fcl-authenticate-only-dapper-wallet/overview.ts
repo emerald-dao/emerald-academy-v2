@@ -3,7 +3,7 @@ import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 import type { SnippetOverview } from '$lib/types/content/snippet.interface';
 
 export const overview: SnippetOverview = {
-  title: 'Dapper-Only Authentication using FCL',
+  title: 'Dapper Wallet-Only Authentication using FCL',
   contentType: ContentTypeEnum.Snippet,
   author: {
     name: 'Jacob Tucker',
