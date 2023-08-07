@@ -16,7 +16,6 @@
 		<h5>What would you like to learn?</h5>
 		<div class="first-wrapper">
 			{#each data.featuredSubjects as subject}
-				<p>{JSON.stringify(subject)}</p>
 				<a class="card column-2" href={`${$page.url.href}/${transformHeadingToUrl(subject.name)}`}>
 					<div class="row-3 align-center">
 						<div class="subject-icon">
