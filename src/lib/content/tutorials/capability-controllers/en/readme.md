@@ -1,7 +1,5 @@
 ---
 layout: examples
-lessonVideoUrl: https://www.youtube.com/embed/sy_aRvozdOw
-lessonVideoDescription: Follow along in a video format.
 ---
 
 The old Cadence capability system is being deprecated. Namely, `link` and `getCapability` are not what you should use anymore to create capabilities.
