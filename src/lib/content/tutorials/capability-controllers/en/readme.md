@@ -269,4 +269,6 @@ In the new way, you must know the `capabilityID`. Unfortunately this means that 
 
 There are other new features included in the new CapCon system, but I wanted this to outline the exact differences between the old Capabilities and new CapCon api. I hope this helped!
 
+Also, if you'd like to view the official proposal for Cap Cons, go <a href="https://github.com/onflow/flips/blob/f7d2b5c99dbed3821c2662f28b06f6646b5eb3ee/cadence/20220203-capability-controllers.md">here</a>.
+
 Till next time ~ Jacob Tucker
