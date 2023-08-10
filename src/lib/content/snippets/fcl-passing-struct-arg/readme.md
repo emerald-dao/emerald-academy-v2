@@ -28,6 +28,7 @@ async function executeScript() {
             { name: "revealed", value: true }
           ]
         },
+        // `A.${contract address without the 0x}${contract name}${struct name}`
         t.Struct(`A.4c74cb420f4eaa84.BasicBeastsNFTStakingRewards.RewardItem`, [
           { name: "id", value: t.UInt32 },
           { name: "rewardItemTemplateID", value: t.UInt32 },
