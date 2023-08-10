@@ -14,8 +14,8 @@ async function executeScript() {
     cadence: `
     import BasicBeastsNFTStakingRewards from 0x4c74cb420f4eaa84
     
-    pub fun main(ri: BasicBeastsNFTStakingRewards.RewardItem): Bool {
-      return true
+    pub fun main(rewardItem: BasicBeastsNFTStakingRewards.RewardItem): BasicBeastsNFTStakingRewards.RewardItem {
+      return rewardItem
     }
     `,
     args: (arg, t) => [
