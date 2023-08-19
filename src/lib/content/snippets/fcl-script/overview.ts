@@ -14,7 +14,7 @@ export const overview: SnippetOverview = {
   },
   excerpt: 'Learn how to execute a basic script using FCL.',
   metadata: {
-    subjects: [SubjectsEnum.DApp]
+    subjects: [SubjectsEnum.DApp, SubjectsEnum.Javascript]
   },
   codeLink: 'https://codesandbox.io/s/fcl-script-3l8vkl'
 };

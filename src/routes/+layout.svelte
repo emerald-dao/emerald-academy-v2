@@ -34,7 +34,7 @@
 			prefetch: true
 		},
 		{
-			name: 'Snippets',
+			name: 'Code Snippets',
 			url: `/${$locale}/snippets`,
 			prefetch: true
 		},

@@ -32,7 +32,7 @@ Replace the `<main>` tag and everything inside of it with this code:
 <main className="{styles.main}">
 	<p>{greeting}</p>
 	<div className="{styles.flex}">
-		<input onChange={(e) => setNewGreeting(e.target.value)} placeholder="Hello, Idiots!" />
+		<input onChange={(e) => setNewGreeting(e.target.value)} placeholder="Hello, World!" />
 		<button onClick="{runTransaction}">Run Transaction</button>
 	</div>
 </main>

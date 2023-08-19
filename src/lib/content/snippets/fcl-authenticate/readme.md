@@ -9,13 +9,17 @@ import { useEffect, useState } from "react";
 // For mainnet:
 config({
   "accessNode.api": "https://rest-mainnet.onflow.org",
-  "discovery.wallet": "https://fcl-discovery.onflow.org/authn"
+  "discovery.wallet": "https://fcl-discovery.onflow.org/authn",
+  "flow.network": "mainnet",
+  "discovery.authn.include": ["0xead892083b3e2c6c"] // adds in Dapper Wallet
 });
 
 // For testnet:
 // config({
 //   "accessNode.api": "https://rest-testnet.onflow.org",
-//   "discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn"
+//   "discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn",
+//   "flow.network": "testnet",
+//   "discovery.authn.include": ["0x82ec283f88a62e65"] // adds in Dapper Wallet
 // });
 
 export default function App() {

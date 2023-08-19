@@ -14,7 +14,7 @@ export const overview: SnippetOverview = {
   },
   excerpt: 'Learn how to execute a basic transaction with FCL using a custodial wallet (Blocto, Lilico, etc).',
   metadata: {
-    subjects: [SubjectsEnum.DApp]
+    subjects: [SubjectsEnum.DApp, SubjectsEnum.Javascript]
   },
   codeLink: 'https://codesandbox.io/s/fcl-custodial-transaction-f862wz'
 };

@@ -195,7 +195,7 @@ export default function Home() {
 
 				<div className={styles.flex}>
 					<button onClick={runTransaction}>Run Transaction</button>
-					<input onChange={(e) => setNewGreeting(e.target.value)} placeholder="Hello, Idiots!" />
+					<input onChange={(e) => setNewGreeting(e.target.value)} placeholder="Hello, World!" />
 				</div>
 			</main>
 		</div>

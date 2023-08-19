@@ -1,6 +1,6 @@
 export async function GET() {
-	return new Response(
-		`
+    return new Response(
+        `
         <?xml version="1.0" encoding="UTF-8" ?>
         <urlset
             xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
@@ -57,7 +57,7 @@ export async function GET() {
                 <priority>0.64</priority>
             </url>
             <url>
-                <loc>https://academy.ecdao.org/en/catalog/dapp-dev</loc>
+                <loc>https://academy.ecdao.org/en/catalog/dapp</loc>
                 <lastmod>2023-05-30T18:16:23+00:00</lastmod>
                 <priority>0.64</priority>
             </url>
@@ -218,10 +218,10 @@ export async function GET() {
             </url>
 
         </urlset>`.trim(),
-		{
-			headers: {
-				'Content-Type': 'application/xml'
-			}
-		}
-	);
+        {
+            headers: {
+                'Content-Type': 'application/xml'
+            }
+        }
+    );
 }
