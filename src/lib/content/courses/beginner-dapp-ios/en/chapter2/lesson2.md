@@ -80,7 +80,7 @@ Now, let's break down the code:
 
 - **Import SwiftUI**: The code begins with importing the SwiftUI framework, which allows us to use SwiftUI components.
 - **ContentView**: A struct is defined with the name `ContentView`, which conforms to the `View` protocol. This means we are creating a view in SwiftUI.
-- **var body: some View { ... }**: The `body` property represents the content of the view. It uses a closure that returns a `View`.
+- `var body: some View { ... }`: The `body` property represents the content of the view. It uses a closure that returns a `View`.
 - **VStack**: A `VStack` is used to arrange the views vertically in a column. All views inside the `VStack` will be stacked on top of each other.
 - **HStack**: Inside the `VStack`, there's an `HStack` used to arrange views horizontally in a row. It contains two `Text` views:
   - The first `Text` view displays "Welcome to". The `.font(.title)` modifier sets the font size to `.title`, which is a system-defined font size for titles.

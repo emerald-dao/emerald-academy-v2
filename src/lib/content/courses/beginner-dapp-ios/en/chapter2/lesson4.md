@@ -160,9 +160,9 @@ struct RouterView_Previews: PreviewProvider {
 
 Let's review the code that is new to this example:
 
-1. **ZStack {...}**: This creates a `ZStack` (z-index stack) container. In SwiftUI, a `ZStack` allows views to be stacked on top of each other, and the order of the views determines their visibility.
-2. **Group {...}**: This creates a `Group` container. In SwiftUI, a `Group` is used to group views together. It is useful for conditionally showing different views based on conditions or applying the same modifiers to multiple views.
-3. **if !loggedIn {...} else {...}**: This is a conditional statement that checks whether `loggedIn` is false, the "!" is a shorthand for "if false". If `loggedIn` is false, it displays the `SignInView()`; otherwise, it displays the `ContentView()`.
+1. `ZStack {...}`: This creates a `ZStack` (z-index stack) container. In SwiftUI, a `ZStack` allows views to be stacked on top of each other, and the order of the views determines their visibility.
+2. `Group {...}`: This creates a `Group` container. In SwiftUI, a `Group` is used to group views together. It is useful for conditionally showing different views based on conditions or applying the same modifiers to multiple views.
+3. `if !loggedIn {...} else {...}`: This is a conditional statement that checks whether `loggedIn` is false, the "!" is a shorthand for "if false". If `loggedIn` is false, it displays the `SignInView()`; otherwise, it displays the `ContentView()`.
 
 Here is what it looks like in Xcode:
 
