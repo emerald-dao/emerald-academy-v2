@@ -62,6 +62,7 @@ const ru: BaseTranslation = {
 	[SubjectsEnum.Javascript]: 'Javascript',
 	[SubjectsEnum.IPFS]: 'IPFS',
 	[SubjectsEnum.Mobile]: 'Mobile',
+	[SubjectsEnum.Swift]: 'Swift',
 	[SubjectsEnum.Unity]: 'Unity',
 	[SubjectsEnum.Go]: 'Go',
 

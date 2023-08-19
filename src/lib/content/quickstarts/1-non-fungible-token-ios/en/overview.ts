@@ -20,6 +20,6 @@ export const overview: Quickstart = {
 	excerpt:
 		'A Mobile DApp that lets users create an empty collection, mint some pre-loaded NFTs, and transfer them to another account on Flow testnet.',
 	metadata: {
-		subjects: [SubjectsEnum.DApp]
+		subjects: [SubjectsEnum.DApp, SubjectsEnum.Swift]
 	}
 };
