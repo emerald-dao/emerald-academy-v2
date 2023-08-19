@@ -27,7 +27,7 @@ Dapper Labs' experience with CryptoKitties on Ethereum led them to identify cert
 
 Here are some important characteristics that set Flow apart:
 
-1. **Cost-effectiveness**: Compared to Ethereum, Flow is substantially cheaper for performing actions on the blockchain. Ethereum transactions can cost around $80, while Flow transactions cost fractions of a cent. This cost advantage makes Flow a more accessible platform for developing production-level DApps.
+1. **Cost-effectiveness**: Compared to Ethereum, Flow is substantially cheaper for performing actions on the blockchain. Ethereum transactions can vary widely depending on current demand but cost a minimum of several dollars per transaction... While Flow transactions cost fractions of a cent... This cost advantage makes Flow a more accessible platform for developing production-level DApps.
 
 2. **Emerging Platform**: As a relatively new blockchain, Flow is continually evolving and improving. While this means there may be occasional bugs, it also presents an excellent opportunity to learn and utilize Flow and Cadence.
 
