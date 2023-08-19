@@ -1,225 +1,160 @@
 ---
-title: Finishing the Skeleton
+title: Passing in Arguments to a Script
 lesson: 4
 language: en
-excerpt: Finishing the Skeleton
+excerpt: Passing in Arguments to a Script
 ---
 
-# Chapter 4 Lesson 4 - Sending a Transaction
+# Chapter 4 Lesson 4 - Passing in Arguments to a Script
 
-Hi! Today, we will learn how to send a transaction using FCL so we can change our greeting in our DApp.
+In the last lesson, we learned how to execute a script with FCL. Today, we're going to learn how to pass arguments to the script.
 
-## Quick Overview of Transactions
+## Important Note
 
-If you remember back from Chapter 1, a transaction will allow us to _change_ information inside our smart contracts. In addition, transactions cost **gas** and require someone to **sign** the transaction and send it to the blockchain.
+1. None of today's material will involve changing our Emerald DApp. This is a standalone lesson to help you understand arguments.
+2. **Take Notes** - All of what you learn today is **the exact same for transactions**. We will be using transactions tomorrow ;)
 
-We will utilize a transaction to change our `greeting` variable inside our smart contract, which we deployed in Chapter 4 Lesson 3.
+## Quick Overview of Yesterday
 
-## Overview of What We Have So Far
+Yesterday, we made executed a script using FCL like this:
 
-Before we add the final pieces of functionality to our DApp, let's take a quick breather to see what we currently have:
+```swift
+func getGreeting() async {
+    do {
+        let result = try await fcl.query(script: """
+            import HelloWorld from 0xDeployer
 
-<img src="/courses/beginner-dapp/completed-lesson2-quest.png" />
+            pub fun main(): String {
+              return HelloWorld.greeting
+            }
+        """).decode(String.self)
 
-This is our application. It:
-
-1. DONE: Lets us log in with our wallet
-2. DONE: Automatically gets the greeting from the contract every time the page refreshes and displays it at the bottom
-3. NOT DONE: Allows us to click a "Run Transaction" button that should run a transaction, using the input we type into the box as the `newGreeting`
-
-We must complete step 3 in order to be fully done with the functionality of our DApp.
-
-The good news is we already have the `runTransaction` function, we just need to put stuff inside it!
-
-Here is _something similar_ to what your `./pages/index.js` file should be right now, after completing the quests from the previous few lessons:
-
-```javascript
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-import Nav from '../components/Nav.jsx';
-import { useState, useEffect } from 'react';
-import * as fcl from '@onflow/fcl';
-
-export default function Home() {
-	const [greeting, setGreeting] = useState('');
-	const [newGreeting, setNewGreeting] = useState('');
-
-	function runTransaction() {
-		console.log('Running transaction!');
-		console.log('Changing the greeting to: ' + newGreeting);
-	}
-
-	async function executeScript() {
-		const response = await fcl.query({
-			cadence: `
-      import HelloWorld from 0x90250c4359cebac7 // THIS WAS MY ADDRESS, USE YOURS
-  
-      pub fun main(): String {
-          return HelloWorld.greeting
-      }
-      `,
-			args: (arg, t) => []
-		});
-
-		setGreeting(response);
-	}
-
-	useEffect(() => {
-		executeScript();
-	}, []);
-
-	return (
-		<div>
-			<Head>
-				<title>Emerald DApp</title>
-				<meta name="description" content="Created by Emerald Academy" />
-				<link rel="icon" href="https://i.imgur.com/hvNtbgD.png" />
-			</Head>
-
-			<Nav />
-
-			<main className={styles.main}>
-				<h1 className={styles.title}>
-					Welcome to my{' '}
-					<a href="https://academy.ecdao.org" target="_blank">
-						Emerald DApp!
-					</a>
-				</h1>
-				<p>This is a DApp created by Jacob Tucker.</p>
-
-				<div className={styles.flex}>
-					<button onClick={runTransaction}>Run Transaction</button>
-					<input onChange={(e) => setNewGreeting(e.target.value)} placeholder="Hello, Idiots!" />
-				</div>
-				<p>{greeting}</p>
-			</main>
-		</div>
-	);
+        await MainActor.run {
+            greetingDisplay = result
+        }
+    } catch {
+        print(error)
+    }
 }
 ```
 
-## Sending Transactions Using FCL
+But when typing in `fcl.query` in might have noticed Xcode's code completion showing an `arg` parameter.
 
-> Lets implement the `runTransaction` function by sending a transaction to change our greeting using FCL.
+<img src="https://i.imgur.com/ybGdnlS.png" />
 
-I will show you the default code to send a transaction, and then explain how it works:
+Why didn't we use that one? Well, our Cadence code didn't take any arguments. If you look at the Cadence code...
 
-```javascript
-async function runTransaction() {
-  const transactionId = await fcl.mutate({
-    cadence: ``, // CADENCE CODE GOES IN THESE ``
-    args: (arg, t) => [], // ARGUMENTS GO IN HERE
-    proposer: , // PROPOSER GOES HERE
-    payer: , // PAYER GOES HERE
-    authorizations: [], // AUTHORIZATIONS GO HERE
-    limit: // GAS LIMIT GOES HERE
-  })
+```cadence
+pub fun main(): String
+```
 
-  console.log("Here is the transactionId: " + transactionId);
+...you'll see it doesn't take any arguments. But what if we had a Cadence script like this?
+
+```cadence
+pub fun main(a: Int, b: Int): Int {
+  // Example:
+  // a = 2
+  // b = 3
+  // result = 5
+  return a + b
 }
 ```
 
-You'll see right off the bat that there is a lot more going on. After all, transactions are definitely more complicated.
+Or something like this?
 
-First of all, instead of `await fcl.query()`, we use `await fcl.mutate()`. `mutate` signals that this is a transaction, whereas `query` is for scripts.
+```cadence
+pub fun main(greeting: String, person: String): String {
+  // Example:
+  // greeting = "Hello"
+  // person = "Jacob"
+  // result = "Hello, Jacob!"
+  return greeting.concat(", ").concat(person).concat("!")
+}
+```
 
-You already understand the `cadence` and `args` part. But what are the rest?
+Now we need to pass in arguments.
 
-1. `proposer` - this is the _proposer_ of a transaction (the person sending it to the blockchain).
-2. `payer` - this is the _payer_ of the transaction. Like we mentioned, transactions cost gas. Although transactions on Flow cost basically nothing (in fact they're free since wallets usually cover the cost), you still need to provide someone to pay.
-3. `authorizations` - this is a list of _authorizors_ of the transaction. Essentially, these are people that are saying "I am signing this transaction" and thus grant the transaction access to their account (for example, sending an NFT, paying someone, etc). If you go through our [Beginner Cadence Course](https://github.com/emerald-dao/beginner-cadence-course), you will learn much more about what this means.
-4. `limit` - the gas limit of the transaction. Usually, I just put 999 for all my transactions.
+## Passing in Arguments Using FCL
 
-> Quick side note: transactions on Flow are very unique in that they have 3 roles: a payer, proposer, and authorizor. If you want to learn more about it, go here: https://docs.onflow.org/concepts/transaction-signing/#signer-roles
+Here is an example of passing in arguments, and then we will explain...
 
-The cool thing is that all of this ends up being pretty easy in the end. In our case, we want to send a transaction that changes our greeting, or in other words, calls the `changeGreeting` function in our contract. We already wrote this transaction in Chapter 4 Lesson 2!
+```swift
+let result2 = try await fcl.query(script: """
+    pub fun main(a: Int, b: Int): Int {
+      // Example:
+      // a = 2
+      // b = 3
+      // result = 5
+      return a + b
+    }
+""", args: [.int(2), .int(3)])
+```
 
-> Let's implement our function fully now...
+Now, there are a few things we should talk about to help you understand:
+
+1. The args parameter accepts an array of Cadence values, so naturally, all args go inside the `[]`.
+2. To create a new argument type a `.` then select the proper type from the code completion drop down.
+3. Place the value of the argument inside the parathesis.
+
+### Different Types
+
+Let's look at another example using tons of different types:
 
 ```javascript
-async function runTransaction() {
-	const transactionId = await fcl.mutate({
+async function executeScript() {
+	const response = await fcl.query({
 		cadence: `
-    import HelloWorld from 0x90250c4359cebac7 // THIS WAS MY ADDRESS, USE YOURS
+    pub fun main(
+      a: Int, 
+      b: String, 
+      c: UFix64, 
+      d: Address, 
+      e: Bool,
+      f: String?,
+      g: [Int],
+      h: {String: Address}
+    ) {
+      // Example:
+      // a = 2
+      // b = "Jacob is so cool"
+      // c = 5.0
+      // d = 0x6c0d53c676256e8c
+      // e = true
+      // f = nil
+      // g = [1, 2, 3]
+      // h = {"FLOAT": 0x2d4c3caffbeab845, "EmeraldID": 0x39e42c67cc851cfb}
 
-    transaction(myNewGreeting: String) {
-
-      prepare(signer: AuthAccount) {}
-
-      execute {
-        HelloWorld.changeGreeting(newGreeting: myNewGreeting)
-      }
+      // something happens here... but it doesn't matter
     }
     `,
-		args: (arg, t) => [arg(newGreeting, t.String)],
-		proposer: fcl.authz,
-		payer: fcl.authz,
-		authorizations: [fcl.authz],
-		limit: 999
+		args: (arg, t) => [
+			arg('2', t.Int),
+			arg('Jacob is so cool', t.String),
+			arg('5.0', t.UFix64),
+			arg('0x6c0d53c676256e8c', t.Address),
+			arg(true, t.Bool),
+			arg(null, t.Optional(t.String)),
+			arg([1, 2, 3], t.Array(t.Int)),
+			arg(
+				[
+					{ key: 'FLOAT', value: '0x2d4c3caffbeab845' },
+					{ key: 'EmeraldID', value: '0x39e42c67cc851cfb' }
+				],
+				t.Dictionary({ key: t.String, value: t.Address })
+			)
+		]
 	});
-
-	console.log('Here is the transactionId: ' + transactionId);
 }
 ```
 
-Okay, so what the heck just happened?
-
-1. We filled in our Cadence script. Make sure to change the import to the contract that _you_ deployed, not mine!
-2. We added an argument because our transaction takes in 1 argument: `myNewGreeting: String`. We learned how to pass in arguments yesterday. The value we pass in is our `newGreeting` variable that we store using `useState`. We already made sure this was the value we type into the box in Chapter 2 Lesson 4.
-3. We use something called `fcl.authz` for the `proposer`, `payer`, and `authorizations` array. What does `fcl.authz` mean? `fcl.authz` means "the person who is currently logged in." So when we run the transaction, whoever is logged in will fulfill all of those 3 roles.
-4. We set the gas limit to 999 because whatever. If the transaction failed because of gas limits (it won't because this transaction is so cheap), we could just increase that number.
-
-> Try clicking the "Run Transaction" button now after typing something into the input field. You should be able to run a transaction!
-
-<img src="/courses/beginner-dapp/send-transaction.png" />
-
-If you wait for a couple minutes and refresh the page, you will hopefully see your updated greeting displaying on the page ;)
-
-Let's learn a little more about what's actually happening and how we can make this smoother...
-
-## What is the `transactionId`?
-
-You may be wondering what the `transactionId` is that is being returned from your function. Well, that's a unique hash you can use to search for your transaction.
-
-After you click "Approve" on the Blocto transaction below...
-
-<img src="/courses/beginner-dapp/send-transaction.png" />
-
-...you should be able to open up your developer console and see a bunch of letters and numbers appearing. This is because we `console.log` the `transactionId` in our `runTransaction` function.
-
-<img src="/courses/beginner-dapp/transaction-id.png" />
-
-A transactionId can help you find information about your transaction. More specifically, you can do this on Flowscan!
-
-> Copy + paste that transactionId, go to https://testnet.flowscan.org/, and paste it into the search bar. You should be able to discover your transaction!
-
-<img src="/courses/beginner-dapp/testnet-flowscan.png" />
-
-## Updating the Displayed Greeting After Transaction
-
-Now that we are changing the greeting, we want to make sure our frontend reflects this change. The problem is, right now, the greeting on our frontend only updates if the page refreshes. So lets add a simple call to `executeScript` after our transaction is done!
-
-> Inside of `runTransaction`, after the `console.log`, add these lines:
-
-```javascript
-await fcl.tx(transactionId).onceSealed();
-executeScript();
-```
-
-What this will do is take the `transactionId` we got from our transaction, wait for it to be completely done (that is what `onceSealed()` means), and then call our `executeScript` function which will read the newly updated greeting from our contract and change it on our webpage.
+Hopefully, this helps you understand the different types of arguments you can pass in :)
 
 ## Conclusion
 
-CONGRADULATIONS! You have officially made a DApp that sends transactions and scripts! WOW, I am so proud and hype for you.
-
-This also concludes Chapter 4. In Chapter 5, we will finalize our DApp.
+That's it! Not so bad, right?
 
 ## Quests
 
-There are two lovely quests for today.
+I only have one quest for you today, and it's almost exactly what we reviewed already :)
 
-1. I deployed a contract called `SimpleTest` to an account with an address of `0x6c0d53c676256e8c`. I want you to make a button that, when clicked, sends a transaction to change the `number` variable from that contract. If you're curious, you can see the contract here: https://flow-view-source.com/testnet/account/0x6c0d53c676256e8c/contract/SimpleTest
-
-2. Immediately after you send the transaction, wait for the transaction to be "Sealed" just like we did today. Then, call a script to read the `number` from the contract. Console log the result.
-
-Submit all the code you used to send the transaction, and the result of the script.
+1. Write a function that executes a script with all the Cadence types that we reviewed today. Call the script when the page refreshes. Return something random from the Cadence script, and print it to prove to your script actually worked.

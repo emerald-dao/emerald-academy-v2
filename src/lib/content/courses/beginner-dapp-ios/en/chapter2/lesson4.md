@@ -11,12 +11,12 @@ In this lesson, we will finalize the base skeleton of our Mobile DApp so that we
 
 ## Adding A Sign-In View
 
-What is a mobile app without a sign-in view? Lets go ahead and create one:
+What is a mobile app without a sign-in view? Let's go ahead and create one:
 
-1. Right click on the `EmeraldDApp` folder in Xcode, then click new file.
+1. Right-click on the `EmeraldDApp` folder in Xcode, then click new file.
 2. On The new file screen, ensure "SwiftUI" is selected then click `Next`.
 3. Let's name the file `SignInView` and click `Create`.
-4. Our project view is starting to look a little crowded, lets creates a `Group` to hold our views. Holding down the command key to left of the keyboard, select both the `ContentView` and `SignInView` before right clicking then selecting "New Group from Selection". We will name the group `Views`
+4. Our project view is starting to look a little crowded, let's create a `Group` to hold our views. Holding down the command key to the left of the keyboard, select both the `ContentView` and `SignInView` before right-clicking then selecting "New Group from Selection". We will name the group `Views`
 
 <img src="https://i.imgur.com/I1UI3qR.gif" />
 
@@ -73,11 +73,11 @@ Assuming you completed all of the above steps, it should look like this:
 
 ## Keeping Our Code DRY
 
-This looks great, but you may noticed we had to rewrite the exact same code for the button as we have in our `ContentView`... Ok so we replicated more code then just the button, but we will making further changes to our `ContentView` removing the other code in later in this lesson.
+This looks great, but you may notice we had to rewrite the exact same code for the button as we have in our `ContentView`... Ok so we replicated more code than just the button, but we will make further changes to our `ContentView` removing the other code later in this lesson.
 
-DRY coding stands for "Don't Repeat Yourself." It's a principle in software development that encourages developers to avoid duplicating code in a program. Instead of writing the same code multiple times, we strive to create reusable and modular components, functions, or classes. This helps make our code more efficient, easier to maintain, and reduces the risk of introducing bugs. By following DRY principals, we can save time and effort in the long run, leading to more reliable and maintainable software.
+DRY coding stands for "Don't Repeat Yourself." It's a principle in software development that encourages developers to avoid duplicating code in a program. Instead of writing the same code multiple times, we strive to create reusable and modular components, functions, or classes. This helps make our code more efficient, easier to maintain and reduces the risk of introducing bugs. By following DRY principles, we can save time and effort in the long run, leading to more reliable and maintainable software.
 
-Using the same steps as we used for creating the `SignInView`, create a new SwiftUI file named `ButtonView` in side the Views directory. Replace the boilerplate code with the following:
+Using the same steps as we used for creating the `SignInView`, create a new SwiftUI file named `ButtonView` inside of the Views directory. Replace the boilerplate code with the following:
 
 ```swift
 import SwiftUI
@@ -107,9 +107,9 @@ struct ButtonView_Previews: PreviewProvider {
 }
 ```
 
-This SwiftUI code defines a custom ButtonView that takes a title string and an action closure. The view displays a button with the provided title, and when the button is tapped, the specified action is executed. The button has a green background, rounded corners, and a fixed height. The font size of the title text is set to .title2. The ButtonView also includes a preview provider to display a live preview, since we have two variable that have not been initilized we must provide values for them in the preview view.
+This SwiftUI code defines a custom ButtonView that takes a title string and an action closure. The view displays a button with the provided title, and when the button is tapped, the specified action is executed. The button has a green background, rounded corners, and a fixed height. The font size of the title text is set to .title2. The ButtonView also includes a preview provider to display a live preview, since we have two variables that have not been initiated we must provide values for them in the preview view.
 
-Now lets update the Button in our `ContentView` and `SignInView` files, replace the `Button` views with the below.
+Now let's update the Button in our `ContentView` and `SignInView` files, replace the `Button` views with the below.
 
 `SignInView`:
 
@@ -129,7 +129,7 @@ ButtonView(title: "Hello", action: {
 
 ## Creating A View Router
 
-Now that our main views are setup, we need to create a view router to programmatically navigate between them. Create another new SwiftUI file in our Views directory called `RouterView`, and replace the boilerplate with the following code:
+Now that our main views are set up, we need to create a view router to programmatically navigate between them. Create another new SwiftUI file in our Views directory called `RouterView`, and replace the boilerplate with the following code:
 
 ```swift
 import SwiftUI
@@ -161,7 +161,7 @@ struct RouterView_Previews: PreviewProvider {
 Let's review the code that is new to this example:
 
 1. **ZStack {...}**: This creates a `ZStack` (z-index stack) container. In SwiftUI, a `ZStack` allows views to be stacked on top of each other, and the order of the views determines their visibility.
-2. **Group {...}**: This creates a `Group` container. In SwiftUI, a `Group` is used to group views together. It is useful for conditionally showing different views based on conditions or appling the same modifiers to multiple views.
+2. **Group {...}**: This creates a `Group` container. In SwiftUI, a `Group` is used to group views together. It is useful for conditionally showing different views based on conditions or applying the same modifiers to multiple views.
 3. **if !loggedIn {...} else {...}**: This is a conditional statement that checks whether `loggedIn` is false, the "!" is a shorthand for "if false". If `loggedIn` is false, it displays the `SignInView()`; otherwise, it displays the `ContentView()`.
 
 Here is what it looks like in Xcode:
@@ -176,7 +176,7 @@ As you can see, while the above code works, there is now too much horizontal pad
 
 Great work! Now we have a view router that can switch between the `SignInView` and `ContentView` based on the `loggedIn` status in our DApp. But how do we update this variable from our other views?
 
-One option is to use another property wrapper called `@Binding`. Just like the `$` we added to our TextField variable in a previous lesson, the `@Binding` property wrapper binds a variable accross views so either view can read or write to the contents of a variable. To see how this works lets add a new variable to our `SignInView`, add the following just above the `body`
+One option is to use another property wrapper called `@Binding`. Just like the `$` we added to our TextField variable in a previous lesson, the `@Binding` property wrapper binds a variable across views so either view can read or write to the contents of a variable. To see how this works let's add a new variable to our `SignInView`, add the following just above the `body`
 
 ```swift
 @Binding var loggedIn: Bool
@@ -200,7 +200,7 @@ struct SignInView_Previews: PreviewProvider {
 }
 ```
 
-We also need to update the `SignInView` initilization inside our `RouterView` so that it includes the loggedIn variable.
+We also need to update the `SignInView` initialization inside our `RouterView` so that it includes the loggedIn variable.
 
 ```swift
 ...
@@ -218,7 +218,7 @@ Group {
 
 <img src="https://i.imgur.com/3xsqQme.gif" />
 
-To rest the view, simply open another file then go back to our `SignInView` file as show above.
+To reset the view, simply open another file and then go back to our `SignInView` file as shown above.
 
 The last thing we need to do is update our `EmeraldDAppApp` file to load the `RouterView` directly:
 
@@ -234,16 +234,16 @@ struct EmeraldDAppApp: App {
 
 ## Making It Less Ugly
 
-Our DApp Skeleton is really starting to come together!! The only problem is that it is kind of ugly! Lets start making it look nice by changing the colors and refactoring the `ContentView`
+Our DApp Skeleton is really starting to come together!! The only problem is that it is kind of ugly! Let's start making it look nice by changing the colors and refactoring the `ContentView`
 
 ### Creating Custom Colors
 
 Xcode makes it super simple for us to create custom colors that can be applied to views:
 
-1. Open our `Assets` file in Xcode, then right click in the blank space below the `emerald_logo` file.
+1. Open our `Assets` file in Xcode, then right-click in the blank space below the `emerald_logo` file.
 2. Select `New Color Set`, and name the color `defaultBackgroundColor`.
 3. If necessary, press the button in the upper right corner of Xcode to show the attribute settings.
-4. Click the `Apperances` dropdown and select `None`.
+4. Click the `Appearances` dropdown and select `None`.
 5. You may need to click on the white `Universal` image, then update the `Hex` value under Color to `#011E30`
 
 <img src="https://i.imgur.com/CYPh7XV.gif" />
@@ -254,7 +254,7 @@ Now create three more custom colors:
 2. `defaultAccentColor` with a Hex value of `#38E8C6`
 3. `secondaryAccentColor` with a Hex value of `#00344B`
 
-While we can access these colors by passing the name as a parameter to the `Color` view, that is prone to errors and is franky a pain the a\*\*. The good news is we can add something called an `extension` to make our custom colors work the same way as the system colors.
+While we can access these colors by passing the name as a parameter to the `Color` view, that is prone to errors and is frankly a pain the a\*\*. The good news is we can add something called an `extension` to make our custom colors work the same way as the system colors.
 
 Create a new SwiftUI file called `Colors` and replace the boilerplate with the following code:
 
@@ -269,7 +269,7 @@ extension Color {
 }
 ```
 
-Now we can access our custom colors using "dot" notation `Color.defaultTextColor` and Xcode will prefill the values for us!!
+Now we can access our custom colors using the "dot" notation `Color`.defaultTextColor` and Xcode will prefill the values for us!!
 
 ### App Wide Background Color
 
@@ -348,11 +348,11 @@ struct ContentView_Previews: PreviewProvider {
 }
 ```
 
-Lets go ahead and run things in the simulator now to ensure everything is working!
+Let's go ahead and run things in the simulator now to ensure everything is working!
 
 <img src="https://i.imgur.com/GQOPEkh.gif" />
 
-Wow! things are startting to look much better!, there is still more work to be done but you will complete most of that in your Quests
+Wow! Things are starting to look much better! There is still more work to be done but you will complete most of that in your Quests
 
 ## Conclusion
 

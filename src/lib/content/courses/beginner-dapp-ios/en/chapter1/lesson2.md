@@ -11,13 +11,13 @@ Welcome back to Lesson 2! In this lesson, we will delve into the Flow Blockchain
 
 ## The Flow Blockchain - A Brief Introduction
 
-<img src="/courses/beginner-dapp/flowb.png" alt="drawing" width="500"/>
+<img src="https://i.imgur.com/xWCRcs9.png" alt="drawing" width="500"/>
 
-The Flow Blockchain is our platform of choice, and for good reason. Let's take a closer look at its background and key features.
+The Flow Blockchain is our platform of choice and for good reason. Let's take a closer look at its background and key features.
 
 ### A Historical Perspective
 
-<img src="/courses/beginner-dapp/cryptokitty.png" alt="drawing" width="200"/>
+<img src="https://i.imgur.com/425Taj9.png" alt="drawing" width="200"/>
 
 Flow Blockchain gained prominence around the Summer of 2020 when the Flow team introduced it to the public, sparking considerable interest. Dapper Labs, the company behind Flow, previously created the popular CryptoKitties DApp, which enjoyed immense popularity and became one of the first widely adopted blockchain applications.
 
@@ -31,13 +31,13 @@ Here are some important characteristics that set Flow apart:
 
 2. **Emerging Platform**: As a relatively new blockchain, Flow is continually evolving and improving. While this means there may be occasional bugs, it also presents an excellent opportunity to learn and utilize Flow and Cadence.
 
-3. **Learning Resources**: As Flow is relatively new, learning resources may be scarce. This course aims to bridge that gap by providing comprehensive guidance on developing iOS Moible DApps with Flow and Cadence.
+3. **Learning Resources**: As Flow is relatively new, learning resources may be scarce. This course aims to bridge that gap by providing comprehensive guidance on developing iOS Mobile DApps with Flow and Cadence.
 
 4. **Success Stories**: Flow has already witnessed successful DApps like NBATopShot, which achieved significant popularity and recognition.
 
 ## Cadence - The Smart Contract Language for Flow
 
-<img src="/courses/beginner-dapp/cadence.png" alt="drawing" width="600"/>
+<img src="https://i.imgur.com/zeLCu9P.png" alt="drawing" width="600"/>
 
 Cadence is the designated Smart Contract programming language for the Flow Blockchain. It is the language we will use to write the Smart Contracts in this course.
 

@@ -11,39 +11,39 @@ excerpt: Creating our DApp
 
 In this lesson, we are going to actually jump into some code and start our Mobile (iOS) DApp development. We will be using Swift and SwiftUI to create our first DApp.
 
-# IMPORTANT NOTE
+## IMPORTANT NOTE
 
-Chapter 2 will focus on frontend development, specifically the semantics of Swift and SwiftUI. If you are already comfortable with these languages, you still need to complete Chapter 2 because you will be setting up for other chapters. However it will be very quick for you, and you can skim through the lesson. That is totally okay.
+Chapter 2 will focus on front-end development, specifically the semantics of Swift and SwiftUI. If you are already comfortable with these languages, you still need to complete Chapter 2 because you will be setting up for other chapters. However it will be very quick for you, and you can skim through the lesson. That is totally okay.
 
 ## What is Swift and SwiftUI?
 
 > You can skip this section if you already know the basic of Swift/SwiftUI and frontend development
 
-iOS apps are developed using Apples native programming languages Swift and SwiftUI, with the application "logic" or functionality being declared in Swift and the user inteface being defined in SwiftUI. With SwiftUI, we can define our user interface using a declarative syntax, making it easy to understand and maintain.
+iOS apps are developed using Apple's native programming languages Swift and SwiftUI, with the application "logic" or functionality being declared in Swift and the user interface being defined in SwiftUI. With SwiftUI, we can define our user interface using a declarative syntax, making it easy to understand and maintain.
 
 Before we get started, let's cover the difference between "frontend" and "backend" development
 
 ### Frontend iOS Development
 
-When you visit a website or open a mobile app, you are presented with content on the screen. As a user, there are three primary aspects that immediately catch your attention:
+When you visit a website or open a mobile app, you are presented with content on the screen. As a user, three primary aspects immediately catch your attention:
 
 1. **What is being displayed**: This refers to the actual content visible on the screen, such as text, images, buttons, and other elements.
 2. **How it looks (Styling)**: Styling encompasses the visual appearance of the content, including colors, fonts, layout, and overall design aesthetics.
 3. **What happens when you interact (Interactivity)**: This aspect pertains to the behavior of the app or website when you interact with it, such as clicking on buttons, scrolling through content, or triggering animations.
 
-Collectively, these elements are integral to what we call "frontend" development. Frontend development focuses on crafting the user experience and interface that users interact with directly. For instance, when you use Instagram, activities like scrolling through your feed, viewing posts, searching for content, and liking posts by tapping the heart button are all part of the frontend components. It's the frontend that allows you to engage with the app's features and explore its functionalities, making it a crucial aspect of the overall user experience.
+Collectively, these elements are integral to what we call "frontend" development. Frontend development focuses on crafting the user experience and interface that users interact with directly. For instance, when you use Instagram, activities like scrolling through your feed, viewing posts, searching for content, and liking posts by tapping the heart button are all part of the front-end components. It's the front end that allows you to engage with the app's features and explore its functionalities, making it a crucial aspect of the overall user experience.
 
 ### Backend iOS Development
 
-In contrast to frontend development, there is a vital aspect known as "backend" development. And don't worry, it's not as hard as Jacob makes it sound in his web focused lessons! Backend development is responsible for handling operations that occur outside of your mobile device. While frontend development deals with what you see and interact with on your phone, the backend typically operates on a remote system running elsewhere. In the context of traditional Web2 applications like Instagram, backend development involves various essential tasks, including:
+In contrast to frontend development, there is a vital aspect known as "backend" development. And don't worry, it's not as hard as Jacob makes it sound in his web-focused lessons! Backend development is responsible for handling operations that occur outside of your mobile device. While frontend development deals with what you see and interact with on your phone, the backend typically operates on a remote system running elsewhere. In the context of traditional Web2 applications like Instagram, backend development involves various essential tasks, including:
 
 1. **Fetching Complicated Information**: The backend is responsible for retrieving and processing complex data from various sources, such as databases or external APIs. This information may require extensive computations or multiple data sources to provide the desired results.
 2. **Storing Data in a Database**: When you interact with an app, like making a post on Instagram, the backend handles the storage of that post's information in a database. The database serves as a centralized repository for all the app's data, making it accessible and persistent.
-3. **Handling Complex Procedures**: Certain operations, like performing extensive calculations or executing resource-intensive tasks, are better suited for backend processing. This avoids overburdening the frontend, ensuring a smoother user experience.
+3. **Handling Complex Procedures**: Certain operations, like performing extensive calculations or executing resource-intensive tasks, are better suited for backend processing. This avoids overburdening the front end, ensuring a smoother user experience.
 
-For instance, when you tap on a user's profile in the Instagram app, the backend springs into action. It gathers all the necessary data related to that user, such as their posts, followers, and other information, and then delivers it to the frontend. The frontend then displays this data to you, allowing you to view the user's profile.
+For instance, when you tap on a user's profile in the Instagram app, the backend springs into action. It gathers all the necessary data related to that user, such as their posts, followers, and other information, and then delivers it to the front end. The front end then displays this data to you, allowing you to view the user's profile.
 
-Similarly, when you create a post on Instagram, the frontend sends the post's details, like the description and image, to the backend. The backend then handles the process of saving this post in a database, ensuring that your post is securely stored and accessible to other users.
+Similarly, when you create a post on Instagram, the front end sends the post's details, like the description and image, to the backend. The backend then handles the process of saving this post in a database, ensuring that your post is securely stored and accessible to other users.
 
 In summary, backend development plays a crucial role in managing the complex, behind-the-scenes operations of a mobile app, making it an indispensable component of the overall app development process.
 
@@ -56,7 +56,7 @@ Now that we have gotten some basics out of the way, we can start building our Mo
 Before we dive into the rest of the tutorial, let's make sure we have the necessary tools installed to develop our iOS app. If you need any help, please reach out in the [Emerald City Discord](https://discord.gg/emeraldcity).
 
 1. Xcode: Install Xcode from the Mac App Store. Xcode is the integrated development environment (IDE) for macOS that includes all the tools needed for iOS app development.
-2. Git: If you don't already have Git installed, you can follow the instructions on this website: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git. You can confirm that Git is installed by running git --version in the Terminal.
+2. Git: If you don't already have Git installed, you can follow the instructions on this website: [https://git-scm.com/book/en/v2/Getting-Started-Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). You can confirm that Git is installed by running git --version in the Terminal.
 
 ## Creating Our DApp Project
 
@@ -70,7 +70,7 @@ Before we dive into the rest of the tutorial, let's make sure we have the necess
    <img src="https://i.imgur.com/DftpgpA.png" />
 4. Select a location to save your project and be sure to check the `Create Git repository on my Mac` box so we can save this project to our GitHub repository later.
    <img src="https://i.imgur.com/gSX1cMr.png" />
-5. The last thing we need to do is remove the Mac destination as the FCL-Swift sdk doesn't support it yet. Click on the the top `EmeraldDApp` in your project structure on the left. Select `Mac` in the Supported Destinations list, then click the minus button to remove it.
+5. The last thing we need to do is remove the Mac destination as the FCL-Swift SDK doesn't support it yet. Click on the top `EmeraldDApp` in your project structure on the left. Select `Mac` in the Supported Destinations list, then click the minus button to remove it.
    <img src="https://i.imgur.com/GNdCEPT.png" />
 
 ## Understanding the Project Structure
@@ -91,7 +91,7 @@ EmeraldDApp
 ```
 
 1. EmeraldDAppApp.swift is the main entry point for the project and defines the initial view to be displayed as well as hosting the app's life cycle. If you click on the file to open it you can see it contains a `WindowGroup` that loads the `ContentView`. Don't worry too much about how this works for now, the key thing to note is that when the application launches it will display our `ContentView`.
-2. ContentView.swift contains the inital view to be displayed in the application.
+2. ContentView.swift contains the initial view to be displayed in the application.
 3. Assets.xcassets is where we will place our image assets to be displayed inside our views.
 4. The remainder of the files are used by the Xcode compiler to build the application and are not relevant to the course.
 
@@ -99,16 +99,16 @@ EmeraldDApp
 
 Before we even jump into coding our DApp, let's explore how Xcode allows us to preview our DApp as it is developed. Previews are a powerful feature that allows developers to visualize and interact with SwiftUI views in real-time without running the entire app on a simulator or device. Previews provide a live preview of the user interface, enabling developers to see how their SwiftUI code will look and behave across various device sizes and orientations instantly. This streamlined workflow makes it easier for beginners and experienced developers alike to iterate and refine their user interfaces quickly, saving time and enhancing the development process.
 
-As we develop our DApp, the changes you make to your SwiftUI views will be updated in real time in the `Canvas` on the right side of the screen. If for any reason you don't see the Canvas interface, or you would like hide it to save screen space you can enabled/disable it by clicking the `Editor` menu and selecting `Canvas`.
+As we develop our DApp, the changes you make to your SwiftUI views will be updated in real-time in the `Canvas` on the right side of the screen. If for any reason you don't see the Canvas interface, or you would like to hide it to save screen space you can enable/disable it by clicking the `Editor` menu and selecting `Canvas`.
 
 <img src="https://i.imgur.com/KflRwZS.png" />
 <img src="https://i.imgur.com/sQJsyhz.png" />
 
-## Runing Our DApp On The Simulator
+## Running Our DApp On The Simulator
 
-Xcode includes simulators for all currently supported Apple devices including iPhone, iPad, Apple Watch, and Apple TV. Simulators are usefull for testing your application on various devices however, it is always recommend to test on a physical device before deploying an application to the App Store. The simulator is a full-fledged virtual environment that mimics an Apple device, allowing developers to test their apps, while Xcode previews provide a lightweight, real-time preview of SwiftUI user interfaces directly within the Xcode editor.
+Xcode includes simulators for all currently supported Apple devices including iPhone, iPad, Apple Watch, and Apple TV. Simulators are useful for testing your application on various devices however, it is always recommended to test on a physical device before deploying an application to the App Store. The simulator is a full-fledged virtual environment that mimics an Apple device, allowing developers to test their apps, while Xcode previews provide a lightweight, real-time preview of SwiftUI user interfaces directly within the Xcode editor.
 
-To launch the simulator simply select a device from the drop down list, then press the "play" button.
+To launch the simulator simply select a device from the drop-down list, then press the "play" button.
 
 <img src="https://i.imgur.com/16Sc44o.png" />
 
@@ -128,7 +128,7 @@ Let's take the code we've developed for our iOS app and add it to our own GitHub
 
 In Git, a repository is like a container for our project.
 
-1. Go to https://github.com/new and name your project "beginner-emerald-dapp"
+1. Go to [https://github.com/new](https://github.com/new) and name your project "beginner-emerald-dapp"
 2. Set the repository visibility to "public."
 3. Click "Create repository."
 
@@ -170,7 +170,7 @@ git push origin main
 
 ## Conclusion
 
-All we wanted you to do today was create the Xcode project and run the application on the simulator. If you could successfully do that, wooooohoooo! You will have no problem with the Quest.
+All we wanted you to do today was create the Xcode project and run the application on the simulator. If you could successfully do that, woo! You will have no problem with the Quest.
 
 In tomorrow's content, we will explain what all the code is actually doing, and make some changes.
 
@@ -178,7 +178,7 @@ In tomorrow's content, we will explain what all the code is actually doing, and 
 
 For your quest today, you have one task:
 
-1. What is the difference between frontend and backend? Can you provide a real life example? Note: You can't use the one in this chapter.
+1. What is the difference between front-end and back-end? Can you provide a real-life example? Note: You can't use the example in this chapter.
 
 2. What is the difference between the Preview and running the application on the Simulator?
 

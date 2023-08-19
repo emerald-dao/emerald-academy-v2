@@ -48,9 +48,9 @@ Here is a breakdown of the code:
 
 Cool! Now let's run our DApp in the simulator to see what happens when you press the button.
 
-In Xcode, press the play button to build and run the application on the simulator. Keep in mind that this may take a few minutes to launch the simulator depending on how powerfull of a Mac you are using.
+In Xcode, press the play button to build and run the application on the simulator. Keep in mind that this may take a few minutes to launch the simulator depending on how powerful of a Mac you are using.
 
-When you launch an application in the simulator an output "console" pops up in the bottom of your Xcode project, this allows you to see any outputs or errors from the running applicaiton. Go ahead and click the "Hello" button on the simulator and watch what gets printed to the console. It should look something like this:
+When you launch an application in the simulator an output "console" pops up at the bottom of your Xcode project, this allows you to see any outputs or errors from the running application. Go ahead and click the "Hello" button on the simulator and watch what gets printed to the console. It should look something like this:
 
 > Note: I am using a beta version of Xcode that prints addtional information about how the simulator is responding to events/actions, you may not see any of the text highlighted in yellow.
 
@@ -60,15 +60,15 @@ Usually, developers use the console to print error messages or debug their code 
 
 ## Adding A Text Field
 
-Now that we have a working button, lets add a text field so the user can enter a prompt for the button to print instead of the staticly defined text we currently have. To add a text field we first need to add a varible that will hold the inputed text. To do this add the below code just above the `body` of our `ContentView`:
+Now that we have a working button, let's add a text field so the user can enter a prompt for the button to print instead of the statically defined text we currently have. To add a text field we first need to add a variable that will hold the input text. To do this add the below code just above the `body` of our `ContentView`:
 
 ```swift
 @State var inputText = ""
 ```
 
-Overall this is fairly self explanatory, we create a `var` or variable named `inputText` and initialize it with an empty string. However, notice the `@State` before the variable declaration. SwiftUI provides various "Property Wrappers" such as `@State` that enhance the functionality of our code, in paticular the `@State` property wrapper allows SwiftUI to track and update the value of a variable as it changes. It is often used for storing and managing the state of user interface elements since anytime it value changes the view is updated to reflect the new value.
+Overall this is fairly self-explanatory, we create a `var` or variable named `inputText` and initialize it with an empty string. However, notice the `@State` before the variable declaration. SwiftUI provides various "Property Wrappers" such as `@State` that enhance the functionality of our code, in particular, the `@State`` property wrapper allows SwiftUI to track and update the value of a variable as it changes. It is often used for storing and managing the state of user interface elements since any time its value changes the view is updated to reflect the new value.
 
-Now lets add the text field itself, place the below code just above the button we created earlier:
+Now let's add the text field itself, place the below code just above the button we created earlier:
 
 ```swift
 TextField("Change Greeting", text: $inputText)
@@ -86,18 +86,18 @@ This SwiftUI code creates a customized TextField with the placeholder text "Chan
 
 Here is a breakdown of the code:
 
-1. **TextField("Change Greeting", text: $inputText)**: This creates a `TextField` view in SwiftUI. It displays a text input field where the user can type text. The first parameter is a placeholder text that will be displayed inside the text field when there is no user input. The second parameter, text, is a "binding" to the `inputText` property we discussed in the previous breakdown. Notice the "$" infront of it, this is what creates the "binding" and allows the text field to read and write the value of the inputText variable.
+1. **TextField("Change Greeting", text: $inputText)**: This creates a `TextField` view in SwiftUI. It displays a text input field where the user can type text. The first parameter is a placeholder text that will be displayed inside the text field when there is no user input. The second parameter, text, is a "binding" to the `inputText` property we discussed in the previous breakdown. Notice the "$" in front of it, this is what creates the "binding" and allows the text field to read and write the value of the inputText variable.
 2. **.frame(maxWidth: .infinity, maxHeight: 50)**: This modifier sets the frame size of the `TextField`. The width will be set to the maximum available width, and the height will be limited to 50 points.
 3. **.cornerRadius(15)**: This modifier adds rounded corners to the `TextField`, with a corner radius of 15 points. This gives the text field a visually appealing appearance.
 4. **.padding(3)**: This adds padding around the TextField's content. The text field's content will be indented by 3 points from all sides.
-5. **.overlay(RoundedRectangle(cornerRadius: 15).stroke(Color.black, lineWidth: 3))**: This modifier adds an overlay to the `TextField`. It creates a RoundedRectangle with a corner radius of 15 points and adds a black stroke (border) with a line width of 3 points around the `TextField`. This creates a border around the text field.
+5. **.overlay(RoundedRectangle(cornerRadius: 15).stroke(Color.black, lineWidth: 3))**: This modifier adds an overlay to the `TextField`. It creates a `RoundedRectangle` with a corner radius of 15 points and adds a black stroke (border) with a line width of 3 points around the `TextField`. This creates a border around the text field.
 6. **.padding(.bottom, 4)**: This adds additional padding at the bottom of the TextField. The content below the TextField will be pushed down by 4 points.
 
-Notice that we have addded the `.padding(...)` modifier twice. It is important to note that the order of the modifiers is extremely important in SwiftUI as they are applied in the same order by the system when displaying the view itself. In the above `TextField` the first padding modifier is adding a small amount of padding around the text that is inputed and the border created by the overlay modifier. Whereas the second padding modifier creates padding between the entire generated view and the content below it.
+Notice that we have added the `.padding`(...)`modifier twice. It is important to note that the order of the modifiers is extremely important in SwiftUI as they are applied in the same order by the system when displaying the view itself. In the above`TextField` the first padding modifier is adding a small amount of padding around the text that is inputted and the border created by the overlay modifier. Whereas the second padding modifier creates padding between the entire generated view and the content below it.
 
 ## Updating Our Button's Action
 
-Now we can make a quick change to the action of our button so it prints the inputed text instead of the static text value. To do this all we need to is replace the text inside the `print(...)` function with the variable we created like so:
+Now we can make a quick change to the action of our button so it prints the inputted text instead of the static text value. To do this all we need to do is replace the text inside the `print(...)` function with the variable we created like so:
 
 ```swift
 Button {
@@ -188,9 +188,9 @@ Tomorrow, we will finish the base skeleton of our DApp.
 
 ## Quests
 
-Today, we are making the Quests a little more challenging. We have covered all the concepts needed in today's lesson however, I didn't cover exactly how to complete below. Don't worry a thorough review of the code breakdowns should give you everything you need to figure it out, and if you have any questions or problems feel free to reach out in Discord!
+Today, we are making the Quests a little more challenging. We have covered all the concepts needed in today's lesson however, I didn't cover exactly how to complete them below. Don't worry a thorough review of the code breakdowns should give you everything you need to figure it out, and if you have any questions or problems feel free to reach out in Discord!
 
-1. Currently our view spans the entire width of the screen, see if you can add a modifier to the `VStack` that creates "horiztonal" giving the entire view some padding around the left and right edges.
+1. Currently, our view spans the entire width of the screen, see if you can add a modifier to the `VStack` that creates "horizontal" padding, giving the entire view some padding around the left and right edges.
 2. Add some code to the button action that assigns an empty string to the `inputText` variable after it prints the user input.
 
 To submit your quests, take a picture of both the screen and the console logs in the developer console.

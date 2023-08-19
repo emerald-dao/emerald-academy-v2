@@ -11,7 +11,7 @@ Welcome to the first lesson of this comprehensive course on building iOS Mobile 
 
 ## What is a Blockchain?
 
-<img src="/courses/beginner-dapp-ios/blockchain.jpg" alt="drawing" width="600"/>
+<img src="https://i.imgur.com/lnSYcQm.png" alt="drawing" width="600"/>
 
 If you already have a good grasp of blockchain technology, feel free to skip this section. Otherwise, let's delve into the basics.
 
@@ -26,7 +26,7 @@ The blockchain allows various interactions, and we will primarily focus on codin
 
 ## Smart Contracts - Powerful Code on the Blockchain
 
-<img src="/courses/beginner-dapp/smart contract.png" alt="drawing" width="600"/>
+<img src="https://i.imgur.com/e0pKRQf.png" alt="drawing" width="600"/>
 
 Smart contracts are programs or "rulebooks" designed by developers to define specific functionalities for users to interact with. For instance, you could create a smart contract that allows users to store their favorite fruit on the blockchain, and this data would be permanently stored unless explicitly removed.
 
@@ -43,7 +43,7 @@ However, there are some downsides to consider:
 
 ## Transactions & Scripts - Interacting with Smart Contracts
 
-<img src="/courses/beginner-dapp/transaction.jpeg" alt="drawing" width="600"/>
+<img src="https://i.imgur.com/XU8iOHj.png" alt="drawing" width="600"/>
 
 A transaction is essentially a paid function call that changes data on the blockchain. It is the primary method for altering blockchain data. Transactions involve costs, known as gas fees, which can vary depending on the blockchain. For instance, Flow's gas fees are extremely low compared to other blockchains like Ethereum.
 
@@ -57,7 +57,7 @@ The standard workflow for interacting with a smart contract is:
 
 ## "MainNet" vs. "TestNet" Environments
 
-<img src="/courses/beginner-dapp/tvm.PNG" alt="drawing" width="600"/>
+<img src="https://i.imgur.com/IsKWP5M.png" alt="drawing" width="600"/>
 
 When developing blockchain applications, developers often use two different environments:
 
@@ -75,7 +75,7 @@ When developing blockchain applications, developers often use two different envi
 
 ## Decentralized Applications (DApps) - Empowering Traditional Apps
 
-<img src="/courses/beginner-dapp/dapps.jpeg" alt="drawing" width="300"/>
+<img src="https://i.imgur.com/Q9KopWa.jpg" alt="drawing" width="300"/>
 
 DApps are regular applications (ie. Swift, Kotlin, Javascript) that incorporate a blockchain and smart contracts. The inclusion of blockchain technology gives users transparency and trust in the application they are using. For example, a social media app like Instagram traditionally is not a "DApp" because the core application does not involve any blockchain code. However, they could technically be classified as a DApp due to Flow's recent announcement of NFT integration into the platform.
 

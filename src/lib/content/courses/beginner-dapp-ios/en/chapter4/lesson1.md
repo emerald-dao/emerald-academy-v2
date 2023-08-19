@@ -7,167 +7,203 @@ excerpt: Connecting the Blockchain
 
 # Chapter 4 Lesson 1 - Connecting the Blockchain
 
-Welcome, noobs! Today, we are going to finally connect blockchain stuff directly into our frontend code. This is my specialty, so get ready to get your mind absolutely blown.
+Welcome, back! Today, we are going to finally connect blockchain stuff directly into our Mobile DApp!!
 
-## Installing FCL
+## Installing The FCL-Swift Package
 
-FCL, or the Flow Client Library, is something that will allow us to do tons of blockchain stuff in our DApp. It will let us send transactions, execute scripts, and tons of other stuff directly from our frontend code.
+FCL, or the Flow Client Library, is something that will allow us to interact with the Flow blockchain in our DApp. It will let us send transactions, execute scripts, and tons of other stuff directly from our Swift code.
 
-> Go to your project directory in your terminal and type `npm install @onflow/fcl`. This will install the dependency:
+> Open your EmeraldDApp project in Xcode, and follow the below steps to add the FCL-Swift Package as a dependency:
 
-<img src="/courses/beginner-dapp/install-fcl.png" />
+1. Click `File`, then select `Add Package Dependencies`.
+2. Paste the URL `https://github.com/outblock/fcl-swift.git` into the search bar.
+3. `fcl-swift` will show up, ensure the `Dependency Rule` is set to `Up to Next Major Version` then click `Add Package`.
+   1. Sometimes you need to select the dropdown `Add to Project` and select your project name to enable the `Add Package` button.
+4. Allow the confirmation window to fetch and verify the package, the select `Add Package` once completed.
 
-## Importing & Connecting FCL
+<img src="https://i.imgur.com/Tgi2oSJ.gif" />
 
-> Go to your `flow` folder and create a file called `config.js`. Inside that file, put the following code:
+## Importing & Configuring FCL
 
-```javascript
-import { config } from '@onflow/fcl';
+To take full advantage of Swift and SwiftUI's features, we will be creating a "Service" so we can interact with the Flow blockchain. We won't be going deep into the philosophy of using services or the design model we are using, but the important thing to know is that by using an `ObservableObject`` class and SwiftUI's Property Wrappers we can implement a service for our DApp that can programmatically update our SwiftUI views.
 
-config()
-	.put('accessNode.api', 'https://rest-testnet.onflow.org') // This connects us to Flow TestNet
-	.put('discovery.wallet', 'https://fcl-discovery.onflow.org/testnet/authn/') // Allows us to connect to Blocto & Lilico Wallet
-	.put('app.detail.title', 'Beginner Emerald DApp') // Will be the title when user clicks on wallet
-	.put('app.detail.icon', 'https://i.imgur.com/ux3lYB9.png'); // Will be the icon when user clicks on wallet
-```
+Start by creating a new group in your EmeraldDApp directory named `Flow`, inside that folder/group create a Swift file named `FlowManager`
 
-What this does is it connects our DApp to Flow TestNet and tells our DApp that when we go to log in, we can log in to Blocto & Lilico Wallet (which are both a part of something called "FCL Discovery").
+Add the following code:
 
-## Loggin In
+```swift
+import FCL
+import Flow
+import Foundation
 
-Now that we have connected our DApp to the blockchain, let's try logging in!
+let flowManager = FlowManager.shared
 
-> Go to `./components/Nav.jsx` and at the top, add three more imports:
+class FlowManager: NSObject, ObservableObject {
+    static let shared = FlowManager()
 
-```javascript
-import * as fcl from '@onflow/fcl';
-import '../flow/config.js';
-import { useState, useEffect } from 'react';
-```
+    let testAccount = "YOUR TEST ACCOUNT"
 
-First, we import `fcl` so that we can call some functions to log in and log out. Second, we import the config we defined so our DApp knows what network (testnet) it is talking to. And third, we import `useState` (which we already know), and `useEffect` (which we'll learn soon).
+    func setup() {
+        let defaultProvider: FCL.Provider = .blocto
+        let defaultNetwork: Flow.ChainID = .testnet
+        let accountProof = FCL.Metadata.AccountProofConfig(appIdentifier: "EmeraldDAppV1")
+        let metadata = FCL.Metadata(appName: "Emerald DApp!",
+                                    appDescription: "Hello Word Demo App for Emerald Academy",
+                                    appIcon: URL(string: "https://academy.ecdao.org/ea-logo.png")!,
+                                    location: URL(string: "https://academy.ecdao.org/")!,
+                                    accountProof: accountProof)
+        fcl.config(metadata: metadata,
+                   env: defaultNetwork,
+                   provider: defaultProvider)
 
-> Inside of our `Nav` component, let's add a variable called `user` using `useState`:
-
-```javascript
-const [user, setUser] = useState({ loggedIn: false });
-```
-
-Note that when we put something inside the `useState` parenthesis (in this case: `{ loggedIn: false }`), that represents a default value of the variable. Because the user starts as logged out, it makes sense to have this be the default value.
-
-> Next, right below that, add this piece of code:
-
-```javascript
-useEffect(() => {
-	fcl.currentUser.subscribe(setUser);
-}, []);
-```
-
-`useEffect` is a function that runs every time something happens. That "something" comes from what is put inside the `[]` brackets. In this case, because `[]` is empty, this means "every time the page is _refreshed_, run `fcl.currentUser.subscribe(setUser)`. It looks complicated, but all this code is doing is making sure the `user` variable retains its value even if the page is refreshed.
-
-Lastly, we want to be able to actually log in. Let's create a function to do this.
-
-> Right below our `useEffect`, make a new function called `handleAuthentication`:
-
-```javascript
-function handleAuthentication() {}
-```
-
-Inside the function, we're going to implement this logic:
-
-- If the user is logged in, then log out
-- If the user is logged out, then log in
-
-We can do that by doing this:
-
-```javascript
-function handleAuthentication() {
-	if (user.loggedIn) {
-		fcl.unauthenticate(); // logs the user out
-	} else {
-		fcl.authenticate(); // logs the user in
-	}
+        fcl.config
+            .put("0xDeployer", value: testAccount)
+    }
 }
 ```
 
-Now we want to be able to call this function when we click the "Log In" button.
+This Swift code sets up a FlowManager class that is responsible for managing connections to the Flow blockchain and configuring our DApp.
 
-> Add an `onClick` handler to our `<button>` tag and when its clicked, have it call the function named `handleAuthentication`.
+Let's break down the code step by step:
 
-Your button should now look like this:
+1. Importing Required Libraries: The code imports the necessary libraries for the DApp. These include `FCL` (Flow Client Library) for interacting with the Flow blockchain, `Flow` for handling Flow blockchain-specific data, and `Foundation` for basic Swift functionality.
+2. `FlowManager` Class Definition: The `FlowManager` class is defined as a singleton `ObservableObject`. Singleton design pattern ensures that there is only one instance of this class throughout the application.
+3. Shared Instance: The shared static constant of the `FlowManager` class ensures that there is a single shared instance of `FlowManager` available throughout the application. This conforms to the singleton pattern.
+4. `testAccount` Property: The `testAccount` property stores a string representing a test account associated with the DApp. This account will be used for testing purposes on the Flow blockchain.
+5. `setup()` function: `setup()` is responsible for configuring the FCL library with specific settings and metadata related to the application. The method performs the following tasks:
+   1. Setting default FCL Provider and Network:
+      1. `defaultProvider`: Specifies the default provider to be used by FCL, which is set to .blocto in this case.
+      2. `defaultNetwork`: Specifies the default Flow blockchain network to be used by FCL, which is set to .testnet.
+   2. Setting Application Metadata:
+      1. `accountProof`: This variable is created to specify the account proof configuration for the application. It includes an `appIdentifier`, which is set to "EmeraldDAppV1".
+      2. `metadata`: This variable contains the metadata for the application, including its name, description, icon URL, and location URL. The values are set as follows:
+         1. `appName`: "Emerald DApp!"
+         2. `appDescription`: "Hello Word Demo App for Emerald Academy"
+         3. `appIcon`: URL of the application's icon.
+         4. `location`: URL of the application's location.
+   3. Configuring FCL: The `fcl.config()` method is called with the provided metadata, default network, and provider to configure the FCL library for use with the application.
+   4. Storing the Test Account: The line `fcl.config.put("0xDeployer", value: testAccount)` stores the test account associated with the application. Configuration keys that start with 0x will be replaced in FCL scripts and transactions, this allows you to write your script or transaction Cadence code once and not have to change it when you point your application at a different instance of the Flow Blockchain.
 
-```html
-<button onClick="{handleAuthentication}">Log In</button>
+In summary, this Swift code creates a singleton class FlowManager that configures the FCL library for a blockchain-based application, sets metadata for the application, and stores a test account associated with the application.
+
+## Signing In & Out
+
+Now that we have connected our DApp to the blockchain, let's try signing in!
+
+First, we need to import the FCL library again
+
+```swift
+import SwiftUI
+import FCL
 ```
 
-> Save your changes and go to your webpage. Click the log in button and see what happens! You should see this:
+Go to our `SignInView` and remove the login variable
 
-<img src="/courses/beginner-dapp/logging-in-iframe.png" />
+```swift
+@Binding var loggedIn: Bool
+```
 
-Isn't this just so cool? Or am I a boring nerd. Your `Nav.jsx` file should now look like this:
+Isn't getting to delete code you no longer need one of the best feelings as a developer?!
 
-```javascript
-import styles from '../styles/Nav.module.css';
-import { useState, useEffect } from 'react';
-import * as fcl from '@onflow/fcl';
-import '../flow/config.js';
+Now update your `ButtonView` to open the FCL Discovery wallet selector.
 
-export default function Nav() {
-	const [user, setUser] = useState({ loggedIn: false });
+```swift
+ButtonView(title: "Sign In", action: {
+	fcl.openDiscovery()
+})
+```
 
-	useEffect(() => {
-		fcl.currentUser.subscribe(setUser);
-	}, []);
+Your `SignInView` file should look like this
 
-	function handleAuthentication() {
-		if (user.loggedIn) {
-			fcl.unauthenticate();
-		} else {
-			fcl.authenticate();
-		}
-	}
+```swift
+import SwiftUI
+import FCL
 
-	return (
-		<nav className={styles.nav}>
-			<h1>Emerald DApp</h1>
-			<button onClick={handleAuthentication}>Log In</button>
-		</nav>
-	);
+struct SignInView: View {
+    var body: some View {
+        VStack {
+            HStack {
+                Text("Welcome to")
+                    .font(.title)
+                    .foregroundStyle(Color.white)
+
+                Text("Emerald DApp!")
+                    .font(.title)
+                    .foregroundStyle(Color.defaultAccentColor)
+            }
+            .padding()
+
+            Image("emerald_logo")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding(.bottom, 100)
+
+            ButtonView(title: "Sign In", action: {
+                fcl.openDiscovery()
+            })
+        }
+    }
+}
+
+struct SignInView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignInView()
+    }
 }
 ```
 
-### Making our Button Respond
+Next, let's update our `RouterView` so that we can automatically detect whether the user is authenticated or not.
 
-The problem now is that, even when we log in with Blocto, there is no indication to the user that we are logged in.
+Import `FCL` and add the following modifier to the `ZStack`
 
-> To change that, let's make our button look like this:
-
-```html
-<button onClick="{handleAuthentication}">{user.loggedIn ? user.addr : "Log In"}</button>
+```swift
+.onReceive(fcl.$currentUser) { user in
+	self.loggedIn = (user != nil)
+}
 ```
 
-We added some logic inbetween `{}` inside our button text. In Next.js (or React.js), when you put `{}` inside of an HTML tag, that indicates you are doing some Javascript stuff. `{user.loggedIn ? user.addr : "Log In"}` means:
+This observes changes to the `currentUser` property of the FCL library and updates the `loggedIn` property for us based on whether the `currentUser` is nil or not. If `currentUser` is not nil, it means the user is logged in, and `loggedIn` will be set to true. If `currentUser` is nil, it means the user is not logged in, and `loggedIn` will be set to false.
 
-- If the user is logged in, display `user.addr` (the address of the user is stored inside of the `user` variable)
-- If the user is not logged in, display "Log In"
+The last thing we need to do is update our `ContentView` so the Sign Out `ButtonView` signs us out. Once again you need to import `FCL` and then replace our sign-out `ButtonView` with the following changes.
 
-Now when you are logged in, you should see this:
+```swift
+ButtonView(title: "Sign Out: \(fcl.currentUser?.address.hex ?? "")") {
+    Task {
+        try? await fcl.unauthenticate()
+    }
+}
+```
 
-<img src="/courses/beginner-dapp/displaying-address-login.png" />
+If your thinking that this looks quite a bit different, don't worry... this is a great example of why Swift is one of my favorite programming languages!! This function includes string interpolation, optional chaining, a default value, uses closure syntax, runs async code outside the main thread, and describes how to handle an error... all using short, human-readable, and (mostly) self-explanatory code.
 
-> If you click the button again, it will log you back out, and you can log in again :)
+Here's a breakdown:
+
+1. First, we have added something called a "string interpolation" to our title parameter, string interpolation is just a fancy way to say we mixed a statically defined string with a variables value. This is done by including `\(someVariable)` inside a string definition, as you can see in our `ButtonView` we are including the value of the `currentUser`'s `address.hex`.
+2. However, `fcl.currentUser` is an "optional" meaning that it could contain a value or `nil` aka an empty value. This is how we were able to check if the user is logged in or not in our `RouterView` changes above. In this case, we add the `?` after `currentUser` to introduce "optional chaining" which just tells the program, if `currentUser` is not `nil`, return the value of `currentUser.address.hex`. However, it's important to note that string interpolation produces a debug description for an optional value, not the value itself. To get the actual value we must "unwrap" the optional.
+3. The easiest and safest way to unwrap any optional is to provide a default value to be used when the optional is nil. This is done above by including `?? ""` after `fcl.currentUser?.address.hex`, this simply means if the optional is `nil`, return an empty string.
+4. You also may have noticed our `action` parameter is no longer there. Swift has an awesome way to write concise code called "trailing closures", especially when passing closures as arguments to functions. Instead of enclosing the closure in parentheses, you can place it outside using curly braces, making the code easier to read.
+5. Inside our action closure, we need to run `fcl.unauthenticate()` however, it is an "asynchronous" function that can "throw" an error. Because of this, we need to handle it differently:
+   1. Asynchronous or "async" functions are pieces of code that run in the background, then when completed return the results. Since everything in a SwiftUI view runs on the "main thread" we first create a `Task` that runs the given asynchronous operation in the background.
+   2. `fcl.unauthenticate()` throws an error if it was unable to log out the user for any reason. In Swift, you can use `try?` to gracefully handle errors from functions that can potentially throw an error, allowing the function to return an optional value instead of propagating the error directly. We will go deeper into error handling in a future lesson.
+   3. Lastly, since the function is asynchronous we must tell Swift to "wait" for the operation to complete. This is done by specifying `await` before the function is called.
+
+Let's test these changes out on the simulator!
+
+> Note that at this point you will need to use Blocto Wallet, we need to configure something called "Wallet Connect" before we can use Lilico Wallet which we will setup in the next lesson.
+
+<img src="https://i.imgur.com/v1PUfvY.gif" />
 
 ## Conclusion
 
-Wooohooo! We figured out how to log in. That wasn't so bad, right?!
+Congratulations on completing this important step in our journey! You have successfully learned the process of logging in to our application.
 
 ## Quests
 
 Feel free to answer in a language you're most comfortable in.
 
 1. How did we get the address of the user? Please explain in words and then in code.
-2. What do `fcl.authenticate` and `fcl.unauthenticate` do?
-3. Why did we make a `config.js` file? What does it do?
-4. What does our `useEffect` do?
-5. How do we import FCL?
-6. What does `fcl.currentUser.subscribe(setUser);` do?
+2. Why did we make a `FlowManager` file? What does it do?
+3. What does our `onReceive` do?
+4. How do we import `FCL`?
+5. What does `fcl.currentUser?.address.hex ?? ""` do, and why does this line need `?? ""` in it?
+6. Update the rest of your `ButtonView`s to use trailing closure syntax.

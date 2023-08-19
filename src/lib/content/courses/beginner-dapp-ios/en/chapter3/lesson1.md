@@ -3,8 +3,6 @@ title: Our First Smart Contract
 lesson: 1
 language: en
 excerpt: Our First Smart Contract
-lessonVideoUrl: https://www.youtube.com/embed/QbqNM4k76B0
-lessonVideoDescription: Overview of smart contracts, accounts, and deploying our first contract
 ---
 
 # Chapter 3 Lesson 1 - Our First Smart Contract
@@ -15,13 +13,13 @@ Welcome to Chapter 3, where we'll dive into the exciting world of Blockchain dev
 
 _Before going on, make sure you've read Chapter 1, Lesson 1. That lesson covers everything you need to know about Smart Contracts up to this point._
 
-In order to start making our first Smart Contract, we need to figure out a place to actually put it! To do that, launch a browser of your choice (I would recommend Google Chrome), go to the Flow playground by pasting in this URL: https://play.onflow.org. After you do that, do the following
+In order to start making our first Smart Contract, we need to figure out a place to actually put it! To do that, launch a browser of your choice (I would recommend Google Chrome), and go to the Flow playground by pasting this URL: [https://play.onflow.org](https://play.onflow.org). After you do that, do the following
 
-1. On the left hand side, click the '0x01' tab.
-2. Delete everything in that page.
+1. On the left-hand side, click the '0x01' tab.
+2. Delete everything on that page.
 
 It should look like this:
-<img src="/courses/beginner-dapp/blanksc.png" alt="drawing" size="400" />
+<img src="https://i.imgur.com/eqER0Ee.png" alt="drawing" size="400" />
 
 What we have done is clicked on the `Account` with address `0x01` and deleted the contract in its account. This brings up an important topic.
 
@@ -79,10 +77,10 @@ In Cadence, when you declare a variable, you follow this format:
 
 Using our example above...
 
-- Our access modifier is `pub`, which means anyone can read this variable. In the future, we will see lots of other access modifiers, but lets stick with `pub` for the next few lessons just to make life easy.
+- Our access modifier is `pub`, which means anyone can read this variable. In the future, we will see lots of other access modifiers, but let's stick with `pub` for the next few lessons just to make life easy.
 - `let` means that this variable is a constant. If you've coded in other programming languages, a constant means that once we make this variable equal to something, we **cannot change it**. On the other hand, `var` means we can change it.
 - Our variable name is `greeting`
-- The type of our variable is a `String`. This means we can put stuff like "Hello", "Jacob is the best", "I love Jacob", stuff like that.
+- The type of our variable is a `String`. This means we can put stuff like "Hello", "Jacob is the best", "I love Jacob", and stuff like that.
 
 Next, we put `self.greeting = "Hello, World!"` inside the `init()` function. Remember, the `init()` function is called when the contract is deployed, which only happens once. `self` is a keyword that means "the variable that is one layer above." In this case, `self.greeting` is referring to the `greeting` variable we declared right above it, and we set it equal to "Hello, World!"
 
@@ -90,11 +88,11 @@ Next, we put `self.greeting = "Hello, World!"` inside the `init()` function. Rem
 
 Your page should look like this:
 
-<img src="/courses/beginner-dapp/helloworld.png" alt="drawing" size="400" />
+<img src="https://i.imgur.com/Jtpzf12.png" alt="drawing" size="400" />
 
 > NOTE: If you're getting errors, try first refreshing the page.
 
-Awesome!!! You've deployed your first Smart Contract. Note that this is not the real blockchain, it a simulated one that only applies to you.
+Awesome!!! You've deployed your first Smart Contract. Note that this is not the real blockchain, it is a simulated one that only applies to you.
 
 ## Reading our Greeting
 
@@ -120,7 +118,7 @@ This Script will return the value of greeting, which is "Hello, World!" In order
 
 > If you click "Execute" on the right side, you will see in the terminal it prints, "Hello, World!" like below:
 
-<img src="/courses/beginner-dapp/hwscript.png" alt="drawing" size="400">
+<img src="https://i.imgur.com/zhTXne2.png" alt="drawing" size="400">
 
 If yours looks like that, you have executed your first script!
 
@@ -128,7 +126,7 @@ If yours looks like that, you have executed your first script!
 
 Okay, so we just wrote some code. That was fast. But how does all of this relate back to what I was saying in Chapter 1, Lesson 1?
 
-Remember I said Smart Contracts are both programs and rulebooks. They allow us to do certain things, nothing more and nothing less. In this example, our Smart Contract let us initialize `greeting` and read `greeting`. Notice that it does NOT let us change `greeting` to be something else. If we had wanted to add that functionality, we would've had to do it ahead of time, before we deployed it. This is why it's so crucial that as a developer of a Smart Contract, you implement all the functionality you want a user to have before you deploy the contract. Because after you deploy, there's nothing you can do. (Of course, on the Flow playground, we can deploy the contract again. But in the real world you cannot do this.)
+Remember I said Smart Contracts are both programs and rulebooks. They allow us to do certain things, nothing more and nothing less. In this example, our Smart Contract let us initialize `greeting` and read `greeting`. Notice that it does NOT let us change `greeting` to something else. If we had wanted to add that functionality, we would've had to do it ahead of time, before we deployed it. This is why it's so crucial that as a developer of a Smart Contract, you implement all the functionality you want a user to have before you deploy the contract. Because after you deploy, there's nothing you can do. (Of course, on the Flow playground, we can deploy the contract again. But in the real world you cannot do this.)
 
 ## Conclusion
 
@@ -136,7 +134,7 @@ Today, we learned how to deploy our first contract, declare a variable, write a 
 
 ## Quests
 
-For todays quest, please load up a new Flow playground by going to https://play.onflow.org just like we did in this lesson. You will use that for writing your code.
+For today's quest, please load up a new Flow playground by going to [https://play.onflow.org](https://play.onflow.org) just like we did in this lesson. You will use that for writing your code.
 
 1. Deploy a contract to account `0x03` called "EmeraldAcademy". Inside that contract, declare a **constant** variable named `is`, and make it have type `String`. Initialize it to "the best" when your contract gets deployed.
 

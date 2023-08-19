@@ -11,7 +11,7 @@ Today's lesson will be very short (WOOOHOOOO! We don't have to read Jacob's anno
 
 ## Installing the Cadence VSCode Extension
 
-Xcode is specefic to development for Apple systems, paticulary Swift. Unfortunately it doesn't support working with Cadence, Open your project folder in VSCode for these next steps.
+Xcode is specific to development for Apple systems, particularly Swift. Unfortunately, it doesn't support working with Cadence, Open your project folder in VSCode for these next steps.
 
 Now that we're no longer on the playground, we want to be able to have errors show up in our VSCode when we're coding Cadence. There's an extension to do that!
 
@@ -19,7 +19,7 @@ Now that we're no longer on the playground, we want to be able to have errors sh
 
 > Click on the following extension and press "Install":
 
-<img src="/courses/beginner-dapp/cadence-vscode-extension.png" />
+<img src="https://i.imgur.com/SG5vHHo.png" />
 
 ## Installing the Flow CLI & flow.json
 
@@ -35,11 +35,11 @@ You can confirm the Flow CLI is installed by going to a terminal and typing `flo
 
 ## Cadence Folder
 
-Inside of our Emerald DApp, let's make a new folder called `cadence`.
+Inside our Emerald DApp, let's make a new folder called `cadence`.
 
-Inside of the `cadence` folder, let's make a `contracts` folder, a `transactions` folder, and a `scripts` folder.
+Inside the `cadence` folder, let's make a `contracts` folder, a `transactions` folder, and a `scripts` folder.
 
-Inside of the `contracts` folder, add a new file called `HelloWorld.cdc`. In that file, put our contract code from yesterday:
+Inside the `contracts` folder, add a new file called `HelloWorld.cdc`. In that file, put our contract code from yesterday:
 
 ```cadence
 pub contract HelloWorld {
@@ -93,7 +93,7 @@ pub fun main(): String {
 
 Your project directory should now look like this:
 
-<img src="/courses/beginner-dapp/layout.png" />
+<img src="https://i.imgur.com/rgYpVEY.png" />
 
 ---
 
@@ -127,7 +127,7 @@ This will allow your `flow.json` to know where your contracts live.
 
 <img src="https://i.imgur.com/HbF4C73.png" alt="generate key pair" />
 
-> 👛 Create your **deployer account** by going to https://testnet-faucet.onflow.org/, pasting in your public key from above, and clicking `CREATE ACCOUNT`:
+> 👛 Create your **deployer account** by going to [https://testnet-faucet.onflow.org/](https://testnet-faucet.onflow.org/), pasting in your public key from above, and clicking `CREATE ACCOUNT`:
 
 <img src="https://i.imgur.com/73OjT3K.png" alt="configure testnet account on the website" />
 
@@ -167,7 +167,7 @@ This will allow your `flow.json` to know where your contracts live.
 flow project deploy --network=testnet
 ```
 
-<img src="/courses/beginner-dapp/deploy-contract.png" alt="deploy contract to testnet" />
+<img src="https://i.imgur.com/m1zMisW.png" alt="deploy contract to testnet" />
 
 ## Interacting with our Contract
 
@@ -179,7 +179,7 @@ Before we run a script using the Flow CLI in our terminal, we have to tell our `
 
 Now that we have deployed our contract to testnet, we can configure our `flow.json` to recognize that the contract exists at that address.
 
-Inside of your `flow.json`, change the "contracts" object to look like this:
+Inside your `flow.json``, change the "contracts" object to look like this:
 
 ```json
 "contracts": {
@@ -204,9 +204,9 @@ flow scripts execute ./flow/cadence/scripts/readGreeting.cdc --network=testnet
 
 If it works properly, you will see this:
 
-<img src="/courses/beginner-dapp/interact-with-script.png" />
+<img src="https://i.imgur.com/TPDJsdO.png" />
 
-Boom! It returned "Hello, World!", which is exactly what our `greeting` variable is in the contract. YAAAAAAAY!!
+Boom! It returned "Hello, World!", which is exactly what our `greeting` variable is in the contract. YAY!!
 
 ### Changing our Greeting
 
@@ -218,13 +218,13 @@ flow transactions send ./flow/cadence/transactions/changeGreeting.cdc "Goodbye, 
 
 If it works properly, you will see this:
 
-<img src="/courses/beginner-dapp/interact-with-transaction.png" />
+<img src="https://i.imgur.com/1JXgEav.png" />
 
-That means the transaction is sealed (completed) and worked! If you run the script to read the greeting again, hopefully you will see:
+That means the transaction is sealed (completed) and worked! If you run the script to read the greeting again, hopefully, you will see:
 
-<img src="/courses/beginner-dapp/interact-with-scripts-2.png" />
+<img src="https://i.imgur.com/K7nAYC5.png" />
 
-NICEEEEEE!!! We successfully changed our `greeting` in our contract. This is so cool.
+NICE!!! We successfully changed our `greeting` in our contract. This is so cool.
 
 ## Conclusion
 
@@ -242,6 +242,6 @@ After, deploy that contract to the same testnet account you generated today.
 2. Send a screenshot of you reading the variable from your new contract using the Flow CLI
 3. Send a screenshot of you changing the variable from your new contract using the Flow CLI
 4. Send a screenshot of you reading your changed variable from your new contract using the Flow CLI
-5. Go to https://flow-view-source.com/testnet/. Where it says "Account", paste in the Flow address you generated and click "Go". On the left hand side, you should see your "HelloWorld" contract and your new contract. Isn't it so cool to see them live on Testnet? Then, send the URL to the page.
+5. Go to [https://flow-view-source.com/testnet/](https://flow-view-source.com/testnet/). Where it says "Account", paste in the Flow address you generated and click "Go". On the left-hand side, you should see your "HelloWorld" contract and your new contract. Isn't it so cool to see them live on Testnet? Then, send the URL to the page.
 
-- EXAMPLE: https://flow-view-source.com/testnet/account/0x90250c4359cebac7/
+- EXAMPLE: [https://flow-view-source.com/testnet/account/0x90250c4359cebac7/](https://flow-view-source.com/testnet/account/0x90250c4359cebac7/)
