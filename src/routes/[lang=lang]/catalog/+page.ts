@@ -9,7 +9,7 @@ export const load = async ({ fetch, params }) => {
 			`../../../lib/content/subjects/cadence/${params.lang}/overview.ts`
 		);
 		const subjectDAppDevOverview = await import(
-			`../../../lib/content/subjects/dapp-dev/${params.lang}/overview.ts`
+			`../../../lib/content/subjects/dapp/${params.lang}/overview.ts`
 		);
 
 		return {

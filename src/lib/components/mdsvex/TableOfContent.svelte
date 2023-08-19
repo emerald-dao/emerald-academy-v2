@@ -161,10 +161,10 @@
 					{/if}
 				</div>
 			{/if}
-		{:else if contentType === ContentTypeEnum.Snippet}
+		{:else if externalUrl && contentType === ContentTypeEnum.Snippet}
 			<Button size="small" color="primary" target="_blank" width="full-width" href={externalUrl}>
-				<Icon icon="tabler:link" />
-				View Code
+				<Icon icon="tabler:run" />
+				Run Code
 			</Button>
 		{:else if contentType === ContentTypeEnum.Quickstart}
 			<Button size="small" color="primary" target="_blank" width="full-width" href={externalUrl}>

@@ -14,7 +14,7 @@ export const overview: SnippetOverview = {
   },
   excerpt: 'Learn how to log in, log out, and access user data.',
   metadata: {
-    subjects: [SubjectsEnum.DApp]
+    subjects: [SubjectsEnum.DApp, SubjectsEnum.Javascript]
   },
   codeLink: 'https://codesandbox.io/s/fcl-authenticate-gxr8mg'
 };

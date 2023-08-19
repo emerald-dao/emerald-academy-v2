@@ -44,10 +44,10 @@ excerpt: 节-基本计算机编程概念
 在 Cadence 中最基础的函数就是`log`，作用是让屏幕打印出来方便我们阅读，你可以像下面这样写:
 
 ```cadence
-log("Hello, idiot!")
+log("Hello, World!")
 ```
 
-看看我们做了什么？我们写了`log`，后面跟着一组括号。函数总是接受被称为`参数`的东西，这些东西被放入函数中，它知道要做什么。如果我们要执行那个程序，它会说，"Hello,idiot!"，这正是我们想要的。
+看看我们做了什么？我们写了`log`，后面跟着一组括号。函数总是接受被称为`参数`的东西，这些东西被放入函数中，它知道要做什么。如果我们要执行那个程序，它会说，"Hello,World!"，这正是我们想要的。
 
 让我们看看我用 Cadence 写的例子
 
@@ -81,7 +81,7 @@ https://play.onflow.org 是您在 Cadence 中编写程序的“游乐场”。�
 
 ```cadence
 let x: Int = 5
-let text: String = "Hello idiot"
+let text: String = "Hello World"
 ```
 
 您可以在[此处](https://docs.onflow.org/cadence/language/values-and-types/)查看不同类型的变量。不用担心，我们稍后会了解这一切。

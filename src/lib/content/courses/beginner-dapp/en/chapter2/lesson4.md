@@ -142,14 +142,14 @@ Inside of `./pages/index.js`, do two things:
 > First, replace the "Goodbye" `<button>` with this code:
 
 ```html
-<input placeholder="Hello, Idiots!" />
+<input placeholder="Hello, World!" />
 ```
 
 Your webpage should now look like this:
 
-<img src="/courses/beginner-dapp/hello-idiots.png" />
+<img src="/courses/beginner-dapp/hello-world.png" />
 
-We basically created an input field and added a placeholder of "Hello, Idiots!". Now, let's store the value we type into the input field somewhere.
+We basically created an input field and added a placeholder of "Hello, World!". Now, let's store the value we type into the input field somewhere.
 
 > At the top of the file, add this line:
 
@@ -168,7 +168,7 @@ const [newGreeting, setNewGreeting] = useState('');
 > Make your `<input>` tag look like this:
 
 ```html
-<input onChange={(e) => setNewGreeting(e.target.value)} placeholder="Hello, Idiots!" />
+<input onChange={(e) => setNewGreeting(e.target.value)} placeholder="Hello, World!" />
 ```
 
 Because of the `onChange` handler, it will call the function inside of the `{}` brackets every time the input is changed. That function takes in an `e`, which represents an "event" of the input field changing, and calls `setNewGreeting` (which changes the `newGreeting` variable) to `e.target.value`, which is the value that we type into the box.

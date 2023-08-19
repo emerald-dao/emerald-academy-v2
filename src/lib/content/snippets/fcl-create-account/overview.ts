@@ -13,7 +13,7 @@ export const overview: SnippetOverview = {
   },
   excerpt: 'Learn how to take a public key and create an account with it using FCL.',
   metadata: {
-    subjects: [SubjectsEnum.DApp]
+    subjects: [SubjectsEnum.DApp, SubjectsEnum.Javascript]
   },
   codeLink: 'https://codesandbox.io/s/fcl-create-account-2y4w7z?file=/src/index.js:0-1396'
 };
