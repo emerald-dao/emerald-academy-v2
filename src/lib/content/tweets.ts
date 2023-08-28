@@ -40,5 +40,23 @@ export const tweets: TweetOverview[] = [
 			prerequisites: [],
 			subjects: [SubjectsEnum.Cadence]
 		}
+	},
+	{
+		title: 'Cadence Cheatsheet',
+		author: {
+			name: 'chasefleming',
+			socialMediaUrl: 'https://twitter.com/chasefleming',
+			avatarUrl: 'https://pbs.twimg.com/profile_images/1640120827135021056/0paOJYnu_400x400.jpg',
+			isVerified: true
+		},
+		excerpt: 'Quickly learn the basics of Cadence with simple examples.',
+		link: 'https://twitter.com/chasefleming/status/1696263488342278567?s=20',
+		contentType: ContentTypeEnum.Tweet,
+		metadata: {
+			expertise: ExpertiseEnum.Beginner,
+			duration: '5 minutes',
+			prerequisites: [],
+			subjects: [SubjectsEnum.Cadence]
+		}
 	}
 ];
