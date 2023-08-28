@@ -82,5 +82,23 @@ export const blogs: BlogOverview[] = [
 			prerequisites: [],
 			subjects: [SubjectsEnum.Go]
 		}
+	},
+	{
+		title: 'Cadence Cheatsheet',
+		author: {
+			name: 'chasefleming',
+			socialMediaUrl: 'https://twitter.com/chasefleming',
+			avatarUrl: 'https://pbs.twimg.com/profile_images/1640120827135021056/0paOJYnu_400x400.jpg',
+			isVerified: true
+		},
+		excerpt: 'Quickly learn the basics of Cadence with simple examples.',
+		link: 'https://gist.github.com/chasefleming/0d5e21606cf8c9a3d5584a0625544c29',
+		contentType: ContentTypeEnum.Blog,
+		metadata: {
+			expertise: ExpertiseEnum.Beginner,
+			duration: '5 minutes',
+			prerequisites: [],
+			subjects: [SubjectsEnum.Cadence]
+		}
 	}
 ];
