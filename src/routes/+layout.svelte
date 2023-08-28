@@ -46,7 +46,8 @@
 		{
 			name: 'Flownaut',
 			url: `https://flownaut.ecdao.org`,
-			prefetch: true
+			prefetch: true,
+			target: '_blank'
 		}
 	];
 
