@@ -23,8 +23,8 @@
 </article>
 
 <Seo
-	title={`${data.meta.title} | Cadence example | Emerald Academy`}
-	description="Basic Cadence code examples"
+	title={`${data.meta.title} | Cadence by Example | Emerald Academy`}
+	description="Learn Cadence with examples."
 	type="WebPage"
 	image="https://academy.ecdao.org/favicon.png"
 />
