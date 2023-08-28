@@ -42,6 +42,11 @@
 			name: 'Quickstarts',
 			url: `/${$locale}/quickstarts`,
 			prefetch: true
+		},
+		{
+			name: 'Flownaut',
+			url: `https://flownaut.ecdao.org`,
+			prefetch: true
 		}
 	];
 
@@ -54,9 +59,7 @@
 		}
 	];
 
-	let headerWidth: 'medium' | 'large' = 'medium';
-
-	$: headerWidth = $page.params.lesson ? 'large' : 'medium';
+	let headerWidth = 'large';
 </script>
 
 <TransactionModal
