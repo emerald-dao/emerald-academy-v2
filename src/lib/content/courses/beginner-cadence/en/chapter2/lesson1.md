@@ -26,13 +26,13 @@ _Before going on, make sure you've read Chapter 1, Lesson 1. That lesson covers 
 
 In order to start making our first Smart Contract, we need to figure out a place to actually put it! To do that, launch a browser of your choice (I would recommend Google Chrome), go to the Flow playground by pasting in this URL: https://play.flow.com. After you do that, do the following
 
-1. On the left hand side, click the '0x01' tab.
+1. On the left hand side, click the 'Contract 1' tab.
 2. Delete everything in that page.
 
 It should look like this:
 <img src="/courses/beginner-cadence/blanksc.png" alt="drawing" size="400" />
 
-What we have done is clicked on the `Account` with address `0x01` and deleted the contract in its account. This brings up an important topic.
+Soon, we will be "deploying" a contract we make in this tab to an address. But what is an address?
 
 ### What's an address?
 
