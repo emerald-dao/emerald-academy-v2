@@ -52,6 +52,7 @@ const zh: BaseTranslation = {
 	[ContentTypeEnum.Tweet]: 'Tweet',
 	[ContentTypeEnum.Challenge]: '挑战',
 	[ContentTypeEnum.Snippet]: 'Snippet',
+	[ContentTypeEnum.External]: 'External',
 
 	// Subjects
 	[SubjectsEnum.Backend]: '后端',

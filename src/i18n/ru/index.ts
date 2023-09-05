@@ -53,6 +53,7 @@ const ru: BaseTranslation = {
 	[ContentTypeEnum.Tweet]: 'Tweet',
 	[ContentTypeEnum.Challenge]: 'Задачи',
 	[ContentTypeEnum.Snippet]: 'Snippet',
+	[ContentTypeEnum.External]: 'External',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Бэкенд',

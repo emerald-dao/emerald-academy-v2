@@ -71,8 +71,8 @@
 		.number-wrapper {
 			background-color: var(--clr-neutral-badge);
 			border-radius: 50%;
-			width: 2.5rem;
-			height: 2.5rem;
+			min-width: 2.5rem;
+			min-height: 2.5rem;
 			display: flex;
 			justify-content: center;
 			align-items: center;

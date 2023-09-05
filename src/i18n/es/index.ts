@@ -52,6 +52,7 @@ const es: Translation = {
 	[ContentTypeEnum.Tutorial]: 'Tutorial',
 	[ContentTypeEnum.Challenge]: 'Desafíos',
 	[ContentTypeEnum.Snippet]: 'Snippet',
+	[ContentTypeEnum.External]: 'External',
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',
 	[SubjectsEnum.Web]: 'Web',

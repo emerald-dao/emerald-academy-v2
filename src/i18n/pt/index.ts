@@ -53,6 +53,7 @@ const pt: BaseTranslation = {
 	[ContentTypeEnum.Tutorial]: 'Tutorial',
 	[ContentTypeEnum.Challenge]: 'Challenge',
 	[ContentTypeEnum.Snippet]: 'Snippet',
+	[ContentTypeEnum.External]: 'External',
 
 	// Subjects
 	[SubjectsEnum.Backend]: 'Backend',
