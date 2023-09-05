@@ -36,7 +36,7 @@ pub fun main() {
 
 When indexing into dictionaries, we get optional types back.
 
-To get rid of the optional type, we can use the force-unwrap operator `!` to get rid of the optional.
+To get rid of the optional type, we can use the force-unwrap operator `!`, or `panic` (recommended) if we want to provide an explanation for why the value is `nil`.
 
 ```cadence
 pub fun main() {
@@ -63,5 +63,7 @@ pub fun main() {
    
     let test_five: Int = map[0x05]!
    */
+
+   let test_six: Int = map[0x01] ?? panic("Address 0x01 does not exist in the dictionary.")
 }
 ```

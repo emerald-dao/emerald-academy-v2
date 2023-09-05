@@ -22,6 +22,9 @@ pub contract Counter {
       self.count = self.count - 1
    }
 
+   // technically this function isn't 
+   // needed, because we can read
+   // the `count` variable directly
    pub fun get(): Int {
       return self.count
    }

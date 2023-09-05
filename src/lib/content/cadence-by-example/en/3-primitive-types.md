@@ -24,8 +24,8 @@ pub contract Variables {
       self.switch = true
       self.listOfNumbers = [1, 100, 13]
       self.profiles = {
-         "Jacob": 0x01,
-         "Angela": 0x03
+         "Jacob": 0x1d7e57aa55817448,
+         "Angela": 0xf233dcee88fe0abe
       }
    }
 }

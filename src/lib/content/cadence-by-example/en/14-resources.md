@@ -13,6 +13,7 @@ Here are some facts about resources:
 - They are moved around using the `<-` operator.
 - Their type is prefixed with a `@`
 - They can define `destroy` functions that will run when they are destroyed.
+- They cannot be copied or lost
 
 ```cadence
 // Contract file: Test.cdc
@@ -32,7 +33,9 @@ pub contract Test {
       
       // Will get run when the resource is created
       init(rarity: String, name: String) {
-         self.id = self.uuid // every resource has a unique `uuid` field that will never be the same
+         // every resource has a unique `uuid` field 
+         // that will never be the same, even after the resource is destroyed
+         self.id = self.uuid
          self.rarity = rarity
          self.name = name
 
@@ -58,7 +61,7 @@ pub contract Test {
 ```
 
 ```cadence
-// Transaction file: mint__and_destroy_nft.cdc
+// Transaction file: mint_and_destroy_nft.cdc
 import Test from 0x01
 
 transaction(rarity: String, name: String) {
@@ -69,9 +72,14 @@ transaction(rarity: String, name: String) {
 
    execute {
      let nft: @Test.NFT <- Test.mintNFT(rarity: rarity, name: name)
+
+     log(Test.totalSupply) // 1
+
      // we must destroy the resource or store it somewhere, 
      // or we will get a `loss of resource` error
      destroy nft
+
+     log(Test.totalSupply) // 0
 
      /*
       ERROR: `nft` no longer exists here

@@ -30,6 +30,8 @@ pub contract Test {
                     .concat(self.favNumber.toString()))
       }
       
+      // Like contracts, structs (and later - resources) 
+      // must have an `init` function to initialzie their variables.
       init(name: String, address: Address, favNumber: Int) {
          self.name = name
          self.address = address

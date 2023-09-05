@@ -19,8 +19,6 @@ When creating a reference, you must follow it with a casting expression.
 // Deployed to 0x01
 pub contract Test {
 
-   // The `@` is placed before the entire type.
-   // INCORRECT: {Address: @NFT}
    pub let nfts: @{UInt64: NFT}
 
    pub resource NFT {

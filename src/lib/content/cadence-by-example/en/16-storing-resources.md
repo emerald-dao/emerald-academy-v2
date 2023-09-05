@@ -29,7 +29,7 @@ pub contract TestDictionaries {
 
    // two ways to add to a dictionary
    // 1. force move operator `<-!`
-   // 2. "old out new in"
+   // 2. "old out; new in"
 
    // 1. because resources cannot be overwritten,
    // this tells Cadence to force move the operator
@@ -48,8 +48,7 @@ pub contract TestDictionaries {
    pub fun addNFT2(nft: @NFT) {
       let oldNFT <- self.nfts[nft.address] <- nft
       destroy oldNFT
-      // `nft` and `oldNFT` no longer exist here, since
-      // it has been moved into the dictionary
+      // `nft` and `oldNFT` no longer exist here
    }
 
    pub fun createNFT(rarity: String, name: String): @NFT {

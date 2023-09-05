@@ -24,7 +24,7 @@ transaction() {
 
 Transactions have 2 main stages:
 
-1. **prepare** - to access data/information inside the `signer`'s account (allowed by the `AuthAccount` type)
+1. **prepare** - to access/manipulate data inside the `signer`'s account (allowed by the `AuthAccount` type)
 2. **execute** - to execute actions
 
 # Example Contract & Transaction

@@ -25,7 +25,7 @@ pub contract Variables {
       /*
        ERROR: not allowed
        
-       self.numr2 = 2
+       self.num2 = 2
       */
    }
 }
