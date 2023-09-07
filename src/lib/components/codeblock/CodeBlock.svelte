@@ -1,5 +1,8 @@
 <script type="ts">
 	import Prism from 'prismjs';
+	import 'prismjs/components/prism-json';
+	import 'prismjs/components/prism-bash';
+	import 'prismjs/components/prism-csharp';
 	import { onMount } from 'svelte';
 	import 'prismjs/plugins/toolbar/prism-toolbar.css';
 	import 'prismjs/plugins/toolbar/prism-toolbar';
@@ -13,8 +16,7 @@
 
 	const decodedCode = decodeURIComponent(code);
 
-	let formatLang =
-		lang === 'cadence' || lang === undefined || lang === 'csharp' || lang === 'cs' ? 'js' : lang;
+	let formatLang = lang === 'cadence' || lang === undefined ? 'js' : lang;
 
 	onMount(() => {
 		Prism.highlightAll();
