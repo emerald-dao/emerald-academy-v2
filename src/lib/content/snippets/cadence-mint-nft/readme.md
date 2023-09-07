@@ -4,6 +4,8 @@ layout: examples
 
 ```cadence
 import Avataaars from 0xcb9a812737bbc679
+import NonFungibleToken from 0x1d7e57aa55817448
+import MetadataViews from 0x1d7e57aa55817448
 
 transaction() {
 
@@ -25,7 +27,7 @@ transaction() {
     // borrow the public minter, which allows anyone to mint
     let minter: &{Avataaars.MinterPublic} = Avataaars.borrowMinter()
     // mint the NFT
-    minter.mintNFT(collection: self.Collection)
+    minter.mintNFT(recipient: self.Collection)
   }
 }
 ```
