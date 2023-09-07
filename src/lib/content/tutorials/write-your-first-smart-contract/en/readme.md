@@ -10,6 +10,8 @@ lessonVideoDescription: Follow along in a video format.
 
 Our tutorial on writing a smart contract will help you start building on Flow. Specifically, you'll learn Cadence, the smart contract language created by the Flow blockchain. We learn about resources and their ownership through the example of a "Car" resource.
 
+## Video
+
 <LessonVideo {lessonVideoUrl} {lessonVideoDescription} />
 
 ## Getting Started

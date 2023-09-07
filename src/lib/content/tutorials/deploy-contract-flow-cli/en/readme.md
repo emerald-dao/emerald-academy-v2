@@ -8,7 +8,9 @@ lessonVideoDescription: Follow along in a video format.
   import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
 </script>
 
-This tutorial will help you deploy a smart contract on Flow testnet/mainnet.
+This tutorial will help you deploy a smart contract on Flow testnet/mainnet using the Flow CLI.
+
+## Video
 
 <LessonVideo {lessonVideoUrl} {lessonVideoDescription} />
 
