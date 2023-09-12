@@ -6,11 +6,11 @@ export const overview: SnippetOverview = {
   title: 'Account Linking - Remove a Child Account',
   contentType: ContentTypeEnum.Snippet,
   author: {
-    name: 'Jacob Tucker',
-    socialMediaUrl: 'https://twitter.com/jacobmtucker',
-    avatarUrl: 'https://avatars.githubusercontent.com/u/15198786?v=4',
+    name: 'Austin',
+    socialMediaUrl: 'https://twitter.com/austin_flowty',
+    avatarUrl: 'https://i.imgur.com/UzTJ6oW.png',
     isVerified: true,
-    walletAddress: '0x99bd48c8036e2876'
+    walletAddress: '0x4a03a8d4a234aa26'
   },
   excerpt: "Learn how to remove a child account for account linking.",
   metadata: {
