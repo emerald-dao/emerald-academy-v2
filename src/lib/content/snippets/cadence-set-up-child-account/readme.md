@@ -2,7 +2,9 @@
 layout: examples
 ---
 
-This snippet was taken from [Flowty's Developer Docs](https://docs.flowty.io/developer-docs/hybrid-custody/resources-and-transactions#common-transactions).
+Configures the necessary resources on what will become a child account. Once set up, you will be ready to [publish](/en/snippets/cadence-publish-a-child-account) the child account to any other address for it to [redeem](/en/snippets/cadence-redeem-a-child-account) and become a parent.
+
+*This snippet was taken from [Flowty's Developer Docs](https://docs.flowty.io/developer-docs/hybrid-custody/resources-and-transactions#common-transactions).*
 
 ```cadence
 #allowAccountLinking

@@ -2,7 +2,9 @@
 layout: examples
 ---
 
-This snippet was taken from [Flowty's Developer Docs](https://docs.flowty.io/developer-docs/hybrid-custody/resources-and-transactions#common-transactions).
+In order for a child account to be accessible to a parent, it must first be redeemed. While redeeming, you can set some metadata about the child account to make it easily identifiable to platforms. Note that the child account must already be [set up](/en/snippets/cadence-set-up-child-account) and [published](/en/snippets/cadence-publish-a-child-account).
+
+*This snippet was taken from [Flowty's Developer Docs](https://docs.flowty.io/developer-docs/hybrid-custody/resources-and-transactions#common-transactions).*
 
 ```cadence
 import HybridCustody from 0xd8a7e05a7ac670c0

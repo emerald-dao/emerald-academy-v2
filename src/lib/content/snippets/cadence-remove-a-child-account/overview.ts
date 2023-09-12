@@ -12,7 +12,7 @@ export const overview: SnippetOverview = {
     isVerified: true,
     walletAddress: '0x99bd48c8036e2876'
   },
-  excerpt: "If you are a parent account and no longer wish to have a particular child account anymore, you can unlink it. Doing so will revoke the ability to access a child's capabilities from the parent account, but could be added later if the child publishes their account to the parent again.",
+  excerpt: "Learn how to remove a child account for account linking.",
   metadata: {
     subjects: [SubjectsEnum.Cadence]
   },

@@ -12,7 +12,7 @@ export const overview: SnippetOverview = {
     isVerified: true,
     walletAddress: '0x99bd48c8036e2876'
   },
-  excerpt: 'Configures the necessary resources on what will become a child account. Once set up, you will be ready to publish the account to any other address for it to redeem and become a parent.',
+  excerpt: 'Learn how to set up a child account for account linking.',
   metadata: {
     subjects: [SubjectsEnum.Cadence]
   },

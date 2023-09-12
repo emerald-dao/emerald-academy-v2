@@ -2,7 +2,9 @@
 layout: examples
 ---
 
-This snippet was taken from [Flowty's Developer Docs](https://docs.flowty.io/developer-docs/hybrid-custody/resources-and-transactions#common-transactions).
+Takes the account which will be the child of another account and publishes it for the parent to redeem. The child account must first have been [set up](/en/snippets/cadence-set-up-child-account).
+
+*This snippet was taken from [Flowty's Developer Docs](https://docs.flowty.io/developer-docs/hybrid-custody/resources-and-transactions#common-transactions).*
 
 ```cadence
 import HybridCustody from 0xd8a7e05a7ac670c0

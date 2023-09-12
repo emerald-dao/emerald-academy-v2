@@ -12,7 +12,7 @@ export const overview: SnippetOverview = {
     isVerified: true,
     walletAddress: '0x99bd48c8036e2876'
   },
-  excerpt: "A child account is able to remove parent accounts at any time. Doing so will prevent the removed parent from accessing any new capabilities. However, it will not unlink any existing capabilities the parent already has.",
+  excerpt: "Learn how to remove a parent account for account linking.",
   metadata: {
     subjects: [SubjectsEnum.Cadence]
   },

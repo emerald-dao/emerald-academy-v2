@@ -169,7 +169,7 @@
 			{/if}
 		</div>
 		<p>
-			{#if overview.contentType !== ContentTypeEnum.Tutorial}
+			{#if overview.contentType !== ContentTypeEnum.Tutorial && overview.contentType !== ContentTypeEnum.Snippet}
 				{overview.excerpt}
 			{/if}
 		</p>
