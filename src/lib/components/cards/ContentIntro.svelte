@@ -183,12 +183,17 @@
 		flex-direction: column;
 		gap: var(--space-8);
 		align-items: flex-start;
-		width: 50%;
+
+		h1 {
+			font-size: 2.5rem;
+			@include mq(small) {
+				font-size: var(--heading-1-regular-font-size);
+			}
+		}
 
 		@include mq(small) {
 			flex-direction: row;
 			align-items: center;
-			width: auto;
 		}
 	}
 
