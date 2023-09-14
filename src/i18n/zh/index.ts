@@ -72,6 +72,7 @@ const zh: BaseTranslation = {
 	[ExpertiseEnum.Beginner]: '初级',
 
 	// Quickstarts
+	MOBILE_QUICKSTARTS: '移动端模板',
 	NO_QUICKSTARTS_FOUND: '没有找到该语言的模板',
 
 	// Challenge

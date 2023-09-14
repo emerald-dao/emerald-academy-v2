@@ -73,6 +73,7 @@ const ru: BaseTranslation = {
 	[ExpertiseEnum.Beginner]: 'Начальный',
 
 	// Quickstarts
+	MOBILE_QUICKSTARTS: 'Шаблоны для Mobile',
 	NO_QUICKSTARTS_FOUND: 'Шаблоны не найдены для этого языка',
 
 	// Challenge

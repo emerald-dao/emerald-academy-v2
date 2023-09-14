@@ -71,6 +71,7 @@ const es: Translation = {
 	[ExpertiseEnum.Beginner]: 'Principiante',
 
 	// Quickstarts
+	MOBILE_QUICKSTARTS: 'Plantillas para Mobile',
 	NO_QUICKSTARTS_FOUND: 'No se encontraron plantillas para este lenguaje',
 
 	// Challenge
