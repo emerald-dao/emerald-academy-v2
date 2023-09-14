@@ -82,6 +82,10 @@ type RootTranslation = {
 	 */
 	CATALOG: string
 	/**
+	 * S​n​i​p​p​e​t​s
+	 */
+	SNIPPETS: string
+	/**
 	 * L​e​a​r​n
 	 */
 	LEARN: string
@@ -118,11 +122,31 @@ type RootTranslation = {
 	 */
 	blog: string
 	/**
+	 * T​w​e​e​t
+	 */
+	tweet: string
+	/**
+	 * T​u​t​o​r​i​a​l
+	 */
+	tutorial: string
+	/**
+	 * C​h​a​l​l​e​n​g​e
+	 */
+	challenge: string
+	/**
+	 * S​n​i​p​p​e​t
+	 */
+	snippet: string
+	/**
+	 * E​x​t​e​r​n​a​l
+	 */
+	external: string
+	/**
 	 * B​a​c​k​e​n​d
 	 */
 	backend: string
 	/**
-	 * W​e​b​ ​D​e​v
+	 * W​e​b
 	 */
 	web: string
 	/**
@@ -138,6 +162,26 @@ type RootTranslation = {
 	 */
 	javascript: string
 	/**
+	 * M​o​b​i​l​e
+	 */
+	mobile: string
+	/**
+	 * S​w​i​f​t
+	 */
+	swift: string
+	/**
+	 * I​P​F​S
+	 */
+	ipfs: string
+	/**
+	 * U​n​i​t​y
+	 */
+	unity: string
+	/**
+	 * G​o
+	 */
+	go: string
+	/**
 	 * A​d​v​a​n​c​e​d
 	 */
 	Advanced: string
@@ -150,9 +194,29 @@ type RootTranslation = {
 	 */
 	Beginner: string
 	/**
-	 * N​o​ ​q​u​i​c​k​s​t​a​r​t​s​ ​f​o​u​n​d​ ​f​o​r​ ​t​h​i​s​ ​l​e​n​g​u​a​g​e
+	 * M​o​b​i​l​e​ ​Q​u​i​c​k​s​t​a​r​t​s
+	 */
+	MOBILE_QUICKSTARTS: string
+	/**
+	 * N​o​ ​q​u​i​c​k​s​t​a​r​t​s​ ​f​o​u​n​d​ ​f​o​r​ ​t​h​i​s​ ​l​a​n​g​u​a​g​e
 	 */
 	NO_QUICKSTARTS_FOUND: string
+	/**
+	 * C​a​d​e​n​c​e​ ​C​h​a​l​l​e​n​g​e​s
+	 */
+	CHALLENGE_TITLE: string
+	/**
+	 * C​h​a​l​l​e​n​g​e​s​ ​S​o​l​v​e​d
+	 */
+	CHALLENGES_SOLVED: string
+	/**
+	 * C​h​a​l​l​e​n​g​e​s​ ​U​n​s​o​l​v​e​d
+	 */
+	CHALLENGES_UNSOLVED: string
+	/**
+	 * N​o​ ​c​h​a​l​l​e​n​g​e​s​ ​a​v​a​i​l​a​b​l​e
+	 */
+	NO_CHALLENGES_AVAILABLE: string
 }
 
 export type TranslationFunctions = {
@@ -221,6 +285,10 @@ export type TranslationFunctions = {
 	 */
 	CATALOG: () => LocalizedString
 	/**
+	 * Snippets
+	 */
+	SNIPPETS: () => LocalizedString
+	/**
 	 * Learn
 	 */
 	LEARN: () => LocalizedString
@@ -257,11 +325,31 @@ export type TranslationFunctions = {
 	 */
 	blog: () => LocalizedString
 	/**
+	 * Tweet
+	 */
+	tweet: () => LocalizedString
+	/**
+	 * Tutorial
+	 */
+	tutorial: () => LocalizedString
+	/**
+	 * Challenge
+	 */
+	challenge: () => LocalizedString
+	/**
+	 * Snippet
+	 */
+	snippet: () => LocalizedString
+	/**
+	 * External
+	 */
+	external: () => LocalizedString
+	/**
 	 * Backend
 	 */
 	backend: () => LocalizedString
 	/**
-	 * Web Dev
+	 * Web
 	 */
 	web: () => LocalizedString
 	/**
@@ -277,6 +365,26 @@ export type TranslationFunctions = {
 	 */
 	javascript: () => LocalizedString
 	/**
+	 * Mobile
+	 */
+	mobile: () => LocalizedString
+	/**
+	 * Swift
+	 */
+	swift: () => LocalizedString
+	/**
+	 * IPFS
+	 */
+	ipfs: () => LocalizedString
+	/**
+	 * Unity
+	 */
+	unity: () => LocalizedString
+	/**
+	 * Go
+	 */
+	go: () => LocalizedString
+	/**
 	 * Advanced
 	 */
 	Advanced: () => LocalizedString
@@ -289,9 +397,29 @@ export type TranslationFunctions = {
 	 */
 	Beginner: () => LocalizedString
 	/**
-	 * No quickstarts found for this lenguage
+	 * Mobile Quickstarts
+	 */
+	MOBILE_QUICKSTARTS: () => LocalizedString
+	/**
+	 * No quickstarts found for this language
 	 */
 	NO_QUICKSTARTS_FOUND: () => LocalizedString
+	/**
+	 * Cadence Challenges
+	 */
+	CHALLENGE_TITLE: () => LocalizedString
+	/**
+	 * Challenges Solved
+	 */
+	CHALLENGES_SOLVED: () => LocalizedString
+	/**
+	 * Challenges Unsolved
+	 */
+	CHALLENGES_UNSOLVED: () => LocalizedString
+	/**
+	 * No challenges available
+	 */
+	NO_CHALLENGES_AVAILABLE: () => LocalizedString
 }
 
 export type Formatters = {}
