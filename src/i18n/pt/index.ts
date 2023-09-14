@@ -4,7 +4,6 @@ import { SubjectsEnum } from '../../lib/types/content/metadata/subject.enum';
 import { ExpertiseEnum } from '../../lib/types/content/metadata/expertise.enum';
 
 const pt: BaseTranslation = {
-
 	// HomePage / HeroSection
 	MAIN_HEADING_1: 'Aprenda tudo sobre a',
 	MAIN_HEADING_2: 'Flow Blockchain',
@@ -35,8 +34,8 @@ const pt: BaseTranslation = {
 	// ContentCard
 	SKILLS_YOU_WILL_LEARN: 'Habilidades que você vai aprender',
 
-	START: "Começar",
-	CATALOG: "Catálogo",
+	START: 'Começar',
+	CATALOG: 'Catálogo',
 	SNIPPETS: 'Snippets',
 	LEARN: 'Aprenda',
 	NEW_TO: 'Novo em',
@@ -74,8 +73,13 @@ const pt: BaseTranslation = {
 
 	// Quickstarts
 	MOBILE_QUICKSTARTS: 'Mobile Quickstarts',
-	NO_QUICKSTARTS_FOUND: 'Nenhum modelo encontrado para esta linguagem'
+	NO_QUICKSTARTS_FOUND: 'Nenhum modelo encontrado para esta linguagem',
 
+	// Challenge
+	CHALLENGE_TITLE: 'Desafios',
+	CHALLENGES_SOLVED: 'Desafios resolvidos',
+	CHALLENGES_UNSOLVED: 'Desafios não resolvidos',
+	NO_CHALLENGES_AVAILABLE: 'Nenhum desafio disponível para esta linguagem'
 };
 
 export default pt;
