@@ -14,7 +14,7 @@ export const overview: Quickstart = {
 		avatarUrl: 'https://avatars.githubusercontent.com/u/100654804?v=4',
 		isVerified: true
 	},
-	quickstartRepositoryUrl: 'github.com/emerald-dao/0-hello-world',
+	quickstartRepositoryUrl: 'https://github.com/emerald-dao/0-hello-world',
 	excerpt: 'A DApp that lets users read and change a greeting field on Flow testnet.',
 	metadata: {
 		subjects: [SubjectsEnum.DApp]

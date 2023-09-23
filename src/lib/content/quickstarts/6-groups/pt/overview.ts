@@ -2,7 +2,7 @@ import type { Template } from '$lib/types/content/templates.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
 export const overview: Template = {
-	title: 'Multisign',
+	title: 'Groups',
 	contentType: ContentTypeEnum.Quickstart,
 	audited: true,
 	web: 'React.js',
@@ -13,7 +13,7 @@ export const overview: Template = {
 		twitter: 'emerald_dao',
 		discord: 'emeraldcity'
 	},
-	templateRepositoryUrl: 'github.com/emerald-dao/5-multisign',
+	templateRepositoryUrl: 'https://github.com/emerald-dao/6-groups',
 	description:
-		'Um DApp que permite que qualquer pessoa deposite $FLOW em um DAO Treasury, do qual os administradores devem assinar várias ações para retirar esse $FLOW do Tesouro.'
+		'Um DApp que permite aos usuários criar grupos, entrar e sair deles, descobrir grupos e conversar dentro deles.'
 };

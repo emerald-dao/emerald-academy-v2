@@ -14,7 +14,7 @@ export const overview: Quickstart = {
 		avatarUrl: 'https://avatars.githubusercontent.com/u/100654804?v=4',
 		isVerified: true
 	},
-	quickstartRepositoryUrl: 'github.com/emerald-dao/6-groups',
+	quickstartRepositoryUrl: 'https://github.com/emerald-dao/6-groups',
 	excerpt:
 		'A DApp that allows users to create Groups, join & leave them, discover Groups, and chat inside of them.',
 	metadata: {

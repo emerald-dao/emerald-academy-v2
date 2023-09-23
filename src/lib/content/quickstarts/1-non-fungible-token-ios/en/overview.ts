@@ -16,7 +16,7 @@ export const overview: Quickstart = {
 		isVerified: true,
 		walletAddress: '0x76d988a29af9ea8d'
 	},
-	quickstartRepositoryUrl: 'github.com/boiseitguru/1-non-fungible-token-ios',
+	quickstartRepositoryUrl: 'https://github.com/boiseitguru/1-non-fungible-token-ios',
 	excerpt:
 		'A Mobile DApp that lets users create an empty collection, mint some pre-loaded NFTs, and transfer them to another account on Flow testnet.',
 	metadata: {

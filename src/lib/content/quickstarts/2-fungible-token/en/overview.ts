@@ -14,7 +14,7 @@ export const overview: Quickstart = {
 		avatarUrl: 'https://avatars.githubusercontent.com/u/100654804?v=4',
 		isVerified: true
 	},
-	quickstartRepositoryUrl: 'github.com/emerald-dao/2-fungible-token',
+	quickstartRepositoryUrl: 'https://github.com/emerald-dao/2-fungible-token',
 	excerpt:
 		'A DApp that lets users create their own fungible token and transfer them to another account on Flow testnet.',
 	metadata: {

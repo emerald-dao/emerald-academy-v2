@@ -13,7 +13,7 @@ export const overview: Template = {
 		twitter: 'emerald_dao',
 		discord: 'emeraldcity'
 	},
-	templateRepositoryUrl: 'github.com/emerald-dao/1-non-fungible-token',
+	templateRepositoryUrl: 'https://github.com/emerald-dao/1-non-fungible-token',
 	description:
 		'Um DApp que permite aos usuários criar uma coleção vazia, cunhar alguns NFTs pré-carregados e transferi-los para outra conta no Flow testnet.'
 };

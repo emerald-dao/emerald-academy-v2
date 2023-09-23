@@ -39,7 +39,7 @@
 		<TableOfContent
 			headings={data.metadata.headings}
 			contentType={ContentTypeEnum.Quickstart}
-			externalUrl={`https://github.com/emerald-dao/${$page.params.name}/fork`}
+			externalUrl={data.overview.quickstartRepositoryUrl + '/fork'}
 		/>
 	</div>
 </section>

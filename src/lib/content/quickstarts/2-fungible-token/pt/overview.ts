@@ -13,7 +13,7 @@ export const overview: Template = {
 		twitter: 'emerald_dao',
 		discord: 'emeraldcity'
 	},
-	templateRepositoryUrl: 'github.com/emerald-dao/2-fungible-token',
+	templateRepositoryUrl: 'https://github.com/emerald-dao/2-fungible-token',
 	description:
 		'Um DApp que permite aos usuários criar seu próprio token fungível e transferi-los para outra conta no Flow testnet.'
 };

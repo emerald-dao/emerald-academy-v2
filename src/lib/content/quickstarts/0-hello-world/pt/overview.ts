@@ -13,6 +13,6 @@ export const overview: Template = {
 		twitter: 'emerald_dao',
 		discord: 'emeraldcity'
 	},
-	templateRepositoryUrl: 'github.com/emerald-dao/0-hello-world',
+	templateRepositoryUrl: 'https://github.com/emerald-dao/0-hello-world',
 	description: 'Um DApp que permite aos usuários ler e alterar um campo de saudação no testnet Flow.'
 };

@@ -2,7 +2,7 @@ import type { Template } from '$lib/types/content/templates.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 
 export const overview: Template = {
-	title: 'Voting',
+	title: 'Multisign',
 	contentType: ContentTypeEnum.Quickstart,
 	audited: true,
 	web: 'React.js',
@@ -13,7 +13,7 @@ export const overview: Template = {
 		twitter: 'emerald_dao',
 		discord: 'emeraldcity'
 	},
-	templateRepositoryUrl: 'github.com/emerald-dao/4-voting',
+	templateRepositoryUrl: 'https://github.com/emerald-dao/5-multisign',
 	description:
-		'Um DApp que ativa um DAO aberto que permite que os membros da comunidade criem propostas e votem nele com base em participações de token que governam o DAO.'
+		'Um DApp que permite que qualquer pessoa deposite $FLOW em um DAO Treasury, do qual os administradores devem assinar várias ações para retirar esse $FLOW do Tesouro.'
 };
