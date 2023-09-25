@@ -203,7 +203,7 @@ fcl.config({
   "flow.network": FLOW_NETWORK
 });
 
-const magic = new Magic("pk_live_A0518BB95A143BFB", {
+const magic = new Magic("PUBLISHABLE API KEY", {
   extensions: [
     new FlowExtension({
       rpcUrl: FLOW_ACCESS_NODE,
@@ -340,7 +340,7 @@ fcl.config({
   "flow.network": FLOW_NETWORK
 });
 
-const magic = new Magic("pk_live_A0518BB95A143BFB", {
+const magic = new Magic("PUBLISHABLE API KEY", {
   extensions: [
     new FlowExtension({
       rpcUrl: FLOW_ACCESS_NODE,
