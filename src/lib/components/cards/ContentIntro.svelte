@@ -209,9 +209,5 @@
 			align-items: center;
 			gap: var(--space-2);
 		}
-
-		p {
-			max-width: 50ch;
-		}
 	}
 </style>
