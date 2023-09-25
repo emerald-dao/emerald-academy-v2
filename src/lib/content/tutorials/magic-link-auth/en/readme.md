@@ -32,6 +32,10 @@ npm install @onflow/fcl magic-sdk @magic-ext/flow
 
 To create a Magic instance, you will need an API key from their platform. Go to https://dashboard.magic.link/login, create an account, create a new project, and select "Flow (testnet)" for your network. You will then be redirected to your API Keys. 
 
+You will see your "Publishable API Key" here:
+
+<img src="https://i.imgur.com/FysU4oF.png" width="400" />
+
 Inside your DApp, open up the `App.js` file and replace it with the following code:
 
 ```js
