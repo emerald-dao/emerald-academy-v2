@@ -6,21 +6,37 @@ layout: examples
 import { config, authenticate, unauthenticate, currentUser } from "@onflow/fcl";
 import { useEffect, useState } from "react";
 
-// For mainnet:
-config({
-  "accessNode.api": "https://rest-mainnet.onflow.org",
-  "discovery.wallet": "https://fcl-discovery.onflow.org/authn",
-  "flow.network": "mainnet",
-  "discovery.authn.include": ["0xead892083b3e2c6c"] // adds in Dapper Wallet
-});
+const fclConfigInfo = {
+	emulator: {
+		accessNode: 'http://127.0.0.1:8888',
+		discoveryWallet: 'http://localhost:8701/fcl/authn',
+		discoveryAuthInclude: []
+	},
+	testnet: {
+		accessNode: 'https://rest-testnet.onflow.org',
+    discoveryWallet: 'https://fcl-discovery.onflow.org/testnet/authn',
+    // Adds in Dapper + Ledger
+		discoveryAuthInclude: ["0x82ec283f88a62e65", "0x9d2e44203cb13051"]
+	},
+	mainnet: {
+		accessNode: 'https://rest-mainnet.onflow.org',
+    discoveryWallet: 'https://fcl-discovery.onflow.org/authn',
+    // Adds in Dapper + Ledger
+		discoveryAuthInclude: ["0xead892083b3e2c6c", "0xe5cd26afebe62781"]
+	}
+};
 
-// For testnet:
-// config({
-//   "accessNode.api": "https://rest-testnet.onflow.org",
-//   "discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn",
-//   "flow.network": "testnet",
-//   "discovery.authn.include": ["0x82ec283f88a62e65"] // adds in Dapper Wallet
-// });
+const network = 'mainnet';
+
+config({
+  "app.detail.title": "Emerald Academy", // the name of your DApp
+  "app.detail.icon": "https://academy.ecdao.org/favicon.png", // your DApps icon
+  "flow.network": network,
+  "accessNode.api": fclConfigInfo[network].accessNode,
+  "discovery.wallet": fclConfigInfo[network].discoveryWallet,
+  // adds in opt-in wallets like Dapper and Ledger
+  "discovery.authn.include": fclConfigInfo[network].discoveryAuthInclude
+});
 
 export default function App() {
   const [user, setUser] = useState({ loggedIn: false, addr: "" });
@@ -35,7 +51,6 @@ export default function App() {
     <div className="App">
       <button onClick={authenticate}>Log In</button>
       <button onClick={unauthenticate}>Log Out</button>
-
       <p>{user.loggedIn ? `Welcome, ${user.addr}!` : "Please log in."}</p>
     </div>
   );
