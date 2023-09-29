@@ -14,7 +14,7 @@ export const overview: SnippetOverview = {
   },
   excerpt: 'Configure WalletConnect and mobile wallets with FCL.',
   metadata: {
-    subjects: [SubjectsEnum.Cadence]
+    subjects: [SubjectsEnum.DApp, SubjectsEnum.Javascript]
   },
   codeLink: 'https://codesandbox.io/s/fcl-configure-wallet-connect-nd7qxr?file=/src/App.js:0-2075'
 };
