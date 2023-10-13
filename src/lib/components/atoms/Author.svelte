@@ -9,11 +9,15 @@
 	export let walletAddress: string | undefined;
 	export let tip: boolean = true;
 	export let challengeAuthor: boolean = false;
+
+	function handleError(e) {
+		e.target.src = '/new-avatar.png';
+	}
 </script>
 
 <div class="row-2">
 	{#if avatarUrl}
-		<img src={avatarUrl} alt="User avatar" />
+		<img src={avatarUrl} alt="User avatar" on:error={(e) => handleError(e)} />
 	{:else}
 		<img src="/new-avatar.png" alt="Generic avatar" />
 	{/if}
