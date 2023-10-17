@@ -6,7 +6,7 @@ layout: examples
     import Notice from '$lib/components/atoms/Notice.svelte';
 </script>
 
-This tutorial will teach you how to use [Magic Link](https://magic.link/) to onboard users to your DApp with just an email. You will first learn how authenticate users in to your DApp. After authenticating, you will have the user's login info and learn how to send a test transaction as well.
+This tutorial will teach you how to use [Magic Link](https://magic.link/) to onboard users to your DApp with just an email. You will first learn how to authenticate users in to your DApp. After authenticating, you will have the user's login info and learn how to send a test transaction as well.
 
 ## Getting Started
 
@@ -16,11 +16,13 @@ We will be using the [Magic Link Flow documentation](https://magic.link/docs/ded
 If you would like to skip straight to a working example, go <a href="https://codesandbox.io/s/github/MagicLabs/example-flow">here</a>.
 </Notice>
 
-We will be using React.js for this tutorial, however you can easily use Svelte or any other framework as well. To create a fresh DApp, open up a terminal and paste `npx create-react-app magic-flow-tutorial`.
-
 ## Authenticate using Magic Link
 
-The first part of this tutorial will be how to authenticate users into your DApp using Magic Link. Navigate to your `magic-flow-tutorial` directory in terminal and follow the steps below.
+The first part of this tutorial will be how to authenticate users into your DApp using Magic Link. 
+
+We will be using React for this tutorial, however you can easily use Svelte or any other framework as well. To create a fresh DApp, open up a terminal and paste `npx create-react-app magic-flow-tutorial`.
+
+Navigate to your `magic-flow-tutorial` directory in terminal and follow the steps below.
 
 ### 1. Install Dependencies
 
