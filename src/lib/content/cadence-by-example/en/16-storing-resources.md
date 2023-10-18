@@ -46,7 +46,7 @@ pub contract TestDictionaries {
    // new value. This method allows you to handle the
    // case where a value/resource already exists at the key.
    pub fun addNFT2(nft: @NFT) {
-      let oldNFT <- self.nfts[nft.address] <- nft
+      let oldNFT <- self.nfts[nft.id] <- nft
       destroy oldNFT
       // `nft` and `oldNFT` no longer exist here
    }
