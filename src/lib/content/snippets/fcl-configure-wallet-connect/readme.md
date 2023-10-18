@@ -10,11 +10,13 @@ import { useEffect, useState } from "react";
 const fclConfigInfo = {
   testnet: {
     accessNode: "https://rest-testnet.onflow.org",
-    discoveryWallet: "https://fcl-discovery.onflow.org/testnet/authn"
+    discoveryWallet: "https://fcl-discovery.onflow.org/testnet/authn",
+    discoveryAuthnEndpoint: 'https://fcl-discovery.onflow.org/api/testnet/authn',
   },
   mainnet: {
     accessNode: "https://rest-mainnet.onflow.org",
-    discoveryWallet: "https://fcl-discovery.onflow.org/authn"
+    discoveryWallet: "https://fcl-discovery.onflow.org/authn",
+    discoveryAuthnEndpoint: 'https://fcl-discovery.onflow.org/api/authn',
   }
 };
 
@@ -25,7 +27,8 @@ fcl.config({
   "app.detail.icon": "https://i.imgur.com/rOhzi74.png", // your DApps icon
   "flow.network": network,
   "accessNode.api": fclConfigInfo[network].accessNode,
-  "discovery.wallet": fclConfigInfo[network].discoveryWallet
+  "discovery.wallet": fclConfigInfo[network].discoveryWallet,
+  "discovery.authn.endpoint": fclConfigInfo[network].discoveryAuthnEndpoint
 });
 
 // add WalletConnect for mobile apps.

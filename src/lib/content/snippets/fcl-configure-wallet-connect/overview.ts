@@ -16,5 +16,5 @@ export const overview: SnippetOverview = {
   metadata: {
     subjects: [SubjectsEnum.DApp, SubjectsEnum.Javascript]
   },
-  codeLink: 'https://codesandbox.io/s/fcl-configure-wallet-connect-nd7qxr?file=/src/App.js:0-2075'
+  codeLink: 'https://codesandbox.io/s/fcl-configure-wallet-connect-nd7qxr?file=/src/App.js'
 };
