@@ -1,0 +1,20 @@
+import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
+import type { SnippetOverview } from '$lib/types/content/snippet.interface';
+
+export const overview: SnippetOverview = {
+    title: 'Bulk Transfer NFTs in Cadence',
+    contentType: ContentTypeEnum.Snippet,
+    author: {
+        name: 'Jacob Tucker',
+        socialMediaUrl: 'https://twitter.com/jacobmtucker',
+        avatarUrl: 'https://avatars.githubusercontent.com/u/15198786?v=4',
+        isVerified: true,
+        walletAddress: '0x99bd48c8036e2876'
+    },
+    excerpt: 'Learn how to bulk transfer NFTs to different addresses in Cadence using the example Avataaars contract.',
+    metadata: {
+        subjects: [SubjectsEnum.Cadence]
+    },
+    codeLink: 'https://run.ecdao.org?code=aW1wb3J0IE5vbkZ1bmdpYmxlVG9rZW4gZnJvbSAweDFkN2U1N2FhNTU4MTc0NDgKaW1wb3J0IEF2YXRhYWFycyBmcm9tIDB4Y2I5YTgxMjczN2JiYzY3OQoKLy8gVGhlIHBlcnNvbiB0cmFzbmZlcnJpbmcgdGhlIE5GVCBpcyB0aGUgb25lIHdobyBzaWducyB0aGlzCgp0cmFuc2FjdGlvbihuZnRJRHM6IFtVSW50NjRdLCByZWNpcGllbnRzOiBbQWRkcmVzc10pIHsKCiAgICAvLyBSZWZlcmVuY2UgdG8gdGhlIHdpdGhkcmF3ZXIncyBjb2xsZWN0aW9uCiAgICBsZXQgd2l0aGRyYXdSZWY6ICZBdmF0YWFhcnMuQ29sbGVjdGlvbgoKICAgIHByZXBhcmUoc2lnbmVyOiBBdXRoQWNjb3VudCkgewogICAgICAgIC8vIGJvcnJvdyBhIHJlZmVyZW5jZSB0byB0aGUgc2lnbmVyJ3MgTkZUIGNvbGxlY3Rpb24KICAgICAgICBzZWxmLndpdGhkcmF3UmVmID0gc2lnbmVyLmJvcnJvdzwmQXZhdGFhYXJzLkNvbGxlY3Rpb24%2BKGZyb206IEF2YXRhYWFycy5Db2xsZWN0aW9uU3RvcmFnZVBhdGgpCiAgICAgICAgICAgICAgICA%2FPyBwYW5pYygiQWNjb3VudCBkb2VzIG5vdCBzdG9yZSBhbiBvYmplY3QgYXQgdGhlIHNwZWNpZmllZCBwYXRoIikKICAgIH0KCiAgICBleGVjdXRlIHsKICAgICAgICBmb3IgaSwgbmZ0SUQgaW4gbmZ0SURzIHsKICAgICAgICAgICAgLy8gZ2V0IHJlY2lwaWVudCBhZGRyZXNzIGZvciB0aGlzIG5mdElECiAgICAgICAgICAgIGxldCByZWNpcGllbnQ6IEFkZHJlc3MgPSByZWNpcGllbnRzW2ldCgogICAgICAgICAgICAvLyBSZWZlcmVuY2Ugb2YgdGhlIGNvbGxlY3Rpb24gdG8gZGVwb3NpdCB0aGUgTkZUIHRvCiAgICAgICAgICAgIGxldCBkZXBvc2l0UmVmID0gZ2V0QWNjb3VudChyZWNpcGllbnQpLmdldENhcGFiaWxpdHkoQXZhdGFhYXJzLkNvbGxlY3Rpb25QdWJsaWNQYXRoKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC5ib3Jyb3c8JkF2YXRhYWFycy5Db2xsZWN0aW9ue05vbkZ1bmdpYmxlVG9rZW4uQ29sbGVjdGlvblB1YmxpY30%2BKCkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA%2FPyBwYW5pYygiQ291bGQgbm90IGJvcnJvdyBhIHJlZmVyZW5jZSB0byB0aGUgcmVjZWl2ZXIncyBjb2xsZWN0aW9uIikKCiAgICAgICAgICAgIC8vIHdpdGhkcmF3IHRoZSBORlQgZnJvbSB0aGUgb3duZXIncyBjb2xsZWN0aW9uCiAgICAgICAgICAgIGxldCBuZnQgPC0gc2VsZi53aXRoZHJhd1JlZi53aXRoZHJhdyh3aXRoZHJhd0lEOiBuZnRJRCkKCiAgICAgICAgICAgIC8vIERlcG9zaXQgdGhlIE5GVCBpbiB0aGUgcmVjaXBpZW50J3MgY29sbGVjdGlvbgogICAgICAgICAgICBkZXBvc2l0UmVmLmRlcG9zaXQodG9rZW46IDwtIG5mdCkKICAgICAgICB9CiAgICB9Cn0%3D&network=mainnet&args=e30%3D'
+};
