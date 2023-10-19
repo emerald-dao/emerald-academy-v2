@@ -4,7 +4,7 @@ language: pt
 layout: examples
 ---
 
-# Vinculação Opcional
+# Optional Binding
 
 Você pode usar `if let` ara desembrulhar automaticamente um tipo opcional.
 
@@ -19,11 +19,11 @@ pub fun main(profileAddress: Address) {
    }
 
    if let profile: String = profiles[profileAddress] {
-      // profile agora pode ser usado como uma 
-      // variável e tem tipo `String`
+      // profile is now able to be used as a 
+      // variable and it has `String` type
    } else {
-      // o perfil com `profileAddress`
-      // não existia, e `profile` era nil
+      // the profile with `profileAddress`
+      // did not exist, and `profile` was nil
    }
 }
 ```
