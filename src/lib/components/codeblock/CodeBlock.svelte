@@ -48,6 +48,8 @@
 		border: 1px var(--clr-border-primary) solid;
 		margin-block: var(--space-4) var(--space-8);
 		background: var(--clr-background-secondary);
+		max-height: 500px;
+		overflow-y: scroll;
 
 		.language-wrapper {
 			padding: var(--space-4);
