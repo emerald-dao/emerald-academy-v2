@@ -1,4 +1,5 @@
 <script type="ts">
+	import { page } from '$app/stores';
 	import LL from '$i18n/i18n-svelte';
 	import ContentCard from '$lib/components/cards/ContentCard.svelte';
 	import Filters from '$lib/components/filters/Filters.svelte';
@@ -22,6 +23,9 @@
 
 	onMount(() => {
 		filters = createFilters(activeFilters);
+		if ($page.url.searchParams.get('search')) {
+			$searchStore.search = $page.url.searchParams.get('search') as string;
+		}
 	});
 
 	$: searchCadence = data.snippets.map((example) => ({
