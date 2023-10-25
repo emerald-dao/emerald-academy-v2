@@ -2,7 +2,7 @@
 layout: examples
 ---
 
-Returns a specific event at block height and then up to 100 in previous blocks.
+Returns a specific event at block height and then up to 99 in previous blocks.
 
 ```javascript
 async function getEvents() {

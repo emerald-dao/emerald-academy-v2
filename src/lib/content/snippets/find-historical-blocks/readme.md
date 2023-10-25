@@ -7,7 +7,6 @@ Returns a specific block at block height and the 9 previous blocks.
 ```javascript
 async function getBlocks() {
   try {
-    // change these
     const height = "63253147";
 
     const response = await fetch(
