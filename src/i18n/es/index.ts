@@ -54,7 +54,6 @@ const es: Translation = {
 	[ContentTypeEnum.Snippet]: 'Snippet',
 	[ContentTypeEnum.External]: 'External',
 	// Subjects
-	[SubjectsEnum.Backend]: 'Backend',
 	[SubjectsEnum.Web]: 'Web',
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',

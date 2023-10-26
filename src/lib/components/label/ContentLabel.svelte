@@ -29,8 +29,6 @@
 	<Label size="small" iconLeft="tabler:mountain" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Quickstart}
 	<Label size="small" iconLeft="tabler:run" {color} {state} hasBorder={false}><slot /></Label>
-{:else if type === SubjectsEnum.Backend}
-	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === SubjectsEnum.IPFS}
 	<Label size="small" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === SubjectsEnum.Cadence}

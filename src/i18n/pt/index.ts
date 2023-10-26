@@ -55,7 +55,6 @@ const pt: BaseTranslation = {
 	[ContentTypeEnum.External]: 'External',
 
 	// Subjects
-	[SubjectsEnum.Backend]: 'Backend',
 	[SubjectsEnum.Web]: 'Desenvolvimento Web',
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',

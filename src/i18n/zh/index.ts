@@ -55,7 +55,6 @@ const zh: BaseTranslation = {
 	[ContentTypeEnum.External]: 'External',
 
 	// Subjects
-	[SubjectsEnum.Backend]: '后端',
 	[SubjectsEnum.Web]: 'Web开发',
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',
