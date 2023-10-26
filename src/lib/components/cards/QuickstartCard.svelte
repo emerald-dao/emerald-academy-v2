@@ -25,6 +25,7 @@
 				<div class="row-2">
 					<Icon icon="tabler:shield-check" color="var(--clr-text-main)" />
 					<p class="xsmall w-medium">audited</p>
+					<p class="xsmall w-medium">{quickstartData.web}</p>
 				</div>
 			{/if}
 		</div>
