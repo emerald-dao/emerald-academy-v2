@@ -13,6 +13,7 @@
 	import { logIn } from '$flow/actions';
 	import { getInitialStars } from '$lib/config/initialStars';
 	import Author from '../atoms/Author.svelte';
+	import AppTypeLabel from '../atoms/AppTypeLabel.svelte';
 
 	export let overview: Overview;
 	console.log(overview);
@@ -134,9 +135,14 @@
 					{overview.metadata.price}
 				</Label>
 			{/if}
-			<Label size="x-small" iconLeft="tabler:list" color="transparent" hasBorder={false}>
-				{overview.metadata.subjects.join(', ')}
-			</Label>
+			{#if overview.contentType !== ContentTypeEnum.Quickstart}
+				<Label size="x-small" iconLeft="tabler:list" color="transparent" hasBorder={false}>
+					{overview.metadata.subjects.join(', ')}
+				</Label>
+			{/if}
+			{#if overview.contentType === ContentTypeEnum.Quickstart}
+				<AppTypeLabel type={overview.type} />
+			{/if}
 			{#if overview.contentType === ContentTypeEnum.Bootcamp}
 				{#if daysOfDifference(new Date(), startDate) > 0}
 					<Label
@@ -207,7 +213,7 @@
 			flex-direction: row;
 			flex-wrap: wrap;
 			align-items: center;
-			gap: var(--space-2);
+			gap: var(--space-3);
 		}
 	}
 </style>

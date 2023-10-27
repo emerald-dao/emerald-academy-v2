@@ -1,13 +1,11 @@
-import type { Quickstart } from '$lib/types/content/quickstart.interface';
+import { AppTypeEnum, type Quickstart } from '$lib/types/content/quickstart.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: Quickstart = {
-	title: 'Hello World - Swift (iOS/iPadOS)',
-	mobile: true,
+	title: 'Hello World',
+	type: AppTypeEnum.SwiftUI,
 	contentType: ContentTypeEnum.Quickstart,
-	audited: true,
-	web: 'SwiftUI',
 	author: {
 		name: 'BoiseITGuru',
 		socialMediaUrl: 'https://twitter.com/boise_it_guru',
@@ -17,7 +15,7 @@ export const overview: Quickstart = {
 		walletAddress: '0x76d988a29af9ea8d'
 	},
 	quickstartRepositoryUrl: 'https://github.com/boiseitguru/0-hello-world-ios',
-	excerpt: 'A mobile DApp that lets users read and change a greeting field on Flow testnet.',
+	excerpt: 'Change and read a greeting field on Flow Testnet.',
 	metadata: {
 		subjects: [SubjectsEnum.DApp, SubjectsEnum.Swift]
 	}

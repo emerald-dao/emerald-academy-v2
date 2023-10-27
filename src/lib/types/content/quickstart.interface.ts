@@ -1,9 +1,12 @@
-import type { ContentTypeEnum } from './metadata/content-types.enum';
-import type { Author, Overview } from './content-overview.interface';
+import type { Overview } from './content-overview.interface';
 
 export interface Quickstart extends Overview {
-	mobile: boolean;
-	audited: boolean;
-	web: string;
+	type: AppTypeEnum;
 	quickstartRepositoryUrl: string;
+}
+
+export enum AppTypeEnum {
+	SvelteKit = 'SvelteKit',
+	NextJS = 'Next.js',
+	SwiftUI = 'Swift (iOS/iPadOS)'
 }

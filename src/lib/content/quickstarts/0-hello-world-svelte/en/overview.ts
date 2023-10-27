@@ -1,13 +1,11 @@
-import type { Quickstart } from '$lib/types/content/quickstart.interface';
+import { AppTypeEnum, type Quickstart } from '$lib/types/content/quickstart.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: Quickstart = {
 	title: 'Hello World',
-	mobile: false,
+	type: AppTypeEnum.SvelteKit,
 	contentType: ContentTypeEnum.Quickstart,
-	audited: true,
-	web: 'SvelteKit',
 	author: {
 		name: 'Emerald City',
 		socialMediaUrl: 'https://twitter.com/emerald_dao',
@@ -15,8 +13,9 @@ export const overview: Quickstart = {
 		isVerified: true
 	},
 	quickstartRepositoryUrl: 'https://github.com/emerald-dao/0-hello-world-svelte',
-	excerpt: 'A DApp that lets users read and change a greeting field on Flow testnet.',
+	excerpt: 'Change and read a greeting field on Flow Testnet.',
 	metadata: {
 		subjects: [SubjectsEnum.DApp]
-	}
+	},
+	// previewImage: '/quickstart-previews/0-hello-world-svelte.png'
 };

@@ -1,18 +1,20 @@
-import type { Template } from '$lib/types/content/templates.interface';
+import { AppTypeEnum, type Quickstart } from '$lib/types/content/quickstart.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
+import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
-export const overview: Template = {
+export const overview: Quickstart = {
 	title: 'Hello World',
+	type: AppTypeEnum.NextJS,
 	contentType: ContentTypeEnum.Quickstart,
-	audited: true,
-	web: 'React.js',
-	user: {
+	author: {
 		name: 'Emerald City',
-		userAvatarUrl: 'https://avatars.githubusercontent.com/u/15198786?v=4',
-		github: 'emerald-dao',
-		twitter: 'emerald_dao',
-		discord: 'emeraldcity'
+		socialMediaUrl: 'https://twitter.com/emerald_dao',
+		avatarUrl: 'https://avatars.githubusercontent.com/u/100654804?v=4',
+		isVerified: true
 	},
-	templateRepositoryUrl: 'https://github.com/emerald-dao/0-hello-world',
-	description: 'Um DApp que permite aos usuários ler e alterar um campo de saudação no testnet Flow.'
+	quickstartRepositoryUrl: 'https://github.com/emerald-dao/0-hello-world',
+	excerpt: 'Change and read a greeting field on Flow Testnet.',
+	metadata: {
+		subjects: [SubjectsEnum.DApp]
+	}
 };
