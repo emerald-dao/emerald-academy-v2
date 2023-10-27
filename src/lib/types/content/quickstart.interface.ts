@@ -8,5 +8,5 @@ export interface Quickstart extends Overview {
 export enum AppTypeEnum {
 	SvelteKit = 'SvelteKit',
 	NextJS = 'Next.js',
-	SwiftUI = 'Swift (iOS/iPadOS)'
+	SwiftUI = 'SwiftUI (iOS/iPadOS)'
 }
