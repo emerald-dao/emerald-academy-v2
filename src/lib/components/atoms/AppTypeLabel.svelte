@@ -3,30 +3,25 @@
 	import Icon from '@iconify/svelte';
 
 	export let type: AppTypeEnum;
+	let tablerIcon: string;
+	let tablerColor: string;
 
-	function getTablerIcon() {
+	$: if (type) {
 		if (type === AppTypeEnum.SvelteKit) {
-			return 'tabler:brand-svelte';
+			tablerIcon = 'tabler:brand-svelte';
+			tablerColor = '#ff4500';
+		} else if (type === AppTypeEnum.NextJS) {
+			tablerIcon = 'tabler:brand-react';
+			tablerColor = '#00abfb';
+		} else {
+			tablerIcon = 'tabler:brand-swift';
+			tablerColor = '#00abfb';
 		}
-		if (type === AppTypeEnum.NextJS) {
-			return 'tabler:brand-react';
-		}
-		return 'tabler:brand-swift';
-	}
-
-	function getTablerColor() {
-		if (type === 'SvelteKit') {
-			return '#ff4500';
-		}
-		if (type === 'Next.js') {
-			return '#00abfb';
-		}
-		return '#00abfb';
 	}
 </script>
 
 <div class="row-2">
-	<Icon icon={getTablerIcon()} color={getTablerColor()} />
+	<Icon icon={tablerIcon} color={tablerColor} />
 	<p class="xsmall w-medium">
 		{type}
 	</p>
