@@ -1,13 +1,11 @@
-import type { Quickstart } from '$lib/types/content/quickstart.interface';
+import { AppTypeEnum, type Quickstart } from '$lib/types/content/quickstart.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: Quickstart = {
-	title: 'Non Fungible Token (NFT) - Swift (iOS/iPadOS)',
-	mobile: true,
+	title: 'Non Fungible Token (NFT)',
+	type: AppTypeEnum.SwiftUI,
 	contentType: ContentTypeEnum.Quickstart,
-	audited: true,
-	web: 'SwiftUI',
 	author: {
 		name: 'BoiseITGuru',
 		socialMediaUrl: 'https://twitter.com/boise_it_guru',
@@ -17,8 +15,7 @@ export const overview: Quickstart = {
 		walletAddress: '0x76d988a29af9ea8d'
 	},
 	quickstartRepositoryUrl: 'https://github.com/boiseitguru/1-non-fungible-token-ios',
-	excerpt:
-		'A Mobile DApp that lets users create an empty collection, mint some pre-loaded NFTs, and transfer them to another account on Flow testnet.',
+	excerpt: 'Mint NFTs and transfer them to another account on Flow Testnet.',
 	metadata: {
 		subjects: [SubjectsEnum.DApp, SubjectsEnum.Swift]
 	}

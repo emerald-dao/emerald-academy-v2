@@ -2,7 +2,7 @@
 layout: examples
 ---
 
-## 🚩 Challenge 0: Hello World - iOS/iPadOS
+## 🚩 Challenge 0: Hello World
 
 🎫 Deploy a simple HelloWorld contract to learn the basics of the Flow blockchain and Cadence. You'll use:
 

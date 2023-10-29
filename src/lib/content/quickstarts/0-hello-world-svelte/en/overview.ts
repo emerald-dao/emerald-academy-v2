@@ -4,19 +4,18 @@ import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: Quickstart = {
 	title: 'Hello World',
-	type: AppTypeEnum.SwiftUI,
+	type: AppTypeEnum.SvelteKit,
 	contentType: ContentTypeEnum.Quickstart,
 	author: {
-		name: 'BoiseITGuru',
-		socialMediaUrl: 'https://twitter.com/boise_it_guru',
-		avatarUrl:
-			'https://avatars.githubusercontent.com/u/3641594?s=400&u=044fd05bc61270527c4da99212f143595d6fa4a1&v=4',
-		isVerified: true,
-		walletAddress: '0x76d988a29af9ea8d'
+		name: 'Emerald City',
+		socialMediaUrl: 'https://twitter.com/emerald_dao',
+		avatarUrl: 'https://avatars.githubusercontent.com/u/100654804?v=4',
+		isVerified: true
 	},
-	quickstartRepositoryUrl: 'https://github.com/boiseitguru/0-hello-world-ios',
+	quickstartRepositoryUrl: 'https://github.com/emerald-dao/0-hello-world-svelte',
 	excerpt: 'Change and read a greeting field on Flow Testnet.',
 	metadata: {
-		subjects: [SubjectsEnum.DApp, SubjectsEnum.Swift]
-	}
+		subjects: [SubjectsEnum.DApp]
+	},
+	// previewImage: '/quickstart-previews/0-hello-world-svelte.png'
 };

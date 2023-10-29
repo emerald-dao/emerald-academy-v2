@@ -1,16 +1,16 @@
 ---
 title: Capabilities
-language: en
+language: pt
 layout: examples
 ---
 
-# Capabilities
+# Capacidades
 
-When we store data to an account at a storage path, that data is only accessible by the account owner.
+Quando armazenamos dados em uma conta em um caminho de armazenamento, esses dados só são acessíveis pelo proprietário da conta.
 
-We can "link" (using the `link` function) data stored at a storage path to a public path, which creates a capability. The capability then acts as a key for other people to access that public data.
+Podemos "vincular" (usando a função `link`) dados armazenados em um caminho de armazenamento a um caminho público, o que cria uma capacidade. A capacidade então atua como uma chave para outras pessoas acessarem esses dados públicos.
 
-We can restrict published capabilities on their type, so we only share certain data / functions we want the accessor of our capability to have.
+Podemos restringir capacidades publicadas em seu tipo, para que compartilhemos apenas certos dados/funções que queremos que o acessor de nossa capacidade tenha.
 
 ```cadence
 // Contract file: Test.cdc
@@ -63,7 +63,7 @@ transaction(rarity: String, name: String) {
       // Notice we restrict the linked type to `&NFT{INFT}`, so the public
       // won't be able to call our `changeName` function since it's not in the
       // `INFT` interface.
-      signer.link<&Test.NFT{Test.INFT}>(/public/MyPublicNFT, target: /storage/MyNFT)
+      signer.link<&Test.NFT{Test.INFT}>(/public/MyPublicNFT, target:/storage/MyNFT)
    }
 
    execute {

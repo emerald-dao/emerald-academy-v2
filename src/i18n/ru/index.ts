@@ -56,7 +56,6 @@ const ru: BaseTranslation = {
 	[ContentTypeEnum.External]: 'External',
 
 	// Subjects
-	[SubjectsEnum.Backend]: 'Бэкенд',
 	[SubjectsEnum.Web]: 'Веб-разработка',
 	[SubjectsEnum.Cadence]: 'Cadence',
 	[SubjectsEnum.DApp]: 'DApp',

@@ -10,6 +10,8 @@ In order to change data in a contract, you need to send a transaction.
 
 In Cadence, transactions (and scripts) are separate from the contract layer, and are written in different files.
 
+Transactions can import any number of pre-deployed contracts, so you can combine many different actions (across contracts) into 1 transcation.
+
 Transactions always look like:
 ```cadence
 transaction() {
