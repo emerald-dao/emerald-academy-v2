@@ -5,7 +5,7 @@ export const overview: SubjectOverview = {
 	name: SubjectsEnum.DApp,
 	title: 'DApp Development',
 	description:
-		'Decentralized applications (DApps) are digital applications or programs that run on a decentralized network, rather than a single computer or server. They are built on blockchain technology and use cryptocurrency as a means of exchange.',
+		'Decentralized applications (DApps) are just like regular applications except they use the blockchain in some way, most likely through the use of smart contracts.',
 	shortcuts: [
 		{
 			name: 'View Example DApps',
