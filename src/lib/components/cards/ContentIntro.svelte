@@ -16,6 +16,7 @@
 	import AppTypeLabel from '../atoms/labels/AppTypeLabel.svelte';
 	import ExpertiseLabel from '../atoms/labels/ExpertiseLabel.svelte';
 	import DurationLabel from '../atoms/labels/DurationLabel.svelte';
+	import CertificateLabel from '../atoms/labels/CertificateLabel.svelte';
 
 	export let overview: Overview;
 	console.log(overview);
@@ -127,6 +128,9 @@
 			{/if}
 			{#if overview.metadata.duration}
 				<DurationLabel duration={overview.metadata.duration} size="small" />
+			{/if}
+			{#if overview.certificateIncluded}
+				<CertificateLabel size="small" />
 			{/if}
 			<!-- {#if overview.metadata.price}
 				<Label size="x-small" iconLeft="tabler:currency-dollar" color="neutral" hasBorder={false}>

@@ -8,6 +8,7 @@
 	import Author from '../atoms/Author.svelte';
 	import ExpertiseLabel from '../atoms/labels/ExpertiseLabel.svelte';
 	import DurationLabel from '../atoms/labels/DurationLabel.svelte';
+	import CertificateLabel from '../atoms/labels/CertificateLabel.svelte';
 
 	export let overview: Overview;
 
@@ -47,7 +48,7 @@
 					<DurationLabel duration={overview.metadata.duration} />
 				{/if}
 				{#if overview.certificateIncluded}
-					<Label size="x-small" iconLeft="tabler:certificate" hasBorder={false}>Certificate</Label>
+					<CertificateLabel />
 				{/if}
 			</div>
 			{#if overview.contentType !== ContentTypeEnum.Bootcamp && overview.contentType !== ContentTypeEnum.Roadmap}
