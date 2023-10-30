@@ -1,4 +1,4 @@
-import { AppTypeEnum, type Quickstart } from '$lib/types/content/quickstart.interface';
+import type { Quickstart } from '$lib/types/content/quickstart.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 

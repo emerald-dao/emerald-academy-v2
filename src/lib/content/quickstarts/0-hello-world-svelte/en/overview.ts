@@ -20,5 +20,4 @@ export const overview: Quickstart = {
 	metadata: {
 		subjects: [SubjectsEnum.DApp]
 	}
-	// previewImage: '/quickstart-previews/0-hello-world-svelte.png'
 };
