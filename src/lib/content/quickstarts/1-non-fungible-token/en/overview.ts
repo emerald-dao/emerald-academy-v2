@@ -16,8 +16,7 @@ export const overview: Quickstart = {
 		isVerified: true
 	},
 	quickstartRepositoryUrl: 'https://github.com/emerald-dao/1-non-fungible-token',
-	excerpt:
-		'A DApp that lets users create an empty collection, mint some pre-loaded NFTs, and transfer them to another account on Flow testnet.',
+	excerpt: 'Mint NFTs and transfer them to another account on Flow Testnet.',
 	metadata: {
 		subjects: [SubjectsEnum.DApp]
 	}

@@ -1,6 +1,7 @@
 <script type="ts">
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 	import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
+	import { IconEnum } from '$lib/types/content/metadata/icon.enum';
 	import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 	import { Label } from '@emerald-dao/component-library';
 
@@ -10,19 +11,21 @@
 </script>
 
 {#if type === ContentTypeEnum.Course}
-	<Label size="small" iconLeft="tabler:tag" {color} {state} hasBorder={false}><slot /></Label>
+	<Label size="small" iconLeft={IconEnum.Course} {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Bootcamp}
-	<Label size="small" iconLeft="tabler:video" {color} {state} hasBorder={false}><slot /></Label>
+	<Label size="small" iconLeft={IconEnum.Bootcamp} {color} {state} hasBorder={false}><slot /></Label
+	>
 {:else if type === ContentTypeEnum.Roadmap}
-	<Label size="small" iconLeft="tabler:road" {color} {state} hasBorder={false}><slot /></Label>
+	<Label size="small" iconLeft={IconEnum.Roadmap} {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Blog}
 	<Label size="small" iconLeft="tabler:book" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Tweet}
-	<Label size="small" iconLeft="tabler:bird" {color} {state} hasBorder={false}><slot /></Label>
+	<Label size="small" iconLeft={IconEnum.Twitter} {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.External}
 	<Label size="small" iconLeft="tabler:link" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Tutorial}
-	<Label size="small" iconLeft="tabler:news" {color} {state} hasBorder={false}><slot /></Label>
+	<Label size="small" iconLeft={IconEnum.Tutorial} {color} {state} hasBorder={false}><slot /></Label
+	>
 {:else if type === ContentTypeEnum.Snippet}
 	<Label size="small" iconLeft="tabler:scissors" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Challenge}

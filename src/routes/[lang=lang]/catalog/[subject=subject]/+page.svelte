@@ -30,12 +30,12 @@
 				{data.overview.description}
 			</p>
 		</div>
-		{#if data.featuredRoadmap}
+		<!-- {#if data.featuredRoadmap}
 			<div class="roadmap-wrapper">
 				<h5>{$LL.NEW_TO()} {data.overview.title}? {$LL.START_HERE()}</h5>
 				<ContentCard overview={data.featuredRoadmap} />
 			</div>
-		{/if}
+		{/if} -->
 		<div class="sidebar column-3">
 			<h5>Shortcuts</h5>
 			<ul>

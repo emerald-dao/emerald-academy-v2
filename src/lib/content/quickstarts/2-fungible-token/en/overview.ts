@@ -16,8 +16,7 @@ export const overview: Quickstart = {
 		isVerified: true
 	},
 	quickstartRepositoryUrl: 'https://github.com/emerald-dao/2-fungible-token',
-	excerpt:
-		'A DApp that lets users create their own fungible token and transfer them to another account on Flow testnet.',
+	excerpt: 'Create your own fungible token and transfer them to another account on Flow Testnet.',
 	metadata: {
 		subjects: [SubjectsEnum.DApp]
 	}

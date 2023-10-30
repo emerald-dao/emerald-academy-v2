@@ -4,10 +4,10 @@ import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: CourseOverview = {
-	title: 'Beginner Cadence',
+	title: 'Learn Cadence',
 	contentType: ContentTypeEnum.Course,
-	excerpt:
-		'Learn Cadence. During this course, you will learn ALL of the major aspects of the language. In addition to writing & deploying your own NFT Contract during the course, you will have the knowledge to write your own contracts too.',
+	certificateIncluded: true,
+	excerpt: 'Learn Cadence - the most composable, easiest to write, and safest smart contract language. You will also build your own NFT smart contract.',
 	author: {
 		name: 'Jacob Tucker',
 		socialMediaUrl: 'https://twitter.com/jacobmtucker',

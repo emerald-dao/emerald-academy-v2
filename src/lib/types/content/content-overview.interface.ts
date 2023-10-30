@@ -8,7 +8,7 @@ export interface Overview {
 	contentType: ContentTypeEnum;
 	excerpt: string;
 	metadata: ContentMetadata;
-	author?: Author;
+	author: Author;
 }
 
 interface ContentMetadata {

@@ -17,7 +17,7 @@ export const overview: Quickstart = {
 	},
 	quickstartRepositoryUrl: 'https://github.com/emerald-dao/3-nft-minting',
 	excerpt:
-		'A DApp that lets an admin create an NFT Collection and display available NFTs for purchase on a minting site. Users will be able to see their purchased NFTs as well.',
+		'A Next.js DApp that lets an admin create an NFT Collection and display available NFTs for purchase on a minting site. Users will be able to see their purchased NFTs as well.',
 	metadata: {
 		subjects: [SubjectsEnum.DApp]
 	}

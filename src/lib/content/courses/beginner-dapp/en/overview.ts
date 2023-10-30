@@ -4,10 +4,11 @@ import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: CourseOverview = {
-	title: 'Beginner DApp',
+	title: 'Learn DApps on Flow',
 	contentType: ContentTypeEnum.Course,
+	certificateIncluded: true,
 	excerpt:
-		'Learn to make a DApp on the Flow blockchain. You will learn the major aspects of DApp development.',
+		'In this course, you will build a DApp on the Flow blockchain. You will learn the major aspects of DApp development.',
 	author: {
 		name: 'Jacob Tucker',
 		socialMediaUrl: 'https://twitter.com/jacobmtucker',

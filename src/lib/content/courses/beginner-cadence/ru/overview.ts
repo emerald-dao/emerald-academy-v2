@@ -6,6 +6,7 @@ import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 export const overview: CourseOverview = {
 	title: 'начинающих Cadence',
 	contentType: ContentTypeEnum.Course,
+	certificateIncluded: true,
 	excerpt:
 		'Изучите Cadence. Во время этого курса вы изучите ВСЕ основные аспекты языка. В дополнение к написанию и развертыванию собственного контракта NFT вы также узнаете, как писать свои собственные контракты в ходе курса.',
 	author: {

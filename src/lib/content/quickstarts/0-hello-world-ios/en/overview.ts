@@ -18,7 +18,7 @@ export const overview: Quickstart = {
 		walletAddress: '0x76d988a29af9ea8d'
 	},
 	quickstartRepositoryUrl: 'https://github.com/boiseitguru/0-hello-world-ios',
-	excerpt: 'A mobile DApp that lets users read and change a greeting field on Flow testnet.',
+	excerpt: 'Change and read a greeting field on Flow Testnet.',
 	metadata: {
 		subjects: [SubjectsEnum.DApp, SubjectsEnum.Swift]
 	}

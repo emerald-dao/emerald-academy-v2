@@ -17,7 +17,7 @@ export const overview: Quickstart = {
 	},
 	quickstartRepositoryUrl: 'https://github.com/emerald-dao/6-groups',
 	excerpt:
-		'A DApp that allows users to create Groups, join & leave them, discover Groups, and chat inside of them.',
+		'A Next.js DApp that allows users to create Groups, join & leave them, discover Groups, and chat inside of them.',
 	metadata: {
 		subjects: [SubjectsEnum.DApp]
 	}

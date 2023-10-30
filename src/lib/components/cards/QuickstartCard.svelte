@@ -42,18 +42,12 @@
 <style type="scss">
 	.card {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		justify-content: space-between;
 		gap: var(--space-5);
 		border-radius: var(--radius-2);
 		padding: var(--space-10);
 		color: var(--clr-text-main);
-		width: 100%;
-		background-color: var(--clr-surface-primary);
-
-		&:hover {
-			background-color: var(--clr-surface-secondary);
-		}
 
 		@include mq(medium) {
 			gap: var(--space-10);

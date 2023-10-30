@@ -2,17 +2,27 @@
 layout: examples
 ---
 
+<script>
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+  const lessonVideoUrl = 'https://www.youtube.com/embed/plkPyQx-H3U'
+</script>
+
 ## 🚩 Quickstart 0: Hello World
 
 🎫 Deploy a simple HelloWorld contract to learn the basics of the Flow blockchain and Cadence. You'll use:
 
 - The local Flow emulator to deploy smart contracts.
 - The local Flow dev wallet to log into test accounts.
-- A template Next.js app with sample scripts and transactions to interact with your contract.
+- A template SvelteKit app with sample scripts and transactions to interact with your contract.
 
-🌟 The final deliverable is a DApp that lets users read and change a greeting field on Flow testnet.
+🌟 The final deliverable is a DApp that lets users read and change a greeting field on Flow Testnet.
 
 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
+
+## 📹 Video Walkthrough
+
+Want a video walkthrough? Check out Jacob Tucker's walkthrough here:
+<LessonVideo {lessonVideoUrl} />
 
 ## 📦 Checkpoint 0: Install
 

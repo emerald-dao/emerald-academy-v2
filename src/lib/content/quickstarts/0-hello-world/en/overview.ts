@@ -1,4 +1,4 @@
-import type { Quickstart } from '$lib/types/content/quickstart.interface';
+import { AppTypeEnum, type Quickstart } from '$lib/types/content/quickstart.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
@@ -16,7 +16,7 @@ export const overview: Quickstart = {
 		isVerified: true
 	},
 	quickstartRepositoryUrl: 'https://github.com/emerald-dao/0-hello-world',
-	excerpt: 'A DApp that lets users read and change a greeting field on Flow testnet.',
+	excerpt: 'Change and read a greeting field on Flow Testnet.',
 	metadata: {
 		subjects: [SubjectsEnum.DApp]
 	}

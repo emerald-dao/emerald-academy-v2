@@ -17,7 +17,7 @@ export const overview: Quickstart = {
 	},
 	quickstartRepositoryUrl: 'https://github.com/emerald-dao/4-voting',
 	excerpt:
-		'A DApp that spins up an open DAO that lets community members create proposals and vote within it based on token holdings that govern the DAO.',
+		'A Next.js DApp that spins up an open DAO that lets community members create proposals and vote within it based on token holdings that govern the DAO.',
 	metadata: {
 		subjects: [SubjectsEnum.DApp]
 	}
