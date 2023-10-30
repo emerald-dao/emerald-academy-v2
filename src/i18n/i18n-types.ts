@@ -237,7 +237,7 @@ export type TranslationFunctions = {
 	 */
 	EXPLORE_TAGLINE: () => LocalizedString
 	/**
-	 * Flow free educational resources
+	 * Free educational resources
 	 */
 	EXPLORE_H1: () => LocalizedString
 	/**

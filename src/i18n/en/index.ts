@@ -11,7 +11,7 @@ const en: BaseTranslation = {
 
 	// Home / ExploreSection
 	EXPLORE_TAGLINE: 'Explore our content',
-	EXPLORE_H1: 'Flow free educational resources',
+	EXPLORE_H1: 'Free educational resources',
 
 	// Home / LearningPathsSection
 	PATHS_H1: 'Follow one of our learning paths',
