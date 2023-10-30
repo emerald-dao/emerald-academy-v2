@@ -1,11 +1,14 @@
-import { AppTypeEnum, type Quickstart } from '$lib/types/content/quickstart.interface';
+import type { Quickstart } from '$lib/types/content/quickstart.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: Quickstart = {
 	title: 'Fungible Token',
+	id: 2,
 	contentType: ContentTypeEnum.Quickstart,
-	type: AppTypeEnum.NextJS,
+	audited: true,
+	isRecommended: false,
+	techstack: ['nextjs'],
 	author: {
 		name: 'Emerald City',
 		socialMediaUrl: 'https://twitter.com/emerald_dao',
@@ -13,7 +16,8 @@ export const overview: Quickstart = {
 		isVerified: true
 	},
 	quickstartRepositoryUrl: 'https://github.com/emerald-dao/2-fungible-token',
-	excerpt: 'Create your own fungible token and transfer them to another account on Flow Testnet.',
+	excerpt:
+		'Um DApp que permite aos usuários criar seu próprio token fungível e transferi-los para outra conta no Flow testnet.',
 	metadata: {
 		subjects: [SubjectsEnum.DApp]
 	}

@@ -1,11 +1,14 @@
-import { AppTypeEnum, type Quickstart } from '$lib/types/content/quickstart.interface';
+import type { Quickstart } from '$lib/types/content/quickstart.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: Quickstart = {
 	title: 'Multisign',
+	id: 5,
 	contentType: ContentTypeEnum.Quickstart,
-	type: AppTypeEnum.NextJS,
+	audited: true,
+	isRecommended: false,
+	techstack: ['nextjs'],
 	author: {
 		name: 'Emerald City',
 		socialMediaUrl: 'https://twitter.com/emerald_dao',
@@ -14,7 +17,7 @@ export const overview: Quickstart = {
 	},
 	quickstartRepositoryUrl: 'https://github.com/emerald-dao/5-multisign',
 	excerpt:
-		'A Next.js DApp that allows anyone to deposit $FLOW to a DAO Treasury, of which admins must multisign actions to withdraw that $FLOW from the Treasury.',
+		'Um DApp que permite que qualquer pessoa deposite $FLOW em um DAO Treasury, do qual os administradores devem assinar várias ações para retirar esse $FLOW do Tesouro.',
 	metadata: {
 		subjects: [SubjectsEnum.DApp]
 	}

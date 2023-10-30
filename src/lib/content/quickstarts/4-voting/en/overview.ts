@@ -1,11 +1,14 @@
-import { AppTypeEnum, type Quickstart } from '$lib/types/content/quickstart.interface';
+import type { Quickstart } from '$lib/types/content/quickstart.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: Quickstart = {
 	title: 'Voting',
+	id: 4,
 	contentType: ContentTypeEnum.Quickstart,
-	type: AppTypeEnum.NextJS,
+	audited: true,
+	isRecommended: false,
+	techstack: ['nextjs'],
 	author: {
 		name: 'Emerald City',
 		socialMediaUrl: 'https://twitter.com/emerald_dao',

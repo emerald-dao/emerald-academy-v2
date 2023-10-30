@@ -1,11 +1,14 @@
-import { AppTypeEnum, type Quickstart } from '$lib/types/content/quickstart.interface';
+import type { Quickstart } from '$lib/types/content/quickstart.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: Quickstart = {
 	title: 'NFT Minting',
+	id: 3,
 	contentType: ContentTypeEnum.Quickstart,
-	type: AppTypeEnum.NextJS,
+	audited: true,
+	isRecommended: false,
+	techstack: ['nextjs'],
 	author: {
 		name: 'Emerald City',
 		socialMediaUrl: 'https://twitter.com/emerald_dao',
@@ -14,7 +17,7 @@ export const overview: Quickstart = {
 	},
 	quickstartRepositoryUrl: 'https://github.com/emerald-dao/3-nft-minting',
 	excerpt:
-		'A Next.js DApp that lets an admin create an NFT Collection and display available NFTs for purchase on a minting site. Users will be able to see their purchased NFTs as well.',
+		'Um DApp que permite que um administrador crie uma coleção NFT e exiba os NFTs disponíveis para compra em um site de cunhagem. Os usuários também poderão ver seus NFTs comprados.',
 	metadata: {
 		subjects: [SubjectsEnum.DApp]
 	}

@@ -1,11 +1,14 @@
-import { AppTypeEnum, type Quickstart } from '$lib/types/content/quickstart.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
+import type { Quickstart } from '$lib/types/content/quickstart.interface';
 
 export const overview: Quickstart = {
 	title: 'Non Fungible Token (NFT)',
+	id: 1,
 	contentType: ContentTypeEnum.Quickstart,
-	type: AppTypeEnum.NextJS,
+	audited: true,
+	isRecommended: false,
+	techstack: ['nextjs'],
 	author: {
 		name: 'Emerald City',
 		socialMediaUrl: 'https://twitter.com/emerald_dao',
@@ -13,7 +16,8 @@ export const overview: Quickstart = {
 		isVerified: true
 	},
 	quickstartRepositoryUrl: 'https://github.com/emerald-dao/1-non-fungible-token',
-	excerpt: 'Mint NFTs and transfer them to another account on Flow Testnet.',
+	excerpt:
+		'Um DApp que permite aos usuários criar uma coleção vazia, cunhar alguns NFTs pré-carregados e transferi-los para outra conta no Flow testnet.',
 	metadata: {
 		subjects: [SubjectsEnum.DApp]
 	}
