@@ -7,7 +7,7 @@ export const overview: CourseOverview = {
 	title: 'Learn Cadence',
 	contentType: ContentTypeEnum.Course,
 	certificateIncluded: true,
-	excerpt: 'Learn Cadence - the most composable, easy to write, and safest smart contract language. You will also build your own NFT smart contract.',
+	excerpt: 'Learn Cadence - the most composable, easiest to write, and safest smart contract language. You will also build your own NFT smart contract.',
 	author: {
 		name: 'Jacob Tucker',
 		socialMediaUrl: 'https://twitter.com/jacobmtucker',
