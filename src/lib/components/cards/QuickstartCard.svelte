@@ -1,7 +1,7 @@
 <script type="ts">
 	import { locale } from '$i18n/i18n-svelte';
 	import type { Quickstart } from '$lib/types/content/quickstart.interface';
-	import AppTypeLabel from '../atoms/AppTypeLabel.svelte';
+	import AppTypeLabel from '../atoms/labels/AppTypeLabel.svelte';
 
 	export let quickstartData: Quickstart;
 </script>

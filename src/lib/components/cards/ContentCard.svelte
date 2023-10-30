@@ -6,6 +6,8 @@
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 	import { fly } from 'svelte/transition';
 	import Author from '../atoms/Author.svelte';
+	import ExpertiseLabel from '../atoms/labels/ExpertiseLabel.svelte';
+	import DurationLabel from '../atoms/labels/DurationLabel.svelte';
 
 	export let overview: Overview;
 
@@ -33,20 +35,19 @@
 				{overview.title}
 			</h4>
 			<div class="labels-wrapper">
-				{#if overview.metadata.price}
+				<!-- {#if overview.metadata.price}
 					<Label size="x-small" iconLeft="tabler:currency-dollar" color="neutral" hasBorder={false}>
 						{overview.metadata.price}
 					</Label>
-				{/if}
+				{/if} -->
 				{#if overview.metadata.expertise}
-					<Label size="x-small" iconLeft="tabler:flame" color="neutral" hasBorder={false}>
-						{$LL[overview.metadata.expertise]()}
-					</Label>
+					<ExpertiseLabel expertise={overview.metadata.expertise} />
 				{/if}
 				{#if overview.metadata.duration}
-					<Label size="x-small" color="neutral" iconLeft="tabler:hourglass-high" hasBorder={false}>
-						{overview.metadata.duration}
-					</Label>
+					<DurationLabel duration={overview.metadata.duration} />
+				{/if}
+				{#if overview.certificateIncluded}
+					<Label size="x-small" iconLeft="tabler:certificate" hasBorder={false}>Certificate</Label>
 				{/if}
 			</div>
 			{#if overview.contentType !== ContentTypeEnum.Bootcamp && overview.contentType !== ContentTypeEnum.Roadmap}
@@ -67,14 +68,16 @@
 				{overview.excerpt}
 			</p>
 		</div>
-		<div>
-			<h5 class="skills">{$LL.SKILLS_YOU_WILL_LEARN()}</h5>
-			<div class="skill-labels-wrapper">
-				{#each overview.metadata.subjects as subs}
-					<Label size="x-small" color="neutral" hasBorder={false}>{subs}</Label>
-				{/each}
+		{#if overview.metadata.subjects.length > 0}
+			<div>
+				<h5 class="skills">{$LL.SKILLS_YOU_WILL_LEARN()}</h5>
+				<div class="skill-labels-wrapper">
+					{#each overview.metadata.subjects as subs}
+						<Label size="x-small" color="neutral" hasBorder={false}>{subs}</Label>
+					{/each}
+				</div>
 			</div>
-		</div>
+		{/if}
 	</div>
 </a>
 

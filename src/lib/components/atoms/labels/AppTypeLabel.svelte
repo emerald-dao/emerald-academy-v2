@@ -1,6 +1,6 @@
 <script type="ts">
 	import { AppTypeEnum } from '$lib/types/content/quickstart.interface';
-	import Icon from '@iconify/svelte';
+	import { Label } from '@emerald-dao/component-library';
 
 	export let type: AppTypeEnum;
 	let tablerIcon: string;
@@ -20,24 +20,12 @@
 	}
 </script>
 
-<div class="row-2">
-	<Icon icon={tablerIcon} color={tablerColor} />
-	<p class="xsmall w-medium">
-		{type}
-	</p>
-</div>
-
-<style lang="scss">
-	.row-2 {
-		align-items: center;
-
-		img {
-			width: 20px;
-			height: 20px;
-			border-radius: 50%;
-		}
-		p {
-			margin-top: 0;
-		}
-	}
-</style>
+<Label
+	size="small"
+	color="transparent"
+	iconLeft={tablerIcon}
+	hasBorder={false}
+	iconColor={tablerColor}
+>
+	{type}
+</Label>

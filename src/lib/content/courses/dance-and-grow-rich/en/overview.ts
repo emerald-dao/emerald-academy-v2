@@ -1,11 +1,11 @@
 import type { CourseOverview } from '$lib/types/content/course.interface';
 import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
 import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
-import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: CourseOverview = {
 	title: 'Dance and Grow Rich',
 	contentType: ContentTypeEnum.Course,
+	certificateIncluded: false,
 	excerpt:
 		'Learn the Foundations of Web3 for Dancers. During this course, you will learn MOST of the components of Web3. In addition to upskilling your knowledge during the course, you will have the opportunity to execute ideas as part of Decentralised Dance aka DeDan and Metaverse Dance aka MeDan.',
 	author: {
@@ -19,7 +19,7 @@ export const overview: CourseOverview = {
 		expertise: ExpertiseEnum.Beginner,
 		duration: '9 chapters',
 		prerequisites: [],
-		subjects: [SubjectsEnum.Cadence],
+		subjects: [],
 		price: 'Free',
 		faqs: [
 			{

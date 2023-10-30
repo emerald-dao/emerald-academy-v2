@@ -13,7 +13,9 @@
 	import { logIn } from '$flow/actions';
 	import { getInitialStars } from '$lib/config/initialStars';
 	import Author from '../atoms/Author.svelte';
-	import AppTypeLabel from '../atoms/AppTypeLabel.svelte';
+	import AppTypeLabel from '../atoms/labels/AppTypeLabel.svelte';
+	import ExpertiseLabel from '../atoms/labels/ExpertiseLabel.svelte';
+	import DurationLabel from '../atoms/labels/DurationLabel.svelte';
 
 	export let overview: Overview;
 	console.log(overview);
@@ -121,25 +123,21 @@
 				{firstCapital(overview.contentType)}
 			</ContentLabel>
 			{#if overview.metadata.expertise}
-				<Label size="small" iconLeft="tabler:flame" color="transparent" hasBorder={false}>
-					Level: {overview.metadata.expertise}
-				</Label>
+				<ExpertiseLabel expertise={overview.metadata.expertise} size="small" />
 			{/if}
 			{#if overview.metadata.duration}
-				<Label size="small" color="transparent" iconLeft="tabler:hourglass-high" hasBorder={false}>
-					{overview.metadata.duration}
-				</Label>
+				<DurationLabel duration={overview.metadata.duration} size="small" />
 			{/if}
-			{#if overview.metadata.price}
+			<!-- {#if overview.metadata.price}
 				<Label size="x-small" iconLeft="tabler:currency-dollar" color="neutral" hasBorder={false}>
 					{overview.metadata.price}
 				</Label>
-			{/if}
-			{#if overview.contentType !== ContentTypeEnum.Quickstart}
+			{/if} -->
+			<!-- {#if overview.contentType !== ContentTypeEnum.Quickstart && overview.metadata.subjects.length > 0}
 				<Label size="x-small" iconLeft="tabler:list" color="transparent" hasBorder={false}>
 					{overview.metadata.subjects.join(', ')}
 				</Label>
-			{/if}
+			{/if} -->
 			{#if overview.contentType === ContentTypeEnum.Quickstart}
 				<AppTypeLabel type={overview.type} />
 			{/if}

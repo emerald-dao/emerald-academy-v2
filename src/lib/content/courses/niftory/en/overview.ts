@@ -6,6 +6,7 @@ import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 export const overview: CourseOverview = {
 	title: 'Create a DApp with Niftory',
 	contentType: ContentTypeEnum.Course,
+	certificateIncluded: false,
 	excerpt:
 		'Learn to deploy a new contract on the flow blockchain. You will learn the major aspects of DApp development.',
 	author: {
