@@ -143,7 +143,7 @@
 				</Label>
 			{/if} -->
 			{#if overview.contentType === ContentTypeEnum.Quickstart}
-				<AppTypeLabel type={overview.type} />
+				<AppTypeLabel tech={overview.techstack[0]} />
 			{/if}
 			{#if overview.contentType === ContentTypeEnum.Bootcamp}
 				{#if daysOfDifference(new Date(), startDate) > 0}

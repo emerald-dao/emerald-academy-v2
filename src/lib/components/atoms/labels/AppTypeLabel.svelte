@@ -9,5 +9,5 @@
 </script>
 
 <Label size="small" color="transparent" iconLeft={TECHSTACK_DATA[tech].icon} hasBorder={false}>
-	{tech}
+	{TECHSTACK_DATA[tech].name}
 </Label>
