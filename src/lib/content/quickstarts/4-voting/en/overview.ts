@@ -4,10 +4,11 @@ import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: Quickstart = {
 	title: 'Voting',
+	id: 4,
 	contentType: ContentTypeEnum.Quickstart,
 	audited: true,
-	mobile: false,
-	web: 'React.js',
+	isRecommended: false,
+	techstack: ['nextjs'],
 	author: {
 		name: 'Emerald City',
 		socialMediaUrl: 'https://twitter.com/emerald_dao',

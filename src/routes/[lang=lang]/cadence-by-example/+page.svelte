@@ -22,7 +22,7 @@
 </script>
 
 <section class="container-small column-10">
-	<h1>Cadence by Example</h1>
+	<h1 class="w-medium">Cadence by Example</h1>
 	{#if data.content.length === 0}
 		<p><em>{$LL.NO_EXAMPLES_FOUND()}</em></p>
 	{:else}

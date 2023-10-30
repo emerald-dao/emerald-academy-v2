@@ -3,11 +3,12 @@ import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum'
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: Quickstart = {
-	title: 'Hello World - Swift (iOS/iPadOS)',
-	mobile: true,
+	title: 'Hello World',
+	id: 0,
+	isRecommended: false,
 	contentType: ContentTypeEnum.Quickstart,
 	audited: true,
-	web: 'SwiftUI',
+	techstack: ['swiftui'],
 	author: {
 		name: 'BoiseITGuru',
 		socialMediaUrl: 'https://twitter.com/boise_it_guru',

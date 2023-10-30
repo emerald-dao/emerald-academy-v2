@@ -73,7 +73,7 @@ const es: Translation = {
 	MOBILE_QUICKSTARTS: 'Plantillas para Mobile',
 	NO_QUICKSTARTS_FOUND: 'No se encontraron plantillas para este lenguaje',
 
-	// Challenge
+	// Challenge∑∑
 	CHALLENGE_TITLE: 'Desafíos',
 	CHALLENGES_SOLVED: 'Desafíos resueltos',
 	CHALLENGES_UNSOLVED: 'Desafíos sin resolver',

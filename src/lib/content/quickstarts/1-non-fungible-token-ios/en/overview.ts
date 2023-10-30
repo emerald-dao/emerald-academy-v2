@@ -3,11 +3,12 @@ import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum'
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: Quickstart = {
-	title: 'Non Fungible Token (NFT) - Swift (iOS/iPadOS)',
-	mobile: true,
+	title: 'Non Fungible Token (NFT)',
+	isRecommended: false,
+	id: 1,
 	contentType: ContentTypeEnum.Quickstart,
 	audited: true,
-	web: 'SwiftUI',
+	techstack: ['swiftui'],
 	author: {
 		name: 'BoiseITGuru',
 		socialMediaUrl: 'https://twitter.com/boise_it_guru',

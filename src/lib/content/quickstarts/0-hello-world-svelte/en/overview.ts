@@ -4,10 +4,11 @@ import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: Quickstart = {
 	title: 'Hello World',
-	mobile: false,
+	id: 0,
+	isRecommended: true,
 	contentType: ContentTypeEnum.Quickstart,
 	audited: true,
-	web: 'SvelteKit',
+	techstack: ['sveltekit'],
 	author: {
 		name: 'Emerald City',
 		socialMediaUrl: 'https://twitter.com/emerald_dao',
