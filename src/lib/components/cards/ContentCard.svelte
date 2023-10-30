@@ -13,20 +13,19 @@
 	export let overview: Overview;
 
 	let link: string;
+	let onPlatform =
+		overview.contentType != ContentTypeEnum.Blog && overview.contentType != ContentTypeEnum.Tweet;
 
 	$: if (overview.contentType === ContentTypeEnum.Snippet) {
 		link = `/${$locale}/${overview.slug}`;
-	} else if (
-		overview.contentType != ContentTypeEnum.Blog &&
-		overview.contentType != ContentTypeEnum.Tweet
-	) {
+	} else if (onPlatform) {
 		link = `/${$locale}/catalog/${overview.slug}`;
 	} else {
 		link = overview.link;
 	}
 </script>
 
-<a href={`${link}`} in:fly={{ y: 30, duration: 400 }}>
+<a href={`${link}`} in:fly={{ y: 30, duration: 400 }} target={onPlatform ? '_self' : '_blank'}>
 	<div class="card-primary">
 		<div>
 			<ContentLabel type={overview.contentType} color="primary">

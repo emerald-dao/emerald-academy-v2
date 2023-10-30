@@ -18,6 +18,7 @@
 	bootcamps={data.bootcamps}
 	roadmaps={data.roadmaps}
 	tutorials={data.tutorials}
+	tweets={data.tweets}
 />
 <StatsSection
 	background="var(--clr-background-secondary)"

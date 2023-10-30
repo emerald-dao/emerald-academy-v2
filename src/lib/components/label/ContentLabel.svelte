@@ -20,7 +20,7 @@
 {:else if type === ContentTypeEnum.Blog}
 	<Label size="small" iconLeft="tabler:book" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Tweet}
-	<Label size="small" iconLeft="tabler:bird" {color} {state} hasBorder={false}><slot /></Label>
+	<Label size="small" iconLeft={IconEnum.Twitter} {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.External}
 	<Label size="small" iconLeft="tabler:link" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Tutorial}

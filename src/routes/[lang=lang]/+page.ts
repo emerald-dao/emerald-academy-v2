@@ -1,4 +1,5 @@
 import { featuredContent } from '$lib/config/featuredContent';
+import { tweets as allTweets } from '$lib/content/tweets';
 import { error } from '@sveltejs/kit';
 
 export const load = async ({ params }) => {
@@ -7,6 +8,7 @@ export const load = async ({ params }) => {
 		const bootcamps = [];
 		const roadmaps = [];
 		const tutorials = [];
+		const tweets = [];
 
 		for (const featuredCourse of featuredContent.courses) {
 			try {
@@ -56,11 +58,21 @@ export const load = async ({ params }) => {
 			}
 		}
 
+		for (const featuredTweet of featuredContent.tweets) {
+			try {
+				const tweet = allTweets.find(tweet => tweet.title === featuredTweet);
+				tweets.push(tweet);
+			} catch (e) {
+				console.error('Featured tweet missing for this language');
+			}
+		}
+
 		return {
 			courses,
 			bootcamps,
 			roadmaps,
-			tutorials
+			tutorials,
+			tweets
 		};
 	} catch (e) {
 		throw error(404, "Couldn't find data for the language you are looking");

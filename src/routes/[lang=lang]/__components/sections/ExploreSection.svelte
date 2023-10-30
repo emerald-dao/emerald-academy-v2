@@ -10,18 +10,21 @@
 	import '@splidejs/svelte-splide/css';
 	import { LL } from '$i18n/i18n-svelte';
 	import type { TutorialOverview } from '$lib/types/content/tutorial.interface';
+	import type { TweetOverview } from '$lib/types/content/tweet.interface';
 
 	export let courses: CourseOverview[];
 	export let bootcamps: BootcampOverview[];
 	export let roadmaps: RoadmapOverview[];
 	export let tutorials: TutorialOverview[];
+	export let tweets: TweetOverview[];
 
 	let activeContent: number = 0;
 	$: contents = [
 		{ type: ContentTypeEnum.Course, icon: IconEnum.Course, contents: courses },
 		// { type: ContentTypeEnum.Bootcamp, icon: IconEnum.Bootcamp, contents: bootcamps },
 		// { type: ContentTypeEnum.Roadmap, icon: IconEnum.Roadmap, contents: roadmaps },
-		{ type: ContentTypeEnum.Tutorial, icon: IconEnum.Tutorial, contents: tutorials }
+		{ type: ContentTypeEnum.Tutorial, icon: IconEnum.Tutorial, contents: tutorials },
+		{ type: ContentTypeEnum.Tweet, icon: IconEnum.Twitter, contents: tweets }
 	];
 
 	const clickedContent = (i: number) => {
@@ -57,6 +60,10 @@
 				{:else if ContentTypeEnum.Tutorial === contents[activeContent].type}
 					{#each tutorials as tutorial}
 						<ContentCard overview={tutorial} />
+					{/each}
+				{:else if ContentTypeEnum.Tweet === contents[activeContent].type}
+					{#each tweets as tweet}
+						<ContentCard overview={tweet} />
 					{/each}
 				{:else if ContentTypeEnum.Bootcamp === contents[activeContent].type}
 					{#each bootcamps as boot}
