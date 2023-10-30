@@ -1,7 +1,7 @@
 <script type="ts">
 	import ContentCard from '$lib/components/cards/ContentCard.svelte';
 	import { ContentTypeEnum } from '$lib/types/content/metadata/content-types.enum';
-	import { icon } from '$lib/types/content/metadata/icon.enum';
+	import { IconEnum } from '$lib/types/content/metadata/icon.enum';
 	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
 	import Icon from '@iconify/svelte';
 	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
@@ -9,16 +9,19 @@
 	import type { CourseOverview } from '$lib/types/content/course.interface';
 	import '@splidejs/svelte-splide/css';
 	import { LL } from '$i18n/i18n-svelte';
+	import type { TutorialOverview } from '$lib/types/content/tutorial.interface';
 
 	export let courses: CourseOverview[];
 	export let bootcamps: BootcampOverview[];
 	export let roadmaps: RoadmapOverview[];
+	export let tutorials: TutorialOverview[];
 
 	let activeContent: number = 0;
 	$: contents = [
-		{ type: ContentTypeEnum.Course, icon: icon.Course, contents: courses },
-		{ type: ContentTypeEnum.Bootcamp, icon: icon.Bootcamp, contents: bootcamps },
-		{ type: ContentTypeEnum.Roadmap, icon: icon.Roadmap, contents: roadmaps }
+		{ type: ContentTypeEnum.Course, icon: IconEnum.Course, contents: courses },
+		// { type: ContentTypeEnum.Bootcamp, icon: IconEnum.Bootcamp, contents: bootcamps },
+		// { type: ContentTypeEnum.Roadmap, icon: IconEnum.Roadmap, contents: roadmaps },
+		{ type: ContentTypeEnum.Tutorial, icon: IconEnum.Tutorial, contents: tutorials }
 	];
 
 	const clickedContent = (i: number) => {
@@ -50,6 +53,10 @@
 				{#if ContentTypeEnum.Course === contents[activeContent].type}
 					{#each courses as course}
 						<ContentCard overview={course} />
+					{/each}
+				{:else if ContentTypeEnum.Tutorial === contents[activeContent].type}
+					{#each tutorials as tutorial}
+						<ContentCard overview={tutorial} />
 					{/each}
 				{:else if ContentTypeEnum.Bootcamp === contents[activeContent].type}
 					{#each bootcamps as boot}

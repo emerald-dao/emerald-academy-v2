@@ -5,7 +5,7 @@ export const overview: SubjectOverview = {
 	name: SubjectsEnum.Cadence,
 	title: 'Cadence',
 	description:
-		'Cadence is a resource-oriented smart contract language that is safe, easy to learn/read, and the most composable.',
+		'Cadence is the most composable, easiest to write, and safest smart contract language.',
 	shortcuts: [
 		{
 			name: 'Cadence Documentation',

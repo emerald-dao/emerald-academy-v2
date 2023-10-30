@@ -6,6 +6,7 @@ export const load = async ({ params }) => {
 		const courses = [];
 		const bootcamps = [];
 		const roadmaps = [];
+		const tutorials = [];
 
 		for (const featuredCourse of featuredContent.courses) {
 			try {
@@ -19,34 +20,47 @@ export const load = async ({ params }) => {
 			}
 		}
 
-		for (const featuredBootcamp of featuredContent.bootcamps) {
-			try {
-				const bootcamp = await import(
-					`../../lib/content/bootcamps/${featuredBootcamp}/${params.lang}/overview.ts`
-				);
-				bootcamp.overview.slug = `bootcamps/${featuredBootcamp}`;
-				bootcamps.push(bootcamp.overview);
-			} catch (e) {
-				console.error('Featured bootcamp missing for this language');
-			}
-		}
+		// for (const featuredBootcamp of featuredContent.bootcamps) {
+		// 	try {
+		// 		const bootcamp = await import(
+		// 			`../../lib/content/bootcamps/${featuredBootcamp}/${params.lang}/overview.ts`
+		// 		);
+		// 		bootcamp.overview.slug = `bootcamps/${featuredBootcamp}`;
+		// 		bootcamps.push(bootcamp.overview);
+		// 	} catch (e) {
+		// 		console.error('Featured bootcamp missing for this language');
+		// 	}
+		// }
 
-		for (const featuredRoadmap of featuredContent.roadmaps) {
+		// for (const featuredRoadmap of featuredContent.roadmaps) {
+		// 	try {
+		// 		const roadmap = await import(
+		// 			`../../lib/content/roadmaps/${featuredRoadmap}/${params.lang}/overview.ts`
+		// 		);
+		// 		roadmap.overview.slug = `roadmaps/${featuredRoadmap}`;
+		// 		roadmaps.push(roadmap.overview);
+		// 	} catch (e) {
+		// 		console.error('Featured roadmap missing for this language');
+		// 	}
+		// }
+
+		for (const featuredTutorial of featuredContent.tutorials) {
 			try {
-				const roadmap = await import(
-					`../../lib/content/roadmaps/${featuredRoadmap}/${params.lang}/overview.ts`
+				const tutorial = await import(
+					`../../lib/content/tutorials/${featuredTutorial}/${params.lang}/overview.ts`
 				);
-				roadmap.overview.slug = `roadmaps/${featuredRoadmap}`;
-				roadmaps.push(roadmap.overview);
+				tutorial.overview.slug = `tutorials/${featuredTutorial}`;
+				tutorials.push(tutorial.overview);
 			} catch (e) {
-				console.error('Featured roadmap missing for this language');
+				console.error('Featured tutorial missing for this language');
 			}
 		}
 
 		return {
 			courses,
 			bootcamps,
-			roadmaps
+			roadmaps,
+			tutorials
 		};
 	} catch (e) {
 		throw error(404, "Couldn't find data for the language you are looking");

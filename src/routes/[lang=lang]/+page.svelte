@@ -13,7 +13,12 @@
 </script>
 
 <HeroSection />
-<ExploreSection courses={data.courses} bootcamps={data.bootcamps} roadmaps={data.roadmaps} />
+<ExploreSection
+	courses={data.courses}
+	bootcamps={data.bootcamps}
+	roadmaps={data.roadmaps}
+	tutorials={data.tutorials}
+/>
 <StatsSection
 	background="var(--clr-background-secondary)"
 	bordersColor="var(--clr-border-primary)"
