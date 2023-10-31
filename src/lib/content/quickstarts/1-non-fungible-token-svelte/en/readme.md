@@ -210,11 +210,11 @@ Your final flow.json should look something like this:
 				"ExampleNFT"
 			]
 		},
-    "testnet": {
-      "testnet-account": [
-        "ExampleNFT"
-      ]
-    }
+		"testnet": {
+			"testnet-account": [
+				"ExampleNFT"
+			]
+		}
 	}
 }
 ```
