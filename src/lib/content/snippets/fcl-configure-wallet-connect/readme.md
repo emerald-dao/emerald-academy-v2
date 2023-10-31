@@ -34,7 +34,7 @@ fcl.config({
 // add WalletConnect for mobile apps.
 // you must get a wallet connect project id:
 // https://cloud.walletconnect.com/sign-in
-const WALLET_CONNECT_PROJECT_ID = "YOUR PROJECT ID";
+const WALLET_CONNECT_PROJECT_ID = "";
 if (network === "testnet" || network === "mainnet") {
   init({
     projectId: WALLET_CONNECT_PROJECT_ID || "aeda179a10c5d539ed612b67d2b61cdf",
