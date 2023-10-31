@@ -2,27 +2,17 @@
 layout: examples
 ---
 
-<script>
-  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
-  const lessonVideoUrl = 'https://www.youtube.com/embed/plkPyQx-H3U'
-</script>
+## 🚩 Challenge 1: NonFungibleToken
 
-## 🚩 Quickstart 0: Hello World
-
-🎫 Deploy a simple HelloWorld contract to learn the basics of the Flow blockchain and Cadence. You'll use:
+🎫 Deploy your own NFT contract to learn the basics of the Flow blockchain and Cadence. You'll use:
 
 - The local Flow emulator to deploy smart contracts.
 - The local Flow dev wallet to log into test accounts.
 - A template SvelteKit app with sample scripts and transactions to interact with your contract.
 
-🌟 The final deliverable is a DApp that lets users read and change a greeting field on Flow Testnet.
+🌟 The final deliverable is a DApp that lets users mint and transfer some NFTs on Flow Testnet.
 
 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
-
-## 📹 Video Walkthrough
-
-Want a video walkthrough? Check out Jacob Tucker's walkthrough here:
-<LessonVideo {lessonVideoUrl} />
 
 ## 📦 Checkpoint 0: Install
 
@@ -33,7 +23,7 @@ Required:
 - [Flow CLI](https://docs.onflow.org/flow-cli/install/) - you know you have installed it if you type `flow version` in your terminal and it prints a version.
 
 ```sh
-git clone https://github.com/emerald-dao/0-hello-world-svelte.git
+git clone https://github.com/emerald-dao/1-non-fungible-token-svelte.git
 ```
 
 First, rename the `.env.example` file to `.env`
@@ -41,29 +31,29 @@ First, rename the `.env.example` file to `.env`
 Then, in a terminal window, install the dependencies and start your frontend:
 
 ```sh
-cd 0-hello-world-svelte
+cd 1-non-fungible-token-svelte
 npm install
 npm run dev
 ```
 
-In a second terminal window, start your local emulator:
+> in a second terminal window, start your 👷‍ local emulator:
 
 ```bash
-cd 0-hello-world-svelte
+cd 1-non-fungible-token-svelte
 flow emulator start -v
 ```
 
 _Note: the `-v` flag means to print transaction and script output to your local emulator_
 
-In a third terminal window, deploy your contract and start your local wallet:
+> in a third terminal window, 💾 deploy your contract and 💸 start your local wallet:
 
 ```bash
-cd 0-hello-world-svelte
+cd 1-non-fungible-token-svelte
 flow project deploy
 flow dev-wallet
 ```
 
-You can run `flow project deploy --update` to deploy a new contract or update your existing `HelloWorld` contract any time.
+> You can `flow project deploy --update` to deploy a new contract or update your existing `ExampleNFT` contract any time.
 
 ## 👛 Checkpoint 1: Wallets
 
@@ -71,25 +61,43 @@ We'll be using **the local Flow dev wallet**.
 
 Click the "Connect" button and notice a window appears with different accounts to select, each with their own Flow Token balance. Select the first account to log in to it.
 
-## 📘 Checkpoint 2: Reading the Greeting
+## 🕳️ Checkpoint 2: Set up your NFT Collection
 
-Click the `Get greeting` button to see your greeting:
+After logging in to the account with address `0xf8d6e0586b0a20c7`, click the `Setup Collection` button:
 
-<img src="https://i.imgur.com/scGk30z.png" alt="get greeting" />
+<img src="https://i.imgur.com/6JfueE9.png" alt="set up nft collection" />
 
-## ✏️ Checkpoint 3: Changing the Greeting
+This will store an empty NFT collection inside of your account's storage so you have the ability to receive NFTs.
 
-Change the greeting! Type a new greeting into the input.
+## ✏️ Checkpoint 3: Minting NFTs
 
-<img src="https://i.imgur.com/7MnrBGO.png" alt="changing the greeting" />
+Now that we have set up your account, we can mint some NFTs to it.
 
-Then, click the `Change greeting` button. You should see a transaction pop up:
+In a terminal, run `npm run mint 0xf8d6e0586b0a20c7`
 
-<img src="https://i.imgur.com/PMPzs15.png" alt="transaction popup" />
+<img src="https://i.imgur.com/LR5z0cL.png" alt="mint NFTs transaction" />
 
-Click "APPROVE" and then click the `Get greeting` button again. You should now see your new greeting.
+This will mint 3 NFTs to the supplied address (`0xf8d6e0586b0a20c7`).
 
-## 🔐 Checkpoint 4: Create a Testnet Account
+## 👀 Checkpoint 4: See Your NFTs
+
+Go back to your application and click `Get NFTs`. Notice that 3 NFTs appear! Woooohoooo.
+
+<img src="https://i.imgur.com/Yf6gP97.png" alt="NFTs now appear on the frontend" />
+
+## 📘 Checkpoint 5: Setup Another User
+
+Log out of the current account and connect to another account. Set up another NFT Collection.
+
+## 💾 Checkpoint 6: Transfer an NFT
+
+Log out of your account and go back to the first account that has the NFTs. After clicking "Get NFTs" again, go to one of the NFT boxes, copy and paste the address of the 2nd account you set up (ex. `0x045a1763c93006ca`) and click `Transfer`:
+
+<img src="https://i.imgur.com/ehmS5ej.png" alt="transfer an NFT" />
+
+This will transfer an NFT to the 2nd account. Log in to that account, click `Get NFTs`, and you will see it has an NFT now!
+
+## 🔐 Checkpoint 7: Create a Testnet Account
 
 Create a new account by opening up a terminal in the same directory as your project and typing `flow accounts create`. 
 - Name: `testnet-account`
@@ -99,7 +107,7 @@ Open up your flow.json file and you should see under the "accounts" object that 
 
 > ⚠️ Make sure `testnet-account.pkey` is inside your .gitignore. You never want to commit private keys to git!
 
-## 💾 Checkpoint 5: Deploy to Testnet!
+## 💾 Checkpoint 8: Deploy to Testnet!
 
 We will now deploy our contracts to the account we just created.
 
@@ -108,16 +116,16 @@ In your flow.json file, under the "deployments" object, add the following:
 ```json
 "testnet": {
   "testnet-account": [
-    "HelloWorld"
+    "ExampleNFT"
   ]
 }
 ```
 
-Then, under the "contracts" object, find the "HelloWorld" object and add a new testnet alias. The address you put should be the same one that was added to your flow.json automatically under the "testnet-account" object:
+Then, under the "contracts" object, find the "ExampleNFT" object and add a new testnet alias. The address you put should be the same one that was added to your flow.json automatically under the "testnet-account" object:
 
 ```json
-"HelloWorld": {
-  "source": "./src/lib/flow/cadence/contracts/HelloWorld.cdc",
+"ExampleNFT": {
+  "source": "./src/lib/flow/cadence/contracts/ExampleNFT.cdc",
   "aliases": {
     "emulator": "f8d6e0586b0a20c7",
     "testnet": "5f4ea4877f5afeab"
@@ -154,8 +162,8 @@ Your final flow.json should look something like this:
 				"testnet": "9a0766d93b6608b7"
 			}
 		},
-		"HelloWorld": {
-			"source": "./src/lib/flow/cadence/contracts/HelloWorld.cdc",
+		"ExampleNFT": {
+			"source": "./src/lib/flow/cadence/contracts/ExampleNFT.cdc",
 			"aliases": {
 				"emulator": "f8d6e0586b0a20c7",
 				"testnet": "5f4ea4877f5afeab"
@@ -199,29 +207,30 @@ Your final flow.json should look something like this:
 	"deployments": {
 		"emulator": {
 			"emulator-account": [
-				"HelloWorld"
+				"ExampleNFT"
 			]
 		},
-		"testnet": {
-			"testnet-account": [
-				"HelloWorld"
-			]
-		}
+    "testnet": {
+      "testnet-account": [
+        "ExampleNFT"
+      ]
+    }
 	}
 }
 ```
 
-🚀 Deploy your HelloWorld smart contract:
+🚀 Deploy your ExampleNFT smart contract:
 
 ```sh
 flow project deploy --network=testnet
 ```
 
-<img src="https://i.imgur.com/GBFs2Uz.png" alt="deploy contract to testnet" />
+<img src="https://i.imgur.com/9rfZNhr.png" alt="deploy contract to testnet" />
 
 In your .env file, change the following:
 
 1. `PUBLIC_FLOW_NETWORK=testnet`
+2. `PRIVATE_KEY` to the private key of the testnet account you created. It should be in the `testnet-account.pkey` file. **You must remove the `0x` from the beginning of the private key for it to work.**
 
 You can now stop all your terminals since we no longer need to run our own local blockchain or wallet. Everything lives on testnet!
 
@@ -229,15 +238,15 @@ Run `npm run dev` to start your application in a terminal, and have a blast with
 
 ## 📝 Make Edits!
 
-🔏 You can check out your smart contract `HelloWorld.cdc`, transactions and scripts in `src/lib/flow/cadence`.
+🔏 You can also check out your smart contract `ExampleNFT.cdc` in `flow/cadence/ExampleNFT.cdc`.
 
-💼 Look at how FCL runs your transactions or scripts in `src/lib/flow/actions`.
+💼 Take a quick look at how your contract get deployed in `flow.json`.
 
-📝 If you want to make frontend edits, open `+page.svelte` in `src/routes/+page.svelte`.
+📝 If you want to make frontend edits, open `index.js` in `pages/index.js`.
 
 ## ⚔️ Side Quests
 
-> 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/1-non-fungible-token).
+> 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/2-fungible-token).
 
 > 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
 
