@@ -23,6 +23,11 @@
 <StatsSection
 	background="var(--clr-background-secondary)"
 	bordersColor="var(--clr-border-primary)"
+	data={{
+		data1: { title: 'students', stat: '1k+' },
+		data2: { title: 'hours of content', stat: '100+' },
+		data3: { title: 'graduates', stat: '100+' }
+	}}
 />
 <!-- <LearningPathsSection roadmaps={data.roadmaps} /> -->
 <SocialMediaSection />
