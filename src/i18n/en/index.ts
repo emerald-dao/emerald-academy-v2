@@ -49,6 +49,7 @@ const en: BaseTranslation = {
 	[ContentTypeEnum.Resources]: 'Resources',
 	[ContentTypeEnum.Blog]: 'Blog',
 	[ContentTypeEnum.Tweet]: 'Tweet',
+	[ContentTypeEnum.YouTube]: 'YouTube',
 	[ContentTypeEnum.Tutorial]: 'Tutorial',
 	[ContentTypeEnum.Challenge]: 'Challenge',
 	[ContentTypeEnum.Snippet]: 'Snippet',

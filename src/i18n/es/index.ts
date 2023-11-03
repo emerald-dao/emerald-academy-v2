@@ -49,6 +49,7 @@ const es: Translation = {
 	[ContentTypeEnum.Resources]: 'Recursos',
 	[ContentTypeEnum.Blog]: 'Blog',
 	[ContentTypeEnum.Tweet]: 'Tweet',
+	[ContentTypeEnum.YouTube]: 'YouTube',
 	[ContentTypeEnum.Tutorial]: 'Tutorial',
 	[ContentTypeEnum.Challenge]: 'Desafíos',
 	[ContentTypeEnum.Snippet]: 'Snippet',

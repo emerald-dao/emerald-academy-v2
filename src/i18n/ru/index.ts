@@ -51,6 +51,7 @@ const ru: BaseTranslation = {
 	[ContentTypeEnum.Tutorial]: 'Руководство',
 	[ContentTypeEnum.Blog]: 'Blog',
 	[ContentTypeEnum.Tweet]: 'Tweet',
+	[ContentTypeEnum.YouTube]: 'YouTube',
 	[ContentTypeEnum.Challenge]: 'Задачи',
 	[ContentTypeEnum.Snippet]: 'Snippet',
 	[ContentTypeEnum.External]: 'External',

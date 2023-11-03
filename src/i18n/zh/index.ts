@@ -50,6 +50,7 @@ const zh: BaseTranslation = {
 	[ContentTypeEnum.Tutorial]: '教程',
 	[ContentTypeEnum.Blog]: 'Blog',
 	[ContentTypeEnum.Tweet]: 'Tweet',
+	[ContentTypeEnum.YouTube]: 'YouTube',
 	[ContentTypeEnum.Challenge]: '挑战',
 	[ContentTypeEnum.Snippet]: 'Snippet',
 	[ContentTypeEnum.External]: 'External',

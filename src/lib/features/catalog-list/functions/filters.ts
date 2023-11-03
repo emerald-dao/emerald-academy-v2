@@ -30,6 +30,10 @@ export const typeOfContentFilter: Filter = {
 		{
 			icon: 'icon',
 			slug: ContentTypeEnum.Tweet
+		},
+		{
+			icon: 'icon',
+			slug: ContentTypeEnum.YouTube
 		}
 	],
 	filterBucket: []

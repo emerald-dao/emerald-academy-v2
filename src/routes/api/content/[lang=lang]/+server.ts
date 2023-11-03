@@ -4,6 +4,7 @@ import { json, error } from '@sveltejs/kit';
 import { blogs } from '$lib/content/blogs';
 import { tweets } from '$lib/content/tweets';
 import type { Locales } from '$i18n/i18n-types';
+import { videos } from '$lib/content/videos';
 
 export const GET = async ({ params }) => {
 	try {
@@ -13,8 +14,9 @@ export const GET = async ({ params }) => {
 		const allTutorials = await fetchOverviews(ContentTypeEnum.Tutorial, params.lang as Locales)
 		const allBlogs = blogs;
 		const allTweets = tweets;
+		const allVideos = videos;
 
-		const allContent = allCourses.concat(allBootcamps, allRoadmaps, allTutorials, allBlogs, allTweets);
+		const allContent = allCourses.concat(allBootcamps, allRoadmaps, allTutorials, allBlogs, allTweets, allVideos);
 
 		return json(allContent);
 	} catch (e) {
