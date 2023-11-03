@@ -14,7 +14,7 @@
 
 	let link: string;
 	let onPlatform =
-		overview.contentType != ContentTypeEnum.Blog && overview.contentType != ContentTypeEnum.Tweet;
+		overview.contentType != ContentTypeEnum.Blog && overview.contentType != ContentTypeEnum.Tweet && overview.contentType != ContentTypeEnum.YouTube;
 
 	$: if (overview.contentType === ContentTypeEnum.Snippet) {
 		link = `/${$locale}/${overview.slug}`;
