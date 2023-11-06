@@ -41,8 +41,8 @@ async function createAccount() {
   console.log({ txResult });
   const { events } = txResult;
 
-  // we need to find system event `flow.AccountAdded` in list of events
-  const event = events.find((event) => event.type.includes("AccountAdded"));
+  // we need to find system event `flow.AccountCreated` in list of events
+  const event = events.find((event) => event.type.includes("AccountCreated"));
   // then we can extract address from it
   const accountAddress = event.data.address;
   console.log({ accountAddress });
