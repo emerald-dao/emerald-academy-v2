@@ -209,7 +209,7 @@ Let's try out our DApp on testnet:
 
 ## ⚔️ Side Quests
 
-> 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/3-nft-minting).
+> 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/3-nft-minting-next).
 
 > 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
 

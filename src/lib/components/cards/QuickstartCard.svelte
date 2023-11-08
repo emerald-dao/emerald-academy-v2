@@ -10,12 +10,14 @@
 	<div class="column-4">
 		<h5 class="heading w-medium">{quickstartData.title}</h5>
 		<div class="row-4 row-space-between align-center">
-			{#each quickstartData.techstack as tech}
-				<div class="row-1">
-					<Icon icon={TECHSTACK_DATA[tech].icon} color="var(--clr-text-main)" width="1.1rem" />
-					<p class="small w-medium">{TECHSTACK_DATA[tech].name}</p>
-				</div>
-			{/each}
+			<div class="row-2">
+				{#each quickstartData.techstack as tech}
+					<div class="row-1 align-center">
+						<Icon icon={TECHSTACK_DATA[tech].icon} color="var(--clr-text-main)" width="1.1rem" />
+						<p class="small w-medium">{TECHSTACK_DATA[tech].name}</p>
+					</div>
+				{/each}
+			</div>
 			{#if quickstartData.isRecommended}
 				<span class="recommended-label"> Recommended </span>
 			{/if}

@@ -36,7 +36,7 @@ npm install
 npm run dev
 ```
 
-> in a second terminal window, start your 👷‍ local emulator:
+In a second terminal window, start your local emulator:
 
 ```bash
 cd 1-non-fungible-token-svelte
@@ -45,7 +45,7 @@ flow emulator start -v
 
 _Note: the `-v` flag means to print transaction and script output to your local emulator_
 
-> in a third terminal window, 💾 deploy your contract and 💸 start your local wallet:
+In a third terminal window, deploy your contract and start your local wallet:
 
 ```bash
 cd 1-non-fungible-token-svelte
@@ -53,7 +53,7 @@ flow project deploy
 flow dev-wallet
 ```
 
-> You can `flow project deploy --update` to deploy a new contract or update your existing `ExampleNFT` contract any time.
+You can `flow project deploy --update` to deploy a new contract or update your existing `ExampleNFT` contract any time.
 
 ## 👛 Checkpoint 1: Wallets
 
@@ -242,11 +242,11 @@ Run `npm run dev` to start your application in a terminal, and have a blast with
 
 💼 Take a quick look at how your contract get deployed in `flow.json`.
 
-📝 If you want to make frontend edits, open `index.js` in `pages/index.js`.
+📝 If you want to make frontend edits, open `+page.svelte` in `src/routes/+page.svelte`.
 
 ## ⚔️ Side Quests
 
-> 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/2-fungible-token).
+> 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/2-fungible-token-svelte).
 
 > 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
 

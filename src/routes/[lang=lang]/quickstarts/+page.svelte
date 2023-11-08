@@ -2,7 +2,10 @@
 	import LL from '$i18n/i18n-svelte';
 	import EmptyQuickstartCard from '$lib/components/cards/EmptyQuickstartCard.svelte';
 	import QuickstartCard from '$lib/components/cards/QuickstartCard.svelte';
-	import { QUICKSTART_TECHSTACKS } from '$lib/types/content/quickstart.interface';
+	import {
+		ITERABLE_TECHSTACKS,
+		QUICKSTART_TECHSTACKS
+	} from '$lib/types/content/quickstart.interface';
 	import { Seo } from '@emerald-dao/component-library';
 
 	const QUICKSTARTS_DESCRIPTIONS = [
@@ -43,6 +46,7 @@
 	];
 
 	export let data;
+	console.log(data);
 </script>
 
 <section class="section-large container column-17 column align-center">
@@ -61,9 +65,9 @@
 						<p>{quickstartDescription.description}</p>
 					</div>
 					<div class="quickstarts-cards-wrapper">
-						{#each QUICKSTART_TECHSTACKS as techstack}
+						{#each ITERABLE_TECHSTACKS as techstack}
 							{@const quickstart = data.quickstarts.find(
-								(quickstr) => quickstr.id === i && quickstr.techstack == techstack
+								(quickstr) => quickstr.id === i && quickstr.techstack.includes(techstack)
 							)}
 							{#if quickstart}
 								<QuickstartCard quickstartData={quickstart} />

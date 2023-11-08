@@ -8,7 +8,7 @@ export const overview: Quickstart = {
 	contentType: ContentTypeEnum.Quickstart,
 	audited: true,
 	isRecommended: false,
-	techstack: ['nextjs'],
+	techstack: ['nextjs', 'reactjs'],
 	author: {
 		name: 'Emerald City',
 		socialMediaUrl: 'https://twitter.com/emerald_dao',

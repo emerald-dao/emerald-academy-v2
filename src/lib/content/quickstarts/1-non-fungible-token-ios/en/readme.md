@@ -296,3 +296,11 @@ Lastly, run the app in the simulator or on your iOS/iPadOS Device.
 💼 Take a quick look at how your contract get deployed in `flow.json`.
 
 📝 The app is written in SwiftUI, and implements a "No View Model" design. With the exception of the FlowManager service and a few UI helpers in the Misc directory, the design and direct functions can all be modified in the Views directory.
+
+## ⚔️ Side Quests
+
+> 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/2-fungible-token-svelte).
+
+> 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
+
+> 👉 Problems, questions, comments on the stack? Post them to the [💎 Emerald City Discord](https://discord.gg/emeraldcity).

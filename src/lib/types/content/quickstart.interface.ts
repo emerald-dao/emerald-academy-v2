@@ -8,7 +8,8 @@ export interface Quickstart extends Overview {
 	id: number;
 }
 
-export const QUICKSTART_TECHSTACKS = ['sveltekit', 'nextjs', 'swiftui'] as const;
+export const QUICKSTART_TECHSTACKS = ['sveltekit', 'nextjs', 'reactjs', 'swiftui'] as const;
+export const ITERABLE_TECHSTACKS = QUICKSTART_TECHSTACKS.filter(ts => ts !== 'reactjs');
 
 export type QuickstartTechstack = (typeof QUICKSTART_TECHSTACKS)[number];
 
@@ -19,6 +20,10 @@ export const TECHSTACK_DATA: { [key in QuickstartTechstack]: TechstackData } = {
 	},
 	nextjs: {
 		name: 'Next.js',
+		icon: 'devicon:nextjs'
+	},
+	reactjs: {
+		name: 'React.js',
 		icon: 'devicon:react'
 	},
 	swiftui: {
