@@ -2,21 +2,16 @@
 layout: examples
 ---
 
+Note that while the `revertibleRandom` function is secure & unpredictable (you can read more about it [here](https://developers.flow.com/cadence/language/built-in-functions#revertiblerandom)), you must be cautious about how you use this.
+
+Users who authorize/sign transactions can always abort transactions if they do not like the outcome. For example, a coin flip game where a user signs a transaction to flip a coin and win $. They can simply abort the transaction if the end result is a loss.
+
+Thus, this function should be used where aborting a transaction is not a concern (ex. an Admin running an on-chain raffle).
+
 ```cadence
-import PRNG from 0x93615d25d14fa337
-
-pub fun main(min: UInt256, max: UInt256): UInt256 {
-  // creates a rng seeded from blockheight salted with hash of a resource uuid (or any UInt64 value)
-  // can be used to define traits based on a future block height etc.  
-  let generator <- PRNG.createFrom(blockHeight: getCurrentBlock().height, uuid: 100)
-
-  // call the range function to give you an integer between min and max
-  let answer: UInt256 = generator.range(min, max)
-
-  // destroy the generator resource
-  destroy generator
-
-  // return your answer
-  return answer
+// gets a number between min & max
+pub fun main(min: UInt64, max: UInt64): UInt64 {
+  let randomNumber: UInt64 = unsafeRandom()
+  return (randomNumber % (max + 1 - min)) + min
 }
 ```
