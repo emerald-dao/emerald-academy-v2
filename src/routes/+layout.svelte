@@ -7,15 +7,15 @@
 	import '$lib/styles/_articles.scss';
 	import { setLocale, locale } from '$i18n/i18n-svelte';
 	import HeadHrefLangs from '$lib/components/i18n/HeadHrefLangs.svelte';
-	import { Header, Footer, TransactionModal } from '@emerald-dao/component-library';
+	import { Header, Footer, TransactionModal, Seo } from '@emerald-dao/component-library';
 	import { theme } from '$stores/ThemeStore';
 	import { logIn, unauthenticate } from '$flow/actions';
 	import { user } from '$stores/flow/FlowStore';
 	import { getFindProfile } from '$flow/utils';
 	import LocaleSwitcher from '$lib/components/i18n/LocaleSwitcher.svelte';
 	import { network } from '$flow/config';
-	import { page } from '$app/stores';
 	import { transactionStore } from '$stores/flow/TransactionStore';
+	import dappInfo from '$lib/config/config';
 
 	export let data;
 
@@ -93,6 +93,13 @@
 <svelte:head>
 	<HeadHrefLangs />
 </svelte:head>
+
+<Seo
+	title={dappInfo.title}
+	description={dappInfo.description}
+	type="WebSite"
+	image="https://academy.ecdao.org/favicon.png"
+/>
 
 <style type="scss">
 	main {
