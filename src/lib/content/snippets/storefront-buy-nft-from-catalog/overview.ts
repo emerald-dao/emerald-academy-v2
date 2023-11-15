@@ -14,7 +14,7 @@ export const overview: SnippetOverview = {
   },
   excerpt: 'Buy an NFT listed on NFTStorefrontV2 via NFT Catalog.',
   metadata: {
-    subjects: [SubjectsEnum.DApp]
+    subjects: [SubjectsEnum.Cadence]
   },
   codeLink: 'https://github.com/bymi15/flow-code-snippets/blob/main/storefront-buy-nft-from-catalog.cdc'
 };
