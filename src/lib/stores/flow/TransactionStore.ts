@@ -1,30 +1,34 @@
 import { writable } from 'svelte/store';
-import type { FlowTransaction } from '$lib/types/flow/flow-transaction.interface';
+import type { TransactionStatusObject } from '@onflow/fcl';
 
-function createTransaction(transaction: FlowTransaction) {
+function createTransaction(transaction: TransactionStatusObject) {
 	const { subscribe, set } = writable({
 		progress: false,
-		transaction: transaction
+		transaction: transaction,
+		transactionId: ''
 	});
 
 	function initTransaction() {
 		set({
 			progress: true,
-			transaction: transaction
+			transaction: transaction,
+			transactionId: ''
 		});
 	}
 
-	function subscribeTransaction(transaction: FlowTransaction) {
+	function subscribeTransaction(transaction: TransactionStatusObject, transactionId: string) {
 		set({
 			progress: true,
-			transaction: transaction
+			transaction: transaction,
+			transactionId
 		});
 	}
 
 	function resetTransaction() {
 		set({
 			progress: false,
-			transaction: transaction
+			transaction: transaction,
+			transactionId: ''
 		});
 	}
 
@@ -42,5 +46,5 @@ export const transactionStore = createTransaction({
 	status: -1,
 	statusString: '',
 	errorMessage: '',
-	statusCode: ''
+	statusCode: 1
 });
