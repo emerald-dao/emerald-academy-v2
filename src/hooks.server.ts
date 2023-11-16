@@ -31,8 +31,8 @@ export const handle: Handle = async ({ event, resolve }) => {
 	const locale = isLocale(lang)
 		? (lang as Locales)
 		: lang === 'api'
-		? (urlParams[3] as Locales)
-		: getPreferredLocale(event);
+			? (urlParams[3] as Locales)
+			: getPreferredLocale(event);
 	const LL = L[locale];
 
 	// bind locale and translation functions to current request
@@ -42,7 +42,19 @@ export const handle: Handle = async ({ event, resolve }) => {
 	console.info(LL.log({ fileName: 'hooks.server.ts' }));
 
 	// replace html lang attribute with correct language
-	return resolve(event, { transformPageChunk: ({ html }) => html.replace('%lang%', locale) });
+	return resolve(event, {
+		transformPageChunk: ({ html }) => {
+			let currentTheme = event.cookies.get("theme");
+
+			// Make sure the cookie was found, if not, set it to dark
+			if (!currentTheme) {
+				// default theme for Emerald Academy
+				currentTheme = "dark";
+			}
+
+			return html.replace('%lang%', locale).replace(`data-theme=""`, `data-theme="${currentTheme}"`);
+		}
+	});
 };
 
 const getPreferredLocale = ({ request }: RequestEvent) => {
