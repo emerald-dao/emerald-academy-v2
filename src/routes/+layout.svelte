@@ -11,18 +11,19 @@
 	import { theme } from '$stores/ThemeStore';
 	import { logIn, unauthenticate } from '$flow/actions';
 	import { user } from '$stores/flow/FlowStore';
-	import { getFindProfile } from '$flow/utils';
 	import LocaleSwitcher from '$lib/components/i18n/LocaleSwitcher.svelte';
 	import { network } from '$flow/config';
 	import { transactionStore } from '$stores/flow/TransactionStore';
 	import dappInfo from '$lib/config/config';
+	import { profile } from '$lib/stores/flow/FlowStore';
+	import getProfile from '$lib/utilities/api/getProfile';
 
 	export let data;
 
 	// at the very top, set the locale before you access the store and before the actual rendering takes place
 	setLocale(data.locale);
 
-	$: navElements = [
+	let navElements = [
 		{
 			name: 'Catalog',
 			url: `/${$locale}/catalog`,
@@ -60,7 +61,15 @@
 		}
 	];
 
-	let headerWidth = 'large';
+	const connectProfileToStore = async (address: string) => {
+		$profile = await getProfile(address);
+	};
+
+	$: if ($user.addr) {
+		connectProfileToStore($user.addr);
+	} else {
+		$profile = null;
+	}
 </script>
 
 <TransactionModal
@@ -73,15 +82,15 @@
 	themeStore={theme}
 	{logIn}
 	{unauthenticate}
-	{getFindProfile}
 	{navElements}
+	profile={$profile}
 	user={$user}
 	{network}
 	avatarDropDownNavigation={avatarDropdownNav}
 	logoHref={`/${$locale}/`}
 	logoUrl="/ea-logo.png"
 	logoText="Emerald Academy"
-	width={headerWidth}
+	width="large"
 >
 	<LocaleSwitcher slot="commands" />
 </Header>

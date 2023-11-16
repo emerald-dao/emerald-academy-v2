@@ -49,7 +49,7 @@
 		"@emailjs/browser": "^3.10.0",
 		"@emerald-dao/component-library": "^6.5.5",
 		"@emerald-dao/design-system": "^2.0.0",
-		"@onflow/fcl": "^1.2.1",
+		"@onflow/fcl": "1.8.1",
 		"@splidejs/svelte-splide": "^0.2.9",
 		"@supabase/supabase-js": "^2.7.1",
 		"@sveltejs/adapter-vercel": "^1.0.6",
