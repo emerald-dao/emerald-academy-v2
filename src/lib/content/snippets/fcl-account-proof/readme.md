@@ -26,10 +26,35 @@ const resolver = async () => {
   };
 };
 
+const fclConfigInfo = {
+  emulator: {
+    accessNode: "http://127.0.0.1:8888",
+    discoveryWallet: "http://localhost:8701/fcl/authn"
+  },
+  testnet: {
+    accessNode: "https://rest-testnet.onflow.org",
+    discoveryWallet: "https://fcl-discovery.onflow.org/testnet/authn",
+    BLOCTO_FCLCRYPTO_CONTRACT_ADDRESS: "0x5b250a8a85b44a67"
+  },
+  mainnet: {
+    accessNode: "https://rest-mainnet.onflow.org",
+    discoveryWallet: "https://fcl-discovery.onflow.org/authn",
+    BLOCTO_FCLCRYPTO_CONTRACT_ADDRESS: "0xdb6b70764af4ff68"
+  }
+};
+
+/* TODO: Change based on your network */
+const network = "mainnet"; // mainnet
+/* TODO: Change based on your wallet */
+// If you are verifying a Blocto wallet, you must use the
+// provided `BLOCTO_FCLCRYPTO_CONTRACT_ADDRESS`.
+// Otherwise, `fclCryptoContract` can be `null`.
+const fclCryptoContract = null; // fclConfigInfo[network].BLOCTO_FCLCRYPTO_CONTRACT_ADDRESS;
+
 config({
-  "accessNode.api": "https://rest-testnet.onflow.org",
-  "discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn",
-  "flow.network": "testnet",
+  "accessNode.api": fclConfigInfo[network].accessNode,
+  "discovery.wallet": fclConfigInfo[network].discoveryWallet,
+  "flow.network": network,
   // add resolver function to your config
   "fcl.accountProof.resolver": resolver
 });
@@ -55,7 +80,7 @@ export default function App() {
       appIdentifier,
       accountProofService.data,
       {
-        fclCryptoContract: null
+        fclCryptoContract
       }
     );
     console.log({ verified });
