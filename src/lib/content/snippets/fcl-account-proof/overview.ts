@@ -3,7 +3,7 @@ import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 import type { SnippetOverview } from '$lib/types/content/snippet.interface';
 
 export const overview: SnippetOverview = {
-  title: 'Proving Authentication with FCL',
+  title: 'Proving Authentication with FCL (Account Proof)',
   contentType: ContentTypeEnum.Snippet,
   author: {
     name: 'Jacob Tucker',
@@ -12,7 +12,7 @@ export const overview: SnippetOverview = {
     isVerified: true,
     walletAddress: '0x99bd48c8036e2876'
   },
-  excerpt: 'Learn how to verify a users authentication using FCL on testnet and mainnet.',
+  excerpt: 'Learn how to verify a users authentication ("account proof") using FCL on testnet and mainnet.',
   metadata: {
     subjects: [SubjectsEnum.DApp, SubjectsEnum.Javascript]
   },
