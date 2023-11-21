@@ -6,6 +6,8 @@ layout: examples
 
 # Time
 
+Time in Cadence is represented as a Unix timestamp in seconds. You can calculate points in the future by adding seconds to the current time, allowing you to schedule actions based on specific time units such as minutes, hours, days, weeks, and years.
+
 ```cadence
 pub fun main() {
    // time is represented as a unix timestamp in seconds
