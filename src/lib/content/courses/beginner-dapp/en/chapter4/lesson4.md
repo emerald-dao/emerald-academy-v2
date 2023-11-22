@@ -189,9 +189,9 @@ After you click "Approve" on the Blocto transaction below...
 
 <img src="/courses/beginner-dapp/transaction-id.png" />
 
-A transactionId can help you find information about your transaction. More specifically, you can do this on Flowscan!
+A transactionId can help you find information about your transaction. More specifically, you can do this on Flowdiver!
 
-> Copy + paste that transactionId, go to https://testnet.flowscan.org/, and paste it into the search bar. You should be able to discover your transaction!
+> Copy + paste that transactionId, go to https://testnet.flowdiver.io, and paste it into the search bar. You should be able to discover your transaction!
 
 <img src="/courses/beginner-dapp/testnet-flowscan.png" />
 

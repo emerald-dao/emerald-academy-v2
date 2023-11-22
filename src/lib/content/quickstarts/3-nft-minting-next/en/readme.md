@@ -187,7 +187,7 @@ Let's try out our DApp on testnet:
 <img src="https://i.imgur.com/dvYO2aU.png" alt="logging into discovery" />
 
 3. In a terminal, run `npm run mint`
-4. In your terminal, you should see a printed "Transaction Id". If you go to [Testnet Flowscan](https://testnet.flowscan.org/) and paste in that Transaction Id, you should see information about that minting transaction.
+4. In your terminal, you should see a printed "Transaction Id". If you go to [Testnet Flowdiver](https://testnet.flowdiver.io) and paste in that Transaction Id, you should see information about that minting transaction.
 5. You should now see all the NFTs available for purchase!
 
 \*Note: If you want to fund a testnet account with Flow Tokens to test your application, you can use the [Testnet Faucet](https://testnet-faucet.onflow.org/fund-account)

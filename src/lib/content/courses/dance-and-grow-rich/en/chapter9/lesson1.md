@@ -20,7 +20,7 @@ To conclude the course and to invite you to become a leader in Web3 Dance in you
 
 ## Claim your Certificate
 
-Here - https://floats.city/krumpverse.find/event/994151843
+Here - https://floats.city/event/krumpverse.find/994151843
 
 For more resources, you can access my Google Drive:
 https://bit.ly/web3krump

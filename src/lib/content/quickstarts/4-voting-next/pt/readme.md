@@ -290,7 +290,7 @@ Vamos testar nosso aplicativo no testnet:
 3. Junte-se ao DAO e execute a transação. Aguarde cerca de 30 segundos e, em seguida, atualize a página. Você deve estar no DAO agora.
 4. Crie uma nova proposta, como antes.
 5. Para obter tokens, execute **`npm run mint [THE ADDRESS YOU COPIED IN STEP 2] [AMOUNT OF TOKENS]`** como fizemos no Checkpoint 6.
-6. No seu terminal, você deve ver um "Transaction Id" impresso. Se você acessar o **[Testnet Flowscan](https://testnet.flowscan.org/)** e colar esse Transaction Id, você deverá ver informações sobre a transação de criação de tokens.
+6. No seu terminal, você deve ver um "Transaction Id" impresso. Se você acessar o **[Testnet Flowdiver](https://testnet.flowdiver.io)** e colar esse Transaction Id, você deverá ver informações sobre a transação de criação de tokens.
 7. Tente votar na sua proposta.
 
 ---

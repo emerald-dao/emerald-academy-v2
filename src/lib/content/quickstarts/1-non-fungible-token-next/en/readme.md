@@ -203,7 +203,7 @@ Let's try out our DApp on testnet:
 
 3. Click "Setup Collection" to give yourself a collection and the ability to store NFTs in your account.
 4. In a terminal, run `npm run mint [THE ADDRESS OF THE ACCOUNT YOU'RE LOGGED IN TO]`
-5. In your terminal, you should see a printed "Transaction Id". If you go to [Testnet Flowscan](https://testnet.flowscan.org/) and paste in that Transaction Id, you should see information about that minting transaction.
+5. In your terminal, you should see a printed "Transaction Id". If you go to [Testnet Flowdiver](https://testnet.flowdiver.io) and paste in that Transaction Id, you should see information about that minting transaction.
 6. Click "Get NFTs", and you should see all your NFTs in your account!
 
 ## 📝 Make Edits!

@@ -7,7 +7,7 @@ excerpt: Transacciones y Guiones
 
 # Capítulo 2 Día 2 - Transacciones y Guiones
 
-¡Hola a las personas locas de Cadence! Estamos de vuelta para otro día de contenido, y en este día, vamos a profundizar más en transacciones y guiones. Si aún no lo ha hecho, asegúrese de leer [la parte de introducción a transacciones y guiones en Capítulo 1 Día 1.](https://github.com/emerald-dao/beginner-cadence-course/tree/main/chapter1.0/lesson1#transactions--scripts)
+¡Hola a las personas locas de Cadence! Estamos de vuelta para otro día de contenido, y en este día, vamos a profundizar más en transacciones y guiones. Si aún no lo ha hecho, asegúrese de leer la parte de introducción a transacciones y guiones en Capítulo 1 Día 1.
 
 ## Video
 

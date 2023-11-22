@@ -246,7 +246,7 @@ Let's try out our application on testnet:
 3. Join the DAO and run the transaction. Wait ~30 seconds and then refresh the page. You should now be in the DAO.
 4. Create a new proposal, same as before.
 5. To obtain tokens, run `npm run mint [THE ADDRESS YOU COPIED IN STEP 2] [AMOUNT OF TOKENS]` like we did in Checkpoint 6.
-6. In your terminal, you should see a printed "Transaction Id". If you go to [Testnet Flowscan](https://testnet.flowscan.org/) and paste in that Transaction Id, you should see information about that minting transaction.
+6. In your terminal, you should see a printed "Transaction Id". If you go to [Testnet Flowdiver](https://testnet.flowdiver.io) and paste in that Transaction Id, you should see information about that minting transaction.
 7. Attempt to vote in your proposal.
 
 ## 📝 Make Edits!

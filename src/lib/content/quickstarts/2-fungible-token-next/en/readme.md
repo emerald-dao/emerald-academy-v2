@@ -196,7 +196,7 @@ Let's try out our DApp on testnet:
 2. On http://localhost:3000/, click "connect" and log in to your Blocto or Lilico wallet, making sure to copy the address you log in with.
 3. Click "Setup Vault" to give yourself a vault and the ability to store tokens
 4. In a terminal, run `npm run mint [THE ADDRESS OF THE ACCOUNT YOU'RE LOGGED IN TO] [AMOUNT OF TOKENS]`
-5. In your terminal, you should see a printed "Transaction Id". If you go to [Testnet Flowscan](https://testnet.flowscan.org/) and paste in that Transaction Id, you should see information about that minting transaction.
+5. In your terminal, you should see a printed "Transaction Id". If you go to [Testnet Flowdiver](https://testnet.flowdiver.io) and paste in that Transaction Id, you should see information about that minting transaction.
 6. Refresh the balance once again, and you should see tokens minted to your account :)
 
 ## 📝 Make Edits!

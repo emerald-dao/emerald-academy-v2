@@ -52,9 +52,9 @@ export const developerResources: Resources[] = [
 export const networkDiscovery: Resources[] = [
 	{
 		image: 'https://flowscan.org/images/flowscan-logo-only.svg',
-		title: 'Flowscan',
+		title: 'Flowdiver',
 		excerpt: 'Block explorer.',
-		link: 'https://flowscan.org/'
+		link: 'https://flowdiver.io'
 	},
 	{
 		image: '/flow-logo.png',

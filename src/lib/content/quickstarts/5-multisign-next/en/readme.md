@@ -207,7 +207,7 @@ Let's try out our application on testnet:
 6. By default, the Admin of the treasury is the account you deployed your contract to. However, we do not have this account in a wallet like Lilico or Blocto, so we will have some trouble signing the withdraw request. To fix that, we created a command for you to sign proposals from your terminal:
 
 - In your terminal, type `npm run sign [THE PROPOSAL ID]` (you can get the `proposalId` by clicking on the request and seeing its number)
-- You should see a printed "Transaction Id". If you go to [Testnet Flowscan](https://testnet.flowscan.org/) and paste in that Transaction Id, you should see information about that minting transaction.
+- You should see a printed "Transaction Id". If you go to [Testnet Flowdiver](https://testnet.flowdiver.io) and paste in that Transaction Id, you should see information about that minting transaction.
 
 ## 📝 Make Edits!
 
