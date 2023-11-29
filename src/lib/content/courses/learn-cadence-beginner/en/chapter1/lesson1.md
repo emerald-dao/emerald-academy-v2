@@ -18,7 +18,7 @@ Hello and welcome to the first lesson of the Learn Cadence (Beginner) course. Ja
 
 ## Quick Note
 
-Cadence is a smart contract language. So before we get into actually learning Cadence, I am going to assume that you already know *what* smart contracts are. If you don't, that's okay.
+Cadence is a smart contract language.
 
 Put simply, smart contracts are:
 - programs that you **deploy** (put) onto this weird thing called the "blockchain"
@@ -26,11 +26,9 @@ Put simply, smart contracts are:
 - you can execute **transactions** to call the functions that modify data or make something happen. Transactions are executed when some sort of account signs it (*so smart contracts require someone/something to send a transaction for anything to happen*)
 - you can execute **scripts** to read data on the blockchain
 
-Okay, onto actual coding now. Whew.
-
 ## Our First Smart Contract
 
-In order to start making our first Smart Contract, we need to figure out a place to actually put it! To do that, launch a browser of your choice (I would recommend Google Chrome) and go to the [Flow playground](https://play.flow.com). After you do that, do the following:
+In order to start making our first smart contract, we need to figure out a place to actually put it! To do that, launch a browser of your choice (I would recommend Google Chrome) and go to the [Flow playground](https://play.flow.com). After you do that, do the following:
 
 1. On the left hand side, click the 'Hello World' tab
 2. Delete everything in that page
@@ -42,19 +40,19 @@ Soon, we will be "deploying" a contract we make in this tab to an address. But w
 
 ### What's an Address?
 
-An address is something that looks like `0x` and then a bunch of random numbers and letters. Here's an example address on Flow: `0xe5a8b7f23e8b548f`. On the Flow playground, you'll see much shorter addresses like `0x01`. That's just to make things simpler.
+An address is something that looks like `0xe5a8b7f23e8b548f`. On the Flow playground, you'll see much shorter addresses like `0x01`. That's just to make things simpler.
 
-But what actually IS an address? Well, you can think of it as a user. When I want to do something on the blockchain, I need to have an account. Every account has an address associated with it. So when you see something like `0xe5a8b7f23e8b548f`, that's really just a person/thing's account that they use to store data, send transactions, etc.
+An address represents an account. Accounts are used to store data (your NFTs, tokens, etc), send transactions, and more. Wallets like Blocto, Metamask (a common wallet on Ethereum), and Dapper create accounts for you and provide a simple interface for you to interact with your account and do things with it.
 
-### Where Do Smart Contracts Live?
+### Where do Smart Contracts Live?
 
-Smart contracts are deployed to accounts. More specifically, an account (that has an associated address) will sign a transaction to deploy a contract to itself. The Flow playground has automatically given us 5 accounts, namely `0x01`, `0x02`, and so on so we can easily deploy contracts.
+Smart contracts are deployed to accounts. More specifically, an account will sign a transaction to deploy a contract to itself. The Flow playground has automatically given us 5 accounts, namely `0x01`, `0x02`, and so on so we can easily deploy contracts.
 
 In the real world, you would deploy your smart contract to your account, but because this is a fake-simulation world, we can choose any account we want.
 
 When you want to interact with a contract, you would have to know both the name of the contract and the address where it lives. We'll see this more in-depth when we import stuff later on.
 
-### Back to Our Example
+### Back to our Example
 
 Let's make our contract now. In the empty space, type the following:
 
@@ -71,7 +69,7 @@ Boom, we wrote our first contract. That... has nothing in it.
 
 The `init()` function is a function that every single contract **must** have. It is run when the contract is initially deployed, which only ever happens 1 time. So we can initialize some stuff in it when we want to. We'll see this later on.
 
-## Adding Data to Our Contract
+## Adding Data to our Contract
 
 Let's make our contract store a `greeting` variable.
 
@@ -93,8 +91,7 @@ The greeting variable:
 - has `let`, which means it's a constant (cannot be changed)
 - is a `String` type, so it contains some sort of text (in this case "Hello World")
 
-
-In the `init` function we put `self.greeting = "Hello, World!"`. Remember, the `init()` function is called when the contract is deployed, which only happens once. *Note that we must set a value for `greeting`, and more broadly any variable, in the `init` function or else there will be an error.*
+In the `init` function we put `self.greeting = "Hello, World!"`. Remember, the `init()` function is called when the contract is deployed, which only happens once. *Note that we must set a value for `greeting`, and really any variable, in the `init` function or else there will be an error.*
 
 `self.greeting` is referring to the `greeting` variable we declared right above it, and we set it equal to "Hello, World!".
 

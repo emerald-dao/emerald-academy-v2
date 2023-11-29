@@ -1,399 +1,328 @@
 ---
-title: 'Creating an NFT Contract: Collections (Part 1/3)'
+title: Capabilities
 lesson: 3
 language: en
-excerpt: 'Creating an NFT Contract: Collections (Part 1/3)'
-lessonVideoUrl: https://www.youtube.com/embed/bQVXSpg6GE8
-lessonVideoDescription: In the next few chapters, we'll be doing exactly what I do in this video. Today, we'll only go from 00:00 - 20:35.
-quizUrl: https://forms.gle/HxGckQ6D81kp2Qr16
 ---
 
-<script>
-  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
-</script>
+# Chapter 3 Lesson 3 - Capabilities
 
-# Chapter 4 Lesson 3 - Creating an NFT Contract: Collections (Part 1/3)
+In yesterday's chapter, we talked about the `/storage/` path of an account's storage. Today we will talk about the `/public/` and `/private/` paths, and what capabilities are.
 
-You have learned a lot so far. Let's apply everything you've learned to make your own NFT contract.
+**NOTE: THIS CHAPTER CAN GET VERY CONFUSING**. If you feel lost along the way, I will give you a virtual ghost hug. I promise, if you read through it a few times, you will get it eventually.
 
-<LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
-
-## Review
+## Review from Yesterday
 
 <img src="/courses/beginner-cadence/accountstorage1.PNG" />
+
+Quick review:
+
+1. `/storage/` is only accessible to the account owner. We use `.save()`, `.load()` and `.borrow()` functions to interact with it.
+2. `/public/` is available to everyone.
+3. `/private/` is available to the account owner and people who the owner gives access to.
+
+For today's chapter, we will be using yesterday's contract code:
+
+```cadence
+pub contract Stuff {
+
+  pub resource Test {
+    pub var name: String
+    init() {
+      self.name = "Jacob"
+    }
+  }
+
+  pub fun createTest(): @Test {
+    return <- create Test()
+  }
+
+}
+```
+
+And don't forget that we saved the resource to our storage like this:
+
+```cadence
+import Stuff from 0x01
+transaction() {
+  prepare(signer: AuthAccount) {
+    let testResource <- Stuff.createTest()
+    signer.save(<- testResource, to: /storage/MyTestResource)
+    // saves `testResource` to my account storage at this path:
+    // /storage/MyTestResource
+  }
+
+  execute {
+
+  }
+}
+```
+
+Okay, we're ready to go.
+
+## `/public/` path
+
+Previously, when we saved something to account storage, only the account owner could access it. That is because it was saved to the `/storage/` path. But what if we want other people to read the `name` field from my resource? Well, you may have guessed it. Let's make our resource publically accessible!
+
+```cadence
+import Stuff from 0x01
+transaction() {
+  prepare(signer: AuthAccount) {
+    // Links our resource to the public so other people can now access it
+    signer.link<&Stuff.Test>(/public/MyTestResource, target: /storage/MyTestResource)
+  }
+
+  execute {
+
+  }
+}
+```
+
+In the example above, we used the `.link()` function to "link" our resource to the `/public/` path. In simpler terms, we took the thing at `/storage/MyTestResource` and exposed a `&Stuff.Test` to the public so they can read from it.
+
+`.link()` takes in two parameters:
+
+1. A `/public/` or `/private/` path
+2. a `target` parameter that is a `/storage/` path where the data you're linking currently lives
+
+Now, anyone can run a script to read the `name` field on our resource. I will show you how to do that, but I need to introduce you to some things first.
+
+## Capabilities
+
+When you "link" something to the `/public/` or `/private/` paths, you are creating something called a capability. Nothing _actually_ lives in the `/public/` or `/private/` paths, everything lives in your `/storage/`. However, we can think of capabilities like "pointers" that point from a `/public/` or `/private/` path to its associated `/storage/` path. Here's a helpful visualization:
+
 <img src="/courses/beginner-cadence/capabilities.PNG" />
 
-## NFT (NonFungibleToken) Example
+The cool part is that you can make your `/public/` or `/private/` capabilities _more restrictive_ than what is inside your `/storage/` path. This is super cool because you can limit what other people are able to do, but still allow them to do some things. We will do this with resource interfaces later.
 
-Let's spend the next few lessons working through a NonFungibleToken example. We are going to create our very own NFT contract called CryptoPoops. This way you will review all the previous concepts you've learned so far, and implement your own NFT!
+## `PublicAccount` vs. `AuthAccount`
 
-Let's start by making a contract:
+We already learned that an `AuthAccount` allows you to do anything you want with an account. On the other hand, `PublicAccount` allows anyone to read from it, but only the things that the account owner exposes. You can get a `PublicAccount` type by using the `getAccount` function like so:
 
 ```cadence
-pub contract CryptoPoops {
-  pub var totalSupply: UInt64
+let account: PublicAccount = getAccount(0x1)
+// `account` now holds the PublicAccount of address 0x1
+```
 
-  pub resource NFT {
-    pub let id: UInt64
+The reason I'm telling you this is because the only way to get a capability from a `/public/` path is to use `PublicAccount`. On the other hand, you can only get a capability from a `/private/` path with an `AuthAccount`.
 
-    init() {
-      // NOTE: every resource on Flow has it's own unique `uuid`. There
-      // will never be resources with the same `uuid`.
-      self.id = self.uuid
-    }
-  }
+## Back to `/public/`
 
-  pub fun createNFT(): @NFT {
-    return <- create NFT()
-  }
+Okay, so we linked our resource to the public. Let's read from it in a script now, and apply some of what we've learned!
 
-  init() {
-    self.totalSupply = 0
-  }
+```cadence
+import Stuff from 0x01
+pub fun main(address: Address): String {
+  // gets the public capability that is pointing to a `&Stuff.Test` type
+  let publicCapability: Capability<&Stuff.Test> =
+    getAccount(address).getCapability<&Stuff.Test>(/public/MyTestResource)
+
+  // Borrow the `&Stuff.Test` from the public capability
+  let testResource: &Stuff.Test = publicCapability.borrow() ?? panic("The capability doesn't exist or you did not specify the right type when you got the capability.")
+
+  return testResource.name // "Jacob"
 }
 ```
 
-We start off by:
+Sweet! We read the name of our resource from the `/public/` path. Here are the steps:
 
-1. Defining a `totalSupply` (setting it to 0 initially)
-2. Creating an `NFT` type. We give the `NFT` 1 field: `id`. The `id` is set to `self.uuid`, which is a unique identifier that every resource has on Flow. There will never be two resources with the same `uuid`, so it works perfectly as an `id` for an NFT, since a NFT is a token that is completely unique from any other token.
-3. Creating a `createNFT` function that returns an `NFT` resource, so anyone can mint their own NFT.
+1. Get the public account of the address we're reading from: `getAccount(address)`
+2. Get the capability that is pointing to a `&Stuff.Test` type at the `/public/MyTestResource` path: `getCapability<&Stuff.Test>(/public/MyTestResource)`
+3. Borrow the capability to return the actual reference: `let testResource: &Stuff.Test = publicCapability.borrow() ?? panic("The capability is invalid")`
+4. Return the name: `return testResource.name`
 
-Alright, that's easy. Let's store an NFT in our account storage and make it readable to the public.
+You may be wondering, why didn't we have to specify the type of the reference when we do `.borrow()`? The answer is because the capability already specifies the type, so it is assuming that is the type it's borrowing. If it borrows a different type, or the capability did not exist in the first place, it will return `nil` and panic.
 
-```cadence
-import CryptoPoops from 0x01
-transaction() {
-  prepare(signer: AuthAccount) {
-    // store an NFT to the `/storage/MyNFT` storage path
-    signer.save(<- CryptoPoops.createNFT(), to: /storage/MyNFT)
+## Using Public Capabilities to Restrict a Type
 
-    // link it to the public so anyone can read my NFT's `id` field
-    signer.link<&CryptoPoops.NFT>(/public/MyNFT, target: /storage/MyNFT)
-  }
-}
-```
+Alright! Awesomeness. We've made it here at least, i'm proud of you. The next topic is figuring out how to restrict certain parts of our reference so the public can't do things we don't want them to.
 
-Nice! You should understand this now because of the last chapter. We first save the NFT to account storage, and then link a reference to it to the public so we can read its `id` field with a script. Well, let's do that!
+Let's define another contract:
 
 ```cadence
-import CryptoPoops from 0x01
-pub fun main(address: Address): UInt64 {
-  let nft = getAccount(address).getCapability(/public/MyNFT)
-              .borrow<&CryptoPoops.NFT>()
-              ?? panic("An NFT does not exist here.")
+pub contract Stuff {
 
-  return nft.id // 3525 (some random number, because it's the `uuid` of
-                // the resource. This will probably be different for you.)
-}
-```
+  pub resource Test {
+    pub var name: String
 
-Awesome! We did some good stuff. But let's think about this for a second. What would happen if we want to store _another_ NFT in our account?
-
-```cadence
-import CryptoPoops from 0x01
-transaction() {
-  prepare(signer: AuthAccount) {
-    // ERROR: "failed to save object: path /storage/MyNFT
-    // in account 0x1 already stores an object"
-    signer.save(<- CryptoPoops.createNFT(), to: /storage/MyNFT)
-
-    signer.link<&CryptoPoops.NFT>(/public/MyNFT, target: /storage/MyNFT)
-  }
-}
-```
-
-Look what happened. We got an error! Why? Because an NFT already exists at that storage path. How can we fix this? Well, we could just specify a different storage path...
-
-```cadence
-import CryptoPoops from 0x01
-transaction() {
-  prepare(signer: AuthAccount) {
-    // Note we use `MyNFT02` as the path now
-    signer.save(<- CryptoPoops.createNFT(), to: /storage/MyNFT02)
-
-    signer.link<&CryptoPoops.NFT>(/public/MyNFT02, target: /storage/MyNFT02)
-  }
-}
-```
-
-This works, but it's not great. If we wanted to have a ton of NFTs, we would have to remember ALL the storage paths we gave it, and that's super annoying and inefficient.
-
-The second problem is that nobody can give us NFTs. Since only the account owner can store an NFT in their account storage directly, no one can mint us an NFT. That's not good either.
-
-### Collections
-
-The way to fix both of these problems is to create a "Collection," or a container that wraps all of our NFTs into one. Then, we can store the Collection at 1 storage path, and also allow others to "deposit" into that Collection.
-
-```cadence
-pub contract CryptoPoops {
-  pub var totalSupply: UInt64
-
-  pub resource NFT {
-    pub let id: UInt64
-
-    init() {
-      self.id = self.uuid
-    }
-  }
-
-  pub fun createNFT(): @NFT {
-    return <- create NFT()
-  }
-
-  pub resource Collection {
-    // Maps an `id` to the NFT with that `id`
-    //
-    // Example: 2353 => NFT with id 2353
-    pub var ownedNFTs: @{UInt64: NFT}
-
-    // Allows us to deposit an NFT
-    // to our Collection
-    pub fun deposit(token: @NFT) {
-      self.ownedNFTs[token.id] <-! token
-    }
-
-    // Allows us to withdraw an NFT
-    // from our Collection
-    //
-    // If the NFT does not exist, it panics
-    pub fun withdraw(withdrawID: UInt64): @NFT {
-      let nft <- self.ownedNFTs.remove(key: withdrawID)
-              ?? panic("This NFT does not exist in this Collection.")
-      return <- nft
-    }
-
-    // Returns an array of all the NFT ids in our Collection
-    pub fun getIDs(): [UInt64] {
-      return self.ownedNFTs.keys
+    pub fun changeName(newName: String) {
+      self.name = newName
     }
 
     init() {
-      self.ownedNFTs <- {}
-    }
-
-    destroy() {
-      destroy self.ownedNFTs
+      self.name = "Jacob"
     }
   }
 
-  pub fun createEmptyCollection(): @Collection {
-    return <- create Collection()
+  pub fun createTest(): @Test {
+    return <- create Test()
   }
 
-  init() {
-    self.totalSupply = 0
-  }
 }
 ```
 
-Awesome. We've defined a `Collection` resource that does a few things:
-
-1. Stores a dictionary called `ownedNFTs` that maps an `id` to the `NFT` with that `id`.
-2. Defines a `deposit` function to be able to deposit `NFT`s.
-3. Defines a `withdraw` function to be able to withdraw `NFT`s.
-4. Defines a `getIDs` function so we can get a list of all the NFT ids in our Collection.
-5. Defines a `destroy` function. In Cadence, **whenever you have resources inside of resources, you MUST declare a `destroy` function that manually destroys those "nested" resources with the `destroy` keyword.**
-
-We also defined a `createEmptyCollection` function so we can save a `Collection` to our account storage so we can manage our NFTs better. Let's do that now:
+In this example, I added a `changeName` function that allows you to change the name in the resource. But what if we don't want the public to be able to do this? Right now we have a problem:
 
 ```cadence
-import CryptoPoops from 0x01
-transaction() {
+import Stuff from 0x01
+transaction(address: Address) {
+
   prepare(signer: AuthAccount) {
-    // Store a `CryptoPoops.Collection` in our account storage.
-    signer.save(<- CryptoPoops.createEmptyCollection(), to: /storage/MyCollection)
 
-    // Link it to the public.
-    signer.link<&CryptoPoops.Collection>(/public/MyCollection, target: /storage/MyCollection)
+  }
+
+  execute {
+    let publicCapability: Capability<&Stuff.Test> =
+      getAccount(address).getCapability<&Stuff.Test>(/public/MyTestResource)
+
+    let testResource: &Stuff.Test = publicCapability.borrow() ?? panic("The capability doesn't exist or you did not specify the right type when you got the capability.")
+
+    testResource.changeName(newName: "Sarah") // THIS IS A SECURITY PROBLEM!!!!!!!!!
   }
 }
 ```
 
-Take a few minutes to really read that code. What is wrong with it? Think about some security problems with it. Why is it bad that we expose `&CryptoPoops.Collection` to the public?
+See the problem? Because we linked our resource to the public, anyone can call `changeName` and change our name! That's not fair.
 
-....
+The way to solve this is to:
 
-....
+1. Define a new resource interface that only exposes the `name` field, and NOT `changeName`
+2. When we `.link()` the resource to the `/public/` path, we restrict the reference to use that resource interface in step 1).
 
-Did you think of it yet? The reason is because now, **anyone can withdraw from our Collection!** That's really bad.
-
-The problem, though, is that we do want the public to be able to `deposit` NFTs into our Collection, and we want them to also read the NFT ids that we own. How can we solve this issue?
-
-Resource interfaces, woop woop! Let's define a resource interface to restrict what we expose to the public:
+Let's add a resource interface to our contract:
 
 ```cadence
-pub contract CryptoPoops {
-  pub var totalSupply: UInt64
+pub contract Stuff {
 
-  pub resource NFT {
-    pub let id: UInt64
-
-    init() {
-      self.id = self.uuid
-    }
+  pub resource interface ITest {
+    pub var name: String
   }
 
-  pub fun createNFT(): @NFT {
-    return <- create NFT()
-  }
+  // `Test` now implements `ITest`
+  pub resource Test: ITest {
+    pub var name: String
 
-  // Only exposes `deposit` and `getIDs`
-  pub resource interface CollectionPublic {
-    pub fun deposit(token: @NFT)
-    pub fun getIDs(): [UInt64]
-  }
-
-  // `Collection` implements `CollectionPublic` now
-  pub resource Collection: CollectionPublic {
-    pub var ownedNFTs: @{UInt64: NFT}
-
-    pub fun deposit(token: @NFT) {
-      self.ownedNFTs[token.id] <-! token
-    }
-
-    pub fun withdraw(withdrawID: UInt64): @NFT {
-      let nft <- self.ownedNFTs.remove(key: withdrawID)
-              ?? panic("This NFT does not exist in this Collection.")
-      return <- nft
-    }
-
-    pub fun getIDs(): [UInt64] {
-      return self.ownedNFTs.keys
+    pub fun changeName(newName: String) {
+      self.name = newName
     }
 
     init() {
-      self.ownedNFTs <- {}
-    }
-
-    destroy() {
-      destroy self.ownedNFTs
+      self.name = "Jacob"
     }
   }
 
-  pub fun createEmptyCollection(): @Collection {
-    return <- create Collection()
+  pub fun createTest(): @Test {
+    return <- create Test()
   }
 
-  init() {
-    self.totalSupply = 0
-  }
 }
 ```
 
-Now we can restrict what the public can see when we save our Collection to account storage:
+Awesome! Now `Test` implements a resource interface named `ITest` that only has the `name` in it. Now we can link our resource to the public by doing this:
 
 ```cadence
-import CryptoPoops from 0x01
+import Stuff from 0x01
 transaction() {
   prepare(signer: AuthAccount) {
-    // Store a `CryptoPoops.Collection` in our account storage.
-    signer.save(<- CryptoPoops.createEmptyCollection(), to: /storage/MyCollection)
+    // Save the resource to account storage
+    signer.save(<- Stuff.createTest(), to: /storage/MyTestResource)
 
-    // NOTE: We expose `&CryptoPoops.Collection{CryptoPoops.CollectionPublic}`, which
-    // only contains `deposit` and `getIDs`.
-    signer.link<&CryptoPoops.Collection{CryptoPoops.CollectionPublic}>(/public/MyCollection, target: /storage/MyCollection)
+    // See what I did here? I only linked `&Stuff.Test{Stuff.ITest}`, NOT `&Stuff.Test`.
+    // Now the public only has access to the things in `Stuff.ITest`.
+    signer.link<&Stuff.Test{Stuff.ITest}>(/public/MyTestResource, target: /storage/MyTestResource)
+  }
+
+  execute {
+
   }
 }
 ```
 
-<img src="/courses/beginner-cadence/thanos.png" />
-Now this... does put a smile on my face. Let's experiment by depositing an NFT to our account and withdrawing it.
+So, what happens if we try to access the entire reference now in a script, like we did before?
 
 ```cadence
-import CryptoPoops from 0x01
-transaction() {
+import Stuff from 0x01
+transaction(address: Address) {
   prepare(signer: AuthAccount) {
-    // Get a reference to our `CryptoPoops.Collection`
-    let collection = signer.borrow<&CryptoPoops.Collection>(from: /storage/MyCollection)
-                      ?? panic("The recipient does not have a Collection.")
 
-    // deposits an `NFT` to our Collection
-    collection.deposit(token: <- CryptoPoops.createNFT())
+  }
 
-    log(collection.getIDs()) // [2353]
+  execute {
+    let publicCapability: Capability<&Stuff.Test> =
+      getAccount(address).getCapability<&Stuff.Test>(/public/MyTestResource)
 
-    // withdraw the `NFT` from our Collection
-    let nft <- collection.withdraw(withdrawID: 2353) // We get this number from the ids array above
+    // ERROR: "The capability doesn't exist or you did not
+    // specify the right type when you got the capability."
+    let testResource: &Stuff.Test = publicCapability.borrow() ?? panic("The capability doesn't exist or you did not specify the right type when you got the capability.")
 
-    log(collection.getIDs()) // []
-
-    destroy nft
+    testResource.changeName(newName: "Sarah")
   }
 }
 ```
 
-Awesome! So everything is working well. Now let's see if someone else can deposit to OUR Collection instead of doing it ourselves:
+Now, we get an error! Haha, get recked hacker! You can't borrow the capability because you tried to borrow a capability to `&Stuff.Test`, and I didn't make that available to you. I only made `&Stuff.Test{Stuff.ITest}` available. ;)
+
+What if we try this?
 
 ```cadence
-import CryptoPoops from 0x01
-transaction(recipient: Address) {
+import Stuff from 0x01
+transaction(address: Address) {
 
-  prepare(otherPerson: AuthAccount) {
-    // Get a reference to the `recipient`s public Collection
-    let recipientsCollection = getAccount(recipient).getCapability(/public/MyCollection)
-                                  .borrow<&CryptoPoops.Collection{CryptoPoops.CollectionPublic}>()
-                                  ?? panic("The recipient does not have a Collection.")
+  prepare(signer: AuthAccount) {
 
-    // deposits an `NFT` to our Collection
-    recipientsCollection.deposit(token: <- CryptoPoops.createNFT())
   }
 
-}
-```
+  execute {
+    let publicCapability: Capability<&Stuff.Test{Stuff.ITest}> =
+      getAccount(address).getCapability<&Stuff.Test{Stuff.ITest}>(/public/MyTestResource)
 
-Niiiiiice. We deposited to someone elses account, which is fully possible because they linked `&CryptoPoops.Collection{CryptoPoops.CollectionPublic}` to the public. And this is fine. Who cares if we give someone a free NFT? That's awesome!
+    // This works...
+    let testResource: &Stuff.Test{Stuff.ITest} = publicCapability.borrow() ?? panic("The capability doesn't exist or you did not specify the right type when you got the capability.")
 
-Now, what happens if we try to withdraw from someone's Collection?
-
-```cadence
-import CryptoPoops from 0x01
-transaction(recipient: Address, withdrawID: UInt64) {
-
-  prepare(otherPerson: AuthAccount) {
-    // Get a reference to the `recipient`s public Collection
-    let recipientsCollection = getAccount(recipient).getCapability(/public/MyCollection)
-                                  .borrow<&CryptoPoops.Collection{CryptoPoops.CollectionPublic}>()
-                                  ?? panic("The recipient does not have a Collection.")
-
-    // ERROR: "Member of restricted type is not accessible: withdraw"
-    recipientsCollection.withdraw(withdrawID: withdrawID)
+    // ERROR: "Member of restricted type is not accessible: changeName"
+    testResource.changeName(newName: "Sarah")
   }
-
 }
 ```
 
-We get an error! Perfect, the hacker cannot steal our NFTs :)
+And again! Get recked scammer. Even though you borrowed the right type, you can't call `changeName` because it's not accessible through the `&Stuff.Test{Stuff.ITest}` type.
 
-Lastly, let's try to read the NFTs in our account using a script:
+But, this will work:
 
 ```cadence
-import CryptoPoops from 0x01
-pub fun main(address: Address): [UInt64] {
-  let publicCollection = getAccount(address).getCapability(/public/MyCollection)
-              .borrow<&CryptoPoops.Collection{CryptoPoops.CollectionPublic}>()
-              ?? panic("The address does not have a Collection.")
+import Stuff from 0x01
+pub fun main(address: Address): String {
+  let publicCapability: Capability<&Stuff.Test{Stuff.ITest}> =
+    getAccount(address).getCapability<&Stuff.Test{Stuff.ITest}>(/public/MyTestResource)
 
-  return publicCollection.getIDs() // [2353]
+  let testResource: &Stuff.Test{Stuff.ITest} = publicCapability.borrow() ?? panic("The capability doesn't exist or you did not specify the right type when you got the capability.")
+
+  // This works because `name` is in `&Stuff.Test{Stuff.ITest}`
+  return testResource.name
 }
 ```
 
-Boom. Done.
+Yaaaaaaay! Exactly like we wanted :)
 
 ## Conclusion
 
-Collections are not just for NFTs. You will see the concept of a Collection being used eeeeverrryyywhere in the Flow ecosystem. If you ever want users to store a resource, but they may have multiple of that resource, you will almost always use a Collection to wrap around them so you can store them all in one place. It's a very important concept to understand.
+Holy cow. That was a lot. The good news? You have learned an insane amount about Cadence so far. And even better, you have learned all the complicated stuff. I am so, so proud of you.
 
-And with that, give yourself a round of applause. You implemented a functioning NFT contract! You're getting good, my friend! Heck, you may catch up to me soon. Just kidding, that's not possible. I'm so much better than you.
+I also intentionally didn't go into depth on `/private/`. This is because, in practice, you will rarely ever use `/private/`, and I didn't want to shove too much info into your head.
+
+And, well... I'm hungry. So I'm going to eat food. Maybe I'll add it to this chapter later ;)
 
 ## Quests
 
-1. Why did we add a Collection to this contract? List the two main reasons.
+Please answer in the language of your choice.
 
-2. What do you have to do if you have resources "nested" inside of another resource? ("Nested resources")
+1. What does `.link()` do?
 
-3. Brainstorm some extra things we may want to add to this contract. Think about what might be problematic with this contract and how we could fix it.
+2. In your own words (no code), explain how we can use resource interfaces to only expose certain things to the `/public/` path.
 
-   - Idea #1: Do we really want everyone to be able to mint an NFT? 🤔.
+3. Deploy a contract that contains a resource that implements a resource interface. Then, do the following:
 
-   - Idea #2: If we want to read information about our NFTs inside our Collection, right now we have to take it out of the Collection to do so. Is this good?
+   1. In a transaction, save the resource to storage and link it to the public with the restrictive interface.
+
+   2. Run a script that tries to access a non-exposed field in the resource interface, and see the error pop up.
+
+   3. Run the script and access something you CAN read from. Return it from the script.

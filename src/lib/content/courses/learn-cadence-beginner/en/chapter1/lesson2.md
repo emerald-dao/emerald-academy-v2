@@ -11,7 +11,7 @@ lessonVideoUrl: https://www.youtube.com/embed/T2QTTFnQa5k
 
 # Chapter 1 Lesson 2 - Transactions and Scripts
 
-Hey there you crazy Cadence people! We are BACK for another lesson of content, and in this lesson, we will be going more in-depth on transactions and scripts.
+Hey there you crazy Cadence people! We are back for another lesson of content, and in this lesson, we will be going more in-depth on transactions and scripts.
 
 <LessonVideo {lessonVideoUrl} />
 
@@ -88,7 +88,7 @@ Boom! This is an empty transaction that doesn't do anything. In order to explain
 
 In Cadence, accounts can store their own data. What does this mean? Well, if I own an NFT (NonFungibleToken), that NFT gets stored in my account. This is *very different* than other languages like Solidity. In Solidity, your NFT gets stored in the smart contract. 
 
-But how do we access the data in an account? We can do that with the `AuthAccount` type. Every time a user (like you and me) sends a transaction, you "sign" it. All that means is you clicked a button saying "hey, I want to approve this transaction." When you sign it, the transaction takes in your `AuthAccount` and can access the data in your account.
+But how do we access the data in an account? We can do that with the `AuthAccount` type. Every time a user (like you and me) sends a transaction, you "sign" it. All that means is you clicked a button saying "hey, I want to approve this transaction." When you sign it, the transaction takes in your `AuthAccount` and can completely control your account. So be careful.
 
 ### Transaction Architecture: Prepare vs. Execute Phase
 

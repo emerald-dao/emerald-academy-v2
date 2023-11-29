@@ -1,5 +1,5 @@
 ---
-title: Arrays, Dictionaries, and Optionals
+title: Types
 lesson: 3
 language: en
 lessonVideoUrl: https://www.youtube.com/embed/LAUN7hqlL0w
@@ -10,7 +10,7 @@ lessonVideoDescription: Watch this video from 00:00-12:10. Do not watch passed 1
   import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
 </script>
 
-# Chapter 1 Lesson 3 - Arrays, Dictionaries, and Optionals
+# Chapter 1 Lesson 3 - Types
 
 Whatsup! Today, we will be learning some of the most important types that you will use in nearly every contract you write.
 
@@ -40,9 +40,17 @@ var jacob: String = 3
 
 Cadence will say "Hey! These types don't match." Or something like that. But the point is we can include types to help us understand where we went wrong.
 
+## Common Types
+
+```cadence
+var number: Int = 2
+var address: Address = 0x01
+var text: String = "Hey!"
+```
+
 ## Arrays
 
-Cool. So what's an array? An array is a list of elements. Let's look at a very basic array in Cadence:
+An array is a list of elements. Let's look at a very basic array in Cadence:
 
 ```cadence
 var people: [String] = ["Jacob", "Alice", "Damian"]

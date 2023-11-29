@@ -1,100 +1,371 @@
 ---
-title: References
+title: Contract State
 lesson: 3
 language: en
-excerpt: References
-lessonVideoUrl: https://www.youtube.com/embed/mI3KC-5e81E
-quizUrl: https://forms.gle/tfSyJaMm2cRRs1s26
 ---
 
-<script>
-  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
-</script>
+# Chapter 2 Lesson 3 - Contract State
 
-# Chapter 3 Lesson 3 - References
+Now that we have learned what a resource is, we are going to add some extra data to our smart contract to spice things up.
 
-What's up Flow people. Today, we'll be talking about references, another important part of the Cadence programming language.
+## Pokemon Contract
 
-<LessonVideo {lessonVideoUrl} />
-
-## What is a Reference?
-
-In simplest terms, a reference is a way for you to interact with a piece of data without actually having to have that piece of data. Right off the bat, you can imagine how helpful this will be for resources. Imagine a world where you don't have to move a resource 1,000 times just to look at or update its fields. Ahh, that world does exist! References are here to save the lesson.
-
-## References in Cadence
-
-In Cadence, references are _almost always_ used on Structs or Resources. It doesn't really make sense to make a reference of a string, number, or basic data type. But it certainly makes sense to make a reference of things we don't want to pass around a lot.
-
-References always use the `&` symbol in front of them. Let's look at an example:
+Let's go back to the Pokemon contract we used in Chapter 2 Lesson 2:
 
 ```cadence
-pub contract Test {
+pub contract Game {
 
-    pub var dictionaryOfGreetings: @{String: Greeting}
+    // PokemonDetails
+    // Description: Holds all of the static details
+    // of the Pokemon. Useful as an easy container.
+    pub struct PokemonDetails {
+        pub let name: String
+        pub let dateCreated: UFix64
+        pub let type: String
 
-    pub resource Greeting {
-        pub let language: String
-        init(_language: String) {
-            self.language = _language
+        init(name: String, dateCreated: UFix64, type: String) {
+            self.name = name
+            self.dateCreated = dateCreated
+            self.type = type
         }
     }
 
-    pub fun getReference(key: String): &Greeting? {
-        return &self.dictionaryOfGreetings[key] as &Greeting?
+    // Pokemon
+    // Description: The actual Pokemon asset that will
+    // get stored by the user and upgraded over time.
+    pub resource Pokemon {
+        pub let details: PokemonDetails
+        pub var xp: Int
+
+        init(name: String, type: String) {
+            // gets the timestamp of the current block (in unix seconds)
+            let currentTime: UFix64 = getCurrentBlock().timestamp
+            self.details = PokemonDetails(
+                name: name, 
+                dateCreated: currentTime,
+                type: type
+            )
+            self.xp = 0
+        }
+    }
+
+    // createPokemon
+    // Description: Creates a new pokemon using a name and type and returns
+    // it back to the caller.
+    // Returns: A new pokemon resource.
+    pub fun createPokemon(name: String, type: String): @Pokemon {
+        let newPokemon <- create Pokemon(name: name, type: type)
+        return <- newPokemon
+    }
+}
+```
+
+Wouldn't it be cool if we added a tracker to see how many Pokemon were created? To do this, lets add a new contract state variable called `totalPokemon`. 
+
+```cadence
+pub contract Game {
+
+    // will track how many pokemon
+    // have been created
+    pub var totalPokemon: Int
+
+    pub struct PokemonDetails {
+        pub let name: String
+        pub let dateCreated: UFix64
+        pub let type: String
+
+        init(name: String, dateCreated: UFix64, type: String) {
+            self.name = name
+            self.dateCreated = dateCreated
+            self.type = type
+        }
+    }
+
+    pub resource Pokemon {
+        pub let details: PokemonDetails
+        pub var xp: Int
+
+        init(name: String, type: String) {
+            let currentTime: UFix64 = getCurrentBlock().timestamp
+            self.details = PokemonDetails(
+                name: name, 
+                dateCreated: currentTime,
+                type: type
+            )
+            self.xp = 0
+
+            // increment the totalPokemon by 1
+            // every time a new resource is created
+            Game.totalPokemon = Game.totalPokemon + 1
+        }
+    }
+
+    pub fun createPokemon(name: String, type: String): @Pokemon {
+        let newPokemon <- create Pokemon(name: name, type: type)
+        return <- newPokemon
+    }
+
+    // don't forget to initialize
+    // our variable!
+    init() {
+        self.totalPokemon = 0
+    }
+}
+```
+
+We changed a few things:
+1. We added a new `totalPokemon` contract state variable and initialized it to 0 in our contract `init` function
+2. Incremented `totalPokemon` everytime a new `Pokemon` resource is created
+
+### Destroy Function
+
+What if we wanted to make it so that when a resource is destroyed, we can decrement the `totalPokemon` to accurately reflect the total amount in existence?
+
+Well, every resource in Cadence has an automatic destroy function that gets run when the resource is destroyed. You can customzie it by implementing it, like below:
+
+```cadence
+pub resource Pokemon {
+    pub let details: PokemonDetails
+    pub var xp: Int
+
+    init(name: String, type: String) {
+        let currentTime: UFix64 = getCurrentBlock().timestamp
+        self.details = PokemonDetails(
+            name: name, 
+            dateCreated: currentTime,
+            type: type
+        )
+        self.xp = 0
+
+        Game.totalPokemon = Game.totalPokemon + 1
+    }
+
+    // the destroy function runs automatically
+    // when the resource is destroyed
+    destroy() {
+        // decrements the totalPokemon by 1
+        // every time a new resource is created
+        Game.totalPokemon = Game.totalPokemon - 1
+    }
+}
+```
+
+How cool is that?
+
+### Resource Unique Identifiers
+
+Every resource in Cadence also has a built-in unique identifier that is unique to that resource only, and **will never be repeated again.** Even if the resource is destroyed.
+
+This makes for a perfect 'id' system. Let's give our `PokemonDetails` an `id` using the built in `uuid` field to every resource:
+
+```cadence
+pub contract Game {
+
+    pub var totalPokemon: Int
+
+    pub struct PokemonDetails {
+        // add a new id field
+        pub let id: Int
+        pub let name: String
+        pub let dateCreated: UFix64
+        pub let type: String
+
+        init(id: Int, name: String, dateCreated: UFix64, type: String) {
+            self.id = id
+            self.name = name
+            self.dateCreated = dateCreated
+            self.type = type
+        }
+    }
+
+    pub resource Pokemon {
+        pub let details: PokemonDetails
+        pub var xp: Int
+
+        init(name: String, type: String) {
+            let currentTime: UFix64 = getCurrentBlock().timestamp
+            self.details = PokemonDetails(
+                id: self.uuid, // set the id using the built-in uuid field
+                name: name, 
+                dateCreated: currentTime,
+                type: type
+            )
+            self.xp = 0
+
+            Game.totalPokemon = Game.totalPokemon + 1
+        }
+
+        destroy() {
+            Game.totalPokemon = Game.totalPokemon - 1
+        }
+    }
+
+    pub fun createPokemon(name: String, type: String): @Pokemon {
+        let newPokemon <- create Pokemon(name: name, type: type)
+        return <- newPokemon
     }
 
     init() {
-        self.dictionaryOfGreetings <- {
-            "Hello!": <- create Greeting(_language: "English"),
-            "Bonjour!": <- create Greeting(_language: "French")
-        }
+        self.totalPokemon = 0
     }
 }
 ```
 
-In the above example, you can see that `getReference` returns a `&Greeting?` type, which simply means "An optional reference to the `@Greeting` type." Inside the function, a few things are happening:
+## Saving Pokemon in our Contract
 
-1. We first get a reference of the value at `key` by doing `&self.dictionaryOfGreetings[key]`.
-2. We "type cast" the reference by doing `as &Greeting?`. Notice that it is an optional, which makes sense because when we index into dictionaries, it returns an optional type.
-
-Notice that if we had forgotten the `as &Greeting?`, Cadence would yell at us and say "expected casting expression." This is because in Cadence, **you have to type cast when getting a reference**. Type casting is when you tell Cadence the type you're getting the reference as, which is what `as &Greeting?` is doing. It's saying "get this optional reference that is a &Greeting reference." If it's not, we will abort the program.
-
-Now, you might be wondering "how can I unwrap this optional reference?" You can do that like so:
+In Chapter 3, we will learn how to choose our own Pokemon and save it directly to our own accounts. Before then, let's make a dictionary in the contract that stores `Pokemon` by their `id`.
 
 ```cadence
-pub fun getReference(key: String): &Greeting {
-    return (&self.dictionaryOfGreetings[key] as &Greeting?)!
+pub contract Game {
+
+    pub var totalPokemon: Int
+    // create a new dictionary that stores
+    // pokemon in the contract
+    pub let storedPokemon: @{UInt64: Pokemon}
+
+    pub struct PokemonDetails {
+        pub let id: UInt64
+        pub let name: String
+        pub let dateCreated: UFix64
+        pub let type: String
+
+        init(id: UInt64, name: String, dateCreated: UFix64, type: String) {
+            self.id = id
+            self.name = name
+            self.dateCreated = dateCreated
+            self.type = type
+        }
+    }
+
+    pub resource Pokemon {
+        pub let details: PokemonDetails
+        pub var xp: Int
+
+        init(name: String, type: String) {
+            let currentTime: UFix64 = getCurrentBlock().timestamp
+            self.details = PokemonDetails(
+                id: self.uuid,
+                name: name, 
+                dateCreated: currentTime,
+                type: type
+            )
+            self.xp = 0
+
+            Game.totalPokemon = Game.totalPokemon + 1
+        }
+
+        destroy() {
+            Game.totalPokemon = Game.totalPokemon - 1
+        }
+    }
+
+    pub fun createPokemon(name: String, type: String): @Pokemon {
+        let newPokemon <- create Pokemon(name: name, type: type)
+        return <- newPokemon
+    }
+
+    // storePokemon
+    // Description: Pass in a pokemon resource and
+    // save it to the contract, mapped by its 'id'
+    pub fun storePokemon(pokemon: @Pokemon) {
+        self.storedPokemon[pokemon.details.id] <-! pokemon
+    }
+
+    // getIDs
+    // Returns: An array of all the
+    // pokemon 'id's stored in the contract
+    pub fun getIDs(): [UInt64] {
+        return self.storedPokemon.keys
+    }
+
+    // getPokemonDetails
+    // Returns: The details of the pokemon with
+    // 'id' == id. Returns nil if none found.
+    pub fun getPokemonDetails(id: UInt64): PokemonDetails? {
+        return self.storedPokemon[id]?.details
+    }
+
+    init() {
+        self.totalPokemon = 0
+        self.storedPokemon <- {}
+    }
 }
 ```
 
-Notice that we wrap the whole thing and use the force-unwrap operator `!` to unwrap it, like normal. It also changes the return type to a non-optional `&Greeting`. Make sure to change this in your code.
+Few things to note here:
+- Even though `storedPokemon` isn't a resource itself, it is a dictionary that stores resources and thus must be treated like one. That is why we must use `<-` on this line: `self.storedPokemon <- {}`
+- When defining a dictionary that contains resources, the `@` symbol must be out front. Ex. `@{UInt64: Pokemon}` ... NOT `{UInt64: @Pokemon}`
+- Inside the `storePokemon` function, we use this operator: `<-!`. This is called the "force-move operator". Cadence requires us to use this with dictionaries because it will abort the program if a pokemon at the specific `id` already exists. This is protecting us from accidentally overwriting a pokemon in the dictionary.
 
-Now that we can get a reference, we can get the reference in a transaction or script like so:
+If you want to handle the case where there is an existing pokemon, an alternative way to write `storePokemon` would be:
 
 ```cadence
-import Test from 0x01
-
-pub fun main(): String {
-  let ref = Test.getReference(key: "Hello!")
-  return ref.language // returns "English"
+pub fun storePokemon(pokemon: @Pokemon) {
+    // move any existing pokemon (`oldPokemon`) out of the dictionary first, then move `pokemon` in
+    let oldPokemon <- self.storedPokemon[pokemon.details.id] <- pokemon
+    // handle the oldPokemon somehow
+    destroy oldPokemon
 }
 ```
 
-Notice we didn't have to move the resource anywhere in order to do this! That's the beauty of references.
+## Testing it Out
 
-## Conclusion
+Let's write some fun transactions and scripts to actually use our new contract! Make sure to re-deploy your `Game` contract first.
 
-References aren't so bad right? The main two points are:
+### Create & Store a Pokemon
 
-1. You can use references to get information without moving resources around.
-2. You MUST "type cast" a reference when getting it, or you'll receive an error.
+Here is a transaction to create & save a pokemon to the contract. Run this one in the playground:
 
-References are not going to go away, though. They will be EXTREMELY important when we talk about account storage in the next chapter.
+```cadence
+import Game from 0x01
 
-## Quests
+transaction(name: String, type: String) {
+    prepare(signer: AuthAccount) {
 
-1. Define your own contract that stores a dictionary of resources. Add a function to get a reference to one of the resources in the dictionary.
+    }
 
-2. Create a script that reads information from that resource using the reference from the function you defined in part 1.
+    execute {
+        let newPokemon <- Game.createPokemon(name: name, type: type)
+        log(newPokemon.details)
+        Game.storePokemon(pokemon: <- newPokemon)
+    }
+}
+```
 
-3. Explain, in your own words, why references can be useful in Cadence.
+### Read Total # of Pokemon
+
+Next, let's check to see that our pokemon actually got created. The `totalPokemon` count should have gone up:
+
+```cadence
+import Game from 0x01
+
+pub fun main(): Int {
+    return Game.totalPokemon
+}
+```
+
+### Read Pokemon IDs
+
+Next, let's get all of the pokemon ids that exist in the contract:
+
+```cadence
+import Game from 0x01
+
+pub fun main(): [UInt64] {
+    return Game.getIDs()
+}
+```
+
+### Read Pokemon Details
+
+Lastly, take one of the ids that you saw in the previous step and pass that into the following script:
+
+```cadence
+import Game from 0x01
+
+pub fun main(id: UInt64): Game.PokemonDetails? {
+    return Game.getPokemonDetails(id: id)
+}
+```
+
+Try to also pass in an 'id' that you know doesn't exist, and make sure it returns `nil`.

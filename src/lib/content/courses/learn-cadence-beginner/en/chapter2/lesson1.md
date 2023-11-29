@@ -1,204 +1,186 @@
 ---
-title: Resources
+title: Basic Structs
 lesson: 1
 language: en
-excerpt: Resources
-lessonVideoUrl: https://www.youtube.com/embed/SGa2mnDFafc
-lessonVideoDescription: You can watch this video from 00:00 - 08:00 (we will cover the rest later).
-quizUrl: https://forms.gle/hjfCUpifLnbkJ7Lu5
+lessonVideoUrl: https://www.youtube.com/embed/LAUN7hqlL0w
+lessonVideoDescription: Watch this video from 12:10-The End.
 ---
 
 <script>
   import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
 </script>
 
-# Chapter 3 Lesson 1 - Resources
+# Chapter 2 Lesson 1 - Basic Structs
 
-Uh oh. We're on the most important topic in all of Cadence: Resources. Seriously, this is the most important thing you'll learn from me. Let's get into it!
+Hello peoples. Today is your lesson to learn Structs! The good news is structs are pretty simple to learn, so today won't be too long. Woooohoooo! Let's get into it.
 
 <LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
 
-## Resources
+## Structs
 
-<img src="/courses/beginner-cadence/resources.jpeg" alt="drawing" width="500" />
-
-Resources are probably the most crucial element of Cadence, and the reason Cadence is so unique. By the way they look, **a Resource is a more secure Struct**. That's the simple way to put it. But more importantly, because of their securities, they are used in many interesting ways we will explore.
-
-It's always helpful to look at code, so let's do that first:
+What are structs? Structs are containers of other types. Let's look at an example:
 
 ```cadence
-pub resource Greeting {
-    pub let message: String
+pub struct ArtDetails {
+    pub let id: Int
+    pub let name: String
+    pub let artLink: String
+    pub let hoursWorkedOn: Int
+
+    // `init()` gets called when this Struct is created...
+    // You have to pass in 4 arguments when creating this Struct.
+    init(id: Int, name: String, artLink: String, hoursWorkedOn: Int) {
+        self.name = name
+        self.artLink = artLink
+        self.description = description
+        self.hoursWorkedOn = hoursWorkedOn
+    }
+}
+```
+
+Okay, there's a lot going on there. What happened? Basically, we defined a new Type named `ArtDetails`. It is a Struct. As you can see, it contains 4 pieces of data:
+
+1. an 'id' (`id`)
+2. a name (`name`)
+3. a link to the art (`artLink`)
+4. the amount of hours it took to make (`hoursWorkedOn`)
+
+It is really helpful to make a Struct when we want information to be gathered together in a container.
+
+Notice that Structs have the `init()` function that gets called when the Struct gets created, much like the `init()` function that gets called when the contract is deployed.
+
+## Real Example
+
+Let's start off by actually deploying a new smart contract:
+
+```cadence
+pub contract Art {
+
+    // this will act as an 'id' for
+    // new art pieces
+    pub var totalArtPieces: Int
+    pub var artPieces: {Int: ArtDetails}
+
+    pub struct ArtDetails {
+        pub let id: Int
+        pub let name: String
+        pub let artLink: String
+        pub let hoursWorkedOn: Int
+
+        init(id: Int, name: String, artLink: String, hoursWorkedOn: Int) {
+            self.id = id
+            self.name = name
+            self.artLink = artLink
+            self.hoursWorkedOn = hoursWorkedOn
+        }
+    }
+
+    pub fun uploadArt(name: String, artLink: String, hoursWorkedOn: Int) {
+        let id: Int = Art.totalArtPieces
+        let newArtPiece = ArtDetails(id: id, name: name, artLink: artLink, hoursWorkedOn: hoursWorkedOn)
+        // store the new art piece, mapped to its `id`
+        self.artPieces[id] = newArt
+        // increment the amount of art pieces by one
+        Art.totalArtPieces = Art.totalArtPieces + 1
+    }
+
     init() {
-        self.message = "Hello, Mars!"
+        self.totalArtPieces = 0
+        self.artPieces = {}
     }
 }
 ```
 
-Doesn't this look very similar to a Struct? In code, they do actually look pretty similar. Here, the resource `Greeting` is a container that stores a message, which is a `String` type. But there are many, many differences behind the scenes.
+I threw a lot at you here. But you actually know all of it now! We can break it down:
 
-### Resources vs. Structs
+1. We defined a new contract named `Art`
+2. We defined a dictionary named `artPieces` that maps an 'id' to an `ArtDetails` struct with that 'id'
+3. We defined a new Struct called `ArtDetails` that contains 4 fields
+4. We defined a new function named `uploadArt` that takes in 4 arguments and creates & stores a new `ArtDetails` with them. It then creates a new mapping from `id` -> the `ArtDetails` associated with that 'id'
 
-In Cadence, structs are merely containers of data. You can copy them, overwrite them, and create them whenever you want. All of these things are completely false for resources. Here are some important facts that define resources:
+If you can understand these things, you've made significant progress. If you're struggling with this a bit, no worries! I would maybe review some of the concepts from the past few lessons.
 
-1. They cannot be copied
-2. They cannot be lost (or overwritten)
-3. They cannot be created whenever you want
-4. You must be _extremely_ explicit about how you handle a resource (for example, moving them)
-5. Resources are much harder to deal with
+### Upload Art
 
-Let's look at some code below to figure out resources:
+Now that we've defined a new Struct, let's see why it can be helpful.
+
+Let's open a new transaction and copy and paste this boilerplate transaction code:
 
 ```cadence
-pub contract Test {
+import Art from 0x01
 
-    pub resource Greeting {
-        pub let message: String
-        init() {
-            self.message = "Hello, Mars!"
-        }
-    }
+transaction() {
 
-    pub fun createGreeting(): @Greeting {
-        let myGreeting <- create Greeting()
-        return <- myGreeting
+    prepare(signer: AuthAccount) {}
+
+    execute {
+        log("We're done.")
     }
 }
 ```
 
-There are so many important things happening here, so let's look at them in steps:
-
-1. We initialize a resource type called `Greeting` that contains a `message` field. You know this already.
-2. We define a function named `createGreeting` that returns a `Greeting` resource. Note that resources in Cadence use the `@` symbol in front of their type to say, "this is a resource."
-3. We create a new `Greeting` type with the `create` keyword and assign it to `myGreeting` using the `<-` "move" operator. In Cadence, you cannot simply use the `=` to put a resource somewhere. You MUST use the `<-` "move operator" to explicity "move" the resource around.
-4. We return the new `Greeting` by moving the resource again to the return value.
-
-Okay, this is cool. But what if we _want_ to destroy a resource? Well, we can do that pretty easily:
+Cool! Now, we want to add a new art piece to the `artPieces` dictionary in the `Art` contract. How can we do this? Well, let's call the `uploadArt` function with all the arguments we need like so: 
 
 ```cadence
-pub contract Test {
-
-    pub resource Greeting {
-        pub let message: String
-        init() {
-            self.message = "Hello, Mars!"
-        }
-    }
-
-    pub fun makeAndDestroy() {
-        let myGreeting <- create Greeting()
-        destroy myGreeting
-        // Note: This is the only time you don't use the
-        // `<-` operator to change the location of a resource.
-    }
-}
+Art.uploadArt(name: name, artLink: artLink, hoursWorkedOn: hoursWorkedOn)
 ```
 
-You can already see resources are very different from structs. We have to be much more communicative with how we handle resources. Let's look at some things we can't do with resources:
+But wait, we need to get these arguments from somewhere first! We can do that by passing them into the transaction as arguments, like so:
 
 ```cadence
-pub contract Test {
+import Art from 0x01
 
-    pub resource Greeting {
-        pub let message: String
-        init() {
-            self.message = "Hello, Mars!"
-        }
-    }
+transaction(name: String, artLink: String, hoursWorkedOn: Int) {
 
-    pub fun createGreeting(): @Greeting {
-        let myGreeting <- create Greeting()
+    prepare(signer: AuthAccount) {}
 
-        /*
-            myGreeting <- create Greeting()
-
-            You CANNOT do the above. This would "overwrite"
-            the myGreeting variable and effectively lose the
-            previous resource that is already stored there.
-        */
-
-        /*
-            let copiedMyGreeting = myGreeting
-
-            You CANNOT do the above. This would try to "copy"
-            the myGreeting resource, which is not allowed.
-            Resources can never be copied. If you wanted to
-            move the myGreeting "into" the copiedMyGreeting,
-            you could do:
-
-            let copiedMyGreeting <- myGreeting
-
-            After you do this, myGreeting would store nothing
-            inside of it, so you could no longer use it.
-        */
-
-        /*
-            return myGreeting
-
-            You CANNOT do the above. You must explicity "move"
-            the resource using the <- operator like we do below.
-        */
-        return <- myGreeting
+    execute {
+        Art.uploadArt(name: name, artLink: artLink, hoursWorkedOn: hoursWorkedOn)
+        log("We're done.")
     }
 }
 ```
 
-So, why is this useful? Isn't this just super fricken annoying? No, haha. This is super useful actually. Let's say we want to give someone an NFT worth billions of dollars. Don't we want to make sure we don't lose that NFT? Like _really sure_? We can do this in Cadence because it's _so so so so so_ hard to lose our Resource unless we LITERALLY tell it to destroy. This plays into the overall theme in Cadence: **Cadence makes it very hard for the developer to mess up. Which is good.**
+Bam! Let's run this transaction with any account and pass in some example data like so:
 
-Here's a summary of the differences between them:
+<img src="/courses/beginner-cadence/txstuff.png" alt="drawing" size="400" />
 
-- Structs are containers of data. That's it.
-- Resources are extremely secure, hard to lose, impossible to copy, well kept-track-of containers of data that cannot be lost.
+### Read our Art Piece
 
-## A Few Coding Notes
+To read our new Art Piece, let's open up a script and copy and paste the boilerplate script code:
 
-Here are a few notes to learn for when you're actually coding:
+```cadence
+import Art from 0x01
 
-- You can only make a new resource with the `create` keyword. The `create` keyword can only ever be used inside the contract. This means you, as the developer, can control when they are made. This is not true for structs, since structs can be created outside the contract.
-- You have to use the `@` symbol in front of a resource's type, like so: `@Greeting`.
-- You use the `<-` symbol to move a resource around.
-- You use the `destroy` keyword to, well, destroy a resource.
+pub fun main() {
 
-## That Wasn't So Scary?
+}
+```
 
-Hey, you made it! That wasn't so bad right? I think you're all gonna do just fine. Let's end things there for today, and tomorrow, I'll make it impossible for you. Just kiddin' ;)
+Now, let's try to read our stored art piece. We can do this by passing in an `id` since we mapped `id` -> `ArtPiece` in our `artPieces` dictionary in the contract. We can then return the `ArtPiece` type we get from that dictionary, like so:
+
+```cadence
+import Art from 0x01
+
+pub fun main(id: Int): Art.ArtPiece? {
+    return Art.artPieces[id]
+}
+```
+
+Note the return type here: `Art.ArtPiece?`. Types are always based on the contract they are defined in. And, it's an optional because we are accessing a dictionary.
+
+Boom! That's it. Now, whoever called this script can have all the art information they need. Sweet, Structs are awesome!
 
 ## Quests
 
-As always, feel free to answer in the language of your choice.
+1. Deploy a new contract that has a Struct of your choosing inside of it (must be different than `Art`).
 
-1. In words, list 3 reasons why structs are different from resources.
+2. Create a dictionary or array that contains the Struct you defined.
 
-2. Describe a situation where a resource might be better to use than a struct.
+3. Create a function to add to that array/dictionary.
 
-3. What is the keyword to make a new resource?
+4. Add a transaction to call that function in step 3.
 
-4. Can a resource be created in a script or transaction (assuming there isn't a public function to create one)?
+5. Add a script to read the Struct you defined.
 
-5. What is the type of the resource below?
-
-```cadence
-pub resource Jacob {
-
-}
-```
-
-6. Let's play the "I Spy" game from when we were kids. I Spy 4 things wrong with this code. Please fix them.
-
-```cadence
-pub contract Test {
-
-    // Hint: There's nothing wrong here ;)
-    pub resource Jacob {
-        pub let rocks: Bool
-        init() {
-            self.rocks = true
-        }
-    }
-
-    pub fun createJacob(): Jacob { // there is 1 here
-        let myJacob = Jacob() // there are 2 here
-        return myJacob // there is 1 here
-    }
-}
-```
+That's all! See you tomorrow folks ;)

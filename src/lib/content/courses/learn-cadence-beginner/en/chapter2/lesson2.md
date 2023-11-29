@@ -1,308 +1,168 @@
 ---
-title: Resources in Dictionaries & Arrays
+title: Resources
 lesson: 2
 language: en
-excerpt: Resources in Dictionaries & Arrays
-lessonVideoUrl: https://www.youtube.com/embed/SGa2mnDFafc
-lessonVideoDescription: You can watch this video from 08:00 - The End (we covered the beginning in the last lesson).
-quizUrl: https://forms.gle/NfDsHkwk5TyVA2uV9
 ---
 
-<script>
-  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
-</script>
+# Chapter 2 Lesson 2 - Resources
 
-# Chapter 3 Lesson 2 - Resources in Dictionaries & Arrays
+Uh oh. We're on the most important topic in all of Cadence: Resources. Seriously, this is the most important thing you'll learn from me. Let's get into it!
 
-Hellooooooo peoples. Today we will be taking our understanding of Resources and applying it to arrays and dictionaries, something we covered in Chapter 2. On their own they may be somewhat easy to handle, but you put them together and it gets a bit complicated.
+## Pokemon
 
-<LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
+I'm going to be using [Pokemon](https://sg.portal-pokemon.com/about/) in the lesson today. 
 
-## Why Dictionaries & Arrays?
+If you don't know what that is (we can't be friends if you don't), it's basically a video game where you catch & collect little creatures and make them your friends. You can fight with them as well and level them up to make them stronger.
 
-First of all, why are we talking about resources in dictionaries, but not resources in structs? Well, it's important to note at the beginning that _you cannot store resources inside of a struct_. Although a struct is a container of data, we cannot put resources inside of them.
+We're going to be making our own pokemon and leveling them up for fun to demonstrate resources!
 
-Okay. So then where can we store a resource?
+## Resources
 
-1. Inside a dictionary or array
-2. Inside another resource
-3. As a contract state variable
-4. Inside account storage (we will talk about this later)
-
-That is all. Today, we will be talking about 1.
-
-## Resources in Arrays
-
-It's always better to learn by examples, so let's open up a Flow playground and deploy the contract we used in Chapter 3 Lesson 1:
+What is a resource? It's always helpful to look at code, so let's do that first:
 
 ```cadence
-pub contract Test {
-
-    pub resource Greeting {
-        pub let message: String
-        init() {
-            self.message = "Hello, Mars!"
-        }
-    }
-
-}
-```
-
-So far we just have 1 resource with the type `@Greeting`. Cool! Now let's try and have a state variable that stores a list of Greetings in an array.
-
-```cadence
-pub contract Test {
-
-    pub var arrayOfGreetings: @[Greeting]
-
-    pub resource Greeting {
-        pub let message: String
-        init() {
-            self.message = "Hello, Mars!"
-        }
-    }
+pub resource Pokemon {
+    pub let name: String
 
     init() {
-        self.arrayOfGreetings <- []
+        self.name = "Pikachu"
     }
-
 }
 ```
 
-Notice the type of `arrayOfGreetings`: `@[Greeting]`. We learned yesterday that resources always have the symbol `@` in front of it. This also applies to array types that have resources inside of them, you must tell Cadence it is an array of resources by putting the `@` in front of it. And you must make sure the `@` is outside the brackets, not inside.
+Doesn't this look very similar to a Struct? In code, they do actually look pretty similar. Here, the resource `Pokemon` is a container that stores a name, which is a `String` type. But there are many, many differences behind the scenes.
 
-`[@Greeting]` - this is wrong
+### Resources vs. Structs
 
-`@[Greeting]` - this is correct
+In Cadence, structs are merely containers of data. You can copy them, overwrite them, and create them whenever you want. All of these things are completely false for resources. Here are some important facts that define resources:
 
-Also notice that inside the `init` function, we initialize it with the `<-` operator, not `=`. Once again, when dealing with resources (whether they are in arrays, dictionaries, or on their own), we must use `<-`.
+1. They cannot be copied
+2. They cannot be lost (or overwritten)
+3. They cannot be created whenever you want
+4. You must be extremely explicit about how you handle a resource (for example, moving them)
 
-### Adding to an Array
-
-Sweet! We made our own array of resources. Let's look at how to add a resource to an array.
-
-_NOTE: Today, we will be passing resources around as arguments to our functions. This means we are not worrying about how the resources were created, we're just using sample functions to show you how to add to arrays and dictionaries._
+Let's look at some code below to figure out resources:
 
 ```cadence
-pub contract Test {
+pub contract Game {
 
-    pub var arrayOfGreetings: @[Greeting]
+    // PokemonDetails
+    // Description: Holds all of the static details
+    // of the Pokemon. Useful as an easy container.
+    pub struct PokemonDetails {
+        pub let name: String
+        pub let dateCreated: UFix64
+        pub let type: String
 
-    pub resource Greeting {
-        pub let message: String
-        init() {
-            self.message = "Hello, Mars!"
+        init(name: String, dateCreated: UFix64, type: String) {
+            self.name = name
+            self.dateCreated = dateCreated
+            self.type = type
         }
     }
 
-    pub fun addGreeting(greeting: @Greeting) {
-        self.arrayOfGreetings.append(<- greeting)
-    }
+    // Pokemon
+    // Description: The actual Pokemon asset that will
+    // get stored by the user and upgraded over time.
+    pub resource Pokemon {
+        pub let details: PokemonDetails
+        pub var xp: Int
 
-    init() {
-        self.arrayOfGreetings <- []
-    }
-
-}
-```
-
-In this example, we added a new function `addGreeting` that takes in a `@Greeting` type and adds it to the array using the `append` function. Seems easy enough right? This is exactly what it looks like to append to an array normally, we just use the `<-` operator to "move" the resource into the array.
-
-### Removing from an Array
-
-Alright, we added to the array. Now how do we remove a resource from it?
-
-```cadence
-pub contract Test {
-
-    pub var arrayOfGreetings: @[Greeting]
-
-    pub resource Greeting {
-        pub let message: String
-        init() {
-            self.message = "Hello, Mars!"
+        init(name: String, type: String) {
+            // gets the timestamp of the current block (in unix seconds)
+            let currentTime: UFix64 = getCurrentBlock().timestamp
+            self.details = PokemonDetails(
+                name: name, 
+                dateCreated: currentTime,
+                type: type
+            )
+            self.xp = 0
         }
     }
 
-    pub fun addGreeting(greeting: @Greeting) {
-        self.arrayOfGreetings.append(<- greeting)
+    // createPokemon
+    // Description: Creates a new pokemon using a name and type and returns
+    // it back to the caller.
+    // Returns: A new pokemon resource.
+    pub fun createPokemon(name: String, type: String): @Pokemon {
+        let newPokemon <- create Pokemon(name: name, type: type)
+        return <- newPokemon
     }
-
-    pub fun removeGreeting(index: Int): @Greeting {
-        return <- self.arrayOfGreetings.remove(at: index)
-    }
-
-    init() {
-        self.arrayOfGreetings <- []
-    }
-
 }
 ```
 
-Once again, it's pretty straightforward. In a normal array, you would use the `remove` function to take an element out. It is the same for resources, the only difference is you use the `<-` to "move" the resource out of the array. Awesome!
+Couple of important things to note:
+- Resources in Cadence use the `@` symbol in front of their type to say, "this is a resource." For example: `@Pokemon`.
+- You can only make a new resource with the `create` keyword. The `create` keyword can only ever be used inside the contract. This means you, as the developer, can control when they are made. This is not true for structs, since structs can be created outside the contract in structs and transactions.
+- To move resources around you must use the `<-` "move" operator. In Cadence, you cannot simply use the `=` to put a resource somewhere. You MUST use the `<-` "move operator" to explicity "move" the resource around.
+- You use the `destroy` keyword to destroy a resource (we will see this later)
 
-## Resources in Dictionaries
+**In short, structs should merely be used as containers of data, while resources are more secure digital assets or objects.** You will soon see why this is the case as we continue with this example throughout the course.
 
-Resources in dictionaries is a bit more complicated. One of the reasons for this is because, if you remember from Chapter 2 Lesson 3, dictionaries always return optionals when you access the values inside of it. This makes storing and retrieving resources a lot more difficult. Either way, I would say that resources _most commonly get stored in dictionaries_, so it's important to learn how it's done.
+## Creating a new Pokemon
 
-Let's use a similar contract for this example:
+Now that we have a super cool smart contract, we should write a transaction to actually create a new Pokemon!
+
+Make sure to deploy the Game contract to an account and properly import it from that address before running this transaction.
 
 ```cadence
-pub contract Test {
+import Game from 0x01
 
-    pub var dictionaryOfGreetings: @{String: Greeting}
+transaction(name: String, type: String) {
+    prepare(signer: AuthAccount) {
 
-    pub resource Greeting {
-        pub let message: String
-        init() {
-            self.message = "Hello, Mars!"
-        }
     }
 
-    init() {
-        self.dictionaryOfGreetings <- {}
+    execute {
+        let newPokemon <- Game.createPokemon(name: name, type: type)
+        log(newPokemon.details)
+        destroy newPokemon // destroys the resource
     }
-
 }
 ```
 
-We will have a dictionary that maps a `message` to the `@Greeting` resource that contains that message. Notice the type of the dictionary: `@{String: Greeting}`. The `@` is outside the curly brackets.
-
-### Adding to a Dictionary
-
-There are 2 different ways to add a resource to a dictionary. Let's look at both.
-
-#### #1 - Easiest, but Strict
-
-The easiest way to add a resource to a dictionary is by using the "force-move" operator `<-!`, like so:
-
-```cadence
-pub contract Test {
-
-    pub var dictionaryOfGreetings: @{String: Greeting}
-
-    pub resource Greeting {
-        pub let message: String
-        init() {
-            self.message = "Hello, Mars!"
-        }
-    }
-
-    pub fun addGreeting(greeting: @Greeting) {
-        let key = greeting.message
-        self.dictionaryOfGreetings[key] <-! greeting
-    }
-
-    init() {
-        self.dictionaryOfGreetings <- {}
-    }
-
-}
-```
-
-In the `addGreeting` function, we first get the `key` by accessing the `message` inside our `greeting`. We then add to the dictionary by "force moving" the `greeting` into the `dictionaryOfGreetings` dictionary at the specific `key`.
-
-The force-move operator `<-!` basically means: "If there is already a value at the destination, panic and abort the program. Otherwise, put it there."
-
-#### #2 - Complicated, but Handle Duplicates
-
-The second way to move a resource into a dictionary is by using the double move syntax, like so:
-
-```cadence
-pub contract Test {
-
-    pub var dictionaryOfGreetings: @{String: Greeting}
-
-    pub resource Greeting {
-        pub let message: String
-        init() {
-            self.message = "Hello, Mars!"
-        }
-    }
-
-    pub fun addGreeting(greeting: @Greeting) {
-        let key = greeting.message
-
-        let oldGreeting <- self.dictionaryOfGreetings[key] <- greeting
-        destroy oldGreeting
-    }
-
-    init() {
-        self.dictionaryOfGreetings <- {}
-    }
-
-}
-```
-
-In this example, you can see some weird double move operator thing happening. What does it mean? Let's break it down into steps:
-
-1. Take whatever value is at the specific `key` and move it into `oldGreeting`
-2. Now that we know nothing is mapped to `key`, move `greeting` to that location
-3. Destroy `oldGreeting`
-
-In essence, this way is more annoying and looks weird, but it **allows you to handle the case where there's already a value there.** In the case above, we simply destroy the resource, but if you wanted to you could do anything else.
-
-### Removing from a Dictionary
-
-Here's how you would remove a resource from a dictionary:
-
-```cadence
-pub contract Test {
-
-    pub var dictionaryOfGreetings: @{String: Greeting}
-
-    pub resource Greeting {
-        pub let message: String
-        init() {
-            self.message = "Hello, Mars!"
-        }
-    }
-
-    pub fun addGreeting(greeting: @Greeting) {
-        let key = greeting.message
-
-        let oldGreeting <- self.dictionaryOfGreetings[key] <- greeting
-        destroy oldGreeting
-    }
-
-    pub fun removeGreeting(key: String): @Greeting {
-        let greeting <- self.dictionaryOfGreetings.remove(key: key) ?? panic("Could not find the greeting!")
-        return <- greeting
-    }
-
-    init() {
-        self.dictionaryOfGreetings <- {}
-    }
-
-}
-```
-
-Remember in the 'Removing from an Array' section, all we had to do was call the `remove` function. In dictionaries, accessing an element return an optional, so we have to "unwrap" it somehow. If we had just written this...
-
-```cadence
-pub fun removeGreeting(key: String): @Greeting {
-    let greeting <- self.dictionaryOfGreetings.remove(key: key)
-    return <- greeting
-}
-```
-
-we would get an error: "Mismatched types. Expected `Test.Greeting`, got `Test.Greeting?`" To fix it, we can either use `panic`, or the force-unwrap operator `!`, like so:
-
-```cadence
-pub fun removeGreeting(key: String): @Greeting {
-    let greeting <- self.dictionaryOfGreetings.remove(key: key) ?? panic("Could not find the greeting!")
-    // OR...
-    // let greeting <- self.dictionaryOfGreetings.remove(key: key)!
-    return <- greeting
-}
-```
+If you run this in the Flow playground, you should see that it logs the pokemons details.
 
 ## Conclusion
 
-That's all for today! :D Now, you may be wondering: "What if I want to _access_ an element of an array/dictionary that has a resource, and do something with it?" You can do that, but you would first have to move the resource out of the array/dictionary, do something, and then move it back in. Tomorrow we'll talk about references, which will allow you to do things with resources without having to move them everywhere. Peace!
+Hey, you made it! That wasn't so bad right? I think you're all gonna do just fine. Let's end things there for today, and tomorrow, I'll make it impossible for you. Just kiddin' ;)
 
 ## Quests
 
-For today's quest, you'll have 1 large quest instead of a few little ones.
+As always, feel free to answer in the language of your choice.
 
-1. Write your own smart contract that contains two state variables: an array of resources, and a dictionary of resources. Add functions to remove and add to each of them. They must be different from the examples above.
+1. In words, list 3 reasons why structs are different from resources.
+
+2. Describe a situation where a resource might be better to use than a struct.
+
+3. What is the keyword to make a new resource?
+
+4. Can a resource be created in a script or transaction (assuming there isn't a public function to create one)?
+
+5. What is the type of the resource below?
+
+```cadence
+pub resource Jacob {
+
+}
+```
+
+6. Let's play the "I Spy" game from when we were kids. I Spy 4 things wrong with this code. Please fix them.
+
+```cadence
+pub contract Test {
+
+    // Hint: There's nothing wrong here ;)
+    pub resource Jacob {
+        pub let rocks: Bool
+        init() {
+            self.rocks = true
+        }
+    }
+
+    pub fun createJacob(): Jacob { // there is 1 here
+        let myJacob = Jacob() // there are 2 here
+        return myJacob // there is 1 here
+    }
+}
+```
