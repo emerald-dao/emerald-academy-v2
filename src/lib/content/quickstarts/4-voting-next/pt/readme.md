@@ -13,7 +13,7 @@ layout: examples
 
 🌟 O resultado final é um DApp que cria uma DAO aberta que permite que os membros da comunidade criem propostas e votem nelas com base nas participações em tokens que governam a DAO.
 
-💬 Conheça outros construtores trabalhando neste desafio e obtenha ajuda no **[Discord Emerald City](https://discord.gg/emeraldcity)**!
+💬 Conheça outros construtores trabalhando neste desafio e obtenha ajuda no **[Discord Emerald City](https://discord.gg/emerald-city-906264258189332541)**!
 
 ---
 
@@ -308,8 +308,8 @@ Vamos testar nosso aplicativo no testnet:
 > 🏃 Vá para o próximo desafio aqui.
 > 
 
-> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 > 
 
-> 👉 Problemas, perguntas, comentários sobre a pilha? Poste-os no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 👉 Problemas, perguntas, comentários sobre a pilha? Poste-os no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 >

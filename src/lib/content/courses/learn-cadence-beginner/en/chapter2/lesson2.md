@@ -14,7 +14,9 @@ I'm going to be using [Pokemon](https://sg.portal-pokemon.com/about/) in the les
 
 If you don't know what that is (we can't be friends if you don't), it's basically a video game where you catch & collect little creatures and make them your friends. You can fight with them as well and level them up to make them stronger.
 
-We're going to be making our own pokemon and leveling them up for fun to demonstrate resources!
+We're going to be making our own Pokemon and leveling them up for fun to demonstrate resources!
+
+<img src="https://i.imgur.com/BMy7XNT.png" />
 
 ## Resources
 
@@ -81,7 +83,7 @@ pub contract Game {
     }
 
     // createPokemon
-    // Description: Creates a new pokemon using a name and type and returns
+    // Description: Creates a new Pokemon using a name and type and returns
     // it back to the caller.
     // Returns: A new pokemon resource.
     pub fun createPokemon(name: String, type: String): @Pokemon {
@@ -125,44 +127,6 @@ If you run this in the Flow playground, you should see that it logs the pokemons
 
 ## Conclusion
 
-Hey, you made it! That wasn't so bad right? I think you're all gonna do just fine. Let's end things there for today, and tomorrow, I'll make it impossible for you. Just kiddin' ;)
+Hey, you made it! In today's lesson, you learned what resources are and how they differ from structs. We created a new Pokemon resource inside of a transaction and destroyed it as well.
 
-## Quests
-
-As always, feel free to answer in the language of your choice.
-
-1. In words, list 3 reasons why structs are different from resources.
-
-2. Describe a situation where a resource might be better to use than a struct.
-
-3. What is the keyword to make a new resource?
-
-4. Can a resource be created in a script or transaction (assuming there isn't a public function to create one)?
-
-5. What is the type of the resource below?
-
-```cadence
-pub resource Jacob {
-
-}
-```
-
-6. Let's play the "I Spy" game from when we were kids. I Spy 4 things wrong with this code. Please fix them.
-
-```cadence
-pub contract Test {
-
-    // Hint: There's nothing wrong here ;)
-    pub resource Jacob {
-        pub let rocks: Bool
-        init() {
-            self.rocks = true
-        }
-    }
-
-    pub fun createJacob(): Jacob { // there is 1 here
-        let myJacob = Jacob() // there are 2 here
-        return myJacob // there is 1 here
-    }
-}
-```
+That wasn't so bad right? I think you're all gonna do just fine. Let's end things there for today, and tomorrow, I'll make it impossible for you. Just kiddin' ;)

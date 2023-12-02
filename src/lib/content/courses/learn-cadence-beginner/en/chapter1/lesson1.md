@@ -130,13 +130,3 @@ So... what did we just do?! Well, we just executed a **script**. Scripts are use
 ## Conclusion
 
 Today, we learned how to deploy our first contract, declare a variable, write a function, and execute a script. Wow! That's a lot. But it wasn't too bad, right?
-
-## Quests
-
-For todays quest, please load up a new [Flow playground](https://play.flow.com) just like we did in this lesson. You will use that for writing your code.
-
-1. Deploy a contract to an account called "GoodbyeWorld". Inside that contract, declare a constant variable named `farewell`, and make it have type `String`. Initialize it to "Goodbye, World!" when your contract gets deployed.
-
-2. Check that your variable `farewell` actually equals "Goodbye, World!" by executing a script to read that variable. Include a screenshot of the output.
-
-Good luck!

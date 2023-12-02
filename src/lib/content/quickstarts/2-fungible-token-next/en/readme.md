@@ -17,7 +17,7 @@ layout: examples
 
 🌟 The final deliverable is a DApp that lets users create their own fungible token and transfer them to another account on Flow testnet.
 
-💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emeraldcity)!
+💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emerald-city-906264258189332541)!
 
 ## 📹 Video Walkthrough
 
@@ -211,6 +211,6 @@ Let's try out our DApp on testnet:
 
 > 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/3-nft-minting-next).
 
-> 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
+> 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emerald-city-906264258189332541)!
 
-> 👉 Problems, questions, comments on the stack? Post them to the [💎 Emerald City Discord](https://discord.gg/emeraldcity).
+> 👉 Problems, questions, comments on the stack? Post them to the [💎 Emerald City Discord](https://discord.gg/emerald-city-906264258189332541).

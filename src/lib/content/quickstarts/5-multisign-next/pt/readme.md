@@ -13,7 +13,7 @@ layout: examples
 
 🌟 O resultado final é um DApp que permite que qualquer pessoa deposite $FLOW em um Tesouro DAO, e os administradores devem usar assinaturas múltiplas para retirar o $FLOW do Tesouro.
 
-💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Discord Emerald City](https://discord.gg/emeraldcity)**!
+💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Discord Emerald City](https://discord.gg/emerald-city-906264258189332541)**!
 
 ---
 
@@ -259,8 +259,8 @@ Vamos experimentar nossa aplicação no testnet:
 > 🏃 Vá para o seu próximo desafio aqui.
 > 
 
-> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 > 
 
-> 👉 Problemas, perguntas, comentários sobre a pilha? Poste-os no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 👉 Problemas, perguntas, comentários sobre a pilha? Poste-os no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 >

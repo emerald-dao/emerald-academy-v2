@@ -171,16 +171,8 @@ Note the return type here: `Art.ArtPiece?`. Types are always based on the contra
 
 Boom! That's it. Now, whoever called this script can have all the art information they need. Sweet, Structs are awesome!
 
-## Quests
+## Conclusion
 
-1. Deploy a new contract that has a Struct of your choosing inside of it (must be different than `Art`).
-
-2. Create a dictionary or array that contains the Struct you defined.
-
-3. Create a function to add to that array/dictionary.
-
-4. Add a transaction to call that function in step 3.
-
-5. Add a script to read the Struct you defined.
+In today's lesson, we learned how to make our own type by creating a struct. Structs are really useful for gathering data into one object.
 
 That's all! See you tomorrow folks ;)

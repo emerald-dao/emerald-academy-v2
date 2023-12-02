@@ -13,7 +13,7 @@ layout: examples
 
 🌟 O resultado final é um DApp que permite que um administrador crie uma coleção de NFTs e exiba NFTs disponíveis para compra em um site de cunhagem. Os usuários também poderão ver seus NFTs adquiridos.
 
-💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Emerald City Discord](https://discord.gg/emeraldcity)**!
+💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Emerald City Discord](https://discord.gg/emerald-city-906264258189332541)**!
 
 ---
 
@@ -242,8 +242,8 @@ Vamos testar nosso DApp no testnet:
 > 🏃 Siga para o próximo desafio aqui.
 > 
 
-> 💬 Encontre outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 💬 Encontre outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 > 
 
-> 👉 Problemas, perguntas, comentários sobre a pilha? Publique-os no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 👉 Problemas, perguntas, comentários sobre a pilha? Publique-os no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 >

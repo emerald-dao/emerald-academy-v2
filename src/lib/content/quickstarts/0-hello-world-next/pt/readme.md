@@ -13,7 +13,7 @@ layout: examples
 
 🌟 O resultado final é um DApp que permite aos usuários ler e alterar um campo de saudação no Flow testnet.
 
-💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Discord da Emerald City](https://discord.gg/emeraldcity)**!
+💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)**!
 
 ---
 
@@ -194,8 +194,8 @@ Agora você pode encerrar todos os seus terminais, pois não precisamos mais exe
 > 🏃 Siga para o seu próximo desafio aqui.
 > 
 
-> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 > 
 
-> 👉 Problemas, perguntas, comentários sobre a pilha? Publique-os no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 👉 Problemas, perguntas, comentários sobre a pilha? Publique-os no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 >

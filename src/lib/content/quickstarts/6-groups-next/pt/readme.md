@@ -13,7 +13,7 @@ layout: examples
 
 🌟 O produto final é um DApp que permite aos usuários criar Grupos, entrar e sair deles, descobrir Grupos e conversar dentro deles.
 
-💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Discord da Cidade Esmeralda](https://discord.gg/emeraldcity)**!
+💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Discord da Cidade Esmeralda](https://discord.gg/emerald-city-906264258189332541)**!
 
 ---
 
@@ -273,8 +273,8 @@ async function uploadToIPFS(file) {
 > 🏃 Mais desafios em breve...
 > 
 
-> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 > 
 
-> 👉 Problemas, perguntas, comentários sobre a pilha? Publique-os no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 👉 Problemas, perguntas, comentários sobre a pilha? Publique-os no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 >

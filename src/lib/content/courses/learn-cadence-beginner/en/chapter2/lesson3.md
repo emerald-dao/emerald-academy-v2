@@ -50,9 +50,9 @@ pub contract Game {
     }
 
     // createPokemon
-    // Description: Creates a new pokemon using a name and type and returns
+    // Description: Creates a new Pokemon using a name and type and returns
     // it back to the caller.
-    // Returns: A new pokemon resource.
+    // Returns: A new Pokemon resource.
     pub fun createPokemon(name: String, type: String): @Pokemon {
         let newPokemon <- create Pokemon(name: name, type: type)
         return <- newPokemon
@@ -60,12 +60,14 @@ pub contract Game {
 }
 ```
 
+### Adding Contract State
+
 Wouldn't it be cool if we added a tracker to see how many Pokemon were created? To do this, lets add a new contract state variable called `totalPokemon`. 
 
 ```cadence
 pub contract Game {
 
-    // will track how many pokemon
+    // will track how many Pokemon
     // have been created
     pub var totalPokemon: Int
 
@@ -220,7 +222,7 @@ pub contract Game {
 
     pub var totalPokemon: Int
     // create a new dictionary that stores
-    // pokemon in the contract
+    // Pokemon in the contract
     pub let storedPokemon: @{UInt64: Pokemon}
 
     pub struct PokemonDetails {
@@ -265,7 +267,7 @@ pub contract Game {
     }
 
     // storePokemon
-    // Description: Pass in a pokemon resource and
+    // Description: Pass in a Pokemon resource and
     // save it to the contract, mapped by its 'id'
     pub fun storePokemon(pokemon: @Pokemon) {
         self.storedPokemon[pokemon.details.id] <-! pokemon
@@ -273,13 +275,13 @@ pub contract Game {
 
     // getIDs
     // Returns: An array of all the
-    // pokemon 'id's stored in the contract
+    // Pokemon 'id's stored in the contract
     pub fun getIDs(): [UInt64] {
         return self.storedPokemon.keys
     }
 
     // getPokemonDetails
-    // Returns: The details of the pokemon with
+    // Returns: The details of the Pokemon with
     // 'id' == id. Returns nil if none found.
     pub fun getPokemonDetails(id: UInt64): PokemonDetails? {
         return self.storedPokemon[id]?.details
@@ -295,13 +297,13 @@ pub contract Game {
 Few things to note here:
 - Even though `storedPokemon` isn't a resource itself, it is a dictionary that stores resources and thus must be treated like one. That is why we must use `<-` on this line: `self.storedPokemon <- {}`
 - When defining a dictionary that contains resources, the `@` symbol must be out front. Ex. `@{UInt64: Pokemon}` ... NOT `{UInt64: @Pokemon}`
-- Inside the `storePokemon` function, we use this operator: `<-!`. This is called the "force-move operator". Cadence requires us to use this with dictionaries because it will abort the program if a pokemon at the specific `id` already exists. This is protecting us from accidentally overwriting a pokemon in the dictionary.
+- Inside the `storePokemon` function, we use this operator: `<-!`. This is called the "force-move operator". Cadence requires us to use this with dictionaries because it will abort the program if a Pokemon at the specific `id` already exists. This is protecting us from accidentally overwriting a Pokemon in the dictionary.
 
-If you want to handle the case where there is an existing pokemon, an alternative way to write `storePokemon` would be:
+If you want to handle the case where there is an existing Pokemon, an alternative way to write `storePokemon` would be:
 
 ```cadence
 pub fun storePokemon(pokemon: @Pokemon) {
-    // move any existing pokemon (`oldPokemon`) out of the dictionary first, then move `pokemon` in
+    // move any existing Pokemon (`oldPokemon`) out of the dictionary first, then move `pokemon` in
     let oldPokemon <- self.storedPokemon[pokemon.details.id] <- pokemon
     // handle the oldPokemon somehow
     destroy oldPokemon
@@ -314,7 +316,7 @@ Let's write some fun transactions and scripts to actually use our new contract! 
 
 ### Create & Store a Pokemon
 
-Here is a transaction to create & save a pokemon to the contract. Run this one in the playground:
+Here is a transaction to create & save a Pokemon to the contract. Run this one in the playground:
 
 ```cadence
 import Game from 0x01
@@ -334,7 +336,7 @@ transaction(name: String, type: String) {
 
 ### Read Total # of Pokemon
 
-Next, let's check to see that our pokemon actually got created. The `totalPokemon` count should have gone up:
+Next, let's check to see that our Pokemon actually got created. The `totalPokemon` count should have gone up:
 
 ```cadence
 import Game from 0x01
@@ -346,7 +348,7 @@ pub fun main(): Int {
 
 ### Read Pokemon IDs
 
-Next, let's get all of the pokemon ids that exist in the contract:
+Next, let's get all of the Pokemon ids that exist in the contract:
 
 ```cadence
 import Game from 0x01
@@ -369,3 +371,7 @@ pub fun main(id: UInt64): Game.PokemonDetails? {
 ```
 
 Try to also pass in an 'id' that you know doesn't exist, and make sure it returns `nil`.
+
+## Conclusion
+
+In today's lesson, we learned a lot. We expanded our Pokemon contract to store Pokemon directly inside the smart contract. And some getter functions to read all the data stored in our contract, as well as how to execute scripts to return data using those functions.

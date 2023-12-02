@@ -13,7 +13,7 @@ layout: examples
 
 🌟 O resultado final é um DApp que permite aos usuários criar uma coleção vazia, emitir alguns NFTs pré-carregados e transferi-los para outra conta no testnet Flow.
 
-💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Discord da Emerald City](https://discord.gg/emeraldcity)**!
+💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)**!
 
 ---
 
@@ -252,8 +252,8 @@ Vamos testar nosso DApp no testnet:
 > 🏃 Vá para o seu próximo desafio aqui.
 > 
 
-> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 > 
 
-> 👉 Problemas, perguntas, comentários sobre a pilha? Poste-os no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 👉 Problemas, perguntas, comentários sobre a pilha? Poste-os no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 >

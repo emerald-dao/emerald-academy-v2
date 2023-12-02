@@ -1,234 +1,119 @@
 ---
-title: Capabilities
+title: Access Modifiers
 lesson: 3
 language: en
 ---
 
-# Chapter 3 Lesson 3 - Capabilities
+# Chapter 3 Lesson 3 - Access Modifiers
 
-In yesterday's chapter, we talked about the `/storage/` path of an account's storage. Today we will talk about the `/public/` and `/private/` paths, and what capabilities are.
+In today's lesson, we will briefly discuss a more difficult topic: Access Modifiers. It is important to get introduced to it, but it is a more intermediate-level concept and will be left for the next course.
 
-**NOTE: THIS CHAPTER CAN GET VERY CONFUSING**. If you feel lost along the way, I will give you a virtual ghost hug. I promise, if you read through it a few times, you will get it eventually.
+## The Problem
 
-## Review from Yesterday
-
-<img src="/courses/beginner-cadence/accountstorage1.PNG" />
-
-Quick review:
-
-1. `/storage/` is only accessible to the account owner. We use `.save()`, `.load()` and `.borrow()` functions to interact with it.
-2. `/public/` is available to everyone.
-3. `/private/` is available to the account owner and people who the owner gives access to.
-
-For today's chapter, we will be using yesterday's contract code:
+Let's take a look at our Pokemon contract from Chapter 3 Lesson 1:
 
 ```cadence
-pub contract Stuff {
+pub contract Game {
 
-  pub resource Test {
-    pub var name: String
-    init() {
-      self.name = "Jacob"
+    pub var totalPokemon: Int
+    pub let storedPokemon: @{UInt64: Pokemon}
+
+    pub struct PokemonDetails {
+        pub let id: UInt64
+        pub let name: String
+        pub let dateCreated: UFix64
+        pub let type: String
+
+        init(id: UInt64, name: String, dateCreated: UFix64, type: String) {
+            self.id = id
+            self.name = name
+            self.dateCreated = dateCreated
+            self.type = type
+        }
     }
-  }
 
-  pub fun createTest(): @Test {
-    return <- create Test()
-  }
+    pub resource Pokemon {
+        pub let details: PokemonDetails
+        pub var xp: Int
 
-}
-```
+        pub fun levelUp() {
+            self.xp = self.xp + 1
+        }
 
-And don't forget that we saved the resource to our storage like this:
+        init(name: String, type: String) {
+            let currentTime: UFix64 = getCurrentBlock().timestamp
+            self.details = PokemonDetails(
+                id: self.uuid,
+                name: name, 
+                dateCreated: currentTime,
+                type: type
+            )
+            self.xp = 0
 
-```cadence
-import Stuff from 0x01
-transaction() {
-  prepare(signer: AuthAccount) {
-    let testResource <- Stuff.createTest()
-    signer.save(<- testResource, to: /storage/MyTestResource)
-    // saves `testResource` to my account storage at this path:
-    // /storage/MyTestResource
-  }
+            Game.totalPokemon = Game.totalPokemon + 1
+        }
 
-  execute {
+        destroy() {
+            Game.totalPokemon = Game.totalPokemon - 1
+        }
+    }
 
-  }
-}
-```
+    pub fun createPokemon(name: String, type: String): @Pokemon {
+        let newPokemon <- create Pokemon(name: name, type: type)
+        return <- newPokemon
+    }
 
-Okay, we're ready to go.
+    pub fun storePokemon(pokemon: @Pokemon) {
+        self.storedPokemon[pokemon.details.id] <-! pokemon
+    }
 
-## `/public/` path
+    pub fun getIDs(): [UInt64] {
+        return self.storedPokemon.keys
+    }
 
-Previously, when we saved something to account storage, only the account owner could access it. That is because it was saved to the `/storage/` path. But what if we want other people to read the `name` field from my resource? Well, you may have guessed it. Let's make our resource publically accessible!
+    pub fun getPokemonDetails(id: UInt64): PokemonDetails? {
+        return self.storedPokemon[id]?.details
+    }
 
-```cadence
-import Stuff from 0x01
-transaction() {
-  prepare(signer: AuthAccount) {
-    // Links our resource to the public so other people can now access it
-    signer.link<&Stuff.Test>(/public/MyTestResource, target: /storage/MyTestResource)
-  }
+    pub fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
+        let randomNumber: UInt64 = self.getRandom(min: 1, max: 2)
+        let winnerPokemonId = randomNumber == 1 ? pokemonId1 : pokemonId2
+        
+        let pokemonRef: &Pokemon = (&self.storedPokemon[winnerPokemonId] as &Pokemon?) 
+                        ?? panic("Pokemon does not exist.")
+        pokemonRef.levelUp()
+    }
 
-  execute {
-
-  }
-}
-```
-
-In the example above, we used the `.link()` function to "link" our resource to the `/public/` path. In simpler terms, we took the thing at `/storage/MyTestResource` and exposed a `&Stuff.Test` to the public so they can read from it.
-
-`.link()` takes in two parameters:
-
-1. A `/public/` or `/private/` path
-2. a `target` parameter that is a `/storage/` path where the data you're linking currently lives
-
-Now, anyone can run a script to read the `name` field on our resource. I will show you how to do that, but I need to introduce you to some things first.
-
-## Capabilities
-
-When you "link" something to the `/public/` or `/private/` paths, you are creating something called a capability. Nothing _actually_ lives in the `/public/` or `/private/` paths, everything lives in your `/storage/`. However, we can think of capabilities like "pointers" that point from a `/public/` or `/private/` path to its associated `/storage/` path. Here's a helpful visualization:
-
-<img src="/courses/beginner-cadence/capabilities.PNG" />
-
-The cool part is that you can make your `/public/` or `/private/` capabilities _more restrictive_ than what is inside your `/storage/` path. This is super cool because you can limit what other people are able to do, but still allow them to do some things. We will do this with resource interfaces later.
-
-## `PublicAccount` vs. `AuthAccount`
-
-We already learned that an `AuthAccount` allows you to do anything you want with an account. On the other hand, `PublicAccount` allows anyone to read from it, but only the things that the account owner exposes. You can get a `PublicAccount` type by using the `getAccount` function like so:
-
-```cadence
-let account: PublicAccount = getAccount(0x1)
-// `account` now holds the PublicAccount of address 0x1
-```
-
-The reason I'm telling you this is because the only way to get a capability from a `/public/` path is to use `PublicAccount`. On the other hand, you can only get a capability from a `/private/` path with an `AuthAccount`.
-
-## Back to `/public/`
-
-Okay, so we linked our resource to the public. Let's read from it in a script now, and apply some of what we've learned!
-
-```cadence
-import Stuff from 0x01
-pub fun main(address: Address): String {
-  // gets the public capability that is pointing to a `&Stuff.Test` type
-  let publicCapability: Capability<&Stuff.Test> =
-    getAccount(address).getCapability<&Stuff.Test>(/public/MyTestResource)
-
-  // Borrow the `&Stuff.Test` from the public capability
-  let testResource: &Stuff.Test = publicCapability.borrow() ?? panic("The capability doesn't exist or you did not specify the right type when you got the capability.")
-
-  return testResource.name // "Jacob"
-}
-```
-
-Sweet! We read the name of our resource from the `/public/` path. Here are the steps:
-
-1. Get the public account of the address we're reading from: `getAccount(address)`
-2. Get the capability that is pointing to a `&Stuff.Test` type at the `/public/MyTestResource` path: `getCapability<&Stuff.Test>(/public/MyTestResource)`
-3. Borrow the capability to return the actual reference: `let testResource: &Stuff.Test = publicCapability.borrow() ?? panic("The capability is invalid")`
-4. Return the name: `return testResource.name`
-
-You may be wondering, why didn't we have to specify the type of the reference when we do `.borrow()`? The answer is because the capability already specifies the type, so it is assuming that is the type it's borrowing. If it borrows a different type, or the capability did not exist in the first place, it will return `nil` and panic.
-
-## Using Public Capabilities to Restrict a Type
-
-Alright! Awesomeness. We've made it here at least, i'm proud of you. The next topic is figuring out how to restrict certain parts of our reference so the public can't do things we don't want them to.
-
-Let's define another contract:
-
-```cadence
-pub contract Stuff {
-
-  pub resource Test {
-    pub var name: String
-
-    pub fun changeName(newName: String) {
-      self.name = newName
+    pub fun getRandom(min: UInt64, max: UInt64): UInt64 {
+        let randomNumber: UInt64 = revertibleRandom()
+        return (randomNumber % (max + 1 - min)) + min
     }
 
     init() {
-      self.name = "Jacob"
+        self.totalPokemon = 0
+        self.storedPokemon <- {}
     }
-  }
-
-  pub fun createTest(): @Test {
-    return <- create Test()
-  }
-
 }
 ```
 
-In this example, I added a `changeName` function that allows you to change the name in the resource. But what if we don't want the public to be able to do this? Right now we have a problem:
+In Lesson 2, I showed you how to create a Pokemon inside of a transaction and save it to account storage. You may be thinking: "What is preventing me from leveling up my own Pokemon's xp?"
+
+Let's see an example of the problem right now:
 
 ```cadence
-import Stuff from 0x01
-transaction(address: Address) {
+import Game from 0x01
 
+transaction(name: String, type: String) {
   prepare(signer: AuthAccount) {
+    let newPokemon <- Game.createPokemon(name: name, type: type)
 
-  }
+    newPokemon.levelUp()
+    newPokemon.levelUp()
+    newPokemon.levelUp()
+    newPokemon.levelUp()
+    newPokemon.levelUp()
 
-  execute {
-    let publicCapability: Capability<&Stuff.Test> =
-      getAccount(address).getCapability<&Stuff.Test>(/public/MyTestResource)
-
-    let testResource: &Stuff.Test = publicCapability.borrow() ?? panic("The capability doesn't exist or you did not specify the right type when you got the capability.")
-
-    testResource.changeName(newName: "Sarah") // THIS IS A SECURITY PROBLEM!!!!!!!!!
-  }
-}
-```
-
-See the problem? Because we linked our resource to the public, anyone can call `changeName` and change our name! That's not fair.
-
-The way to solve this is to:
-
-1. Define a new resource interface that only exposes the `name` field, and NOT `changeName`
-2. When we `.link()` the resource to the `/public/` path, we restrict the reference to use that resource interface in step 1).
-
-Let's add a resource interface to our contract:
-
-```cadence
-pub contract Stuff {
-
-  pub resource interface ITest {
-    pub var name: String
-  }
-
-  // `Test` now implements `ITest`
-  pub resource Test: ITest {
-    pub var name: String
-
-    pub fun changeName(newName: String) {
-      self.name = newName
-    }
-
-    init() {
-      self.name = "Jacob"
-    }
-  }
-
-  pub fun createTest(): @Test {
-    return <- create Test()
-  }
-
-}
-```
-
-Awesome! Now `Test` implements a resource interface named `ITest` that only has the `name` in it. Now we can link our resource to the public by doing this:
-
-```cadence
-import Stuff from 0x01
-transaction() {
-  prepare(signer: AuthAccount) {
-    // Save the resource to account storage
-    signer.save(<- Stuff.createTest(), to: /storage/MyTestResource)
-
-    // See what I did here? I only linked `&Stuff.Test{Stuff.ITest}`, NOT `&Stuff.Test`.
-    // Now the public only has access to the things in `Stuff.ITest`.
-    signer.link<&Stuff.Test{Stuff.ITest}>(/public/MyTestResource, target: /storage/MyTestResource)
+    signer.save(<- newPokemon, to: /storage/MyPokemon)
   }
 
   execute {
@@ -237,92 +122,63 @@ transaction() {
 }
 ```
 
-So, what happens if we try to access the entire reference now in a script, like we did before?
+Is... this okay? Right now, anyone can create their own Pokemon, level it up as much as they want, and then save it to their account.
+
+They can even continue to level it up later:
 
 ```cadence
-import Stuff from 0x01
-transaction(address: Address) {
-  prepare(signer: AuthAccount) {
+import Game from 0x01
 
+transaction(name: String, type: String) {
+  prepare(signer: AuthAccount) {
+    let myPokemon = signer.borrow<&Game.Pokemon>(from: /storage/MyPokemon)
+                      ?? panic("A Pokemon does not live here.")
+
+    myPokemon.levelUp()
+    myPokemon.levelUp()
+    myPokemon.levelUp()
+    myPokemon.levelUp()
+    myPokemon.levelUp()
   }
 
   execute {
-    let publicCapability: Capability<&Stuff.Test> =
-      getAccount(address).getCapability<&Stuff.Test>(/public/MyTestResource)
 
-    // ERROR: "The capability doesn't exist or you did not
-    // specify the right type when you got the capability."
-    let testResource: &Stuff.Test = publicCapability.borrow() ?? panic("The capability doesn't exist or you did not specify the right type when you got the capability.")
-
-    testResource.changeName(newName: "Sarah")
   }
 }
 ```
 
-Now, we get an error! Haha, get recked hacker! You can't borrow the capability because you tried to borrow a capability to `&Stuff.Test`, and I didn't make that available to you. I only made `&Stuff.Test{Stuff.ITest}` available. ;)
+How can we make it so that only the `battle` function inside the smart contract is allowed to call this function?
 
-What if we try this?
+## The Solution: `access(contract)`
+
+Well, it's actually very simple. Just change:
 
 ```cadence
-import Stuff from 0x01
-transaction(address: Address) {
-
-  prepare(signer: AuthAccount) {
-
-  }
-
-  execute {
-    let publicCapability: Capability<&Stuff.Test{Stuff.ITest}> =
-      getAccount(address).getCapability<&Stuff.Test{Stuff.ITest}>(/public/MyTestResource)
-
-    // This works...
-    let testResource: &Stuff.Test{Stuff.ITest} = publicCapability.borrow() ?? panic("The capability doesn't exist or you did not specify the right type when you got the capability.")
-
-    // ERROR: "Member of restricted type is not accessible: changeName"
-    testResource.changeName(newName: "Sarah")
-  }
+pub fun levelUp() {
+  self.xp = self.xp + 1
 }
 ```
 
-And again! Get recked scammer. Even though you borrowed the right type, you can't call `changeName` because it's not accessible through the `&Stuff.Test{Stuff.ITest}` type.
-
-But, this will work:
+to...
 
 ```cadence
-import Stuff from 0x01
-pub fun main(address: Address): String {
-  let publicCapability: Capability<&Stuff.Test{Stuff.ITest}> =
-    getAccount(address).getCapability<&Stuff.Test{Stuff.ITest}>(/public/MyTestResource)
-
-  let testResource: &Stuff.Test{Stuff.ITest} = publicCapability.borrow() ?? panic("The capability doesn't exist or you did not specify the right type when you got the capability.")
-
-  // This works because `name` is in `&Stuff.Test{Stuff.ITest}`
-  return testResource.name
+access(contract) fun levelUp() {
+  self.xp = self.xp + 1
 }
 ```
 
-Yaaaaaaay! Exactly like we wanted :)
+Now this function can only ever be called in the smart contract. Or more specifically, it can only ever be called inside the `battle` function.
+
+## Further Reading
+
+This topic is intermediate-level, so I will leave it to the next course. But here is a really nice diagram outlining all of the different access modifiers and their associated read/write permissions:
+
+<img src="/courses/beginner-cadence/access_modifiers.png" />
 
 ## Conclusion
 
-Holy cow. That was a lot. The good news? You have learned an insane amount about Cadence so far. And even better, you have learned all the complicated stuff. I am so, so proud of you.
+Well... WOW! I am so proud of you. You completed the **Learn Cadence: Beginner** course!
 
-I also intentionally didn't go into depth on `/private/`. This is because, in practice, you will rarely ever use `/private/`, and I didn't want to shove too much info into your head.
+Please reach out to Jacob Tucker in the [💎 Emerald City Discord](https://discord.gg/emerald-city-906264258189332541) for your official certificate!
 
-And, well... I'm hungry. So I'm going to eat food. Maybe I'll add it to this chapter later ;)
-
-## Quests
-
-Please answer in the language of your choice.
-
-1. What does `.link()` do?
-
-2. In your own words (no code), explain how we can use resource interfaces to only expose certain things to the `/public/` path.
-
-3. Deploy a contract that contains a resource that implements a resource interface. Then, do the following:
-
-   1. In a transaction, save the resource to storage and link it to the public with the restrictive interface.
-
-   2. Run a script that tries to access a non-exposed field in the resource interface, and see the error pop up.
-
-   3. Run the script and access something you CAN read from. Return it from the script.
+Stay tuned for the **Learn Cadence: Intermediate** course where we will dive into capabilities.

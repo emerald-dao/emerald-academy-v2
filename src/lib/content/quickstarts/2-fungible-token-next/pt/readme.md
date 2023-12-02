@@ -13,7 +13,7 @@ layout: examples
 
 🌟 O resultado final é um DApp que permite aos usuários criar seu próprio token fungível e transferi-los para outra conta no testnet Flow.
 
-💬 Encontre outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Emerald City Discord](https://discord.gg/emeraldcity)**!
+💬 Encontre outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Emerald City Discord](https://discord.gg/emerald-city-906264258189332541)**!
 
 ---
 # **Vídeo explicativo**
@@ -244,8 +244,8 @@ Vamos testar nosso DApp no testnet:
 > 🏃 Vá para o próximo desafio aqui.
 > 
 
-> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 > 
 
-> 👉 Problemas, perguntas, comentários sobre o stack? Publique-os no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 👉 Problemas, perguntas, comentários sobre o stack? Publique-os no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 >

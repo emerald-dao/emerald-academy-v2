@@ -155,21 +155,8 @@ Notice also that we can sign this transaction from any account. We aren't access
 
 After you click "Send", go back to your script and click "Execute". You should now see "Hey there, Jacob!" printed in the console. Boom, you just successfully implemented your first transaction.
 
-## Quests
+## Conclusion
 
-1. Explain why we wouldn't call `changeGreeting` in a script. And if we did, what happens?
+Today we learned how to send a transaction in Cadence. This is for modifying data.
 
-2. What does the `AuthAccount` mean in the `prepare` phase of the transaction?
-
-3. What is the difference between the `prepare` phase and the `execute` phase in the transaction?
-
-4. Complete the following:
-
-- Add two new things inside your contract:
-
-  - A variable named `myNumber` that has type `Int` (set it to 0 when the contract is deployed)
-  - A function named `updateMyNumber` that takes in a new number named `newNumber` as a parameter that has type `Int` and updates `myNumber` to be `newNumber`
-
-- Add a script that reads `myNumber` from the contract
-
-- Add a transaction that takes in a parameter named `myNewNumber` and passes it into the `updateMyNumber` function. Verify that your number changed by running the script again.
+We also learned how to execute a script in Cadence. This is for reading data.
