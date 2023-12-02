@@ -8,7 +8,9 @@ import { videos } from '$lib/content/videos';
 
 export const GET = async ({ params }) => {
 	try {
-		const allCourses = await fetchOverviews(ContentTypeEnum.Course, params.lang as Locales);
+		let allCourses = await fetchOverviews(ContentTypeEnum.Course, params.lang as Locales);
+		// temporarily disable Learn Cadence: Intermediate
+		allCourses = allCourses.filter(course => course?.title !== 'Learn Cadence: Intermediate')
 		const allBootcamps = await fetchOverviews(ContentTypeEnum.Bootcamp, params.lang as Locales);
 		const allRoadmaps = await fetchOverviews(ContentTypeEnum.Roadmap, params.lang as Locales);
 		const allTutorials = await fetchOverviews(ContentTypeEnum.Tutorial, params.lang as Locales)
