@@ -8,7 +8,7 @@ layout: examples
 
 Declare um contrato chamado **`HelloWorld`**.
 
-Inicialize uma variável **`greet`** com "Hello, World!
+Inicialize uma variável **`greet`** com "Hello, World!"
 
 As variáveis devem sempre ser inicializadas na função init.
 
