@@ -12,7 +12,7 @@ layout: examples
 
 🌟 The final deliverable is a DApp that lets users create their own fungible token and transfer them to another account on Flow Testnet.
 
-💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
+💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emerald-city-906264258189332541)!
 
 ## 📦 Checkpoint 0: Install
 
@@ -240,6 +240,6 @@ Run `npm run dev` to start your application in a terminal, and have a blast with
 
 > 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/3-nft-minting-next).
 
-> 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
+> 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emerald-city-906264258189332541)!
 
-> 👉 Problems, questions, comments on the stack? Post them to the [💎 Emerald City Discord](https://discord.gg/emeraldcity).
+> 👉 Problems, questions, comments on the stack? Post them to the [💎 Emerald City Discord](https://discord.gg/emerald-city-906264258189332541).

@@ -12,7 +12,7 @@ layout: examples
 
 🌟 The final deliverable is a DApp that spins up an open DAO that lets community members create proposals and vote within it based on token holdings that govern the DAO.
 
-💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emeraldcity)!
+💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emerald-city-906264258189332541)!
 
 ## 📦 Checkpoint 0: Install
 
@@ -261,6 +261,6 @@ Let's try out our application on testnet:
 
 > 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/5-multisign-next).
 
-> 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
+> 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emerald-city-906264258189332541)!
 
-> 👉 Problems, questions, comments on the stack? Post them to the [💎 Emerald City Discord](https://discord.gg/emeraldcity).
+> 👉 Problems, questions, comments on the stack? Post them to the [💎 Emerald City Discord](https://discord.gg/emerald-city-906264258189332541).
