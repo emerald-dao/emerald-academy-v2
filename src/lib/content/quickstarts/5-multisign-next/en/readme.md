@@ -12,7 +12,7 @@ layout: examples
 
 🌟 The final deliverable is a DApp that allows anyone to deposit $FLOW to a DAO Treasury, of which admins must multisign actions to withdraw that $FLOW from the Treasury.
 
-💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emeraldcity)!
+💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emerald-city-906264258189332541)!
 
 ## 📦 Checkpoint 0: Install
 
@@ -207,7 +207,7 @@ Let's try out our application on testnet:
 6. By default, the Admin of the treasury is the account you deployed your contract to. However, we do not have this account in a wallet like Lilico or Blocto, so we will have some trouble signing the withdraw request. To fix that, we created a command for you to sign proposals from your terminal:
 
 - In your terminal, type `npm run sign [THE PROPOSAL ID]` (you can get the `proposalId` by clicking on the request and seeing its number)
-- You should see a printed "Transaction Id". If you go to [Testnet Flowscan](https://testnet.flowscan.org/) and paste in that Transaction Id, you should see information about that minting transaction.
+- You should see a printed "Transaction Id". If you go to [Testnet Flowdiver](https://testnet.flowdiver.io) and paste in that Transaction Id, you should see information about that minting transaction.
 
 ## 📝 Make Edits!
 
@@ -221,6 +221,6 @@ Let's try out our application on testnet:
 
 > 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/6-groups-next).
 
-> 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
+> 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emerald-city-906264258189332541)!
 
-> 👉 Problems, questions, comments on the stack? Post them to the [💎 Emerald City Discord](https://discord.gg/emeraldcity).
+> 👉 Problems, questions, comments on the stack? Post them to the [💎 Emerald City Discord](https://discord.gg/emerald-city-906264258189332541).

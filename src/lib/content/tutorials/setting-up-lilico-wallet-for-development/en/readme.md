@@ -41,7 +41,7 @@ To switch accounts or create additional accounts simply click on your profile im
 
 ## Funding Testnet Accounts
 
-Funding your newly created testnet accounts is easy using the testnet faucet! Simply navigate to "https://testnet-faucet.onflow.org" then click "FUND ACCOUNT" in the upper right corner of the page. Simply enter you testnet account address, confirm your a human, and then click "FUND YOUR ACCOUNT".
+Funding your newly created testnet accounts is easy using the testnet faucet! Simply navigate to https://testnet-faucet.onflow.org then click "FUND ACCOUNT" in the upper right corner of the page. Simply enter you testnet account address, confirm your a human, and then click "FUND YOUR ACCOUNT".
 
 <div class="md-images">
   <img src="https://i.imgur.com/z4qt9yMl.png" alt="faucet-page" />

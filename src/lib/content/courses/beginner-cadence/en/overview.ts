@@ -4,10 +4,10 @@ import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: CourseOverview = {
-	title: 'Learn Cadence',
+	title: 'Beginner Cadence',
 	contentType: ContentTypeEnum.Course,
 	certificateIncluded: true,
-	excerpt: 'Learn Cadence - the most composable, easiest to write, and safest smart contract language. You will also build your own NFT smart contract.',
+	excerpt: 'An older course created in 2021. Learn Cadence - the most composable, easiest to write, and safest smart contract language. You will also build your own NFT smart contract.',
 	author: {
 		name: 'Jacob Tucker',
 		socialMediaUrl: 'https://twitter.com/jacobmtucker',
@@ -60,7 +60,7 @@ export const overview: CourseOverview = {
 			{
 				question: '🙋 How do I submit quests?',
 				answer:
-					'When you finish a quest, please store all your quests together. Then, when you want them to be reviewed, submit them in the #quest-submissions channel inside the <a href="https://discord.gg/emeraldcity" target="_blank">Emerald City Discord</a> and our instructors will review them.'
+					'When you finish a quest, please store all your quests together. Then, when you want them to be reviewed, submit them in the #quest-submissions channel inside the <a href="https://discord.gg/emerald-city-906264258189332541" target="_blank">Emerald City Discord</a> and our instructors will review them.'
 			},
 			{
 				question: '📝 What are quizzes?',

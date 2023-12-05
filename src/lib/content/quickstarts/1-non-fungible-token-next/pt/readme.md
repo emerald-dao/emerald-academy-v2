@@ -13,7 +13,7 @@ layout: examples
 
 🌟 O resultado final é um DApp que permite aos usuários criar uma coleção vazia, emitir alguns NFTs pré-carregados e transferi-los para outra conta no testnet Flow.
 
-💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Discord da Emerald City](https://discord.gg/emeraldcity)**!
+💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)**!
 
 ---
 
@@ -234,7 +234,7 @@ Vamos testar nosso DApp no testnet:
 
 1. Clique em "Setup Collection" para dar a si mesmo uma coleção e a capacidade de armazenar NFTs na sua conta.
 2. Em um terminal, execute **`npm run mint [THE ADDRESS OF THE ACCOUNT YOU'RE LOGGED IN TO]`** (O ENDEREÇO DA CONTA QUE VOCÊ ESTÁ LOGADO)
-3. No seu terminal, você deve ver um "Transaction Id" impresso. Se você acessar **[Testnet Flowscan](https://testnet.flowscan.org/)** e colar esse Transaction Id, você verá informações sobre essa transação de cunhagem.
+3. No seu terminal, você deve ver um "Transaction Id" impresso. Se você acessar **[Testnet Flowdiver](https://testnet.flowdiver.io)** e colar esse Transaction Id, você verá informações sobre essa transação de cunhagem.
 4. Clique em "Get NFTs" (Obter NFTs) e você verá todos os seus NFTs na sua conta!
 
 ---
@@ -252,8 +252,8 @@ Vamos testar nosso DApp no testnet:
 > 🏃 Vá para o seu próximo desafio aqui.
 > 
 
-> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 > 
 
-> 👉 Problemas, perguntas, comentários sobre a pilha? Poste-os no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 👉 Problemas, perguntas, comentários sobre a pilha? Poste-os no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 >

@@ -12,7 +12,7 @@ layout: examples
 
 🌟 The final deliverable is a Mobile DApp that lets users read and change a greeting field on Flow testnet. (🧨 WalletConnect has not been configured so `DapperSC` and `Lilico` wallets will crash the application)
 
-💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emeraldcity)!
+💬 Meet other builders working on this challenge and get help in the [Emerald City Discord](https://discord.gg/emerald-city-906264258189332541)!
 
 ---
 
@@ -207,6 +207,6 @@ Lastly, run the app in the simulator or on your iOS/iPadOS Device.
 
 > 🏃 Head to your next challenge [here](https://academy.ecdao.org/en/quickstarts/1-non-fungible-token-ios).
 
-> 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emeraldcity)!
+> 💬 Meet other builders working on this challenge and get help in the [💎 Emerald City Discord](https://discord.gg/emerald-city-906264258189332541)!
 
-> 👉 Problems, questions, comments on the stack? Post them to the [💎 Emerald City Discord](https://discord.gg/emeraldcity).
+> 👉 Problems, questions, comments on the stack? Post them to the [💎 Emerald City Discord](https://discord.gg/emerald-city-906264258189332541).

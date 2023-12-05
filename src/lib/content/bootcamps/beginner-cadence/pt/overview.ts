@@ -53,7 +53,7 @@ export const overview: BootcampOverview = {
 		{
 			question: '🙋 Como envio missões?',
 			answer:
-				'Quando terminar uma missão, guarde todas as suas missões juntas. Depois, quando quiser que elas sejam revisadas, envie-as no canal #quest-submissions dentro do <a href="https://discord.gg/emeraldcity" target="_blank">Discord Emerald City</a> e nossos instrutores as revisarão.'
+				'Quando terminar uma missão, guarde todas as suas missões juntas. Depois, quando quiser que elas sejam revisadas, envie-as no canal #quest-submissions dentro do <a href="https://discord.gg/emerald-city-906264258189332541" target="_blank">Discord Emerald City</a> e nossos instrutores as revisarão.'
 		},{
 			question: '📝 O que são questionários?',
 			answer:

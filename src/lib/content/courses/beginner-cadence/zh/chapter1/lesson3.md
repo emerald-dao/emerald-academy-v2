@@ -9,8 +9,6 @@ excerpt: 节-基本计算机编程概念
 
 这一节将会涵盖计算机编程的基础知识。如果你以前写过代码，这对你来说会很无聊，所以你可以跳过这一节。
 
-![img](<https://github.com/emerald-dao/beginner-cadence-course/raw/main/chapter1.5%20(optional)/images/programmingdiagram.png>)
-
 ## 最重要的是
 
 如果您正在阅读本节，则意味着您可能从未编写过代码，或者您想复习基础知识。
@@ -22,8 +20,6 @@ excerpt: 节-基本计算机编程概念
 让我们开始学习吧！
 
 ## 编程
-
-![img](<https://github.com/emerald-dao/beginner-cadence-course/raw/main/chapter1.5%20(optional)/images/programming.png>)
 
 什么是编程？什么是写代码？
 
@@ -51,11 +47,7 @@ log("Hello, World!")
 
 让我们看看我用 Cadence 写的例子
 
-![img](<https://github.com/emerald-dao/beginner-cadence-course/raw/main/chapter1.5%20(optional)/images/hello.png>)
-
 您可以在那里看到中间的 log 语句。但它周围是什么？嘿，这是另一个函数！但这一次，我们必须自己定义函数。 log 已经存在于语言中，它是语法的一部分。但是 main 函数是我自己写的。你不用担心我是怎么做到的，只要知道程序启动时函数 main 会被执行。它将打印"Hello there!"，像这样:
-
-![img](<https://github.com/emerald-dao/beginner-cadence-course/raw/main/chapter1.5%20(optional)/images/hello_there.png>)
 
 您可以访问 https://play.onflow.org 并在左侧的“脚本”选项卡中键入相同的代码
 
@@ -66,8 +58,6 @@ https://play.onflow.org 是您在 Cadence 中编写程序的“游乐场”。�
 实话说，变量比函数更简单，函数允许您执行一些逻辑，变量就是在其中存储数据
 
 您可以将变量视为在某个时间点保存一段数据。您可以更改变量表示的内容（如果允许），使其指向其他内容。这是一个例子：
-
-![img](<https://github.com/emerald-dao/beginner-cadence-course/raw/main/chapter1.5%20(optional)/images/x.png>)
 
 在这个例子下，`x` 是一个变量。在第 2 行，您可以看到我们通过 var x = 5 声明它。这是说“我想创建一个名为 x 的变量来存储值 5”的 Cadence 方式。
 
@@ -101,15 +91,11 @@ let y: String = "5" // GOOD
 
 让我们想出一个例子并写我们自己的函数去检验我们对之前东西的理解
 
-打开 [Flow playground](https://play.onflow.org/) 并去 Script 栏。让我们这样开始：
-
-![img](<https://github.com/emerald-dao/beginner-cadence-course/raw/main/chapter1.5%20(optional)/images/step1.png>)
+打开 [Flow playground](https://play.flow.com/) 并去 Script 栏。让我们这样开始：
 
 好棒！所有我们做的就是把变量 x 表示数字 5
 
 现在让我们添加我们自己的函数并调用它。
-
-![img](<https://github.com/emerald-dao/beginner-cadence-course/raw/main/chapter1.5%20(optional)/images/step2.png>)
 
 哇，我们写了很多行。让我们一步一步看一下：
 
@@ -120,15 +106,11 @@ let y: String = "5" // GOOD
 
 当你点击`Execute`的时候，你将会看到：
 
-![img](<https://github.com/emerald-dao/beginner-cadence-course/raw/main/chapter1.5%20(optional)/images/result.png>)
-
 棒！我们得到我们期待的答案。
 
 注意如果我们没有写第 3 行，myFunction 将不会被调用，我们也不会在控制台中 log 出 number
 
 我们可以稍微改变我们的代码让控制台 log 不同的数字：
-
-![img](<https://github.com/emerald-dao/beginner-cadence-course/raw/main/chapter1.5%20(optional)/images/newresult.png>)
 
 在这个例子中，我们定义了三个不同的变量：`x`，`y`，和`z`，它们表示不同的值。我们把它们传入 myFunction 让控制台打印出来。
 
@@ -136,19 +118,13 @@ let y: String = "5" // GOOD
 
 您将开始注意到函数有助于编写一些我们可能想要多次执行的代码。它使我们不必一遍又一遍地编写代码。例如，让我们看一下这段代码：
 
-![img](<https://github.com/emerald-dao/beginner-cadence-course/raw/main/chapter1.5%20(optional)/images/nofunction.png>)
-
 在这个例子中，我们定义了两个变量`greeting`和`person`来储存信息。然后，我们使用 Cadence 中预定义的`concat`函数去将两段信息结合起来。然后打印到控制台
 
 这很好，但是当我们想要多次这样做时会发生什么，用不同的 greeting 和 person 呢？
 
-![img](<https://github.com/emerald-dao/beginner-cadence-course/raw/main/chapter1.5%20(optional)/images/long.png>)
-
 好吧，这需要写很多行代码。这个问题是什么呢？
 
 问题是我们不断地编写相同的代码，将两段文本组合在一起。为什么一遍又一遍地重写相同的逻辑？有没有办法让这件事变得更容易？还是让我们只需要编写一次该逻辑，然后多次使用它？当然！让我们使用一个函数：
-
-![img](<https://github.com/emerald-dao/beginner-cadence-course/raw/main/chapter1.5%20(optional)/images/better.png>)
 
 在这个例子中，我们定义了一个叫做`combine`的函数，执行下列的动作：
 
@@ -163,8 +139,6 @@ let y: String = "5" // GOOD
 ### 函数和返回值
 
 我要提到的最后一件事是函数也可以返回一些信息。让我们看一个例子：
-
-![img](<https://github.com/emerald-dao/beginner-cadence-course/raw/main/chapter1.5%20(optional)/images/add.png>)
 
 在这个例子中，我们定义了一个名为 `add` 的函数，它接受 2 个 Int 类型的数字，将它们相加，然后返回。第 12 行的 ": Int" ，这意味着“这个函数返回一个整数”。
 

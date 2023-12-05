@@ -13,7 +13,7 @@ layout: examples
 
 🌟 O resultado final é um DApp que permite que qualquer pessoa deposite $FLOW em um Tesouro DAO, e os administradores devem usar assinaturas múltiplas para retirar o $FLOW do Tesouro.
 
-💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Discord Emerald City](https://discord.gg/emeraldcity)**!
+💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Discord Emerald City](https://discord.gg/emerald-city-906264258189332541)**!
 
 ---
 
@@ -242,7 +242,7 @@ Vamos experimentar nossa aplicação no testnet:
 5. Faça uma nova solicitação de retirada.
 6. Por padrão, o administrador do tesouro é a conta à qual você implantou seu contrato. No entanto, não temos essa conta em uma carteira como Lilico ou Blocto, então teremos dificuldades em assinar a solicitação de retirada. Para resolver isso, criamos um comando para você assinar propostas a partir do seu terminal:
 - No seu terminal, digite **`npm run sign [O ID DA PROPOSTA]`** (você pode obter o **`proposalId`** clicando na solicitação e vendo seu número)
-- Você deve ver um "Transaction Id" impresso. Se você acessar o **[Testnet Flowscan](https://testnet.flowscan.org/)** e colar esse Transaction Id, você verá informações sobre essa transação de criação.
+- Você deve ver um "Transaction Id" impresso. Se você acessar o **[Testnet Flowdiver](https://testnet.flowdiver.io)** e colar esse Transaction Id, você verá informações sobre essa transação de criação.
 
 ---
 
@@ -259,8 +259,8 @@ Vamos experimentar nossa aplicação no testnet:
 > 🏃 Vá para o seu próximo desafio aqui.
 > 
 
-> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 > 
 
-> 👉 Problemas, perguntas, comentários sobre a pilha? Poste-os no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 👉 Problemas, perguntas, comentários sobre a pilha? Poste-os no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 >

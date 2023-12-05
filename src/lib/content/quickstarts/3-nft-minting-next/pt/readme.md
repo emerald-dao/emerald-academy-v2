@@ -13,7 +13,7 @@ layout: examples
 
 🌟 O resultado final é um DApp que permite que um administrador crie uma coleção de NFTs e exiba NFTs disponíveis para compra em um site de cunhagem. Os usuários também poderão ver seus NFTs adquiridos.
 
-💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Emerald City Discord](https://discord.gg/emeraldcity)**!
+💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Emerald City Discord](https://discord.gg/emerald-city-906264258189332541)**!
 
 ---
 
@@ -223,7 +223,7 @@ Vamos testar nosso DApp no testnet:
 <img src="https://i.imgur.com/dvYO2aU.png" alt="logging into discovery" />
 
 1. Em um terminal, execute **`npm run mint`**
-2. No seu terminal, você deve ver um "Transaction Id" impresso. Se você for para **[Testnet Flowscan](https://testnet.flowscan.org/)** e colar esse Transaction Id, você deverá ver informações sobre essa transação de cunhagem.
+2. No seu terminal, você deve ver um "Transaction Id" impresso. Se você for para **[Testnet Flowdiver](https://testnet.flowdiver.io)** e colar esse Transaction Id, você deverá ver informações sobre essa transação de cunhagem.
 3. Agora você deve ver todos os NFTs disponíveis para compra!
 - Nota: Se você deseja financiar uma conta de teste com tokens Flow para testar seu aplicativo, pode usar a **[Testnet Faucet](https://testnet-faucet.onflow.org/fund-account)**
 
@@ -242,8 +242,8 @@ Vamos testar nosso DApp no testnet:
 > 🏃 Siga para o próximo desafio aqui.
 > 
 
-> 💬 Encontre outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 💬 Encontre outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 > 
 
-> 👉 Problemas, perguntas, comentários sobre a pilha? Publique-os no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 👉 Problemas, perguntas, comentários sobre a pilha? Publique-os no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 >

@@ -13,7 +13,7 @@ layout: examples
 
 🌟 O resultado final é um DApp que permite aos usuários criar seu próprio token fungível e transferi-los para outra conta no testnet Flow.
 
-💬 Encontre outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Emerald City Discord](https://discord.gg/emeraldcity)**!
+💬 Encontre outros desenvolvedores trabalhando neste desafio e obtenha ajuda no **[Emerald City Discord](https://discord.gg/emerald-city-906264258189332541)**!
 
 ---
 # **Vídeo explicativo**
@@ -226,7 +226,7 @@ Vamos testar nosso DApp no testnet:
 2. Em **[http://localhost:3000/](http://localhost:3000/)**, clique em "conectar" e faça login na sua carteira Blocto ou Lilico, certificando-se de copiar o endereço com o qual você faz login.
 3. Clique em "Configurar Cofre" para criar um cofre e a capacidade de armazenar tokens.
 4. Em um terminal, execute **`npm run mint [O ENDEREÇO DA CONTA QUE VOCÊ ESTÁ LOGADO] [QUANTIDADE DE TOKENS]`**
-5. No seu terminal, você deve ver um "Transaction Id" impresso. Se você acessar o **[Testnet Flowscan](https://testnet.flowscan.org/)** e colar esse Transaction Id, verá informações sobre essa transação de emissão de tokens.
+5. No seu terminal, você deve ver um "Transaction Id" impresso. Se você acessar o **[Testnet Flowdiver](https://testnet.flowdiver.io)** e colar esse Transaction Id, verá informações sobre essa transação de emissão de tokens.
 6. Atualize o saldo mais uma vez e você verá os tokens emitidos na sua conta :)
 
 ---
@@ -244,8 +244,8 @@ Vamos testar nosso DApp no testnet:
 > 🏃 Vá para o próximo desafio aqui.
 > 
 
-> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 💬 Conheça outros desenvolvedores trabalhando neste desafio e obtenha ajuda no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 > 
 
-> 👉 Problemas, perguntas, comentários sobre o stack? Publique-os no [💎Discord da Emerald City](https://discord.gg/emeraldcity)!
+> 👉 Problemas, perguntas, comentários sobre o stack? Publique-os no [💎Discord da Emerald City](https://discord.gg/emerald-city-906264258189332541)!
 >

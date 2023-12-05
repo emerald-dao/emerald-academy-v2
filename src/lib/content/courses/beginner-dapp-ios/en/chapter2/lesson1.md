@@ -53,7 +53,7 @@ Now that we have gotten some basics out of the way, we can start building our Mo
 
 ## Setting Up the Environment
 
-Before we dive into the rest of the tutorial, let's make sure we have the necessary tools installed to develop our iOS app. If you need any help, please reach out in the [Emerald City Discord](https://discord.gg/emeraldcity).
+Before we dive into the rest of the tutorial, let's make sure we have the necessary tools installed to develop our iOS app. If you need any help, please reach out in the [Emerald City Discord](https://discord.gg/emerald-city-906264258189332541).
 
 1. Xcode: Install Xcode from the Mac App Store. Xcode is the integrated development environment (IDE) for macOS that includes all the tools needed for iOS app development.
 2. Git: If you don't already have Git installed, you can follow the instructions on this website: [https://git-scm.com/book/en/v2/Getting-Started-Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). You can confirm that Git is installed by running git --version in the Terminal.
