@@ -1,8 +1,3 @@
----
-layout: examples
----
-
-```cadence
 transaction(publicKey: String) {
   prepare(signer: AuthAccount) {
     let key = PublicKey(
@@ -19,4 +14,3 @@ transaction(publicKey: String) {
     )
   }
 }
-```
