@@ -1,8 +1,3 @@
----
-layout: examples
----
-
-```cadence
 import NonFungibleToken from 0x1d7e57aa55817448
 import Avataaars from 0xcb9a812737bbc679
 
@@ -37,4 +32,3 @@ transaction(nftIDs: [UInt64], recipients: [Address]) {
         }
     }
 }
-```
