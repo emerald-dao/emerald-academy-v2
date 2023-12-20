@@ -2,7 +2,7 @@
 layout: examples
 ---
 
-## 🚩 Challenge 6: Groups
+## 🚩 Quickstart 5: Groups
 
 🎫 Deploy a subcommunities contract to learn the basics of voting inside of a DAO on the Flow blockchain and Cadence. You'll use:
 

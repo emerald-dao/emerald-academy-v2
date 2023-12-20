@@ -7,7 +7,7 @@ layout: examples
   const lessonVideoUrl = 'https://www.youtube.com/embed/4HiXSGES8_o'
 </script>
 
-## 🚩 Challenge 0: Hello World
+## 🚩 Quickstart 0: Hello World
 
 🎫 Deploy a simple HelloWorld contract to learn the basics of the Flow blockchain and Cadence. You'll use:
 

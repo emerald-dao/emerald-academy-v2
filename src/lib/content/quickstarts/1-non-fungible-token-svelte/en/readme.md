@@ -2,7 +2,7 @@
 layout: examples
 ---
 
-## 🚩 Challenge 1: NonFungibleToken
+## 🚩 Quickstart 1: NonFungibleToken
 
 🎫 Deploy your own NFT contract to learn the basics of the Flow blockchain and Cadence. You'll use:
 

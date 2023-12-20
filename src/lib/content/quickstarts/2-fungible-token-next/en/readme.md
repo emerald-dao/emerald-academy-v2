@@ -7,7 +7,7 @@ layout: examples
   const lessonVideoUrl = 'https://www.youtube.com/embed/VXTOy7W7iQo'
 </script>
 
-## 🚩 Challenge 2: Fungible Token
+## 🚩 Quickstart 2: Fungible Token
 
 🎫 Deploy a FungibleToken contract to learn the basics of the Flow blockchain and Cadence. You'll use:
 

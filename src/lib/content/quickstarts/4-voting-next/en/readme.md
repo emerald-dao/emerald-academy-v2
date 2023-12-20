@@ -2,7 +2,7 @@
 layout: examples
 ---
 
-## 🚩 Challenge 4: Voting
+## 🚩 Quickstart 4: Voting
 
 🎫 Deploy a Voting contract to learn the basics of voting inside of a DAO on the Flow blockchain and Cadence. You'll use:
 

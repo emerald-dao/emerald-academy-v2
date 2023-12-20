@@ -2,7 +2,7 @@
 layout: examples
 ---
 
-## 🚩 Challenge 2: Fungible Token
+## 🚩 Quickstart 2: Fungible Token
 
 🎫 Deploy a FungibleToken contract to learn the basics of the Flow blockchain and Cadence. You'll use:
 
