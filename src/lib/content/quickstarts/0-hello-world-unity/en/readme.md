@@ -30,5 +30,5 @@ Open the Project using Unity (recommended 2022.3.8f1)
 ## ✏️ Checkpoint 4: Changing the Greeting
 ![image](https://github.com/memxor/FlowGreetingsUnity/assets/48633453/6f3f3b02-f9d4-46c0-bea5-e5d0f9113e90)
 
-## 📘 Checkpoint 3: Reading the Updated Greeting
+## 📘 Checkpoint 5: Reading the Updated Greeting
 ![image](https://github.com/memxor/FlowGreetingsUnity/assets/48633453/cb832301-d747-45fa-8f58-613a7c7e26f1)
