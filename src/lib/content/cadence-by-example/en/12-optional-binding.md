@@ -11,7 +11,7 @@ You can use `if let` to automatically unwrap an optional type.
 If the optional contains a value, the `if` branch is executed and a temporary constant or variable is set to the value contained in the optional; otherwise, the `else` branch (not required) is executed.
 
 ```cadence
-pub fun main(profileAddress: Address) {
+access(all) fun main(profileAddress: Address) {
 
    let profiles: {Address: String} = {
       0x01: "Jacob",
@@ -23,7 +23,7 @@ pub fun main(profileAddress: Address) {
       // variable and it has `String` type
    } else {
       // the profile with `profileAddress`
-      // did not exist, and `profile` was nil
+      // did not exist, because `profiles[profileAddress]` was nil
    }
 }
 ```

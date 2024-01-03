@@ -13,78 +13,68 @@ They are useful for grouping together related data.
 Structs can be defined inside contracts or scripts. A struct defined in a contract can be created anywhere.
 
 ```cadence
-// Contract file: Test.cdc
+// Contract file: Art.cdc
 // Deployed to 0x01
-pub contract Test {
+access(all) contract Art {
 
-   pub let profiles: {Address: Profile}
+   // this will act as an 'id' for
+   // new art pieces
+   access(all) var totalArtPieces: Int
+   access(all) let artPieces: {Int: ArtDetails}
 
-   pub struct Profile {
-      pub let name: String
-      pub let address: Address
-      pub let favNumber: Int
+   access(all) struct ArtDetails {
+      access(all) let id: Int
+      access(all) let name: String
+      access(all) let artLink: String
+      access(all) let hoursWorkedOn: Int
 
-      pub fun getIntroduction(): String {
-         return("Hi! I am ".concat(self.name)
-                    .concat(" and my favorite number is: ")
-                    .concat(self.favNumber.toString()))
-      }
-      
       // Like contracts, structs (and later - resources) 
       // must have an `init` function to initialzie their variables.
-      init(name: String, address: Address, favNumber: Int) {
+      init(id: Int, name: String, artLink: String, hoursWorkedOn: Int) {
+         self.id = id
          self.name = name
-         self.address = address
-         self.favNumber = favNumber
+         self.artLink = artLink
+         self.hoursWorkedOn = hoursWorkedOn
       }
    }
 
-   // Notice that this is not secure at all.
-   // Someone could pass in a Profile struct with 
-   // someone else's address in it and set their
-   // profile for them.
-   pub fun addProfile(profile: Profile) {
-      self.profiles[profile.address] = profile
-   }
-
-   pub fun getProfile(address: Address): Profile? {
-      return self.profiles[address]
+   access(all) fun uploadArt(name: String, artLink: String, hoursWorkedOn: Int) {
+      let id: Int = Art.totalArtPieces
+      let newArtPiece = ArtDetails(id: id, name: name, artLink: artLink, hoursWorkedOn: hoursWorkedOn)
+      // store the new art piece, mapped to its `id`
+      self.artPieces[id] = newArt
+      // increment the amount of art pieces by one
+      Art.totalArtPieces = Art.totalArtPieces + 1
    }
 
    init() {
-      self.profiles = {}
+      self.totalArtPieces = 0
+      self.artPieces = {}
    }
 }
 ```
 
 ```cadence
-// Transaction file: create_profile.cdc
-import Test from 0x01
+// Transaction file: create_art_piece.cdc
+import Art from 0x01
 
-transaction(name: String, favNumber: Int) {
+transaction(name: String, artLink: String, hoursWorkedOn: Int) {
 
-   // We just use the transaction signer's
-   // address for the new profile.
-   let SignerAddress: Address
-
-   prepare(signer: AuthAccount) {
-      self.SignerAddress = signer.address
-   }
+   prepare(signer: &Account) {}
 
    execute {
-      // the type is `Test.Profile`
-      let newProfile: Test.Profile = Test.Profile(name: name, address: self.SignerAddress, favNumber: favNumber)
-      Test.addProfile(profile: newProfile)
+      Art.uploadArt(name: name, artLink: artLink, hoursWorkedOn: hoursWorkedOn)
    }
 }
 ```
 
 ```cadence
-// Script file: read_profile.cdc
-import Test from 0x01
+// Script file: read_art_piece.cdc
+import Art from 0x01
 
-pub fun main(address: Address): String {
-   let profile: Test.Profile? = Test.getProfile(address: address)
-   return profile!.getIntroduction()
+// Returns an object that holds `ArtPiece` data.
+// If the art piece with `id` does not exist, returns nil.
+access(all) fun main(id: Int): Art.ArtPiece? {
+   return Art.artPieces[id]
 }
 ```

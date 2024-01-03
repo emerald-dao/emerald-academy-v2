@@ -9,21 +9,19 @@ layout: examples
 Like any other data type, we can store resources in arrays and dictionaries.
 
 ```cadence
-pub contract TestDictionaries {
+access(all) contract TestDictionaries {
 
    // The `@` is placed before the entire type.
    // INCORRECT: {Address: @NFT}
-   pub let nfts: @{UInt64: NFT}
+   access(all) let nfts: @{UInt64: NFT}
 
-   pub resource NFT {
-      pub let id: UInt64
-      pub let rarity: String
-      pub var name: String
+   access(all) resource NFT {
+      access(all) let id: UInt64
+      access(all) let rarity: String
       
-      init(rarity: String, name: String) {
+      init(rarity: String) {
          self.id = self.uuid
          self.rarity = rarity
-         self.name = name
       }
    }
 
@@ -32,10 +30,10 @@ pub contract TestDictionaries {
    // 2. "old out; new in"
 
    // 1. because resources cannot be overwritten,
-   // this tells Cadence to force move the operator
+   // this tells Cadence to force move the resource
    // into the dictionary. If a value already exists,
    // panic and abort the program.
-   pub fun addNFT1(nft: @NFT) {
+   access(all) fun addNFT1(nft: @NFT) {
       self.nfts[nft.id] <-! nft
       // `nft` no longer exists here, since
       // it has been moved into the dictionary
@@ -45,14 +43,14 @@ pub contract TestDictionaries {
    // exists at the specified key, and then moves in the
    // new value. This method allows you to handle the
    // case where a value/resource already exists at the key.
-   pub fun addNFT2(nft: @NFT) {
+   access(all) fun addNFT2(nft: @NFT) {
       let oldNFT <- self.nfts[nft.id] <- nft
       destroy oldNFT
       // `nft` and `oldNFT` no longer exist here
    }
 
-   pub fun createNFT(rarity: String, name: String): @NFT {
-      return <- create NFT(rarity: rarity, name: name)
+   access(all) fun createNFT(rarity: String): @NFT {
+      return <- create NFT(rarity: rarity)
    }
 
    init() {
@@ -62,30 +60,28 @@ pub contract TestDictionaries {
 ```
 
 ```cadence
-pub contract TestArrays {
+access(all) contract TestArrays {
 
    // The `@` is placed before the entire type.
    // INCORRECT: [@NFT]
-   pub let nfts: @[NFT]
+   access(all) let nfts: @[NFT]
 
-   pub resource NFT {
-      pub let id: UInt64
-      pub let rarity: String
-      pub var name: String
+   access(all) resource NFT {
+      access(all) let id: UInt64
+      access(all) let rarity: String
       
-      init(rarity: String, name: String) {
+      init(rarity: String) {
          self.id = self.uuid
          self.rarity = rarity
-         self.name = name
       }
    }
 
-   pub fun addNFT(nft: @NFT) {
+   access(all) fun addNFT(nft: @NFT) {
       self.nfts.append(<- nft)
    }
 
-   pub fun createNFT(rarity: String, name: String): @NFT {
-      return <- create NFT(rarity: rarity, name: name)
+   access(all) fun createNFT(rarity: String): @NFT {
+      return <- create NFT(rarity: rarity)
    }
 
    init() {

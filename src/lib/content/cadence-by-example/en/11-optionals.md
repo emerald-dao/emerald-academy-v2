@@ -13,7 +13,7 @@ For example, `Int?` means: "This value is either `Int`, or `nil`."
 `nil` simply means nothing, or `null` in other languages.
 
 ```cadence
-pub fun main() {
+access(all) fun main() {
    let test_one: Int? = 3 // valid
    
    let test_two: Int? = nil // valid
@@ -36,10 +36,10 @@ pub fun main() {
 
 When indexing into dictionaries, we get optional types back.
 
-To get rid of the optional type, we can use the force-unwrap operator `!`, or `panic` (recommended) if we want to provide an explanation for why the value is `nil`.
+To get rid of the optional type ("unwrap it"), we can use the force-unwrap operator `!`, or `panic` (recommended) if we want to provide an explanation for why the value is `nil`.
 
 ```cadence
-pub fun main() {
+access(all) fun main() {
    let map: {Address: Int} = {
       0x01: 1,
       0x02: 2
@@ -65,5 +65,11 @@ pub fun main() {
    */
 
    let test_six: Int = map[0x01] ?? panic("Address 0x01 does not exist in the dictionary.")
+
+   /*
+    run-time error: Address 0x05 does not exist in the dictionary.
+    
+    let test_seven: Int = map[0x05] ?? panic("Address 0x05 does not exist in the dictionary.")
+   */
 }
 ```

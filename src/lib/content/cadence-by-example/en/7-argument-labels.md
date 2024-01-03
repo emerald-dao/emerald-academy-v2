@@ -13,17 +13,17 @@ When calling functions, you must provide "argument labels" unless the function p
 ```cadence
 // Contract file: Test.cdc
 // Deployed to 0x01
-pub contract Test {
+access(all) contract Test {
    
-  pub fun add1(x: Int, y: Int): Int {
+  access(all) fun add1(x: Int, y: Int): Int {
     return x + y
   }
 
-  pub fun add2(_ x: Int, y: Int): Int {
+  access(all) fun add2(_ x: Int, y: Int): Int {
     return x + y
   }
 
-  pub fun add3(_ x: Int, _ y: Int): Int {
+  access(all) fun add3(_ x: Int, _ y: Int): Int {
     return x + y
   }
 
@@ -34,7 +34,7 @@ pub contract Test {
 // Script file: add.cdc
 import Test from 0x01
 
-pub fun main() {
+access(all) fun main() {
   // must provide x and y argument labels
   let test1 = Test.add1(x: 10, y: 5)
 

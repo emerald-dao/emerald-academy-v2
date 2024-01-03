@@ -8,51 +8,80 @@ layout: examples
 
 We can define and implement interfaces on structs or resources.
 
-If a type is restricted by an interface, you can only access the variables/functions specified by that interface.
-
 ```cadence
-pub contract Test {
+access(all) contract Test {
 
-   pub resource interface INFT {
-      pub var name: String
-      pub fun updateNumber(newNumber: Int)
+   access(all) resource interface IWeapon {
+      access(all) let rarity: String
+      paccess(all)ub fun getStats(): String
    }
 
-   // implement the interface with `: INFT`
-   pub resource NFT: INFT {
-      pub var name: String
-      pub var number: Int
+   // implement the interface with `: IWeapon`
+   access(all) resource Sword: IWeapon {
+      access(all) let rarity: String
+      access(all) let sharpness: Int
 
-      pub fun updateNumber(newNumber: Int) {
-         self.number = newNumber
+      access(all) fun getStats(): String {
+         return self.rarity
+                  .concat(" sword with sharpness level ")
+                  .concat(self.sharpness.toString())
       }
 
-      init() {
-         self.name = "Spongebob"
-         self.number = 1
+      init(rarity: String, sharpness: Int) {
+         self.rarity = rarity
+         self.sharpness = sharpness
       }
    }
 
-   pub fun noInterface() {
-      let nft: @NFT <- create NFT()
-      nft.updateNumber(newNumber: 5)
-      log(nft.number) // 5
+   access(all) resource Bow: IWeapon {
+      access(all) let rarity: String
+      access(all) let power: Int
 
-      destroy nft
+      access(all) fun getStats(): String {
+         return self.rarity
+                  .concat(" bow with power level ")
+                  .concat(self.power.toString())
+      }
+
+      init(rarity: String, power: Int) {
+         self.rarity = rarity
+         self.power = power
+      }
    }
 
-   pub fun yesInterface() {
-      let nft: @NFT{INFT} <- create NFT()
-      nft.updateNumber(newNumber: 5)
-
-      /*
-       ERROR - NOT ALLOWED: `number` does not belong to the interface type
-       
-       log(nft.number)
-      */
-
-      destroy nft
+   // notice how we interface types are written
+   // (we add @ in front only because it's a resource)
+   access(all) fun logAndDestroyWeapon(weapon: @{IWeapon}) {
+      log(weapon.getStats())
+      destroy weapon
    }
+
+   // ... more stuff here
 }
 ```
 
+Contracts can also implement interfaces defined in other contracts.
+
+```cadence
+import Test from "./Test.cdc"
+
+access(all) contract AddedTest {
+   access(all) resource Shield: Test.IWeapon {
+      access(all) let rarity: String
+      access(all) let endurance: Int
+
+      access(all) fun getStats(): String {
+         return self.rarity
+                  .concat(" shield with endurance level ")
+                  .concat(self.endurance.toString())
+      }
+
+      init(rarity: String, endurance: Int) {
+         self.rarity = rarity
+         self.endurance = endurance
+      }
+   }
+
+   // ... more stuff here
+}
+```

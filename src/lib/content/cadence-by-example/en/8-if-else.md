@@ -9,13 +9,13 @@ layout: examples
 Cadence supports conditional statements `if`, `else if` and `else`.
 
 ```cadence
-pub fun main(x: Int): Int {
-   if (x < 10) {
-      return 0
-   } else if (x < 20) {
-      return 1
+access(all) fun main(x: Int): String {
+   if (x > 0) {
+      return "This is a positive integer."
+   } else if (x == 0) {
+      return "This is zero."
    } else {
-      return 2
+      return "This is a negative integer."
    }
 }
 ```

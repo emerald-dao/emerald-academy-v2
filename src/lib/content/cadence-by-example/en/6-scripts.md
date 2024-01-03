@@ -12,7 +12,7 @@ Like transactions, scripts are separate from the contract layer, and are written
 
 Scripts always look like:
 ```cadence
-pub fun main() {
+access(all) fun main() {
   
 }
 ```
@@ -22,10 +22,10 @@ pub fun main() {
 ```cadence
 // Contract file: Counter.cdc
 // Deployed to 0x01
-pub contract Counter {
-   pub var count: Int
+access(all) contract Counter {
+   access(all) var count: Int
 
-   pub fun increment() {
+   access(all) fun increment() {
       self.count = self.count + 1
    }
 
@@ -39,7 +39,7 @@ pub contract Counter {
 // Script file: get_count.cdc
 import Counter from 0x01
 
-pub fun main(): Int {
+access(all) fun main(): Int {
    return Counter.count
 }
 ```

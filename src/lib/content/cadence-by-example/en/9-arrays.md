@@ -7,18 +7,18 @@ layout: examples
 # Arrays
 
 ```cadence
-pub contract Arrays {
-   pub let names: [String]
+access(all) contract Arrays {
+   access(all) let names: [String]
 
-   pub fun add(name: String) {
+   access(all) fun add(name: String) {
       self.names.append(name)
    }
 
-   pub fun remove(index: Int) {
+   access(all) fun remove(index: Int) {
       self.names.remove(at: index)
    }
 
-   pub fun get(index: Int): String {
+   access(all) fun get(index: Int): String {
       return self.names[index]
    }
 

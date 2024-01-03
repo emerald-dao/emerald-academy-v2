@@ -10,12 +10,12 @@ In order to change data in a contract, you need to send a transaction.
 
 In Cadence, transactions (and scripts) are separate from the contract layer, and are written in different files.
 
-Transactions can import any number of pre-deployed contracts, so you can combine many different actions (across contracts) into 1 transcation.
+Transactions can import any number of deployed contracts, so you can combine many different actions (across contracts) into 1 transcation.
 
 Transactions always look like:
 ```cadence
 transaction() {
-   prepare(signer: AuthAccount) {
+   prepare(signer: &Account) {
 
    }
    execute {
@@ -26,7 +26,7 @@ transaction() {
 
 Transactions have 2 main stages:
 
-1. **prepare** - to access/manipulate data inside the `signer`'s account (allowed by the `AuthAccount` type)
+1. **prepare** - to access/manipulate data inside the `signer`'s account (to come later...)
 2. **execute** - to execute actions
 
 # Example Contract & Transaction
@@ -34,10 +34,10 @@ Transactions have 2 main stages:
 ```cadence
 // Contract file: Counter.cdc
 // Deployed to 0x01
-pub contract Counter {
-   pub var count: Int
+access(all) contract Counter {
+   access(all) var count: Int
 
-   pub fun increment() {
+   access(all) fun increment() {
       self.count = self.count + 1
    }
 
@@ -56,6 +56,8 @@ transaction() {
    prepare(signer: AuthAccount) {
       // we don't need to do anything 
       // with the signer's data
+
+      // we will learn more about this later
    }
 
    execute {

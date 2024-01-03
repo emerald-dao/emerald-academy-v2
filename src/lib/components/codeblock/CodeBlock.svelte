@@ -50,6 +50,7 @@
 		background: var(--clr-background-secondary);
 		max-height: 500px;
 		overflow-y: scroll;
+		font-size: 14px;
 
 		.language-wrapper {
 			padding: var(--space-4);
@@ -59,7 +60,7 @@
 		}
 
 		pre {
-			padding: var(--space-6) var(--space-14);
+			padding: var(--space-6) var(--space-8);
 			margin: var(--space-1);
 		}
 

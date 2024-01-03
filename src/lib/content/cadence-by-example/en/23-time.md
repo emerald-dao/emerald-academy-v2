@@ -7,7 +7,7 @@ layout: examples
 # Time
 
 ```cadence
-pub fun main() {
+access(all) fun main() {
    // time is represented as a unix timestamp in seconds
    let currentTime: UFix64 = getCurrentBlock().timestamp
 

@@ -9,18 +9,18 @@ layout: examples
 When retrieving a value from a dictionary, an optional type is returned. More on that next.
 
 ```cadence
-pub contract Dictionaries {
-   pub let map: {Address: Int}
+access(all) contract Dictionaries {
+   access(all) let map: {Address: Int}
 
-   pub fun add(address: Address, number: Int) {
+   access(all) fun add(address: Address, number: Int) {
       self.map[address] = number
    }
 
-   pub fun remove(address: Address) {
+   access(all) fun remove(address: Address) {
       self.map.remove(key: address)
    }
 
-   pub fun get(address: Address): Int? {
+   access(all) fun get(address: Address): Int? {
       return self.map[address]
    }
 
