@@ -35,6 +35,7 @@ access(all) contract Test {
 
    access(all) fun test(name: String) {
       let nft: @NFT <- create NFT(name: name)
+      
       let publicRef = &nft as &NFT
       log(publicRef.name) // good
       /*

@@ -49,7 +49,7 @@ access(all) contract Test {
       }
    }
 
-   // notice how we interface types are written
+   // notice how the interface types are written
    // (we add @ in front only because it's a resource)
    access(all) fun logAndDestroyWeapon(weapon: @{IWeapon}) {
       log(weapon.getStats())
