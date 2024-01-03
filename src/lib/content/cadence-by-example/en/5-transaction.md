@@ -53,7 +53,7 @@ import Counter from 0x01
 
 transaction() {
 
-   prepare(signer: AuthAccount) {
+   prepare(signer: &Account) {
       // we don't need to do anything 
       // with the signer's data
 

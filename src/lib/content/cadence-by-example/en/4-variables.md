@@ -12,20 +12,13 @@ There are 2 types of variables in Cadence:
 2. **let** - a constant
 
 ```cadence
-access(all) contract Variables {
-   access(all) var num1: Int
-   access(all) let num2: Int
+var num1: Int = 0
+let num2: Int = 0
 
-   init() {
-      self.num1 = 1
-      self.num1 = 2 // good
-
-      self.num2 = 1
-      /*
-       ERROR: not allowed
-       
-       self.num2 = 2
-      */
-   }
-}
+num1 = 1 // good
+/*
+   ERROR: not allowed to change a constant
+   
+   self.num2 = 2
+*/
 ```
