@@ -82,7 +82,7 @@ access(contract) fun levelUp() {
 }
 ```
 
-Now this function can only ever be called in the smart contract. Or more specifically, it can only ever be called inside the `battle` function.
+Now this function can only ever be called in the smart contract. Or more specifically, it will only be called inside the `battle` function.
 
 Your final contract should look like this:
 

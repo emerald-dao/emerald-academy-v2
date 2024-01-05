@@ -4,6 +4,10 @@ lesson: 2
 language: en
 ---
 
+<script>
+  import Notice from "$lib/components/atoms/Notice.svelte"
+</script>
+
 # Chapter 3 Lesson 2 - Account Storage
 
 So far, we have been storing all of our data inside the smart contract. Today, we will learn how we can store a Pokemon directly in our own account and catch it just like the real show!
@@ -12,7 +16,7 @@ So far, we have been storing all of our data inside the smart contract. Today, w
 
 ## Accounts on Flow
 
-In Cadence, users can store & own their data. This is *very different* than other languages like Solidity on Ethereum, where your NFT gets stored in the smart contract. In Cadence, if I own an NFT, it gets stored in my account.
+In Cadence, users can store & own their data. This is *very different* from other languages like Solidity on Ethereum, where your NFT gets stored in the smart contract. In Cadence, if I own an NFT, it gets stored in my account.
 
 You can manage your account (like storing and deleting things) in a transaction. Every time a user sends a transaction, they "sign" it. All that means is you clicked a button (or provided a private key) saying "hey, I want to approve this transaction." When you sign it, the transaction takes in your `&Account` - a type that lets you manage it based on the "entitlements" granted. More on this below.
 
@@ -37,7 +41,9 @@ transaction(name: String, type: String) {
 }
 ```
 
-This transaction looks perfect, and in fact it almost is... but if you try to run it, it will fail! This is because in order to perform certain actions on your `&Account` (like `save`), you need certain entitlements that unlock different actions. More on that below.
+This transaction looks perfect, and in fact it almost is... but if you try to run it, it will fail! This is because in order to perform certain actions on your `&Account` (like `save`), you need certain "entitlements" that unlock different actions. We will learn a few built-in entitlements for managing accounts below.
+
+<Notice type="note">We will learn a lot about entitlements in the intermediate course. For now, we will learn just a few built-in entitlements that are used for managing accounts.</Notice>
 
 ### Save and Load Functions
 
@@ -47,7 +53,7 @@ Let's see how to properly save and remove data from our account.
 import Game from 0x01
 
 transaction(name: String, type: String) {
-  // notice the `auth(SaveValue)` - this allows
+  // notice the `SaveValue` entitlement - this allows
   // us to call the `save` function
   prepare(signer: auth(SaveValue) &Account) {
     // create a new pokemon
@@ -61,13 +67,15 @@ transaction(name: String, type: String) {
 }
 ```
 
-In the example above, I saved `newPokemon` (note the `<-` syntax since it's a resource) to the path `/storage/MyPokemon`. Now, anytime we want to get it, we can go to that path. Let's do that below.
+In the example above, I saved `newPokemon` (note the `<-` syntax since it's a resource) to the path `/storage/MyPokemon`. Notice also that we had to provide the `SaveValue` entitlement on the `&Account` type to enable saving to the account.
+
+Now anytime we want to access the new pokemon, we can go to that path. Let's do that below.
 
 ```cadence
 import Game from 0x01
 
 transaction() {
-  // notice the `auth(LoadValue)` - this allows
+  // notice the `LoadValue` entitlement - this allows
   // us to call the `load` function
   prepare(signer: auth(LoadValue) &Account) {
     // takes `myPokemon` out of my account storage
@@ -95,7 +103,7 @@ Previously, we saved and loaded from our account. But what if we just want to lo
 import Game from 0x01
 
 transaction() {
-  // notice the `auth(BorrowValue)` - this allows
+  // notice the `BorrowValue` entitlement - this allows
   // us to call the `load` function
   prepare(signer: auth(BorrowValue) &Account) {
     let myPokemonRef <- signer.storage.borrow<&Game.Pokemon>(from: /storage/MyPokemon)
@@ -117,9 +125,9 @@ It turns out it's very easy. Scripts allow you to get authorized references to a
 
 ```cadence
 access(all) fun main(address: Address) {
-  // getAuthAccount is a built-in function to Cadence
+  // `getAuthAccount` is a built-in function to Cadence
   //
-  // auth(Storage) is an entitlement that enables save,
+  // `Storage` is an entitlement that enables save,
   // load, and borrow all in one.
   let authAccount = getAuthAccount<auth(Storage) &Account>(address)
 }
