@@ -8,7 +8,11 @@
 		<h3>Join us on Discord</h3>
 	</div>
 	<div class="logo-wrapper">
-		<a href="https://discord.com/invite/emeraldcity" target="_blank" rel="noreferrer">
+		<a
+			href="https://discord.com/invite/emerald-city-906264258189332541"
+			target="_blank"
+			rel="noreferrer"
+		>
 			<Icon icon="tabler:brand-discord" width="92" color="#707070" />
 		</a>
 	</div>
