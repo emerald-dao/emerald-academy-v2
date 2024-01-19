@@ -122,7 +122,7 @@ Here is the new way of doing that:
 ```cadence
 import HelloWorld from 0x01
 
-pub fun main(user: Address): String {
+access(all) fun main(user: Address): String {
     // Note how the get function returns an optional now.
     let greetingCap: Capability<&HelloWorld.Greeting{HelloWorld.IGreeting}> = 
         getAccount(user).capabilities.get<&HelloWorld.Greeting>(/public/MyGreeting)
@@ -137,7 +137,7 @@ OR, you can use a more simplified version using the new `borrow` conveniance fun
 ```cadence
 import HelloWorld from 0x01
 
-pub fun main(user: Address): String {
+access(all) fun main(user: Address): String {
     let greetingRef: &HelloWorld.Greeting{HelloWorld.IGreeting} = 
         getAccount(user).capabilities.borrow<&HelloWorld.Greeting>(/public/MyGreeting)
         ?? panic("This public capability does not exist.")
@@ -218,7 +218,7 @@ Also note that private paths do not exist anymore. You are instead just issuing 
 ```cadence
 import HelloWorld from 0x01
 
-pub fun main(user: Address, storagePath: StoragePath): [&StorageCapabilityController] {
+access(all) fun main(user: Address, storagePath: StoragePath): [&StorageCapabilityController] {
     let authAccount = getAuthAccount<auth(Capabilities) &Account>(user)
     return authAccount.capabilities.storage.getControllers(forPath: storagePath)
 }
@@ -227,22 +227,22 @@ pub fun main(user: Address, storagePath: StoragePath): [&StorageCapabilityContro
 Here is what the `&StorageCapabilityController` type looks like:
 
 ```cadence
-pub struct StorageCapabilityController {
+access(all) struct StorageCapabilityController {
 
     /// An arbitrary "tag" for the controller.
     /// For example, it could be used to describe the purpose of the capability.
     /// Empty by default.
-    pub var tag: String
+    access(all) var tag: String
 
     /// The type of the controlled capability, i.e. the T in `Capability<T>`.
-    pub let borrowType: Type
+    access(all) let borrowType: Type
 
     /// The identifier of the controlled capability.
     /// All copies of a capability have the same ID.
-    pub let capabilityID: UInt64
+    access(all) let capabilityID: UInt64
 
     /// The controlled capability
-    pub let capability: Capability
+    access(all) let capability: Capability
 
     /// Delete this capability controller,
     /// and disable the controlled capability and its copies.
@@ -255,14 +255,14 @@ pub struct StorageCapabilityController {
     ///
     /// Borrowing from the controlled capability or its copies will return nil.
     ///
-    pub fun delete()
+    access(all) fun delete()
 
     /// Returns the targeted storage path of the controlled capability.
-    pub fun target(): StoragePath
+    access(all) fun target(): StoragePath
 
     /// Retarget the controlled capability to the given storage path.
     /// The path may be different or the same as the current path.
-    pub fun retarget(_ target: StoragePath)
+    access(all) fun retarget(_ target: StoragePath)
 }
 ```
 
