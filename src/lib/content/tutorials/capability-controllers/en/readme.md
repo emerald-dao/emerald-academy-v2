@@ -300,7 +300,7 @@ transaction() {
 
         assert(capId != nil, message: "There was no found capability with the necessary type.")
 
-        let privateCap: Capability<&HelloWorld.Greeting> = 
+        let privateCap: Capability<auth(HelloWorld.ChangeGreeting) &HelloWorld.Greeting> = 
             signer.capabilities.storage.getController(byCapabilityID: capId!)!
             .capability as! Capability<auth(HelloWorld.ChangeGreeting) &HelloWorld.Greeting>
         // ... and you would then move it around as you please
