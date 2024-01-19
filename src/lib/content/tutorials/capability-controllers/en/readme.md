@@ -8,7 +8,7 @@ This tutorial will walk through the new mechanism: **Capability Controllers** ("
 
 # Example Overview
 
-In order to showcase the new Capability Controllers system, let's create at an example contract so we can compare how you would create, manage, and get the old vs. new capabilities side by side.
+In order to showcase the new Capability Controllers system, let's create at an example contract so we can compare how you would create, manage, and get the old vs. new capabilities side by side. We will have to define 2 different contracts - one in old Cadence, and one using Cadence 1.0 to properly show examples.
 
 Old Cadence Contract:
 ```cadence
@@ -43,7 +43,7 @@ access(all) contract HelloWorld {
 
     access(all) entitlement ChangeGreeting
 
-    access(all) resource Greeting: IGreeting {
+    access(all) resource Greeting {
         access(all) var greeting: String
 
         access(ChangeGreeting) fun changeGreeting(newGreeting: String) {
@@ -62,7 +62,7 @@ access(all) contract HelloWorld {
 }
 ```
 
-The idea is that we have a `Greeting` resource. We want the public to be able to read the `greeting` variable, but only the owner of the resource should be able to call the `changeGreeting` function.
+In each case, the idea is that we have a `Greeting` resource. We want the public to be able to read the `greeting` variable, but only the owner of the resource should be able to call the `changeGreeting` function.
 
 ## Old vs. New: Creating a Public Capability
 
