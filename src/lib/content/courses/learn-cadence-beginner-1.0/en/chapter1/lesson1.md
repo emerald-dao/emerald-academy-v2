@@ -38,7 +38,7 @@ After you do that, type `flow version` in your terminal and make sure a version 
 
 Next, you will need a code editor so you can start writing code. I highly recommend installing <a href="https://code.visualstudio.com/Download">Visual Studio Code</a>. Once you install VSCode, create a folder on your computer and open it up in VSCode. On the left side, click the "Extensions" button and search "Cadence". Install the one that looks like this:
 
-<img href="https://i.imgur.com/BthLlAu.png" alt="vscode cadence extension" />
+<img src="https://i.imgur.com/BthLlAu.png" alt="vscode cadence extension" />
 
 ### Setting Up our Project
 

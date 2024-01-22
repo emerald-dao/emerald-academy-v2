@@ -123,7 +123,7 @@ transaction(name: String, type: String) {
 }
 ```
 
-If you run this in the Flow playground, you should see that it logs the pokemons details.
+If you run this in your terminal, you should see that it logs the pokemons details.
 
 ## Conclusion
 
