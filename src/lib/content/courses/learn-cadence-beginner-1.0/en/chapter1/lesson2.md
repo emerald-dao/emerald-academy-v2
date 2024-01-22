@@ -130,7 +130,13 @@ transaction(myNewGreeting: String) {
 }
 ```
 
-To run this transaction, run `flow transactions send ./change_greeting.cdc "Hey there, Jacob!"`. If you rerun your script, you should now see "Hey there, Jacob!" printed in the console. Boom, you just successfully implemented your first transaction.
+To run this transaction, run:
+
+```bash
+flow transactions send ./change_greeting.cdc "Hey there, Jacob!"
+```
+
+If you rerun your script, you should now see "Hey there, Jacob!" printed in the console. Boom, you just successfully implemented your first transaction.
 
 ## Conclusion
 

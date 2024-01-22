@@ -27,10 +27,14 @@ In order to start making our first smart contract, we need to figure out a place
 First install the Flow CLI by copying one of the below commands into the terminal on your computer:
 
 Linux/macOS:
-`sudo sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)" -- v1.9.2-stable-cadence.1`
+```bash
+sudo sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)" -- v1.9.2-stable-cadence.1
+```
 
 Windows (in PowerShell):
-`iex "& { $(irm 'https://raw.githubusercontent.com/onflow/flow-cli/master/install.ps1') } v1.9.2-stable-cadence.1"`
+```bash
+iex "& { $(irm 'https://raw.githubusercontent.com/onflow/flow-cli/master/install.ps1') } v1.9.2-stable-cadence.1"
+```
 
 After you do that, type `flow version` in your terminal and make sure a version appears. 
 
@@ -152,7 +156,13 @@ access(all) fun main(): String {
 }
 ```
 
-Then, go to your terminal and run `flow scripts execute ./read_greeting.cdc`. Make sure it returns "Hello, World!".
+Then, go to your terminal and run:
+
+```bash
+flow scripts execute ./read_greeting.cdc
+```
+
+Make sure it returns "Hello, World!".
 
 So... what did we just do?! Well, we just executed a **script**. Scripts are used to **read** data from our smart contracts. This script does the following:
 

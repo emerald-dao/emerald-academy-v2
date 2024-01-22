@@ -135,7 +135,11 @@ transaction(name: String, artLink: String, hoursWorkedOn: Int) {
 }
 ```
 
-Bam! Let's run this transaction with some test data by pasting the following into our terminal: `flow transactions send ./upload_art.cdc "Jacob" "https://i.imgur.com/mdDB58Z.png" 10`
+Bam! Let's run this transaction with some test data by pasting the following into our terminal: 
+
+```bash
+flow transactions send ./upload_art.cdc "Jacob" "https://i.imgur.com/mdDB58Z.png" 10
+```
 
 ### Read our Art Piece
 
