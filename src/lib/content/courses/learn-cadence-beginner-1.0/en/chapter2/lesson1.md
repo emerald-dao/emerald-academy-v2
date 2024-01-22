@@ -43,7 +43,7 @@ Notice that Structs have the `init()` function that gets called when the Struct 
 
 ## Real Example
 
-Let's start off by actually deploying a new smart contract:
+Let's start off by actually deploying a new smart contract. Create a new file called `Art.cdc` and paste the following code:
 
 ```cadence
 access(all) contract Art {
@@ -92,14 +92,16 @@ I threw a lot at you here. But you actually know all of it now! We can break it 
 
 If you can understand these things, you've made significant progress. If you're struggling with this a bit, no worries! I would maybe review some of the concepts from the past few lessons.
 
+Make sure to also add the Art contract to your `flow.json` file and deploy it just like we did for HelloWorld in the previous chapter.
+
 ### Upload Art
 
 Now that we've defined a new Struct, let's see why it can be helpful.
 
-Let's open a new transaction and copy and paste this boilerplate transaction code:
+Let's create a new transaction and copy and paste this boilerplate transaction code:
 
 ```cadence
-import Art from 0x01
+import Art from "./Art.cdc"
 
 transaction() {
 
@@ -120,7 +122,7 @@ Art.uploadArt(name: name, artLink: artLink, hoursWorkedOn: hoursWorkedOn)
 But wait, we need to get these arguments from somewhere first! We can do that by passing them into the transaction as arguments, like so:
 
 ```cadence
-import Art from 0x01
+import Art from "./Art.cdc"
 
 transaction(name: String, artLink: String, hoursWorkedOn: Int) {
 
@@ -133,16 +135,14 @@ transaction(name: String, artLink: String, hoursWorkedOn: Int) {
 }
 ```
 
-Bam! Let's run this transaction with any account and pass in some example data like so:
-
-<img src="/courses/beginner-cadence/txstuff.png" alt="drawing" size="400" />
+Bam! Let's run this transaction with some test data by pasting the following into our terminal: `flow transactions send ./upload_art.cdc "Jacob" "https://i.imgur.com/mdDB58Z.png" 10`
 
 ### Read our Art Piece
 
-To read our new Art Piece, let's open up a script and copy and paste the boilerplate script code:
+To read our new Art Piece, let's create a script and copy and paste the boilerplate script code:
 
 ```cadence
-import Art from 0x01
+import Art from "./Art.cdc"
 
 access(all) fun main() {
 
@@ -152,7 +152,7 @@ access(all) fun main() {
 Now, let's try to read our stored art piece. We can do this by passing in an `id` since we mapped `id` -> `ArtPiece` in our `artPieces` dictionary in the contract. We can then return the `ArtPiece` type we get from that dictionary, like so:
 
 ```cadence
-import Art from 0x01
+import Art from "./Art.cdc"
 
 access(all) fun main(id: Int): Art.ArtPiece? {
     return Art.artPieces[id]

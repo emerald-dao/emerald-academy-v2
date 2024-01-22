@@ -269,14 +269,14 @@ access(all) fun storePokemon(pokemon: @Pokemon) {
 
 ## Testing it Out
 
-Let's write some fun transactions and scripts to actually use our new contract! Make sure to re-deploy your `Game` contract first.
+Let's write some fun transactions and scripts to actually use our new contract! Make sure to re-deploy your `Game` contract first. Remember, you can do this simply by stopping the emulator, restarting it, and deploying again.
 
 ### Create & Store a Pokemon
 
-Here is a transaction to create & save a Pokemon to the contract. Run this one in the playground:
+Here is a transaction to create & save a Pokemon to the contract. Run this one in your terminal:
 
 ```cadence
-import Game from 0x01
+import Game from "./Game.cdc"
 
 transaction(name: String, type: String) {
     prepare(signer: &Account) {
@@ -296,7 +296,7 @@ transaction(name: String, type: String) {
 Next, let's check to see that our Pokemon actually got created. The `totalPokemonCreated` count should have gone up:
 
 ```cadence
-import Game from 0x01
+import Game from "./Game.cdc"
 
 access(all) fun main(): Int {
     return Game.totalPokemonCreated
@@ -308,7 +308,7 @@ access(all) fun main(): Int {
 Next, let's get all of the Pokemon ids that exist in the contract:
 
 ```cadence
-import Game from 0x01
+import Game from "./Game.cdc"
 
 access(all) fun main(): [UInt64] {
     return Game.getIDs()
@@ -320,7 +320,7 @@ access(all) fun main(): [UInt64] {
 Lastly, take one of the ids that you saw in the previous step and pass that into the following script:
 
 ```cadence
-import Game from 0x01
+import Game from "./Game.cdc"
 
 access(all) fun main(id: UInt64): Game.PokemonDetails? {
     return Game.getPokemonDetails(id: id)

@@ -10,7 +10,7 @@ Whatsup! Today, we will be learning some of the most important types that you wi
 
 ## Types
 
-To start playing around with types, let's open up the [Flow playground](https://play.flow.com) and open up a script. We're not going to write any smart contracts today :)
+To start playing around with types, let's create a new file called `test.cdc`. We're not going to write any smart contracts today :)
 
 In Cadence, the code you write can often infer what type something is. For example, if you write:
 

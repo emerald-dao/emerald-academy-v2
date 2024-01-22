@@ -245,7 +245,7 @@ access(all) contract Game {
 This is the transaction we would use to actually make two Pokemon battle:
 
 ```cadence
-import Game from 0x01
+import Game from "./Game.cdc"
 
 transaction(pokemonId1: UInt64, pokemonId2: UInt64) {
     prepare(signer: &Account) {}

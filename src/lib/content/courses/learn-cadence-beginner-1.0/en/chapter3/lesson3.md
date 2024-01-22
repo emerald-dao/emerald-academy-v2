@@ -15,7 +15,7 @@ In Lesson 2, I showed you how to create a Pokemon inside of a transaction and sa
 Let's see an example of the problem right now:
 
 ```cadence
-import Game from 0x01
+import Game from "./Game.cdc"
 
 transaction(name: String, type: String) {
   prepare(signer: auth(SaveValue) &Account) {
@@ -41,7 +41,7 @@ Is... this okay? Right now, anyone can create their own Pokemon, level it up as 
 They can even continue to level it up later:
 
 ```cadence
-import Game from 0x01
+import Game from "./Game.cdc"
 
 transaction() {
   

@@ -27,7 +27,7 @@ You can think of account storage as a container inside your account that stores 
 In order to store data somewhere, you must save it to a certain storage path. Let's see an example using our `Game` contract from the last lesson:
 
 ```cadence
-import Game from 0x01
+import Game from "./Game.cdc"
 
 transaction(name: String, type: String) {
   prepare(signer: &Account) {
@@ -50,7 +50,7 @@ This transaction looks perfect, and in fact it almost is... but if you try to ru
 Let's see how to properly save and remove data from our account.
 
 ```cadence
-import Game from 0x01
+import Game from "./Game.cdc"
 
 transaction(name: String, type: String) {
   // notice the `SaveValue` entitlement - this allows
@@ -72,7 +72,7 @@ In the example above, I saved `newPokemon` (note the `<-` syntax since it's a re
 Now anytime we want to access the new pokemon, we can go to that path. Let's do that below.
 
 ```cadence
-import Game from 0x01
+import Game from "./Game.cdc"
 
 transaction() {
   // notice the `LoadValue` entitlement - this allows
@@ -100,7 +100,7 @@ One more important thing is that when you `load` data from storage, it returns a
 Previously, we saved and loaded from our account. But what if we just want to look at something in an account and don't want to move it out of storage to read it? That's where references and the `.borrow()` function comes in.
 
 ```cadence
-import Game from 0x01
+import Game from "./Game.cdc"
 
 transaction() {
   // notice the `BorrowValue` entitlement - this allows
@@ -136,7 +136,7 @@ access(all) fun main(address: Address) {
 Using this function, we can easily get data about our Pokemon inside of our account:
 
 ```cadence
-import Game from 0x01
+import Game from "./Game.cdc"
 
 access(all) fun main(address: Address): PokemonResult {
   let authAccount = getAuthAccount<auth(Storage) &Account>(address)

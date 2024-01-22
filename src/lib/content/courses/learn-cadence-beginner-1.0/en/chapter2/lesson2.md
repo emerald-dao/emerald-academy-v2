@@ -105,10 +105,10 @@ Couple of important things to note:
 
 Now that we have a super cool smart contract, we should write a transaction to actually create a new Pokemon!
 
-Make sure to deploy the Game contract to an account and properly import it from that address before running this transaction.
+Make sure to deploy the Game contract to your local emulator before running this transaction.
 
 ```cadence
-import Game from 0x01
+import Game from "./Game.cdc"
 
 transaction(name: String, type: String) {
     prepare(signer: &Account) {

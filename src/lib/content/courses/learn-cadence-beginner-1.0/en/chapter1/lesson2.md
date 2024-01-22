@@ -28,9 +28,9 @@ As you can see, scripts do not cost any money. Transactions on the other hand co
 
 ## Scripts
 
-During the last lesson, we actually implemented our first script on the Flow playground. Let's revisit that example:
+During the last lesson, we actually implemented our first contract, transaction, and script on a local emulator. Let's revisit that example:
 
-Load up the [Flow playground](https://play.flow.com) and deploy this contract:
+Load up your project and redeploy your contract:
 
 ```cadence
 access(all) contract HelloWorld {
@@ -43,23 +43,21 @@ access(all) contract HelloWorld {
 }
 ```
 
-Then go to the Scripts tab on the left hand side and bring back our script from yesterday:
+Re-run your script as well:
 
 ```cadence
-import HelloWorld from 0x01
+import HelloWorld from "./HelloWorld.cdc"
 
 access(all) fun main(): String {
     return HelloWorld.greeting
 }
 ```
 
-**Remember to change `0x01` to the address you deployed the contract to.**
-
-If you click "Execute," you should see "Hello, World!" in the Log tab. Great! What you just did is run a script. Notice there was no payment needed and we **viewed** the data in our smart contract.
+You should see "Hello, World!" in your terminal. Great! What you just did is run a script. Notice there was no payment needed and we **viewed** the data in our smart contract.
 
 ## Transactions
 
-Now, let's do an example of a transaction. On the left hand side, under Transactions, go ahead and delete everything in that tab.
+Now let's do an example of a transaction. Create another file called `change_greeting.cdc`.
 
 Okay cool. Now we want to modify the data on the blockchain. In order to do that, let's set up our transaction. We can do that by pasting this code:
 
@@ -96,7 +94,7 @@ We just added a new function that:
 - sets our `greeting` variable equal to `newGreeting`
 - does not return anything, hence the missing return type
 
-But wait! There's an error in the contract. It says "cannot assign to constant member: `greeting`." Why is it saying that? Remember, we made our greeting be `let`. `let` means it's a constant, so if we want to change our `greeting`, we must change it to `var`. Make sure to hit "Deploy" again. Your code should now look like this:
+But wait! There's an error in the contract. It says "cannot assign to constant member: `greeting`." Why is it saying that? Remember, we made our greeting be `let`. `let` means it's a constant, so if we want to change our `greeting`, we must change it to `var`. Your code should now look like this:
 
 ```cadence
 access(all) contract HelloWorld {
@@ -113,12 +111,14 @@ access(all) contract HelloWorld {
 }
 ```
 
+Make sure to deploy your contract again by stopping your emulator, restarting it, and deploying. OR you can simply run a command to update your contract: `flow project deploy --update`.
+
 ### Sending Our Transaction
 
-Go back to the Transactions tab and add the following code:
+Go back to your `change_greeting.cdc` file and add the following code:
 
 ```cadence
-import HelloWorld from 0x01
+import HelloWorld from "./HelloWorld.cdc"
 
 transaction(myNewGreeting: String) {
 
@@ -130,13 +130,7 @@ transaction(myNewGreeting: String) {
 }
 ```
 
-**Remember to change `0x01` to the address you deployed the contract to.**
-
-Now, on the right side, you'll see a prompt pop up. We can type in our new greeting into the little box! Let's type "Hey there, Jacob!":
-
-Notice also that we can sign this transaction from any account. We aren't accessing data in an account, so it doesn't matter which one you pick. Feel free to choose any account you wish. This is just for testing purposes.
-
-After you click "Send", go back to your script and click "Execute". You should now see "Hey there, Jacob!" printed in the console. Boom, you just successfully implemented your first transaction.
+To run this transaction, run `flow transactions send ./change_greeting.cdc "Hey there, Jacob!"`. If you rerun your script, you should now see "Hey there, Jacob!" printed in the console. Boom, you just successfully implemented your first transaction.
 
 ## Conclusion
 
