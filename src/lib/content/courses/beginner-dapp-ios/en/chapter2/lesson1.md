@@ -79,16 +79,14 @@ Your project in Xcode should have the following structure:
 
 > Note that Xcode hides the file extension of the files unless you are renaming them or viewing them in the Finder.
 
-```
-EmeraldDApp
-  ├── EmeraldDApp
-  │     ├── EmeraldDAppApp.swift
-  │     ├── ContentView.swift
-  │     ├── Assets.xcassets
-  │     └── EmeraldDApp.entitlements
-  └── Preview Content
-        └── Preview Assets.xcassets
-```
+- EmeraldDApp
+   - EmeraldDApp
+      - EmeraldDAppApp.swift
+      - ContentView.swift
+      - Assets.xcassets
+      - EmeraldDApp.entitlements
+   - Preview Content
+      - Preview Assets.xcassets
 
 1. EmeraldDAppApp.swift is the main entry point for the project and defines the initial view to be displayed as well as hosting the app's life cycle. If you click on the file to open it you can see it contains a `WindowGroup` that loads the `ContentView`. Don't worry too much about how this works for now, the key thing to note is that when the application launches it will display our `ContentView`.
 2. ContentView.swift contains the initial view to be displayed in the application.
