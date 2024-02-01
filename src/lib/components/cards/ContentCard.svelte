@@ -9,12 +9,15 @@
 	import ExpertiseLabel from '../atoms/labels/ExpertiseLabel.svelte';
 	import DurationLabel from '../atoms/labels/DurationLabel.svelte';
 	import CertificateLabel from '../atoms/labels/CertificateLabel.svelte';
+	import Cadence1Label from '../atoms/labels/Cadence1Label.svelte';
 
 	export let overview: Overview;
 
 	let link: string;
 	let onPlatform =
-		overview.contentType != ContentTypeEnum.Blog && overview.contentType != ContentTypeEnum.Tweet && overview.contentType != ContentTypeEnum.YouTube;
+		overview.contentType != ContentTypeEnum.Blog &&
+		overview.contentType != ContentTypeEnum.Tweet &&
+		overview.contentType != ContentTypeEnum.YouTube;
 
 	$: if (overview.contentType === ContentTypeEnum.Snippet) {
 		link = `/${$locale}/${overview.slug}`;
@@ -48,6 +51,9 @@
 				{/if}
 				{#if overview.certificateIncluded}
 					<CertificateLabel />
+				{/if}
+				{#if overview.cadence1}
+					<Cadence1Label />
 				{/if}
 			</div>
 			{#if overview.contentType !== ContentTypeEnum.Bootcamp && overview.contentType !== ContentTypeEnum.Roadmap}

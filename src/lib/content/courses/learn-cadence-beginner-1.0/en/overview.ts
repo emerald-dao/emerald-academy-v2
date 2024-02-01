@@ -4,9 +4,10 @@ import { ExpertiseEnum } from '$lib/types/content/metadata/expertise.enum';
 import { SubjectsEnum } from '$lib/types/content/metadata/subject.enum';
 
 export const overview: CourseOverview = {
-	title: '(Cadence 1.0) Learn Cadence: Beginner',
+	title: 'Learn Cadence 1.0: Beginner',
 	contentType: ContentTypeEnum.Course,
 	certificateIncluded: true,
+	cadence1: true,
 	excerpt: 'Learn Cadence - the most composable, easiest to write, and safest smart contract language. In this course, you will create your own Pokemon contract that allows you to mint, battle, and store Pokemon inside the smart contract and your account.',
 	author: {
 		name: 'Jacob Tucker',
