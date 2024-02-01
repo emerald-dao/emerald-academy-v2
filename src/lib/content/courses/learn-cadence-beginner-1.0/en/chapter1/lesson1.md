@@ -46,9 +46,11 @@ Next, you will need a code editor so you can start writing code. I highly recomm
 
 ### Setting Up our Project
 
-In your terminal, navigate to your project directory and type `flow init`. You should see this creates `flow.json` file in your project.
+Open your project in VSCode by launching the app, going to File > Open > the folder that you want to work in.
 
-Lastly, create a new file called `HelloWorld.cdc` in your project
+In your terminal, navigate to that folder and type `flow init`. You should see this creates a `flow.json` file in your project.
+
+Lastly, create a new file called `HelloWorld.cdc` in your project folder.
 
 Soon, we will be "deploying" a contract we make in this file to an address. But what is an address?
 
@@ -140,7 +142,7 @@ To deploy this contract, change your `flow.json` to the following code:
 
 Then, go to your terminal and:
 1. in one terminal, run `flow emulator start -v`. This runs a local version of the Flow blockchain on our computer, otherwise known as an "emulator".
-2. in a separate terminal, run `flow project deploy`. This will deploy your contract to the emulator, specifically to the "emulator-account" that is automatically created for you and has address `0xf8d6e0586b0a20c7`. 
+2. in a separate terminal (making sure you navigate to your project directory again), run `flow project deploy`. This will deploy your contract to the emulator, specifically to the "emulator-account" that is automatically created for you and has address `0xf8d6e0586b0a20c7`. 
 
 ## Reading our Greeting
 

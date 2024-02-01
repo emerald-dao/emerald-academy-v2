@@ -6,6 +6,7 @@ import type { TutorialOverview } from '$lib/types/content/tutorial.interface';
 export const overview: TutorialOverview = {
     title: 'Capability Controllers (new capability system)',
     contentType: ContentTypeEnum.Tutorial,
+    cadence1: true,
     author: {
         name: 'Jacob Tucker',
         socialMediaUrl: 'https://twitter.com/jacobmtucker',
