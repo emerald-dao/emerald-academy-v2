@@ -8,7 +8,7 @@ This tutorial will walk through the new mechanism: **Capability Controllers** ("
 
 # Example Overview
 
-In order to showcase the new Capability Controllers system, let's create at an example contract so we can compare how you would create, manage, and get the old vs. new capabilities side by side. We will have to define 2 different contracts - one in old Cadence, and one using Cadence 1.0 to properly show examples.
+In order to showcase the new Capability Controllers system, let's create an example contract so we can compare how you would create, manage, and get the old vs. new capabilities side by side. We will have to define 2 different contracts - one in old Cadence, and one using Cadence 1.0 to properly show examples.
 
 Old Cadence Contract:
 ```cadence
@@ -343,6 +343,6 @@ In the new way, you must know the `capabilityID`. Unfortunately this means that 
 
 There are other new features included in the new CapCon system, but I wanted this to outline the exact differences between the old Capabilities and new CapCon api. I hope this helped!
 
-Also, if you'd like to view the official proposal for Cap Cons, go <a href="https://github.com/onflow/flips/blob/f7d2b5c99dbed3821c2662f28b06f6646b5eb3ee/cadence/20220203-capability-controllers.md">here</a>.
+Also, if you'd like to view the official changes for Cap Cons by the Cadence team, go <a href="https://forum.flow.com/t/update-on-cadence-1-0/5197#capability-controller-api-replaced-existing-linking-based-capability-api-82">here</a>.
 
 Till next time ~ Jacob Tucker
