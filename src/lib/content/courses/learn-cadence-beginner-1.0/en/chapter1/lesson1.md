@@ -2,12 +2,13 @@
 title: Our First Smart Contract
 lesson: 1
 language: en
-lessonVideoUrl: https://youtu.be/embed/u3OA_D09nA8
+lessonVideoUrl: https://youtube.com/embed/u3OA_D09nA8
 lessonVideoDescription: How to write smart contracts for people who have never coded before.
 ---
 
 <script>
-  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte'; 
+  import Notice from '$lib/components/atoms/Notice.svelte';  
 </script>
 
 # Chapter 1 Lesson 1 - Our First Smart Contract
@@ -16,7 +17,11 @@ Hello and welcome to the first lesson of the Learn Cadence (Beginner) course. Ja
 
 ## Video
 
-If you enjoy learning in video format, this video covers everything in this lesson. **It is also very helpful if you have never coded before. It will walk you through setting up everything you need to start your coding career.**
+If you enjoy learning in video format, this video covers everything in this lesson. 
+
+<Notice type="note">
+	It is also very helpful if you have never coded before. It will walk you through setting up everything you need to start your coding career.
+</Notice>
 
 <LessonVideo {lessonVideoUrl} {lessonVideoDescription} />
 
