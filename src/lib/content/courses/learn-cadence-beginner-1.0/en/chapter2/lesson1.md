@@ -155,7 +155,7 @@ access(all) fun main() {
 }
 ```
 
-Now, let's try to read our stored art piece. We can do this by providing an `id` since we mapped `id` -> `ArtPiece` in our `artPieces` dictionary in the contract. We can then return the `ArtPiece` type we get from that dictionary, like so:
+Now, let's try to read our stored art piece. Our goal is to go into the dictionary that stores all of the art pieces and return a specific one back. We can do this by providing the `id` of the art piece we want since we mapped `id` -> `ArtPiece` in our `artPieces` dictionary. We can then return the `ArtPiece` type we get from that dictionary, like so:
 
 ```cadence
 import Art from "./Art.cdc"
@@ -167,7 +167,7 @@ access(all) fun main(id: Int): Art.ArtPiece? {
 
 But wait! How do we know which `id` to provide?
 
-Let's create another script to fetch all of the ids stored in the contract:
+Let's create another script to fetch all of the ids of the art pieces stored in the contract:
 
 ```cadence
 import Art from "./Art.cdc"
@@ -177,7 +177,7 @@ access(all) fun main(): [UInt64] {
 }
 ```
 
-When you run this script, you will get back a list of ids that are stored in the `artPieces` dictionary. Pick one id and run the following script that fetches a specific art piece, providing the id to it:
+When you run this script, you will get back a list of ids (depending on how many you made) that are stored in the `artPieces` dictionary. Pick one id and run the following script that fetches a specific art piece, providing the id to it:
 
 ```cadence
 import Art from "./Art.cdc"
