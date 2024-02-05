@@ -20,9 +20,9 @@ access(all) contract Art {
    // this will act as an 'id' for
    // new art pieces
    access(all) var totalArtPieces: Int
-   access(all) let artPieces: {Int: ArtDetails}
+   access(all) let artPieces: {Int: ArtPiece}
 
-   access(all) struct ArtDetails {
+   access(all) struct ArtPiece {
       access(all) let id: Int
       access(all) let name: String
       access(all) let artLink: String
@@ -40,9 +40,9 @@ access(all) contract Art {
 
    access(all) fun uploadArt(name: String, artLink: String, hoursWorkedOn: Int) {
       let id: Int = Art.totalArtPieces
-      let newArtPiece = ArtDetails(id: id, name: name, artLink: artLink, hoursWorkedOn: hoursWorkedOn)
+      let newArtPiece = ArtPiece(id: id, name: name, artLink: artLink, hoursWorkedOn: hoursWorkedOn)
       // store the new art piece, mapped to its `id`
-      self.artPieces[id] = newArt
+      self.artPieces[id] = newArtPiece
       // increment the amount of art pieces by one
       Art.totalArtPieces = Art.totalArtPieces + 1
    }

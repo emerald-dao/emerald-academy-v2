@@ -21,7 +21,7 @@ Hello peoples. Today is your lesson to learn Structs! The good news is structs a
 What are structs? Structs are containers of other types. Let's look at an example:
 
 ```cadence
-pub struct ArtDetails {
+pub struct ArtPiece {
     pub let id: Int
     pub let name: String
     pub let artLink: String
@@ -38,7 +38,7 @@ pub struct ArtDetails {
 }
 ```
 
-Okay, there's a lot going on there. What happened? Basically, we defined a new Type named `ArtDetails`. It is a Struct. As you can see, it contains 4 pieces of data:
+Okay, there's a lot going on there. What happened? Basically, we defined a new Type named `ArtPiece`. It is a Struct. As you can see, it contains 4 pieces of data:
 
 1. an 'id' (`id`)
 2. a name (`name`)
@@ -59,9 +59,9 @@ pub contract Art {
     // this will act as an 'id' for
     // new art pieces
     pub var totalArtPieces: Int
-    pub var artPieces: {Int: ArtDetails}
+    pub var artPieces: {Int: ArtPiece}
 
-    pub struct ArtDetails {
+    pub struct ArtPiece {
         pub let id: Int
         pub let name: String
         pub let artLink: String
@@ -77,9 +77,9 @@ pub contract Art {
 
     pub fun uploadArt(name: String, artLink: String, hoursWorkedOn: Int) {
         let id: Int = Art.totalArtPieces
-        let newArtPiece = ArtDetails(id: id, name: name, artLink: artLink, hoursWorkedOn: hoursWorkedOn)
+        let newArtPiece = ArtPiece(id: id, name: name, artLink: artLink, hoursWorkedOn: hoursWorkedOn)
         // store the new art piece, mapped to its `id`
-        self.artPieces[id] = newArt
+        self.artPieces[id] = newArtPiece
         // increment the amount of art pieces by one
         Art.totalArtPieces = Art.totalArtPieces + 1
     }
@@ -94,9 +94,9 @@ pub contract Art {
 I threw a lot at you here. But you actually know all of it now! We can break it down:
 
 1. We defined a new contract named `Art`
-2. We defined a dictionary named `artPieces` that maps an 'id' to an `ArtDetails` struct with that 'id'
-3. We defined a new Struct called `ArtDetails` that contains 4 fields
-4. We defined a new function named `uploadArt` that takes in 4 arguments and creates & stores a new `ArtDetails` with them. It then creates a new mapping from `id` -> the `ArtDetails` associated with that 'id'
+2. We defined a dictionary named `artPieces` that maps an 'id' to an `ArtPiece` struct with that 'id'
+3. We defined a new Struct called `ArtPiece` that contains 4 fields
+4. We defined a new function named `uploadArt` that takes in 4 arguments and creates & stores a new `ArtPiece` with them. It then creates a new mapping from `id` -> the `ArtPiece` associated with that 'id'
 
 If you can understand these things, you've made significant progress. If you're struggling with this a bit, no worries! I would maybe review some of the concepts from the past few lessons.
 
