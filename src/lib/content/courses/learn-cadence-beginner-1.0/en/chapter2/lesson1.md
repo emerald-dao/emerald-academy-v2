@@ -43,7 +43,9 @@ Notice that Structs have the `init()` function that gets called when the Struct 
 
 ## Real Example
 
-Let's start off by actually deploying a new smart contract. Create a new file called `Art.cdc` and paste the following code:
+Let's start off by actually deploying a new smart contract. 
+
+Create a new file called `Art.cdc` and add it to your `flow.json` file by making a new entry under the "contracts" object just like you did for `HelloWorld` earlier in the course. Then, paste the following code in your new `Art.cdc` file:
 
 ```cadence
 access(all) contract Art {
@@ -71,7 +73,7 @@ access(all) contract Art {
         let id: Int = Art.totalArtPieces
         let newArtPiece = ArtDetails(id: id, name: name, artLink: artLink, hoursWorkedOn: hoursWorkedOn)
         // store the new art piece, mapped to its `id`
-        self.artPieces[id] = newArt
+        self.artPieces[id] = newArtPiece
         // increment the amount of art pieces by one
         Art.totalArtPieces = Art.totalArtPieces + 1
     }
