@@ -20,7 +20,7 @@ access(all) struct ArtPiece {
     access(all) let hoursWorkedOn: Int
 
     // `init()` gets called when this Struct is created...
-    // You have to pass in 4 arguments when creating this Struct.
+    // You have to provide 4 arguments when creating this Struct.
     init(id: Int, name: String, artLink: String, hoursWorkedOn: Int) {
         self.name = name
         self.artLink = artLink
@@ -121,7 +121,7 @@ Cool! Now, we want to add a new art piece to the `artPieces` dictionary in the `
 Art.uploadArt(name: name, artLink: artLink, hoursWorkedOn: hoursWorkedOn)
 ```
 
-But wait, we need to get these arguments from somewhere first! We can do that by passing them into the transaction as arguments, like so:
+But wait, we need to get these arguments from somewhere first! We can do that by providing them to the transaction as arguments, like so:
 
 ```cadence
 import Art from "./Art.cdc"
@@ -155,7 +155,29 @@ access(all) fun main() {
 }
 ```
 
-Now, let's try to read our stored art piece. We can do this by passing in an `id` since we mapped `id` -> `ArtPiece` in our `artPieces` dictionary in the contract. We can then return the `ArtPiece` type we get from that dictionary, like so:
+Now, let's try to read our stored art piece. We can do this by providing an `id` since we mapped `id` -> `ArtPiece` in our `artPieces` dictionary in the contract. We can then return the `ArtPiece` type we get from that dictionary, like so:
+
+```cadence
+import Art from "./Art.cdc"
+
+access(all) fun main(id: Int): Art.ArtPiece? {
+    return Art.artPieces[id]
+}
+```
+
+But wait! How do we know which `id` to provide?
+
+Let's create another script to fetch all of the ids stored in the contract:
+
+```cadence
+import Art from "./Art.cdc"
+
+access(all) fun main(): [UInt64] {
+    return Art.artPieces.keys
+}
+```
+
+When you run this script, you will get back a list of ids that are stored in the `artPieces` dictionary. Pick one id and run the following script that fetches a specific art piece, providing the id to it:
 
 ```cadence
 import Art from "./Art.cdc"
