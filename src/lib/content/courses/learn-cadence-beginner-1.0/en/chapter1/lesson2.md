@@ -4,6 +4,10 @@ lesson: 2
 language: en
 ---
 
+<script>
+  import Notice from '$lib/components/atoms/Notice.svelte';  
+</script>
+
 # Chapter 1 Lesson 2 - Transactions and Scripts
 
 Hey there you crazy Cadence people! We are back for another lesson of content, and in this lesson, we will be going more in-depth on transactions and scripts.
@@ -126,9 +130,14 @@ transaction(myNewGreeting: String) {
 
   execute {
     HelloWorld.changeGreeting(newGreeting: myNewGreeting)
+    log("We're done!")
   }
 }
 ```
+
+<Notice type="note">
+    We use the `log` function to print things to our emulator. This is really helpful for testing our code. This will do nothing on real, public networks like testnet and mainnet.
+</Notice>
 
 To run this transaction, run:
 
@@ -136,7 +145,9 @@ To run this transaction, run:
 flow transactions send ./change_greeting.cdc "Hey there, Jacob!"
 ```
 
-If you rerun your script, you should now see "Hey there, Jacob!" printed in the console. Boom, you just successfully implemented your first transaction.
+To make sure this transaction actually ran, go to the terminal that is running your emulator (where all log output will be) and make sure you see "We're done!" printed in the console.
+
+Lastly, if you rerun your script, you should now see "Hey there, Jacob!" printed in the console. Boom, you just successfully implemented your first transaction.
 
 ## Conclusion
 
