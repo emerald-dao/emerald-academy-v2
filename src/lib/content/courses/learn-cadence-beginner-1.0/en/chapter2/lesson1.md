@@ -172,7 +172,7 @@ Let's create another script to fetch all of the ids of the art pieces stored in 
 ```cadence
 import Art from "./Art.cdc"
 
-access(all) fun main(): [UInt64] {
+access(all) fun main(): [Int] {
     return Art.artPieces.keys
 }
 ```

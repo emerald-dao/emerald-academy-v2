@@ -139,7 +139,11 @@ transaction(myNewGreeting: String) {
     We use the `log` function to print things to our emulator. This is really helpful for testing our code. This will do nothing on real, public networks like testnet and mainnet.
 </Notice>
 
-To run this transaction, run:
+You can see that this transaction is expecting an input from you. Specifically, you must provide the transaction with a new greeting, which will get provided to the `myNewGreeting` variable.
+
+To provide an argument to a transaction, you simply add it to the end of the command.
+
+So in your terminal, run this transaction like so:
 
 ```bash
 flow transactions send ./change_greeting.cdc "Hey there, Jacob!"
@@ -148,6 +152,8 @@ flow transactions send ./change_greeting.cdc "Hey there, Jacob!"
 To make sure this transaction actually ran, go to the terminal that is running your emulator (where all log output will be) and make sure you see "We're done!" printed in the console.
 
 Lastly, if you rerun your script, you should now see "Hey there, Jacob!" printed in the console. Boom, you just successfully implemented your first transaction.
+
+Try to change the greeting to something else by running the same command, but changing the text at the end.
 
 ## Conclusion
 
