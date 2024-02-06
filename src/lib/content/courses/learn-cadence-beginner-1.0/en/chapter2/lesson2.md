@@ -54,6 +54,7 @@ access(all) contract Game {
     access(all) struct PokemonDetails {
         access(all) let name: String
         access(all) let dateCreated: UFix64
+        // fire, water, electric...
         access(all) let type: String
 
         init(name: String, dateCreated: UFix64, type: String) {
@@ -123,7 +124,7 @@ transaction(name: String, type: String) {
 }
 ```
 
-If you run this in your terminal, you should see that it logs the pokemons details.
+Come up with your own name for a pokemon and a type (water, fire, electric, or whatever you want!) and run the transaction in your terminal. You should see that it logs the pokemons details.
 
 ## Conclusion
 
