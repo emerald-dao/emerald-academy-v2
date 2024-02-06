@@ -132,12 +132,12 @@ access(all) contract Game {
 
     access(all) struct PokemonDetails {
         // add a new id field
-        access(all) let id: Int
+        access(all) let id: UInt64
         access(all) let name: String
         access(all) let dateCreated: UFix64
         access(all) let type: String
 
-        init(id: Int, name: String, dateCreated: UFix64, type: String) {
+        init(id: UInt64, name: String, dateCreated: UFix64, type: String) {
             self.id = id
             self.name = name
             self.dateCreated = dateCreated
