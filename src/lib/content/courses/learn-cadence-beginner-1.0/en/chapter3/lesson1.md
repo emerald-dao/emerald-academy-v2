@@ -116,7 +116,7 @@ access(all) fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
     let winnerPokemonId = randomNumber == 1 ? pokemonId1 : pokemonId2
     
     // move the Pokemon resource out of `storedPokemon`
-    let pokemon <- self.storedPokemon.remove(at: winnerPokemonId) 
+    let pokemon <- self.storedPokemon.remove(key: winnerPokemonId) 
                     ?? panic("Pokemon does not exist.")
     // level it up
     pokemon.levelUp()
@@ -124,11 +124,11 @@ access(all) fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
     self.storedPokemon[winnerPokemonId] <-! pokemon
 }
 
-// gets a number between min & max
+// gets a number [min, max]
 access(all) fun getRandom(min: UInt64, max: UInt64): UInt64 {
     // revertibleRandom is a built-in random function to Cadence!
-    let randomNumber: UInt64 = revertibleRandom()
-    return (randomNumber % (max + 1 - min)) + min
+    let randomNumber: UInt64 = revertibleRandom(modulo: (max + 1 - min))
+    return randomNumber + min
 }
 ```
 
@@ -150,9 +150,11 @@ access(all) fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
     pokemonRef.levelUp()
 }
 
+// gets a number [min, max]
 access(all) fun getRandom(min: UInt64, max: UInt64): UInt64 {
-    let randomNumber: UInt64 = revertibleRandom()
-    return (randomNumber % (max + 1 - min)) + min
+    // revertibleRandom is a built-in random function to Cadence!
+    let randomNumber: UInt64 = revertibleRandom(modulo: (max + 1 - min))
+    return randomNumber + min
 }
 ```
 
@@ -231,8 +233,8 @@ access(all) contract Game {
     }
 
     access(all) fun getRandom(min: UInt64, max: UInt64): UInt64 {
-        let randomNumber: UInt64 = revertibleRandom()
-        return (randomNumber % (max + 1 - min)) + min
+        let randomNumber: UInt64 = revertibleRandom(modulo: (max + 1 - min))
+        return randomNumber + min
     }
 
     init() {

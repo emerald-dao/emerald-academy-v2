@@ -155,8 +155,8 @@ access(all) contract Game {
     }
 
     access(all) fun getRandom(min: UInt64, max: UInt64): UInt64 {
-        let randomNumber: UInt64 = revertibleRandom()
-        return (randomNumber % (max + 1 - min)) + min
+        let randomNumber: UInt64 = revertibleRandom(modulo: (max + 1 - min))
+        return randomNumber + min
     }
 
     init() {
