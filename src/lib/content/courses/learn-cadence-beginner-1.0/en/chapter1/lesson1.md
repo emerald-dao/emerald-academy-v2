@@ -41,17 +41,7 @@ In order to start making our first smart contract, we need to figure out a place
 
 ### Install Flow CLI 
 
-First install the Flow CLI by copying one of the below commands into the terminal on your computer:
-
-Linux/macOS:
-```bash
-sudo sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)" -- v1.9.2-stable-cadence.1
-```
-
-Windows (in PowerShell):
-```bash
-iex "& { $(irm 'https://raw.githubusercontent.com/onflow/flow-cli/master/install.ps1') } v1.9.2-stable-cadence.1"
-```
+First install the Cadence 1.0 Flow CLI by going to <a href="https://forum.flow.com/t/update-on-cadence-1-0/5197/8">this link</a> and scrolling to the most recent post. Then, copy the command based on what system (Mac/Linux/Windows) you're running and paste it in your terminal.
 
 After you do that, type `flow version` in your terminal and make sure a version appears. 
 
