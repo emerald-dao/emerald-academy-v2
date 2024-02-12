@@ -9,13 +9,14 @@ export const GET = async ({ params }) => {
 	const locale = params.lang as Locales;
 	const subject = transformUrlToSubject(params.subject) as SubjectsEnum;
 
+	console.log(subject)
+
 	try {
 		const allCourses = (await fetchOverviews(ContentTypeEnum.Course, locale)) ?? [];
 		const allBootcamps = (await fetchOverviews(ContentTypeEnum.Bootcamp, locale)) ?? [];
-		const allRoadmaps = (await fetchOverviews(ContentTypeEnum.Roadmap, locale)) ?? [];
 		const allTutorials = (await fetchOverviews(ContentTypeEnum.Tutorial, locale)) ?? [];
 
-		const allContent = allCourses.concat(allBootcamps, allRoadmaps, allTutorials).filter((overview) => {
+		const allContent = allCourses.concat(allBootcamps, allTutorials).filter((overview) => {
 			if (overview) {
 				return overview.metadata.subjects.includes(subject);
 			}

@@ -56,7 +56,7 @@
 					<Cadence1Label />
 				{/if}
 			</div>
-			{#if overview.contentType !== ContentTypeEnum.Bootcamp && overview.contentType !== ContentTypeEnum.Roadmap}
+			{#if overview.contentType !== ContentTypeEnum.Bootcamp}
 				{#if overview.author}
 					<div class="course-author-wrapper">
 						<Author

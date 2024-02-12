@@ -33,7 +33,7 @@
 
 <Seo
 	title={`Catalog | Emerald Academy`}
-	description="Complete catalog of all courses, bootcamps, roadmaps and subjects offered at Emerald Academy"
+	description="Complete catalog of all courses, bootcamps and subjects offered at Emerald Academy"
 	type="WebPage"
 	image="https://academy.ecdao.org/favicon.png"
 />

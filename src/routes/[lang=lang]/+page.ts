@@ -6,7 +6,6 @@ export const load = async ({ params }) => {
 	try {
 		const courses = [];
 		const bootcamps = [];
-		const roadmaps = [];
 		const tutorials = [];
 		const tweets = [];
 
@@ -70,7 +69,6 @@ export const load = async ({ params }) => {
 		return {
 			courses,
 			bootcamps,
-			roadmaps,
 			tutorials,
 			tweets
 		};

@@ -1,11 +1,6 @@
 <script type="ts">
 	import { StatsSection, PoweredByECDAO } from '@emerald-dao/component-library';
-	import {
-		HeroSection,
-		ExploreSection,
-		LearningPathsSection,
-		SocialMediaSection
-	} from './__components';
+	import { HeroSection, ExploreSection, SocialMediaSection } from './__components';
 
 	export let data;
 </script>
@@ -14,7 +9,6 @@
 <ExploreSection
 	courses={data.courses}
 	bootcamps={data.bootcamps}
-	roadmaps={data.roadmaps}
 	tutorials={data.tutorials}
 	tweets={data.tweets}
 />
@@ -27,6 +21,5 @@
 		data3: { title: 'graduates', stat: '100+' }
 	}}
 />
-<!-- <LearningPathsSection roadmaps={data.roadmaps} /> -->
 <SocialMediaSection />
 <PoweredByECDAO />

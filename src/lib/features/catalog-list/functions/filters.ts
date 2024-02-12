@@ -21,10 +21,6 @@ export const typeOfContentFilter: Filter = {
 		},
 		{
 			icon: 'icon',
-			slug: ContentTypeEnum.Roadmap
-		},
-		{
-			icon: 'icon',
 			slug: ContentTypeEnum.Blog
 		},
 		{

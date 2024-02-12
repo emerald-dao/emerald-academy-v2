@@ -5,7 +5,6 @@
 	import { firstCapital } from '$lib/utilities/dataTransformation/firstCapital';
 	import Icon from '@iconify/svelte';
 	import type { BootcampOverview } from '$lib/types/content/bootcamp.interface';
-	import type { RoadmapOverview } from '$lib/types/content/roadmap.interface';
 	import type { CourseOverview } from '$lib/types/content/course.interface';
 	import '@splidejs/svelte-splide/css';
 	import { LL } from '$i18n/i18n-svelte';
@@ -14,7 +13,6 @@
 
 	export let courses: CourseOverview[];
 	export let bootcamps: BootcampOverview[];
-	export let roadmaps: RoadmapOverview[];
 	export let tutorials: TutorialOverview[];
 	export let tweets: TweetOverview[];
 
@@ -32,7 +30,7 @@
 	};
 </script>
 
-{#if courses.length > 0 || bootcamps.length > 0 || roadmaps.length > 0}
+{#if courses.length > 0 || bootcamps.length > 0}
 	<section class="container">
 		<div class="title-wrapper">
 			<div class="tagline">{$LL.EXPLORE_TAGLINE()}</div>
@@ -68,10 +66,6 @@
 				{:else if ContentTypeEnum.Bootcamp === contents[activeContent].type}
 					{#each bootcamps as boot}
 						<ContentCard overview={boot} />
-					{/each}
-				{:else if ContentTypeEnum.Roadmap === contents[activeContent].type}
-					{#each roadmaps as road}
-						<ContentCard overview={road} />
 					{/each}
 				{/if}
 			</div>

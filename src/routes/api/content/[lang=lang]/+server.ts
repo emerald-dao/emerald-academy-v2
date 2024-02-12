@@ -12,13 +12,12 @@ export const GET = async ({ params }) => {
 		// temporarily disable Learn Cadence: Intermediate
 		allCourses = allCourses.filter(course => course?.title !== 'Learn Cadence: Intermediate')
 		const allBootcamps = await fetchOverviews(ContentTypeEnum.Bootcamp, params.lang as Locales);
-		const allRoadmaps = await fetchOverviews(ContentTypeEnum.Roadmap, params.lang as Locales);
 		const allTutorials = await fetchOverviews(ContentTypeEnum.Tutorial, params.lang as Locales)
 		const allBlogs = blogs;
 		const allTweets = tweets;
 		const allVideos = videos;
 
-		const allContent = allCourses.concat(allBootcamps, allRoadmaps, allTutorials, allBlogs, allTweets, allVideos);
+		const allContent = allCourses.concat(allBootcamps, allTutorials, allBlogs, allTweets, allVideos);
 
 		return json(allContent);
 	} catch (e) {

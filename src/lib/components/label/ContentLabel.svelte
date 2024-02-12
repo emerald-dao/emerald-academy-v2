@@ -15,8 +15,6 @@
 {:else if type === ContentTypeEnum.Bootcamp}
 	<Label size="small" iconLeft={IconEnum.Bootcamp} {color} {state} hasBorder={false}><slot /></Label
 	>
-{:else if type === ContentTypeEnum.Roadmap}
-	<Label size="small" iconLeft={IconEnum.Roadmap} {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Blog}
 	<Label size="small" iconLeft="tabler:book" {color} {state} hasBorder={false}><slot /></Label>
 {:else if type === ContentTypeEnum.Tweet}
