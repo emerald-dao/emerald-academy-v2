@@ -19,6 +19,6 @@ export const overview: TutorialOverview = {
         expertise: ExpertiseEnum.Beginner,
         duration: '20 minutes',
         prerequisites: [],
-        subjects: [SubjectsEnum.Cadence]
+        subjects: [SubjectsEnum.Cadence1]
     }
 };
