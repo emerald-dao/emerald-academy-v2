@@ -1,14 +1,19 @@
 ---
 layout: examples
+lessonVideoUrl: https://www.youtube.com/embed/aZ1aCBtPpXo
+lessonVideoDescription: Follow along in a video format.
 ---
 
 <script>
   import Notice from '$lib/components/atoms/Notice.svelte';  
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
 </script>
 
-The old way of determining access control based on an object's type is going away.
+The old way of determining access control based on an object's type is going away. This tutorial will walk through the new mechanism: **Entitlements**.
 
-This tutorial will walk through the new mechanism: **Entitlements**.
+If you would like to learn by video, check this out. Otherwise, the written content below is exactly the same.
+
+<LessonVideo {lessonVideoUrl} {lessonVideoDescription} />
 
 # Example Overview
 
