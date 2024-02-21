@@ -66,7 +66,7 @@ In each case, the idea is that we have a `Greeting` resource. We want the public
 
 ## Old vs. New: Creating a Public Capability
 
-First we want to store the greeting resource in a user's storage, and then allow the public to read the greeting variable.
+First we want to save the greeting resource in a user's storage, and then allow the public to read the greeting variable.
 
 Here is the old way of doing that:
 ```cadence
@@ -74,7 +74,7 @@ import HelloWorld from 0x01
 
 transaction(greeting: String) {
     prepare(signer: AuthAccount) {
-        // store the resource
+        // save the resource
         signer.save(<- HelloWorld.createGreeting(greeting: greeting), to: /storage/MyGreeting)
         // create a public capability restricted to `IGreeting` that is linked to a storage path
         signer.link<&HelloWorld.Greeting{HelloWorld.IGreeting}>(/public/MyGreeting, target: /storage/MyGreeting)
@@ -88,12 +88,12 @@ import HelloWorld from 0x01
 
 transaction(greeting: String) {
     prepare(signer: auth(Storage, Capabilities) &Account) {
-        // store the resource
-        signer.save(<- HelloWorld.createGreeting(greeting: greeting), to: /storage/MyGreeting)
+        // save the resource
+        signer.storage.save(<- HelloWorld.createGreeting(greeting: greeting), to: /storage/MyGreeting)
         // create a storage capability, previously known as a "private capability"
         let cap = signer.capabilities.storage.issue<&HelloWorld.Greeting>(/storage/MyGreeting)
         // publish the storage ("private") capability to a public path
-        signer.capabilities.publish(cap, /public/MyGreeting)
+        signer.capabilities.publish(cap, at: /public/MyGreeting)
     }
 }
 ```
@@ -124,7 +124,7 @@ import HelloWorld from 0x01
 
 access(all) fun main(user: Address): String {
     // Note how the get function returns an optional now.
-    let greetingCap: Capability<&HelloWorld.Greeting{HelloWorld.IGreeting}> = 
+    let greetingCap: Capability<&HelloWorld.Greeting> = 
         getAccount(user).capabilities.get<&HelloWorld.Greeting>(/public/MyGreeting)
         ?? panic("This public capability does not exist.")
     let greetingRef: &HelloWorld.Greeting = greetingCap.borrow()!
@@ -138,7 +138,7 @@ OR, you can use a more simplified version using the new `borrow` conveniance fun
 import HelloWorld from 0x01
 
 access(all) fun main(user: Address): String {
-    let greetingRef: &HelloWorld.Greeting{HelloWorld.IGreeting} = 
+    let greetingRef: &HelloWorld.Greeting = 
         getAccount(user).capabilities.borrow<&HelloWorld.Greeting>(/public/MyGreeting)
         ?? panic("This public capability does not exist.")
 
@@ -182,7 +182,7 @@ import HelloWorld from 0x01
 
 transaction(greeting: String) {
     prepare(signer: AuthAccount) {
-        // store the resource
+        // save the resource
         signer.save(<- HelloWorld.createGreeting(greeting: greeting), to: /storage/MyGreeting)
         // create a private capability that is linked to a storage path
         signer.link<&HelloWorld.Greeting>(/private/MyGreeting, target: /storage/MyGreeting)
@@ -201,20 +201,18 @@ import HelloWorld from 0x01
 
 transaction(greeting: String) {
     prepare(signer: auth(Storage, Capabilities) &Account) {
-        // store the resource
-        signer.save(<- HelloWorld.createGreeting(greeting: greeting), to: /storage/MyGreeting)
+        // save the resource
+        signer.storage.save(<- HelloWorld.createGreeting(greeting: greeting), to: /storage/MyGreeting)
         // create a storage capability, previously known as a "private capability"
-        let privateCap = signer.capabilities.storage.issue<auth(HelloWorld.ChangeGreeting) &HelloWorld.Greeting>(/storage/MyGreeting)
+        let storageCap = signer.capabilities.storage.issue<auth(HelloWorld.ChangeGreeting) &HelloWorld.Greeting>(/storage/MyGreeting)
         // ... and you would then move it around as you please
     }
 }
 ```
 
-What's really important to see here is that in the old system, you would just create a private capability one time and then be able to get that one capability whenever you'd like from that certain private path. In the new system, every time you want to get the storage ("private") capability, you either have to make a new one, or loop over all existing "capability controllers" to find the certain storage ("private") capability you want.
+Note that private paths do not exist anymore. You are instead just issuing storage capabilities on a certain storage path. Because of this, you need a way to view all the capabilities you've created for a certain storage path so you can individually manage them. 
 
-The downside here is that it's complicated to fetch existing controllers, so you might end up wasting a lot of storage by having to make new ones. The benefit is that you can now individually control the private capabilities you're giving out. So unlike the old way where unlinking a private capability takes away control from *everyone* who has it, in the new way you can individually unlink certain capabilities.
-
-Also note that private paths do not exist anymore. You are instead just issuing storage capabilities on a certain storage path. Because of this, you need a way to view all the capabilities you've created for a certain storage path so you can individually manage them. Here is how you'd do that:
+Here is how you'd do that:
 ```cadence
 import HelloWorld from 0x01
 
@@ -282,7 +280,7 @@ transaction() {
 }
 ```
 
-Here is the new way of getting a storage capability:
+To get a private capability in the new way, it is a bit trickier. There is no such thing as a private path anymore, and your storage capabilities are not able to be fetched directly after they are created. You would either have to create a new one, or do some complicated looping like this:
 ```cadence
 import HelloWorld from 0x01
 
@@ -300,7 +298,7 @@ transaction() {
 
         assert(capId != nil, message: "There was no found capability with the necessary type.")
 
-        let privateCap: Capability<auth(HelloWorld.ChangeGreeting) &HelloWorld.Greeting> = 
+        let storageCap: Capability<auth(HelloWorld.ChangeGreeting) &HelloWorld.Greeting> = 
             signer.capabilities.storage.getController(byCapabilityID: capId!)!
             .capability as! Capability<auth(HelloWorld.ChangeGreeting) &HelloWorld.Greeting>
         // ... and you would then move it around as you please
@@ -308,7 +306,36 @@ transaction() {
 }
 ```
 
-You can see it is a lot more complicated because there are no built-in helper functions to fetch it. You must loop over all cap controllers of a storage path, ensure it is the correct underlying borrow type, note the `capabilityID`, get that controller and then cast the underlying capability to the correct type.
+Instead, it is much easier to simply save your storage capability at a storage path when it is created, and fetch it back that way. Here is an example:
+```cadence
+import HelloWorld from 0x01
+
+transaction(greeting: String) {
+    prepare(signer: auth(Storage, Capabilities) &Account) {
+        // save the resource
+        signer.storage.save(<- HelloWorld.createGreeting(greeting: greeting), to: /storage/MyGreeting)
+        // create a storage capability, previously known as a "private capability"
+        let storageCap = signer.capabilities.storage.issue<auth(HelloWorld.ChangeGreeting) &HelloWorld.Greeting>(/storage/MyGreeting)
+        signer.storage.save(storageCap, to: /storage/MyGreetingStorageCap)
+    }
+}
+```
+
+Now at a later point, we can easily access that storage capability like so:
+```cadence
+import HelloWorld from 0x01
+
+transaction(greeting: String) {
+    prepare(signer: auth(Storage, Capabilities) &Account) {
+        let storageCap = 
+            signer
+            .storage
+            .load<Capability<auth(HelloWorld.ChangeGreeting) &HelloWorld.Greeting>>(from: /storage/MyGreetingStorageCap)
+            ?? panic("A capability does not exist here.")
+        // do something with it
+    }
+}
+```
 
 ## Old vs. New: Removing a Storage ("Private") Capability
 
