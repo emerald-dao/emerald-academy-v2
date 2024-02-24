@@ -8,9 +8,13 @@ layout: examples
 
 This tutorial will teach you how to use [Magic Link](https://magic.link/) to onboard users to your DApp with just an email. You will first learn how to authenticate users in to your DApp. After authenticating, you will have the user's login info and learn how to send a test transaction as well.
 
+<Notice type="note">
+To check out a working example, go [here](https://codesandbox.io/p/sandbox/cranky-hodgkin-wnqvgt).
+</Notice>
+
 ## Getting Started
 
-We will be using the [Magic Link Flow documentation](https://magic.link/docs/dedicated/blockchains/flow#mg-theme-head) to guide you through this process.
+We will be using the [Magic Link Flow documentation](https://magic.link/docs/blockchains/featured-chains/flow) to guide you through this process.
 
 <Notice type="note">
 If you would like to skip straight to a working example, go <a href="https://codesandbox.io/s/github/MagicLabs/example-flow">here</a>.
@@ -46,8 +50,9 @@ import { FlowExtension } from "@magic-ext/flow";
 
 const FLOW_ACCESS_NODE = "https://rest-testnet.onflow.org";
 const FLOW_NETWORK = "testnet";
+const API_KEY = "YOUR API KEY";
 
-const magic = new Magic("PUBLISHABLE API KEY", {
+const magic = new Magic(API_KEY, {
   extensions: [
     new FlowExtension({
       rpcUrl: FLOW_ACCESS_NODE,
@@ -65,9 +70,7 @@ export default function App() {
 }
 ```
 
-If you already have code, simply just add the new `magic` variable and associated imports.
-
-Make sure to replace "PUBLISHABLE API KEY" with your own. It should look something like `pk_live_A0518BB95A143BFB`.
+Make sure to replace "APY_KEY" with your own. It should look something like `pk_live_A0518BB95A143BFB`.
 
 ### 3. Configure FCL
 
@@ -81,14 +84,18 @@ import * as fcl from "@onflow/fcl";
 
 const FLOW_ACCESS_NODE = "https://rest-testnet.onflow.org";
 const FLOW_NETWORK = "testnet";
+const API_KEY = "YOUR API KEY";
 
 // Configure FCL to Flow testnet
 fcl.config({
   "accessNode.api": FLOW_ACCESS_NODE,
-  "flow.network": FLOW_NETWORK
+  "flow.network": FLOW_NETWORK,
+  "discovery.wallet": `https://fcl.magic.link/authn?${new URLSearchParams({
+    apiKey: API_KEY,
+  })}`
 });
 
-const magic = new Magic("PUBLISHABLE API KEY", {
+const magic = new Magic(API_KEY, {
   extensions: [
     new FlowExtension({
       rpcUrl: FLOW_ACCESS_NODE,
@@ -119,13 +126,17 @@ import { useState, useEffect } from 'react';
 
 const FLOW_ACCESS_NODE = "https://rest-testnet.onflow.org";
 const FLOW_NETWORK = "testnet";
+const API_KEY = "YOUR API KEY";
 
 fcl.config({
   "accessNode.api": FLOW_ACCESS_NODE,
-  "flow.network": FLOW_NETWORK
+  "flow.network": FLOW_NETWORK,
+  "discovery.wallet": `https://fcl.magic.link/authn?${new URLSearchParams({
+    apiKey: API_KEY,
+  })}`
 });
 
-const magic = new Magic("PUBLISHABLE API KEY", {
+const magic = new Magic(API_KEY, {
   extensions: [
     new FlowExtension({
       rpcUrl: FLOW_ACCESS_NODE,
@@ -135,61 +146,43 @@ const magic = new Magic("PUBLISHABLE API KEY", {
 });
 
 export default function App() {
-  const [email, setEmail] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [accountMetadata, setAccountMetadata] = useState({});
+  const [user, setUser] = useState({ loggedIn: false, addr: '' });
  
-  // Will run every time `isLoggedIn` is changed to true
-  // or false. 
-  // It will call the magic instance and check if the user
-  // is logged in. If they are, it will get their Flow address
-  // and other metadata.
+  // Will run every time the page is refreshed
+  // to make sure the user stays logged in.
+  // The user object contains basic wallet
+  // information like `loggedIn` (a boolean)
+  // and `addr` (the user's wallet address).
   useEffect(() => {
-    magic.user.isLoggedIn().then(async (magicIsLoggedIn) => {
-      setIsLoggedIn(magicIsLoggedIn);
-      if (magicIsLoggedIn) {
-        // If the user successfully logged in, save their
-        // account data (containing email and flow address)
-        // here.
-        const accountMetadata = await magic.user.getMetadata();
-        setAccountMetadata(accountMetadata);
-      }
-    });
-  }, [isLoggedIn]);
+    fcl.currentUser().subscribe(setUser);
+  }, []);
 
-  // Calls a login method on the magic instance
+  // Calls a login method and logs
+  // user data (email, phone #, etc)
+  // to the console. You can save it
+  // if you wish.
   const login = async () => {
-    await magic.auth.loginWithMagicLink({ email });
-    setIsLoggedIn(true);
+    await fcl.authenticate();
+    const account = await magic.user.getMetadata();
+    console.log({ account });
   };
 
   return (
     <div>
         <div className="container">
-          <h1>Please sign up or login</h1>
-          <input
-            type="email"
-            name="email"
-            required="required"
-            placeholder="Enter your email"
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
-          <button onClick={login}>Send</button>
+          <h1>Please login</h1>
+          <button onClick={login}>Login</button>
         </div>
     </div>
   );
 }
 ```
 
-If you type in your email and click "Log In", you will see a few prompts like this to log in:
-
-<img src="https://i.imgur.com/lgBcTId.png" width="400">
+Try to click the "Login" button and see if it prompts you to log in.
 
 ### 5. Getting Account Data (address & email) + Logging Out
 
-Now that the user has authenticated in, we want to display a welcome message with their email and flow address. And allow them to log out.
+Now that the user has authenticated in, we want to display a welcome message with their flow address. And allow them to log out.
 
 ```js
 import { Magic } from "magic-sdk";
@@ -199,13 +192,17 @@ import { useState, useEffect } from 'react';
 
 const FLOW_ACCESS_NODE = "https://rest-testnet.onflow.org";
 const FLOW_NETWORK = "testnet";
+const API_KEY = "YOUR API KEY";
 
 fcl.config({
   "accessNode.api": FLOW_ACCESS_NODE,
-  "flow.network": FLOW_NETWORK
+  "flow.network": FLOW_NETWORK,
+  "discovery.wallet": `https://fcl.magic.link/authn?${new URLSearchParams({
+    apiKey: API_KEY,
+  })}`
 });
 
-const magic = new Magic("PUBLISHABLE API KEY", {
+const magic = new Magic(API_KEY, {
   extensions: [
     new FlowExtension({
       rpcUrl: FLOW_ACCESS_NODE,
@@ -215,56 +212,36 @@ const magic = new Magic("PUBLISHABLE API KEY", {
 });
 
 export default function App() {
-  const [email, setEmail] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [accountMetadata, setAccountMetadata] = useState({});
-
+  const [user, setUser] = useState({ loggedIn: false, addr: '' });
+ 
   useEffect(() => {
-    magic.user.isLoggedIn().then(async (magicIsLoggedIn) => {
-      setIsLoggedIn(magicIsLoggedIn);
-      if (magicIsLoggedIn) {
-        // If the user successfully logged in, save their
-        // account data (containing email and flow address)
-        // here.
-        const accountMetadata = await magic.user.getMetadata();
-        setAccountMetadata(accountMetadata);
-      }
-    });
-  }, [isLoggedIn]);
+    fcl.currentUser().subscribe(setUser);
+  }, []);
 
   const login = async () => {
-    await magic.auth.loginWithMagicLink({ email });
-    setIsLoggedIn(true);
+    await fcl.authenticate();
+    const account = await magic.user.getMetadata();
+    console.log({ account });
   };
 
   // Add log out function
   const logout = async () => {
-    await magic.user.logout();
-    setIsLoggedIn(false);
+    fcl.unauthenticate();
   };
 
   // Modify this part so that if the user is logged in,
-  // it will display their email and account address using
-  // `accountMetadata` and an option to log out.
+  // it will display their account address and an option to log out.
   return (
     <div>
-      {!isLoggedIn ?
+      {!user.loggedIn ?
         <div className="container">
-          <h1>Please sign up or login</h1>
-          <input
-            type="email"
-            name="email"
-            required="required"
-            placeholder="Enter your email"
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
-          <button onClick={login}>Log In</button>
+          <h1>Please login</h1>
+          <button onClick={login}>Login</button>
         </div> :
         <div>
-          Welcome, {accountMetadata.email}! Your Flow address is {accountMetadata.publicAddress}!
-          <button onClick={logout}>Log Out</button>
+          Welcome! Your Flow address is {user.addr}!
+          <br />
+          <button onClick={logout}>Logout</button>
         </div>
       }
     </div>
@@ -272,57 +249,56 @@ export default function App() {
 }
 ```
 
-## Sending Test Transaction
+### 6. Viewing Your Wallet
+
+We can also add a button so a user can view information about their wallet.
+
+Add the following button below the logout button:
+
+```jsx
+<button onClick={() => magic.wallet.showUI()}>View Wallet</button>
+```
+
+## 7. Sending Test Transaction
 
 Now that we have completed the authentication user flow, lets try to send a transaction with the user's account once they are logged in.
 
 Let's write a `sendTransaction` function that simply logs the signer's address.
 
 ```js
-// Get the authorization function for the user from
-// the magic instance
-const AUTHORIZATION_FUNCTION = magic.flow.authorization;
-
 const sendTransaction = async () => {
-    try {
-      console.log("Sending Transaction...");
+  try {
+    console.log("SENDING TRANSACTION");
 
-      // Send a simple transaction using FCL
-      const transactionId = await fcl.mutate({
-        cadence: `
+    const response = await fcl.mutate({
+      cadence: `
         transaction() {
+          var account: AuthAccount
 
-            let AccountAddress: Address
+          prepare(signer: AuthAccount) {
+            self.account = signer
+          }
 
-            prepare(signer: AuthAccount) {
-                self.AccountAddress = signer.address
-            }
-
-            execute {
-                log(self.AccountAddress)
-            }
+          execute {
+            log(self.account.address)
+          }
         }
-        `,
-        proposer: AUTHORIZATION_FUNCTION, // User proposes tx
-        payer: AUTHORIZATION_FUNCTION, // User pays for tx
-        authorizations: [AUTHORIZATION_FUNCTION], // User signs tx
-        limit: 999
-      });
+      `,
+      args: (arg, t) => [],
+      proposer: fcl.authz,
+      payer: fcl.authz,
+      authorizations: [fcl.authz],
+      limit: 999,
+    });
+    console.log("TRANSACTION SENT");
+    console.log("TRANSACTION RESPONSE", response);
 
-      console.log({ transactionId });
-      console.log("Waiting for transaction to be sealed...");
-      const transactionResult = await fcl.tx(transactionId).onceSealed();
-      console.log("Transaction is sealed!");
-      console.log({ transactionResult });
-
-      if (transactionResult.status === 4 && transactionResult.statusCode === 0) {
-        console.log("Success! You signed the transaction.")
-      } else {
-        console.error(`Error: ${transactionResult.errorMessage}`);
-      }
-    } catch (error) {
-      console.error(`Error: ${error}`);
-    }
+    console.log("WAITING FOR TRANSACTION TO BE SEALED");
+    var data = await fcl.tx(response).onceSealed();
+    console.log("TRANSACTION SEALED", data);
+  } catch (error) {
+    console.error("FAILED TRANSACTION", error);
+  }
 };
 ```
 
@@ -336,13 +312,17 @@ import { useState, useEffect } from 'react';
 
 const FLOW_ACCESS_NODE = "https://rest-testnet.onflow.org";
 const FLOW_NETWORK = "testnet";
+const API_KEY = "YOUR API KEY";
 
 fcl.config({
   "accessNode.api": FLOW_ACCESS_NODE,
-  "flow.network": FLOW_NETWORK
+  "flow.network": FLOW_NETWORK,
+  "discovery.wallet": `https://fcl.magic.link/authn?${new URLSearchParams({
+    apiKey: API_KEY,
+  })}`
 });
 
-const magic = new Magic("PUBLISHABLE API KEY", {
+const magic = new Magic(API_KEY, {
   extensions: [
     new FlowExtension({
       rpcUrl: FLOW_ACCESS_NODE,
@@ -351,94 +331,74 @@ const magic = new Magic("PUBLISHABLE API KEY", {
   ]
 });
 
-const AUTHORIZATION_FUNCTION = magic.flow.authorization;
-
 export default function App() {
-  const [email, setEmail] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [accountMetadata, setAccountMetadata] = useState({});
-
+  const [user, setUser] = useState({ loggedIn: false, addr: '' });
+ 
   useEffect(() => {
-    magic.user.isLoggedIn().then(async (magicIsLoggedIn) => {
-      setIsLoggedIn(magicIsLoggedIn);
-      if (magicIsLoggedIn) {
-        const accountMetadata = await magic.user.getMetadata();
-        setAccountMetadata(accountMetadata);
-      }
-    });
-  }, [isLoggedIn]);
+    fcl.currentUser().subscribe(setUser);
+  }, []);
 
   const login = async () => {
-    await magic.auth.loginWithMagicLink({ email });
-    setIsLoggedIn(true);
+    await fcl.authenticate();
+    const account = await magic.user.getMetadata();
+    console.log({ account });
   };
 
   const logout = async () => {
-    await magic.user.logout();
-    setIsLoggedIn(false);
+    fcl.unauthenticate();
   };
 
+  // add this function in
   const sendTransaction = async () => {
     try {
-      console.log("Sending Transaction...");
+      console.log("SENDING TRANSACTION");
 
-      const transactionId = await fcl.mutate({
+      const response = await fcl.mutate({
         cadence: `
-        transaction() {
-
-            let AccountAddress: Address
+          transaction() {
+            var account: AuthAccount
 
             prepare(signer: AuthAccount) {
-                self.AccountAddress = signer.address
+              self.account = signer
             }
 
             execute {
-                log(self.AccountAddress)
+              log(self.account.address)
             }
-        }
+          }
         `,
-        proposer: AUTHORIZATION_FUNCTION,
-        payer: AUTHORIZATION_FUNCTION,
-        authorizations: [AUTHORIZATION_FUNCTION],
-        limit: 999
+        args: (arg, t) => [],
+        proposer: fcl.authz,
+        payer: fcl.authz,
+        authorizations: [fcl.authz],
+        limit: 999,
       });
+      console.log("TRANSACTION SENT");
+      console.log("TRANSACTION RESPONSE", response);
 
-      console.log({ transactionId });
-      console.log("Waiting for transaction to be sealed...");
-      const transactionResult = await fcl.tx(transactionId).onceSealed();
-      console.log("Transaction is sealed!");
-      console.log({ transactionResult });
-
-      if (transactionResult.status === 4 && transactionResult.statusCode === 0) {
-        console.log("Success! You signed the transaction.")
-      } else {
-        console.error(`Error: ${transactionResult.errorMessage}`);
-      }
+      console.log("WAITING FOR TRANSACTION TO BE SEALED");
+      var data = await fcl.tx(response).onceSealed();
+      console.log("TRANSACTION SEALED", data);
     } catch (error) {
-      console.error(`Error: ${error}`);
+      console.error("FAILED TRANSACTION", error);
     }
   };
 
+  // Modify this part so that it displays a button
+  // to run a test transaction.
   return (
     <div>
-      {!isLoggedIn ?
+      {!user.loggedIn ?
         <div className="container">
-          <h1>Please sign up or login</h1>
-          <input
-            type="email"
-            name="email"
-            required="required"
-            placeholder="Enter your email"
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
-          <button onClick={login}>Log In</button>
+          <h1>Please login</h1>
+          <button onClick={login}>Login</button>
         </div> :
         <div>
-          Welcome, {accountMetadata.email}! Your Flow address is {accountMetadata.publicAddress}.
+          Welcome! Your Flow address is {user.addr}!
+          <br />
+          <button onClick={logout}>Logout</button>
+          <button onClick={() => magic.wallet.showUI()}>View Wallet</button>
           <button onClick={sendTransaction}>Send Transaction</button>
-          <button onClick={logout}>Log Out</button>
         </div>
       }
     </div>
@@ -450,6 +410,6 @@ We're all done! Open up the developer console to see if it works.
 
 ## Next Steps
 
-To check out a working example, go [here](https://codesandbox.io/s/github/MagicLabs/example-flow).
+To check out a working example, go [here](https://codesandbox.io/p/sandbox/cranky-hodgkin-wnqvgt).
 
 Till next time ~ Jacob Tucker
