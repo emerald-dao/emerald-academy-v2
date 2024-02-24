@@ -251,7 +251,7 @@ We can also add a button so a user can view information about their wallet.
 
 Add the following button below the logout button:
 
-```jsx
+```js
 <button onClick={() => magic.wallet.showUI()}>View Wallet</button>
 ```
 
