@@ -9,16 +9,12 @@ layout: examples
 This tutorial will teach you how to use [Magic Link](https://magic.link/) to onboard users to your DApp with just an email. You will first learn how to authenticate users in to your DApp. After authenticating, you will have the user's login info and learn how to send a test transaction as well.
 
 <Notice type="note">
-To check out a working example, go [here](https://codesandbox.io/p/sandbox/cranky-hodgkin-wnqvgt).
+To check out a working example, go <a href="https://codesandbox.io/p/sandbox/cranky-hodgkin-wnqvgt">here</a>.
 </Notice>
 
 ## Getting Started
 
 We will be using the [Magic Link Flow documentation](https://magic.link/docs/blockchains/featured-chains/flow) to guide you through this process.
-
-<Notice type="note">
-If you would like to skip straight to a working example, go <a href="https://codesandbox.io/s/github/MagicLabs/example-flow">here</a>.
-</Notice>
 
 ## Authenticate using Magic Link
 
