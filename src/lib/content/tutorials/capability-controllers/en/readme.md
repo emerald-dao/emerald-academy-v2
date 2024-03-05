@@ -356,7 +356,7 @@ import HelloWorld from 0x01
 
 transaction(greeting: String, capabilityID: UInt64) {
     prepare(signer: auth(Capabilities) &Account) {
-        let capController: &AuthAccount.StorageCapabilityController = 
+        let capController: &StorageCapabilityController = 
             signer.capabilities.storage.getController(byCapabilityID: capabilityID)
             ?? panic("This Cap Con does not exist.")
         capController.delete()
