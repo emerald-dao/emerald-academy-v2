@@ -147,10 +147,10 @@ access(all) fun main(address: Address): PokemonResult {
 }
 
 access(all) struct PokemonResult {
-  access(all) let details: Game.PokemonDetails
+  access(all) let details: &Game.PokemonDetails
   access(all) let xp: Int
 
-  init(_ details: Game.PokemonDetails, _ xp: Int) {
+  init(_ details: &Game.PokemonDetails, _ xp: Int) {
     self.details = details
     self.xp = xp
   }
