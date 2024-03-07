@@ -1,10 +1,18 @@
 ---
 layout: examples
+lessonVideoUrl: https://www.youtube.com/embed/I8bzDAyI9Yo
+lessonVideoDescription: Follow along in a video format.
 ---
+
+<script> 
+  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+</script>
 
 The old Cadence capability system is being deprecated. Namely, `link` and `getCapability` are not what you should use anymore to create capabilities.
 
 This tutorial will walk through the new mechanism: **Capability Controllers** ("Cap Cons").
+
+<LessonVideo {lessonVideoUrl} {lessonVideoDescription} />
 
 # Example Overview
 
