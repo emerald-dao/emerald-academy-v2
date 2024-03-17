@@ -106,7 +106,7 @@ transaction() {
   // notice the `BorrowValue` entitlement - this allows
   // us to call the `load` function
   prepare(signer: auth(BorrowValue) &Account) {
-    let myPokemonRef <- signer.storage.borrow<&Game.Pokemon>(from: /storage/MyPokemon)
+    let myPokemonRef = signer.storage.borrow<&Game.Pokemon>(from: /storage/MyPokemon)
                           ?? panic("A Pokemon does not live here.")
     log(myPokemonRef.xp)
   }
