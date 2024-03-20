@@ -44,7 +44,7 @@ They can even continue to level it up later:
 import Game from "./Game.cdc"
 
 transaction() {
-  
+
   let Pokemon: &Game.Pokemon
 
   prepare(signer: auth(BorrowValue) &Account) {
@@ -118,7 +118,7 @@ access(all) contract Game {
             let currentTime: UFix64 = getCurrentBlock().timestamp
             self.details = PokemonDetails(
                 id: self.uuid,
-                name: name, 
+                name: name,
                 dateCreated: currentTime,
                 type: type
             )
@@ -148,15 +148,15 @@ access(all) contract Game {
     access(all) fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
         let randomNumber: UInt64 = self.getRandom(min: 1, max: 2)
         let winnerPokemonId = randomNumber == 1 ? pokemonId1 : pokemonId2
-        
-        let pokemonRef: &Pokemon = (&self.storedPokemon[winnerPokemonId] as &Pokemon?) 
+
+        let pokemonRef: &Pokemon = (&self.storedPokemon[winnerPokemonId] as &Pokemon?)
                         ?? panic("Pokemon does not exist.")
         pokemonRef.levelUp()
     }
 
     access(all) fun getRandom(min: UInt64, max: UInt64): UInt64 {
-        let randomNumber: UInt64 = revertibleRandom(modulo: (max + 1 - min))
-        return randomNumber + min
+        let randomNumber: UInt64 = revertibleRandom<UInt64>()
+        return (randomNumber % (max + 1 - min)) + min
     }
 
     init() {

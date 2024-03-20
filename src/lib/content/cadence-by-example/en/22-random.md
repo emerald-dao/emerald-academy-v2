@@ -12,7 +12,7 @@ While Cadence has a built-in random function, beware that users can always abort
 // gets a number [min, max]
 access(all) fun getRandom(min: UInt64, max: UInt64): UInt64 {
     // revertibleRandom is a built-in random function to Cadence!
-    let randomNumber: UInt64 = revertibleRandom(modulo: (max + 1 - min))
-    return randomNumber + min
+    let randomNumber: UInt64 = revertibleRandom<UInt64>()
+    return (randomNumber % (max + 1 - min)) + min
 }
 ```

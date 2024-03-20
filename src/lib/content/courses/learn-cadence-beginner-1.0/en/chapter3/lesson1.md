@@ -44,7 +44,7 @@ access(all) contract Game {
             let currentTime: UFix64 = getCurrentBlock().timestamp
             self.details = PokemonDetails(
                 id: self.uuid,
-                name: name, 
+                name: name,
                 dateCreated: currentTime,
                 type: type
             )
@@ -95,7 +95,7 @@ access(all) resource Pokemon {
         let currentTime: UFix64 = getCurrentBlock().timestamp
         self.details = PokemonDetails(
             id: self.uuid,
-            name: name, 
+            name: name,
             dateCreated: currentTime,
             type: type
         )
@@ -114,9 +114,9 @@ access(all) fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
     let randomNumber: UInt64 = self.getRandom(min: 1, max: 2)
     // if the random number is 1, use `pokemonId1`. Otherwise use `pokemonId2`
     let winnerPokemonId = randomNumber == 1 ? pokemonId1 : pokemonId2
-    
+
     // move the Pokemon resource out of `storedPokemon`
-    let pokemon <- self.storedPokemon.remove(key: winnerPokemonId) 
+    let pokemon <- self.storedPokemon.remove(key: winnerPokemonId)
                     ?? panic("Pokemon does not exist.")
     // level it up
     pokemon.levelUp()
@@ -127,12 +127,12 @@ access(all) fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
 // gets a number [min, max]
 access(all) fun getRandom(min: UInt64, max: UInt64): UInt64 {
     // revertibleRandom is a built-in random function to Cadence!
-    let randomNumber: UInt64 = revertibleRandom(modulo: (max + 1 - min))
-    return randomNumber + min
+    let randomNumber: UInt64 = revertibleRandom<UInt64>()
+    return (randomNumber % (max + 1 - min)) + min
 }
 ```
 
-You can see that in order to level up the winner of `battle`, we had to move the Pokemon resource out of storage first, level it up, and then move it back in. 
+You can see that in order to level up the winner of `battle`, we had to move the Pokemon resource out of storage first, level it up, and then move it back in.
 
 ### References in Cadence
 
@@ -142,9 +142,9 @@ Instead, let's just use references to keep the Pokemon in `storedPokemon`, but b
 access(all) fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
     let randomNumber: UInt64 = self.getRandom(min: 1, max: 2)
     let winnerPokemonId = randomNumber == 1 ? pokemonId1 : pokemonId2
-    
+
     // get a reference to the Pokemon
-    let pokemonRef: &Pokemon = (&self.storedPokemon[winnerPokemonId] as &Pokemon?) 
+    let pokemonRef: &Pokemon = (&self.storedPokemon[winnerPokemonId] as &Pokemon?)
                     ?? panic("Pokemon does not exist.")
     // level it up
     pokemonRef.levelUp()
@@ -153,8 +153,8 @@ access(all) fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
 // gets a number [min, max]
 access(all) fun getRandom(min: UInt64, max: UInt64): UInt64 {
     // revertibleRandom is a built-in random function to Cadence!
-    let randomNumber: UInt64 = revertibleRandom(modulo: (max + 1 - min))
-    return randomNumber + min
+    let randomNumber: UInt64 = revertibleRandom<UInt64>()
+    return (randomNumber % (max + 1 - min)) + min
 }
 ```
 
@@ -196,7 +196,7 @@ access(all) contract Game {
             let currentTime: UFix64 = getCurrentBlock().timestamp
             self.details = PokemonDetails(
                 id: self.uuid,
-                name: name, 
+                name: name,
                 dateCreated: currentTime,
                 type: type
             )
@@ -226,15 +226,15 @@ access(all) contract Game {
     access(all) fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
         let randomNumber: UInt64 = self.getRandom(min: 1, max: 2)
         let winnerPokemonId = randomNumber == 1 ? pokemonId1 : pokemonId2
-        
-        let pokemonRef: &Pokemon = (&self.storedPokemon[winnerPokemonId] as &Pokemon?) 
+
+        let pokemonRef: &Pokemon = (&self.storedPokemon[winnerPokemonId] as &Pokemon?)
                         ?? panic("Pokemon does not exist.")
         pokemonRef.levelUp()
     }
 
     access(all) fun getRandom(min: UInt64, max: UInt64): UInt64 {
-        let randomNumber: UInt64 = revertibleRandom(modulo: (max + 1 - min))
-        return randomNumber + min
+        let randomNumber: UInt64 = revertibleRandom<UInt64>()
+        return (randomNumber % (max + 1 - min)) + min
     }
 
     init() {
