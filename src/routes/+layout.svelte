@@ -49,6 +49,12 @@
 			url: `https://flownaut.ecdao.org`,
 			prefetch: true,
 			target: '_blank'
+		},
+		{
+			name: 'Arcade',
+			url: `https://arcade.ecdao.org`,
+			prefetch: true,
+			target: '_blank'
 		}
 	];
 
