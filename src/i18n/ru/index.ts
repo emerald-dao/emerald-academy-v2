@@ -59,7 +59,6 @@ const ru: BaseTranslation = {
 	// Subjects
 	[SubjectsEnum.Web]: 'Веб-разработка',
 	[SubjectsEnum.Cadence]: 'Cadence',
-	[SubjectsEnum.Cadence1]: 'Cadence 1.0',
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',
 	[SubjectsEnum.IPFS]: 'IPFS',

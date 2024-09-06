@@ -23,8 +23,8 @@ We're going to be making our own Pokemon and leveling them up for fun to demonst
 What is a resource? It's always helpful to look at code, so let's do that first:
 
 ```cadence
-pub resource Pokemon {
-    pub let name: String
+access(all) resource Pokemon {
+    access(all) let name: String
 
     init() {
         self.name = "Pikachu"
@@ -46,15 +46,16 @@ In Cadence, structs are merely containers of data. You can copy them, overwrite 
 Let's look at some code below to figure out resources:
 
 ```cadence
-pub contract Game {
+access(all) contract Game {
 
     // PokemonDetails
     // Description: Holds all of the static details
     // of the Pokemon. Useful as an easy container.
-    pub struct PokemonDetails {
-        pub let name: String
-        pub let dateCreated: UFix64
-        pub let type: String
+    access(all) struct PokemonDetails {
+        access(all) let name: String
+        access(all) let dateCreated: UFix64
+        // fire, water, electric...
+        access(all) let type: String
 
         init(name: String, dateCreated: UFix64, type: String) {
             self.name = name
@@ -66,9 +67,9 @@ pub contract Game {
     // Pokemon
     // Description: The actual Pokemon asset that will
     // get stored by the user and upgraded over time.
-    pub resource Pokemon {
-        pub let details: PokemonDetails
-        pub var xp: Int
+    access(all) resource Pokemon {
+        access(all) let details: PokemonDetails
+        access(all) var xp: Int
 
         init(name: String, type: String) {
             // gets the timestamp of the current block (in unix seconds)
@@ -86,7 +87,7 @@ pub contract Game {
     // Description: Creates a new Pokemon using a name and type and returns
     // it back to the caller.
     // Returns: A new pokemon resource.
-    pub fun createPokemon(name: String, type: String): @Pokemon {
+    access(all) fun createPokemon(name: String, type: String): @Pokemon {
         let newPokemon <- create Pokemon(name: name, type: type)
         return <- newPokemon
     }
@@ -105,13 +106,13 @@ Couple of important things to note:
 
 Now that we have a super cool smart contract, we should write a transaction to actually create a new Pokemon!
 
-Make sure to deploy the Game contract to an account and properly import it from that address before running this transaction.
+Make sure to deploy the Game contract to your local emulator before running this transaction.
 
 ```cadence
-import Game from 0x01
+import Game from "./Game.cdc"
 
 transaction(name: String, type: String) {
-    prepare(signer: AuthAccount) {
+    prepare(signer: &Account) {
 
     }
 
@@ -123,7 +124,7 @@ transaction(name: String, type: String) {
 }
 ```
 
-If you run this in the Flow playground, you should see that it logs the pokemons details.
+Come up with your own name for a pokemon and a type (water, fire, electric, or whatever you want!) and run the transaction in your terminal. You should see that it logs the pokemons details.
 
 ## Conclusion
 

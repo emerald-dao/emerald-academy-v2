@@ -24,19 +24,6 @@
 
 <section class="container-small column-10">
 	<h1 class="w-medium">Cadence by Example</h1>
-	<p class="alert">
-		<i>
-			Cadence by Example is now using
-			<a
-				href="https://forum.flow.com/t/update-on-cadence-1-0/5197"
-				target="_blank"
-				style="text-decoration: none; color: var(--clr-alert-500);"
-			>
-				Cadence 1.0</a
-			>. This <b>will not work</b> with current Cadence, but given that Cadence 1.0 is being released
-			in 2024, we believe it is more beneficial to learn the new material.
-		</i>
-	</p>
 	{#if data.content.length === 0}
 		<p><em>{$LL.NO_EXAMPLES_FOUND()}</em></p>
 	{:else}

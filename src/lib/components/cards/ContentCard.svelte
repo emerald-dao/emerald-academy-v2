@@ -9,7 +9,6 @@
 	import ExpertiseLabel from '../atoms/labels/ExpertiseLabel.svelte';
 	import DurationLabel from '../atoms/labels/DurationLabel.svelte';
 	import CertificateLabel from '../atoms/labels/CertificateLabel.svelte';
-	import Cadence1Label from '../atoms/labels/Cadence1Label.svelte';
 
 	export let overview: Overview;
 
@@ -51,9 +50,6 @@
 				{/if}
 				{#if overview.certificateIncluded}
 					<CertificateLabel />
-				{/if}
-				{#if overview.cadence1}
-					<Cadence1Label />
 				{/if}
 			</div>
 			{#if overview.contentType !== ContentTypeEnum.Bootcamp}

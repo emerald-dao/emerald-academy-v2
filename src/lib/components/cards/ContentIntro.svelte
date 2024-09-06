@@ -17,7 +17,6 @@
 	import ExpertiseLabel from '../atoms/labels/ExpertiseLabel.svelte';
 	import DurationLabel from '../atoms/labels/DurationLabel.svelte';
 	import CertificateLabel from '../atoms/labels/CertificateLabel.svelte';
-	import Cadence1Label from '../atoms/labels/Cadence1Label.svelte';
 
 	export let overview: Overview;
 	console.log(overview);
@@ -132,9 +131,6 @@
 			{/if}
 			{#if overview.certificateIncluded}
 				<CertificateLabel size="small" />
-			{/if}
-			{#if overview.cadence1}
-				<Cadence1Label size="small" />
 			{/if}
 			<!-- {#if overview.metadata.price}
 				<Label size="x-small" iconLeft="tabler:currency-dollar" color="neutral" hasBorder={false}>

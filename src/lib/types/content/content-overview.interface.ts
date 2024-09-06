@@ -9,7 +9,6 @@ export interface Overview {
 	excerpt: string;
 	metadata: ContentMetadata;
 	author: Author;
-	cadence1?: boolean;
 }
 
 interface ContentMetadata {

@@ -2,18 +2,15 @@
 title: Transactions and Scripts
 lesson: 2
 language: en
-lessonVideoUrl: https://www.youtube.com/embed/T2QTTFnQa5k
 ---
 
 <script>
-  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
+  import Notice from '$lib/components/atoms/Notice.svelte';  
 </script>
 
 # Chapter 1 Lesson 2 - Transactions and Scripts
 
 Hey there you crazy Cadence people! We are back for another lesson of content, and in this lesson, we will be going more in-depth on transactions and scripts.
-
-<LessonVideo {lessonVideoUrl} />
 
 ## Transactions & Scripts
 
@@ -35,14 +32,14 @@ As you can see, scripts do not cost any money. Transactions on the other hand co
 
 ## Scripts
 
-During the last lesson, we actually implemented our first script on the Flow playground. Let's revisit that example:
+During the last lesson, we actually implemented our first contract, transaction, and script on a local emulator. Let's revisit that example:
 
-Load up the [Flow playground](https://play.flow.com) and deploy this contract:
+Load up your project and redeploy your contract:
 
 ```cadence
-pub contract HelloWorld {
+access(all) contract HelloWorld {
 
-    pub let greeting: String
+    access(all) let greeting: String
 
     init() {
         self.greeting = "Hello, World!"
@@ -50,29 +47,27 @@ pub contract HelloWorld {
 }
 ```
 
-Then go to the Scripts tab on the left hand side and bring back our script from yesterday:
+Re-run your script as well:
 
 ```cadence
-import HelloWorld from 0x01
+import HelloWorld from "./HelloWorld.cdc"
 
-pub fun main(): String {
+access(all) fun main(): String {
     return HelloWorld.greeting
 }
 ```
 
-**Remember to change `0x01` to the address you deployed the contract to.**
-
-If you click "Execute," you should see "Hello, World!" in the Log tab. Great! What you just did is run a script. Notice there was no payment needed and we **viewed** the data in our smart contract.
+You should see "Hello, World!" in your terminal. Great! What you just did is run a script. Notice there was no payment needed and we **viewed** the data in our smart contract.
 
 ## Transactions
 
-Now, let's do an example of a transaction. On the left hand side, under Transactions, go ahead and delete everything in that tab.
+Now let's do an example of a transaction. Create another file called `change_greeting.cdc`.
 
 Okay cool. Now we want to modify the data on the blockchain. In order to do that, let's set up our transaction. We can do that by pasting this code:
 
 ```cadence
 transaction() {
-    prepare(signer: AuthAccount) {
+    prepare(signer: &Account) {
 
     }
 
@@ -82,28 +77,18 @@ transaction() {
 }
 ```
 
-Boom! This is an empty transaction that doesn't do anything. In order to explain what `prepare` and `execute`, we need to take a quick break and talk about accounts on Flow.
+Boom! This is an empty transaction that doesn't do anything. 
 
-### Accounts on Flow/Cadence
+There are 2 stages of a transaction in which we write code: `prepare` and `execute`. You will learn more on this later. For now, just know that `prepare` is where we deal with user accounts and `execute` is where we do everything else. So we'll stick with `execute` until we cover accounts.
 
-In Cadence, accounts can store their own data. What does this mean? Well, if I own an NFT (NonFungibleToken), that NFT gets stored in my account. This is *very different* than other languages like Solidity. In Solidity, your NFT gets stored in the smart contract. 
-
-But how do we access the data in an account? We can do that with the `AuthAccount` type. Every time a user (like you and me) sends a transaction, you "sign" it. All that means is you clicked a button saying "hey, I want to approve this transaction." When you sign it, the transaction takes in your `AuthAccount` and can completely control your account. So be careful.
-
-### Transaction Architecture: Prepare vs. Execute Phase
-
-You can see this being done in the `prepare` portion of the transaction, and that's the whole point of the `prepare` phase: to access the information/data in your account. On the other hand, the `execute` phase can't do that. But it can call functions and do stuff to change the data on the blockchain. 
-
-*Note: In reality, you never actually need the execute phase. You could technically do everything in the prepare phase, but the code is less clear that way. It's better to separate the logic.*
-
-### Back to Our Example
+### Changing our Greeting
 
 Alright, so we want to change our `greeting` field to be something other than "Hello, World!" But there's a problem: we never added a way to modify our data in the smart contract! So we have to add a function in the contract to do that.
 
 Go back to your contract and add the following function:
 
 ```cadence
-pub fun changeGreeting(newGreeting: String) {
+access(all) fun changeGreeting(newGreeting: String) {
   self.greeting = newGreeting
 }
 ```
@@ -113,14 +98,14 @@ We just added a new function that:
 - sets our `greeting` variable equal to `newGreeting`
 - does not return anything, hence the missing return type
 
-But wait! There's an error in the contract. It says "cannot assign to constant member: `greeting`." Why is it saying that? Remember, we made our greeting be `let`. `let` means it's a constant, so if we want to change our `greeting`, we must change it to `var`. Make sure to hit "Deploy" again. Your code should now look like this:
+But wait! There's an error in the contract. It says "cannot assign to constant member: `greeting`." Why is it saying that? Remember, we made our greeting be `let`. `let` means it's a constant, so if we want to change our `greeting`, we must change it to `var`. Your code should now look like this:
 
 ```cadence
-pub contract HelloWorld {
+access(all) contract HelloWorld {
 
-    pub var greeting: String
+    access(all) var greeting: String
 
-    pub fun changeGreeting(newGreeting: String) {
+    access(all) fun changeGreeting(newGreeting: String) {
         self.greeting = newGreeting
     }
 
@@ -130,30 +115,45 @@ pub contract HelloWorld {
 }
 ```
 
+Make sure to deploy your contract again by stopping your emulator, restarting it, and deploying. OR you can simply run a command to update your contract: `flow project deploy --update`.
+
 ### Sending Our Transaction
 
-Go back to the Transactions tab and add the following code:
+Go back to your `change_greeting.cdc` file and add the following code:
 
 ```cadence
-import HelloWorld from 0x01
+import HelloWorld from "./HelloWorld.cdc"
 
 transaction(myNewGreeting: String) {
 
-  prepare(signer: AuthAccount) {}
+  prepare(signer: &Account) {}
 
   execute {
     HelloWorld.changeGreeting(newGreeting: myNewGreeting)
+    log("We're done!")
   }
 }
 ```
 
-**Remember to change `0x01` to the address you deployed the contract to.**
+<Notice type="note">
+    We use the `log` function to print things to our emulator. This is really helpful for testing our code. This will do nothing on real, public networks like testnet and mainnet.
+</Notice>
 
-Now, on the right side, you'll see a prompt pop up. We can type in our new greeting into the little box! Let's type "Hey there, Jacob!":
+You can see that this transaction is expecting an input from you. Specifically, you must provide the transaction with a new greeting, which will get provided to the `myNewGreeting` variable.
 
-Notice also that we can sign this transaction from any account. We aren't accessing data in an account, so it doesn't matter which one you pick. Feel free to choose any account you wish. This is just for testing purposes.
+To provide an argument to a transaction, you simply add it to the end of the command.
 
-After you click "Send", go back to your script and click "Execute". You should now see "Hey there, Jacob!" printed in the console. Boom, you just successfully implemented your first transaction.
+So in your terminal, run this transaction like so:
+
+```bash
+flow transactions send ./change_greeting.cdc "Hey there, Jacob!"
+```
+
+To make sure this transaction actually ran, go to the terminal that is running your emulator (where all log output will be) and make sure you see "We're done!" printed in the console.
+
+Lastly, if you rerun your script, you should now see "Hey there, Jacob!" printed in the console. Boom, you just successfully implemented your first transaction.
+
+Try to change the greeting to something else by running the same command, but changing the text at the end.
 
 ## Conclusion
 

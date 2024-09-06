@@ -7,7 +7,8 @@ export const overview: CourseOverview = {
 	title: 'Learn Cadence: Beginner',
 	contentType: ContentTypeEnum.Course,
 	certificateIncluded: true,
-	excerpt: 'Learn Cadence - the most composable, easiest to write, and safest smart contract language. In this course, you will create your own Pokemon contract that allows you to mint, battle, and store Pokemon inside the smart contract and your account.',
+	excerpt:
+		'Learn Cadence - the most composable, easiest to write, and safest smart contract language. In this course, you will create your own Pokemon contract that allows you to mint, battle, and store Pokemon inside the smart contract and your account.',
 	author: {
 		name: 'Jacob Tucker',
 		socialMediaUrl: 'https://twitter.com/jacobmtucker',
@@ -44,8 +45,7 @@ export const overview: CourseOverview = {
 			},
 			{
 				question: '❓ What do I need ahead of time?',
-				answer:
-					'Nothing. A background in coding will make learning Cadence very easy.'
+				answer: 'Nothing. A background in coding will make learning Cadence very easy.'
 			}
 		]
 	}

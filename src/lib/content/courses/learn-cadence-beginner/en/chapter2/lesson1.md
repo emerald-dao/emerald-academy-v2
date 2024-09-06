@@ -2,33 +2,25 @@
 title: Basic Structs
 lesson: 1
 language: en
-lessonVideoUrl: https://www.youtube.com/embed/LAUN7hqlL0w
-lessonVideoDescription: Watch this video from 12:10-The End.
 ---
-
-<script>
-  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
-</script>
 
 # Chapter 2 Lesson 1 - Basic Structs
 
 Hello peoples. Today is your lesson to learn Structs! The good news is structs are pretty simple to learn, so today won't be too long. Woooohoooo! Let's get into it.
-
-<LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
 
 ## Structs
 
 What are structs? Structs are containers of other types. Let's look at an example:
 
 ```cadence
-pub struct ArtPiece {
-    pub let id: Int
-    pub let name: String
-    pub let artLink: String
-    pub let hoursWorkedOn: Int
+access(all) struct ArtPiece {
+    access(all) let id: Int
+    access(all) let name: String
+    access(all) let artLink: String
+    access(all) let hoursWorkedOn: Int
 
     // `init()` gets called when this Struct is created...
-    // You have to pass in 4 arguments when creating this Struct.
+    // You have to provide 4 arguments when creating this Struct.
     init(id: Int, name: String, artLink: String, hoursWorkedOn: Int) {
         self.name = name
         self.artLink = artLink
@@ -51,21 +43,23 @@ Notice that Structs have the `init()` function that gets called when the Struct 
 
 ## Real Example
 
-Let's start off by actually deploying a new smart contract:
+Let's start off by actually deploying a new smart contract. 
+
+Create a new file called `Art.cdc` and add it to your `flow.json` file by making a new entry under the "contracts" object just like you did for `HelloWorld` earlier in the course. Then, paste the following code in your new `Art.cdc` file:
 
 ```cadence
-pub contract Art {
+access(all) contract Art {
 
     // this will act as an 'id' for
     // new art pieces
-    pub var totalArtPieces: Int
-    pub var artPieces: {Int: ArtPiece}
+    access(all) var totalArtPieces: Int
+    access(all) var artPieces: {Int: ArtPiece}
 
-    pub struct ArtPiece {
-        pub let id: Int
-        pub let name: String
-        pub let artLink: String
-        pub let hoursWorkedOn: Int
+    access(all) struct ArtPiece {
+        access(all) let id: Int
+        access(all) let name: String
+        access(all) let artLink: String
+        access(all) let hoursWorkedOn: Int
 
         init(id: Int, name: String, artLink: String, hoursWorkedOn: Int) {
             self.id = id
@@ -75,7 +69,7 @@ pub contract Art {
         }
     }
 
-    pub fun uploadArt(name: String, artLink: String, hoursWorkedOn: Int) {
+    access(all) fun uploadArt(name: String, artLink: String, hoursWorkedOn: Int) {
         let id: Int = Art.totalArtPieces
         let newArtPiece = ArtPiece(id: id, name: name, artLink: artLink, hoursWorkedOn: hoursWorkedOn)
         // store the new art piece, mapped to its `id`
@@ -100,18 +94,20 @@ I threw a lot at you here. But you actually know all of it now! We can break it 
 
 If you can understand these things, you've made significant progress. If you're struggling with this a bit, no worries! I would maybe review some of the concepts from the past few lessons.
 
+Make sure to also add the Art contract to your `flow.json` file and deploy it just like we did for HelloWorld in the previous chapter.
+
 ### Upload Art
 
 Now that we've defined a new Struct, let's see why it can be helpful.
 
-Let's open a new transaction and copy and paste this boilerplate transaction code:
+Let's create a new transaction and copy and paste this boilerplate transaction code:
 
 ```cadence
-import Art from 0x01
+import Art from "./Art.cdc"
 
 transaction() {
 
-    prepare(signer: AuthAccount) {}
+    prepare(signer: &Account) {}
 
     execute {
         log("We're done.")
@@ -125,14 +121,14 @@ Cool! Now, we want to add a new art piece to the `artPieces` dictionary in the `
 Art.uploadArt(name: name, artLink: artLink, hoursWorkedOn: hoursWorkedOn)
 ```
 
-But wait, we need to get these arguments from somewhere first! We can do that by passing them into the transaction as arguments, like so:
+But wait, we need to get these arguments from somewhere first! We can do that by providing them to the transaction as arguments, like so:
 
 ```cadence
-import Art from 0x01
+import Art from "./Art.cdc"
 
 transaction(name: String, artLink: String, hoursWorkedOn: Int) {
 
-    prepare(signer: AuthAccount) {}
+    prepare(signer: &Account) {}
 
     execute {
         Art.uploadArt(name: name, artLink: artLink, hoursWorkedOn: hoursWorkedOn)
@@ -141,28 +137,52 @@ transaction(name: String, artLink: String, hoursWorkedOn: Int) {
 }
 ```
 
-Bam! Let's run this transaction with any account and pass in some example data like so:
+Bam! Let's run this transaction with some test data by pasting the following into our terminal: 
 
-<img src="/courses/beginner-cadence/txstuff.png" alt="drawing" size="400" />
+```bash
+flow transactions send ./upload_art.cdc "Jacob" "https://i.imgur.com/mdDB58Z.png" 10
+```
 
 ### Read our Art Piece
 
-To read our new Art Piece, let's open up a script and copy and paste the boilerplate script code:
+To read our new Art Piece, let's create a script and copy and paste the boilerplate script code:
 
 ```cadence
-import Art from 0x01
+import Art from "./Art.cdc"
 
-pub fun main() {
+access(all) fun main() {
 
 }
 ```
 
-Now, let's try to read our stored art piece. We can do this by passing in an `id` since we mapped `id` -> `ArtPiece` in our `artPieces` dictionary in the contract. We can then return the `ArtPiece` type we get from that dictionary, like so:
+Now, let's try to read our stored art piece. Our goal is to go into the dictionary that stores all of the art pieces and return a specific one back. We can do this by providing the `id` of the art piece we want since we mapped `id` -> `ArtPiece` in our `artPieces` dictionary. We can then return the `ArtPiece` type we get from that dictionary, like so:
 
 ```cadence
-import Art from 0x01
+import Art from "./Art.cdc"
 
-pub fun main(id: Int): Art.ArtPiece? {
+access(all) fun main(id: Int): Art.ArtPiece? {
+    return Art.artPieces[id]
+}
+```
+
+But wait! How do we know which `id` to provide?
+
+Let's create another script to fetch all of the ids of the art pieces stored in the contract:
+
+```cadence
+import Art from "./Art.cdc"
+
+access(all) fun main(): [Int] {
+    return Art.artPieces.keys
+}
+```
+
+When you run this script, you will get back a list of ids (depending on how many you made) that are stored in the `artPieces` dictionary. Pick one id and run the following script that fetches a specific art piece, providing the id to it:
+
+```cadence
+import Art from "./Art.cdc"
+
+access(all) fun main(id: Int): Art.ArtPiece? {
     return Art.artPieces[id]
 }
 ```

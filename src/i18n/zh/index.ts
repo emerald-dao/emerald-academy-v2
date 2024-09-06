@@ -58,7 +58,6 @@ const zh: BaseTranslation = {
 	// Subjects
 	[SubjectsEnum.Web]: 'Web开发',
 	[SubjectsEnum.Cadence]: 'Cadence',
-	[SubjectsEnum.Cadence1]: 'Cadence 1.0',
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',
 	[SubjectsEnum.IPFS]: 'IPFS',

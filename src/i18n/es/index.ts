@@ -57,7 +57,6 @@ const es: Translation = {
 	// Subjects
 	[SubjectsEnum.Web]: 'Web',
 	[SubjectsEnum.Cadence]: 'Cadence',
-	[SubjectsEnum.Cadence1]: 'Cadence 1.0',
 	[SubjectsEnum.DApp]: 'DApp',
 	[SubjectsEnum.Javascript]: 'Javascript',
 	[SubjectsEnum.IPFS]: 'IPFS',

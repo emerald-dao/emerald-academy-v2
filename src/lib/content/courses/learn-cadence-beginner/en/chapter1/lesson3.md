@@ -2,23 +2,15 @@
 title: Types
 lesson: 3
 language: en
-lessonVideoUrl: https://www.youtube.com/embed/LAUN7hqlL0w
-lessonVideoDescription: Watch this video from 00:00-12:10. Do not watch passed 12:10, that will be covered tomorrow.
 ---
-
-<script>
-  import LessonVideo from '$lib/components/atoms/LessonVideo.svelte';   
-</script>
 
 # Chapter 1 Lesson 3 - Types
 
 Whatsup! Today, we will be learning some of the most important types that you will use in nearly every contract you write.
 
-<LessonVideo {lessonVideoUrl} {lessonVideoDescription}/>
-
 ## Types
 
-To start playing around with types, let's open up the [Flow playground](https://play.flow.com) and open up a script. We're not going to write any smart contracts today :)
+To start playing around with types, let's create a new file called `test.cdc`. We're not going to write any smart contracts today :)
 
 In Cadence, the code you write can often infer what type something is. For example, if you write:
 
@@ -238,7 +230,7 @@ Alright so this is where we will combine everything we know to talk about Option
 Let's make a new script that looks like this:
 
 ```cadence
-pub fun main(): Int {
+access(all) fun main(): Int {
     let thing: {String: Int} = {"Hi": 1, "Bonjour": 2, "Hola": 3}
     return thing["Bonjour"] // ERROR: "Mismatched types. expected `Int`, got `Int?`"
 }
@@ -247,7 +239,7 @@ pub fun main(): Int {
 This will give us an ERROR! The error says: "Mismatched types. expected `Int`, got `Int?`". Well, we know what `Int?` means now! It means it is an optional, so it may be `Int` or it may be `nil`. In order to fix this error, we have to use the force-unwrap operator `!` like so:
 
 ```cadence
-pub fun main(): Int {
+access(all) fun main(): Int {
     let thing: {String: Int} = {"Hi": 1, "Bonjour": 2, "Hola": 3}
     return thing["Bonjour"]! // we added the force-unwrap operator
 }
@@ -260,7 +252,7 @@ Now, there are no errors :D
 You may be asking, "is there ever a case where I want to return an optional instead of force-unwrapping the optional? The answer is yes. In fact, most times, it is preferred to return an optional instead of unwrapping. For example, looking at this code:
 
 ```cadence
-pub fun main(): Int {
+access(all) fun main(): Int {
     let thing: {String: Int} = {"Hi": 1, "Bonjour": 2, "Hola": 3}
     return thing["Bonjour"]! // we are force-unwrapping the optional
 }
@@ -269,7 +261,7 @@ pub fun main(): Int {
 ... this will `panic` and abort the program if there is no value at the "Bonjour" key. Instead, we can write the code like this:
 
 ```cadence
-pub fun main(): Int? { // notice the return value is an optional type
+access(all) fun main(): Int? { // notice the return value is an optional type
     let thing: {String: Int} = {"Hi": 1, "Bonjour": 2, "Hola": 3}
     return thing["Bonjour"] // we leave the optional
 }

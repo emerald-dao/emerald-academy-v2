@@ -17,16 +17,16 @@ In simplest terms, a reference is a way for you to interact with a piece of data
 Let's take a look at our contract from Chapter 2:
 
 ```cadence
-pub contract Game {
+access(all) contract Game {
 
-    pub var totalPokemon: Int
-    pub let storedPokemon: @{UInt64: Pokemon}
+    access(all) var totalPokemonCreated: Int
+    access(all) let storedPokemon: @{UInt64: Pokemon}
 
-    pub struct PokemonDetails {
-        pub let id: UInt64
-        pub let name: String
-        pub let dateCreated: UFix64
-        pub let type: String
+    access(all) struct PokemonDetails {
+        access(all) let id: UInt64
+        access(all) let name: String
+        access(all) let dateCreated: UFix64
+        access(all) let type: String
 
         init(id: UInt64, name: String, dateCreated: UFix64, type: String) {
             self.id = id
@@ -36,47 +36,43 @@ pub contract Game {
         }
     }
 
-    pub resource Pokemon {
-        pub let details: PokemonDetails
-        pub var xp: Int
+    access(all) resource Pokemon {
+        access(all) let details: PokemonDetails
+        access(all) var xp: Int
 
         init(name: String, type: String) {
             let currentTime: UFix64 = getCurrentBlock().timestamp
             self.details = PokemonDetails(
                 id: self.uuid,
-                name: name, 
+                name: name,
                 dateCreated: currentTime,
                 type: type
             )
             self.xp = 0
 
-            Game.totalPokemon = Game.totalPokemon + 1
-        }
-
-        destroy() {
-            Game.totalPokemon = Game.totalPokemon - 1
+            Game.totalPokemonCreated = Game.totalPokemonCreated + 1
         }
     }
 
-    pub fun createPokemon(name: String, type: String): @Pokemon {
+    access(all) fun createPokemon(name: String, type: String): @Pokemon {
         let newPokemon <- create Pokemon(name: name, type: type)
         return <- newPokemon
     }
 
-    pub fun storePokemon(pokemon: @Pokemon) {
+    access(all) fun storePokemon(pokemon: @Pokemon) {
         self.storedPokemon[pokemon.details.id] <-! pokemon
     }
 
-    pub fun getIDs(): [UInt64] {
+    access(all) fun getIDs(): [UInt64] {
         return self.storedPokemon.keys
     }
 
-    pub fun getPokemonDetails(id: UInt64): PokemonDetails? {
+    access(all) fun getPokemonDetails(id: UInt64): PokemonDetails? {
         return self.storedPokemon[id]?.details
     }
 
     init() {
-        self.totalPokemon = 0
+        self.totalPokemonCreated = 0
         self.storedPokemon <- {}
     }
 }
@@ -87,11 +83,11 @@ pub contract Game {
 To spice things up, lets add a `levelUp` function to our `Pokemon` resource that adds some `xp`:
 
 ```cadence
-pub resource Pokemon {
-    pub let details: PokemonDetails
-    pub var xp: Int
+access(all) resource Pokemon {
+    access(all) let details: PokemonDetails
+    access(all) var xp: Int
 
-    pub fun levelUp() {
+    access(all) fun levelUp() {
         self.xp = self.xp + 1
     }
 
@@ -99,17 +95,13 @@ pub resource Pokemon {
         let currentTime: UFix64 = getCurrentBlock().timestamp
         self.details = PokemonDetails(
             id: self.uuid,
-            name: name, 
+            name: name,
             dateCreated: currentTime,
             type: type
         )
         self.xp = 0
 
-        Game.totalPokemon = Game.totalPokemon + 1
-    }
-
-    destroy() {
-        Game.totalPokemon = Game.totalPokemon - 1
+        Game.totalPokemonCreated = Game.totalPokemonCreated + 1
     }
 }
 ```
@@ -117,14 +109,14 @@ pub resource Pokemon {
 To make things fun, we should also add a function that makes two Pokemon battle. It will level up whoever the winner is, based on a random number:
 
 ```cadence
-pub fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
+access(all) fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
     // equals either 1 or 2
     let randomNumber: UInt64 = self.getRandom(min: 1, max: 2)
     // if the random number is 1, use `pokemonId1`. Otherwise use `pokemonId2`
     let winnerPokemonId = randomNumber == 1 ? pokemonId1 : pokemonId2
-    
+
     // move the Pokemon resource out of `storedPokemon`
-    let pokemon <- self.storedPokemon.remove(at: winnerPokemonId) 
+    let pokemon <- self.storedPokemon.remove(key: winnerPokemonId)
                     ?? panic("Pokemon does not exist.")
     // level it up
     pokemon.levelUp()
@@ -132,34 +124,36 @@ pub fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
     self.storedPokemon[winnerPokemonId] <-! pokemon
 }
 
-// gets a number between min & max
-pub fun getRandom(min: UInt64, max: UInt64): UInt64 {
+// gets a number [min, max]
+access(all) fun getRandom(min: UInt64, max: UInt64): UInt64 {
     // revertibleRandom is a built-in random function to Cadence!
-    let randomNumber: UInt64 = revertibleRandom()
+    let randomNumber: UInt64 = revertibleRandom<UInt64>()
     return (randomNumber % (max + 1 - min)) + min
 }
 ```
 
-You can see that in order to level up the winner of `battle`, we had to move the Pokemon resource out of storage first, level it up, and then move it back in. 
+You can see that in order to level up the winner of `battle`, we had to move the Pokemon resource out of storage first, level it up, and then move it back in.
 
 ### References in Cadence
 
 Instead, let's just use references to keep the Pokemon in `storedPokemon`, but be able to call `levelUp` anyway!
 
 ```cadence
-pub fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
+access(all) fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
     let randomNumber: UInt64 = self.getRandom(min: 1, max: 2)
     let winnerPokemonId = randomNumber == 1 ? pokemonId1 : pokemonId2
-    
+
     // get a reference to the Pokemon
-    let pokemonRef: &Pokemon = (&self.storedPokemon[winnerPokemonId] as &Pokemon?) 
+    let pokemonRef: &Pokemon = (&self.storedPokemon[winnerPokemonId] as &Pokemon?)
                     ?? panic("Pokemon does not exist.")
     // level it up
     pokemonRef.levelUp()
 }
 
-pub fun getRandom(min: UInt64, max: UInt64): UInt64 {
-    let randomNumber: UInt64 = revertibleRandom()
+// gets a number [min, max]
+access(all) fun getRandom(min: UInt64, max: UInt64): UInt64 {
+    // revertibleRandom is a built-in random function to Cadence!
+    let randomNumber: UInt64 = revertibleRandom<UInt64>()
     return (randomNumber % (max + 1 - min)) + min
 }
 ```
@@ -171,16 +165,16 @@ Notice that if we had forgotten the `as &Pokemon?`, Cadence would yell at us and
 Our final contract should look like this:
 
 ```cadence
-pub contract Game {
+access(all) contract Game {
 
-    pub var totalPokemon: Int
-    pub let storedPokemon: @{UInt64: Pokemon}
+    access(all) var totalPokemonCreated: Int
+    access(all) let storedPokemon: @{UInt64: Pokemon}
 
-    pub struct PokemonDetails {
-        pub let id: UInt64
-        pub let name: String
-        pub let dateCreated: UFix64
-        pub let type: String
+    access(all) struct PokemonDetails {
+        access(all) let id: UInt64
+        access(all) let name: String
+        access(all) let dateCreated: UFix64
+        access(all) let type: String
 
         init(id: UInt64, name: String, dateCreated: UFix64, type: String) {
             self.id = id
@@ -190,11 +184,11 @@ pub contract Game {
         }
     }
 
-    pub resource Pokemon {
-        pub let details: PokemonDetails
-        pub var xp: Int
+    access(all) resource Pokemon {
+        access(all) let details: PokemonDetails
+        access(all) var xp: Int
 
-        pub fun levelUp() {
+        access(all) fun levelUp() {
             self.xp = self.xp + 1
         }
 
@@ -202,53 +196,49 @@ pub contract Game {
             let currentTime: UFix64 = getCurrentBlock().timestamp
             self.details = PokemonDetails(
                 id: self.uuid,
-                name: name, 
+                name: name,
                 dateCreated: currentTime,
                 type: type
             )
             self.xp = 0
 
-            Game.totalPokemon = Game.totalPokemon + 1
-        }
-
-        destroy() {
-            Game.totalPokemon = Game.totalPokemon - 1
+            Game.totalPokemonCreated = Game.totalPokemonCreated + 1
         }
     }
 
-    pub fun createPokemon(name: String, type: String): @Pokemon {
+    access(all) fun createPokemon(name: String, type: String): @Pokemon {
         let newPokemon <- create Pokemon(name: name, type: type)
         return <- newPokemon
     }
 
-    pub fun storePokemon(pokemon: @Pokemon) {
+    access(all) fun storePokemon(pokemon: @Pokemon) {
         self.storedPokemon[pokemon.details.id] <-! pokemon
     }
 
-    pub fun getIDs(): [UInt64] {
+    access(all) fun getIDs(): [UInt64] {
         return self.storedPokemon.keys
     }
 
-    pub fun getPokemonDetails(id: UInt64): PokemonDetails? {
+    access(all) fun getPokemonDetails(id: UInt64): PokemonDetails? {
         return self.storedPokemon[id]?.details
     }
 
-    pub fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
+    access(all) fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
         let randomNumber: UInt64 = self.getRandom(min: 1, max: 2)
         let winnerPokemonId = randomNumber == 1 ? pokemonId1 : pokemonId2
-        
-        let pokemonRef: &Pokemon = (&self.storedPokemon[winnerPokemonId] as &Pokemon?) 
+
+        let pokemonRef: &Pokemon = (&self.storedPokemon[winnerPokemonId] as &Pokemon?)
                         ?? panic("Pokemon does not exist.")
         pokemonRef.levelUp()
     }
 
-    pub fun getRandom(min: UInt64, max: UInt64): UInt64 {
-        let randomNumber: UInt64 = revertibleRandom()
+    access(all) fun getRandom(min: UInt64, max: UInt64): UInt64 {
+        let randomNumber: UInt64 = revertibleRandom<UInt64>()
         return (randomNumber % (max + 1 - min)) + min
     }
 
     init() {
-        self.totalPokemon = 0
+        self.totalPokemonCreated = 0
         self.storedPokemon <- {}
     }
 }
@@ -257,10 +247,10 @@ pub contract Game {
 This is the transaction we would use to actually make two Pokemon battle:
 
 ```cadence
-import Game from 0x01
+import Game from "./Game.cdc"
 
 transaction(pokemonId1: UInt64, pokemonId2: UInt64) {
-    prepare(signer: AuthAccount) {}
+    prepare(signer: &Account) {}
 
     execute {
         Game.battle(pokemonId1: pokemonId1, pokemonId2: pokemonId2)
