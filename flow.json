@@ -47,25 +47,11 @@
 		"emulator-account": {
 			"address": "f8d6e0586b0a20c7",
 			"key": "fc49a771829ff480841164af13b18a68cd697b6e79c80af7f8470a9e651dfac5"
-		},
-		"mainnet-account": {
-			"address": "3d64e203dbb5eafb",
-			"key": {
-				"type": "file",
-				"location": "mainnet-account.pkey"
-			}
 		}
 	},
 	"deployments": {
 		"emulator": {
-			"emulator-account": [
-				"SendTokenMessage"
-			]
-		},
-		"mainnet": {
-			"mainnet-account": [
-				"SendTokenMessage"
-			]
+			"emulator-account": ["SendTokenMessage"]
 		}
 	}
 }

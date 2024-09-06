@@ -11,16 +11,21 @@ transaction() {
 
   let Collection: &Avataaars.Collection
 
-  prepare(signer: AuthAccount) {
+  prepare(signer: auth(Storage, Capabilities) &Account) {
     // if the signer does not have an Avataaars collection set up, then do that here
-    if signer.borrow<&Avataaars.Collection>(from: Avataaars.CollectionStoragePath) == nil {
+    if signer.storage.borrow<&Avataaars.Collection>(from: Avataaars.CollectionStoragePath) == nil {
       // save the Avataaars collection to storage
-      signer.save(<- Avataaars.createEmptyCollection(), to: Avataaars.CollectionStoragePath)
-      // link it to the public so people can read data from it
-      signer.link<&Avataaars.Collection{Avataaars.AvataaarsCollectionPublic, NonFungibleToken.Receiver, NonFungibleToken.CollectionPublic, MetadataViews.ResolverCollection}>(Avataaars.CollectionPublicPath, target: Avataaars.CollectionStoragePath)
+      signer.storage.save(
+        <- Avataaars.createEmptyCollection(nftType: Type<@Avataaars.NFT>()),
+        to: Avataaars.CollectionStoragePath
+      )
+
+      // publish a public capability
+      let cap = signer.capabilities.storage.issue<&Avataaars.Collection>(Avataaars.CollectionStoragePath)
+      signer.capabilities.publish(cap, at: Avataaars.CollectionPublicPath)
     }
 
-    self.Collection = signer.borrow<&Avataaars.Collection>(from: Avataaars.CollectionStoragePath)!
+    self.Collection = signer.storage.borrow<&Avataaars.Collection>(from: Avataaars.CollectionStoragePath)!
   }
 
   execute {

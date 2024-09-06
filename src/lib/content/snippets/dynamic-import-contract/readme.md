@@ -9,10 +9,12 @@ You can only access fields/functions present in the contract interface.
 ```cadence
 import NonFungibleToken from 0x1d7e57aa55817448
 
-pub fun main(contractAddress: Address, contractName: String): UInt64 {
-  let contract = getAccount(contractAddress).contracts.borrow<&NonFungibleToken>(name: contractName)
+access(all) fun main(contractAddress: Address, contractName: String) {
+  let importedContract = getAccount(contractAddress).contracts.borrow<&{NonFungibleToken}>(name: contractName)
                     ?? panic("This contract does not exist in this account.")
 
-  return contract.totalSupply
+  // this part isn't important, but just shows how you can then use it
+  let emptyCollection <- importedContract.createEmptyCollection(nftType: Type<@{NonFungibleToken.NFT}>())
+  destroy emptyCollection
 }
 ```

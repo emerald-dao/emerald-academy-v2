@@ -11,18 +11,18 @@ import Avataaars from 0xcb9a812737bbc679
 transaction(recipient: Address, nftID: UInt64) {
 
     // Reference to the withdrawer's collection
-    let withdrawRef: &Avataaars.Collection
+    let withdrawRef: auth(NonFungibleToken.Withdraw) &Avataaars.Collection
 
     // Reference of the collection to deposit the NFT to
     let depositRef: &Avataaars.Collection{NonFungibleToken.Receiver}
 
-    prepare(signer: AuthAccount) {
+    prepare(signer: auth(Storage) &Account) {
         // borrow a reference to the signer's NFT collection
-        self.withdrawRef = signer.borrow<&Avataaars.Collection>(from: Avataaars.CollectionStoragePath)
-                ?? panic("Account does not store an object at the specified path")
+        self.withdrawRef = signer.storage.borrow<auth(NonFungibleToken.Withdraw) &Avataaars.Collection>
+                                (from: Avataaars.CollectionStoragePath)
+                                ?? panic("Account does not store an object at the specified path")
 
-        self.depositRef = getAccount(recipient).getCapability(Avataaars.CollectionPublicPath)
-                            .borrow<&Avataaars.Collection{NonFungibleToken.CollectionPublic}>()
+        self.depositRef = getAccount(recipient).capabilities.borrow<&Avataaars.Collection>(Avataaars.CollectionPublicPath)
                             ?? panic("Could not borrow a reference to the receiver's collection")
 
     }

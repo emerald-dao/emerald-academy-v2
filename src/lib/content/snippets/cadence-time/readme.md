@@ -3,7 +3,7 @@ layout: examples
 ---
 
 ```cadence
-pub fun main() {
+access(all) fun main() {
   // in seconds
   let currentTime: UFix64 = getCurrentBlock().timestamp
 

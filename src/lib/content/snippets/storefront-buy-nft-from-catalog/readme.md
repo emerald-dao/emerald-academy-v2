@@ -3,77 +3,57 @@ layout: examples
 ---
 
 ```cadence
-import FlowToken from 0xFlowToken
-import FungibleToken from 0xFungibleToken
-import NonFungibleToken from 0xNonFungibleToken
-import NFTCatalog from 0xNFTCatalog
-import NFTStorefrontV2 from 0xNFTStorefrontV2
-import MetadataViews from 0xMetadataViews
-import ExampleNFT from 0xExampleNFT
+import "ExampleToken"
+import "FungibleToken"
+import "NonFungibleToken"
+import "ExampleNFT"
+import "NFTStorefront"
+import "MetadataViews"
 
-transaction(collectionIdentifier: String, listingResourceID: UInt64, storefrontAddress: Address, commissionRecipient: Address?) {
-    let paymentVault: @FungibleToken.Vault
-    let collection: &AnyResource{NonFungibleToken.CollectionPublic}
-    let storefront: &NFTStorefrontV2.Storefront{NFTStorefrontV2.StorefrontPublic}
-    let listing: &NFTStorefrontV2.Listing{NFTStorefrontV2.ListingPublic}
-    var commissionRecipientCap: Capability<&{FungibleToken.Receiver}>?
+transaction(listingResourceID: UInt64, storefrontAddress: Address) {
 
-    prepare(acct: AuthAccount) {
-        self.commissionRecipientCap = nil
+    let paymentVault: @{FungibleToken.Vault}
+    let exampleNFTReceiver: &{NonFungibleToken.Receiver}
+    let storefront: &{NFTStorefront.StorefrontPublic}
+    let listing: &{NFTStorefront.ListingPublic}
 
-        let catalog = NFTCatalog.getCatalogEntry(collectionIdentifier: collectionIdentifier) ?? panic("Collection not found in NFT catalog")
-        self.storefront = getAccount(storefrontAddress)
-            .getCapability<&NFTStorefrontV2.Storefront{NFTStorefrontV2.StorefrontPublic}>(
-                NFTStorefrontV2.StorefrontPublicPath
-            )!
-            .borrow()
-            ?? panic("Could not borrow Storefront from provided address")
+    prepare(acct: auth(BorrowValue) &Account) {
+        self.storefront = getAccount(storefrontAddress).capabilities.borrow<&{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath
+            ) ?? panic("Could not borrow StorefrontPublic from provided address")
+
         self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
-                    ?? panic("No listing with that ID in Storefront")        
-        let nftRef = self.listing.borrowNFT() ?? panic("nft not found")
+                    ?? panic("No Offer with that ID in Storefront")
         let price = self.listing.getDetails().salePrice
 
-        let mainFlowVault = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
-            ?? panic("Could not borrow FlowToken vault")
-        self.paymentVault <- mainFlowVault.withdraw(amount: price)
+        let mainVault = acct.storage.borrow<auth(FungibleToken.Withdraw) &ExampleToken.Vault>(from: /storage/exampleTokenVault)
+            ?? panic("Cannot borrow ExampleToken vault from acct storage")
+        self.paymentVault <- mainVault.withdraw(amount: price)
 
-        let collectionCap = acct.getCapability<&AnyResource{NonFungibleToken.CollectionPublic}>(
-            catalog.collectionData.publicPath
-        )
-        if !collectionCap.check() {
-            if acct.borrow<&AnyResource>(from: catalog.collectionData.storagePath) == nil {
-                // Set up the NFT collection if it doesn't exist
-                let collectionData = nftRef.resolveView(Type<MetadataViews.NFTCollectionData>())! as! MetadataViews.NFTCollectionData
-                acct.save(<- collectionData.createEmptyCollection(), to: catalog.collectionData.storagePath)
-            }
-            acct.unlink(catalog.collectionData.publicPath)
-            acct.link<&ExampleNFT.Collection{
-                ExampleNFT.CollectionPublic,
-                NonFungibleToken.CollectionPublic,
-                NonFungibleToken.Receiver,
-                MetadataViews.ResolverCollection
-            }>(
-                catalog.collectionData.publicPath,
-                target: catalog.collectionData.storagePath
-            )
-        }
-        self.collection = collectionCap.borrow() ?? panic("Could not borrow NFT collection receiver")
-        
-        let commissionAmount = self.listing.getDetails().commissionAmount
-        if commissionRecipient != nil && commissionAmount != 0.0 {
-            self.commissionRecipientCap = getAccount(commissionRecipient!).getCapability<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)
-            assert(self.commissionRecipientCap.check(), message: "Commission Recipient doesn't have flowtoken receiving capability")
-        } else {
-            panic("Commission recipient can not be empty when commission amount is non zero")
-        }
+        let collectionDataOpt = ExampleNFT.resolveContractView(resourceType: Type<@ExampleNFT.NFT>(), viewType: Type<MetadataViews.NFTCollectionData>())
+            ?? panic("Missing collection data")
+        let collectionData = collectionDataOpt as! MetadataViews.NFTCollectionData
+
+
+        self.exampleNFTReceiver = acct.capabilities.borrow<&{NonFungibleToken.Receiver}>(collectionData.publicPath)
+            ?? panic("Cannot borrow NFT collection receiver from account")
     }
 
     execute {
         let item <- self.listing.purchase(
-            payment: <-self.paymentVault,
-            commissionRecipient: self.commissionRecipientCap
+            payment: <-self.paymentVault
         )
-        self.collection.deposit(token: <-item)
+
+        self.exampleNFTReceiver.deposit(token: <-item)
+
+        /*
+        error: Execution failed:
+        computation limited exceeded: 100
+        */
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
     }
+
+    //- Post to check item is in collection?
 }
 ```
